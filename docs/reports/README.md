@@ -18,5 +18,6 @@
 | 011 | [独立環境・wheel導入](011-reproducible-environment.md) | 独立venvで52件成功。checkout外の参照画像・CLI実行を確認 |
 | 012 | [Cas Aモデル較正](012-casa-model-calibration.md) | 55件成功。spanning tree、2感度条件の16snapshot、prior依存を明示 |
 | 013 | [多channel IDI・正確なCLEAN](013-spectral-idi-exact-clean.md) | 57件成功。CASA8channel、偏心点源の発散を修正して66回で収束 |
+| 014 | [時計・幾何sample整列](014-stream-clock-geometry.md) | 58件成功。VDIFのclock/RF補正、buffer8197sample、EOF拒否 |
 
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。

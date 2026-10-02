@@ -1,6 +1,7 @@
 import argparse
 import json
 from .session import correlate_session,calibrate_shard,apply_shard
+from .aligned import correlate_aligned
 
 
 def main():
@@ -14,9 +15,13 @@ def main():
     a.add_argument('--reference-station',type=int,default=0)
     a=s.add_parser('apply');a.add_argument('--input',required=True);a.add_argument('--calibration',required=True)
     a.add_argument('--output',required=True);a.add_argument('--allow-calibration-extrapolation',action='store_true')
+    a=s.add_parser('correlate-aligned');a.add_argument('--manifest',required=True);a.add_argument('--clock-model',required=True)
+    a.add_argument('--output',required=True);a.add_argument('--integrations',type=int,required=True)
+    a.add_argument('--start-offset-s',type=float,default=.002)
     a=p.parse_args()
     if a.command=='correlate': r=correlate_session(a.manifest,a.output,a.rate_calibration,a.allow_calibration_extrapolation)
     elif a.command=='calibrate': r=calibrate_shard(a.input,a.output,a.point_flux_jy,a.reference_station,a.model_config)
+    elif a.command=='correlate-aligned': r=correlate_aligned(a.manifest,a.clock_model,a.output,a.integrations,a.start_offset_s)
     else: r=apply_shard(a.input,a.calibration,a.output,a.allow_calibration_extrapolation)
     print(json.dumps(r,indent=2))
 

@@ -1,0 +1,32 @@
+{
+  "state": "complete",
+  "integrations": 8,
+  "recorded_span_s": 0.016,
+  "start_offset_s": 0.002,
+  "station_max_buffer_samples": [
+    8193,
+    8197,
+    8195,
+    8197
+  ],
+  "samples_per_integration": 4096,
+  "clock_model": "Supplied linear ADC mapping; no automatic weak-source clock recovery",
+  "geometry": "Sample alignment and RF rephasing; linear delay over <=1s, <=600m",
+  "weight_note": "Total-power noise approximation; band-dependent noise not yet fully modeled",
+  "observed_relative_baseline_spread": 0.002410624486928894,
+  "input_clock_ppm": [
+    0,
+    80,
+    -65,
+    0
+  ],
+  "input_offsets_samples": [
+    0,
+    3.25,
+    -2.4,
+    0.3
+  ],
+  "signal": "Strong continuous seven-tone wave; no receiver noise",
+  "rf_hz": 1420000000.0,
+  "sample_rate_hz": 2048000
+}
