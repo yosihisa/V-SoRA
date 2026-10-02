@@ -41,8 +41,8 @@ def test_bad_search_and_time_axis():
     d,_=data()
     with pytest.raises(ValueError,match='Nyquist'):estimate_station_rates(d,max_rate_hz=500)
     with pytest.raises(ValueError,match='disconnected'):estimate_station_rates(d,max_rate_hz=5)
-    long={**d,'times_s':d['times_s']*5}
-    with pytest.raises(ValueError,match='one second'):estimate_station_rates(long)
+    long={**d,'times_s':d['times_s']*15}
+    with pytest.raises(ValueError,match='three seconds'):estimate_station_rates(long)
     d['times_s'][3]+=.0001
     with pytest.raises(ValueError,match='uniform'):estimate_station_rates(d)
 
@@ -52,3 +52,16 @@ def test_noise_only_is_not_detected():
         d,_=data(seed);rng=np.random.default_rng(500+seed)
         d['visibilities']=.1*(rng.normal(size=d['visibilities'].shape)+1j*rng.normal(size=d['visibilities'].shape))
         with pytest.raises(ValueError,match='disconnected'):estimate_station_rates(d)
+
+
+
+
+def test_three_second_uniform_stable_unknown_sky():
+    d,true=data(14);rng=np.random.default_rng(39)
+    times=(np.arange(750)+.5)*.004;pairs=d['pairs']
+    sky=rng.uniform(.5,1.5,(8,6))*np.exp(1j*rng.uniform(-np.pi,np.pi,(8,6)))
+    v=sky[None]*np.exp(2j*np.pi*times[:,None,None]*(true[pairs[:,0]]-true[pairs[:,1]])[None,None,:])
+    v+=.01*(rng.normal(size=v.shape)+1j*rng.normal(size=v.shape))
+    d.update(visibilities=v,weights=np.full(v.shape,1e4),times_s=times)
+    r=estimate_station_rates(d)
+    assert max(abs(np.array(r['station_rates_hz'])-true))<.002

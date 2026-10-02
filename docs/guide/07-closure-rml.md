@@ -49,7 +49,7 @@ python tools/run.py vsora_imaging.rml --input outputs/casa-closure/uncalibrated.
 
 日本語GUIの「VDIF解析」で、WSL上のsession manifestとsample時計モデルを指定できます。既知fluxを要求せず、source.model=unknownの設定を使えます。原本→sample/幾何整列→短pilot rate→IQ再相関→Closure→相対RMLを5工程で実行します。
 
-現在は600m・1秒以内の短区間、一回の画像積分です。複数時刻のCas A合成は次の入口を使います。3秒整列と連続長記録の処理は後続段階。pilotの有効時間内に画像積分が収まること、FIR/補間用の前後guardがあることが必要です。[入力・出力・失敗の規約](../../interfaces/closure-pipeline.md)を参照してください。
+現在は600m・3秒以内の短区間、一回の画像積分です。複数時刻のCas A合成は次の入口を使います。3秒整列は一定rate・gainの模擬条件で対応しています。連続長記録の処理と実機の安定時間測定は後続段階。pilotの有効時間内に画像積分が収まること、FIR/補間用の前後guardがあることが必要です。[入力・出力・失敗の規約](../../interfaces/closure-pipeline.md)を参照してください。
 
 ## 短い露光を集める「合成画像」
 

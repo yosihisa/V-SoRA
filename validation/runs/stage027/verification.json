@@ -1,0 +1,8 @@
+{
+  "source_tests": 130,
+  "installed_tests": 130,
+  "warnings": 3034,
+  "pip_check": "passed",
+  "wheel_bytes": 5428696,
+  "wheel_sha256": "3678956a43815a1fa7eddf04f357736afbcfd3c3a1dd6fb9e6f9c6cb5de23ba8"
+}

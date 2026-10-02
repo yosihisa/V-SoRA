@@ -94,8 +94,8 @@
             <label>観測条件とVDIFの一覧（session manifest JSON）<input name="manifest" type="text" placeholder="work/data/session/manifest.json" required></label>
             <label>sample時計モデル JSON<input name="clock_model" type="text" placeholder="work/data/session/clock.json" required></label>
             <p class="field-help">起動した作業フォルダからの相対パス、またはWSLの絶対パスを指定します。ブラウザへ大容量VDIFを送る必要はありません。</p>
-            <div class="form-row"><label>先頭から処理する時刻 <span class="unit">秒</span><input name="start_offset_s" type="number" value="0.002" min="0" step="any"></label><label>画像に使う積分 <span class="unit">秒</span><select name="integration_s"><option value="0.3">0.3秒</option><option value="0.1">0.1秒</option><option value="1">1秒</option></select></label></div>
-            <div class="form-row"><label>pilotの短積分数<input name="pilot_integrations" type="number" value="256" min="8" max="256"></label><label>基線rate探索上限 <span class="unit">Hz</span><input name="max_rate_hz" type="number" value="100" min="0.01" max="1000" step="any"></label></div>
+            <div class="form-row"><label>先頭から処理する時刻 <span class="unit">秒</span><input name="start_offset_s" type="number" value="0.002" min="0" step="any"></label><label>画像に使う積分 <span class="unit">秒</span><select name="integration_s"><option value="0.3">0.3秒</option><option value="0.1">0.1秒</option><option value="1">1秒</option><option value="3">3秒</option></select></label></div>
+            <div class="form-row"><label>pilotの短積分数<input name="pilot_integrations" type="number" value="256" min="8" max="1024"></label><label>基線rate探索上限 <span class="unit">Hz</span><input name="max_rate_hz" type="number" value="100" min="0.01" max="1000" step="any"></label></div>
             <p class="field-help">pilotの一回の積分はmanifestで決まります（例：2ms）。画像の積分全体がpilotの有効時間内に入る設定が必要です。</p>
             <details><summary>RMLの事前条件と探索</summary><div class="detail-body">
               <label>Gaussian事前FWHM <span class="unit">秒角</span><input name="prior_fwhm_arcsec" type="number" value="240" min="40" max="500"></label>
@@ -106,7 +106,7 @@
           </form>
           <div class="explanation-stack">
             <div class="card"><h2>必要な観測情報</h2><p>局位置・天体方向・RF設定・sampleとUTCの対応・実sample rate・無効区間が必要です。既知の天体fluxや局の利得を入力する必要はありません。</p><p>source.modelをunknownとした観測設定は、総fluxを省略できます。原本VDIFのSHA-256と条件を結果に残します。</p></div>
-            <div class="note-card"><h3>現在の処理範囲</h3><p>sample時計は入力した線形モデルを使います。自動で未知時計を復元するものではありません。1秒以内・600m以下の短区間参照処理で、画像化は一つの積分です。別時刻の短露光は「合成画像」でまとめられます。3秒積分の整列は後続段階です。</p><p>ADC²をJyとせず、総相対fluxを1にします。実装置のCas A画像化は未検証です。失敗は途中結果として履歴に残ります。</p></div>
+            <div class="note-card"><h3>現在の処理範囲</h3><p>sample時計は入力した線形モデルを使います。自動で未知時計を復元するものではありません。3秒以内・600m以下の短区間参照処理で、画像化は一つの積分です。別時刻の短露光は「合成画像」でまとめられます。3秒積分には全体を覆うpilotが必要です。実機の安定時間は未測定です。</p><p>ADC²をJyとせず、総相対fluxを1にします。実装置のCas A画像化は未検証です。失敗は途中結果として履歴に残ります。</p></div>
           </div>
         </div>
       </section>

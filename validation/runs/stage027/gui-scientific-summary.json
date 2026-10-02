@@ -1,0 +1,340 @@
+{
+  "schema_version": 1,
+  "state": "complete",
+  "completed_steps": [
+    "aligned_pilot",
+    "model_free_rate",
+    "rate_corrected_short_correlation",
+    "closure_extraction",
+    "relative_rml"
+  ],
+  "input_manifest_sha256": "fd5a81d277cb91518bf2cb6f7ff7019a6c3867dff74c5f535df539116229b492",
+  "input_clock_sha256": "de055e1594cfae7a3d08cedbf88dde5c6d14807f430f6af9bf0cf69500d1787d",
+  "input_observation_sha256": "e87d53bda1bfb668574aaa39e4908839bfb3a840652ceea8906a897ca1a8d75b",
+  "input_vdif": [
+    {
+      "station_id": "ST01",
+      "sha256": "75d54aad44fcc31ca22813c40613728bf2c048ed4acd1f55442c4a7bc2f3afbc",
+      "bytes": 12500480
+    },
+    {
+      "station_id": "ST02",
+      "sha256": "1a10e6cd6d4325744bc7f9833ddcfb005fac21050fe1dd4ddf3116d29e50adf4",
+      "bytes": 12500480
+    },
+    {
+      "station_id": "ST03",
+      "sha256": "2674a7150232824ccc18d242df334c77af496c84b3ca3a121fecee02ac5c3b61",
+      "bytes": 12500480
+    },
+    {
+      "station_id": "ST04",
+      "sha256": "cf04773ba71ad1b1b3a39ba431c76acf31f8022ccdac9cc9240a1cd75acc389c",
+      "bytes": 12500480
+    }
+  ],
+  "pilot": {
+    "state": "complete",
+    "integrations": 750,
+    "recorded_span_s": 3.0,
+    "start_offset_s": 0.002,
+    "station_max_buffer_samples": [
+      12289,
+      12290,
+      12290,
+      12291
+    ],
+    "samples_per_integration": 8192,
+    "maximum_fx_chunk_samples": 8192,
+    "geometry_segment_max_span_s": 1.0,
+    "geometry_midpoint_max_baseline_phase_error_rad": 3.706399138212271e-06,
+    "fft_accumulation": "Sums of cross-products, power and fourth moments; flags after whole integration",
+    "clock_model": "Supplied linear ADC mapping; no automatic weak-source clock recovery",
+    "geometry": "Sample alignment and RF rephasing; piecewise linear delay over <=1s per segment, <=3s total, <=600m",
+    "weight_note": "2*valid FFT blocks / product of measured station channel powers; weak-source quadrature approximation; filtered FFT correlations not fully modeled"
+  },
+  "rate_estimate": {
+    "schema_version": 1,
+    "type": "station_rate_only",
+    "station_indices": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "station_rates_hz": [
+      0.0,
+      17.300334513761186,
+      -11.698519589158188,
+      26.100343739278156
+    ],
+    "reference_station": 0,
+    "time_reference_s": 1.502,
+    "valid_time_range_s": [
+      0.004,
+      3.0
+    ],
+    "sample_cadence_s": 0.004,
+    "max_baseline_rate_hz": 100.0,
+    "baseline_estimates": [
+      {
+        "pair": [
+          0,
+          1
+        ],
+        "accepted": true,
+        "rate_hz": -17.29988701155037,
+        "coherent_snr": 202.46012289352137,
+        "noise_peak_z": 5684.304317206648,
+        "channels": 13,
+        "rate_sigma_hz": 0.0009078249363032181
+      },
+      {
+        "pair": [
+          0,
+          2
+        ],
+        "accepted": true,
+        "rate_hz": 11.698675058354526,
+        "coherent_snr": 201.0633024721869,
+        "noise_peak_z": 5606.140158944175,
+        "channels": 13,
+        "rate_sigma_hz": 0.000913641239450045
+      },
+      {
+        "pair": [
+          0,
+          3
+        ],
+        "accepted": true,
+        "rate_hz": -26.10097234698856,
+        "coherent_snr": 197.88077681297656,
+        "noise_peak_z": 5430.071414955548,
+        "channels": 13,
+        "rate_sigma_hz": 0.0009284432327562375
+      },
+      {
+        "pair": [
+          1,
+          2
+        ],
+        "accepted": true,
+        "rate_hz": 28.998916522713873,
+        "coherent_snr": 197.70138017400353,
+        "noise_peak_z": 5420.230186253005,
+        "channels": 13,
+        "rate_sigma_hz": 0.0009301826706984837
+      },
+      {
+        "pair": [
+          1,
+          3
+        ],
+        "accepted": true,
+        "rate_hz": -8.799619355106445,
+        "coherent_snr": 202.13888646326131,
+        "noise_peak_z": 5666.280451849775,
+        "channels": 13,
+        "rate_sigma_hz": 0.0009099553673338603
+      },
+      {
+        "pair": [
+          2,
+          3
+        ],
+        "accepted": true,
+        "rate_hz": -37.79863363005449,
+        "coherent_snr": 194.97325865786584,
+        "noise_peak_z": 5271.672580328935,
+        "channels": 13,
+        "rate_sigma_hz": 0.0009428464213227527
+      }
+    ],
+    "station_covariance_hz2": [
+      [
+        4.177921362380358e-07,
+        2.070934470621031e-07,
+        2.1116352138050153e-07
+      ],
+      [
+        2.070934470621031e-07,
+        4.235433357632742e-07,
+        2.0802141324375331e-07
+      ],
+      [
+        2.1116352138050155e-07,
+        2.0802141324375326e-07,
+        4.2632623875102165e-07
+      ]
+    ],
+    "covariance_station_order": [
+      1,
+      2,
+      3
+    ],
+    "reduced_rate_chisq": 0.3259244274268513,
+    "accepted_baselines": 6,
+    "absolute_common_rate_measured": false,
+    "amplitude_or_sky_phase_calibration": false,
+    "model": "Unknown constant complex visibility per baseline/channel; temporal phase rate only",
+    "limits": "Short stable sky/gain; circular independent baseline/channel noise; no low SNR or clock drift inference",
+    "residual_station_rates_hz": [
+      0.0,
+      17.300334513761186,
+      -11.698519589158188,
+      26.100343739278156
+    ],
+    "station_ids": [
+      "ST01",
+      "ST02",
+      "ST03",
+      "ST04"
+    ],
+    "time_origin_utc": "2026-10-02T08:00:00.000Z",
+    "input_sha256": "f6d985e713115aab3e621bc61251adf95c3a6253598a12769600f7968b853917"
+  },
+  "correlation": {
+    "state": "complete",
+    "integrations": 1,
+    "recorded_span_s": 3.0,
+    "start_offset_s": 0.002,
+    "station_max_buffer_samples": [
+      12289,
+      12290,
+      12290,
+      12291
+    ],
+    "samples_per_integration": 6144000,
+    "maximum_fx_chunk_samples": 8192,
+    "geometry_segment_max_span_s": 1.0,
+    "geometry_midpoint_max_baseline_phase_error_rad": 3.706399138212271e-06,
+    "fft_accumulation": "Sums of cross-products, power and fourth moments; flags after whole integration",
+    "clock_model": "Supplied linear ADC mapping; no automatic weak-source clock recovery",
+    "geometry": "Sample alignment and RF rephasing; piecewise linear delay over <=1s per segment, <=3s total, <=600m",
+    "weight_note": "2*valid FFT blocks / product of measured station channel powers; weak-source quadrature approximation; filtered FFT correlations not fully modeled"
+  },
+  "closures": {
+    "phase_valid": 52,
+    "logamp_valid": 26,
+    "input_unit": "ADC^2",
+    "absolute_flux_available": false,
+    "absolute_centroid_available": false
+  },
+  "rml": {
+    "objective": 0.31434501108762347,
+    "closure_chisq_per_measurement": 0.6200917863999003,
+    "data_loss": 0.31004589319995013,
+    "entropy_loss": 0.004114399685764819,
+    "tsv_loss": 0.00012478673251055503,
+    "centroid_loss": 4.7949807141743556e-05,
+    "independent_closure_count": 65,
+    "independent_closure_counts": {
+      "phase": 39,
+      "logamp": 26
+    },
+    "centroid_arcsec": [
+      4.901520993001645,
+      -2.720198074327901
+    ],
+    "parameter_sum_penalty": 1.1981662256228781e-05,
+    "selected_start": 2,
+    "runs": [
+      {
+        "objective": 0.32779382725039297,
+        "closure_chisq_per_measurement": 0.6439595554964769,
+        "data_loss": 0.32197977774823844,
+        "entropy_loss": 0.005556857614998447,
+        "tsv_loss": 0.00022831833393454707,
+        "centroid_loss": 2.1654821516669182e-05,
+        "independent_closure_count": 65,
+        "independent_closure_counts": {
+          "phase": 39,
+          "logamp": 26
+        },
+        "centroid_arcsec": [
+          -0.9171183174698845,
+          -3.6538469892601584
+        ],
+        "parameter_sum_penalty": 7.218731704845722e-06,
+        "start": 0,
+        "circular_warmup_iterations": 180,
+        "iterations": 226,
+        "optimizer_success": true,
+        "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "elapsed_s": 0.2693958689997089
+      },
+      {
+        "objective": 0.3435452373586002,
+        "closure_chisq_per_measurement": 0.6692611069212365,
+        "data_loss": 0.33463055346061826,
+        "entropy_loss": 0.008312300608681513,
+        "tsv_loss": 0.0003800940270689522,
+        "centroid_loss": 0.00022228675871237697,
+        "independent_closure_count": 65,
+        "independent_closure_counts": {
+          "phase": 39,
+          "logamp": 26
+        },
+        "centroid_arcsec": [
+          -0.7378207403473764,
+          -12.047135375053134
+        ],
+        "parameter_sum_penalty": 2.5035191239699854e-09,
+        "start": 1,
+        "circular_warmup_iterations": 300,
+        "iterations": 496,
+        "optimizer_success": true,
+        "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "elapsed_s": 0.4954539210011717
+      },
+      {
+        "objective": 0.31434501108762347,
+        "closure_chisq_per_measurement": 0.6200917863999003,
+        "data_loss": 0.31004589319995013,
+        "entropy_loss": 0.004114399685764819,
+        "tsv_loss": 0.00012478673251055503,
+        "centroid_loss": 4.7949807141743556e-05,
+        "independent_closure_count": 65,
+        "independent_closure_counts": {
+          "phase": 39,
+          "logamp": 26
+        },
+        "centroid_arcsec": [
+          4.901520993001645,
+          -2.720198074327901
+        ],
+        "parameter_sum_penalty": 1.1981662256228781e-05,
+        "start": 2,
+        "circular_warmup_iterations": 300,
+        "iterations": 767,
+        "optimizer_success": true,
+        "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "elapsed_s": 0.6352427960009663
+      }
+    ],
+    "image_sum": 0.9999999999999999,
+    "output_unit": "relative flux/pixel",
+    "absolute_flux_measured": false,
+    "absolute_position_measured": false,
+    "amplitude_constraints_available": true,
+    "centroid_constraint": "Weak penalty around display center; actual centroid reported; not measured astrometry",
+    "settings": {
+      "pixels": 32,
+      "pixel_arcsec": 16.0,
+      "prior_fwhm_arcsec": 240.0,
+      "entropy": 0.01,
+      "tsv": 0.0001,
+      "starts": 3,
+      "max_iterations": 800,
+      "seed": 21
+    },
+    "noise_model": "Fixed observed high SNR independent-baseline covariance, full within each closure cell",
+    "likelihood_limit": "Wrapped local Gaussian phase residual; low SNR and phase branch boundaries excluded",
+    "input_sha256": "9595b6ee2b351e1691af4e2c3fe0c0125e24cf856c05b7ee73c1db9454727312",
+    "input_unit": "ADC^2"
+  },
+  "coherent_integration_s": 3.0,
+  "absolute_flux_measured": false,
+  "absolute_position_measured": false,
+  "limits": "Supplied linear sample clocks; <=3s and 600m, <=1s geometry segments; stable pilot sky/gain; high SNR Gaussian closures; CPU small reference"
+}

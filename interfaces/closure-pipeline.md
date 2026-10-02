@@ -37,7 +37,7 @@ rate-only JSONはtype=`station_rate_only`。局ID/順番、UTC原点、有効時
 
 ## 現在の制限
 
-整列chunkは1〜256積分、span1秒以内、600m以下。一回のpipeline画像化は0.1〜1秒の一積分で、実用予定の3秒整列・連続長記録処理は後続段階。別UTC原点の短露光は下記の合成入口で扱う。pilotは8時刻以上・一様cadence・1秒以内。安定sky/gain、時間Nyquist以内、使えるrate graphの連結、高SNR Gaussianを仮定する。bandpass/主ビーム差・低SNR/self-noise・RFIの実測率は未確認。
+整列chunkは1〜1024積分、span3秒以内、600m以下。一回のpipeline画像化は0.1〜3秒の一積分で、連続長記録処理は後続段階。別UTC原点の短露光は下記の合成入口で扱う。pilotは8時刻以上・一様cadence・3秒以内。安定sky/gain、時間Nyquist以内、使えるrate graphの連結、高SNR Gaussianを仮定する。bandpass/主ビーム差・低SNR/self-noise・RFIの実測率は未確認。
 
 [段階023レポート](../docs/reports/023-vdif-closure-pipeline.md)に実VDIFを使う模擬試験を記録する。
 
@@ -59,3 +59,10 @@ CLIは2〜64ファイル、GUIは2〜32ファイル。整列済みspectral NPZ�
 整列した電圧は最大8192sample（FFTがこれより大きい場合は一FFT）ずつFXへ渡す。単位FFTの基線cross-product和、基線の有効FFT数、局powerとpower²、sample power/countを積分全体で集計する。SKとchannel flagは全体の統計から一度判定する。各ブロックのflag付き平均を先に足す方式ではない。積分結果の値・重み・露光・診断は従来の一括FXと丸め誤差の範囲で一致する。
 
 [段階026](../docs/reports/026-bounded-fx.md)で8局1秒のVDIFを比較した。これはメモリを制限する変更で、まだ連続長記録の処理入口や3秒pilotの実装ではない。
+
+
+## 3秒積分の条件
+
+FFT32・blocks_per_integration=256ならpilot一時刻4ms。750時刻で3秒を覆い、`--pilot-integrations 750 --integration-s 3`を使える。2msでは1024時刻までの現上限では3秒を覆えないため、manifestのcadenceも確認する。基線rateの探索上限は時間Nyquist未満（4msなら125Hz未満）にする。原本の前後guardも必要。
+
+幾何delayは全体3秒の中を1秒以下に分けて線形補間し、各区間中点をAstropyで再計算する。中点の基線RF位相差が0.001radを超えれば拒否する。これは参照modelの補間確認で、実EOP/局座標/大気が正確との証明ではない。rateは期間全体で一定、sky/gainは安定と仮定する。profile時間範囲外は従来通り拒否する。[段階027](../docs/reports/027-three-second-pilot.md)を参照。

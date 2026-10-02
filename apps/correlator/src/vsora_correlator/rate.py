@@ -21,8 +21,8 @@ def estimate_station_rates(data, reference_station=0, max_rate_hz=100., min_snr=
     dt = np.diff(t)
     if np.any(dt <= 0) or not np.allclose(dt,dt[0],rtol=1e-8,atol=1e-10):
         raise ValueError('uniform increasing pilot times required')
-    if t[-1]-t[0]+dt[0] > 1.+1e-9:
-        raise ValueError('reference rate pilot is limited to one second of stable sky/gain')
+    if t[-1]-t[0]+dt[0] > 3.+1e-9:
+        raise ValueError('reference rate pilot is limited to three seconds of stable sky/gain')
     if (not np.isfinite(max_rate_hz) or not 0 < max_rate_hz < .5/dt[0]
             or any(not np.isfinite(x) or x <= 0 for x in (min_snr,min_peak_z,max_reduced_chisq))):
         raise ValueError('rate search must be below the temporal Nyquist limit')

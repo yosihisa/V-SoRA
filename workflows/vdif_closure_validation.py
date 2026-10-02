@@ -12,14 +12,15 @@ from vsora_correlator.closure_pipeline import process_closure_session
 from vsora_formats.spectral import load_spectral
 
 
-def make_fixture(output,seed=23):
+def make_fixture(output,seed=23,frame_count=270,pilot_blocks=128):
     out=Path(output);out.mkdir(parents=True,exist_ok=False)
     root=Path(__file__).resolve().parents[1];c=load_config(root/'configs/experiments/ideal-point.json')
     # The observing pipeline receives no generating sky type or absolute flux.
     c['source']['model']='unknown';c['source'].pop('total_flux_jy')
     c['image']['pixels']=32
-    fs=2048000;fc=1.42e9;ns=270*4096;span=ns/fs;origin=Time(c['observation']['start_utc'])
-    geometry=geometry_at_times(c,origin+np.array([0,span])*u.s,filter_elevation=False)
+    fs=2048000;fc=1.42e9;ns=frame_count*4096;span=ns/fs;origin=Time(c['observation']['start_utc'])
+    edges=np.linspace(0,span,max(1,int(np.ceil(span)))+1)
+    geometry=geometry_at_times(c,origin+edges*u.s,filter_elevation=False)
     delay=geometry['station_delay_s'];frequency=np.fft.fftfreq(ns,1/fs)
     active=abs(frequency)<=.25*fs;power_fraction=active.mean()
     rng=np.random.default_rng(seed)
@@ -29,7 +30,7 @@ def make_fixture(output,seed=23):
     t=np.arange(ns)/fs;stations=[];clocks=[]
     for i in range(4):
         noise=np.fft.fft(gaussian(ns))*active*np.sqrt(10000/power_fraction)
-        d=np.interp(t,[0,span],delay[:,i]);mid=float(delay[:,i].mean())
+        d=np.interp(t,edges,delay[:,i]);mid=float(np.interp(span/2,edges,delay[:,i]))
         x=np.fft.ifft((sky+noise)*np.exp(2j*np.pi*frequency*mid))
         x*=gain[i]*np.exp(2j*np.pi*(fc*d+rates[i]*t))
         scale=2*np.sqrt(np.mean(abs(x)**2)/2)
@@ -38,7 +39,7 @@ def make_fixture(output,seed=23):
         stations.append({'id':c['stations'][i]['id'],'vdif':name,'station_numeric_id':i+1,'decoded_voltage_scale':scale})
         clocks.append({'id':c['stations'][i]['id'],'input_start_offset_s':0.,'actual_sample_rate_hz':float(fs)})
     manifest={'schema_version':1,'observation_config':'observation.json','sample_rate_hz':fs,'fft_length':32,
-        'blocks_per_integration':128,'integrations_per_shard':256,'voltage_unit':'ADC','phase_center_correction':True,'stations':stations,
+        'blocks_per_integration':pilot_blocks,'integrations_per_shard':256,'voltage_unit':'ADC','phase_center_correction':True,'stations':stations,
         'spectral_quality':{'channel_weights':True,'min_sk_blocks':128,'sk_bounds':[.3,3.],
                            'exclude_rf_ranges_hz':[[fc-fs,fc-.2*fs],[fc+.2*fs,fc+fs]]}}
     (out/'observation.json').write_text(json.dumps(c,indent=2)+'\n')
@@ -46,10 +47,10 @@ def make_fixture(output,seed=23):
     (out/'clock.json').write_text(json.dumps({'schema_version':1,'max_abs_baseband_hz':.2*fs,'stations':clocks},indent=2)+'\n')
     return {'seed':seed,'generating_sky':'Common continuous band-limited Gaussian point at phase center, 1000Jy',
         'generating_sefd_jy':10000,'true_rates_hz':rates.tolist(),'input_samples_per_station':ns,'recorded_span_s':span,
-        'max_broadband_delay_phase_approximation_rad':float(2*np.pi*.25*fs*np.max(abs(delay[1]-delay[0]))/2),
+        'max_broadband_delay_phase_approximation_rad':float(2*np.pi*.25*fs*np.max(abs(delay[-1]-delay[0]))/2),
         'clock':'Supplied exact nominal clocks; zero sample offsets',
         'band':'Continuous periodic Fourier realization, |f| <= 0.25 Fs; accepted |f| <= 0.2 Fs',
-        'limits':'No extended sky, nonlinear clock/LO, RFI or real receiver; RF delay evolves linearly, broadband delay fixed at midpoint'}
+        'limits':'No extended sky, nonlinear clock/LO, RFI or real receiver; RF delay is piecewise linear over <=1s, broadband delay fixed at midpoint'}
 
 
 def run(output,seed=23):

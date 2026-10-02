@@ -60,9 +60,9 @@ class AnalysisRequest(Request):
     kind:Literal['analysis']='analysis'
     manifest:str=Field(min_length=1,max_length=512)
     clock_model:str=Field(min_length=1,max_length=512)
-    pilot_integrations:int=Field(default=256,ge=8,le=256,strict=True)
+    pilot_integrations:int=Field(default=256,ge=8,le=1024,strict=True)
     start_offset_s:float=Field(default=.002,ge=0,le=86400)
-    integration_s:Literal[.1,.3,1.]=.3
+    integration_s:Literal[.1,.3,1.,3.]=.3
     max_rate_hz:float=Field(default=100,gt=0,le=1000)
     prior_fwhm_arcsec:float=Field(default=240,ge=40,le=500)
     entropy:float=Field(default=.01,ge=0,le=1)

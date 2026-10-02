@@ -44,4 +44,6 @@
 
 | 026 | [相関の分割処理](026-bounded-fx.md) | source/wheel129件成功。8局1秒の統計を保持し、peak RSS約1.42GiB→325MiB |
 
+| 027 | [3秒pilot・分割幾何](027-three-second-pilot.md) | source130件成功。4局3秒VDIFとGUI、rate誤差0.0015Hz。実OCXO安定時間は未測定 |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。

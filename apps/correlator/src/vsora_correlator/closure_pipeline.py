@@ -13,13 +13,13 @@ def process_closure_session(manifest,clock_model,output,*,pilot_integrations=256
                             integration_s=.3,max_rate_hz=100.,starts=3,max_iterations=800,
                             prior_fwhm_arcsec=240.,entropy=.01,tsv=.0001,progress=None):
     c=load_session(manifest);fs=c['sample_rate_hz'];nf=c['fft_length']
-    if not np.isfinite(integration_s) or not .1<=integration_s<=1:
-        raise ValueError('short aligned pipeline integration must be 0.1..1 second')
+    if not np.isfinite(integration_s) or not .1<=integration_s<=3:
+        raise ValueError('short aligned pipeline integration must be 0.1..3 seconds')
     blocks=round(integration_s*fs/nf)
     if abs(blocks*nf/fs-integration_s)>1e-9 or (blocks*nf)%4096:
         raise ValueError('final integration must contain whole VDIF frames and FFT blocks')
-    if not isinstance(pilot_integrations,int) or not 8<=pilot_integrations<=256:
-        raise ValueError('rate pilot requires 8..256 short integrations')
+    if not isinstance(pilot_integrations,int) or not 8<=pilot_integrations<=1024:
+        raise ValueError('rate pilot requires 8..1024 short integrations')
     out=Path(output);partial=out.with_name(out.name+'.partial')
     if out.exists() or partial.exists():raise FileExistsError('choose a new pipeline output directory')
     partial.mkdir(parents=True)
@@ -65,7 +65,7 @@ def process_closure_session(manifest,clock_model,output,*,pilot_integrations=256
                 'input_observation_sha256':observation_sha,'input_vdif':source,
                 'pilot':pilot,'rate_estimate':estimate,'correlation':final,'closures':closure,'rml':image,
                 'coherent_integration_s':integration_s,'absolute_flux_measured':False,'absolute_position_measured':False,
-                'limits':'Supplied linear sample clocks; <=1s and 600m; stable pilot sky/gain; high SNR Gaussian closures; CPU small reference'}
+                'limits':'Supplied linear sample clocks; <=3s and 600m, <=1s geometry segments; stable pilot sky/gain; high SNR Gaussian closures; CPU small reference'}
         (partial/'pipeline.json').write_text(json.dumps(result,indent=2)+'\n')
         (partial/'summary.json').write_text(json.dumps(result,indent=2)+'\n')
         partial.rename(out);return result

@@ -54,8 +54,8 @@ def correlate_aligned(manifest,clock_model,output,integrations,start_offset_s=.0
     c=load_session(manifest);config=c['_config'];fs=c['sample_rate_hz']
     if not c['phase_center_correction']: raise ValueError('aligned mode requires explicit phase-center correction')
     ns=c['fft_length']*c['blocks_per_integration'];span=ns*integrations/fs
-    if isinstance(integrations,bool) or not isinstance(integrations,int) or not 1<=integrations<=256 or span>1:
-        raise ValueError('aligned reference chunk requires 1..256 integrations and <=1 second')
+    if isinstance(integrations,bool) or not isinstance(integrations,int) or not 1<=integrations<=1024 or span>3:
+        raise ValueError('aligned reference chunk requires 1..1024 integrations and <=3 seconds')
     if not np.isfinite(start_offset_s) or start_offset_s<0: raise ValueError('nonnegative start offset required')
     clock=json.loads(Path(clock_model).read_text())
     rate=np.zeros(len(c['stations']));rate_epoch=0.;rate_sha=None
@@ -81,8 +81,13 @@ def correlate_aligned(manifest,clock_model,output,integrations,start_offset_s=.0
     if out.exists() or partial.exists(): raise FileExistsError('choose a new output directory')
     origin=Time(config['observation']['start_utc']);offsets=start_offset_s+(np.arange(integrations)+.5)*ns/fs
     g=geometry_at_times(config,origin+offsets*u.s,filter_elevation=False)
-    edges=np.array([start_offset_s,start_offset_s+span])
+    edges=np.linspace(start_offset_s,start_offset_s+span,max(1,int(np.ceil(span)))+1)
     endpoint=geometry_at_times(config,origin+edges*u.s,filter_elevation=False)['station_delay_s']
+    middle=(edges[:-1]+edges[1:])/2
+    exact_midpoint=geometry_at_times(config,origin+middle*u.s,filter_elevation=False)['station_delay_s']
+    midpoint_error=(endpoint[:-1]+endpoint[1:])/2-exact_midpoint
+    midpoint_baseline_phase=float(2*np.pi*config['observation']['frequency_hz']*np.max(abs(midpoint_error[:,:,None]-midpoint_error[:,None,:])))
+    if midpoint_baseline_phase>1e-3:raise ValueError('piecewise geometry midpoint phase error exceeds 0.001 rad')
     positions=np.array([s['enu_m'] for s in config['stations']])
     if np.linalg.norm(positions[:,None]-positions[None,:],axis=-1).max()>600.001:
         raise ValueError('aligned reference geometry is limited to 600m')
@@ -120,15 +125,17 @@ def correlate_aligned(manifest,clock_model,output,integrations,start_offset_s=.0
               'rate_only_profile_sha256':rate_sha,'rate_only_extrapolation_allowed':bool(allow_rate_extrapolation),
               'nominal_integration_s':ns/fs,
               'clock_mapping_applied':True,'filter':'65-tap Kaiser lowpass; group delay compensated',
-              'max_abs_baseband_hz':band,'eop_status':g['eop_status']}
+              'max_abs_baseband_hz':band,'eop_status':g['eop_status'],
+              'geometry_segment_max_span_s':float(np.diff(edges).max()),'geometry_midpoint_max_baseline_phase_error_rad':midpoint_baseline_phase}
         if 'spectral_quality' in c:
             meta.update(spectral_quality=c['spectral_quality'],diagnostic_power_unit='ADC^2' if c['voltage_unit']=='ADC' else 'Jy')
         save_spectral(partial/'shard-00000.npz',cube,meta)
         summary={'state':'complete','integrations':integrations,'recorded_span_s':span,'start_offset_s':start_offset_s,
                  'station_max_buffer_samples':[b.maximum for b in buffers],'samples_per_integration':ns,'maximum_fx_chunk_samples':maximum_chunk_samples,
+                 'geometry_segment_max_span_s':float(np.diff(edges).max()),'geometry_midpoint_max_baseline_phase_error_rad':midpoint_baseline_phase,
                  'fft_accumulation':'Sums of cross-products, power and fourth moments; flags after whole integration',
                  'clock_model':'Supplied linear ADC mapping; no automatic weak-source clock recovery',
-                 'geometry':'Sample alignment and RF rephasing; linear delay over <=1s, <=600m',
+                 'geometry':'Sample alignment and RF rephasing; piecewise linear delay over <=1s per segment, <=3s total, <=600m',
                  'weight_note':results[0]['noise_weight_assumption']+'; filtered FFT correlations not fully modeled'}
         (partial/'summary.json').write_text(json.dumps(summary,indent=2)+'\n');partial.rename(out)
         return summary
