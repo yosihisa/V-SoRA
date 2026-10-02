@@ -1,0 +1,36 @@
+{
+  "model": "double source, source self-noise, no receiver noise",
+  "sample_rate_hz": 2048000,
+  "fft_length": 64,
+  "samples_per_station": 262144,
+  "actual_duration_s": 0.128,
+  "station_delay_s": [
+    0.0,
+    6.167931678272442e-07,
+    7.793333139847811e-07,
+    1.3726962044505294e-06
+  ],
+  "sampling_relative_error": 0.02329993353921383,
+  "quantized_relative_error": 0.023288729244436365,
+  "quantization_vs_float_error": 0.00044141173086623066,
+  "without_delay_correction_relative_error": 1.3849807346982452,
+  "valid_fft_count": [
+    4096,
+    4096,
+    4096,
+    4096,
+    4096,
+    4096
+  ],
+  "clipped_fraction": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "assumptions": [
+    "static geometry; FFT-periodic snapshots, not a continuous delayed sky",
+    "known geometric delay; no clock/LO drift or phase solutions",
+    "no receiver noise; finite Gaussian sky self-noise remains"
+  ]
+}
