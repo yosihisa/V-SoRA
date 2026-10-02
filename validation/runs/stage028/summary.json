@@ -1,0 +1,874 @@
+{
+  "type": "vdif_closure_synthesis_validation",
+  "snapshots": 8,
+  "observation_span_s": 14400,
+  "coherent_integration_s": 3.0,
+  "recorded_exposure_per_station_s": 24.0,
+  "shots": [
+    {
+      "snapshot": 0,
+      "start_utc": "2026-10-02T08:15:00.000Z",
+      "maximum_rate_error_hz": 0.005287132490908286,
+      "generating": {
+        "model": "casa",
+        "assumed_flux_jy": 1000.0,
+        "assumed_sefd_jy": 10000.0,
+        "input_span_s": 3.04,
+        "station_rates_hz": [
+          0.0,
+          17.196531328962124,
+          -11.662531787967215,
+          26.063288184031684,
+          8.15380941480834,
+          -0.5005179616553372,
+          1.57221614488634,
+          -3.23312111601836
+        ],
+        "seed": 24,
+        "fft_length": 8,
+        "useful_rf_channel_centers": 3,
+        "narrowband_phase_bound_rad": 0.006242883625743698,
+        "sky_temporal_phase_bound_rad": 0.0019191137615905771,
+        "limits": "Continuous periodic colored Gaussian with midpoint sky covariance at center RF; supplied exact nominal clocks; fixed broadband station delay, piecewise RF geometry and constant LO rate; no real antenna or RFI"
+      },
+      "closures": {
+        "phase_valid": 18,
+        "logamp_valid": 10,
+        "input_unit": "ADC^2",
+        "absolute_flux_available": false,
+        "absolute_centroid_available": false
+      },
+      "accepted_rate_baselines": 21
+    },
+    {
+      "snapshot": 1,
+      "start_utc": "2026-10-02T08:45:00.000Z",
+      "maximum_rate_error_hz": 0.009603708811809497,
+      "generating": {
+        "model": "casa",
+        "assumed_flux_jy": 1000.0,
+        "assumed_sefd_jy": 10000.0,
+        "input_span_s": 3.04,
+        "station_rates_hz": [
+          0.0,
+          17.29469489624894,
+          -11.707945929826048,
+          26.103446866296807,
+          8.178626039396285,
+          -0.3974836835112581,
+          1.675039703751624,
+          -3.04347387470795
+        ],
+        "seed": 25,
+        "fft_length": 8,
+        "useful_rf_channel_centers": 3,
+        "narrowband_phase_bound_rad": 0.006242883625744724,
+        "sky_temporal_phase_bound_rad": 0.0019191137615908924,
+        "limits": "Continuous periodic colored Gaussian with midpoint sky covariance at center RF; supplied exact nominal clocks; fixed broadband station delay, piecewise RF geometry and constant LO rate; no real antenna or RFI"
+      },
+      "closures": {
+        "phase_valid": 15,
+        "logamp_valid": 13,
+        "input_unit": "ADC^2",
+        "absolute_flux_available": false,
+        "absolute_centroid_available": false
+      },
+      "accepted_rate_baselines": 21
+    },
+    {
+      "snapshot": 2,
+      "start_utc": "2026-10-02T09:15:00.000Z",
+      "maximum_rate_error_hz": 0.01945305811088538,
+      "generating": {
+        "model": "casa",
+        "assumed_flux_jy": 1000.0,
+        "assumed_sefd_jy": 10000.0,
+        "input_span_s": 3.04,
+        "station_rates_hz": [
+          0.0,
+          17.26067230978775,
+          -11.663241034728324,
+          26.011364100001423,
+          8.145498153724033,
+          -0.44799875610309625,
+          1.7319110797533877,
+          -3.049560988795145
+        ],
+        "seed": 26,
+        "fft_length": 8,
+        "useful_rf_channel_centers": 3,
+        "narrowband_phase_bound_rad": 0.0062428836257397485,
+        "sky_temporal_phase_bound_rad": 0.001919113761589363,
+        "limits": "Continuous periodic colored Gaussian with midpoint sky covariance at center RF; supplied exact nominal clocks; fixed broadband station delay, piecewise RF geometry and constant LO rate; no real antenna or RFI"
+      },
+      "closures": {
+        "phase_valid": 24,
+        "logamp_valid": 25,
+        "input_unit": "ADC^2",
+        "absolute_flux_available": false,
+        "absolute_centroid_available": false
+      },
+      "accepted_rate_baselines": 22
+    },
+    {
+      "snapshot": 3,
+      "start_utc": "2026-10-02T09:45:00.000Z",
+      "maximum_rate_error_hz": 0.009817808600635303,
+      "generating": {
+        "model": "casa",
+        "assumed_flux_jy": 1000.0,
+        "assumed_sefd_jy": 10000.0,
+        "input_span_s": 3.04,
+        "station_rates_hz": [
+          0.0,
+          17.327197947264487,
+          -11.681499559095377,
+          25.97693662857149,
+          8.193537238978504,
+          -0.3747232765592876,
+          1.619490314683365,
+          -3.122078830764391
+        ],
+        "seed": 27,
+        "fft_length": 8,
+        "useful_rf_channel_centers": 3,
+        "narrowband_phase_bound_rad": 0.006242883625744148,
+        "sky_temporal_phase_bound_rad": 0.0019191137615907155,
+        "limits": "Continuous periodic colored Gaussian with midpoint sky covariance at center RF; supplied exact nominal clocks; fixed broadband station delay, piecewise RF geometry and constant LO rate; no real antenna or RFI"
+      },
+      "closures": {
+        "phase_valid": 14,
+        "logamp_valid": 11,
+        "input_unit": "ADC^2",
+        "absolute_flux_available": false,
+        "absolute_centroid_available": false
+      },
+      "accepted_rate_baselines": 23
+    },
+    {
+      "snapshot": 4,
+      "start_utc": "2026-10-02T10:15:00.000Z",
+      "maximum_rate_error_hz": 0.003224776232621629,
+      "generating": {
+        "model": "casa",
+        "assumed_flux_jy": 1000.0,
+        "assumed_sefd_jy": 10000.0,
+        "input_span_s": 3.04,
+        "station_rates_hz": [
+          0.0,
+          17.294620070911115,
+          -11.6275362986163,
+          26.10877630033638,
+          8.22237152151262,
+          -0.2982290399777434,
+          1.7030435800776842,
+          -2.9414039242546397
+        ],
+        "seed": 28,
+        "fft_length": 8,
+        "useful_rf_channel_centers": 3,
+        "narrowband_phase_bound_rad": 0.006242883625740994,
+        "sky_temporal_phase_bound_rad": 0.0019191137615897458,
+        "limits": "Continuous periodic colored Gaussian with midpoint sky covariance at center RF; supplied exact nominal clocks; fixed broadband station delay, piecewise RF geometry and constant LO rate; no real antenna or RFI"
+      },
+      "closures": {
+        "phase_valid": 24,
+        "logamp_valid": 21,
+        "input_unit": "ADC^2",
+        "absolute_flux_available": false,
+        "absolute_centroid_available": false
+      },
+      "accepted_rate_baselines": 21
+    },
+    {
+      "snapshot": 5,
+      "start_utc": "2026-10-02T10:45:00.000Z",
+      "maximum_rate_error_hz": 0.014199813891341506,
+      "generating": {
+        "model": "casa",
+        "assumed_flux_jy": 1000.0,
+        "assumed_sefd_jy": 10000.0,
+        "input_span_s": 3.04,
+        "station_rates_hz": [
+          0.0,
+          17.205699890066036,
+          -11.733198615658473,
+          25.99561418513654,
+          8.121975216037807,
+          -0.5206725575562329,
+          1.6791534852867553,
+          -3.109912978658406
+        ],
+        "seed": 29,
+        "fft_length": 8,
+        "useful_rf_channel_centers": 3,
+        "narrowband_phase_bound_rad": 0.006242883625741612,
+        "sky_temporal_phase_bound_rad": 0.0019191137615899357,
+        "limits": "Continuous periodic colored Gaussian with midpoint sky covariance at center RF; supplied exact nominal clocks; fixed broadband station delay, piecewise RF geometry and constant LO rate; no real antenna or RFI"
+      },
+      "closures": {
+        "phase_valid": 17,
+        "logamp_valid": 16,
+        "input_unit": "ADC^2",
+        "absolute_flux_available": false,
+        "absolute_centroid_available": false
+      },
+      "accepted_rate_baselines": 23
+    },
+    {
+      "snapshot": 6,
+      "start_utc": "2026-10-02T11:15:00.000Z",
+      "maximum_rate_error_hz": 0.010012226724805728,
+      "generating": {
+        "model": "casa",
+        "assumed_flux_jy": 1000.0,
+        "assumed_sefd_jy": 10000.0,
+        "input_span_s": 3.04,
+        "station_rates_hz": [
+          0.0,
+          17.341145822069933,
+          -11.695377710549344,
+          26.226975739745708,
+          8.242938070003817,
+          -0.29643860541555866,
+          1.7016012668085376,
+          -3.0755783880298657
+        ],
+        "seed": 30,
+        "fft_length": 8,
+        "useful_rf_channel_centers": 3,
+        "narrowband_phase_bound_rad": 0.006242883625740162,
+        "sky_temporal_phase_bound_rad": 0.0019191137615894903,
+        "limits": "Continuous periodic colored Gaussian with midpoint sky covariance at center RF; supplied exact nominal clocks; fixed broadband station delay, piecewise RF geometry and constant LO rate; no real antenna or RFI"
+      },
+      "closures": {
+        "phase_valid": 11,
+        "logamp_valid": 9,
+        "input_unit": "ADC^2",
+        "absolute_flux_available": false,
+        "absolute_centroid_available": false
+      },
+      "accepted_rate_baselines": 22
+    },
+    {
+      "snapshot": 7,
+      "start_utc": "2026-10-02T11:45:00.000Z",
+      "maximum_rate_error_hz": 0.019760897514434106,
+      "generating": {
+        "model": "casa",
+        "assumed_flux_jy": 1000.0,
+        "assumed_sefd_jy": 10000.0,
+        "input_span_s": 3.04,
+        "station_rates_hz": [
+          0.0,
+          17.1583355463336,
+          -11.736736787042979,
+          26.111316416931672,
+          8.228794663653263,
+          -0.4720610739796791,
+          1.6408713424493087,
+          -3.1508153262527743
+        ],
+        "seed": 31,
+        "fft_length": 8,
+        "useful_rf_channel_centers": 3,
+        "narrowband_phase_bound_rad": 0.006242883625742662,
+        "sky_temporal_phase_bound_rad": 0.0019191137615902586,
+        "limits": "Continuous periodic colored Gaussian with midpoint sky covariance at center RF; supplied exact nominal clocks; fixed broadband station delay, piecewise RF geometry and constant LO rate; no real antenna or RFI"
+      },
+      "closures": {
+        "phase_valid": 11,
+        "logamp_valid": 11,
+        "input_unit": "ADC^2",
+        "absolute_flux_available": false,
+        "absolute_centroid_available": false
+      },
+      "accepted_rate_baselines": 22
+    }
+  ],
+  "synthesis": {
+    "state": "complete",
+    "type": "closure_synthesis",
+    "synthesis": {
+      "input_count": 8,
+      "time_cells": 8,
+      "channels": 8,
+      "baseline_count": 28,
+      "observation_span_s": 12599.999999999998,
+      "exposure_per_baseline_s": [
+        24.0,
+        24.0,
+        24.0,
+        24.0,
+        24.0,
+        24.0,
+        24.0,
+        24.0,
+        24.0,
+        24.0,
+        24.0,
+        24.0,
+        24.0,
+        24.0,
+        24.0,
+        24.0,
+        24.0,
+        24.0,
+        24.0,
+        24.0,
+        24.0,
+        24.0,
+        24.0,
+        24.0,
+        24.0,
+        24.0,
+        24.0,
+        24.0
+      ],
+      "source_inputs": [
+        {
+          "input_sha256": "e0ffd5f68dafe9d79400c2e369ad9952be7bbe391d57669c9d5ae56cab6a1483",
+          "time_origin_utc": "2026-10-02T08:15:00.000Z",
+          "time_cells": 1,
+          "rate_applied_hz": [
+            0.0,
+            17.19543044070147,
+            -11.658112804984603,
+            26.067399378609835,
+            8.15644738533274,
+            -0.49523082916442895,
+            1.5756057878497811,
+            -3.22924969360377
+          ],
+          "rate_reference_s": 1.502,
+          "eop_status": [
+            2
+          ],
+          "rate_profile_sha256": "ff413bcdf1d14268bf1cb30374e6a3cb062f9620a642eb1012e5c903ffb0beb2",
+          "nominal_integration_s": 3.0,
+          "exposure_per_baseline_s": [
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0
+          ]
+        },
+        {
+          "input_sha256": "36bea89e1ccfc3959eb9267645555f9e6e0da848c7d93cd312677bd22624ab88",
+          "time_origin_utc": "2026-10-02T08:45:00.000Z",
+          "time_cells": 1,
+          "rate_applied_hz": [
+            0.0,
+            17.293577465703752,
+            -11.717549638637857,
+            26.103583867052144,
+            8.171397511881015,
+            -0.39680642424032975,
+            1.672696633093775,
+            -3.0465574778869637
+          ],
+          "rate_reference_s": 1.502,
+          "eop_status": [
+            2
+          ],
+          "rate_profile_sha256": "cedb93d8d524bab2e54cb14ea0f5b57ebe5eb76517e252abd7ff21045b8e87ba",
+          "nominal_integration_s": 3.0,
+          "exposure_per_baseline_s": [
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0
+          ]
+        },
+        {
+          "input_sha256": "7c4e1e389e5d2f15c72c8c4014aa0547da8b02c474ab17acaf90233ddc0d89ac",
+          "time_origin_utc": "2026-10-02T09:15:00.000Z",
+          "time_cells": 1,
+          "rate_applied_hz": [
+            0.0,
+            17.257974644025317,
+            -11.643787976617439,
+            26.011144572035565,
+            8.14994530111511,
+            -0.44965697276655225,
+            1.7271899513678886,
+            -3.0521473826150114
+          ],
+          "rate_reference_s": 1.502,
+          "eop_status": [
+            2
+          ],
+          "rate_profile_sha256": "7732d04da0dbb49c145d3c1e1e8d23724f05290dd68c0cf4c325c52af751cacf",
+          "nominal_integration_s": 3.0,
+          "exposure_per_baseline_s": [
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0
+          ]
+        },
+        {
+          "input_sha256": "7471ed9039caf913120236bb58eb4e0e961a2d619039c5f04c4de63f32a1bce6",
+          "time_origin_utc": "2026-10-02T09:45:00.000Z",
+          "time_cells": 1,
+          "rate_applied_hz": [
+            0.0,
+            17.324941628363405,
+            -11.671681750494741,
+            25.967636181677854,
+            8.192131860843128,
+            -0.3799133240706518,
+            1.6192140776807102,
+            -3.129277191175391
+          ],
+          "rate_reference_s": 1.502,
+          "eop_status": [
+            2
+          ],
+          "rate_profile_sha256": "0f577dd086f45cf35c3954900df4dbb68f08124dc88eec7553516ae1a3dba31b",
+          "nominal_integration_s": 3.0,
+          "exposure_per_baseline_s": [
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0
+          ]
+        },
+        {
+          "input_sha256": "b3e4f8ec1e6eef8e220653df4a3728c1542cbd9fc9878eb1155485c4db32d801",
+          "time_origin_utc": "2026-10-02T10:15:00.000Z",
+          "time_cells": 1,
+          "rate_applied_hz": [
+            0.0,
+            17.294327779817053,
+            -11.626445697150645,
+            26.108016959745193,
+            8.222411461816156,
+            -0.29860134972587504,
+            1.7016343550228434,
+            -2.9446287004872613
+          ],
+          "rate_reference_s": 1.502,
+          "eop_status": [
+            2
+          ],
+          "rate_profile_sha256": "a2cd57ba723578ef76f0bc8895a9a86deda7ca867961bf1212b207850ca59e6e",
+          "nominal_integration_s": 3.0,
+          "exposure_per_baseline_s": [
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0
+          ]
+        },
+        {
+          "input_sha256": "d84b162d8c0f82c29b4e8313907e8847ef2b84ad8d04562f7b7c13e63d138480",
+          "time_origin_utc": "2026-10-02T10:45:00.000Z",
+          "time_cells": 1,
+          "rate_applied_hz": [
+            0.0,
+            17.20659312025739,
+            -11.718998801767132,
+            25.99398098205214,
+            8.125838868642324,
+            -0.5244811128226974,
+            1.6820335530123662,
+            -3.1094629359126937
+          ],
+          "rate_reference_s": 1.502,
+          "eop_status": [
+            2
+          ],
+          "rate_profile_sha256": "05f0e29885f1d7d5c9f7fbd0a70db1057d68fb3a4ee70f9347871773be433cf8",
+          "nominal_integration_s": 3.0,
+          "exposure_per_baseline_s": [
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0
+          ]
+        },
+        {
+          "input_sha256": "b85f1c8dac7f4aa56e0fc52a020ad1b3d83d148b72747ccf492f26c69d1604a7",
+          "time_origin_utc": "2026-10-02T11:15:00.000Z",
+          "time_cells": 1,
+          "rate_applied_hz": [
+            0.0,
+            17.341532511577103,
+            -11.703860236505447,
+            26.223673947117035,
+            8.234016306762083,
+            -0.302176344163785,
+            1.6962871490847586,
+            -3.0855906147546714
+          ],
+          "rate_reference_s": 1.502,
+          "eop_status": [
+            2
+          ],
+          "rate_profile_sha256": "20592944a4f3e19127811b5e6932c95371ff030cd4237e898d0efacc47f1d904",
+          "nominal_integration_s": 3.0,
+          "exposure_per_baseline_s": [
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0
+          ]
+        },
+        {
+          "input_sha256": "37246c585e458b5d9354c686424ddbfdb76717405c27c0dea31f3c8f09de9400",
+          "time_origin_utc": "2026-10-02T11:45:00.000Z",
+          "time_cells": 1,
+          "rate_applied_hz": [
+            0.0,
+            17.1590834579332,
+            -11.738964643685431,
+            26.091555519417238,
+            8.22420734584098,
+            -0.4716439150274141,
+            1.6371628308362434,
+            -3.15163082624264
+          ],
+          "rate_reference_s": 1.502,
+          "eop_status": [
+            2
+          ],
+          "rate_profile_sha256": "4b7cce470c230508f1ea8854df57d5ddbdaa7c04cfc69a438298a1ff51809bf1",
+          "nominal_integration_s": 3.0,
+          "exposure_per_baseline_s": [
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0
+          ]
+        }
+      ],
+      "visibility_unit": "ADC^2"
+    },
+    "closures": {
+      "phase_valid": 134,
+      "logamp_valid": 116,
+      "input_unit": "ADC^2",
+      "absolute_flux_available": false,
+      "absolute_centroid_available": false
+    },
+    "rml": {
+      "objective": 0.2961803718501999,
+      "closure_chisq_per_measurement": 0.5740427524900006,
+      "data_loss": 0.2870213762450003,
+      "entropy_loss": 0.008589262588633191,
+      "tsv_loss": 0.00031483112546478126,
+      "centroid_loss": 0.0002519731144052974,
+      "independent_closure_count": 211,
+      "independent_closure_counts": {
+        "phase": 118,
+        "logamp": 93
+      },
+      "centroid_arcsec": [
+        -12.832371838840347,
+        -0.68068586469305
+      ],
+      "parameter_sum_penalty": 2.928776696364827e-06,
+      "selected_start": 2,
+      "runs": [
+        {
+          "objective": 0.3031303022359578,
+          "closure_chisq_per_measurement": 0.5821201849087473,
+          "data_loss": 0.29106009245437364,
+          "entropy_loss": 0.011371511990338952,
+          "tsv_loss": 0.0004480398067564371,
+          "centroid_loss": 0.0002506513958761571,
+          "independent_closure_count": 211,
+          "independent_closure_counts": {
+            "phase": 118,
+            "logamp": 93
+          },
+          "centroid_arcsec": [
+            6.394013623603319,
+            -11.107812052000765
+          ],
+          "parameter_sum_penalty": 6.588612590336025e-09,
+          "start": 0,
+          "circular_warmup_iterations": 300,
+          "iterations": 2000,
+          "optimizer_success": false,
+          "optimizer_message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+          "elapsed_s": 5.662275016999047
+        },
+        {
+          "objective": 0.30261209099504716,
+          "closure_chisq_per_measurement": 0.585639562579661,
+          "data_loss": 0.2928197812898305,
+          "entropy_loss": 0.009307059223782872,
+          "tsv_loss": 0.00042597433134557524,
+          "centroid_loss": 5.7253239980261414e-05,
+          "independent_closure_count": 211,
+          "independent_closure_counts": {
+            "phase": 118,
+            "logamp": 93
+          },
+          "centroid_arcsec": [
+            -5.327796449307078,
+            3.0225929842132255
+          ],
+          "parameter_sum_penalty": 2.0229101079710577e-06,
+          "start": 1,
+          "circular_warmup_iterations": 300,
+          "iterations": 2000,
+          "optimizer_success": false,
+          "optimizer_message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+          "elapsed_s": 5.764622736998717
+        },
+        {
+          "objective": 0.2961803718501999,
+          "closure_chisq_per_measurement": 0.5740427524900006,
+          "data_loss": 0.2870213762450003,
+          "entropy_loss": 0.008589262588633191,
+          "tsv_loss": 0.00031483112546478126,
+          "centroid_loss": 0.0002519731144052974,
+          "independent_closure_count": 211,
+          "independent_closure_counts": {
+            "phase": 118,
+            "logamp": 93
+          },
+          "centroid_arcsec": [
+            -12.832371838840347,
+            -0.68068586469305
+          ],
+          "parameter_sum_penalty": 2.928776696364827e-06,
+          "start": 2,
+          "circular_warmup_iterations": 300,
+          "iterations": 2000,
+          "optimizer_success": false,
+          "optimizer_message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+          "elapsed_s": 5.9677754340009415
+        }
+      ],
+      "image_sum": 0.9999999999999998,
+      "output_unit": "relative flux/pixel",
+      "absolute_flux_measured": false,
+      "absolute_position_measured": false,
+      "amplitude_constraints_available": true,
+      "centroid_constraint": "Weak penalty around display center; actual centroid reported; not measured astrometry",
+      "settings": {
+        "min_snr": 10.0,
+        "prior_fwhm_arcsec": 240.0,
+        "pixels": 32,
+        "pixel_arcsec": 16.0,
+        "starts": 3,
+        "max_iterations": 2000,
+        "seed": 21
+      },
+      "noise_model": "Fixed observed high SNR independent-baseline covariance, full within each closure cell",
+      "likelihood_limit": "Wrapped local Gaussian phase residual; low SNR and phase branch boundaries excluded",
+      "input_sha256": "c78daf150aeb7a0c0ab2a532f58fc1fed30a0ab7ddbff0b53dc98cbe924da6a2",
+      "input_unit": "ADC^2"
+    },
+    "absolute_flux_measured": false,
+    "absolute_position_measured": false
+  },
+  "metrics": {
+    "raw_nrmse": 0.35622333098569414,
+    "registered_nrmse": 0.3399265149162324,
+    "registered_correlation": 0.935208382940105,
+    "registration_shift_yx_arcsec": [
+      16.000068722730315,
+      -6.44422545888646
+    ],
+    "common_beam_arcsec": 110.0,
+    "comparison": "Unit-flux gauge, Gaussian common beam, explicit translation only; no calibrated Jy or astrometry"
+  },
+  "limits": "Sparse short VDIF records, not continuous 4h exposure; assumed SEFD; midpoint narrowband sky; Gaussian closure/filtered-noise approximation; truth absent from prior; no real RTL-SDR/Cas A observation"
+}

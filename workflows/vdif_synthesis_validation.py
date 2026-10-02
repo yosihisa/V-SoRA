@@ -17,15 +17,18 @@ from vsora_imaging.experiment import compare_relative
 from workflows.compare_arrays import layout
 
 
-def extended_fixture(output,start_utc,seed=24,model='casa',sefd_jy=10000.):
+def extended_fixture(output,start_utc,seed=24,model='casa',sefd_jy=10000.,frame_count=520):
+    if not isinstance(frame_count,int) or not 520<=frame_count<=1520:raise ValueError('extended fixture frame count must be 520..1520')
     out=Path(output);out.mkdir(parents=True,exist_ok=False)
     c=load_config(Path(__file__).resolve().parents[1]/'configs/experiments/ideal-point.json')
-    c['source']['model']=model;c['image']['pixels']=32;c['observation'].update(start_utc=start_utc,duration_s=1.04,integration_s=.004)
+    c['source']['model']=model;c['image']['pixels']=32;c['observation'].update(start_utc=start_utc,duration_s=frame_count*.002,integration_s=.004)
     c['stations']=[{'id':f'ST{i+1:02d}','enu_m':p,'sefd_jy':sefd_jy} for i,p in enumerate(layout(8,'spread'))]
     from vsora_observation import validate_config
     c=validate_config(c)
-    sky_image=synthetic_sky(c);fs=2048000;fc=1.42e9;ns=520*4096;span=ns/fs
-    origin=Time(start_utc);g=geometry_at_times(c,origin+np.array([0,.5,span])*u.s,filter_elevation=False)
+    sky_image=synthetic_sky(c);fs=2048000;fc=1.42e9;ns=frame_count*4096;span=ns/fs
+    origin=Time(start_utc);g=geometry_at_times(c,origin+np.array([0,span/2,span])*u.s,filter_elevation=False)
+    edges=np.linspace(0,span,max(1,int(np.ceil(span)))+1)
+    delay_geometry=geometry_at_times(c,origin+edges*u.s,filter_elevation=False)['station_delay_s']
     p=g['pairs'];visibility=direct_visibility(g['uvw_lambda'][1],sky_image,16)
     covariance=np.eye(8,dtype=complex)*(1000+sefd_jy)
     covariance[p[:,0],p[:,1]]=visibility;covariance[p[:,1],p[:,0]]=visibility.conj()
@@ -41,7 +44,7 @@ def extended_fixture(output,start_utc,seed=24,model='casa',sefd_jy=10000.):
     gains=np.exp(rng.uniform(-1.4,1.4,8)+1j*rng.uniform(-np.pi,np.pi,8))
     t=np.arange(ns)/fs;stations=[];clocks=[]
     for i in range(8):
-        delay=np.interp(t,[0,span],g['station_delay_s'][[0,2],i])
+        delay=np.interp(t,edges,delay_geometry[:,i])
         x=np.fft.ifft(spectrum[i]*np.exp(2j*np.pi*frequency*g['station_delay_s'][1,i]))
         x*=gains[i]*np.exp(2j*np.pi*(fc*delay+rates[i]*t))
         scale=2*np.sqrt(np.mean(abs(x)**2)/2);name=f'station-{i+1}.vdif'
@@ -60,10 +63,14 @@ def extended_fixture(output,start_utc,seed=24,model='casa',sefd_jy=10000.):
     return sky_image,rates,{'model':model,'assumed_flux_jy':1000.,'assumed_sefd_jy':sefd_jy,'input_span_s':span,
         'station_rates_hz':rates.tolist(),'seed':seed,'fft_length':8,'useful_rf_channel_centers':3,
         'narrowband_phase_bound_rad':float(2*np.pi*np.linalg.norm(g['uvw_lambda'][1],axis=1).max()*200*np.pi/(180*3600)*(.25*fs/fc)),
-        'limits':'Continuous periodic colored Gaussian with midpoint sky covariance at center RF; supplied exact nominal clocks; fixed broadband station delay, linear RF geometry and LO rate; no real antenna or RFI'}
+        'sky_temporal_phase_bound_rad':float(2*np.pi*np.linalg.norm(g['uvw_lambda'][1],axis=1).max()*200*np.pi/(180*3600)*7.292115e-5*span/2),
+        'limits':'Continuous periodic colored Gaussian with midpoint sky covariance at center RF; supplied exact nominal clocks; fixed broadband station delay, piecewise RF geometry and constant LO rate; no real antenna or RFI'}
 
 
-def run(output,snapshots=8,model='casa',sefd_jy=10000.):
+def run(output,snapshots=8,model='casa',sefd_jy=10000.,integration_s=1.):
+    if integration_s not in (.3,1.,3.):raise ValueError('extended VDIF exposure must be .3, 1 or 3 seconds')
+    frame_count=1520 if integration_s==3. else 520
+    pilot_integrations=750 if integration_s==3. else 250
     if not isinstance(snapshots,int) or not 4<=snapshots<=16:raise ValueError('reference synthesis requires 4..16 snapshots')
     out=Path(output)
     if out.exists():raise FileExistsError('new output required')
@@ -72,10 +79,10 @@ def run(output,snapshots=8,model='casa',sefd_jy=10000.):
     for i,offset in enumerate(offsets):
         shot=out/f'shot-{i:02d}';shot.mkdir()
         start=(origin+offset*u.s).isot+'Z'
-        truth,rates,generating=extended_fixture(shot/'input',start,24+i,model,sefd_jy)
+        truth,rates,generating=extended_fixture(shot/'input',start,24+i,model,sefd_jy,frame_count)
         try:
             result=process_closure_session(shot/'input/manifest.json',shot/'input/clock.json',shot/'pipeline',
-                        pilot_integrations=250,integration_s=1.,starts=1,max_iterations=100)
+                        pilot_integrations=pilot_integrations,integration_s=integration_s,starts=1,max_iterations=100)
         except Exception as exc:
             (out/'failure.json').write_text(json.dumps({'state':'incomplete','failed_snapshot':i,
                 'completed_snapshots':len(shots),'error_type':type(exc).__name__,
@@ -92,7 +99,7 @@ def run(output,snapshots=8,model='casa',sefd_jy=10000.):
     recovered=np.load(out/'synthesis/rml/relative-model.npy')
     metrics,a,b,registered=compare_relative(truth,recovered,16)
     summary={'type':'vdif_closure_synthesis_validation','snapshots':snapshots,'observation_span_s':14400,
-          'coherent_integration_s':1.,'recorded_exposure_per_station_s':float(snapshots),
+          'coherent_integration_s':integration_s,'recorded_exposure_per_station_s':float(snapshots)*integration_s,
           'shots':shots,'synthesis':result,'metrics':metrics,
           'limits':'Sparse short VDIF records, not continuous 4h exposure; assumed SEFD; midpoint narrowband sky; Gaussian closure/filtered-noise approximation; truth absent from prior; no real RTL-SDR/Cas A observation'}
     (out/'summary.json').write_text(json.dumps(summary,indent=2)+'\n')
@@ -110,5 +117,6 @@ def run(output,snapshots=8,model='casa',sefd_jy=10000.):
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--output',required=True);p.add_argument('--snapshots',type=int,default=8)
     p.add_argument('--model',choices=['casa','shell'],default='casa');p.add_argument('--sefd-jy',type=float,default=10000.)
-    a=p.parse_args();s=run(a.output,a.snapshots,a.model,a.sefd_jy)
+    p.add_argument('--integration-s',type=float,default=1.,choices=[.3,1.,3.])
+    a=p.parse_args();s=run(a.output,a.snapshots,a.model,a.sefd_jy,a.integration_s)
     print(json.dumps({'metrics':s['metrics'],'closure_chisq_per_measurement':s['synthesis']['rml']['closure_chisq_per_measurement']},indent=2))

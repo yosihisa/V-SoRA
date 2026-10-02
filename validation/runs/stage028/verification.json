@@ -1,0 +1,6 @@
+{
+  "source_tests": 130,
+  "warnings": 3034,
+  "minimum_calculated_residual_rate_coherence": 0.991370860834554,
+  "scope": "Constant residual-rate calculation from generating truth, not measured OCXO coherence. Packaged libraries unchanged from Stage027 wheel."
+}

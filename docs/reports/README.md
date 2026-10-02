@@ -46,4 +46,6 @@
 
 | 027 | [3秒pilot・分割幾何](027-three-second-pilot.md) | source130件成功。4局3秒VDIFとGUI、rate誤差0.0015Hz。実OCXO安定時間は未測定 |
 
+| 028 | [Cas Aの3秒合成・低感度](028-casa-three-second-sensitivity.md) | source130件成功。8時刻処理完了、形状誤差34〜37%で画像の良好復元は未確認 |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。

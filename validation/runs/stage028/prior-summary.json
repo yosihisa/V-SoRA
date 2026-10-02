@@ -1,0 +1,54 @@
+{
+  "input_spectral_sha256": "c78daf150aeb7a0c0ab2a532f58fc1fed30a0ab7ddbff0b53dc98cbe924da6a2",
+  "rows": [
+    {
+      "prior_fwhm_arcsec": 240.0,
+      "metrics": {
+        "raw_nrmse": 0.35622333098569414,
+        "registered_nrmse": 0.3399265149162324,
+        "registered_correlation": 0.935208382940105,
+        "registration_shift_yx_arcsec": [
+          16.000068722730315,
+          -6.44422545888646
+        ],
+        "common_beam_arcsec": 110.0,
+        "comparison": "Unit-flux gauge, Gaussian common beam, explicit translation only; no calibrated Jy or astrometry"
+      },
+      "closure_chisq_per_measurement": 0.5740427524900006,
+      "selected_optimizer_success": false
+    },
+    {
+      "prior_fwhm_arcsec": 160.0,
+      "metrics": {
+        "raw_nrmse": 0.46928745755787815,
+        "registered_nrmse": 0.35466931008463853,
+        "registered_correlation": 0.9222971984454736,
+        "registration_shift_yx_arcsec": [
+          48.00000000008623,
+          -47.999974153612584
+        ],
+        "common_beam_arcsec": 110.0,
+        "comparison": "Unit-flux gauge, Gaussian common beam, explicit translation only; no calibrated Jy or astrometry"
+      },
+      "closure_chisq_per_measurement": 0.5837405545774786,
+      "selected_optimizer_success": false
+    },
+    {
+      "prior_fwhm_arcsec": 320.0,
+      "metrics": {
+        "raw_nrmse": 0.5414208406408906,
+        "registered_nrmse": 0.3661457806166113,
+        "registered_correlation": 0.9197063025011192,
+        "registration_shift_yx_arcsec": [
+          64.00000000021686,
+          -63.99998123647293
+        ],
+        "common_beam_arcsec": 110.0,
+        "comparison": "Unit-flux gauge, Gaussian common beam, explicit translation only; no calibrated Jy or astrometry"
+      },
+      "closure_chisq_per_measurement": 0.5699693167932549,
+      "selected_optimizer_success": false
+    }
+  ],
+  "limits": "Same noisy data; truth used only for comparison. Gaussian prior changed, not statistical confidence intervals or real-device sensitivity."
+}
