@@ -1,0 +1,28 @@
+# Python / tooling
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+
+# Large recordings and generated work products; keep provenance in reports.
+/data/raw/
+/data/generated/
+/outputs/
+/work/
+*.vdif
+*.sigmf-data
+*.ms/
+
+# Local environment and editor files
+.env
+.env.*
+!.env.example
+.vscode/
+.idea/
+*.partial
