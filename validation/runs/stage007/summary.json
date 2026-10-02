@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "stations": 8,
+  "channels": 64,
+  "time_samples": 64,
+  "time_step_s": 0.02,
+  "duration_span_s": 1.26,
+  "frequency_step_hz": 32000,
+  "delay_alias_period_s": 3.125e-05,
+  "rate_alias_period_hz": 50,
+  "calibrator": "Known 1000 Jy phase-center point, separate synthetic observation",
+  "target": "Cas A template, identical stable receiver response over this interval",
+  "results": [
+    {
+      "seed": 300,
+      "sigma_per_component_jy": 100.0,
+      "delay_max_error_s": 4.125570997920745e-10,
+      "rate_max_error_hz": 0.0008023364692029133,
+      "amplitude_max_relative_error": 0.0014309719134846244,
+      "before_averaged_visibility_relative_error": 1.0007480779070153,
+      "after_averaged_visibility_relative_error": 0.009891180183008821,
+      "fit_relative_residual": 0.14411853197605165
+    },
+    {
+      "seed": 301,
+      "sigma_per_component_jy": 100.0,
+      "delay_max_error_s": 4.982527813627441e-10,
+      "rate_max_error_hz": 0.000540563222047652,
+      "amplitude_max_relative_error": 0.0009217399044147978,
+      "before_averaged_visibility_relative_error": 1.004342297513627,
+      "after_averaged_visibility_relative_error": 0.01008093401306371,
+      "fit_relative_residual": 0.1438156098190242
+    },
+    {
+      "seed": 302,
+      "sigma_per_component_jy": 100.0,
+      "delay_max_error_s": 4.280037006953728e-10,
+      "rate_max_error_hz": 0.0003754922564263019,
+      "amplitude_max_relative_error": 0.00137486127601405,
+      "before_averaged_visibility_relative_error": 1.0024999608087346,
+      "after_averaged_visibility_relative_error": 0.012028121858691147,
+      "fit_relative_residual": 0.143764978332784
+    },
+    {
+      "seed": 303,
+      "sigma_per_component_jy": 100.0,
+      "delay_max_error_s": 2.660208141458379e-10,
+      "rate_max_error_hz": 0.000524866031990312,
+      "amplitude_max_relative_error": 0.0012598179732595804,
+      "before_averaged_visibility_relative_error": 1.0022506690309385,
+      "after_averaged_visibility_relative_error": 0.009030622553123004,
+      "fit_relative_residual": 0.14334790737542727
+    },
+    {
+      "seed": 304,
+      "sigma_per_component_jy": 100.0,
+      "delay_max_error_s": 2.4862003461843747e-10,
+      "rate_max_error_hz": 0.0005167775897150229,
+      "amplitude_max_relative_error": 0.00047067454772198314,
+      "before_averaged_visibility_relative_error": 1.001498670745719,
+      "after_averaged_visibility_relative_error": 0.011272887495134762,
+      "fit_relative_residual": 0.14361757655247046
+    }
+  ],
+  "limitations": [
+    "Analytic visibility errors, not continuous IQ in this stage",
+    "No calibration transfer across different times/directions",
+    "Flux known, constant gain/delay/rate, stationary geometry"
+  ]
+}

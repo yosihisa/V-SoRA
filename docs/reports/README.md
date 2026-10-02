@@ -11,5 +11,6 @@
 | 004 | [VDIF・FX相関](004-vdif-fx.md) | 30件成功。短時間IQの量子化・遅延・相関を検証 |
 | 005 | [IQから画像まで](005-iq-to-image.md) | 33件成功。8局・16snapshotをVDIF→IDI候補→画像へ接続 |
 | 006 | [CASA独立互換確認](006-casa-compatibility.md) | 33件成功。共役を修正、偏心点源の位置・振幅と重みを確認 |
+| 007 | [未知の局応答の較正](007-fringe-calibration.md) | 39件成功。5seedで別Cas A観測のvisibility誤差0.9～1.2% |
 
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。
