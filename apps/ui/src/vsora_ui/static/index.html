@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>V-SoRA 観測解析</title>
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/style.css">
+  <script defer src="/assets/app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div><span class="brand">V-SoRA</span><span class="brand-sub">観測解析</span></div>
+    <div class="connection"><span class="dot"></span><span id="connection">接続を確認しています</span></div>
+  </header>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="nav-caption">作業を選ぶ</div>
+      <nav aria-label="作業メニュー">
+        <button class="nav-button active" data-panel="simulation">模擬観測</button>
+        <button class="nav-button" data-panel="validation">動作検証</button>
+        <button class="nav-button" data-panel="history">実行履歴</button>
+        <button class="nav-button" data-panel="help">使い方</button>
+      </nav>
+      <div class="sidebar-note"><strong>1.42 GHz / 最大600 m</strong><p>Cas Aの観測に向けて、条件と結果を一つずつ確認します。</p></div>
+    </aside>
+    <main>
+      <div id="message" class="message hidden" role="alert"></div>
+      <section id="panel-simulation" class="panel">
+        <div class="page-heading"><div class="eyebrow">SIMULATION</div><h1>模擬観測から画像を作る</h1><p>正解がわかっている天体を使い、局の配置・観測時間・雑音による違いを調べます。</p></div>
+        <div class="two-column">
+          <form id="simulation-form" class="card">
+            <div class="card-heading"><h2>観測条件</h2><span class="pill">仮想観測</span></div>
+            <label>天体モデル<select name="model"><option value="point">点源 — 位置と明るさの基本確認</option><option value="double">二つの点源 — 分離の確認</option><option value="shell">環状の天体 — 広がった構造</option><option value="casa">Cas A — 参照画像の形状</option></select></label>
+            <div class="form-row"><label>局数<select name="stations"><option value="8">8局（28基線）</option><option value="4">4局（6基線）</option></select></label><label>配置<select name="layout"><option value="spread">二次元・短い基線を含む</option><option value="line">直線</option><option value="ring">円周</option></select></label></div>
+            <div class="form-row"><label>観測時間 <span class="unit">秒</span><input name="duration_s" type="number" value="3600" min="60" max="14400" step="60" required></label><label>積分時間 <span class="unit">秒</span><input name="integration_s" type="number" value="120" min="5" max="600" required></label></div>
+            <p class="field-help">観測時間は積分時間の整数倍にします。長く観測すると投影基線が変化し、測る空間周波数が増えます。</p>
+            <div class="form-row"><label>天体の総flux <span class="unit">Jy</span><input name="flux_jy" type="number" value="1000" min="0.01" max="10000000" step="any" required></label><label>各局のSEFD <span class="unit">Jy</span><input name="sefd_jy" type="number" value="10000" min="1" max="1000000000" step="any" required></label></div>
+            <label class="check-label"><input name="noise" type="checkbox">受信機雑音を加える</label>
+            <p class="field-help">SEFDが大きいほど感度が低くなります。ここでの値は仮定です。</p>
+            <details><summary>固定条件と再現条件</summary><div class="detail-body"><p>RF 1.42 GHz、帯域2.048 MHz、最大基線600 m。仮想地点は北緯35°・東経135°。開始UTCは2026-10-02 08:00、画像は64×64・16秒角/画素です。</p><label>乱数seed<input name="seed" type="number" value="42" min="0" max="4294967295" required></label></div></details>
+            <button type="submit" class="primary full">模擬観測して画像化</button>
+          </form>
+          <div class="explanation-stack">
+            <div class="card"><h2>この処理で確かめること</h2><ol class="steps"><li><strong>正解の空を用意</strong><span>点源や参照画像から、明るさと位置を決めます。</span></li><li><strong>相関値を生成</strong><span>局の配置と地球自転から、測れるフーリエ成分を計算します。</span></li><li><strong>画像を復元・比較</strong><span>dirty画像とCLEAN結果を表示し、正解との差を測ります。</span></li></ol></div>
+            <div class="note-card"><h3>結果の適用範囲</h3><p>この画面は理想visibilityの模擬観測です。時計・LO・較正の誤差は動作検証で確認します。Cas Aの参照形状と1000 Jyの設定は、実観測を保証する値ではありません。</p></div>
+          </div>
+        </div>
+      </section>
+      <section id="panel-validation" class="panel hidden">
+        <div class="page-heading"><div class="eyebrow">VALIDATION</div><h1>動作検証を実行する</h1><p>正解がわかる入力で、重要な補正や検出が成立するかを確認します。実行条件と結果は履歴に残ります。</p></div>
+        <form id="validation-form" class="card narrow">
+          <h2>検証項目</h2>
+          <label>確認する処理<select name="validation"><option value="quality">周波数別雑音・連続波とパルスの妨害除外</option><option value="clock">sample開始差とADC時計のずれ</option><option value="fringe">未知の位相回転・二回の相関と較正</option><option value="basic">基本的な動作検証（自動試験）</option></select></label>
+          <p class="field-help">雑音・妨害の検証は、有限の模擬条件での誤flag数と相関誤差を確認します。実環境の検出率は別に測定する必要があります。</p>
+          <button type="submit" class="primary">検証を開始</button>
+        </form>
+      </section>
+      <section id="panel-history" class="panel hidden">
+        <div class="page-heading"><div class="eyebrow">RUNS</div><h1>実行履歴</h1><p>入力条件、処理の状態、画像、数値を確認できます。重い処理は一件ずつ実行します。</p></div>
+        <div class="history-grid"><div class="card history-list"><h2>記録した実行</h2><div id="job-list"><p class="muted">まだ実行がありません。</p></div></div><div id="job-detail" class="card"><div class="empty-state">左の一覧から実行を選んでください。</div></div></div>
+      </section>
+      <section id="panel-help" class="panel hidden">
+        <div class="page-heading"><div class="eyebrow">GUIDE</div><h1>使い方と結果の読み方</h1></div>
+        <div class="card prose"><h2>まず点源で試す</h2><p>「模擬観測」で点源を選び、そのまま開始します。処理が終わると実行履歴に画像と数値が表示されます。点源では、位置と明るさが正しく戻るかを見ます。その後、Cas A・局数・配置・雑音を変えて比較できます。</p><h2>画像の違い</h2><p>dirtyは相関値から直接作る画像、PSFは点源の応答、CLEAN modelは推定した天体成分、restoredは成分を表示用のbeamへ広げた画像です。modelはJy/pixel、dirty/restoredはJy/beamなので、画素の和を同じ意味で比べられません。</p><h2>数値を確認する</h2><p>NRMSEは正解との差の大きさで、小さいほどよい値です。相関係数は模様の似方、flux比は総明るさの一致を表します。比較では両画像を同じ110秒角beamに揃えます。CLEANの収束と天体の正しさは別に確認します。</p><h2>途中で中止した場合</h2><p>履歴の中止ボタンで処理を止められます。中止・失敗した入力と途中結果は残し、完了と区別します。条件を変えて再実行すると、別の実行として保存します。</p><h2>実観測に向けて</h2><p>VDIFに加え、sampleとUTCの対応、実sample rate、RF・局位置・偏波・欠損情報が必要です。生ADC値をそのままJyとしません。実際のRTL-SDRでCas Aを画像化する検証はこれからです。</p><p class="muted">詳しい原理・用語・条件は、リポジトリの docs/guide/ と段階レポートにあります。</p></div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

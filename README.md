@@ -28,6 +28,7 @@
 | `apps/simulator/` | 天体モデルから相関値・模擬IQを作る |
 | `apps/correlator/` | VDIFの読込み、時計補正、相関、較正 |
 | `apps/imaging/` | 較正済み相関値から画像を復元 |
+| `apps/ui/` | 日本語ブラウザ画面、実行状態・画像・結果の保存 |
 | `apps/recorder/` | Windows収録。現在は実装対象外 |
 | `packages/observation/`, `packages/formats/` | 共通条件・幾何計算・ファイル入出力 |
 | `interfaces/`, `configs/` | 入出力規約と公開の仮想観測設定 |
@@ -35,4 +36,14 @@
 | `docs/`, `validation/` | 説明・設計・段階レポート・小さい結果 |
 | `data/reference/` | 匿名化したCas A参照画像と出典 |
 
-日本語GUIは次段階で追加します。WSL上で処理を動かし、Windowsのブラウザから操作する構成を予定しています。
+## 日本語GUI
+
+[起動と操作](docs/guide/06-gui.md)を参照してください。WSL上で起動し、Windowsのブラウザから模擬観測・検証・実行履歴を操作します。
+
+```sh
+.user-venv/bin/pip install -r requirements/verified-ui-linux.txt
+.user-venv/bin/pip install --no-deps -e .
+.user-venv/bin/vsora-ui --workspace . --port 8765
+```
+
+収録データの解析とClosure＋RMLは後続段階で追加します。

@@ -1,0 +1,12 @@
+{
+  "family": "Noto Sans JP Thin",
+  "version": "Version 2.004-H2;hotconv 1.0.118;makeotfexe 2.5.65603",
+  "license": "SIL Open Font License 1.1",
+  "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/notosansjp/NotoSansJP%5Bwght%5D.ttf",
+  "source_sha256": "c2f3b4d463500a2ddcd3849cded1fceeb9fd6d1c32e6cbecd568453ba50fc68f",
+  "woff2_sha256": "fed93709b110d6b1a42f94d4743f4a0b912c84394b035bdaf50fef4f4a4fcd61",
+  "conversion": "fontTools TTFont flavor=woff2; full glyph set retained",
+  "license_source_sha256": "1c05c68c34f9708415aada51f17e1b0092d2cea709bf4a94cd38114f9e73d7d9",
+  "license_file_sha256": "babcfe66c8a098b2fa279bc724a3a342f8124f77ce18941fbcc1bbb39823cded",
+  "license_text_note": "Trailing spaces removed; license wording unchanged"
+}

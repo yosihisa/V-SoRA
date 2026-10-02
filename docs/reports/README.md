@@ -28,4 +28,6 @@
 
 | 018 | [学部生向け文書](018-undergraduate-documentation.md) | 原理・用語・結果の意味を整理。リンク切れ0、点源手順を再実行 |
 
+| 019 | [日本語ブラウザGUI](019-japanese-browser-gui.md) | 90件成功。Chromium実操作・日本語font・画像表示・中止・wheelを確認 |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。

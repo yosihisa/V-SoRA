@@ -5,6 +5,8 @@ possible personal detail. No unknown value is printed when a match is found.
 """
 from pathlib import Path
 import re
+import hashlib
+import json
 import subprocess
 import sys
 
@@ -22,6 +24,13 @@ def audit():
                 text = "\n".join(str(h.header) for h in hdus)
                 if any(k in h.header for h in hdus for k in ("OBSERVER", "AUTHOR")):
                     failures.append((name, "personal FITS fields"))
+        elif p.suffix=='.woff2':
+            provenance=p.parent/'provenance.json'
+            if name!='apps/ui/src/vsora_ui/static/fonts/NotoSansJP.woff2' or not provenance.is_file():
+                failures.append((name,'unreviewed font'))
+            elif hashlib.sha256(p.read_bytes()).hexdigest()!=json.loads(provenance.read_text())['woff2_sha256'] or not (p.parent/'OFL.txt').is_file():
+                failures.append((name,'font provenance/license differs'))
+            continue
         elif p.suffix in (".png", ".npz", ".pdf"):
             continue
         else:
