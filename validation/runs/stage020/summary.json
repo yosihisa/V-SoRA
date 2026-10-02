@@ -1,0 +1,92 @@
+{
+  "type": "closure_validation",
+  "station_gain_invariance": {
+    "phase_max_error_rad": 1.3322676295501878e-15,
+    "logamp_max_error": 8.881784197001252e-16
+  },
+  "high_snr_covariance": {
+    "phase": {
+      "relative_frobenius_error": 0.009240298088645156,
+      "independent_count": 3,
+      "covariance": [
+        [
+          0.00030000000000000003,
+          0.0001,
+          0.0001
+        ],
+        [
+          0.0001,
+          0.00030000000000000003,
+          -0.0001
+        ],
+        [
+          0.0001,
+          -0.0001,
+          0.00030000000000000003
+        ]
+      ]
+    },
+    "logamp": {
+      "relative_frobenius_error": 0.006030097798966664,
+      "independent_count": 2,
+      "covariance": [
+        [
+          0.0004,
+          0.0002
+        ],
+        [
+          0.0002,
+          0.0004
+        ]
+      ]
+    }
+  },
+  "finite_integration_calculation": [
+    {
+      "integration_s": 0.128,
+      "minimum_coherence": 0.7882674323179106,
+      "maximum_abs_closure_phase_rad": 1.1102230246251565e-16,
+      "maximum_abs_logcamp_bias": 0.24955979661595906
+    },
+    {
+      "integration_s": 0.3,
+      "minimum_coherence": 0.14530586191504546,
+      "maximum_abs_closure_phase_rad": 4.440892098500626e-16,
+      "maximum_abs_logcamp_bias": 2.0013273848521838
+    },
+    {
+      "integration_s": 1.0,
+      "minimum_coherence": 0.010094365214543832,
+      "maximum_abs_closure_phase_rad": 3.141592653589793,
+      "maximum_abs_logcamp_bias": 1.9676293130969906
+    },
+    {
+      "integration_s": 3.0,
+      "minimum_coherence": 0.004974306043336137,
+      "maximum_abs_closure_phase_rad": 3.141592653589792,
+      "maximum_abs_logcamp_bias": 0.2864668509824635
+    }
+  ],
+  "actual_iq_fx": {
+    "sample_rate_hz": 2048000.0,
+    "integration_s": 0.3,
+    "samples_per_station": 614400,
+    "station_rates_hz": [
+      0.0,
+      1.31,
+      -0.67,
+      2.23
+    ],
+    "analytic_factor_max_error": 0.0008542364646670603,
+    "uncorrected_max_logcamp_bias": 2.0063136375494564,
+    "corrected_max_logcamp_error": 3.3306690738754696e-16,
+    "corrected_max_phase_error_rad": 4.440892098500626e-16,
+    "rate_source": "Supplied generating rates; blind estimation NOT tested",
+    "signal": "Strong shared complex Gaussian, no independent receiver noise, constant gain/bandpass"
+  },
+  "residual_rate_for_at_least_90pct_coherence_hz": {
+    "0.3s": 0.8333333333333334,
+    "3s": 0.08333333333333333
+  },
+  "limits": "High SNR independent baseline Gaussian covariance only; no RTL-SDR/OCXO measurement or RML recovery"
+}

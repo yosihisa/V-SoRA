@@ -43,7 +43,7 @@
           </form>
           <div class="explanation-stack">
             <div class="card"><h2>この処理で確かめること</h2><ol class="steps"><li><strong>正解の空を用意</strong><span>点源や参照画像から、明るさと位置を決めます。</span></li><li><strong>相関値を生成</strong><span>局の配置と地球自転から、測れるフーリエ成分を計算します。</span></li><li><strong>画像を復元・比較</strong><span>dirty画像とCLEAN結果を表示し、正解との差を測ります。</span></li></ol></div>
-            <div class="note-card"><h3>結果の適用範囲</h3><p>この画面は理想visibilityの模擬観測です。時計・LO・較正の誤差は動作検証で確認します。Cas Aの参照形状と1000 Jyの設定は、実観測を保証する値ではありません。</p></div>
+            <div class="note-card"><h3>結果の適用範囲</h3><p>この画面はCLEAN比較用の理想visibilityです。長い積分設定は理想条件の比較に限ります。実観測は数百ms〜数秒の積分とClosure＋RMLを想定します。時計・LO・較正の誤差は動作検証で確認します。Cas Aの参照形状と1000 Jyの設定は、実観測を保証する値ではありません。</p></div>
           </div>
         </div>
       </section>
@@ -51,7 +51,7 @@
         <div class="page-heading"><div class="eyebrow">VALIDATION</div><h1>動作検証を実行する</h1><p>正解がわかる入力で、重要な補正や検出が成立するかを確認します。実行条件と結果は履歴に残ります。</p></div>
         <form id="validation-form" class="card narrow">
           <h2>検証項目</h2>
-          <label>確認する処理<select name="validation"><option value="quality">周波数別雑音・連続波とパルスの妨害除外</option><option value="clock">sample開始差とADC時計のずれ</option><option value="fringe">未知の位相回転・二回の相関と較正</option><option value="basic">基本的な動作検証（自動試験）</option></select></label>
+          <label>確認する処理<select name="validation"><option value="closure">Closureの局誤差不変性・短積分の周波数差</option><option value="quality">周波数別雑音・連続波とパルスの妨害除外</option><option value="clock">sample開始差とADC時計のずれ</option><option value="fringe">未知の位相回転・二回の相関と較正</option><option value="basic">基本的な動作検証（自動試験）</option></select></label>
           <p class="field-help">雑音・妨害の検証は、有限の模擬条件での誤flag数と相関誤差を確認します。実環境の検出率は別に測定する必要があります。</p>
           <button type="submit" class="primary">検証を開始</button>
         </form>

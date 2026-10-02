@@ -73,7 +73,7 @@ def run(job):
             phase('検証を実行しています')
             runner=workspace/'tools/run.py'
             if not runner.is_file(): raise ValueError('validation requires project checkout')
-            modules={'quality':'workflows.spectral_quality_validation','clock':'workflows.clock_validation','fringe':'workflows.iq_fringe'}
+            modules={'closure':'workflows.closure_validation','quality':'workflows.spectral_quality_validation','clock':'workflows.clock_validation','fringe':'workflows.iq_fringe'}
             if request.validation=='basic':
                 subprocess.run([sys.executable,str(runner),'pytest','-q'],cwd=workspace,check=True)
                 write_json(job/'summary.json',{'type':'validation','validation':'basic','status':'passed',

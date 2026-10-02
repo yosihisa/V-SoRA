@@ -29,7 +29,7 @@ class SimulationRequest(Request):
 
 class ValidationRequest(Request):
     kind:Literal['validation']='validation'
-    validation:Literal['quality','clock','fringe','basic']='quality'
+    validation:Literal['closure','quality','clock','fringe','basic']='quality'
 
 
 JobRequest=Annotated[SimulationRequest|ValidationRequest,Field(discriminator='kind')]

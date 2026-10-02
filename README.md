@@ -47,3 +47,7 @@
 ```
 
 収録データの解析とClosure＋RMLは後続段階で追加します。
+
+## 実観測の画像化方針
+
+高精度な局の利得較正ができない前提で、数百ms〜数秒の相関とClosure＋RMLを主経路にします。局間の周波数差とsample整列は別に扱います。[Closureの設計](docs/design/closure-rml-plan.md)に条件・限界・開発順を記載します。

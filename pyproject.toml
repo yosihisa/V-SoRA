@@ -17,6 +17,7 @@ gui = ["fastapi>=0.115,<1", "uvicorn>=0.30,<1", "httpx>=0.27,<1"]
 [project.scripts]
 vsora-simulate = "vsora_simulator.__main__:main"
 vsora-image = "vsora_imaging.__main__:main"
+vsora-closure = "vsora_imaging.closure:main"
 vsora-correlate = "vsora_correlator.__main__:main"
 vsora-ui = "vsora_ui.__main__:main"
 

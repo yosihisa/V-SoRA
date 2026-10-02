@@ -30,4 +30,6 @@
 
 | 019 | [日本語ブラウザGUI](019-japanese-browser-gui.md) | 90件成功。Chromium実操作・日本語font・画像表示・中止・wheelを確認 |
 
+| 020 | [Closure・短積分の周波数差](020-closure-short-integration.md) | 98件成功。局利得不変性、独立共分散、0.3秒IQのLO損失と補正 |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。
