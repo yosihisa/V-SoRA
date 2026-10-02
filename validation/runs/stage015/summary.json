@@ -1,0 +1,15 @@
+{
+  "stage": 15,
+  "tests_passed": 68,
+  "warnings": 745,
+  "warning_origin": "Baseband payload shape assignment deprecated by NumPy 2.5",
+  "subframe_test": {
+    "sample_rate_hz": 2048000,
+    "vdif_samples_per_frame": 4096,
+    "integration_samples": 2048,
+    "integration_s": 0.001,
+    "integrations": 64,
+    "max_voltage_buffer_samples_per_station": 4096
+  },
+  "validation": "Synthetic data and automated regression; real receiver input untested"
+}

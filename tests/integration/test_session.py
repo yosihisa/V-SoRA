@@ -83,3 +83,14 @@ def test_rate_composition_with_different_phase_reference(tmp_path):
     np.testing.assert_allclose(np.exp(1j*np.array(combined['phase_rad'])),np.exp(1j*np.array(base['phase_rad'])),atol=1e-6)
     apply_shard(tmp_path/'shifted.npz',tmp_path/'combined.json',tmp_path/'applied')
     np.testing.assert_allclose(read_fitsidi(tmp_path/'applied/visibility.fits')['vis_jy'].mean(axis=0),1000,rtol=.002)
+
+
+def test_subframe_one_millisecond_integrations(tmp_path):
+    m=prepare(tmp_path);m['blocks_per_integration']=16;m['integrations_per_shard']=64
+    (tmp_path/'session.json').write_text(json.dumps(m))
+    result=correlate_session(tmp_path/'session.json',tmp_path/'short')
+    d=load_spectral(tmp_path/'short/shard-00000.npz')
+    assert result['integrations']==64 and result['integration_s']==.001
+    np.testing.assert_allclose(np.diff(d['times_s']),.001,rtol=0,atol=1e-15)
+    assert result['voltage_buffer_samples_per_station']==4096
+    assert np.all(d['integration_s']==.001)

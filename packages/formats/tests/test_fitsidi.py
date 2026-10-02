@@ -1,5 +1,6 @@
 from pathlib import Path
 import numpy as np
+import pytest
 from astropy.io import fits
 from astropy.coordinates import SkyCoord,FK5
 from astropy.time import Time
@@ -37,3 +38,12 @@ def test_idi_roundtrip_and_independent_conventions(tmp_path):
         assert hdus['SOURCE'].data['EQUINOX'][0]=='J2000'
         xyz=ag.data['STABXYZ']+np.array([ag.header[k] for k in ['ARRAYX','ARRAYY','ARRAYZ']])
         np.testing.assert_allclose(xyz,g['station_ecef_m'],atol=1e-9)
+
+
+def test_float32_overflow_is_rejected_before_writing(tmp_path):
+    root=Path(__file__).resolve().parents[3]
+    c=load_config(root/'configs/experiments/ideal-point.json');g=observation_geometry(c)
+    shape=g['uvw_lambda'].shape[:-1];path=tmp_path/'overflow.fits'
+    with pytest.raises(ValueError,match='float32'):
+        write_fitsidi(path,g,np.ones(shape)*1e40,np.ones(shape),c)
+    assert not path.exists()

@@ -51,6 +51,7 @@ class SampleBuffer:
 
 def correlate_aligned(manifest,clock_model,output,integrations,start_offset_s=.002):
     c=load_session(manifest);config=c['_config'];fs=c['sample_rate_hz']
+    if not c['phase_center_correction']: raise ValueError('aligned mode requires explicit phase-center correction')
     ns=c['fft_length']*c['blocks_per_integration'];span=ns*integrations/fs
     if not isinstance(integrations,int) or not 8<=integrations<=256 or span>1:
         raise ValueError('aligned reference chunk requires 8..256 integrations and <=1 second')

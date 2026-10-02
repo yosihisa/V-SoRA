@@ -22,8 +22,9 @@ def load_session(path):
     for k in ('sample_rate_hz','fft_length','blocks_per_integration','integrations_per_shard'):
         if not isinstance(c[k],int) or isinstance(c[k],bool) or c[k]<=0: raise ValueError('positive session integers required')
     if c['fft_length']<8 or c['integrations_per_shard']>256: raise ValueError('unsupported FFT/shard dimensions')
-    if c['sample_rate_hz']%4096 or (c['fft_length']*c['blocks_per_integration'])%4096:
-        raise ValueError('session requires 4096-sample EDV0 frames and whole-frame integrations')
+    size=c['fft_length']*c['blocks_per_integration']
+    if c['sample_rate_hz']%4096 or (size%4096 and 4096%size):
+        raise ValueError('integration must contain whole frames or divide a 4096-sample frame')
     if c['voltage_unit'] not in ('ADC','sqrt(Jy)') or not isinstance(c['phase_center_correction'],bool):
         raise ValueError('explicit voltage unit and phase-center bool required')
     config=load_config(p.parent/c['observation_config'])
@@ -91,8 +92,10 @@ def correlate_session(manifest,output,rate_calibration=None,allow_extrapolation=
                 if abs((first-Time(config['observation']['start_utc'])).to_value(u.s))>1e-7:
                     raise ValueError('configured UTC start and VDIF start differ')
             for i,f in enumerate(frames): buffers[i].append(f['data']);masks[i].append(f['valid'])
-            if len(buffers[0])*4096==ns:
-                x=np.array([np.concatenate(b) for b in buffers]);ok=np.array([np.concatenate(b) for b in masks])
+            available=sum(len(b) for b in buffers[0])
+            while available>=ns:
+                joined=np.array([np.concatenate(b) for b in buffers]);all_valid=np.array([np.concatenate(b) for b in masks])
+                x=joined[:,:ns];ok=all_valid[:,:ns]
                 offset=processed*ns/fs
                 if cal:
                     if not allow_extrapolation and (offset<cal['time_range_s'][0]-ns/fs or offset+ns/fs>cal['time_range_s'][1]+ns/fs):
@@ -101,7 +104,10 @@ def correlate_session(manifest,output,rate_calibration=None,allow_extrapolation=
                 pending.append(fx_correlate_series(x,fs,c['fft_length'],c['blocks_per_integration'],
                                config['observation']['frequency_hz'],valid=ok,time_offset_s=offset))
                 processed+=1
-                for b in buffers+masks: b.clear()
+                available-=ns
+                for i in range(len(buffers)):
+                    buffers[i]=[joined[i,ns:]] if available else []
+                    masks[i]=[all_valid[i,ns:]] if available else []
                 if len(pending)==c['integrations_per_shard']: flush()
         if buffers[0]: raise ValueError('trailing partial integration; change integration size')
         flush()
@@ -110,7 +116,7 @@ def correlate_session(manifest,output,rate_calibration=None,allow_extrapolation=
                  'sample_count_per_station':processed*ns,'recorded_span_s':processed*ns/fs,'shards':shards,
                  'sample_rate_hz':fs,'fft_length':c['fft_length'],'integration_s':ns/fs,
                  'visibility_unit':'Jy' if c['voltage_unit']=='sqrt(Jy)' else 'ADC^2',
-                 'voltage_buffer_samples_per_station':ns,'spectral_buffer_integrations':c['integrations_per_shard'],
+                 'voltage_buffer_samples_per_station':max(ns,4096),'spectral_buffer_integrations':c['integrations_per_shard'],
                  'limitations':['Strict matching frame timestamps; no automatic gap filling or clock resampling',
                                 'Midpoint phase-only geometric correction; finite-FFT delay loss not removed',
                                 'Approximate total-power noise weights, no RFI or bandpass calibration']}

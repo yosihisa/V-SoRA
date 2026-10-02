@@ -110,7 +110,11 @@ def write_fitsidi(path,geometry,vis,weights,config,metadata=None,integration_s=N
     # the initial unconjugated profile roundtripped locally but mirrored in CASA.
     stored=v.conj().transpose(0,2,1).reshape(rows,nchan) if spectral else v.conj().reshape(rows,1)
     matrix_weights=w.transpose(0,2,1).reshape(rows,nchan) if spectral else w.reshape(rows,1)
-    flux=np.stack([stored.real,stored.imag,matrix_weights],axis=-1).reshape(rows,nchan*3).astype('float32')
+    flux=np.stack([stored.real,stored.imag,matrix_weights],axis=-1).reshape(rows,nchan*3)
+    if np.any(abs(flux)>np.finfo('float32').max):
+        raise ValueError('visibility/weights exceed FITS float32 range')
+    flux=flux.astype('float32')
+    if not np.isfinite(flux).all(): raise ValueError('visibility/weights exceed FITS float32 range')
     # Memo 114 baseline = first-second; internal baseline = second-first.
     seconds=-uvw.reshape(rows,3)/fc
     columns=[_column(k,'1D',seconds[:,i],'SECONDS') for i,k in enumerate(['UU','VV','WW'])]
