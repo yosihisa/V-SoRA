@@ -1,0 +1,8 @@
+{
+  "model": "Astropy geocentric GCRS; no atmosphere, ionosphere or antenna propagation delays",
+  "eop_status": [
+    2
+  ],
+  "eop_warnings": [],
+  "dropped_time_count": 0
+}

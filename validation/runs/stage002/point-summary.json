@@ -1,0 +1,11 @@
+{
+  "iterations": 66,
+  "peak_residual_jy": 0.9550049507968259,
+  "converged": true,
+  "beam_fwhm_pixels": 6.452952788567154,
+  "residual_scaling": "Unscaled dirty-beam residual; do not sum restored pixels as total flux",
+  "beam_note": "Circular lambda/max(projected baseline), not fitted PSF",
+  "model_flux_jy": 999.0449950492027,
+  "visibility_samples": 60,
+  "image_peak_jy": 999.9999999999995
+}

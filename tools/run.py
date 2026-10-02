@@ -4,6 +4,7 @@ import runpy
 import sys
 
 root = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(root))
 for parent in ("apps", "packages"):
     for path in sorted((root / parent).glob("*/src")):
         sys.path.insert(0, str(path))
