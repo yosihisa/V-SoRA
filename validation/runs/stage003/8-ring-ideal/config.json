@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "site": {
+    "latitude_deg": 35.0,
+    "longitude_deg": 135.0,
+    "height_m": 0.0,
+    "description": "Assumed public synthetic site, not an actual observation location"
+  },
+  "source": {
+    "frame": "icrs",
+    "ra_deg": 350.8664166662,
+    "dec_deg": 58.8117777793,
+    "model": "casa",
+    "total_flux_jy": 1000.0
+  },
+  "observation": {
+    "start_utc": "2026-10-02T08:00:00Z",
+    "duration_s": 14400,
+    "integration_s": 120,
+    "frequency_hz": 1420000000.0,
+    "bandwidth_hz": 2048000.0,
+    "elevation_min_deg": 15.0
+  },
+  "stations": [
+    {
+      "id": "ST01",
+      "enu_m": [
+        300.0,
+        0.0,
+        0.0
+      ],
+      "sefd_jy": 10000.0
+    },
+    {
+      "id": "ST02",
+      "enu_m": [
+        212.13203435596427,
+        212.13203435596424,
+        0.0
+      ],
+      "sefd_jy": 10000.0
+    },
+    {
+      "id": "ST03",
+      "enu_m": [
+        1.8369701987210297e-14,
+        300.0,
+        0.0
+      ],
+      "sefd_jy": 10000.0
+    },
+    {
+      "id": "ST04",
+      "enu_m": [
+        -212.13203435596424,
+        212.13203435596427,
+        0.0
+      ],
+      "sefd_jy": 10000.0
+    },
+    {
+      "id": "ST05",
+      "enu_m": [
+        -300.0,
+        3.6739403974420595e-14,
+        0.0
+      ],
+      "sefd_jy": 10000.0
+    },
+    {
+      "id": "ST06",
+      "enu_m": [
+        -212.1320343559643,
+        -212.13203435596424,
+        0.0
+      ],
+      "sefd_jy": 10000.0
+    },
+    {
+      "id": "ST07",
+      "enu_m": [
+        -5.510910596163089e-14,
+        -300.0,
+        0.0
+      ],
+      "sefd_jy": 10000.0
+    },
+    {
+      "id": "ST08",
+      "enu_m": [
+        212.1320343559642,
+        -212.1320343559643,
+        0.0
+      ],
+      "sefd_jy": 10000.0
+    }
+  ],
+  "image": {
+    "pixels": 64,
+    "pixel_arcsec": 16.0
+  },
+  "noise": {
+    "enabled": false,
+    "efficiency": 1.0
+  },
+  "seed": 42
+}

@@ -29,7 +29,9 @@ def import_reference(source, destination):
               "CRVAL1", "CRVAL2", "CDELT1", "CDELT2", "CRPIX1", "CRPIX2", "CUNIT1", "CUNIT2",
               "PC01_01", "PC01_02", "PC02_01", "PC02_02", "LONPOLE", "LATPOLE"):
         if k in h:
-            header[k] = h[k]
+            # Normalize historical zero-padded PC keywords to FITS-WCS form.
+            normalized = {"PC01_01":"PC1_1", "PC01_02":"PC1_2", "PC02_01":"PC2_1", "PC02_02":"PC2_2"}.get(k,k)
+            header[normalized] = h[k]
     header["BUNIT"] = "Jy/pixel"
     header["ORIGIN"] = "V-SoRA"
     header["SRCDOI"] = "10.1051/0004-6361/201732411"
