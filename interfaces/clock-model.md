@@ -1,5 +1,8 @@
 # clock mappingと短chunk整列
 
+時計モデルは、ファイルの先頭sampleをいつ測ったか、その後を一秒当たり何sampleで測ったかの対応です。公称値とは区別し、実測・推定・仮定のどれかを入力側で明示します。 [用語集](../docs/guide/glossary.md)。
+
+
 ```json
 {
   "schema_version": 1,

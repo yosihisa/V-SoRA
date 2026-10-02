@@ -1,5 +1,8 @@
 # 独立検証用CASA環境
 
+CASAは本プロジェクトの画像化結果を独立に確認し、実データを既製ソフトで扱うための任意の追加ソフトです。通常のPython環境から分けて導入します。以下はこの開発環境で実際に行った技術的な記録です。 [用語集](../guide/glossary.md)。
+
+
 処理本体とは別の `.casa-venv` を使用。検証版はcasatools/casatasks **6.7.6.14**、casaconfig 1.5.2、Python 3.12。CASAデータはcasarundata-2026.02.19-1、NRAO_Measures_20261001-140644。環境・Measure tables・ログ・MSはGit管理外。
 
 ```sh

@@ -1,5 +1,8 @@
 # FITS-IDI出力の限定profile
 
+FITS-IDIには二局の複素相関値と、局・天体・時刻・周波数・統計的な重みを保存します。ここでは扱える条件を限定し、CASAへ渡したときにも画像の位置と明るさが一致する規約を決めています。 [用語集](../docs/guide/glossary.md)。
+
+
 [AIPS Memo 114](https://www.aips.nrao.edu/TEXT/PUBL/AIPSMEM114.PDF) に基づく候補出力。ARRAY_GEOMETRY、FREQUENCY、SOURCE、ANTENNA、UV_DATAと独自VSORA_METAを保存する。
 
 - 一つのsource/band、単一XX。continuum1channelはv2、昇順・等間隔の複数channelはv3。帯域とchannel間隔は入力から記録。

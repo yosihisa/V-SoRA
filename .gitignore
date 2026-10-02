@@ -31,3 +31,6 @@ dist/
 .vscode/
 .idea/
 *.partial
+
+# Tutorial environment
+.user-venv/

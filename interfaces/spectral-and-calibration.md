@@ -1,5 +1,8 @@
 # 周波数分解visibilityと較正
 
+相関結果は「いつ・どの周波数・どの二局」の三つの軸を持ちます。較正は、既知の天体から受信機ごとの振幅と位相を求め、相関値に掛かった影響を取り除く処理です。 [用語集](../docs/guide/glossary.md)。
+
+
 帯域平均前の内部NPZ：`visibilities[time,channel,baseline]`、同形の逆分散`weights`、`uvw_lambda[...,3]`、0始まり`pairs[baseline,2]`、`times_s`、`frequencies_hz`。段階010のv2はmetadataに`visibility_unit=Jy/ADC^2`を明示し、Jyの場合だけreaderが`vis_jy`別名を提供。旧v1はJy。timeはmetadataのtime_origin_utcを基準とする秒、周波数は実RFのHz・昇順。無効サンプルはweight=0。有限complex値を保存する。これはFITS-IDIの複数channel実装ではない。
 
 局応答は `g_i=a_i exp(i[phase_i+2π(f-fref)delay_i+2π(t-tref)rate_i])`、観測は `model * g_i * conj(g_j)`。位相・遅延・rateは基準局との差。rateの単位はHz（位相cycles/s）であり、物理的時計の秒/秒をそのまま表す値ではない。RF中心の位相と群遅延は別パラメーター。

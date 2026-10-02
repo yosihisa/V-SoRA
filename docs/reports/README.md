@@ -26,4 +26,6 @@
 
 | 017 | [周波数別重み・RFI診断](017-spectral-quality-rfi.md) | 80件成功。模擬RFI誤差996%→4.77%、有限雑音試験の誤flag0 |
 
+| 018 | [学部生向け文書](018-undergraduate-documentation.md) | 原理・用語・結果の意味を整理。リンク切れ0、点源手順を再実行 |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。

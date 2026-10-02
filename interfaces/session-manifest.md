@@ -1,5 +1,8 @@
 # VDIF sessionの受渡し
 
+manifestは各局のVDIFファイルと共通の処理条件をまとめたJSONです。相関器へ入力を渡す一覧表として使います。sample rate・RF周波数・記録値の単位を別々に指定します。 [用語集](../docs/guide/glossary.md)。
+
+
 Windows収録が完成していなくても、次のmanifestを持つEDV0/8bit complex VDIFをLinuxへ渡せる。ファイルは1局1thread1channel、4096sample/frame。frame時刻が全局で一致し、frameを消失させずinvalid flagで残すこと。欠落・開始時刻差・trailing partial integrationは現CLIで拒否する。
 
 ```json

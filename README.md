@@ -1,39 +1,38 @@
 # V-SoRA
 
-VLBI の相関器、画像復元処理、およびそれらを動作確認するためのシミュレーターを開発するリポジトリです。文献調査と動作確認の記録もここで管理します。
+離れた複数のアンテナが記録した電波を組み合わせ、Cas A（超新星残骸）の画像を作るプロジェクトです。OCXOで基準周波数を安定させたRTL-SDRを使い、1.42GHz、最大基線長約600mの観測網を目指します。
 
-観測目標は、OCXO改造RTL-SDRによる最大基線長約600 mの観測網で、1.42 GHzのCas Aを画像化することです。Linux処理系を段階的に開発しています。現在の到達点は開発レポートを参照してください。
+現在は、Linux上でシミュレーター・相関器・較正・画像復元を段階的に開発しています。小規模の模擬IQから画像までの処理とCASAへの接続を検証しました。**実受信機での画像化は未検証**です。Windows収録ソフトはハードウェアの進捗に合わせて後で開発します。
 
-- [初期レポート・開発構想](docs/reports/000-initial-plan.md)
-- [開発段階レポート一覧](docs/reports/README.md)
-- [開発と記録の運用](AGENTS.md)
+## 初めて読む方へ
 
-開発段階ごとに目的・実作業・検証結果をレポートにまとめ、その段階の変更と一緒にGitコミットします。以下は現在のソフト別構成です。
+- [使い方と考え方](docs/guide/README.md)：理工系の学部生を想定した入門ガイド
+- [最初の実行](docs/guide/02-first-run.md)：点源の模擬観測から画像を作る
+- [結果の読み方](docs/guide/03-results.md)：画像・誤差・検証の適用範囲
+- [実観測への準備](docs/guide/04-observation.md)：必要な入力と残る課題
+- [用語集](docs/guide/glossary.md)
 
-## フォルダ構成
+## 開発・再現のための文書
 
-| パス | 用途 |
+- [実行環境](docs/design/python-environment.md)、[現在の開発計画](docs/design/development-roadmap.md)
+- [ソフト間の規約](interfaces/README.md)：時刻・単位・符号とファイル項目
+- [段階レポート](docs/reports/README.md)：目的・作業・検証・失敗・制約
+- [文献調査](docs/literature/README.md)、[記録の運用](AGENTS.md)
+
+文書・コード・小さい検証結果をGitで管理します。実測局位置や大容量IQはローカルの観測データとして保存し、公開リポジトリへ個人情報を入れません。
+
+## 構成
+
+| フォルダ | 役割 |
 | --- | --- |
-| `apps/simulator/` | 天体・visibility・IQの生成 |
-| `apps/correlator/` | 相関・visibility出力 |
-| `apps/imaging/` | 校正と画像復元 |
-| `apps/recorder/` | Windows収録（現在対象外） |
-| `packages/observation/` | 共通観測条件・幾何 |
-| `packages/formats/` | ソフト間データの入出力 |
-| `interfaces/` | 単位・時刻・符号と受け渡し規約 |
-| `configs/` | 局配置・天体・実験条件 |
-| `workflows/` | 一連の処理を再実行する入口 |
-| `docs/reports/` | 段階ごとの目的・作業・検証結果 |
-| `docs/design/`, `docs/literature/` | 設計・文献 |
-| `validation/` | 検証計画・実行結果・小容量の図 |
-| `data/reference/` | 匿名化した参照画像と出典 |
+| `apps/simulator/` | 天体モデルから相関値・模擬IQを作る |
+| `apps/correlator/` | VDIFの読込み、時計補正、相関、較正 |
+| `apps/imaging/` | 較正済み相関値から画像を復元 |
+| `apps/recorder/` | Windows収録。現在は実装対象外 |
+| `packages/observation/`, `packages/formats/` | 共通条件・幾何計算・ファイル入出力 |
+| `interfaces/`, `configs/` | 入出力規約と公開の仮想観測設定 |
+| `workflows/` | 一連の検証を再実行する入口 |
+| `docs/`, `validation/` | 説明・設計・段階レポート・小さい結果 |
+| `data/reference/` | 匿名化したCas A参照画像と出典 |
 
-## 実行
-
-[環境と再実行方法](docs/design/python-environment.md)、[Linux開発計画](docs/design/development-roadmap.md)、[ソフト間規約](interfaces/README.md)を参照。
-
-```sh
-python tools/run.py pytest -q
-```
-
-大容量の収録・生成データはGit管理外に置き、所在と再現条件を記録する。
+日本語GUIは次段階で追加します。WSL上で処理を動かし、Windowsのブラウザから操作する構成を予定しています。

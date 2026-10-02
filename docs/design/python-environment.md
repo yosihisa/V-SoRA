@@ -1,29 +1,43 @@
 # Python実行環境
 
-Python 3.12以上。依存はルートのpyproject.tomlに定義。独立環境では `python -m pip install -e '.[dev]'` を用いる。
+## 通常の導入
 
-この開発では既存の科学計算環境を参照するローカル `.venv` を使用した。外部環境への参照パスはGit管理外であり、公開文書にユーザーの絶対パスを記載しない。既存プロジェクトのソースコードはコピーしていない。
-
-検証時の版：Python 3.12.3、NumPy 2.5.1、SciPy 1.18.0、Astropy 7.2.2、Matplotlib 3.11.1、pytest 8.4.2。段階011で既存環境への参照を持たない新規`.verification-venv`を作り、21依存を固定したwheel導入・全52テスト・checkout外CLI実行を確認した。[固定版](../../requirements/verified-linux.txt)はLinux Python 3.12で確認。
+Ubuntu上のPython3.12以上を使います。以下はリポジトリ最上位から実行する例です。venvはプロジェクト専用のPython環境で、他のソフトの依存ライブラリと混ざることを防ぎます。
 
 ```sh
-# 新しい環境名で作る。既存環境を上書きしない。
-python3 -m venv .verification-venv
-.verification-venv/bin/pip install -r requirements/verified-linux.txt
-.verification-venv/bin/pip wheel . --no-deps -w dist
-.verification-venv/bin/pip install --no-deps dist/v_sora-0.1.0-py3-none-any.whl
-.verification-venv/bin/python -m pytest -q
-.verification-venv/bin/vsora-simulate --config configs/experiments/ideal-point.json --output outputs/point
-.verification-venv/bin/vsora-image --input outputs/point/visibility.npz --output outputs/point-image
+python3 -m venv .user-venv
+.user-venv/bin/pip install -r requirements/verified-linux.txt
+.user-venv/bin/pip install --no-deps -e .
 ```
 
-wheelには匿名化したCas A参照画像を含む。旧実装はcheckout内の相対位置から画像を探していたため、wheel導入先では見つからない構造だった。`vsora_observation.reference`がcheckoutまたはwheelのshare/v-sora/referenceを探す。ソースを変更した後はwheelを再構築・再導入するか、開発用に`python tools/run.py ...`を使う。
+`-e`はソース変更を反映する開発用導入です。[固定したライブラリ一覧](../../requirements/verified-linux.txt)はLinux/Python3.12で実際に導入確認しました。既存venvを上書きせず、必要なら新しい名前で作ってください。
 
-段階004でBaseband 4.3.0をローカル環境へ導入した。NumPy 2.5との組合せでshape代入のDeprecationWarningがあるが、量子化・時刻・相関のテストは成功した。
+## 実行と検証
 
 ```sh
-python tools/run.py pytest -q
-python tools/audit_public.py
+.user-venv/bin/vsora-simulate --config configs/experiments/ideal-point.json --output outputs/point
+.user-venv/bin/vsora-image --input outputs/point/visibility.npz --output outputs/point-image
+.user-venv/bin/python tools/run.py pytest -q
 ```
 
-`tools/run.py` は各apps/packagesのsrcを読み込むため、editable installなしでもソースを実行できる。
+`outputs/`は生成データの保存先で、Git管理外です。同じ出力先の上書きは拒否します。`tools/run.py`はcheckout内の現在のソースを選ぶ開発用の入口です。
+
+## 配布用wheelの確認
+
+wheelはPythonの配布用ファイルです。別の計算機へ渡したときにも、必要な参照画像とコマンドが揃うかを確認します。
+
+```sh
+.user-venv/bin/pip wheel . --no-deps -w dist
+.user-venv/bin/pip install --force-reinstall --no-deps dist/v_sora-0.1.0-py3-none-any.whl
+.user-venv/bin/python -m pytest -q
+```
+
+wheelには匿名化したCas A画像を含めます。ソース変更後はwheelも再構築する必要があります。開発中はeditable導入または`tools/run.py`を使うと、古いwheelを実行する取り違えを避けられます。
+
+## 実際に使った環境と注意点
+
+Python3.12.3、NumPy2.5.1、SciPy1.18.0、Astropy7.2.2、Matplotlib3.11.1、Baseband4.3.0、pytest8.4.2を確認しました。初期の`.venv`は既存科学計算環境を参照しましたが、段階011で独立した`.verification-venv`へ導入し直し、wheelとcheckout外の実行を確認しました。
+
+BasebandとNumPyの組合せにはshape代入のDeprecationWarningがあります。これは将来使えなくなるAPIへの警告です。現在のテストは成功していますが、警告件数をレポートに残し、実際の失敗と区別します。
+
+CASAは依存が大きいため別環境です。[CASA導入記録](casa-environment.md)を参照してください。
