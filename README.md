@@ -2,32 +2,38 @@
 
 VLBI の相関器、画像復元処理、およびそれらを動作確認するためのシミュレーターを開発するリポジトリです。文献調査と動作確認の記録もここで管理します。
 
-観測目標は、OCXO改造RTL-SDRによる最大基線長約600 mの観測網で、1.42 GHzのCas Aを画像化することです。現在は調査・設計段階で、ソフト実装と動作検証は未実施です。
+観測目標は、OCXO改造RTL-SDRによる最大基線長約600 mの観測網で、1.42 GHzのCas Aを画像化することです。Linux処理系を段階的に開発しています。現在の到達点は開発レポートを参照してください。
 
 - [初期レポート・開発構想](docs/reports/000-initial-plan.md)
 - [開発段階レポート一覧](docs/reports/README.md)
 - [開発と記録の運用](AGENTS.md)
 
-開発段階ごとに目的・実作業・検証結果をレポートにまとめ、その段階の変更と一緒にGitコミットします。ソフト別の `apps/` 構成への移行案は初期レポートに記載しています。以下は現在の構成です。
+開発段階ごとに目的・実作業・検証結果をレポートにまとめ、その段階の変更と一緒にGitコミットします。以下は現在のソフト別構成です。
 
 ## フォルダ構成
 
 | パス | 用途 |
 | --- | --- |
-| `src/correlator/` | 相関処理と visibility 生成 |
-| `src/imaging/` | 較正後のデータからの画像復元 |
-| `src/simulator/` | 天体、観測、ノイズなどの模擬データ生成 |
-| `src/common/` | 上記に共通する処理とデータ形式 |
-| `tests/unit/` | 各処理の単体テスト |
-| `tests/integration/` | シミュレーターから相関・画像復元までの結合テスト |
-| `tests/fixtures/` | テスト用の小さな固定入力 |
-| `configs/` | 観測・処理・シミュレーションの再現可能な設定 |
-| `docs/literature/` | 文献の書誌情報、要約、実装への対応関係 |
-| `docs/design/` | アルゴリズム、データ形式、設計判断 |
-| `docs/reports/` | 開発段階ごとの目的、作業内容、検証結果 |
-| `validation/plans/` | 動作確認の手順と合格基準 |
-| `validation/runs/` | 実行条件、結果、考察を含む検証記録 |
-| `data/reference/` | 小容量の比較用データと期待値 |
-| `tools/` | 開発・検証を補助するスクリプト |
+| `apps/simulator/` | 天体・visibility・IQの生成 |
+| `apps/correlator/` | 相関・visibility出力 |
+| `apps/imaging/` | 校正と画像復元 |
+| `apps/recorder/` | Windows収録（現在対象外） |
+| `packages/observation/` | 共通観測条件・幾何 |
+| `packages/formats/` | ソフト間データの入出力 |
+| `interfaces/` | 単位・時刻・符号と受け渡し規約 |
+| `configs/` | 局配置・天体・実験条件 |
+| `workflows/` | 一連の処理を再実行する入口 |
+| `docs/reports/` | 段階ごとの目的・作業・検証結果 |
+| `docs/design/`, `docs/literature/` | 設計・文献 |
+| `validation/` | 検証計画・実行結果・小容量の図 |
+| `data/reference/` | 匿名化した参照画像と出典 |
 
-検証記録には、実行日、Git コミット、使用した設定と入力、実行コマンド、期待値との比較、結果の保存先を記載します。大容量の収録・生成データはGit管理外に置き、所在と再現条件を記録します。
+## 実行
+
+[環境と再実行方法](docs/design/python-environment.md)、[Linux開発計画](docs/design/development-roadmap.md)、[ソフト間規約](interfaces/README.md)を参照。
+
+```sh
+python tools/run.py pytest -q
+```
+
+大容量の収録・生成データはGit管理外に置き、所在と再現条件を記録する。
