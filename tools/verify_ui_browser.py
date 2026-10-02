@@ -10,7 +10,7 @@ import httpx
 from playwright.sync_api import sync_playwright
 
 
-def run(output,port=8767):
+def run(output,port=8767,analysis_manifest=None,clock_model=None):
     root=Path(__file__).resolve().parents[1];out=Path(output)
     if out.exists(): raise FileExistsError('new output required')
     out.mkdir(parents=True);url=f'http://127.0.0.1:{port}'
@@ -54,6 +54,21 @@ def run(output,port=8767):
             assert rresult['summary']['metrics']['registered_nrmse']<.2
             page.wait_for_function('Array.from(document.querySelectorAll("#job-detail img")).every(x=>x.complete&&x.naturalWidth>0)')
             page.screenshot(path=str(out/'rml-result-screen.png'),full_page=True)
+            analysis_result=None
+            if analysis_manifest:
+                if not clock_model:raise ValueError('analysis clock model required')
+                page.get_by_role('button',name='VDIF解析',exact=True).click()
+                page.locator('#analysis-form input[name=manifest]').fill(analysis_manifest)
+                page.locator('#analysis-form input[name=clock_model]').fill(clock_model)
+                page.screenshot(path=str(out/'analysis-screen.png'),full_page=True)
+                page.get_by_role('button',name='VDIFを解析して相対画像を作成',exact=True).click()
+                page.locator('#job-detail h2').get_by_text('VDIFからClosure＋RMLで解析',exact=True).wait_for()
+                page.locator('#job-detail .phase-line').get_by_text('処理完了',exact=True).wait_for(timeout=60000)
+                aid=httpx.get(url+'/api/jobs').json()[0]['id'];analysis_result=httpx.get(url+'/api/jobs/'+aid).json()
+                assert analysis_result['summary']['rml']['input_unit']=='ADC^2'
+                assert analysis_result['summary']['closures']['phase_valid']>0
+                page.wait_for_function('Array.from(document.querySelectorAll("#job-detail img")).every(x=>x.complete&&x.naturalWidth>0)')
+                page.screenshot(path=str(out/'analysis-result-screen.png'),full_page=True)
             page.get_by_role('button',name='動作検証',exact=True).click()
             page.locator('select[name=validation]').select_option('quality')
             page.get_by_role('button',name='検証を開始',exact=True).click()
@@ -75,12 +90,16 @@ def run(output,port=8767):
             page.evaluate('document.fonts.ready')
             overflow=page.evaluate('document.documentElement.scrollWidth>document.documentElement.clientWidth')
             page.screenshot(path=str(out/'mobile-screen.png'),full_page=True)
+            page.get_by_role('button',name='VDIF解析',exact=True).click()
+            overflow=overflow or page.evaluate('document.documentElement.scrollWidth>document.documentElement.clientWidth')
+            page.screenshot(path=str(out/'analysis-mobile-screen.png'),full_page=True)
             external=[x for x in requests if not x.startswith(url+'/')]
             report={'browser':browser.version,'japanese_font_loaded':font,'javascript_errors':errors,
                     'external_requests':len(external),'mobile_horizontal_overflow':overflow,
                     'simulation_state':result['state'],'point_peak_jy_per_beam':result['summary']['imaging']['image_peak_jy'],
                     'quality_state':qresult['state'],'quality_relative_error':qresult['summary']['continuum_visibility_error_after'],
                     'rml_state':rresult['state'],'rml_registered_nrmse':rresult['summary']['metrics']['registered_nrmse'],
+                    'analysis_state':analysis_result['state'] if analysis_result else 'not run',
                     'cancel_state':cancelled['state'],'job_ids':[sid,rid,qid,cid],
                     'scope':'Headless Chromium in WSL; Windows browser and WSLg desktop not directly observed'}
             browser.close();(out/'summary.json').write_text(json.dumps(report,indent=2)+'\n')
@@ -95,4 +114,5 @@ def run(output,port=8767):
 
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--output',required=True);p.add_argument('--port',type=int,default=8767)
-    a=p.parse_args();print(json.dumps(run(a.output,a.port),indent=2))
+    p.add_argument('--analysis-manifest');p.add_argument('--clock-model')
+    a=p.parse_args();print(json.dumps(run(a.output,a.port,a.analysis_manifest,a.clock_model),indent=2))

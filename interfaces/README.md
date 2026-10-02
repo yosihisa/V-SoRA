@@ -23,3 +23,5 @@
 - 当面は単一XX偏波です。完全なStokes Iを測ったものとは扱いません。
 
 独自NPZは開発用の形式です。VDIFやFITS-IDIとは役割が違い、他装置のファイルを無条件に読めるという意味ではありません。
+
+- [Closure pipeline](closure-pipeline.md)：VDIF・sample時計・モデル不要rate・相対RML・途中失敗の規約。

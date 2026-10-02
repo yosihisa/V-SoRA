@@ -51,3 +51,5 @@
 ## 実観測の画像化方針
 
 高精度な局の利得較正ができない前提で、数百ms〜数秒の相関とClosure＋RMLを主経路にします。局間の周波数差とsample整列は別に扱います。[Closureの設計](docs/design/closure-rml-plan.md)に条件・限界・開発順を記載します。
+
+日本語GUIの「VDIF解析」で、観測条件と時計モデルを指定して短区間の相対画像を作れます。現在は600m・1秒以内の参照処理です。[入力規約](interfaces/closure-pipeline.md)を参照してください。

@@ -11,6 +11,7 @@ from vsora_observation.geometry import geometry_at_times
 from .clock import interpolate_samples
 from .fx import fx_correlate_series
 from .session import load_session
+from .rate import validate_rate_profile
 
 
 class SampleBuffer:
@@ -49,14 +50,21 @@ class SampleBuffer:
     def close(self): self.reader.close()
 
 
-def correlate_aligned(manifest,clock_model,output,integrations,start_offset_s=.002):
+def correlate_aligned(manifest,clock_model,output,integrations,start_offset_s=.002,rate_profile=None,allow_rate_extrapolation=False):
     c=load_session(manifest);config=c['_config'];fs=c['sample_rate_hz']
     if not c['phase_center_correction']: raise ValueError('aligned mode requires explicit phase-center correction')
     ns=c['fft_length']*c['blocks_per_integration'];span=ns*integrations/fs
-    if not isinstance(integrations,int) or not 8<=integrations<=256 or span>1:
-        raise ValueError('aligned reference chunk requires 8..256 integrations and <=1 second')
+    if isinstance(integrations,bool) or not isinstance(integrations,int) or not 1<=integrations<=256 or span>1:
+        raise ValueError('aligned reference chunk requires 1..256 integrations and <=1 second')
     if not np.isfinite(start_offset_s) or start_offset_s<0: raise ValueError('nonnegative start offset required')
     clock=json.loads(Path(clock_model).read_text())
+    rate=np.zeros(len(c['stations']));rate_epoch=0.;rate_sha=None
+    if rate_profile:
+        import hashlib
+        profile=json.loads(Path(rate_profile).read_text())
+        rate,rate_epoch=validate_rate_profile(profile,[s['id'] for s in config['stations']],
+                config['observation']['start_utc'],start_offset_s,start_offset_s+span,allow_rate_extrapolation)
+        with open(rate_profile,'rb') as stream:rate_sha=hashlib.file_digest(stream,'sha256').hexdigest()
     if set(clock)!={'schema_version','max_abs_baseband_hz','stations'} or clock['schema_version']!=1:
         raise ValueError('unsupported clock model')
     stations=clock['stations'];band=clock['max_abs_baseband_hz']
@@ -71,7 +79,6 @@ def correlate_aligned(manifest,clock_model,output,integrations,start_offset_s=.0
         buffers.append(SampleBuffer(c['_root']/station['vdif'],fs,station['station_numeric_id'],station['decoded_voltage_scale'],actual))
     out=Path(output);partial=out.with_name(out.name+'.partial')
     if out.exists() or partial.exists(): raise FileExistsError('choose a new output directory')
-    partial.mkdir(parents=True)
     origin=Time(config['observation']['start_utc']);offsets=start_offset_s+(np.arange(integrations)+.5)*ns/fs
     g=geometry_at_times(config,origin+offsets*u.s,filter_elevation=False)
     edges=np.array([start_offset_s,start_offset_s+span])
@@ -79,6 +86,7 @@ def correlate_aligned(manifest,clock_model,output,integrations,start_offset_s=.0
     positions=np.array([s['enu_m'] for s in config['stations']])
     if np.linalg.norm(positions[:,None]-positions[None,:],axis=-1).max()>600.001:
         raise ValueError('aligned reference geometry is limited to 600m')
+    partial.mkdir(parents=True)
     results=[]
     try:
         for index in range(integrations):
@@ -88,7 +96,8 @@ def correlate_aligned(manifest,clock_model,output,integrations,start_offset_s=.0
                 measured=stations[station]
                 queries=(t-delay-measured['input_start_offset_s'])*measured['actual_sample_rate_hz']
                 x,ok=b.query(queries)
-                data.append(x*np.exp(-2j*np.pi*config['observation']['frequency_hz']*delay));valid.append(ok)
+                phase=-2*np.pi*(config['observation']['frequency_hz']*delay+rate[station]*(t-delay-rate_epoch))
+                data.append(x*np.exp(1j*phase));valid.append(ok)
             r=fx_correlate_series(np.array(data),fs,c['fft_length'],c['blocks_per_integration'],
                                   config['observation']['frequency_hz'],valid=np.array(valid),time_offset_s=t[0],spectral_quality=c.get('spectral_quality'))
             r['weights'][:,abs(r['frequencies_hz']-config['observation']['frequency_hz'])>band]=0
@@ -101,7 +110,8 @@ def correlate_aligned(manifest,clock_model,output,integrations,start_offset_s=.0
               'integration_s':np.array([r['integration_s'][0] for r in results])}
         cube.update({k:np.array([r[k][0] for r in results]) for k in results[0] if k.startswith('diagnostic_')})
         meta={'config':config,'time_origin_utc':origin.isot+'Z','visibility_unit':'ADC^2' if c['voltage_unit']=='ADC' else 'Jy',
-              'phase_center_corrected':True,'rate_applied_hz':[0.]*len(stations),'rate_applied_reference_s':0.,
+              'phase_center_corrected':True,'rate_applied_hz':rate.tolist(),'rate_applied_reference_s':rate_epoch,
+              'rate_only_profile_sha256':rate_sha,'rate_only_extrapolation_allowed':bool(allow_rate_extrapolation),
               'clock_mapping_applied':True,'filter':'65-tap Kaiser lowpass; group delay compensated',
               'max_abs_baseband_hz':band,'eop_status':g['eop_status']}
         if 'spectral_quality' in c:

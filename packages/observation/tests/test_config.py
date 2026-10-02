@@ -44,3 +44,10 @@ def test_unknown_top_level():
     c["unknown"] = 1
     with pytest.raises(ValueError):
         validate_config(c)
+
+
+def test_real_observation_does_not_require_known_flux():
+    c=example();c['source']['model']='unknown';c['source'].pop('total_flux_jy')
+    assert validate_config(c)['source']['model']=='unknown'
+    from vsora_simulator.sky import synthetic_sky
+    with pytest.raises(ValueError,match='unknown sky'):synthetic_sky(c)

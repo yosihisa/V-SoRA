@@ -36,4 +36,6 @@
 
 | 022 | [モデル不要のLO差推定](022-model-free-rate.md) | 111件成功。未知sky/gain、短pilot、3seedのIQ補正後Closure、欠損graph |
 
+| 023 | [VDIFからClosure＋RML・解析GUI](023-vdif-closure-pipeline.md) | source/wheel115件成功。未知flux、sample/幾何/rate、partial、checkout外CLI/GUI |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。

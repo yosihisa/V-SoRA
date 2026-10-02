@@ -14,6 +14,7 @@
 | 011～013 | 独立環境、Cas A形状を使う較正、channel保存、CLEAN修正 | 独立した較正基準と実天体の検証 |
 | 014～017 | 短い区間のsample整列、1ms積分、CASA変換、模擬RFI | 長時間処理、bandpass、実機の誤検出率 |
 | 019 | 日本語ブラウザGUI、模擬観測・主要検証・履歴 | 実観測の入力とClosure＋RMLの操作 |
+| 023 | VDIF・sample整列・rate再相関・相対RML・GUI入口 | 長時間合成、3秒整列、実Cas A |
 | 022 | skyモデル不要のrate推定、IQ再相関でClosure回復 | 実VDIF・幾何/時計との接続、LO非線形変動 |
 | 021 | Closure RML、短露光、相対FITS、日本語GUI | Cas A探索上限、未知LO、IQ接続、低SNR統計 |
 | 020 | Closure、独立共分散、LOによる積分損失 | RML、モデル不要のLO推定、低SNR統計 |

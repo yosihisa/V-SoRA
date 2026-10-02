@@ -46,9 +46,8 @@ def test_simulation_job_real_subprocess_and_artifact(tmp_path):
 
 @pytest.mark.parametrize('validation',['closure','rate'])
 def test_closure_validation_real_subprocess(tmp_path,validation):
-    from vsora_ui.jobs import source_root
     (tmp_path/'tools').mkdir()
-    (tmp_path/'tools/run.py').symlink_to(source_root()/'tools/run.py')
+    (tmp_path/'tools/run.py').symlink_to(Path(__file__).resolve().parents[3]/'tools/run.py')
     with TestClient(create_app(tmp_path),base_url='http://127.0.0.1') as c:
         r=c.post('/api/jobs',json={'kind':'validation','validation':validation},headers=HEADERS)
         assert r.status_code==202
@@ -71,6 +70,19 @@ def test_rml_simulation_real_subprocess(tmp_path):
         assert d['summary']['coherent_integration_s']==.3
         assert not d['summary']['rml']['absolute_flux_measured']
         assert d['summary']['rml']['input_unit']=='ADC^2'
+
+
+def test_vdif_analysis_real_subprocess(tmp_path):
+    from workflows.vdif_closure_validation import make_fixture
+    make_fixture(tmp_path/'input',23)
+    with TestClient(create_app(tmp_path),base_url='http://127.0.0.1') as c:
+        r=c.post('/api/jobs',json={'kind':'analysis','manifest':'input/manifest.json','clock_model':'input/clock.json',
+                                  'starts':1,'max_iterations':100},headers=HEADERS)
+        assert r.status_code==202
+        d=wait(c,r.json()['id'])
+        assert d['state']=='complete',d
+        assert d['summary']['rml']['input_unit']=='ADC^2'
+        assert d['completed_steps']==5 and d['summary']['closures']['phase_valid']>0
 
 
 @pytest.mark.parametrize('payload',[

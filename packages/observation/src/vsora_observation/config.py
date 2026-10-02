@@ -34,16 +34,17 @@ def validate_config(config):
     if not -90 <= site["latitude_deg"] <= 90 or not -180 <= site["longitude_deg"] <= 180:
         raise ValueError("site: invalid geographic coordinates")
     source = c["source"]
-    keys(source,('frame','ra_deg','dec_deg','model','total_flux_jy'),'source')
+    keys(source,('frame','ra_deg','dec_deg','model'),'source',('total_flux_jy',))
     if source["frame"] != "icrs":
         raise ValueError("source.frame: only icrs supported")
     number(source["ra_deg"], "ra_deg")
     number(source["dec_deg"], "dec_deg")
     if not 0 <= source["ra_deg"] < 360 or not -90 <= source["dec_deg"] <= 90:
         raise ValueError("source: invalid coordinates")
-    if source["model"] not in ("point", "double", "shell", "casa"):
+    if source["model"] not in ("point", "double", "shell", "casa", "unknown"):
         raise ValueError("source.model: unsupported")
-    number(source["total_flux_jy"], "total_flux_jy", positive=True)
+    if source['model']!='unknown' or 'total_flux_jy' in source:
+        number(source.get("total_flux_jy"), "total_flux_jy", positive=True)
     obs = c["observation"]
     keys(obs,('start_utc','duration_s','integration_s','frequency_hz','bandwidth_hz','elevation_min_deg'),'observation')
     if not isinstance(obs['start_utc'],str): raise ValueError('start_utc string required')

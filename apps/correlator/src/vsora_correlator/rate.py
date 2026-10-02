@@ -104,20 +104,60 @@ def estimate_station_rates(data, reference_station=0, max_rate_hz=100., min_snr=
 
 def main():
     import argparse
-    import hashlib
     import json
     from pathlib import Path
-    from vsora_formats.spectral import load_spectral
     p = argparse.ArgumentParser(description='Estimate station rates only, without a sky/gain calibration model')
     p.add_argument('--input',required=True);p.add_argument('--output',required=True)
     p.add_argument('--max-rate-hz',type=float,default=100.);p.add_argument('--reference-station',type=int,default=0)
     a=p.parse_args();out=Path(a.output)
     if out.exists():raise FileExistsError('rate output already exists')
-    d=load_spectral(a.input);result=estimate_station_rates(d,a.reference_station,a.max_rate_hz)
-    with open(a.input,'rb') as stream:result['input_sha256']=hashlib.file_digest(stream,'sha256').hexdigest()
-    result['time_origin_utc']=d['metadata'].get('time_origin_utc')
+    result=estimate_rate_shard(a.input,a.reference_station,a.max_rate_hz)
     out.parent.mkdir(parents=True,exist_ok=True);out.write_text(json.dumps(result,indent=2)+'\n')
     print(json.dumps(result,indent=2))
+
+
+def estimate_rate_shard(path,reference_station=0,max_rate_hz=100.):
+    import hashlib
+    from vsora_formats.spectral import load_spectral
+    d=load_spectral(path);meta=d['metadata']
+    if not meta.get('phase_center_corrected') or not meta.get('clock_mapping_applied'):
+        raise ValueError('rate-only production profile requires sample and phase-center alignment')
+    if not meta.get('time_origin_utc'):raise ValueError('pilot UTC origin required')
+    result=estimate_station_rates(d,reference_station,max_rate_hz)
+    previous=np.asarray(meta.get('rate_applied_hz',np.zeros(len(result['station_indices']))),float)
+    if previous.shape!=(len(result['station_indices']),) or not np.isfinite(previous).all():
+        raise ValueError('invalid prior rate correction')
+    total=np.array(result['station_rates_hz'])+previous
+    total-=total[reference_station]
+    result['residual_station_rates_hz']=result['station_rates_hz']
+    result['station_rates_hz']=total.tolist()
+    result['station_ids']=[s['id'] for s in meta['config']['stations']]
+    result['time_origin_utc']=meta['time_origin_utc']
+    with open(path,'rb') as stream:result['input_sha256']=hashlib.file_digest(stream,'sha256').hexdigest()
+    return result
+
+
+def validate_rate_profile(profile,station_ids,origin,start_s,end_s,allow_extrapolation=False):
+    from astropy.time import Time
+    if (isinstance(profile.get('schema_version'),bool) or profile.get('schema_version')!=1 or profile.get('type')!='station_rate_only'
+            or profile.get('station_ids')!=station_ids
+            or profile.get('station_indices')!=list(range(len(station_ids)))):
+        raise ValueError('rate-only profile type or station order differs')
+    if not profile.get('time_origin_utc') or abs((Time(profile['time_origin_utc'])-Time(origin)).sec)>1e-7:
+        raise ValueError('rate-only profile UTC origin differs')
+    rates=np.asarray(profile.get('station_rates_hz'),float)
+    limits=np.asarray(profile.get('valid_time_range_s'),float)
+    cadence=profile.get('sample_cadence_s')
+    if (rates.shape!=(len(station_ids),) or limits.shape!=(2,) or not np.isfinite(rates).all()
+            or not np.isfinite(limits).all() or limits[1]<=limits[0]
+            or not isinstance(cadence,(int,float)) or not np.isfinite(cadence) or cadence<=0):
+        raise ValueError('invalid rate-only values/time coverage')
+    if not allow_extrapolation and (start_s<limits[0]-cadence/2-1e-9 or end_s>limits[1]+cadence/2+1e-9):
+        raise ValueError('rate-only extrapolation requires explicit permission')
+    epoch=profile.get('time_reference_s')
+    if not isinstance(epoch,(int,float)) or not np.isfinite(epoch):raise ValueError('invalid rate reference time')
+    if not limits[0]<=epoch<=limits[1]:raise ValueError('rate reference time outside pilot range')
+    return rates,float(epoch)
 
 
 if __name__=='__main__':main()

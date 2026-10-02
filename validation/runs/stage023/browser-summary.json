@@ -1,0 +1,22 @@
+{
+  "browser": "153.0.8010.12",
+  "japanese_font_loaded": true,
+  "javascript_errors": [],
+  "external_requests": 0,
+  "mobile_horizontal_overflow": false,
+  "simulation_state": "complete",
+  "point_peak_jy_per_beam": 999.9999999999995,
+  "quality_state": "complete",
+  "quality_relative_error": 0.047688439132772965,
+  "rml_state": "complete",
+  "rml_registered_nrmse": 0.029411929188685255,
+  "analysis_state": "complete",
+  "cancel_state": "cancelled",
+  "job_ids": [
+    "20261002T073521-db7bbb94",
+    "20261002T073525-22521568",
+    "20261002T073543-75ed37f4",
+    "20261002T073545-ef4b9e19"
+  ],
+  "scope": "Headless Chromium in WSL; Windows browser and WSLg desktop not directly observed"
+}

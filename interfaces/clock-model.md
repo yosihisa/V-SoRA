@@ -20,6 +20,8 @@
 python tools/run.py vsora_correlator correlate-aligned --manifest manifest.json --clock-model clock.json --integrations 64 --start-offset-s 0.002 --output outputs/aligned
 ```
 
-8～256積分、全span1秒以下、最大基線600m以下。必要なinput guardが存在する開始offsetを指定。65tap lowpassとfractional interpolationでbandを制限し、group delayを補償。位相中心へsample時間とRF位相を補正する。metadataにclock適用と単位を残す。
+1～256積分、全span1秒以下、最大基線600m以下。必要なinput guardが存在する開始offsetを指定。65tap lowpassとfractional interpolationでbandを制限し、group delayを補償。位相中心へsample時間とRF位相を補正する。metadataにclock適用と単位を残す。
 
-時計値の精度や時間変化を保証する機能ではない。raw ADCはADC^2のまま保存。LO/rate、利得、bandpass、実測noiseの較正は別途必要。公称timestampと測定された時計値・仮定した値を区別する。
+時計値の精度や時間変化を保証する機能ではない。raw ADCはADC^2のまま保存。LO/rateは別profileで推定してIQ補正できる。Closure画像化には高精度な利得較正を必須としない。bandpassと実測noiseの確認は引き続き必要。公称timestampと測定された時計値・仮定した値を区別する。
+
+段階023で最小積分数を1へ変更した。現在は1〜256積分、span1秒以内。rate-only JSONを使うLO補正と[Closure pipeline](closure-pipeline.md)を追加した。phase/amplitudeの高精度較正を必須とせず、ADC²から相対fluxの画像へ進める。

@@ -50,3 +50,5 @@ Windowsのブラウザで `http://localhost:8765` を開きます。WSL上のネ
 Closureの局誤差不変性と0.3秒の周波数差は「動作検証」から実行できます。CLEANの理想模擬観測の長い積分は、実OCXOの積分能力を表していません。実観測の主経路は数百ms〜数秒とClosure＋RMLです。
 
 「Closure＋RML」では短露光を全時間に分散した模擬復元を実行できます。相対画像・停止状態・登録前後の誤差を確認します。[結果の読み方](07-closure-rml.md)を参照してください。
+
+「VDIF解析」で観測条件と時計JSONを指定できます。短pilot・未知rate・再相関・Closure・相対RMLを5工程で実行します。[入力の規約](../../interfaces/closure-pipeline.md)に現在の1秒以内の制限を記載します。

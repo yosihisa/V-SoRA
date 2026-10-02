@@ -1,0 +1,42 @@
+# VDIFからClosure＋RMLへの短区間profile
+
+高精度の局gainや既知skyモデルを入力せず、sample時計と幾何を整列した短pilotからLO差を推定し、短積分の相対画像を作る。[学部生向け説明](../docs/guide/07-closure-rml.md)も参照。
+
+## 入力
+
+- session manifest：[規約](session-manifest.md)。phase_center_correction=true。4局以上のClosure amplitudeを使える連結観測網を推奨。
+- sample時計モデル：[規約](clock-model.md)。実sample開始時刻・実ADC rateを測定または推定して与える。自動の未知時計復元ではない。
+- 観測設定：ICRS phase center・局位置・RF・帯域・画像格子。`source.model="unknown"`なら`total_flux_jy`を省略できる。その他のsource modelはシミュレーター用で総fluxが必要。pipelineは生成skyモデルを使わない。
+- 原本VDIF：8bit complex、4096sample/frame、対応した公称frame時刻。原本全体のSHA-256を計算するため長い入力には読取時間が掛かる。
+
+## 処理
+
+```bash
+python tools/run.py vsora_correlator.closure_pipeline --manifest manifest.json --clock-model clock.json --pilot-integrations 256 --integration-s 0.3 --output outputs/analysis
+```
+
+manifestがFs2.048MHz、FFT32、blocks_per_integration=128なら短pilotは2ms、256個で0.512秒。一回の画像積分0.3秒はその有効期間に収まる。原本にはFIR/補間のguardを含める。初期start offsetの例は0.002秒。
+
+1. sample時計・幾何delay・RFを整列したpilotをADC²で保存。
+2. baseline/channelごとの未知複素値を残し、rateだけ推定する。
+3. 推定rateを**入力sampleのphysical time**で補正し、幾何整列とともにIQから再相関する。
+4. 各短積分・各channelでSNR10以上のClosureを抽出する。
+5. 独立集合と全共分散からRMLの総相対flux1の画像を作る。
+
+rate-only JSONはtype=`station_rate_only`。局ID/順番、UTC原点、有効時間、cadence、基準時刻、rate、入力pilotSHA-256を持つ。基準局に対する差だけで全局共通rateは測れない。既にrate補正したpilotを再推定した場合は、その適用値を加えたtotal rateを保存する。phase/amplitudeの未知定数はClosureへ残す。
+
+単独のaligned再相関は`--rate-profile rate-only.json`を使用できる。局・原点・時間範囲を確認し、範囲外は拒否する。明示的な`--allow-rate-extrapolation`は単独CLIにあるが、pipelineは自動で外挿しない。
+
+## 出力と失敗
+
+`pilot/`、`rate-only.json`、`correlation/`、`closures.npz`、`rml/`、設定コピー、`summary.json`と`pipeline.json`を保存。manifest/clock/観測設定/全VDIFのSHA-256を保持。ADC²をJyとせず、RML FITSのBUNIT=1/pixel、FLUXREF=ARBITRARY、POSREF=ASSUMEDとする。
+
+全工程完了後に`output.partial`を`output`へrenameする。例外ではpartial内にincompleteと完了した工程を残す。中止によるプロセス終了では最後の工程記録とpartialが残り、GUIは中止扱いとする。既存output/partialを上書きせず、新しい出力先で再実行する。
+
+「工程完了」は科学的収束の判定ではない。RMLのoptimizer_success、反復上限、Closure適合、事前依存を別に読む。
+
+## 現在の制限
+
+整列chunkは1〜256積分、span1秒以内、600m以下。一回のpipeline画像化は0.1〜1秒の一積分で、実用予定の3秒整列・長時間合成は後続段階。pilotは8時刻以上・一様cadence・1秒以内。安定sky/gain、時間Nyquist以内、使えるrate graphの連結、高SNR Gaussianを仮定する。bandpass/主ビーム差・低SNR/self-noise・RFIの実測率は未確認。
+
+[段階023レポート](../docs/reports/023-vdif-closure-pipeline.md)に実VDIFを使う模擬試験を記録する。

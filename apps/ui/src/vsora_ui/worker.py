@@ -5,7 +5,7 @@ from pathlib import Path
 import subprocess
 import sys
 from .jobs import write_json
-from .models import SimulationRequest,ValidationRequest,RmlRequest
+from .models import SimulationRequest,ValidationRequest,RmlRequest,AnalysisRequest
 
 
 def layout(stations,kind):
@@ -36,7 +36,8 @@ def simulation_config(request):
 
 def run(job):
     data=json.loads((job/'request.json').read_text());workspace=Path(data['workspace'])
-    raw=data['request'];request={'simulation':SimulationRequest,'validation':ValidationRequest,'rml':RmlRequest}[raw['kind']](**raw)
+    raw=data['request'];request={'simulation':SimulationRequest,'validation':ValidationRequest,'rml':RmlRequest,
+                              'analysis':AnalysisRequest}[raw['kind']](**raw)
     status=json.loads((job/'status.json').read_text())
     def phase(text,done=0):
         if (job/'cancel').exists(): raise InterruptedError('cancelled')
@@ -75,6 +76,20 @@ def run(job):
             result=run_simulation(simulation_config(request),job/'rml-simulation',snapshots=request.snapshots,
                 starts=request.starts,max_iterations=request.max_iterations,prior_fwhm_arcsec=request.prior_fwhm_arcsec,
                 entropy=request.entropy,tsv=request.tsv)
+            write_json(job/'summary.json',result)
+        elif request.kind=='analysis':
+            from vsora_correlator.closure_pipeline import process_closure_session
+            def input_path(value):
+                path=Path(value);path=path if path.is_absolute() else workspace/path
+                if path.suffix.lower()!='.json' or not path.is_file():raise ValueError('existing local JSON file required')
+                return path.resolve()
+            phase('VDIFの確認とsample整列を実行しています')
+            options=request.model_dump(exclude={'kind','manifest','clock_model'})
+            messages={'aligned_pilot':'周波数差を推定しています','model_free_rate':'IQを補正して短積分相関を実行しています',
+                      'rate_corrected_short_correlation':'Closureを取り出しています','closure_extraction':'RMLで相対画像を探しています',
+                      'relative_rml':'入力と結果を保存しています'}
+            result=process_closure_session(input_path(request.manifest),input_path(request.clock_model),job/'analysis',
+                            progress=lambda step,done:phase(messages[step],done),**options)
             write_json(job/'summary.json',result)
         else:
             phase('検証を実行しています')

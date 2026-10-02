@@ -44,3 +44,9 @@ python tools/run.py vsora_imaging.rml --input outputs/casa-closure/uncalibrated.
 ## skyモデルを要求しない周波数差推定
 
 短いpilot内では、各基線・各channelの複素値は未知の定数として扱い、時間方向の位相回転だけを探せます。段階022でこの参照処理を追加しました。局gainと天体の絶対flux/位相を与える必要はありません。sample時計は先に整列する必要があります。GUIの「動作検証」からIQ補正後のClosure回復を確認できます。[適用条件](../reports/022-model-free-rate.md)を参照してください。
+
+## VDIFを指定して解析する
+
+日本語GUIの「VDIF解析」で、WSL上のsession manifestとsample時計モデルを指定できます。既知fluxを要求せず、source.model=unknownの設定を使えます。原本→sample/幾何整列→短pilot rate→IQ再相関→Closure→相対RMLを5工程で実行します。
+
+現在は600m・1秒以内の短区間、一回の画像積分です。長時間Cas A合成と3秒整列は後続段階。pilotの有効時間内に画像積分が収まること、FIR/補間用の前後guardがあることが必要です。[入力・出力・失敗の規約](../../interfaces/closure-pipeline.md)を参照してください。

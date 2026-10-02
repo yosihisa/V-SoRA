@@ -10,6 +10,7 @@ def synthetic_sky(config):
     image = np.zeros((size, size))
     source = config["source"]
     model = source["model"]
+    if model == 'unknown': raise ValueError('unknown sky configuration cannot generate simulation truth')
     if model == "point":
         image[size//2, size//2] = 1
     elif model == "double":
