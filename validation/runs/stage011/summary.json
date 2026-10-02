@@ -1,0 +1,46 @@
+{
+  "python_version": "3.12.3",
+  "versions": {
+    "v-sora": "0.1.0",
+    "numpy": "2.5.1",
+    "scipy": "1.18.0",
+    "astropy": "7.2.2",
+    "matplotlib": "3.11.1",
+    "baseband": "4.3.0",
+    "pytest": "8.4.2"
+  },
+  "installed_wheel_imports": true,
+  "wheel_reference_asset": true,
+  "reference_sha256": "cb9ef1efbcd4011bcfd8ea9b6b9553f36005d08f8c9d26a65439b45e18130663",
+  "pip_check_success": true,
+  "entrypoints_outside_checkout": [
+    {
+      "entrypoint": "vsora-simulate",
+      "success": true
+    },
+    {
+      "entrypoint": "vsora-image",
+      "success": true
+    },
+    {
+      "entrypoint": "vsora-correlate",
+      "success": true
+    }
+  ],
+  "cas_a_smoke_note": "Execution/packaging check only; sparse-array image fidelity evaluated separately",
+  "imaging": {
+    "iterations": 2941,
+    "peak_residual_jy": 0.0793990641083079,
+    "converged": true,
+    "beam_fwhm_pixels": 6.452952788567154,
+    "residual_scaling": "Unscaled dirty-beam residual; do not sum restored pixels as total flux",
+    "beam_note": "Circular lambda/max(projected baseline), not fitted PSF",
+    "model_flux_jy": -6.666409617881854,
+    "visibility_samples": 60,
+    "image_peak_jy": 56.366855778821474,
+    "thermal_image_sigma_jy": 0.08235098073355154,
+    "clean_threshold_jy": 0.08001004477435186,
+    "clean_radius_arcsec": 220.0,
+    "w_phase_at_200arcsec_rad": 0.005757347947301026
+  }
+}

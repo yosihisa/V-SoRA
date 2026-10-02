@@ -13,9 +13,17 @@ dependencies = ["numpy>=2.1,<3", "scipy>=1.15,<2", "astropy>=7,<8", "matplotlib>
 [project.optional-dependencies]
 dev = ["pytest>=8,<9"]
 
+[project.scripts]
+vsora-simulate = "vsora_simulator.__main__:main"
+vsora-image = "vsora_imaging.__main__:main"
+vsora-correlate = "vsora_correlator.__main__:main"
+
 [tool.setuptools]
 packages = ["vsora_observation", "vsora_formats", "vsora_simulator", "vsora_imaging", "vsora_correlator"]
 package-dir = {vsora_observation = "packages/observation/src/vsora_observation", vsora_formats = "packages/formats/src/vsora_formats", vsora_simulator = "apps/simulator/src/vsora_simulator", vsora_imaging = "apps/imaging/src/vsora_imaging", vsora_correlator = "apps/correlator/src/vsora_correlator"}
+
+[tool.setuptools.data-files]
+"share/v-sora/reference" = ["data/reference/casa-template-jy-pixel.fits", "data/reference/casa-template-jy-pixel.json"]
 
 [tool.pytest.ini_options]
 testpaths = ["apps", "packages", "tests/integration"]

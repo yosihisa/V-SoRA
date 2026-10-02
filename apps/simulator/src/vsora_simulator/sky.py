@@ -1,5 +1,4 @@
 """Discrete sky in Jy/pixel on an east/north direction-cosine grid."""
-from pathlib import Path
 import numpy as np
 from vsora_observation.geometry import tangent_grid, ARCSEC_RAD
 
@@ -47,8 +46,8 @@ def casa_sky(config):
     from astropy.time import Time
     from astropy.io import fits
     from astropy.wcs import WCS
-    root=Path(__file__).resolve().parents[4]
-    data,h=fits.getdata(root/'data/reference/casa-template-jy-pixel.fits',header=True)
+    from vsora_observation.reference import reference_path
+    data,h=fits.getdata(reference_path(),header=True)
     if h['BUNIT']!='Jy/pixel': raise ValueError('reference unit mismatch')
     yy,xx=np.indices(data.shape)
     ra,dec=WCS(h).celestial.pixel_to_world_values(xx,yy)
