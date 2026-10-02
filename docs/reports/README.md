@@ -40,4 +40,6 @@
 
 | 024 | [短露光VDIF合成・感度不足](024-vdif-synthesis.md) | source/wheel121件成功。8局Cas A高感度仮定で形状誤差2.8%、低感度失敗とRML上限を記録 |
 
+| 025 | [短積分の感度計画](025-sensitivity-planning.md) | source125件成功。32期待値条件・アンテナ換算・日本語感度GUI。実機感度は未測定 |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。

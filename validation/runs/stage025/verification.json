@@ -1,0 +1,6 @@
+{
+  "source_tests": 125,
+  "warnings": 3034,
+  "initial_targeted_tests": "18 passed, 1 failed: hand-calculated dish expectation had factor 2 error; corrected to 146491.40868 Jy for 2m/100K/0.6; full rerun passed",
+  "scope": "Source implementation and WSL Chromium; Stage025 wheel not rebuilt"
+}

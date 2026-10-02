@@ -85,6 +85,16 @@ def run(output,port=8767,analysis_manifest=None,clock_model=None,synthesis_input
                 assert abs(synthesis_result['summary']['rml']['image_sum']-1)<1e-12
                 page.wait_for_function('Array.from(document.querySelectorAll("#job-detail img")).every(x=>x.complete&&x.naturalWidth>0)')
                 page.screenshot(path=str(out/'synthesis-result-screen.png'),full_page=True)
+            page.get_by_role('button',name='感度計画',exact=True).click()
+            page.get_by_role('button',name='短積分の感度を概算',exact=True).click()
+            page.locator('#job-detail h2').get_by_text('短積分の感度計画',exact=True).wait_for()
+            page.locator('#job-detail .phase-line').get_by_text('処理完了',exact=True).wait_for(timeout=45000)
+            planner_id=httpx.get(url+'/api/jobs').json()[0]['id']
+            planner_result=httpx.get(url+'/api/jobs/'+planner_id).json()
+            assert planner_result['summary']['assumptions']['station_sefd_jy'][0]>500000
+            assert planner_result['summary']['independent_closure_counts']=={'phase':0,'logamp':0}
+            page.wait_for_function('Array.from(document.querySelectorAll("#job-detail img")).every(x=>x.complete&&x.naturalWidth>0)')
+            page.screenshot(path=str(out/'sensitivity-result-screen.png'),full_page=True)
             page.get_by_role('button',name='動作検証',exact=True).click()
             page.locator('select[name=validation]').select_option('quality')
             page.get_by_role('button',name='検証を開始',exact=True).click()
@@ -112,6 +122,9 @@ def run(output,port=8767,analysis_manifest=None,clock_model=None,synthesis_input
             page.get_by_role('button',name='合成画像',exact=True).click()
             overflow=overflow or page.evaluate('document.documentElement.scrollWidth>document.documentElement.clientWidth')
             page.screenshot(path=str(out/'synthesis-mobile-screen.png'),full_page=True)
+            page.get_by_role('button',name='感度計画',exact=True).click()
+            overflow=overflow or page.evaluate('document.documentElement.scrollWidth>document.documentElement.clientWidth')
+            page.screenshot(path=str(out/'sensitivity-mobile-screen.png'),full_page=True)
             external=[x for x in requests if not x.startswith(url+'/')]
             report={'browser':browser.version,'japanese_font_loaded':font,'javascript_errors':errors,
                     'external_requests':len(external),'mobile_horizontal_overflow':overflow,
@@ -120,6 +133,7 @@ def run(output,port=8767,analysis_manifest=None,clock_model=None,synthesis_input
                     'rml_state':rresult['state'],'rml_registered_nrmse':rresult['summary']['metrics']['registered_nrmse'],
                     'analysis_state':analysis_result['state'] if analysis_result else 'not run',
                     'synthesis_state':synthesis_result['state'] if synthesis_result else 'not run',
+                    'sensitivity_state':planner_result['state'],
                     'cancel_state':cancelled['state'],'job_ids':[sid,rid,qid,cid],
                     'scope':'Headless Chromium in WSL; Windows browser and WSLg desktop not directly observed'}
             browser.close();(out/'summary.json').write_text(json.dumps(report,indent=2)+'\n')

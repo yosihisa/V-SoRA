@@ -81,4 +81,18 @@ class SynthesisRequest(Request):
     max_iterations:int=Field(default=800,ge=100,le=2000,strict=True)
 
 
-JobRequest=Annotated[SimulationRequest|ValidationRequest|RmlRequest|AnalysisRequest|SynthesisRequest,Field(discriminator='kind')]
+class SensitivityRequest(Request):
+    kind:Literal['sensitivity']='sensitivity'
+    antenna_mode:Literal['dish','effective']='dish'
+    diameter_m:float=Field(default=1.,ge=.1,le=30.)
+    aperture_efficiency:float=Field(default=.6,gt=0,le=1.)
+    effective_area_m2:float=Field(default=.5,gt=0,le=10000.)
+    system_temperature_k:float=Field(default=100.,ge=10.,le=10000.)
+    integration_s:Literal[.1,.3,1.,3.]=.3
+    bandwidth_hz:float=Field(default=256000.,gt=0,le=2048000.)
+    stations:Literal[4,8]=8
+    layout:Literal['spread','line','ring']='spread'
+    flux_jy:float=Field(default=1000.,gt=0,le=1e7)
+
+
+JobRequest=Annotated[SimulationRequest|ValidationRequest|RmlRequest|AnalysisRequest|SynthesisRequest|SensitivityRequest,Field(discriminator='kind')]

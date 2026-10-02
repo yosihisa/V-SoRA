@@ -1,0 +1,451 @@
+{
+  "type": "sensitivity_grid",
+  "rows": [
+    {
+      "sefd_jy": 1000,
+      "integration_s": 0.1,
+      "bandwidth_per_closure_channel_hz": 256000.0,
+      "expected_maximum_snr": 109.20879896862407,
+      "independent_closure_counts": {
+        "phase": 64,
+        "logamp": 48
+      },
+      "connected_snapshots": 6,
+      "residual_rate_hz_for_90pct_coherence": 2.5040899912669943
+    },
+    {
+      "sefd_jy": 1000,
+      "integration_s": 0.1,
+      "bandwidth_per_closure_channel_hz": 2048000.0,
+      "expected_maximum_snr": 308.88912926381005,
+      "independent_closure_counts": {
+        "phase": 274,
+        "logamp": 258
+      },
+      "connected_snapshots": 16,
+      "residual_rate_hz_for_90pct_coherence": 2.5040899912669943
+    },
+    {
+      "sefd_jy": 1000,
+      "integration_s": 0.3,
+      "bandwidth_per_closure_channel_hz": 256000.0,
+      "expected_maximum_snr": 189.15518844723246,
+      "independent_closure_counts": {
+        "phase": 205,
+        "logamp": 186
+      },
+      "connected_snapshots": 16,
+      "residual_rate_hz_for_90pct_coherence": 0.8346966637556649
+    },
+    {
+      "sefd_jy": 1000,
+      "integration_s": 0.3,
+      "bandwidth_per_closure_channel_hz": 2048000.0,
+      "expected_maximum_snr": 535.0116657906295,
+      "independent_closure_counts": {
+        "phase": 301,
+        "logamp": 285
+      },
+      "connected_snapshots": 16,
+      "residual_rate_hz_for_90pct_coherence": 0.8346966637556649
+    },
+    {
+      "sefd_jy": 1000,
+      "integration_s": 1.0,
+      "bandwidth_per_closure_channel_hz": 256000.0,
+      "expected_maximum_snr": 345.34854527229936,
+      "independent_closure_counts": {
+        "phase": 282,
+        "logamp": 266
+      },
+      "connected_snapshots": 16,
+      "residual_rate_hz_for_90pct_coherence": 0.25040899912669945
+    },
+    {
+      "sefd_jy": 1000,
+      "integration_s": 1.0,
+      "bandwidth_per_closure_channel_hz": 2048000.0,
+      "expected_maximum_snr": 976.7931929398093,
+      "independent_closure_counts": {
+        "phase": 322,
+        "logamp": 306
+      },
+      "connected_snapshots": 16,
+      "residual_rate_hz_for_90pct_coherence": 0.25040899912669945
+    },
+    {
+      "sefd_jy": 1000,
+      "integration_s": 3.0,
+      "bandwidth_per_closure_channel_hz": 256000.0,
+      "expected_maximum_snr": 598.1612267316232,
+      "independent_closure_counts": {
+        "phase": 308,
+        "logamp": 292
+      },
+      "connected_snapshots": 16,
+      "residual_rate_hz_for_90pct_coherence": 0.08346966637556648
+    },
+    {
+      "sefd_jy": 1000,
+      "integration_s": 3.0,
+      "bandwidth_per_closure_channel_hz": 2048000.0,
+      "expected_maximum_snr": 1691.855438659179,
+      "independent_closure_counts": {
+        "phase": 332,
+        "logamp": 316
+      },
+      "connected_snapshots": 16,
+      "residual_rate_hz_for_90pct_coherence": 0.08346966637556648
+    },
+    {
+      "sefd_jy": 10000,
+      "integration_s": 0.1,
+      "bandwidth_per_closure_channel_hz": 256000.0,
+      "expected_maximum_snr": 19.85614526702256,
+      "independent_closure_counts": {
+        "phase": 0,
+        "logamp": 0
+      },
+      "connected_snapshots": 0,
+      "residual_rate_hz_for_90pct_coherence": 2.5040899912669943
+    },
+    {
+      "sefd_jy": 10000,
+      "integration_s": 0.1,
+      "bandwidth_per_closure_channel_hz": 2048000.0,
+      "expected_maximum_snr": 56.16165986614728,
+      "independent_closure_counts": {
+        "phase": 9,
+        "logamp": 0
+      },
+      "connected_snapshots": 0,
+      "residual_rate_hz_for_90pct_coherence": 2.5040899912669943
+    },
+    {
+      "sefd_jy": 10000,
+      "integration_s": 0.3,
+      "bandwidth_per_closure_channel_hz": 256000.0,
+      "expected_maximum_snr": 34.39185244495136,
+      "independent_closure_counts": {
+        "phase": 0,
+        "logamp": 0
+      },
+      "connected_snapshots": 0,
+      "residual_rate_hz_for_90pct_coherence": 0.8346966637556649
+    },
+    {
+      "sefd_jy": 10000,
+      "integration_s": 0.3,
+      "bandwidth_per_closure_channel_hz": 2048000.0,
+      "expected_maximum_snr": 97.27484832556901,
+      "independent_closure_counts": {
+        "phase": 49,
+        "logamp": 31
+      },
+      "connected_snapshots": 1,
+      "residual_rate_hz_for_90pct_coherence": 0.8346966637556649
+    },
+    {
+      "sefd_jy": 10000,
+      "integration_s": 1.0,
+      "bandwidth_per_closure_channel_hz": 256000.0,
+      "expected_maximum_snr": 62.79064459496353,
+      "independent_closure_counts": {
+        "phase": 16,
+        "logamp": 0
+      },
+      "connected_snapshots": 0,
+      "residual_rate_hz_for_90pct_coherence": 0.25040899912669945
+    },
+    {
+      "sefd_jy": 10000,
+      "integration_s": 1.0,
+      "bandwidth_per_closure_channel_hz": 2048000.0,
+      "expected_maximum_snr": 177.5987623526926,
+      "independent_closure_counts": {
+        "phase": 190,
+        "logamp": 170
+      },
+      "connected_snapshots": 16,
+      "residual_rate_hz_for_90pct_coherence": 0.25040899912669945
+    },
+    {
+      "sefd_jy": 10000,
+      "integration_s": 3.0,
+      "bandwidth_per_closure_channel_hz": 256000.0,
+      "expected_maximum_snr": 108.75658667847695,
+      "independent_closure_counts": {
+        "phase": 64,
+        "logamp": 48
+      },
+      "connected_snapshots": 6,
+      "residual_rate_hz_for_90pct_coherence": 0.08346966637556648
+    },
+    {
+      "sefd_jy": 10000,
+      "integration_s": 3.0,
+      "bandwidth_per_closure_channel_hz": 2048000.0,
+      "expected_maximum_snr": 307.61007975621436,
+      "independent_closure_counts": {
+        "phase": 274,
+        "logamp": 258
+      },
+      "connected_snapshots": 16,
+      "residual_rate_hz_for_90pct_coherence": 0.08346966637556648
+    },
+    {
+      "sefd_jy": 100000,
+      "integration_s": 0.1,
+      "bandwidth_per_closure_channel_hz": 256000.0,
+      "expected_maximum_snr": 2.162550474626219,
+      "independent_closure_counts": {
+        "phase": 0,
+        "logamp": 0
+      },
+      "connected_snapshots": 0,
+      "residual_rate_hz_for_90pct_coherence": 2.5040899912669943
+    },
+    {
+      "sefd_jy": 100000,
+      "integration_s": 0.1,
+      "bandwidth_per_closure_channel_hz": 2048000.0,
+      "expected_maximum_snr": 6.116616421065546,
+      "independent_closure_counts": {
+        "phase": 0,
+        "logamp": 0
+      },
+      "connected_snapshots": 0,
+      "residual_rate_hz_for_90pct_coherence": 2.5040899912669943
+    },
+    {
+      "sefd_jy": 100000,
+      "integration_s": 0.3,
+      "bandwidth_per_closure_channel_hz": 256000.0,
+      "expected_maximum_snr": 3.745647295984802,
+      "independent_closure_counts": {
+        "phase": 0,
+        "logamp": 0
+      },
+      "connected_snapshots": 0,
+      "residual_rate_hz_for_90pct_coherence": 0.8346966637556649
+    },
+    {
+      "sefd_jy": 100000,
+      "integration_s": 0.3,
+      "bandwidth_per_closure_channel_hz": 2048000.0,
+      "expected_maximum_snr": 10.594290411695633,
+      "independent_closure_counts": {
+        "phase": 0,
+        "logamp": 0
+      },
+      "connected_snapshots": 0,
+      "residual_rate_hz_for_90pct_coherence": 0.8346966637556649
+    },
+    {
+      "sefd_jy": 100000,
+      "integration_s": 1.0,
+      "bandwidth_per_closure_channel_hz": 256000.0,
+      "expected_maximum_snr": 6.8385850548970195,
+      "independent_closure_counts": {
+        "phase": 0,
+        "logamp": 0
+      },
+      "connected_snapshots": 0,
+      "residual_rate_hz_for_90pct_coherence": 0.25040899912669945
+    },
+    {
+      "sefd_jy": 100000,
+      "integration_s": 1.0,
+      "bandwidth_per_closure_channel_hz": 2048000.0,
+      "expected_maximum_snr": 19.34243946415464,
+      "independent_closure_counts": {
+        "phase": 0,
+        "logamp": 0
+      },
+      "connected_snapshots": 0,
+      "residual_rate_hz_for_90pct_coherence": 0.25040899912669945
+    },
+    {
+      "sefd_jy": 100000,
+      "integration_s": 3.0,
+      "bandwidth_per_closure_channel_hz": 256000.0,
+      "expected_maximum_snr": 11.844776766962838,
+      "independent_closure_counts": {
+        "phase": 0,
+        "logamp": 0
+      },
+      "connected_snapshots": 0,
+      "residual_rate_hz_for_90pct_coherence": 0.08346966637556648
+    },
+    {
+      "sefd_jy": 100000,
+      "integration_s": 3.0,
+      "bandwidth_per_closure_channel_hz": 2048000.0,
+      "expected_maximum_snr": 33.502087894241164,
+      "independent_closure_counts": {
+        "phase": 0,
+        "logamp": 0
+      },
+      "connected_snapshots": 0,
+      "residual_rate_hz_for_90pct_coherence": 0.08346966637556648
+    },
+    {
+      "sefd_jy": 1000000,
+      "integration_s": 0.1,
+      "bandwidth_per_closure_channel_hz": 256000.0,
+      "expected_maximum_snr": 0.21819939853870943,
+      "independent_closure_counts": {
+        "phase": 0,
+        "logamp": 0
+      },
+      "connected_snapshots": 0,
+      "residual_rate_hz_for_90pct_coherence": 2.5040899912669943
+    },
+    {
+      "sefd_jy": 1000000,
+      "integration_s": 0.1,
+      "bandwidth_per_closure_channel_hz": 2048000.0,
+      "expected_maximum_snr": 0.61716109743019,
+      "independent_closure_counts": {
+        "phase": 0,
+        "logamp": 0
+      },
+      "connected_snapshots": 0,
+      "residual_rate_hz_for_90pct_coherence": 2.5040899912669943
+    },
+    {
+      "sefd_jy": 1000000,
+      "integration_s": 0.3,
+      "bandwidth_per_closure_channel_hz": 256000.0,
+      "expected_maximum_snr": 0.37793244445001495,
+      "independent_closure_counts": {
+        "phase": 0,
+        "logamp": 0
+      },
+      "connected_snapshots": 0,
+      "residual_rate_hz_for_90pct_coherence": 0.8346966637556649
+    },
+    {
+      "sefd_jy": 1000000,
+      "integration_s": 0.3,
+      "bandwidth_per_closure_channel_hz": 2048000.0,
+      "expected_maximum_snr": 1.0689543772040548,
+      "independent_closure_counts": {
+        "phase": 0,
+        "logamp": 0
+      },
+      "connected_snapshots": 0,
+      "residual_rate_hz_for_90pct_coherence": 0.8346966637556649
+    },
+    {
+      "sefd_jy": 1000000,
+      "integration_s": 1.0,
+      "bandwidth_per_closure_channel_hz": 256000.0,
+      "expected_maximum_snr": 0.6900070834611377,
+      "independent_closure_counts": {
+        "phase": 0,
+        "logamp": 0
+      },
+      "connected_snapshots": 0,
+      "residual_rate_hz_for_90pct_coherence": 0.25040899912669945
+    },
+    {
+      "sefd_jy": 1000000,
+      "integration_s": 1.0,
+      "bandwidth_per_closure_channel_hz": 2048000.0,
+      "expected_maximum_snr": 1.9516347511284904,
+      "independent_closure_counts": {
+        "phase": 0,
+        "logamp": 0
+      },
+      "connected_snapshots": 0,
+      "residual_rate_hz_for_90pct_coherence": 0.25040899912669945
+    },
+    {
+      "sefd_jy": 1000000,
+      "integration_s": 3.0,
+      "bandwidth_per_closure_channel_hz": 256000.0,
+      "expected_maximum_snr": 1.1951273261371094,
+      "independent_closure_counts": {
+        "phase": 0,
+        "logamp": 0
+      },
+      "connected_snapshots": 0,
+      "residual_rate_hz_for_90pct_coherence": 0.08346966637556648
+    },
+    {
+      "sefd_jy": 1000000,
+      "integration_s": 3.0,
+      "bandwidth_per_closure_channel_hz": 2048000.0,
+      "expected_maximum_snr": 3.380330546771586,
+      "independent_closure_counts": {
+        "phase": 0,
+        "logamp": 0
+      },
+      "connected_snapshots": 0,
+      "residual_rate_hz_for_90pct_coherence": 0.08346966637556648
+    }
+  ],
+  "dish_assumptions": [
+    {
+      "diameter_m": 1.0,
+      "temperature_k": 50.0,
+      "aperture_efficiency": 0.6,
+      "sefd_jy": 292982.8173665096
+    },
+    {
+      "diameter_m": 1.0,
+      "temperature_k": 100.0,
+      "aperture_efficiency": 0.6,
+      "sefd_jy": 585965.6347330192
+    },
+    {
+      "diameter_m": 1.0,
+      "temperature_k": 300.0,
+      "aperture_efficiency": 0.6,
+      "sefd_jy": 1757896.9041990575
+    },
+    {
+      "diameter_m": 3.0,
+      "temperature_k": 50.0,
+      "aperture_efficiency": 0.6,
+      "sefd_jy": 32553.64637405662
+    },
+    {
+      "diameter_m": 3.0,
+      "temperature_k": 100.0,
+      "aperture_efficiency": 0.6,
+      "sefd_jy": 65107.29274811324
+    },
+    {
+      "diameter_m": 3.0,
+      "temperature_k": 300.0,
+      "aperture_efficiency": 0.6,
+      "sefd_jy": 195321.87824433972
+    },
+    {
+      "diameter_m": 6.0,
+      "temperature_k": 50.0,
+      "aperture_efficiency": 0.6,
+      "sefd_jy": 8138.411593514155
+    },
+    {
+      "diameter_m": 6.0,
+      "temperature_k": 100.0,
+      "aperture_efficiency": 0.6,
+      "sefd_jy": 16276.82318702831
+    },
+    {
+      "diameter_m": 6.0,
+      "temperature_k": 300.0,
+      "aperture_efficiency": 0.6,
+      "sefd_jy": 48830.46956108493
+    }
+  ],
+  "required_diameter_m_for_100K_efficiency06": {
+    "1000": 24.20672705536664,
+    "10000": 7.6548392192979415,
+    "100000": 2.420672705536664
+  },
+  "limits": "Noiseless expected SNR counts, source total power included; no random detectability/LO-search/image success. 2.048 MHz assumes a single coherent closure channel and is an optimistic bandwidth comparison, not current 256 kHz VDIF performance."
+}

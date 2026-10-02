@@ -21,6 +21,7 @@
         <button class="nav-button" data-panel="rml">Closure＋RML</button>
         <button class="nav-button" data-panel="validation">動作検証</button>
         <button class="nav-button" data-panel="analysis">VDIF解析</button>
+        <button class="nav-button" data-panel="sensitivity">感度計画</button>
         <button class="nav-button" data-panel="synthesis">合成画像</button>
         <button class="nav-button" data-panel="history">実行履歴</button>
         <button class="nav-button" data-panel="help">使い方</button>
@@ -108,6 +109,21 @@
             <div class="note-card"><h3>現在の処理範囲</h3><p>sample時計は入力した線形モデルを使います。自動で未知時計を復元するものではありません。1秒以内・600m以下の短区間参照処理で、画像化は一つの積分です。別時刻の短露光は「合成画像」でまとめられます。3秒積分の整列は後続段階です。</p><p>ADC²をJyとせず、総相対fluxを1にします。実装置のCas A画像化は未検証です。失敗は途中結果として履歴に残ります。</p></div>
           </div>
         </div>
+      </section>
+      <section id="panel-sensitivity" class="panel hidden">
+        <div class="page-heading"><div class="eyebrow">SENSITIVITY</div><h1>短い積分でClosureを測れるか見積もる</h1><p>アンテナと雑音の仮定から、Cas Aの相関SNRと画像化に使える情報数を計算します。</p></div>
+        <div class="two-column"><form id="sensitivity-form" class="card">
+          <h2>仮定する観測条件</h2>
+          <label>アンテナ面積の指定<select name="antenna_mode"><option value="dish">円形アンテナの直径から計算</option><option value="effective">有効面積を直接指定</option></select></label>
+          <div class="form-row"><label>直径 <span class="unit">m</span><input name="diameter_m" type="number" value="1" min="0.1" max="30" step="any"></label><label>開口効率<input name="aperture_efficiency" type="number" value="0.6" min="0.01" max="1" step="any"></label></div>
+          <label>直接指定する有効面積 <span class="unit">m²</span><input name="effective_area_m2" type="number" value="0.5" min="0.0001" max="10000" step="any"></label>
+          <label>システム雑音温度 <span class="unit">K</span><input name="system_temperature_k" type="number" value="100" min="10" max="10000" step="any"></label>
+          <p class="field-help">雑音温度には受信機・空・地面・給電損失の寄与を含めます。直径を使う指定では直接面積欄は使いません。</p>
+          <div class="form-row"><label>一回の積分 <span class="unit">秒</span><select name="integration_s"><option value="0.1">0.1</option><option value="0.3" selected>0.3</option><option value="1">1</option><option value="3">3</option></select></label><label>Closure一channelの有効帯域 <span class="unit">Hz</span><input name="bandwidth_hz" type="number" value="256000" min="1" max="2048000" step="any"></label></div>
+          <div class="form-row"><label>局数<select name="stations"><option value="8">8</option><option value="4">4</option></select></label><label>配置<select name="layout"><option value="spread">2次元に分散</option><option value="line">直線</option><option value="ring">円周</option></select></label></div>
+          <label>Cas Aの仮定総flux <span class="unit">Jy</span><input name="flux_jy" type="number" value="1000" min="1" max="10000000" step="any"></label>
+          <button type="submit" class="primary full">短積分の感度を概算</button>
+        </form><div class="explanation-stack"><div class="card"><h2>計算の読み方</h2><p>4時間に分散する16個の短露光、最大基線600mの仮定です。局gainとLO・時計は露光内で安定・補正済みとします。</p><p>総fluxより長い基線の相関fluxは小さくなります。SNR10以上の基線から作れる独立phase/amplitude Closureを数えます。局間のgain較正をした値ではありません。</p></div><div class="note-card"><h3>実測と分けて使う</h3><p>情報数は雑音を引く前の期待値です。画像化・rate推定の成功確率ではありません。実機SEFDと位相の安定時間は測定が必要です。</p><p>帯域は一つのClosure channelで足し合わせられる幅です。別channelを複素平均できると仮定しないでください。現在のVDIF試験は256kHz幅を使います。</p></div></div></div>
       </section>
       <section id="panel-synthesis" class="panel hidden">
         <div class="page-heading"><div class="eyebrow">APERTURE SYNTHESIS</div><h1>別時刻の短露光から画像を合成する</h1><p>一回ごとの積分を短く保ち、時間とともに変わる投影基線の情報をRMLへ集めます。</p></div>

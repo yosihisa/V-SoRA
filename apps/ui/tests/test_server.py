@@ -147,3 +147,15 @@ def test_synthesis_and_duplicate_failure_real_subprocess(tmp_path):
         directory=tmp_path/'outputs/gui'/d['id']
         assert (directory/'synthesis.partial/failure.json').is_file()
         assert not (directory/'synthesis').exists()
+
+
+def test_sensitivity_plan_real_subprocess(tmp_path):
+    with TestClient(create_app(tmp_path),base_url='http://127.0.0.1') as c:
+        r=c.post('/api/jobs',json={'kind':'sensitivity','diameter_m':1.,'system_temperature_k':100.},headers=HEADERS)
+        assert r.status_code==202;d=wait(c,r.json()['id']);assert d['state']=='complete',d
+        assert d['summary']['type']=='sensitivity_plan'
+        assert d['summary']['assumptions']['station_sefd_jy'][0]>500000
+        assert d['summary']['independent_closure_counts']=={'phase':0,'logamp':0}
+        assert d['summary']['antenna_assumptions']['mode']=='dish'
+        r=c.post('/api/jobs',json={'kind':'sensitivity','antenna_mode':'effective','effective_area_m2':1.},headers=HEADERS)
+        d=wait(c,r.json()['id']);assert d['summary']['assumptions']['station_sefd_jy'][0]==pytest.approx(276129.8)

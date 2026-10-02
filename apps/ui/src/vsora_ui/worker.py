@@ -5,7 +5,7 @@ from pathlib import Path
 import subprocess
 import sys
 from .jobs import write_json
-from .models import SimulationRequest,ValidationRequest,RmlRequest,AnalysisRequest,SynthesisRequest
+from .models import SimulationRequest,ValidationRequest,RmlRequest,AnalysisRequest,SynthesisRequest,SensitivityRequest
 
 
 def layout(stations,kind):
@@ -37,7 +37,7 @@ def simulation_config(request):
 def run(job):
     data=json.loads((job/'request.json').read_text());workspace=Path(data['workspace'])
     raw=data['request'];request={'simulation':SimulationRequest,'validation':ValidationRequest,'rml':RmlRequest,
-                              'analysis':AnalysisRequest,'synthesis':SynthesisRequest}[raw['kind']](**raw)
+                              'analysis':AnalysisRequest,'synthesis':SynthesisRequest,'sensitivity':SensitivityRequest}[raw['kind']](**raw)
     status=json.loads((job/'status.json').read_text())
     def phase(text,done=0):
         if (job/'cancel').exists(): raise InterruptedError('cancelled')
@@ -90,6 +90,18 @@ def run(job):
                       'relative_rml':'入力と結果を保存しています'}
             result=process_closure_session(input_path(request.manifest),input_path(request.clock_model),job/'analysis',
                             progress=lambda step,done:phase(messages[step],done),**options)
+            write_json(job/'summary.json',result)
+        elif request.kind=='sensitivity':
+            from vsora_simulator.sensitivity import dish_area,sefd_from_area,write_plan
+            phase('仮定した感度と短積分のClosure情報を計算しています')
+            area=dish_area(request.diameter_m,request.aperture_efficiency) if request.antenna_mode=='dish' else request.effective_area_m2
+            sefd=sefd_from_area(request.system_temperature_k,area)
+            simulation=SimulationRequest(model='casa',stations=request.stations,layout=request.layout,
+                duration_s=14400,integration_s=120,flux_jy=request.flux_jy,sefd_jy=sefd)
+            result=write_plan(simulation_config(simulation),job/'sensitivity',integration_s=request.integration_s,bandwidth_hz=request.bandwidth_hz)
+            result['antenna_assumptions']={'effective_area_m2':area,'system_temperature_k':request.system_temperature_k,
+                'mode':request.antenna_mode,'diameter_m':request.diameter_m if request.antenna_mode=='dish' else None,
+                'aperture_efficiency':request.aperture_efficiency if request.antenna_mode=='dish' else None}
             write_json(job/'summary.json',result)
         elif request.kind=='synthesis':
             from vsora_imaging.synthesis import image_synthesis

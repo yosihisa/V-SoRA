@@ -43,3 +43,5 @@ Windowsの収録ソフトはハードウェアの進捗に合わせて後で開�
 実装の正確な入出力は[ソフト間の規約](../../interfaces/README.md)、各時点の作業と検証は[段階レポート](../reports/README.md)にあります。過去の結果は当時の条件・実装での記録です。
 
 [短積分とClosure＋RML](07-closure-rml.md)：相対flux、事前条件、位置合わせ、探索の停止を読む。
+
+[感度と短い積分](08-sensitivity.md)：アンテナ面積、雑音温度、Closure情報数、許容rate。
