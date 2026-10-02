@@ -23,3 +23,17 @@ def dirty_image(uvw_lambda, vis, pixels, pixel_arcsec, weights=None, block_size=
         dirty += np.real((w[start:start+block_size]*visibility[start:start+block_size]) @ phase)
         psf += np.real(w[start:start+block_size] @ phase)
     return dirty.reshape(pixels,pixels)/w.sum(), psf.reshape(pixels,pixels)/w.sum()
+
+
+def point_response(uvw_lambda,weights,pixels,pixel_arcsec,y,x,block_size=128):
+    """Exact normal-operator column, including w and full image boundaries."""
+    uvw=np.asarray(uvw_lambda,dtype=np.float64).reshape(-1,3)
+    w=np.asarray(weights,dtype=np.float64).reshape(-1)
+    l,m=tangent_grid(pixels,pixel_arcsec)
+    dirs=np.column_stack([l.ravel(),m.ravel(),np.sqrt(1-l.ravel()**2-m.ravel()**2)-1])
+    displacement=dirs-dirs[y*pixels+x]
+    image=np.zeros(pixels*pixels)
+    for first in range(0,len(uvw),block_size):
+        phase=np.exp(2j*np.pi*(uvw[first:first+block_size]@displacement.T))
+        image+=np.real(w[first:first+block_size]@phase)
+    return image.reshape(pixels,pixels)/w.sum()

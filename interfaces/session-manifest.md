@@ -47,4 +47,6 @@ rate補正と較正の位相・時間原点・局順・入力単位は一致を�
 
 幾何補正は積分中央の周波数位相補正。有限FFT内のsampleずれや端の損失を除く処理はまだCLIに組込んでいない。時計整列APIは別モジュール。EOPはofflineの予測を含む。主ビーム、RFI、bandpass、偏波、実UTCの同期精度は未検証。
 
-短時間・多数channelのまま長時間データを保存すると相関出力も大きくなる。pilotを短時間で取得し、rate/clock補正後に積分・帯域平均を長くする設計が必要。現FITS-IDIは1continuum channelのみ。
+短時間・多数channelのまま長時間データを保存すると相関出力も大きくなる。pilotを短時間で取得し、rate/clock補正後に積分・帯域平均を長くする設計が必要。段階013では`apply`が`spectral-visibility.fits`も保存し、channel別weights/flagsを保持する。channel別重みが異なる場合はcontinuumへの近似を行わず、`continuum_exported=false`にする。
+
+画像CLIは較正済みspectral NPZと多channel FITS-IDIを直接読める。RF帯域内でflux一定の狭帯域MFS参照処理。raw ADCは拒否する。CLEANは各点の正確なuvw応答（w項と全視野境界を含む）を使い、応答cacheを約16MiBまでに制限する。大規模な高速gridding/GPU処理は未実装。

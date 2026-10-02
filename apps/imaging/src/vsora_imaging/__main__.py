@@ -9,7 +9,8 @@ from scipy.signal import fftconvolve
 from astropy.io import fits
 from vsora_formats.visibility import load_visibility
 from vsora_formats.fitsidi import read_fitsidi
-from .dirty import dirty_image
+from vsora_formats.spectral import load_spectral
+from .dirty import dirty_image,point_response
 from .clean import clean
 from vsora_observation.geometry import tangent_grid, ARCSEC_RAD
 
@@ -52,7 +53,12 @@ def image_visibility(path,output,clean_radius_arcsec=None):
     out=Path(output)
     if out.exists():
         raise FileExistsError('output directory already exists')
-    d=read_fitsidi(path) if Path(path).suffix=='.fits' else load_visibility(path)
+    if Path(path).suffix=='.fits': d=read_fitsidi(path)
+    else:
+        with np.load(path,allow_pickle=False) as probe: spectral='times_s' in probe.files
+        d=load_spectral(path) if spectral else load_visibility(path)
+        if spectral and d['metadata']['visibility_unit']!='Jy':
+            raise ValueError('calibrate ADC visibility to Jy before imaging')
     config=d['metadata']['config'];im=config['image']
     dirty,psf=dirty_image(d['uvw_lambda'],d['vis_jy'],im['pixels'],im['pixel_arcsec'],d['weights'])
     uvnorm=np.linalg.norm(d['uvw_lambda'][...,:2],axis=-1)
@@ -65,8 +71,12 @@ def image_visibility(path,output,clean_radius_arcsec=None):
     # Stop at 3 thermal sigma when noise is enabled; floor is relative to peak.
     image_sigma=1/np.sqrt(d['weights'].sum())
     threshold=max(abs(dirty).max()*1e-3,3*image_sigma if config['noise']['enabled'] else 0,1e-8)
+    from functools import lru_cache
+    @lru_cache(maxsize=max(1,min(1024,16*1024*1024//(im['pixels']**2*8))))
+    def response(y,x):
+        return point_response(d['uvw_lambda'],d['weights'],im['pixels'],im['pixel_arcsec'],int(y),int(x))
     result=clean(dirty,psf,threshold=threshold,max_iterations=5000,mask=mask,
-                 beam_fwhm_pixels=beam_arcsec/im['pixel_arcsec'])
+                 beam_fwhm_pixels=beam_arcsec/im['pixel_arcsec'],response_function=response)
     out.mkdir(parents=True)
     write_image_fits(out/'dirty.fits',dirty,config,'Jy/beam')
     write_image_fits(out/'psf.fits',psf,config,'1')

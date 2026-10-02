@@ -167,8 +167,7 @@ def apply_shard(input_path,calibration_path,output,allow_extrapolation=False):
     cube={k:d[k] for k in ('pairs','times_s','frequencies_hz','uvw_lambda','integration_s')}
     cube.update({'visibilities':v,'weights':w})
     total=w.sum(axis=1);continuum=np.divide((v*w).sum(axis=1),total,out=np.zeros(total.shape,complex),where=total>0)
-    # Current weights are channel-independent; reject other profiles for now.
-    if not np.allclose(w,w[:,0:1,:],rtol=1e-6,atol=0): raise ValueError('continuum export needs channel-independent weights')
+    continuum_supported=np.allclose(w,w[:,0:1,:],rtol=1e-6,atol=0)
     config=json.loads(json.dumps(meta['config']));center=float(d['frequencies_hz'].mean())
     config['observation']['frequency_hz']=center
     times=Time(meta['time_origin_utc'])+d['times_s']*u.s
@@ -176,10 +175,16 @@ def apply_shard(input_path,calibration_path,output,allow_extrapolation=False):
     partial.mkdir(parents=True)
     try:
         save_spectral(partial/'calibrated.npz',cube,{**meta,'visibility_unit':'Jy','calibration_applied':True})
-        write_fitsidi(partial/'visibility.fits',g,continuum,total,config,
-                      {'calibration':'Known sky model, constant station response','model_kind':c.get('model_kind','point'),
-                       'assumed_model_flux_jy':c.get('assumed_model_flux_jy',c.get('known_point_flux_jy'))},integration_s=d['integration_s'])
-        summary={'state':'complete','visibility_unit':'Jy','rows':int(continuum.size)}
+        provenance={'calibration':'Known sky model, constant station response','model_kind':c.get('model_kind','point'),
+                    'assumed_model_flux_jy':c.get('assumed_model_flux_jy',c.get('known_point_flux_jy'))}
+        if continuum_supported:
+            write_fitsidi(partial/'visibility.fits',g,continuum,total,config,provenance,integration_s=d['integration_s'])
+        spectral_config=json.loads(json.dumps(meta['config']))
+        spectral_g=geometry_at_times(spectral_config,times,filter_elevation=False)
+        write_fitsidi(partial/'spectral-visibility.fits',spectral_g,v,w,spectral_config,provenance,
+                      integration_s=d['integration_s'],frequencies_hz=d['frequencies_hz'])
+        summary={'state':'complete','visibility_unit':'Jy','rows':int(continuum.size),
+                 'spectral_channels':len(d['frequencies_hz']),'continuum_exported':bool(continuum_supported)}
         (partial/'summary.json').write_text(json.dumps(summary)+'\n');partial.rename(out)
         return summary
     except Exception as exc:

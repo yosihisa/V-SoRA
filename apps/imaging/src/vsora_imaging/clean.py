@@ -13,7 +13,8 @@ def shifted_psf(psf, y, x, shape):
     return out
 
 
-def clean(dirty, psf, gain=.1, threshold=1e-3, max_iterations=2000, mask=None, beam_fwhm_pixels=4.0):
+def clean(dirty, psf, gain=.1, threshold=1e-3, max_iterations=2000, mask=None, beam_fwhm_pixels=4.0,
+          response_function=None):
     if dirty.shape != psf.shape or not 0 < gain <= 1 or threshold <= 0 or max_iterations <= 0 or beam_fwhm_pixels <= 0:
         raise ValueError("invalid CLEAN inputs")
     if not np.isfinite(dirty).all() or not np.isfinite(psf).all():
@@ -33,7 +34,10 @@ def clean(dirty, psf, gain=.1, threshold=1e-3, max_iterations=2000, mask=None, b
             break
         component=gain*residual[y,x]
         model[y,x]+=component
-        residual-=component*shifted_psf(psf,y,x,dirty.shape)
+        response=shifted_psf(psf,y,x,dirty.shape) if response_function is None else response_function(y,x)
+        if response.shape!=dirty.shape or not np.isfinite(response).all() or abs(response[y,x]-1)>1e-8:
+            raise ValueError('invalid point response')
+        residual-=component*response
         iterations=k+1
     # Odd-sized, peak-normalized Gaussian: unit point-source flux gives unit peak.
     n=dirty.shape[0]
@@ -44,4 +48,5 @@ def clean(dirty, psf, gain=.1, threshold=1e-3, max_iterations=2000, mask=None, b
     return {"model_jy_pixel":model,"residual_jy_dirty_beam":residual,"restored_jy_clean_beam":restored,
             "iterations":iterations,"peak_residual_jy":float(np.max(np.abs(residual[allowed]))),
             "converged":bool(np.max(np.abs(residual[allowed]))<=threshold),"beam_fwhm_pixels":beam_fwhm_pixels,
+            "response_model":"exact uvw normal operator" if response_function is not None else "cropped translated central PSF approximation",
             "residual_scaling":"Unscaled dirty-beam residual; do not sum restored pixels as total flux"}

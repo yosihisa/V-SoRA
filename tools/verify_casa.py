@@ -25,22 +25,25 @@ def main():
     ms=out/'observation.ms'
     importfitsidi(fitsidifile=str(Path(a.input).resolve()),vis=str(ms.resolve()),constobsid=True,coordframe='J2000')
     tb=table();tb.open(str(ms))
-    data=tb.getcol('DATA')[0,0,:];uvw=tb.getcol('UVW').T
-    flags=tb.getcol('FLAG')[0,0,:]
+    data=tb.getcol('DATA')[0];uvw=tb.getcol('UVW').T
+    flags=tb.getcol('FLAG')[0]
     antennas=np.column_stack([tb.getcol('ANTENNA1'),tb.getcol('ANTENNA2')])
     ms_times=tb.getcol('TIME');integration=tb.getcol('INTERVAL');weights=tb.getcol('WEIGHT')
     tb.close()
     with np.load(a.expected,allow_pickle=False) as expected:
-        target=expected['vis_jy'].ravel()
+        original=expected['vis_jy']
+        target=original.ravel()[None,:] if original.ndim==2 else original.transpose(1,0,2).reshape(original.shape[1],-1)
         targetuvw=expected['uvw_m'].reshape(-1,3)
-        target_times=np.repeat(expected['times_mjd'],expected['vis_jy'].shape[1])*86400
+        target_times=np.repeat(expected['times_mjd'],original.shape[-1])*86400
         target_pairs=np.tile(expected['pairs'],(expected['vis_jy'].shape[0],1))
         expected_peak=expected['expected_dirty_peak_xy'].tolist() if 'expected_dirty_peak_xy' in expected else None
         expected_flux=float(expected['expected_flux_jy']) if 'expected_flux_jy' in expected else None
-        expected_weights=expected['weights'].ravel() if 'weights' in expected else None
-    if len(target)!=len(data): raise ValueError('CASA row count differs')
+        ew=expected['weights'] if 'weights' in expected else None
+        expected_weights=None if ew is None else ew.ravel()[None,:] if ew.ndim==2 else ew.transpose(1,0,2).reshape(ew.shape[1],-1)
+        expected_frequency=expected['frequencies_hz'] if 'frequencies_hz' in expected else None
+    if target.shape!=data.shape: raise ValueError('CASA channel/row count differs')
     report={'casatools_version':versions.version('casatools'),'casatasks_version':versions.version('casatasks'),
-            'ms_rows':len(data),'flags':int(flags.sum()),
+            'ms_rows':data.shape[-1],'channels':data.shape[0],'flags':int(flags.sum()),
             'data_relative_error_direct':float(np.linalg.norm(data-target)/np.linalg.norm(target)),
             'data_relative_error_conjugate':float(np.linalg.norm(data-target.conj())/np.linalg.norm(target)),
             'uvw_relative_error_direct':float(np.linalg.norm(uvw-targetuvw)/np.linalg.norm(targetuvw)),
@@ -50,19 +53,29 @@ def main():
             'interval_min_s':float(integration.min()),'interval_max_s':float(integration.max()),
             'weight_min':float(weights.min()),'weight_max':float(weights.max())}
     if expected_weights is not None:
-        report['import_weight_scale_median']=float(np.median(weights[0]/expected_weights))
+        row_weights=expected_weights.mean(axis=0)
+        positive=row_weights>0
+        report['import_weight_scale_median']=float(np.median(weights[0,positive]/row_weights[positive]))
         # importfitsidi initializes correlator weights via exposure*bandwidth.
         # Our NORMAL weights already represent inverse variance in Jy^-2.
         # Restore these explicitly before later CASA calibration/imaging.
-        correct=expected_weights[None,:].astype('float32')
+        correct=row_weights[None,:].astype('float32');spectrum=expected_weights[None,:,:].astype('float32')
         tb.open(str(ms),nomodify=False)
         tb.putcol('WEIGHT',correct)
         tb.putcol('SIGMA',np.where(correct>0,1/np.sqrt(correct),0).astype('float32'))
-        if 'WEIGHT_SPECTRUM' in tb.colnames(): tb.putcol('WEIGHT_SPECTRUM',correct[:,None,:])
+        if 'WEIGHT_SPECTRUM' not in tb.colnames(): raise ValueError('CASA import did not create WEIGHT_SPECTRUM')
+        tb.putcol('WEIGHT_SPECTRUM',spectrum)
+        if 'SIGMA_SPECTRUM' in tb.colnames():
+            sigma=np.divide(1,np.sqrt(spectrum),out=np.zeros_like(spectrum),where=spectrum>0)
+            tb.putcol('SIGMA_SPECTRUM',sigma)
         tb.close()
-        tb.open(str(ms));actual_weights=tb.getcol('WEIGHT');tb.close()
+        tb.open(str(ms));actual_weights=tb.getcol('WEIGHT_SPECTRUM')[0];tb.close()
         report['weight_policy']='Restore input NORMAL inverse-variance weights after CASA importfitsidi initialization'
-        report['weight_relative_error_after_restore']=float(np.linalg.norm(actual_weights[0]-expected_weights)/np.linalg.norm(expected_weights))
+        report['weight_relative_error_after_restore']=float(np.linalg.norm(actual_weights-expected_weights)/np.linalg.norm(expected_weights))
+        report['import_flags_match_zero_weights']=bool(np.array_equal(flags,expected_weights==0))
+    if expected_frequency is not None:
+        tb.open(str(ms/'SPECTRAL_WINDOW'));actual_frequency=tb.getcol('CHAN_FREQ')[:,0];tb.close()
+        report['frequency_max_error_hz']=float(np.max(abs(actual_frequency-expected_frequency)))
     if a.image:
         name=str(out/'point')
         result=tclean(vis=str(ms),imagename=name,imsize=128,cell='16arcsec',stokes='XX',
@@ -85,6 +98,8 @@ def main():
         raise AssertionError('CASA image position/amplitude failed')
     if report.get('weight_relative_error_after_restore',0)>1e-6:
         raise AssertionError('CASA weight restoration failed')
+    if report.get('frequency_max_error_hz',0)>1e-5 or not report.get('import_flags_match_zero_weights',True):
+        raise AssertionError('CASA frequencies/flags differ')
 
 
 if __name__=='__main__': main()

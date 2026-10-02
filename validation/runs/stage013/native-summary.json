@@ -1,0 +1,16 @@
+{
+  "iterations": 66,
+  "peak_residual_jy": 0.9550049497180824,
+  "converged": true,
+  "beam_fwhm_pixels": 6.4494646274165515,
+  "response_model": "exact uvw normal operator",
+  "residual_scaling": "Unscaled dirty-beam residual; do not sum restored pixels as total flux",
+  "beam_note": "Circular lambda/max(projected baseline), not fitted PSF",
+  "model_flux_jy": 999.0449939207138,
+  "visibility_samples": 480,
+  "image_peak_jy": 999.9999988704318,
+  "thermal_image_sigma_jy": 0.03729370981454849,
+  "clean_threshold_jy": 0.9999999988704318,
+  "clean_radius_arcsec": null,
+  "w_phase_at_200arcsec_rad": 0.005760461780557031
+}
