@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 from scipy.signal import fftconvolve
 from astropy.io import fits
 from vsora_formats.visibility import load_visibility
+from vsora_formats.fitsidi import read_fitsidi
 from .dirty import dirty_image
 from .clean import clean
 from vsora_observation.geometry import tangent_grid, ARCSEC_RAD
@@ -51,7 +52,8 @@ def image_visibility(path,output,clean_radius_arcsec=None):
     out=Path(output)
     if out.exists():
         raise FileExistsError('output directory already exists')
-    d=load_visibility(path);config=d['metadata']['config'];im=config['image']
+    d=read_fitsidi(path) if Path(path).suffix=='.fits' else load_visibility(path)
+    config=d['metadata']['config'];im=config['image']
     dirty,psf=dirty_image(d['uvw_lambda'],d['vis_jy'],im['pixels'],im['pixel_arcsec'],d['weights'])
     uvnorm=np.linalg.norm(d['uvw_lambda'][...,:2],axis=-1)
     beam_arcsec=206264.806247/max(uvnorm.max(),1)

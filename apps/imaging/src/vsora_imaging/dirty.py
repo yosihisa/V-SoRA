@@ -7,9 +7,9 @@ from vsora_observation.geometry import tangent_grid
 
 
 def dirty_image(uvw_lambda, vis, pixels, pixel_arcsec, weights=None, block_size=128):
-    uvw = np.asarray(uvw_lambda).reshape(-1,3)
-    visibility = np.asarray(vis).reshape(-1)
-    w = np.ones(len(uvw)) if weights is None else np.asarray(weights).reshape(-1)
+    uvw = np.asarray(uvw_lambda,dtype=np.float64).reshape(-1,3)
+    visibility = np.asarray(vis,dtype=np.complex128).reshape(-1)
+    w = np.ones(len(uvw)) if weights is None else np.asarray(weights,dtype=np.float64).reshape(-1)
     if len(visibility) != len(uvw) or len(w) != len(uvw):
         raise ValueError("visibility and uvw lengths differ")
     if not np.isfinite(uvw).all() or not np.isfinite(visibility).all() or not np.isfinite(w).all() or np.any(w < 0) or w.sum() <= 0:

@@ -1,0 +1,188 @@
+{
+  "iterations": 751,
+  "peak_residual_jy": 2.1416672001987807,
+  "converged": true,
+  "beam_fwhm_pixels": 4.536885079251322,
+  "residual_scaling": "Unscaled dirty-beam residual; do not sum restored pixels as total flux",
+  "beam_note": "Circular lambda/max(projected baseline), not fitted PSF",
+  "model_flux_jy": 936.0085311965133,
+  "visibility_samples": 448,
+  "image_peak_jy": 113.07350754904105,
+  "thermal_image_sigma_jy": 0.7177425622940063,
+  "clean_threshold_jy": 2.1532278060913086,
+  "clean_radius_arcsec": 220,
+  "w_phase_at_200arcsec_rad": 0.006638268849170108,
+  "common_beam_arcsec": 110,
+  "nrmse": 0.05674077236399785,
+  "correlation": 0.9996927680172618,
+  "model_flux_ratio": 0.9360085328370332,
+  "evaluation": "CLEAN model only, common beam, fixed 260 arcsec region; no flux renormalization",
+  "config": {
+    "schema_version": 1,
+    "site": {
+      "latitude_deg": 35.0,
+      "longitude_deg": 135.0,
+      "height_m": 0.0,
+      "description": "Assumed public synthetic site, not an actual observation location"
+    },
+    "source": {
+      "frame": "icrs",
+      "ra_deg": 350.8664166662,
+      "dec_deg": 58.8117777793,
+      "model": "casa",
+      "total_flux_jy": 1000.0
+    },
+    "observation": {
+      "start_utc": "2026-10-02T08:00:00Z",
+      "duration_s": 14400.0,
+      "integration_s": 900.0,
+      "frequency_hz": 1419984000.0,
+      "bandwidth_hz": 2048000.0,
+      "elevation_min_deg": 15.0
+    },
+    "stations": [
+      {
+        "id": "ST01",
+        "enu_m": [
+          -228.58179532783782,
+          -148.5781669630946,
+          0.0
+        ],
+        "sefd_jy": 10000
+      },
+      {
+        "id": "ST02",
+        "enu_m": [
+          -205.72361579505403,
+          -114.29089766391891,
+          0.0
+        ],
+        "sefd_jy": 10000
+      },
+      {
+        "id": "ST03",
+        "enu_m": [
+          182.86543626227024,
+          -205.72361579505403,
+          0.0
+        ],
+        "sefd_jy": 10000
+      },
+      {
+        "id": "ST04",
+        "enu_m": [
+          251.4399748606216,
+          194.29452602866215,
+          0.0
+        ],
+        "sefd_jy": 10000
+      },
+      {
+        "id": "ST05",
+        "enu_m": [
+          -274.29815439340535,
+          182.86543626227024,
+          0.0
+        ],
+        "sefd_jy": 10000
+      },
+      {
+        "id": "ST06",
+        "enu_m": [
+          -45.71635906556756,
+          45.71635906556756,
+          0.0
+        ],
+        "sefd_jy": 10000
+      },
+      {
+        "id": "ST07",
+        "enu_m": [
+          45.71635906556756,
+          -91.43271813113512,
+          0.0
+        ],
+        "sefd_jy": 10000
+      },
+      {
+        "id": "ST08",
+        "enu_m": [
+          205.72361579505403,
+          22.85817953278378,
+          0.0
+        ],
+        "sefd_jy": 10000
+      }
+    ],
+    "image": {
+      "pixels": 64,
+      "pixel_arcsec": 16.0
+    },
+    "noise": {
+      "enabled": true,
+      "efficiency": 1.0
+    },
+    "seed": 42
+  },
+  "frequency_hz": 1419984000.0,
+  "actual_exposure_per_snapshot_s": 0.128,
+  "total_exposure_s": 2.048,
+  "eop_status": [
+    [
+      2
+    ],
+    [
+      2
+    ],
+    [
+      2
+    ],
+    [
+      2
+    ],
+    [
+      2
+    ],
+    [
+      2
+    ],
+    [
+      2
+    ],
+    [
+      2
+    ],
+    [
+      2
+    ],
+    [
+      2
+    ],
+    [
+      2
+    ],
+    [
+      2
+    ],
+    [
+      2
+    ],
+    [
+      2
+    ],
+    [
+      2
+    ],
+    [
+      2
+    ]
+  ],
+  "assumptions": [
+    "stationary FFT-periodic snapshots; known geometric delay",
+    "no clock/LO drift; primary beam unity",
+    "snapshot spacing is not integration time",
+    "weights approximate including sky power; no full self-noise covariance"
+  ],
+  "mean_snapshot_visibility_error": 0.09997355571167545,
+  "idi_roundtrip_relative_error": 1.903989920351376e-08
+}

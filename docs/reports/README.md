@@ -9,5 +9,6 @@
 | 002 | [理想visibility・画像復元](002-ideal-imaging.md) | 22件成功。点源・2点源の解析比較とFITS画像出力 |
 | 003 | [Cas A・局配置比較](003-casa-array-study.md) | 24件成功。7条件を比較、リング配置はCLEAN非収束 |
 | 004 | [VDIF・FX相関](004-vdif-fx.md) | 30件成功。短時間IQの量子化・遅延・相関を検証 |
+| 005 | [IQから画像まで](005-iq-to-image.md) | 33件成功。8局・16snapshotをVDIF→IDI候補→画像へ接続 |
 
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。

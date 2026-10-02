@@ -39,3 +39,10 @@ def test_psf_shift_has_no_wrap():
     shifted=shifted_psf(psf,0,0,(8,8))
     assert shifted[0,0]==1
     assert np.count_nonzero(shifted)==1
+
+
+def test_float32_weights_psf_normalization():
+    uvw=np.ones((448,3))
+    weights=np.full(448,.00433333,dtype='float32')
+    _,psf=dirty_image(uvw,np.ones(448,complex),32,16,weights)
+    assert abs(psf[16,16]-1)<1e-12

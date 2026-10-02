@@ -2,6 +2,9 @@
 __pycache__/
 *.py[cod]
 .venv/
+.casa-venv/
+.casa-data/
+casa*.log
 venv/
 .pytest_cache/
 .mypy_cache/
