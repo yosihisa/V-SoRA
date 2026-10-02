@@ -16,5 +16,6 @@
 | 009 | [ADC時計・分数sample整列](009-adc-clock-alignment.md) | 48件成功。連続解析波形で時計推定・補間・幾何の符号を検証 |
 | 010 | [session・相関CLI](010-session-cli.md) | 52件成功。ADC→2pass較正→Jy/IDI→画像、stream/shard保存 |
 | 011 | [独立環境・wheel導入](011-reproducible-environment.md) | 独立venvで52件成功。checkout外の参照画像・CLI実行を確認 |
+| 012 | [Cas Aモデル較正](012-casa-model-calibration.md) | 55件成功。spanning tree、2感度条件の16snapshot、prior依存を明示 |
 
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。

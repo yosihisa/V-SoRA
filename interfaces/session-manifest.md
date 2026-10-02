@@ -39,6 +39,8 @@ python tools/run.py vsora_imaging --input outputs/calibrated/visibility.fits --o
 
 `--point-flux-jy`は既知の**位相中心の点源**を仮定する。Cas Aの全基線に1000 Jy一定を入れて較正する用途には使えない。Cas Aは分解されるためshape modelを使う較正が必要。点源が用意できない場合の観測較正手順は未確定。
 
+段階012では点源の代わりに`--model-config model.json`を指定できる。設定のsource.modelがcasaならL-band参照shapeを使用する。phase centerは収録設定と一致を要求。flux/shapeは**仮定したprior**であり、古い画像を使ったself-calibrationの成功だけでは未知の1.42 GHz画像を独立復元したことにならない。仮定fluxの誤りは利得へ吸収され、画像fluxもその仮定に従う。方位を含む絶対位相・位置も外部基準なしでは縮退しうる。
+
 rate補正と較正の位相・時間原点・局順・入力単位は一致を要求。範囲外への適用は明示的な`--allow-calibration-extrapolation`が必要であり、長時間安定性を保証しない。初回pilotの推定で積分内損失を戻せないため、IQ再位相補正後に利得を再推定する。
 
 ## 制約

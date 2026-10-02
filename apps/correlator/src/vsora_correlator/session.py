@@ -124,18 +124,29 @@ def correlate_session(manifest,output,rate_calibration=None,allow_extrapolation=
         for reader in readers: reader.close()
 
 
-def calibrate_shard(input_path,output,point_flux_jy,reference_station=0):
-    if not np.isfinite(point_flux_jy) or point_flux_jy<=0: raise ValueError('known positive point flux required')
+def calibrate_shard(input_path,output,point_flux_jy=None,reference_station=0,model_config=None):
+    if (point_flux_jy is None)==(model_config is None): raise ValueError('choose exactly one point flux or sky model config')
     d=load_spectral(input_path);m=d['metadata']
-    if not m.get('phase_center_corrected'): raise ValueError('point calibrator requires phase-center correction')
-    c=solve_fringe(d['visibilities'],np.ones(d['visibilities'].shape)*point_flux_jy,d['weights'],d['pairs'],
+    if not m.get('phase_center_corrected'): raise ValueError('sky calibrator requires phase-center correction')
+    if point_flux_jy is not None:
+        if not np.isfinite(point_flux_jy) or point_flux_jy<=0: raise ValueError('known positive point flux required')
+        model=np.ones(d['visibilities'].shape)*point_flux_jy;kind='point';flux=point_flux_jy
+    else:
+        from vsora_simulator.sky import synthetic_sky
+        from vsora_simulator.visibility import direct_visibility
+        config=load_config(model_config)
+        for key in ('ra_deg','dec_deg','frame'):
+            if config['source'][key]!=m['config']['source'][key]: raise ValueError('model phase center differs')
+        model=direct_visibility(d['uvw_lambda'],synthetic_sky(config),config['image']['pixel_arcsec'])
+        kind=config['source']['model'];flux=config['source']['total_flux_jy']
+    c=solve_fringe(d['visibilities'],model,d['weights'],d['pairs'],
                    d['times_s'],d['frequencies_hz'],reference_station)
     # A second pilot may already have the first estimate removed from IQ.
     removed=np.array(m.get('rate_applied_hz',np.zeros(len(c['amplitude']))))
     c['phase_rad']=np.angle(np.exp(1j*(np.array(c['phase_rad'])+2*np.pi*removed*(c['time_reference_s']-m.get('rate_applied_reference_s',0.))))).tolist()
     c['rate_hz']=(np.array(c['rate_hz'])+removed).tolist()
     c.update({'time_origin_utc':m['time_origin_utc'],'input_visibility_unit':m['visibility_unit'],
-              'output_visibility_unit':'Jy','known_point_flux_jy':point_flux_jy,
+              'output_visibility_unit':'Jy','model_kind':kind,'assumed_model_flux_jy':flux,
               'station_ids':[s['id'] for s in m['config']['stations']]})
     save_calibration(output,c)
     return c
@@ -166,7 +177,8 @@ def apply_shard(input_path,calibration_path,output,allow_extrapolation=False):
     try:
         save_spectral(partial/'calibrated.npz',cube,{**meta,'visibility_unit':'Jy','calibration_applied':True})
         write_fitsidi(partial/'visibility.fits',g,continuum,total,config,
-                      {'calibration':'Known point calibrator, constant station response'},integration_s=d['integration_s'])
+                      {'calibration':'Known sky model, constant station response','model_kind':c.get('model_kind','point'),
+                       'assumed_model_flux_jy':c.get('assumed_model_flux_jy',c.get('known_point_flux_jy'))},integration_s=d['integration_s'])
         summary={'state':'complete','visibility_unit':'Jy','rows':int(continuum.size)}
         (partial/'summary.json').write_text(json.dumps(summary)+'\n');partial.rename(out)
         return summary

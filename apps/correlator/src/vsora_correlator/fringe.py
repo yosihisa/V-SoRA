@@ -1,6 +1,6 @@
 """Small CPU reference station fringe solver for uniform time/frequency grids.
 
-Requires a known, nonzero sky model and usable baselines to the reference.
+Requires a known, nonzero sky model and a connected detected-baseline graph.
 Delay and fringe rate are relative values within explicitly sampled aliases.
 """
 import json
@@ -60,7 +60,7 @@ def apply_calibration(observed,weights,pairs,calibration,times_s,frequencies_hz,
 
 
 def solve_fringe(observed,model,weights,pairs,times_s,frequencies_hz,reference_station=0,
-                 min_coherence=.25,min_peak_ratio=8.,delay_limit_s=None,rate_limit_hz=None):
+                 min_coherence=0.,min_peak_ratio=8.,delay_limit_s=None,rate_limit_hz=None,min_peak_snr=8.):
     v,m,w,p,t,f,dt,df=_inputs(observed,model,weights,pairs,times_s,frequencies_hz)
     n=int(p.max())+1;ref=reference_station
     if not isinstance(ref,int) or not 0<=ref<n or n<3: raise ValueError('need >=3 stations and a valid reference')
@@ -87,24 +87,37 @@ def solve_fringe(observed,model,weights,pairs,times_s,frequencies_hz,reference_s
     os=4;shape=(len(t)*os,len(f)*os)
     rg=np.fft.fftfreq(shape[0],dt);dg=np.fft.fftfreq(shape[1],df)
     window=(abs(rg[:,None])<rl)&(abs(dg[None,:])<dl)
-    for j in range(n):
-        if j==ref: continue
-        match=np.flatnonzero(((p[:,0]==ref)&(p[:,1]==j))|((p[:,0]==j)&(p[:,1]==ref)))
-        if len(match)!=1: raise ValueError('every station needs a baseline to the reference')
-        b=int(match[0]);cross=v[...,b]*m[...,b].conj()*w[...,b]
-        if p[b,0]!=ref: cross=cross.conj()
-        if valid[...,b].sum()<16: raise ValueError('too few usable reference-baseline samples')
+    edges=[]
+    for b,(i,j) in enumerate(p):
+        if valid[...,b].sum()<16: continue
+        cross=v[...,b]*m[...,b].conj()*w[...,b]
         plane=abs(np.fft.ifft2(cross,s=shape))
         peak=np.unravel_index(np.argmax(np.where(window,plane,-np.inf)),shape)
-        delay[j]=dg[peak[1]];rate[j]=rg[peak[0]]
-        coherent=np.sum(cross*np.exp(2j*np.pi*(tc[:,None]*rate[j]+fc[None,:]*delay[j])))
+        edge_delay=dg[peak[1]];edge_rate=rg[peak[0]]
+        coherent=np.sum(cross*np.exp(2j*np.pi*(tc[:,None]*edge_rate+fc[None,:]*edge_delay)))
         denom=np.sum(w[...,b]*abs(v[...,b])*abs(m[...,b]))
         coherence=float(abs(coherent)/denom) if denom>0 else 0.
         peak_ratio=float(plane[peak]/max(float(np.median(plane)),1e-30))
-        if coherence<min_coherence or peak_ratio<min_peak_ratio:
-            raise ValueError(f'fringe not detected for station {j}')
-        phase[j]=-np.angle(coherent)
-        detections.append({'station':j,'coarse_coherence':coherence,'peak_to_median':peak_ratio})
+        peak_snr=float(abs(coherent)/max(np.sqrt(np.sum(w[...,b]*abs(m[...,b])**2)),1e-30))
+        # Combined-band detection can be strong even when each channel's
+        # coherence is low. Use inverse-variance noise, not a fixed .25 cutoff.
+        if coherence<min_coherence or peak_ratio<min_peak_ratio or peak_snr<min_peak_snr:
+            continue
+        edges.append({'i':int(i),'j':int(j),'delay':edge_delay,'rate':edge_rate,'phase':-np.angle(coherent),
+                      'coarse_coherence':coherence,'peak_to_median':peak_ratio,'coarse_peak_snr':peak_snr})
+    # A resolved target can have a visibility null on a reference baseline.
+    # Grow a maximum-SNR spanning tree instead of dropping that whole station.
+    known={ref}
+    while len(known)<n:
+        candidates=[e for e in edges if (e['i'] in known)!=(e['j'] in known)]
+        if not candidates: raise ValueError('fringe not detected: baseline graph is not connected')
+        edge=max(candidates,key=lambda e:e['coarse_peak_snr'])
+        old,new,sign=(edge['i'],edge['j'],1) if edge['i'] in known else (edge['j'],edge['i'],-1)
+        delay[new]=delay[old]+sign*edge['delay'];rate[new]=rate[old]+sign*edge['rate']
+        phase[new]=np.angle(np.exp(1j*(phase[old]+sign*edge['phase'])))
+        if abs(delay[new])>=dl or abs(rate[new])>=rl: raise ValueError('tree solution exceeds relative delay/rate search window')
+        known.add(new)
+        detections.append({'station':new,'via_station':old,**{k:edge[k] for k in ('coarse_coherence','peak_to_median','coarse_peak_snr')}})
     others=np.array([j for j in range(n) if j!=ref]);spanf=np.ptp(f);spant=np.ptp(t)
     initial=np.r_[amp,phase[others],delay[others]*spanf,rate[others]*spant]
     sw=np.sqrt(w);norm=max(float(np.sqrt(np.mean(abs(m)**2*w))),1e-30)
@@ -146,7 +159,7 @@ def solve_fringe(observed,model,weights,pairs,times_s,frequencies_hz,reference_s
     chi=float(np.sum(abs(prediction(result.x)-v)**2*w)/max(dof,1))
     # Low per-channel SNR can give a large relative residual even when the
     # combined fringe is detected. Account for the supplied noise variance.
-    if relative>.7 and chi>3: raise ValueError('station model does not explain measured visibility within noise')
+    if chi>3: raise ValueError('station model does not explain measured visibility within noise')
     return {'schema_version':1,'reference_station':ref,'amplitude':a.tolist(),
             'phase_rad':np.angle(np.exp(1j*ph)).tolist(),'delay_s':de.tolist(),'rate_hz':ra.tolist(),
             'time_reference_s':float(t.mean()),'frequency_reference_hz':float(f.mean()),

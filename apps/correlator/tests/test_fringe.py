@@ -15,7 +15,7 @@ def fixture(noise=0):
     model=np.ones((len(t),len(f),len(p)),complex)*1000
     measured=model*response[...,p[:,0]]*np.conj(response[...,p[:,1]])
     rng=np.random.default_rng(202);measured+=noise*(rng.normal(size=model.shape)+1j*rng.normal(size=model.shape))
-    return measured,model,np.ones(model.shape),p,t,f,a,ph,de,ra
+    return measured,model,np.ones(model.shape)/(noise**2 if noise else 1),p,t,f,a,ph,de,ra
 
 
 def test_recover_unknown_station_errors_and_weight_propagation():
@@ -41,10 +41,27 @@ def test_noise_flags_and_different_reference():
 
 def test_missing_reference_baseline_and_nonidentifiable_amplitudes():
     v,m,w,p,t,f,*_=fixture()
-    with pytest.raises(ValueError,match='reference'):
-        solve_fringe(v[...,[0,2,3,4,5]],m[...,[0,2,3,4,5]],w[...,[0,2,3,4,5]],p[[0,2,3,4,5]],t,f)
+    selected=[0,2,3,4,5]
+    c=solve_fringe(v[...,selected],m[...,selected],w[...,selected],p[selected],t,f)
+    np.testing.assert_allclose(c['rate_hz'],fixture()[-1],atol=1e-8)
     with pytest.raises(ValueError,match='identifiable'):
         solve_fringe(v[...,:3],m[...,:3],w[...,:3],p[:3],t,f)
+
+
+def test_disconnected_detections_and_model_inconsistency():
+    v,m,w,p,t,f,*_=fixture()
+    disconnected=np.array([(0,1),(0,2),(1,2),(3,4),(3,5),(4,5)])
+    with pytest.raises(ValueError,match='connected'): solve_fringe(v,m,w,disconnected,t,f)
+    v[...,0]*=np.exp(.8j)
+    with pytest.raises(ValueError,match='within noise'): solve_fringe(v,m,w,p,t,f)
+
+
+def test_flux_scale_is_degenerate_with_station_amplitudes():
+    v,m,w,p,t,f,a,*_=fixture()
+    c=solve_fringe(v,m*.9,w,p,t,f)
+    np.testing.assert_allclose(c['amplitude'],a/np.sqrt(.9),rtol=1e-8)
+    corrected,_=apply_calibration(v,w,p,c,t,f)
+    np.testing.assert_allclose(corrected,900,rtol=1e-8)
 
 
 def test_no_detection_and_alias_limits():

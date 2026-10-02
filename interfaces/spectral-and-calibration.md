@@ -9,7 +9,7 @@
 段階007のsolverは一様なtime/frequency格子と既知の天体モデルを必要とする。[CASA fringe fitting](https://casadocs.readthedocs.io/en/stable/api/tt/casatasks.calibration.fringefit.html)の参照局FFT探索→全局最小二乗という流れを参考にした小規模参照実装。CASAの実装をコピーしていない。
 
 - delayの曖昧周期は1/channel間隔、rateの曖昧周期は1/time間隔。探索窓はその半分未満。範囲外の真値はaliasして同じ測定値になりうるため、内部だけでは識別できない。
-- 既知のfluxがない場合、絶対振幅を決められない。参照局の位相・delay・rateは0に固定。三角形等を含む識別可能な振幅グラフと全局への参照baselineを要求。
-- FFTピーク・coherence不足、モデル不一致、探索境界、未収束は失敗にする。検出指標は実観測の誤検出率を保証しない。
+- 既知のfluxがない場合、絶対振幅を決められない。参照局の位相・delay・rateは0に固定。三角形等を含む識別可能な振幅グラフを要求。段階012では検出baselineから最大SNRのspanning treeを作り、弱い参照baselineを別局経由で補う。
+- FFTピークのnoise基準SNR不足、未接続グラフ、noiseの3倍を超えるreduced chi square、探索境界、未収束は失敗にする。低いchannel別coherenceでも全帯域の検出が強い場合を扱う。逆分散重みの正しさが必要で、検出指標は実観測の誤検出率を保証しない。
 - 時間平均や帯域平均で既に失われたcoherenceは後から回復できない。短い積分と十分なchannel分割で相関し、補正後に平均する。
 - 分散性電離層、bandpass、偏波、時変clock drift、方向の異なる較正天体からの転送は未対応。

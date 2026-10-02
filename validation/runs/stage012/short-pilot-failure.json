@@ -1,0 +1,8 @@
+{
+  "state": "failed_detection",
+  "receiver_sefd_jy": 10000,
+  "pilot_seconds": 0.128,
+  "snapshot": 0,
+  "reason": "Detected baseline graph not connected",
+  "follow_up": "1.024 second pilots succeeded for all 16 snapshots"
+}
