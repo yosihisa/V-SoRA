@@ -1,0 +1,30 @@
+{
+  "casatools_version": "6.7.6.14",
+  "casatasks_version": "6.7.6.14",
+  "ms_rows": 60,
+  "flags": 0,
+  "data_relative_error_direct": 2.3035328329719658e-08,
+  "data_relative_error_conjugate": 1.6300297305594273,
+  "uvw_relative_error_direct": 2.0,
+  "uvw_relative_error_negative": 9.936541087450322e-17,
+  "time_max_error_s": 0.0,
+  "antenna_pairs_match": true,
+  "interval_min_s": 60.0,
+  "interval_max_s": 60.0,
+  "weight_min": 245760000.0,
+  "weight_max": 245760000.0,
+  "import_weight_scale_median": 245760000.0,
+  "weight_policy": "Restore input NORMAL inverse-variance weights after CASA importfitsidi initialization",
+  "weight_relative_error_after_restore": 0.0,
+  "dirty_peak_xy": [
+    67,
+    66
+  ],
+  "dirty_peak_jy": 1000.000732421875,
+  "expected_dirty_peak_xy": [
+    67,
+    66
+  ],
+  "image_position_correct": true,
+  "image_flux_relative_error": 7.324218749271694e-07
+}

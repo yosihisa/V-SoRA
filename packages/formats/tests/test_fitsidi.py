@@ -29,7 +29,11 @@ def test_idi_roundtrip_and_independent_conventions(tmp_path):
         # Independent check: the standard stores antenna1-antenna2 in seconds.
         np.testing.assert_allclose(uv.data['UU'],-g['uvw_lambda'][...,0].ravel()/1.42e9,atol=1e-15)
         assert uv.data['BASELINE'][0]==258
-        np.testing.assert_allclose(uv.data['DATE']+uv.data['TIME'],np.repeat(Time(g['times_mjd'],format='mjd').jd,6),atol=1e-10)
+        flux=uv.data['FLUX'].reshape(-1,3)
+        np.testing.assert_allclose(flux[:,0]+1j*flux[:,1],v.conj().ravel(),rtol=2e-7,atol=1e-7)
+        decoded=Time(uv.data['DATE'],uv.data['TIME'],format='jd',scale='utc')
+        expected=Time(np.repeat(g['times_mjd'],6),format='mjd',scale='utc')
+        assert np.max(abs((decoded-expected).to_value(u.s)))<1e-6
         assert hdus['SOURCE'].data['EQUINOX'][0]=='J2000'
         xyz=ag.data['STABXYZ']+np.array([ag.header[k] for k in ['ARRAYX','ARRAYY','ARRAYZ']])
         np.testing.assert_allclose(xyz,g['station_ecef_m'],atol=1e-9)

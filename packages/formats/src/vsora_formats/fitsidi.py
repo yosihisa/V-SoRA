@@ -1,6 +1,6 @@
 """Limited one-band, one-channel, XX FITS-IDI candidate writer.
 
-Columns follow AIPS Memo 114. External CASA/AIPS acceptance must be tested.
+Columns follow AIPS Memo 114; the profile is checked with CASA importfitsidi.
 The local reader intentionally only accepts files with V-SoRA provenance.
 """
 import json
@@ -42,12 +42,13 @@ def write_fitsidi(path,geometry,vis,weights,config,metadata=None,integration_s=N
     primary=fits.PrimaryHDU()
     primary.header.update({'OBJECT':'BINARYTB','TELESCOP':'VSORA','ORIGIN':'V-SoRA',
                            'CORRELAT':'VSORA','FXCORVER':'0.1','DATE-OBS':obs['start_utc'].replace('Z','')})
-    primary.header.add_history('Generated from V-SoRA calibrated simulation. External compatibility unverified.')
+    primary.header.add_history('Generated from V-SoRA simulation; single-channel CASA-tested profile v2.')
     xyz=np.asarray(geometry['station_ecef_m']);origin=xyz[0]
     names=[s['id'] for s in config['stations']];numbers=np.arange(1,nst+1)
     ag=table([_column('ANNAME','8A',names),_column('STABXYZ','3D',xyz-origin,'METERS'),
               _column('DERXYZ','3E',np.zeros((nst,3)),'M/SEC'),_column('NOSTA','1J',numbers),
-              _column('MNTSTA','1J',np.zeros(nst,int)),_column('STAXOF','3E',np.zeros((nst,3)),'METERS')],
+              _column('MNTSTA','1J',np.zeros(nst,int)),_column('STAXOF','3E',np.zeros((nst,3)),'METERS'),
+              _column('DIAMETER','1E',[s.get('diameter_m',0.) for s in config['stations']],'METERS')],
              'ARRAY_GEOMETRY')
     ag.header.update({'ARRAYX':origin[0],'ARRAYY':origin[1],'ARRAYZ':origin[2],'ARRNAM':'VSORA',
                       'FRAME':'GEOCENTRIC','NUMORB':0,'FREQ':fc,'TIMSYS':'UTC'})
@@ -86,28 +87,35 @@ def write_fitsidi(path,geometry,vis,weights,config,metadata=None,integration_s=N
                  _column('PMRA','1D',[0.],'DEG/DAY'),_column('PMDEC','1D',[0.],'DEG/DAY'),
                  _column('PARALLAX','1E',[0.],'ARCSEC')])
     source=table(cols,'SOURCE')
-    jd=times.jd;midnight=np.floor(jd-.5)+.5
+    # Preserve Time's two-part Julian date; subtracting two large .jd doubles
+    # loses tens of microseconds even though DATE/TIME can preserve the split.
+    midnight=np.floor(times.mjd)+2400000.5
+    fraction=(times.jd1-midnight)+times.jd2
     baseline=np.tile(256*(pairs[:,0]+1)+(pairs[:,1]+1),ntime)
     duration=np.broadcast_to(obs['integration_s'] if integration_s is None else integration_s,v.shape).reshape(-1)
     if np.any(duration<0) or not np.isfinite(duration).all(): raise ValueError('invalid integration time')
-    flux=np.column_stack([v.real.ravel(),v.imag.ravel(),w.ravel()]).astype('float32')
+    # CASA importfitsidi conjugates stored FLUX. Verify with an off-axis point:
+    # the initial unconjugated profile roundtripped locally but mirrored in CASA.
+    stored=v.conj()
+    flux=np.column_stack([stored.real.ravel(),stored.imag.ravel(),w.ravel()]).astype('float32')
     # Memo 114 baseline = first-second; internal baseline = second-first.
     seconds=-uvw.reshape(rows,3)/fc
     columns=[_column(k,'1D',seconds[:,i],'SECONDS') for i,k in enumerate(['UU','VV','WW'])]
     columns.extend([_column('DATE','1D',np.repeat(midnight,nb),'DAYS'),
-                    _column('TIME','1D',np.repeat(jd-midnight,nb),'DAYS'),
+                    _column('TIME','1D',np.repeat(fraction,nb),'DAYS'),
                     _column('BASELINE','1J',baseline),_column('ARRAY','1J',np.ones(rows,int)),
                     _column('SOURCE_ID','1J',np.ones(rows,int)),_column('FREQID','1J',np.ones(rows,int)),
                     _column('INTTIM','1E',duration,'SECONDS'),_column('FLUX','3E',flux,'JY')])
     uv=table(columns,'UV_DATA',2)
-    uv.header.update({'NMATRIX':1,'MAXIS':6,'WEIGHTYP':'NORMAL','EQUINOX':'J2000','SORT':'TB'})
+    uv.header.update({'NMATRIX':1,'MAXIS':6,'WEIGHTYP':'NORMAL','SORT':'TB'})
     axes=[(3,'COMPLEX',1.,1.),(1,'STOKES',-5.,-1.),(1,'FREQ',fc,bw),
           (1,'BAND',1.,1.),(1,'RA',equ.ra.deg,0.),(1,'DEC',equ.dec.deg,0.)]
     for i,(size,ctype,ref,delta) in enumerate(axes,1):
         uv.header.update({f'MAXIS{i}':size,f'CTYPE{i}':ctype,f'CRVAL{i}':ref,f'CDELT{i}':delta,f'CRPIX{i}':1.})
     index=len(columns);uv.header[f'TMATX{index}']=True;uv.header[f'TDIM{index}']='(3,1,1,1,1,1)'
-    provenance={'schema_version':1,'config':config,'metadata':metadata or {},
-                'baseline_conversion':'IDI uvw is negative of internal uvw; visibility unchanged',
+    provenance={'schema_version':2,'config':config,'metadata':metadata or {},
+                'baseline_conversion':'IDI uvw is negative of internal uvw; visibility conjugated for CASA profile',
+                'visibility_storage':'conjugated_internal',
                 'profile':'one XX product, one continuum channel, one band, one source'}
     text=json.dumps(provenance)
     extra=fits.BinTableHDU.from_columns([_column('JSON',f'{len(text)}A',[text])],name='VSORA_META')
@@ -128,12 +136,14 @@ def read_fitsidi(path):
         pairs=pairs.reshape(-1,nb,2)
         if not (pairs==pairs[0]).all(): raise ValueError('inconsistent baseline order')
         flux=np.asarray(d['FLUX']).reshape(-1,3)
-        jd=(d['DATE']+d['TIME']).reshape(-1,nb)
-        if not np.allclose(jd,jd[:,0,None],rtol=0,atol=1e-12): raise ValueError('baseline times differ')
+        mjd=((d['DATE']-2400000.5)+d['TIME']).reshape(-1,nb)
+        if not np.allclose(mjd,mjd[:,0,None],rtol=0,atol=1e-12): raise ValueError('baseline times differ')
         uvw=-np.column_stack([d[k] for k in ['UU','VV','WW']])*tab.header['REF_FREQ']
-        result={'vis_jy':(flux[:,0]+1j*flux[:,1]).reshape(-1,nb),
+        values=flux[:,0]+1j*flux[:,1]
+        if meta.get('visibility_storage')=='conjugated_internal': values=values.conj()
+        result={'vis_jy':values.reshape(-1,nb),
                 'weights':flux[:,2].reshape(-1,nb),'uvw_lambda':uvw.reshape(-1,nb,3),
-                'pairs':pairs[0],'time_mjd':jd[:,0]-2400000.5,
+                'pairs':pairs[0],'time_mjd':mjd[:,0],
                 'metadata':{**meta['metadata'],'config':config},
                 'integration_s':np.asarray(d['INTTIM']).reshape(-1,nb)}
     return result

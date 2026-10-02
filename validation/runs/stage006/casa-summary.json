@@ -1,0 +1,19 @@
+{
+  "casatools_version": "6.7.6.14",
+  "casatasks_version": "6.7.6.14",
+  "ms_rows": 448,
+  "flags": 0,
+  "data_relative_error_direct": 0.0,
+  "data_relative_error_conjugate": 0.5735632818114168,
+  "uvw_relative_error_direct": 2.0,
+  "uvw_relative_error_negative": 8.948789655004775e-17,
+  "time_max_error_s": 0.0,
+  "antenna_pairs_match": true,
+  "interval_min_s": 0.12800000607967377,
+  "interval_max_s": 0.12800000607967377,
+  "weight_min": 2271.71826171875,
+  "weight_max": 2271.71826171875,
+  "import_weight_scale_median": 524288.0,
+  "weight_policy": "Restore input NORMAL inverse-variance weights after CASA importfitsidi initialization",
+  "weight_relative_error_after_restore": 0.0
+}

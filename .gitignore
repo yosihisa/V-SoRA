@@ -4,6 +4,7 @@ __pycache__/
 .venv/
 .casa-venv/
 .casa-data/
+.casa-ssl/
 casa*.log
 venv/
 .pytest_cache/
