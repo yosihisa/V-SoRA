@@ -1,0 +1,158 @@
+{
+  "type": "closure_rate_validation",
+  "seed": 22,
+  "sample_rate_hz": 2048000.0,
+  "pilot_s": 0.512,
+  "pilot_cadence_s": 0.001,
+  "image_integration_s": 0.3,
+  "fft_length": 32,
+  "true_station_rates_hz": [
+    0.0,
+    17.3,
+    -11.7,
+    26.1
+  ],
+  "estimate": {
+    "schema_version": 1,
+    "type": "station_rate_only",
+    "station_indices": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "station_rates_hz": [
+      0.0,
+      17.298364806483526,
+      -11.706916784963438,
+      26.088182474917442
+    ],
+    "reference_station": 0,
+    "time_reference_s": 0.25599999999999995,
+    "valid_time_range_s": [
+      0.0005,
+      0.5115
+    ],
+    "sample_cadence_s": 0.001,
+    "max_baseline_rate_hz": 100.0,
+    "baseline_estimates": [
+      {
+        "pair": [
+          0,
+          1
+        ],
+        "accepted": true,
+        "rate_hz": -17.30477998317538,
+        "coherent_snr": 130.29561964923286,
+        "noise_peak_z": 1500.5644260059369,
+        "channels": 32,
+        "rate_sigma_hz": 0.008245135242262953
+      },
+      {
+        "pair": [
+          0,
+          2
+        ],
+        "accepted": true,
+        "rate_hz": 11.709219796238397,
+        "coherent_snr": 133.46360835144378,
+        "noise_peak_z": 1574.4205143508855,
+        "channels": 32,
+        "rate_sigma_hz": 0.008057021530978337
+      },
+      {
+        "pair": [
+          0,
+          3
+        ],
+        "accepted": true,
+        "rate_hz": -26.084251474177258,
+        "coherent_snr": 131.48097643441588,
+        "noise_peak_z": 1527.9912122270694,
+        "channels": 32,
+        "rate_sigma_hz": 0.00817027185762758
+      },
+      {
+        "pair": [
+          1,
+          2
+        ],
+        "accepted": true,
+        "rate_hz": 29.00348816925854,
+        "coherent_snr": 132.74727855192964,
+        "noise_peak_z": 1557.56531684769,
+        "channels": 32,
+        "rate_sigma_hz": 0.008096348386549991
+      },
+      {
+        "pair": [
+          1,
+          3
+        ],
+        "accepted": true,
+        "rate_hz": -8.79424846090151,
+        "coherent_snr": 132.04127188185782,
+        "noise_peak_z": 1541.0417796908262,
+        "channels": 32,
+        "rate_sigma_hz": 0.008131734237539356
+      },
+      {
+        "pair": [
+          2,
+          3
+        ],
+        "accepted": true,
+        "rate_hz": -37.79455207942751,
+        "coherent_snr": 130.88898970893996,
+        "noise_peak_z": 1514.2627749834928,
+        "channels": 32,
+        "rate_sigma_hz": 0.008210075119836704
+      }
+    ],
+    "station_covariance_hz2": [
+      [
+        3.344439722653472e-05,
+        1.668006064510755e-05,
+        1.6761248740780443e-05
+      ],
+      [
+        1.6680060645107554e-05,
+        3.295082046713446e-05,
+        1.6491155512477646e-05
+      ],
+      [
+        1.6761248740780443e-05,
+        1.6491155512477643e-05,
+        3.3337069509042784e-05
+      ]
+    ],
+    "covariance_station_order": [
+      1,
+      2,
+      3
+    ],
+    "reduced_rate_chisq": 0.42298825181884886,
+    "accepted_baselines": 6,
+    "absolute_common_rate_measured": false,
+    "amplitude_or_sky_phase_calibration": false,
+    "model": "Unknown constant complex visibility per baseline/channel; temporal phase rate only",
+    "limits": "Short stable sky/gain; circular independent baseline/channel noise; no low SNR or clock drift inference"
+  },
+  "maximum_rate_error_hz": 0.0118175250825594,
+  "coherence_before_median": 0.03407547708617931,
+  "coherence_after_median": 1.0045044728236694,
+  "valid_closures_before": {
+    "phase": 0,
+    "logamp": 0
+  },
+  "valid_closures_after": {
+    "phase": 128,
+    "logamp": 64
+  },
+  "closure_rms_after": {
+    "phase": 0.09070700047625013,
+    "logamp": 0.08611058808036393
+  },
+  "signal": "Continuous common Gaussian point sky1000Jy plus independent receiver SEFD10000Jy, constant unknown station gains",
+  "limits": "No known sky amplitude/phase used in inference. Supplied uniform sample alignment. No VDIF quantization, RFI, clock drift, extended sky or phase noise."
+}

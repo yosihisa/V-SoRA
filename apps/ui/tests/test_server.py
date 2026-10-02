@@ -44,16 +44,21 @@ def test_simulation_job_real_subprocess_and_artifact(tmp_path):
         assert c.post(f'/api/jobs/{job}/cancel',headers=HEADERS).json()['state']=='complete'
 
 
-def test_closure_validation_real_subprocess(tmp_path):
+@pytest.mark.parametrize('validation',['closure','rate'])
+def test_closure_validation_real_subprocess(tmp_path,validation):
     from vsora_ui.jobs import source_root
     (tmp_path/'tools').mkdir()
     (tmp_path/'tools/run.py').symlink_to(source_root()/'tools/run.py')
     with TestClient(create_app(tmp_path),base_url='http://127.0.0.1') as c:
-        r=c.post('/api/jobs',json={'kind':'validation','validation':'closure'},headers=HEADERS)
+        r=c.post('/api/jobs',json={'kind':'validation','validation':validation},headers=HEADERS)
         assert r.status_code==202
         d=wait(c,r.json()['id'])
         assert d['state']=='complete',d
-        assert d['summary']['actual_iq_fx']['corrected_max_logcamp_error'] < 1e-12
+        if validation=='closure':
+            assert d['summary']['actual_iq_fx']['corrected_max_logcamp_error'] < 1e-12
+        else:
+            assert d['summary']['maximum_rate_error_hz']<.05
+            assert not d['summary']['estimate']['amplitude_or_sky_phase_calibration']
 
 
 def test_rml_simulation_real_subprocess(tmp_path):

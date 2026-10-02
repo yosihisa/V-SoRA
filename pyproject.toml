@@ -19,6 +19,7 @@ vsora-simulate = "vsora_simulator.__main__:main"
 vsora-image = "vsora_imaging.__main__:main"
 vsora-closure = "vsora_imaging.closure:main"
 vsora-rml = "vsora_imaging.rml:main"
+vsora-rate = "vsora_correlator.rate:main"
 vsora-correlate = "vsora_correlator.__main__:main"
 vsora-ui = "vsora_ui.__main__:main"
 

@@ -34,4 +34,6 @@
 
 | 021 | [Closure＋RML・日本語GUI](021-closure-rml-reference.md) | 105件成功。相対flux、未知局利得、短露光・事前依存、Cas A上限到達を記録 |
 
+| 022 | [モデル不要のLO差推定](022-model-free-rate.md) | 111件成功。未知sky/gain、短pilot、3seedのIQ補正後Closure、欠損graph |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。

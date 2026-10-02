@@ -15,7 +15,8 @@ from uuid import uuid4
 ACTIVE={'queued','running'}
 LABELS={'simulation':'模擬観測と画像復元','quality':'雑音・電波妨害の検証',
         'clock':'時計ずれの検証','fringe':'位相回転と再相関の検証','basic':'基本動作の自動試験',
-        'closure':'Closureと短積分の検証','rml':'Closure＋RMLの模擬画像復元'}
+        'closure':'Closureと短積分の検証','rml':'Closure＋RMLの模擬画像復元',
+        'rate':'skyモデルを使わない周波数差の推定'}
 
 
 def write_json(path,data):

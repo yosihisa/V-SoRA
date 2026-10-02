@@ -40,3 +40,7 @@ python tools/run.py vsora_imaging.rml --input outputs/casa-closure/uncalibrated.
 - 初期値ごとの目的関数：局所解を調べる材料。低いχ²だけで形状の正しさを保証しません。
 
 段階021のCas A仮定条件では、0.3秒×16露光で形状誤差34.2%、3秒×16露光で8.7%でした。生成画像を事前画像に使っていません。3秒では乱数seed・事前幅の変更でも5〜9%でしたが、2000回の反復上限に達した探索が残ります。この有限実験だけで実観測を保証しません。[条件と結果](../reports/021-closure-rml-reference.md)、[設計と出典](../design/closure-rml-plan.md)を参照してください。
+
+## skyモデルを要求しない周波数差推定
+
+短いpilot内では、各基線・各channelの複素値は未知の定数として扱い、時間方向の位相回転だけを探せます。段階022でこの参照処理を追加しました。局gainと天体の絶対flux/位相を与える必要はありません。sample時計は先に整列する必要があります。GUIの「動作検証」からIQ補正後のClosure回復を確認できます。[適用条件](../reports/022-model-free-rate.md)を参照してください。
