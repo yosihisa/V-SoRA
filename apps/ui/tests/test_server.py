@@ -114,3 +114,36 @@ def test_queued_cancel_does_not_start_worker(tmp_path):
         assert not (manager.directory(result['id'])/'execution.log').exists()
     finally:
         gate.set();block.result(timeout=2);manager.close()
+
+
+def test_synthesis_and_duplicate_failure_real_subprocess(tmp_path):
+    from itertools import combinations
+    import numpy as np
+    from vsora_observation import load_config
+    from vsora_formats.spectral import save_spectral
+    config=load_config(Path(__file__).resolve().parents[3]/'configs/experiments/ideal-point.json')
+    config['source']['model']='unknown';config['source'].pop('total_flux_jy')
+    pairs=np.array(list(combinations(range(4),2)))
+    for i in range(2):
+        origin=f'2026-10-02T08:00:{i*10:02d}Z'
+        v=np.ones((1,1,6),complex)
+        data={'visibilities':v,'weights':np.full(v.shape,1e4),'pairs':pairs,
+              'uvw_lambda':np.zeros((*v.shape,3)),'times_s':np.array([.15]),
+              'frequencies_hz':np.array([1.42e9]),'integration_s':np.full((1,6),.1)}
+        save_spectral(tmp_path/f'input-{i}.npz',data,{'config':config,'visibility_unit':'ADC^2',
+            'time_origin_utc':origin,'clock_mapping_applied':True,'phase_center_corrected':True,
+            'nominal_integration_s':.1})
+    with TestClient(create_app(tmp_path),base_url='http://127.0.0.1') as c:
+        payload={'kind':'synthesis','inputs':['input-0.npz','input-1.npz'],'starts':1,'max_iterations':100}
+        r=c.post('/api/jobs',json=payload,headers=HEADERS);assert r.status_code==202
+        d=wait(c,r.json()['id']);assert d['state']=='complete',d
+        assert d['summary']['synthesis']['time_cells']==2
+        assert d['summary']['rml']['input_unit']=='ADC^2'
+        assert abs(d['summary']['rml']['image_sum']-1)<1e-12
+        assert d['summary']['rml']['independent_closure_counts']=={'phase':6,'logamp':4}
+        payload['inputs']=['input-0.npz','input-0.npz']
+        r=c.post('/api/jobs',json=payload,headers=HEADERS);d=wait(c,r.json()['id'])
+        assert d['state']=='failed' and '重複' in d['error_message']
+        directory=tmp_path/'outputs/gui'/d['id']
+        assert (directory/'synthesis.partial/failure.json').is_file()
+        assert not (directory/'synthesis').exists()

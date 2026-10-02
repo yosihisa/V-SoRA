@@ -37,6 +37,18 @@ rate-only JSONはtype=`station_rate_only`。局ID/順番、UTC原点、有効時
 
 ## 現在の制限
 
-整列chunkは1〜256積分、span1秒以内、600m以下。一回のpipeline画像化は0.1〜1秒の一積分で、実用予定の3秒整列・長時間合成は後続段階。pilotは8時刻以上・一様cadence・1秒以内。安定sky/gain、時間Nyquist以内、使えるrate graphの連結、高SNR Gaussianを仮定する。bandpass/主ビーム差・低SNR/self-noise・RFIの実測率は未確認。
+整列chunkは1〜256積分、span1秒以内、600m以下。一回のpipeline画像化は0.1〜1秒の一積分で、実用予定の3秒整列・連続長記録処理は後続段階。別UTC原点の短露光は下記の合成入口で扱う。pilotは8時刻以上・一様cadence・1秒以内。安定sky/gain、時間Nyquist以内、使えるrate graphの連結、高SNR Gaussianを仮定する。bandpass/主ビーム差・低SNR/self-noise・RFIの実測率は未確認。
 
 [段階023レポート](../docs/reports/023-vdif-closure-pipeline.md)に実VDIFを使う模擬試験を記録する。
+
+## 別時刻の短露光を合成する
+
+```bash
+python tools/run.py vsora_imaging.synthesis --inputs outputs/run-a/correlation/shard-00000.npz outputs/run-b/correlation/shard-00000.npz --output outputs/synthesis
+```
+
+CLIは2〜64ファイル、GUIは2〜32ファイル。整列済みspectral NPZを使い、局ID/位置・site・位相中心・単位・周波数軸・基線順を一致させる。UTC原点を変換して時刻順に並べ、重複時刻と重なる露光を拒否する。新profileのnominal_integration_sを使い、旧profileでは最大有効露光を使うため欠損区間の全supportは証明できない。重複区間を含まない入力を選ぶ。
+
+複素値・雑音重み・各channel・有効露光・品質診断を別々に保持し、先に複素平均しない。各局gainが露光ごとに違っても、各cellのClosureをRMLへ集める。入力SHA、rate profile SHA、除去rateと時刻原点を保存。出力はvisibility.npz、closures.npz、rml、summaryで、失敗はpartial/failure.json。
+
+独立phase/log amplitude測定数をsummaryとGUIで表示する。amplitudeがない画像も最適化は可能だが、形状の制約が弱いことを示す。参照実装のFourier行列上限128MiB、100万baseline cell上限、時間/channel雑音独立の近似がある。連続4時間の処理性能を確認したものではない。[段階024](../docs/reports/024-vdif-synthesis.md)を参照。

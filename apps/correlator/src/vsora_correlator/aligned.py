@@ -112,6 +112,7 @@ def correlate_aligned(manifest,clock_model,output,integrations,start_offset_s=.0
         meta={'config':config,'time_origin_utc':origin.isot+'Z','visibility_unit':'ADC^2' if c['voltage_unit']=='ADC' else 'Jy',
               'phase_center_corrected':True,'rate_applied_hz':rate.tolist(),'rate_applied_reference_s':rate_epoch,
               'rate_only_profile_sha256':rate_sha,'rate_only_extrapolation_allowed':bool(allow_rate_extrapolation),
+              'nominal_integration_s':ns/fs,
               'clock_mapping_applied':True,'filter':'65-tap Kaiser lowpass; group delay compensated',
               'max_abs_baseband_hz':band,'eop_status':g['eop_status']}
         if 'spectral_quality' in c:

@@ -21,6 +21,7 @@
         <button class="nav-button" data-panel="rml">Closure＋RML</button>
         <button class="nav-button" data-panel="validation">動作検証</button>
         <button class="nav-button" data-panel="analysis">VDIF解析</button>
+        <button class="nav-button" data-panel="synthesis">合成画像</button>
         <button class="nav-button" data-panel="history">実行履歴</button>
         <button class="nav-button" data-panel="help">使い方</button>
       </nav>
@@ -104,7 +105,29 @@
           </form>
           <div class="explanation-stack">
             <div class="card"><h2>必要な観測情報</h2><p>局位置・天体方向・RF設定・sampleとUTCの対応・実sample rate・無効区間が必要です。既知の天体fluxや局の利得を入力する必要はありません。</p><p>source.modelをunknownとした観測設定は、総fluxを省略できます。原本VDIFのSHA-256と条件を結果に残します。</p></div>
-            <div class="note-card"><h3>現在の処理範囲</h3><p>sample時計は入力した線形モデルを使います。自動で未知時計を復元するものではありません。1秒以内・600m以下の短区間参照処理で、画像化は一つの積分です。長時間合成と3秒積分の整列は後続段階です。</p><p>ADC²をJyとせず、総相対fluxを1にします。実装置のCas A画像化は未検証です。失敗は途中結果として履歴に残ります。</p></div>
+            <div class="note-card"><h3>現在の処理範囲</h3><p>sample時計は入力した線形モデルを使います。自動で未知時計を復元するものではありません。1秒以内・600m以下の短区間参照処理で、画像化は一つの積分です。別時刻の短露光は「合成画像」でまとめられます。3秒積分の整列は後続段階です。</p><p>ADC²をJyとせず、総相対fluxを1にします。実装置のCas A画像化は未検証です。失敗は途中結果として履歴に残ります。</p></div>
+          </div>
+        </div>
+      </section>
+      <section id="panel-synthesis" class="panel hidden">
+        <div class="page-heading"><div class="eyebrow">APERTURE SYNTHESIS</div><h1>別時刻の短露光から画像を合成する</h1><p>一回ごとの積分を短く保ち、時間とともに変わる投影基線の情報をRMLへ集めます。</p></div>
+        <div class="two-column">
+          <form id="synthesis-form" class="card">
+            <h2>周波数差を補正した相関ファイル</h2>
+            <label>完了したVDIF解析の履歴<select id="synthesis-input-history"><option value="">履歴を読み込みます</option></select></label>
+            <button type="button" id="add-synthesis-input" class="secondary">選んだ解析を入力へ追加</button>
+            <label>spectral NPZの場所（1行に1ファイル）<textarea name="inputs" rows="6" placeholder="outputs/run-a/correlation/shard-00000.npz&#10;outputs/run-b/correlation/shard-00000.npz" required></textarea></label>
+            <p class="field-help">2〜32ファイル。WSL側のパスを指定します。局・周波数・単位等が同じで、重複しない露光を選びます。相関値を先に複素平均しません。</p>
+            <details><summary>RMLの事前条件と探索</summary><div class="detail-body">
+              <label>Gaussian事前FWHM <span class="unit">秒角</span><input name="prior_fwhm_arcsec" type="number" value="240" min="40" max="500"></label>
+              <div class="form-row"><label>entropy<input name="entropy" type="number" value="0.01" min="0" max="1" step="any"></label><label>滑らかさTSV<input name="tsv" type="number" value="0.0001" min="0" max="0.01" step="any"></label></div>
+              <div class="form-row"><label>初期値の数<input name="starts" type="number" value="3" min="1" max="5"></label><label>最終反復上限<input name="max_iterations" type="number" value="800" min="100" max="2000"></label></div>
+            </div></details>
+            <button type="submit" class="primary full">短露光をまとめて相対画像を合成</button>
+          </form>
+          <div class="explanation-stack">
+            <div class="card"><h2>長い観測時間と短い積分</h2><p>各短露光の局gainは異なっていても、時刻とchannelごとのClosureで消します。複素相関を長く平均する必要はありません。</p><p>sample/幾何整列済みの出力を使います。原本の識別情報、露光、flag、周波数は保持し、時刻をUTCへ合わせて並べます。</p></div>
+            <div class="note-card"><h3>使える情報を確認する</h3><p>低SNRではClosure phaseやamplitudeが作れない場合があります。測定数・探索の停止・事前条件依存を確認してください。描画された画像だけで復元成功とは判断できません。</p><p>結果は総相対flux1です。データを選ぶ量には直接Fourier参照実装のメモリ上限があります。</p></div>
           </div>
         </div>
       </section>

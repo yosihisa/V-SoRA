@@ -5,7 +5,7 @@ from pathlib import Path
 import subprocess
 import sys
 from .jobs import write_json
-from .models import SimulationRequest,ValidationRequest,RmlRequest,AnalysisRequest
+from .models import SimulationRequest,ValidationRequest,RmlRequest,AnalysisRequest,SynthesisRequest
 
 
 def layout(stations,kind):
@@ -37,7 +37,7 @@ def simulation_config(request):
 def run(job):
     data=json.loads((job/'request.json').read_text());workspace=Path(data['workspace'])
     raw=data['request'];request={'simulation':SimulationRequest,'validation':ValidationRequest,'rml':RmlRequest,
-                              'analysis':AnalysisRequest}[raw['kind']](**raw)
+                              'analysis':AnalysisRequest,'synthesis':SynthesisRequest}[raw['kind']](**raw)
     status=json.loads((job/'status.json').read_text())
     def phase(text,done=0):
         if (job/'cancel').exists(): raise InterruptedError('cancelled')
@@ -91,6 +91,14 @@ def run(job):
             result=process_closure_session(input_path(request.manifest),input_path(request.clock_model),job/'analysis',
                             progress=lambda step,done:phase(messages[step],done),**options)
             write_json(job/'summary.json',result)
+        elif request.kind=='synthesis':
+            from vsora_imaging.synthesis import image_synthesis
+            phase('別時刻の短積分を確認してClosure＋RMLで合成しています')
+            paths=[(Path(value) if Path(value).is_absolute() else workspace/value).resolve() for value in request.inputs]
+            if any(path.suffix.lower()!='.npz' or not path.is_file() for path in paths):raise ValueError('existing spectral NPZ inputs required')
+            options=request.model_dump(exclude={'kind','inputs'})
+            result=image_synthesis(paths,job/'synthesis',**options)
+            write_json(job/'summary.json',result)
         else:
             phase('検証を実行しています')
             runner=workspace/'tools/run.py'
@@ -108,8 +116,20 @@ def run(job):
         phase('結果を保存しています',status['total_steps'])
         status.update(state='complete',phase='処理完了');write_json(job/'status.json',status)
     except Exception as exc:
+        message=str(exc)
+        translations={'disconnected':'周波数差を測れる基線が局間をつないでいません。pilotのSNRと局数を確認してください。',
+            'extrapolation':'画像積分がpilotの有効時間をはみ出しました。短い積分か有効期間を覆うpilotを設定してください。',
+            'duplicate synthesis':'入力の観測時刻が重複しています。同じ露光を二度含めないよう入力を見直してください。',
+            'overlapping synthesis':'入力の積分区間が重なっています。独立した短露光を選んでください。',
+            'axes differ':'局・位置・天体・単位・周波数が一致しません。同じ処理条件のデータを選んでください。',
+            'no high SNR':'SNR条件を満たす独立Closureがありません。感度・積分時間・局配置を確認してください。',
+            '128 MiB':'直接Fourier行列が参照実装の128MiB上限を超えます。選ぶ短露光または画素数を減らしてください。',
+            'existing local JSON':'指定したWSL側のJSONファイルが見つかりません。ファイルの場所を確認してください。',
+            'existing spectral NPZ':'指定したWSL側のspectral NPZが見つかりません。ファイルの場所を確認してください。'}
+        explanation=next((japanese for key,japanese in translations.items() if key in message),'詳細ログで入力条件と停止理由を確認してください。')
         status.update(state='cancelled' if isinstance(exc,InterruptedError) else 'failed',
-                      phase='中止しました' if isinstance(exc,InterruptedError) else '処理に失敗しました',error_type=type(exc).__name__)
+                      phase='中止しました' if isinstance(exc,InterruptedError) else '処理に失敗しました',
+                      error_type=type(exc).__name__,error_message=explanation)
         write_json(job/'status.json',status);raise
 
 

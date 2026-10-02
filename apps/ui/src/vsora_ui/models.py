@@ -71,4 +71,14 @@ class AnalysisRequest(Request):
     max_iterations:int=Field(default=800,ge=100,le=2000,strict=True)
 
 
-JobRequest=Annotated[SimulationRequest|ValidationRequest|RmlRequest|AnalysisRequest,Field(discriminator='kind')]
+class SynthesisRequest(Request):
+    kind:Literal['synthesis']='synthesis'
+    inputs:list[Annotated[str,Field(min_length=1,max_length=512)]]=Field(min_length=2,max_length=32)
+    prior_fwhm_arcsec:float=Field(default=240,ge=40,le=500)
+    entropy:float=Field(default=.01,ge=0,le=1)
+    tsv:float=Field(default=.0001,ge=0,le=.01)
+    starts:int=Field(default=3,ge=1,le=5,strict=True)
+    max_iterations:int=Field(default=800,ge=100,le=2000,strict=True)
+
+
+JobRequest=Annotated[SimulationRequest|ValidationRequest|RmlRequest|AnalysisRequest|SynthesisRequest,Field(discriminator='kind')]

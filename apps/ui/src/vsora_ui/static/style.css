@@ -11,3 +11,5 @@ label{display:block;font-size:12px;font-weight:650;margin-bottom:18px}input:not(
 @media(max-width:720px){.app-shell{grid-template-columns:1fr}.sidebar{padding:8px 12px}.nav-caption,.sidebar-note{display:none}nav{display:flex;overflow:auto}.nav-button{padding:8px 14px;white-space:nowrap}.topbar{padding:0 16px}.brand-sub{margin-left:9px}.connection{font-size:10px}.history-grid{grid-template-columns:1fr}.explanation-stack{grid-template-columns:1fr}.form-row{gap:12px}.card{padding:20px}h1{font-size:22px}.metric-grid{grid-template-columns:1fr 1fr}main{padding:22px 16px}}
 .sidebar,label,.card{min-width:0}input:not([type=checkbox]),select{min-width:0}.form-row{grid-template-columns:repeat(2,minmax(0,1fr))}
 @media(max-width:720px){.app-shell,.two-column,.history-grid{grid-template-columns:minmax(0,1fr)}nav{max-width:100%}.metric-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.metric strong{font-size:17px}.primary{overflow-wrap:anywhere}}
+
+textarea{display:block;width:100%;max-width:100%;min-width:0;margin-top:7px;padding:10px;border:1px solid #cbd8e0;border-radius:6px;font:inherit;font-weight:400;resize:vertical}#add-synthesis-input{margin:-6px 0 18px}

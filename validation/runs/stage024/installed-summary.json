@@ -1,0 +1,12 @@
+{
+  "installed_package_confirmed": true,
+  "outside_checkout_cli": "complete",
+  "input_count": 2,
+  "unit": "ADC^2",
+  "image_sum": 0.9999999999999999,
+  "independent_closure_counts": {
+    "phase": 100,
+    "logamp": 94
+  },
+  "scope": "Entry point and unit/constraints; not optimizer convergence validation"
+}

@@ -1,0 +1,82 @@
+{
+  "state": "incomplete",
+  "assumed_sefd_jy": 10000,
+  "completed_snapshots": 2,
+  "failed_snapshot": 2,
+  "reason": "Rate estimation baseline graph disconnected",
+  "pipeline_failure": {
+    "state": "incomplete",
+    "error_type": "ValueError"
+  },
+  "completed": [
+    {
+      "snapshot": 0,
+      "start_utc": "2026-10-02T08:15:00.000Z",
+      "maximum_rate_error_hz": 0.023823617983682155,
+      "generating": {
+        "model": "casa",
+        "assumed_flux_jy": 1000.0,
+        "assumed_sefd_jy": 10000.0,
+        "input_span_s": 1.04,
+        "station_rates_hz": [
+          0.0,
+          17.352964864434668,
+          -11.522249035959218,
+          26.222924068000324,
+          8.276965264510448,
+          -0.2516039538380611,
+          1.7414587901928602,
+          -2.935067363749763
+        ],
+        "seed": 24,
+        "fft_length": 8,
+        "useful_rf_channel_centers": 3,
+        "narrowband_phase_bound_rad": 0.006242883625739232,
+        "limits": "Continuous periodic colored Gaussian with midpoint sky covariance at center RF; supplied exact nominal clocks; fixed broadband station delay, linear RF geometry and LO rate; no real antenna or RFI"
+      },
+      "closures": {
+        "phase_valid": 3,
+        "logamp_valid": 0,
+        "input_unit": "ADC^2",
+        "absolute_flux_available": false,
+        "absolute_centroid_available": false
+      },
+      "accepted_rate_baselines": 16
+    },
+    {
+      "snapshot": 1,
+      "start_utc": "2026-10-02T08:45:00.000Z",
+      "maximum_rate_error_hz": 0.0542438926047506,
+      "generating": {
+        "model": "casa",
+        "assumed_flux_jy": 1000.0,
+        "assumed_sefd_jy": 10000.0,
+        "input_span_s": 1.04,
+        "station_rates_hz": [
+          0.0,
+          17.2393337767318,
+          -11.714549015512775,
+          26.105350523810632,
+          8.136737921241826,
+          -0.41330971662502813,
+          1.7035205463952416,
+          -3.061136026466419
+        ],
+        "seed": 25,
+        "fft_length": 8,
+        "useful_rf_channel_centers": 3,
+        "narrowband_phase_bound_rad": 0.006242883625743264,
+        "limits": "Continuous periodic colored Gaussian with midpoint sky covariance at center RF; supplied exact nominal clocks; fixed broadband station delay, linear RF geometry and LO rate; no real antenna or RFI"
+      },
+      "closures": {
+        "phase_valid": 3,
+        "logamp_valid": 0,
+        "input_unit": "ADC^2",
+        "absolute_flux_available": false,
+        "absolute_centroid_available": false
+      },
+      "accepted_rate_baselines": 15
+    }
+  ],
+  "scope": "Failure retained; no merged image or success claim"
+}

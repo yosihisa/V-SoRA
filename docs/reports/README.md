@@ -38,4 +38,6 @@
 
 | 023 | [VDIFからClosure＋RML・解析GUI](023-vdif-closure-pipeline.md) | source/wheel115件成功。未知flux、sample/幾何/rate、partial、checkout外CLI/GUI |
 
+| 024 | [短露光VDIF合成・感度不足](024-vdif-synthesis.md) | source/wheel121件成功。8局Cas A高感度仮定で形状誤差2.8%、低感度失敗とRML上限を記録 |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。

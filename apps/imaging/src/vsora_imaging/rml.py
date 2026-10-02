@@ -34,6 +34,7 @@ class ClosureObjective:
         self.closures = c = form_closures(v, w, pairs, min_snr)
         self.cells = []
         self.count = 0
+        self.count_by_type = {'phase':0,'logamp':0}
         for t in range(v.shape[0]):
             for f in range(v.shape[1]):
                 cell = []
@@ -42,6 +43,7 @@ class ClosureObjective:
                     matrix = c[name+'_matrix'][indices]
                     cell.append((name, matrix, c[name][t, f, indices], cho_factor(cov, lower=True) if len(indices) else None))
                     self.count += len(indices)
+                    self.count_by_type[name] += len(indices)
                 self.cells.append(cell)
         if not self.count: raise ValueError('no high SNR independent closure measurements')
         l, m = tangent_grid(pixels, pixel_arcsec)
@@ -121,6 +123,7 @@ class ClosureObjective:
             return {'objective': objective, 'closure_chisq_per_measurement': chisq/self.count,
                     'data_loss': data_loss, 'entropy_loss': entropy_loss, 'tsv_loss': tsv_loss,
                     'centroid_loss': centroid_loss, 'independent_closure_count': self.count,
+                    'independent_closure_counts': self.count_by_type.copy(),
                     'centroid_arcsec': (center*self.pixel_arcsec*self.pixels/2).tolist()}
         return objective, grad
 
@@ -151,6 +154,7 @@ def fit_closure_image(uvw, visibilities, weights, pairs, *, starts=3, max_iterat
     summary = {**metrics, 'selected_start': int(np.argmin([r['objective'] for r in runs])), 'runs': runs,
                'image_sum': float(image.sum()), 'output_unit': 'relative flux/pixel',
                'absolute_flux_measured': False, 'absolute_position_measured': False,
+               'amplitude_constraints_available': objective.count_by_type['logamp']>0,
                'centroid_constraint': 'Weak penalty around display center; actual centroid reported; not measured astrometry',
                'settings': {**settings, 'starts': starts, 'max_iterations': max_iterations, 'seed': seed},
                'noise_model': 'Fixed observed high SNR independent-baseline covariance, full within each closure cell',
