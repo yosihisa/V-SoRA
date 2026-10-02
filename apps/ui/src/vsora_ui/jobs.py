@@ -15,7 +15,7 @@ from uuid import uuid4
 ACTIVE={'queued','running'}
 LABELS={'simulation':'模擬観測と画像復元','quality':'雑音・電波妨害の検証',
         'clock':'時計ずれの検証','fringe':'位相回転と再相関の検証','basic':'基本動作の自動試験',
-        'closure':'Closureと短積分の検証'}
+        'closure':'Closureと短積分の検証','rml':'Closure＋RMLの模擬画像復元'}
 
 
 def write_json(path,data):
@@ -56,7 +56,7 @@ class JobManager:
             try: result.append(json.loads(path.read_text()))
             except (ValueError,OSError): pass
             if len(result)>=100: break
-        return result
+        return sorted(result,key=lambda item:item.get('created_utc',''),reverse=True)
 
     def submit(self,request):
         with self.lock:
@@ -68,7 +68,7 @@ class JobManager:
             directory=self.root/job_id;directory.mkdir()
             payload={'schema_version':1,'workspace':str(self.workspace),'request':request.model_dump()}
             write_json(directory/'request.json',payload)
-            label=LABELS['simulation'] if request.kind=='simulation' else LABELS[request.validation]
+            label=LABELS[request.kind] if request.kind in ('simulation','rml') else LABELS[request.validation]
             status={'id':job_id,'label':label,'kind':request.kind,'state':'queued','phase':'実行待ち',
                     'created_utc':stamp.isoformat(),'completed_steps':0,'total_steps':2 if request.kind=='simulation' else 1}
             write_json(directory/'status.json',status)

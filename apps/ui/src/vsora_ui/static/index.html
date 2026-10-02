@@ -18,6 +18,7 @@
       <div class="nav-caption">作業を選ぶ</div>
       <nav aria-label="作業メニュー">
         <button class="nav-button active" data-panel="simulation">模擬観測</button>
+        <button class="nav-button" data-panel="rml">Closure＋RML</button>
         <button class="nav-button" data-panel="validation">動作検証</button>
         <button class="nav-button" data-panel="history">実行履歴</button>
         <button class="nav-button" data-panel="help">使い方</button>
@@ -47,6 +48,32 @@
           </div>
         </div>
       </section>
+      <section id="panel-rml" class="panel hidden">
+        <div class="page-heading"><div class="eyebrow">CLOSURE IMAGING</div><h1>未知の局利得から形状を復元する</h1><p>短い積分のClosureを使い、相対的な明るさの画像をRMLで探します。</p></div>
+        <div class="two-column">
+          <form id="rml-form" class="card">
+            <h2>模擬観測とRMLの条件</h2>
+            <label>天体モデル<select name="model"><option value="shell">環状の天体</option><option value="double">二つの点源</option><option value="casa">Cas Aの参照形状</option></select></label>
+            <div class="form-row"><label>局数<select name="stations"><option value="8">8局</option><option value="4">4局</option></select></label><label>配置<select name="layout"><option value="spread">二次元・短い基線を含む</option><option value="ring">円周</option><option value="line">直線</option></select></label></div>
+            <div class="form-row"><label>観測全体の時間 <span class="unit">秒</span><input name="duration_s" type="number" value="14400" min="60" max="14400" step="3"></label><label>一回の積分 <span class="unit">秒</span><select name="integration_s"><option value="0.3">0.3秒</option><option value="0.1">0.1秒</option><option value="1">1秒</option><option value="3">3秒</option></select></label></div>
+            <label>全時間に分散する短積分の個数<input name="snapshots" type="number" value="16" min="8" max="32"></label>
+            <p class="field-help">連続収録のシミュレーションではありません。16個×0.3秒なら実際に使う露光は4.8秒です。全体の時間は投影基線の変化を決めます。</p>
+            <div class="form-row"><label>生成天体の総flux <span class="unit">Jy・仮定</span><input name="flux_jy" type="number" value="1000" min="1" max="10000000" step="any"></label><label>各局のSEFD <span class="unit">Jy・仮定</span><input name="sefd_jy" type="number" value="10000" min="1" max="1000000000" step="any"></label></div>
+            <label class="check-label"><input name="noise" type="checkbox">受信機雑音を加える</label>
+            <details><summary>事前条件と探索</summary><div class="detail-body">
+              <label>Gaussian事前画像のFWHM <span class="unit">秒角</span><input name="prior_fwhm_arcsec" type="number" value="240" min="40" max="500"></label>
+              <div class="form-row"><label>entropyの強さ<input name="entropy" type="number" value="0.01" min="0" max="1" step="any"></label><label>滑らかさTSVの強さ<input name="tsv" type="number" value="0.0001" min="0" max="0.01" step="any"></label></div>
+              <div class="form-row"><label>初期値の数<input name="starts" type="number" value="3" min="1" max="5"></label><label>最終探索の反復上限<input name="max_iterations" type="number" value="800" min="100" max="2000"></label></div>
+              <label>乱数seed<input name="seed" type="number" value="21" min="0" max="4294967295"></label>
+            </div></details>
+            <button type="submit" class="primary full">Closure＋RMLで模擬画像を復元</button>
+          </form>
+          <div class="explanation-stack">
+            <div class="card"><h2>未知の受信機応答を加える</h2><p>時刻ごとに局の振幅・位相を大きく変えます。RMLには正解画像も局利得も渡しません。一般的なGaussian事前画像から探索します。</p><p>基線SNR10以上、独立なClosureと共分散を使うCPU参照実装です。画像は32×32、16秒角/画素です。</p></div>
+            <div class="note-card"><h3>結果の基準と制限</h3><p>総相対fluxを1にします。絶対Jyや絶対位置の測定ではありません。模擬正解との比較では位置合わせの量を記録します。LOとsample時計は補正済みの仮定です。事前条件・局所解・低SNRの影響を比較してください。</p></div>
+          </div>
+        </div>
+      </section>
       <section id="panel-validation" class="panel hidden">
         <div class="page-heading"><div class="eyebrow">VALIDATION</div><h1>動作検証を実行する</h1><p>正解がわかる入力で、重要な補正や検出が成立するかを確認します。実行条件と結果は履歴に残ります。</p></div>
         <form id="validation-form" class="card narrow">
@@ -62,7 +89,7 @@
       </section>
       <section id="panel-help" class="panel hidden">
         <div class="page-heading"><div class="eyebrow">GUIDE</div><h1>使い方と結果の読み方</h1></div>
-        <div class="card prose"><h2>まず点源で試す</h2><p>「模擬観測」で点源を選び、そのまま開始します。処理が終わると実行履歴に画像と数値が表示されます。点源では、位置と明るさが正しく戻るかを見ます。その後、Cas A・局数・配置・雑音を変えて比較できます。</p><h2>画像の違い</h2><p>dirtyは相関値から直接作る画像、PSFは点源の応答、CLEAN modelは推定した天体成分、restoredは成分を表示用のbeamへ広げた画像です。modelはJy/pixel、dirty/restoredはJy/beamなので、画素の和を同じ意味で比べられません。</p><h2>数値を確認する</h2><p>NRMSEは正解との差の大きさで、小さいほどよい値です。相関係数は模様の似方、flux比は総明るさの一致を表します。比較では両画像を同じ110秒角beamに揃えます。CLEANの収束と天体の正しさは別に確認します。</p><h2>途中で中止した場合</h2><p>履歴の中止ボタンで処理を止められます。中止・失敗した入力と途中結果は残し、完了と区別します。条件を変えて再実行すると、別の実行として保存します。</p><h2>実観測に向けて</h2><p>VDIFに加え、sampleとUTCの対応、実sample rate、RF・局位置・偏波・欠損情報が必要です。生ADC値をそのままJyとしません。実際のRTL-SDRでCas Aを画像化する検証はこれからです。</p><p class="muted">詳しい原理・用語・条件は、リポジトリの docs/guide/ と段階レポートにあります。</p></div>
+        <div class="card prose"><h2>まず点源で試す</h2><p>「模擬観測」で点源を選び、そのまま開始します。処理が終わると実行履歴に画像と数値が表示されます。点源では、位置と明るさが正しく戻るかを見ます。その後、Cas A・局数・配置・雑音を変えて比較できます。</p><h2>画像の違い</h2><p>dirtyは相関値から直接作る画像、PSFは点源の応答、CLEAN modelは推定した天体成分、restoredは成分を表示用のbeamへ広げた画像です。modelはJy/pixel、dirty/restoredはJy/beamなので、画素の和を同じ意味で比べられません。</p><h2>数値を確認する</h2><p>NRMSEは正解との差の大きさで、小さいほどよい値です。相関係数は模様の似方、flux比は総明るさの一致を表します。比較では両画像を同じ110秒角beamに揃えます。CLEANの収束と天体の正しさは別に確認します。</p><h2>途中で中止した場合</h2><p>履歴の中止ボタンで処理を止められます。中止・失敗した入力と途中結果は残し、完了と区別します。条件を変えて再実行すると、別の実行として保存します。</p><h2>Closure＋RML</h2><p>未知の局利得を消した情報から、総相対fluxが1の非負画像を復元します。結果のχ²、初期値ごとの目的関数、位置合わせ前後の誤差を比べます。最適化の停止は天体形状の正しさを保証しません。</p><h2>実観測に向けて</h2><p>VDIFに加え、sampleとUTCの対応、実sample rate、RF・局位置・偏波・欠損情報が必要です。生ADC値をそのままJyとしません。実際のRTL-SDRでCas Aを画像化する検証はこれからです。</p><p class="muted">詳しい原理・用語・条件は、リポジトリの docs/guide/ と段階レポートにあります。</p></div>
       </section>
     </main>
   </div>

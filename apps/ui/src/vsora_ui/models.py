@@ -32,4 +32,28 @@ class ValidationRequest(Request):
     validation:Literal['closure','quality','clock','fringe','basic']='quality'
 
 
-JobRequest=Annotated[SimulationRequest|ValidationRequest,Field(discriminator='kind')]
+class RmlRequest(Request):
+    kind:Literal['rml']='rml'
+    model:Literal['double','shell','casa']='shell'
+    stations:Literal[4,8]=8
+    layout:Literal['spread','line','ring']='spread'
+    duration_s:int=Field(default=14400,ge=60,le=14400,strict=True)
+    integration_s:Literal[.1,.3,1.,3.]=.3
+    snapshots:int=Field(default=16,ge=8,le=32,strict=True)
+    flux_jy:float=Field(default=1000,gt=0,le=1e7)
+    sefd_jy:float=Field(default=10000,gt=0,le=1e9)
+    noise:bool=Field(default=False,strict=True)
+    seed:int=Field(default=21,ge=0,le=2**32-1,strict=True)
+    prior_fwhm_arcsec:float=Field(default=240,ge=40,le=500)
+    entropy:float=Field(default=.01,ge=0,le=1)
+    tsv:float=Field(default=.0001,ge=0,le=.01)
+    starts:int=Field(default=3,ge=1,le=5,strict=True)
+    max_iterations:int=Field(default=800,ge=100,le=2000,strict=True)
+
+    @model_validator(mode='after')
+    def dimensions(self):
+        if self.duration_s%3: raise ValueError('観測時間は3秒の整数倍にしてください')
+        return self
+
+
+JobRequest=Annotated[SimulationRequest|ValidationRequest|RmlRequest,Field(discriminator='kind')]

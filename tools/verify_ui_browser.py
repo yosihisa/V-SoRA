@@ -34,8 +34,8 @@ def run(output,port=8767):
             font=page.evaluate('document.fonts.check("14px \'VSoRA Japanese\'")')
             assert font,'Japanese font did not load'
             page.screenshot(path=str(out/'simulation-screen.png'),full_page=True)
-            page.locator('select[name=stations]').select_option('4')
-            page.locator('input[name=duration_s]').fill('600');page.locator('input[name=integration_s]').fill('60')
+            page.locator('#simulation-form select[name=stations]').select_option('4')
+            page.locator('#simulation-form input[name=duration_s]').fill('600');page.locator('#simulation-form input[name=integration_s]').fill('60')
             page.get_by_role('button',name='模擬観測して画像化').click()
             page.locator('#job-detail .phase-line').get_by_text('処理完了',exact=True).wait_for(timeout=45000)
             assert page.locator('#job-detail img').count()>=2
@@ -44,6 +44,16 @@ def run(output,port=8767):
             result=httpx.get(url+'/api/jobs/'+sid).json()
             assert abs(result['summary']['imaging']['image_peak_jy']-1000)<1e-6
             page.screenshot(path=str(out/'point-result-screen.png'),full_page=True)
+            page.get_by_role('button',name='Closure＋RML',exact=True).click()
+            page.screenshot(path=str(out/'rml-screen.png'),full_page=True)
+            page.get_by_role('button',name='Closure＋RMLで模擬画像を復元',exact=True).click()
+            page.locator('#job-detail h2').get_by_text('Closure＋RMLの模擬画像復元',exact=True).wait_for()
+            page.locator('#job-detail .phase-line').get_by_text('処理完了',exact=True).wait_for(timeout=45000)
+            rid=httpx.get(url+'/api/jobs').json()[0]['id'];rresult=httpx.get(url+'/api/jobs/'+rid).json()
+            assert rresult['summary']['rml']['input_unit']=='ADC^2'
+            assert rresult['summary']['metrics']['registered_nrmse']<.2
+            page.wait_for_function('Array.from(document.querySelectorAll("#job-detail img")).every(x=>x.complete&&x.naturalWidth>0)')
+            page.screenshot(path=str(out/'rml-result-screen.png'),full_page=True)
             page.get_by_role('button',name='動作検証',exact=True).click()
             page.locator('select[name=validation]').select_option('quality')
             page.get_by_role('button',name='検証を開始',exact=True).click()
@@ -54,8 +64,8 @@ def run(output,port=8767):
             assert qresult['summary']['continuum_visibility_error_after']<.08
             page.screenshot(path=str(out/'quality-result-screen.png'),full_page=True)
             page.get_by_role('button',name='模擬観測',exact=True).click()
-            page.locator('select[name=model]').select_option('casa');page.locator('select[name=stations]').select_option('8')
-            page.locator('input[name=duration_s]').fill('14400');page.locator('input[name=integration_s]').fill('120')
+            page.locator('#simulation-form select[name=model]').select_option('casa');page.locator('#simulation-form select[name=stations]').select_option('8')
+            page.locator('#simulation-form input[name=duration_s]').fill('14400');page.locator('#simulation-form input[name=integration_s]').fill('120')
             page.get_by_role('button',name='模擬観測して画像化').click()
             page.get_by_role('button',name='処理を中止',exact=True).wait_for(timeout=15000)
             cid=httpx.get(url+'/api/jobs').json()[0]['id'];page.get_by_role('button',name='処理を中止',exact=True).click()
@@ -70,7 +80,8 @@ def run(output,port=8767):
                     'external_requests':len(external),'mobile_horizontal_overflow':overflow,
                     'simulation_state':result['state'],'point_peak_jy_per_beam':result['summary']['imaging']['image_peak_jy'],
                     'quality_state':qresult['state'],'quality_relative_error':qresult['summary']['continuum_visibility_error_after'],
-                    'cancel_state':cancelled['state'],'job_ids':[sid,qid,cid],
+                    'rml_state':rresult['state'],'rml_registered_nrmse':rresult['summary']['metrics']['registered_nrmse'],
+                    'cancel_state':cancelled['state'],'job_ids':[sid,rid,qid,cid],
                     'scope':'Headless Chromium in WSL; Windows browser and WSLg desktop not directly observed'}
             browser.close();(out/'summary.json').write_text(json.dumps(report,indent=2)+'\n')
             if errors or external or overflow: raise AssertionError('browser validation failed; see saved summary')

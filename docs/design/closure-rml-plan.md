@@ -50,3 +50,5 @@ python tools/run.py workflows.closure_validation --output outputs/closure-check
 入力はlegacy Jy NPZ、spectral Jy/ADC² NPZ、対応FITS-IDI。出力Closure NPZはgeometryと原本SHA-256を保持し、phase=rad、logamp=無次元。未採用値は0とvalid=falseを組で保存する。0だけを測定値として解釈しない。
 
 段階020の数値・適用範囲は[レポート](../reports/020-closure-short-integration.md)を参照。
+
+段階021でCPUのRML参照実装を追加。[入門](../guide/07-closure-rml.md)、[検証](../reports/021-closure-rml-reference.md)。相対fluxの非負画像、弱い中心条件、複数初期値で探索する。Cas Aは停止上限と事前条件の影響が残る。

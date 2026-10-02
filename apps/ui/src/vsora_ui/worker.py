@@ -5,7 +5,7 @@ from pathlib import Path
 import subprocess
 import sys
 from .jobs import write_json
-from .models import SimulationRequest,ValidationRequest
+from .models import SimulationRequest,ValidationRequest,RmlRequest
 
 
 def layout(stations,kind):
@@ -36,7 +36,7 @@ def simulation_config(request):
 
 def run(job):
     data=json.loads((job/'request.json').read_text());workspace=Path(data['workspace'])
-    raw=data['request'];request=SimulationRequest(**raw) if raw['kind']=='simulation' else ValidationRequest(**raw)
+    raw=data['request'];request={'simulation':SimulationRequest,'validation':ValidationRequest,'rml':RmlRequest}[raw['kind']](**raw)
     status=json.loads((job/'status.json').read_text())
     def phase(text,done=0):
         if (job/'cancel').exists(): raise InterruptedError('cancelled')
@@ -69,6 +69,13 @@ def run(job):
             fig.tight_layout();fig.savefig(job/'comparison.png',dpi=140);plt.close(fig)
             write_json(job/'summary.json',{'type':'simulation','assumptions':'Ideal visibility, synthetic site, no receiver timing or calibration errors',
                         'config':config,'metrics':metrics,'imaging':result})
+        elif request.kind=='rml':
+            from vsora_imaging.experiment import run_simulation
+            phase('短積分の模擬相関からClosure＋RMLを実行しています')
+            result=run_simulation(simulation_config(request),job/'rml-simulation',snapshots=request.snapshots,
+                starts=request.starts,max_iterations=request.max_iterations,prior_fwhm_arcsec=request.prior_fwhm_arcsec,
+                entropy=request.entropy,tsv=request.tsv)
+            write_json(job/'summary.json',result)
         else:
             phase('検証を実行しています')
             runner=workspace/'tools/run.py'

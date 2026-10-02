@@ -1,0 +1,234 @@
+{
+  "type": "closure_rml_simulation",
+  "config": {
+    "schema_version": 1,
+    "site": {
+      "latitude_deg": 35.0,
+      "longitude_deg": 135.0,
+      "height_m": 0.0,
+      "description": "Assumed public synthetic site, not an actual observation location"
+    },
+    "source": {
+      "frame": "icrs",
+      "ra_deg": 350.8664166662,
+      "dec_deg": 58.8117777793,
+      "model": "shell",
+      "total_flux_jy": 1000.0
+    },
+    "observation": {
+      "start_utc": "2026-10-02T08:00:00Z",
+      "duration_s": 14400,
+      "integration_s": 0.3,
+      "frequency_hz": 1420000000.0,
+      "bandwidth_hz": 2048000.0,
+      "elevation_min_deg": 15.0
+    },
+    "stations": [
+      {
+        "id": "ST01",
+        "enu_m": [
+          -228.58179532783782,
+          -148.5781669630946,
+          0.0
+        ],
+        "sefd_jy": 10000.0
+      },
+      {
+        "id": "ST02",
+        "enu_m": [
+          -205.72361579505403,
+          -114.29089766391891,
+          0.0
+        ],
+        "sefd_jy": 10000.0
+      },
+      {
+        "id": "ST03",
+        "enu_m": [
+          182.86543626227024,
+          -205.72361579505403,
+          0.0
+        ],
+        "sefd_jy": 10000.0
+      },
+      {
+        "id": "ST04",
+        "enu_m": [
+          251.4399748606216,
+          194.29452602866215,
+          0.0
+        ],
+        "sefd_jy": 10000.0
+      },
+      {
+        "id": "ST05",
+        "enu_m": [
+          -274.29815439340535,
+          182.86543626227024,
+          0.0
+        ],
+        "sefd_jy": 10000.0
+      },
+      {
+        "id": "ST06",
+        "enu_m": [
+          -45.71635906556756,
+          45.71635906556756,
+          0.0
+        ],
+        "sefd_jy": 10000.0
+      },
+      {
+        "id": "ST07",
+        "enu_m": [
+          45.71635906556756,
+          -91.43271813113512,
+          0.0
+        ],
+        "sefd_jy": 10000.0
+      },
+      {
+        "id": "ST08",
+        "enu_m": [
+          205.72361579505403,
+          22.85817953278378,
+          0.0
+        ],
+        "sefd_jy": 10000.0
+      }
+    ],
+    "image": {
+      "pixels": 32,
+      "pixel_arcsec": 16.0
+    },
+    "noise": {
+      "enabled": false,
+      "efficiency": 1.0
+    },
+    "seed": 21
+  },
+  "snapshots_retained": 16,
+  "observation_span_s": 14400,
+  "coherent_integration_s": 0.3,
+  "recorded_exposure_per_station_s": 4.8,
+  "rml": {
+    "objective": 0.01612053600341379,
+    "closure_chisq_per_measurement": 0.0015004731202193189,
+    "data_loss": 0.0007502365601096594,
+    "entropy_loss": 0.010951275591555771,
+    "tsv_loss": 0.0003708971277341915,
+    "centroid_loss": 0.004048124509278392,
+    "independent_closure_count": 448,
+    "centroid_arcsec": [
+      -2.5167619436322575,
+      51.44555168058528
+    ],
+    "parameter_sum_penalty": 2.2147357779749315e-09,
+    "selected_start": 0,
+    "runs": [
+      {
+        "objective": 0.01612053600341379,
+        "closure_chisq_per_measurement": 0.0015004731202193189,
+        "data_loss": 0.0007502365601096594,
+        "entropy_loss": 0.010951275591555771,
+        "tsv_loss": 0.0003708971277341915,
+        "centroid_loss": 0.004048124509278392,
+        "independent_closure_count": 448,
+        "centroid_arcsec": [
+          -2.5167619436322575,
+          51.44555168058528
+        ],
+        "parameter_sum_penalty": 2.2147357779749315e-09,
+        "start": 0,
+        "circular_warmup_iterations": 300,
+        "iterations": 2000,
+        "optimizer_success": false,
+        "optimizer_message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+        "elapsed_s": 1.914578944000823
+      },
+      {
+        "objective": 0.016767732398821195,
+        "closure_chisq_per_measurement": 0.001444464868605049,
+        "data_loss": 0.0007222324343025245,
+        "entropy_loss": 0.0112077244494272,
+        "tsv_loss": 0.00038754885469339075,
+        "centroid_loss": 0.004450152821583496,
+        "independent_closure_count": 448,
+        "centroid_arcsec": [
+          -43.96954729895073,
+          31.35492088139108
+        ],
+        "parameter_sum_penalty": 7.38388145828253e-08,
+        "start": 1,
+        "circular_warmup_iterations": 300,
+        "iterations": 735,
+        "optimizer_success": true,
+        "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "elapsed_s": 0.9110481679999793
+      },
+      {
+        "objective": 4.106674212580275,
+        "closure_chisq_per_measurement": 8.141006516583664,
+        "data_loss": 4.070503258291832,
+        "entropy_loss": 0.028496963604938363,
+        "tsv_loss": 0.005340891687545824,
+        "centroid_loss": 0.002202805797270658,
+        "independent_closure_count": 448,
+        "centroid_arcsec": [
+          -37.32840661751096,
+          -7.086668236700701
+        ],
+        "parameter_sum_penalty": 0.00013029319868862907,
+        "start": 2,
+        "circular_warmup_iterations": 300,
+        "iterations": 2000,
+        "optimizer_success": false,
+        "optimizer_message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+        "elapsed_s": 1.9288284979993477
+      }
+    ],
+    "image_sum": 1.0,
+    "output_unit": "relative flux/pixel",
+    "absolute_flux_measured": false,
+    "absolute_position_measured": false,
+    "centroid_constraint": "Weak penalty around display center; actual centroid reported; not measured astrometry",
+    "settings": {
+      "pixels": 32,
+      "pixel_arcsec": 16.0,
+      "prior_fwhm_arcsec": 240.0,
+      "entropy": 0.01,
+      "tsv": 0.0001,
+      "min_snr": 10.0,
+      "starts": 3,
+      "max_iterations": 2000,
+      "seed": 21
+    },
+    "noise_model": "Fixed observed high SNR independent-baseline covariance, full within each closure cell",
+    "likelihood_limit": "Wrapped local Gaussian phase residual; low SNR and phase branch boundaries excluded",
+    "input_sha256": "3567eeb97dcafd4fa9bb9d16731c5da333de324b64ffe2182260b663cce1518b",
+    "input_unit": "ADC^2"
+  },
+  "metrics": {
+    "raw_nrmse": 0.4726603562663869,
+    "registered_nrmse": 0.06967855581639691,
+    "registered_correlation": 0.9955666025971975,
+    "registration_shift_yx_arcsec": [
+      -54.00965456790035,
+      2.894540875816177
+    ],
+    "common_beam_arcsec": 110.0,
+    "comparison": "Unit-flux gauge, Gaussian common beam, explicit translation only; no calibrated Jy or astrometry"
+  },
+  "gain_invariance": {
+    "objective_absolute_difference": 1.0408340855860843e-17,
+    "gradient_max_absolute_difference": 1.6403545188836688e-13
+  },
+  "geometry": {
+    "model": "Astropy geocentric GCRS; no atmosphere, ionosphere or antenna propagation delays",
+    "eop_status": [
+      2
+    ],
+    "eop_warnings": []
+  },
+  "limits": "Synthetic visibility, not IQ/VDIF; single RF channel, assumed SEFD, sparse exposures, supplied noise weights; LO already corrected; truth excluded from prior"
+}

@@ -56,6 +56,18 @@ def test_closure_validation_real_subprocess(tmp_path):
         assert d['summary']['actual_iq_fx']['corrected_max_logcamp_error'] < 1e-12
 
 
+def test_rml_simulation_real_subprocess(tmp_path):
+    with TestClient(create_app(tmp_path),base_url='http://127.0.0.1') as c:
+        r=c.post('/api/jobs',json={'kind':'rml','model':'double','stations':4,'snapshots':8,
+                                 'starts':1,'max_iterations':100},headers=HEADERS)
+        assert r.status_code==202
+        d=wait(c,r.json()['id'])
+        assert d['state']=='complete',d
+        assert d['summary']['coherent_integration_s']==.3
+        assert not d['summary']['rml']['absolute_flux_measured']
+        assert d['summary']['rml']['input_unit']=='ADC^2'
+
+
 @pytest.mark.parametrize('payload',[
     {'kind':'simulation','duration_s':61}, {'kind':'simulation','noise':1},
     {'kind':'simulation','extra_command':'sh'}, {'kind':'simulation','flux_jy':0},
