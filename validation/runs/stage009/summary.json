@@ -1,0 +1,45 @@
+{
+  "sample_rate_hz": 65536,
+  "duration_s": 0.5,
+  "reference_waveform": "32 analytic continuous complex tones",
+  "max_baseband_fraction": 0.35,
+  "sinc_radius": 32,
+  "cases": [
+    {
+      "injected_start_samples": 3.25,
+      "injected_rate_ppm": 80,
+      "estimated_start_samples": 3.250000556989941,
+      "estimated_rate_ppm": 80.00003775104639,
+      "before_relative_error": 1.188094936634316,
+      "after_relative_error": 2.0068529642381133e-05,
+      "coherence": 0.9999999997978657,
+      "valid_output_samples": 32368
+    },
+    {
+      "injected_start_samples": -2.4,
+      "injected_rate_ppm": -65,
+      "estimated_start_samples": -2.4000007689043557,
+      "estimated_rate_ppm": -65.00002948412481,
+      "before_relative_error": 1.1337397097246864,
+      "after_relative_error": 2.153710737864806e-05,
+      "coherence": 0.9999999997675565,
+      "valid_output_samples": 32368
+    },
+    {
+      "injected_start_samples": 0.3,
+      "injected_rate_ppm": 0,
+      "estimated_start_samples": 0.3000024475431081,
+      "estimated_rate_ppm": 9.779339778589288e-06,
+      "before_relative_error": 0.36228631955979135,
+      "after_relative_error": 2.3922435023425427e-05,
+      "coherence": 0.9999999997139173,
+      "valid_output_samples": 32368
+    }
+  ],
+  "limitations": [
+    "Strong shared deterministic waveform; astronomical low-SNR clock estimation unverified",
+    "Clock offset and geometry are degenerate without independent geometry",
+    "Time-invariant linear ADC drift, no LO rate in this clock test",
+    "Finite sinc needs band-edge guard and input sample margins"
+  ]
+}
