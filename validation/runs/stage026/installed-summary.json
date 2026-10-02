@@ -1,0 +1,21 @@
+{
+  "installed_wheel_imports": true,
+  "entrypoints_outside_checkout": [
+    "vsora-closure",
+    "vsora-rml",
+    "vsora-rate",
+    "vsora-closure-session",
+    "vsora-synthesis",
+    "vsora-ui"
+  ],
+  "cli_state": "complete",
+  "gui_state": "complete",
+  "sensitivity_gui_state": "complete",
+  "checkout_validation_available": false,
+  "cli_input_unit": "ADC^2",
+  "gui_input_unit": "ADC^2",
+  "relative_flux_sum": 1.0,
+  "absolute_flux_measured": false,
+  "valid_phase_closures": 52,
+  "valid_logamp_closures": 26
+}

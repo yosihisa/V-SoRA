@@ -1,0 +1,42 @@
+{
+  "state": "complete",
+  "reference_spectral_sha256": "f01f6022b5efe6835774a7ae9ae1d3b12c69225f1ac905b4456ff39c4498217e",
+  "manifest_sha256": "b0468656a05b4caaa42b4af7b6e0773db55f73b109e95ff0aace1b8a28457afb",
+  "clock_sha256": "b4b914971335dd6e7962b9863313016bc7768d2c4bd4250fa0711cf9b7d23250",
+  "rate_profile_sha256": "6ce7649ba01b7f5ed07ad40b5469f7f34438084393836bce13703b0d3b706a1d",
+  "maximum_normalized_differences": {
+    "visibilities": 2.1725232397476323e-14,
+    "weights": 2.4930609357503664e-14,
+    "times_s": 0.0,
+    "frequencies_hz": 0.0,
+    "uvw_lambda": 0.0,
+    "integration_s": 0.0,
+    "diagnostic_station_power": 2.047943087838896e-14,
+    "diagnostic_station_sk": 1.2759705217166833e-13
+  },
+  "correlation": {
+    "state": "complete",
+    "integrations": 1,
+    "recorded_span_s": 1.0,
+    "start_offset_s": 0.002,
+    "station_max_buffer_samples": [
+      12288,
+      12289,
+      12290,
+      12292,
+      12290,
+      12290,
+      12290,
+      12291
+    ],
+    "samples_per_integration": 2048000,
+    "maximum_fx_chunk_samples": 8192,
+    "fft_accumulation": "Sums of cross-products, power and fourth moments; flags after whole integration",
+    "clock_model": "Supplied linear ADC mapping; no automatic weak-source clock recovery",
+    "geometry": "Sample alignment and RF rephasing; linear delay over <=1s, <=600m",
+    "weight_note": "2*valid FFT blocks / product of measured station channel powers; weak-source quadrature approximation; filtered FFT correlations not fully modeled"
+  },
+  "wall_elapsed_s": 18.656517973999144,
+  "process_peak_rss_kib": 333036,
+  "scope": "One existing 8-station 1-second VDIF record, known reference output. Source workflow RSS includes Python/Astropy; no previous whole-array RSS benchmark. No continuous long-observation throughput claim."
+}

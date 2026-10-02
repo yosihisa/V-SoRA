@@ -52,3 +52,10 @@ CLIは2〜64ファイル、GUIは2〜32ファイル。整列済みspectral NPZ�
 複素値・雑音重み・各channel・有効露光・品質診断を別々に保持し、先に複素平均しない。各局gainが露光ごとに違っても、各cellのClosureをRMLへ集める。入力SHA、rate profile SHA、除去rateと時刻原点を保存。出力はvisibility.npz、closures.npz、rml、summaryで、失敗はpartial/failure.json。
 
 独立phase/log amplitude測定数をsummaryとGUIで表示する。amplitudeがない画像も最適化は可能だが、形状の制約が弱いことを示す。参照実装のFourier行列上限128MiB、100万baseline cell上限、時間/channel雑音独立の近似がある。連続4時間の処理性能を確認したものではない。[段階024](../docs/reports/024-vdif-synthesis.md)を参照。
+
+
+## 分割相関と品質統計
+
+整列した電圧は最大8192sample（FFTがこれより大きい場合は一FFT）ずつFXへ渡す。単位FFTの基線cross-product和、基線の有効FFT数、局powerとpower²、sample power/countを積分全体で集計する。SKとchannel flagは全体の統計から一度判定する。各ブロックのflag付き平均を先に足す方式ではない。積分結果の値・重み・露光・診断は従来の一括FXと丸め誤差の範囲で一致する。
+
+[段階026](../docs/reports/026-bounded-fx.md)で8局1秒のVDIFを比較した。これはメモリを制限する変更で、まだ連続長記録の処理入口や3秒pilotの実装ではない。

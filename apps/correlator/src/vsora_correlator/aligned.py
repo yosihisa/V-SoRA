@@ -9,7 +9,7 @@ from vsora_formats.vdif import iter_vdif_frames
 from vsora_formats.spectral import save_spectral
 from vsora_observation.geometry import geometry_at_times
 from .clock import interpolate_samples
-from .fx import fx_correlate_series
+from .stream_fx import FXAccumulator
 from .session import load_session
 from .rate import validate_rate_profile
 
@@ -89,17 +89,23 @@ def correlate_aligned(manifest,clock_model,output,integrations,start_offset_s=.0
     partial.mkdir(parents=True)
     results=[]
     try:
+        maximum_chunk_samples=0
         for index in range(integrations):
-            t=start_offset_s+(index*ns+np.arange(ns))/fs;data=[];valid=[]
-            for station,b in enumerate(buffers):
-                delay=np.interp(t,edges,endpoint[:,station])
-                measured=stations[station]
-                queries=(t-delay-measured['input_start_offset_s'])*measured['actual_sample_rate_hz']
-                x,ok=b.query(queries)
-                phase=-2*np.pi*(config['observation']['frequency_hz']*delay+rate[station]*(t-delay-rate_epoch))
-                data.append(x*np.exp(1j*phase));valid.append(ok)
-            r=fx_correlate_series(np.array(data),fs,c['fft_length'],c['blocks_per_integration'],
-                                  config['observation']['frequency_hz'],valid=np.array(valid),time_offset_s=t[0],spectral_quality=c.get('spectral_quality'))
+            accumulator=FXAccumulator(len(buffers),fs,c['fft_length'],config['observation']['frequency_hz'],c.get('spectral_quality'))
+            chunk_samples=max(c['fft_length'],8192//c['fft_length']*c['fft_length'])
+            for first in range(0,ns,chunk_samples):
+                count=min(chunk_samples,ns-first)
+                t=start_offset_s+(index*ns+first+np.arange(count))/fs;data=[];valid=[]
+                for station,b in enumerate(buffers):
+                    delay=np.interp(t,edges,endpoint[:,station])
+                    measured=stations[station]
+                    queries=(t-delay-measured['input_start_offset_s'])*measured['actual_sample_rate_hz']
+                    x,ok=b.query(queries)
+                    phase=-2*np.pi*(config['observation']['frequency_hz']*delay+rate[station]*(t-delay-rate_epoch))
+                    data.append(x*np.exp(1j*phase));valid.append(ok)
+                accumulator.consume(np.array(data),np.array(valid))
+            r=accumulator.finish(start_offset_s+index*ns/fs)
+            maximum_chunk_samples=max(maximum_chunk_samples,accumulator.maximum_chunk_samples)
             r['weights'][:,abs(r['frequencies_hz']-config['observation']['frequency_hz'])>band]=0
             r['weights']*=g['elevation_valid'][index]
             results.append(r)
@@ -119,7 +125,8 @@ def correlate_aligned(manifest,clock_model,output,integrations,start_offset_s=.0
             meta.update(spectral_quality=c['spectral_quality'],diagnostic_power_unit='ADC^2' if c['voltage_unit']=='ADC' else 'Jy')
         save_spectral(partial/'shard-00000.npz',cube,meta)
         summary={'state':'complete','integrations':integrations,'recorded_span_s':span,'start_offset_s':start_offset_s,
-                 'station_max_buffer_samples':[b.maximum for b in buffers],'samples_per_integration':ns,
+                 'station_max_buffer_samples':[b.maximum for b in buffers],'samples_per_integration':ns,'maximum_fx_chunk_samples':maximum_chunk_samples,
+                 'fft_accumulation':'Sums of cross-products, power and fourth moments; flags after whole integration',
                  'clock_model':'Supplied linear ADC mapping; no automatic weak-source clock recovery',
                  'geometry':'Sample alignment and RF rephasing; linear delay over <=1s, <=600m',
                  'weight_note':results[0]['noise_weight_assumption']+'; filtered FFT correlations not fully modeled'}

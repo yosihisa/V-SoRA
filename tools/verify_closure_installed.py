@@ -21,7 +21,7 @@ def run(manifest,clock_model,output,port=8768):
     env=os.environ.copy();env.pop('PYTHONPATH',None);env.update(OPENBLAS_NUM_THREADS='1',OMP_NUM_THREADS='1')
     binary=Path(sys.prefix)/'bin';checks=[]
     with tempfile.TemporaryDirectory(prefix='vsora-installed-closure-') as directory:
-        for name in ['vsora-closure','vsora-rml','vsora-rate','vsora-closure-session','vsora-ui']:
+        for name in ['vsora-closure','vsora-rml','vsora-rate','vsora-closure-session','vsora-synthesis','vsora-ui']:
             result=subprocess.run([str(binary/name),'--help'],cwd=directory,env=env,capture_output=True,text=True)
             if result.returncode:raise AssertionError('installed entrypoint help failed')
             checks.append(name)
@@ -52,13 +52,22 @@ def run(manifest,clock_model,output,port=8768):
                 time.sleep(.2)
             if job['state']!='complete':raise AssertionError('installed GUI analysis failed')
             gui=job['summary']
+            submit=httpx.post(url+'/api/jobs',headers={'X-VSoRA-Request':'1'},json={'kind':'sensitivity'}).json()
+            deadline=time.monotonic()+45
+            while time.monotonic()<deadline:
+                planner=httpx.get(url+'/api/jobs/'+submit['id']).json()
+                if planner['state'] not in ('queued','running'):break
+                time.sleep(.2)
+            assert planner['state']=='complete'
+            assert planner['summary']['assumptions']['station_sefd_jy'][0]>500000
+            assert planner['summary']['independent_closure_counts']=={'phase':0,'logamp':0}
         finally:
             process.terminate()
             try:process.wait(timeout=8)
             except subprocess.TimeoutExpired:process.kill();process.wait(timeout=2)
             log.close()
     summary={'installed_wheel_imports':True,'entrypoints_outside_checkout':checks,
-             'cli_state':cli['state'],'gui_state':job['state'],'checkout_validation_available':False,
+             'cli_state':cli['state'],'gui_state':job['state'],'sensitivity_gui_state':planner['state'],'checkout_validation_available':False,
              'cli_input_unit':cli['rml']['input_unit'],'gui_input_unit':gui['rml']['input_unit'],
              'relative_flux_sum':gui['rml']['image_sum'],'absolute_flux_measured':gui['absolute_flux_measured'],
              'valid_phase_closures':gui['closures']['phase_valid'],'valid_logamp_closures':gui['closures']['logamp_valid']}
