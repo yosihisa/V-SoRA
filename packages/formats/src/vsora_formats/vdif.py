@@ -10,7 +10,8 @@ from astropy.time import Time
 from baseband import vdif
 
 
-def write_vdif(path, data, start_utc, sample_rate_hz, station_id, scale=1., samples_per_frame=4096, valid=None):
+def write_vdif(path, data, start_utc, sample_rate_hz, station_id, scale=1., samples_per_frame=4096, valid=None,
+               voltage_unit='sqrt(Jy)'):
     x=np.asarray(data)
     if x.ndim!=1 or not np.iscomplexobj(x) or not np.isfinite(x).all() or not np.isfinite(scale) or scale<=0:
         raise ValueError('finite complex samples and positive scale required')
@@ -18,6 +19,7 @@ def write_vdif(path, data, start_utc, sample_rate_hz, station_id, scale=1., samp
         raise ValueError('whole frames and integer frames/second required')
     if not 0<=station_id<=65535: raise ValueError('invalid VDIF station ID')
     if sample_rate_hz<=0: raise ValueError('invalid sample rate')
+    if voltage_unit not in ('sqrt(Jy)','ADC'): raise ValueError('explicit supported voltage unit required')
     validity=np.ones(len(x),bool) if valid is None else np.asarray(valid,dtype=bool)
     if validity.shape!=x.shape: raise ValueError('valid mask shape mismatch')
     frames=validity.reshape(-1,samples_per_frame)
@@ -38,7 +40,8 @@ def write_vdif(path, data, start_utc, sample_rate_hz, station_id, scale=1., samp
     metadata={'schema_version':1,'sample_rate_hz':sample_rate_hz,'start_utc':start.isot+'Z',
               'station_numeric_id':station_id,'sample_count':len(x),'samples_per_frame':samples_per_frame,
               'complex':True,'bits_per_component':8,'edv':0,'thread_id':0,
-              'decoded_voltage_scale':scale,'scale_unit':'sqrt(Jy) for simulated calibrated voltages only',
+              'decoded_voltage_scale':scale,'decoded_voltage_unit':voltage_unit,
+              'scale_unit':'simulated calibrated sqrt(Jy)' if voltage_unit=='sqrt(Jy)' else 'uncalibrated ADC counts',
               'quantization':'Baseband/mark5access offset binary; decoded=(byte-127.5)/35.5',
               'clipped_fraction':float(clipped.mean()),'invalid_frame_count':int((~frames[:,0]).sum())}
     p.with_suffix('.json').write_text(json.dumps(metadata,indent=2)+'\n')

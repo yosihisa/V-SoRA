@@ -43,6 +43,14 @@ def observation_geometry(config):
     obs, site, source = config["observation"], config["site"], config["source"]
     offsets = (np.arange(round(obs["duration_s"]/obs["integration_s"])) + .5) * obs["integration_s"]
     times = Time(obs["start_utc"], scale="utc") + offsets * u.s
+    return geometry_at_times(config,times)
+
+
+def geometry_at_times(config,times,filter_elevation=True):
+    """Geometry at explicit UTC times; optionally retain low-elevation flags."""
+    obs,site,source=config['observation'],config['site'],config['source']
+    times=Time(times)
+    if times.ndim!=1 or len(times)==0: raise ValueError('nonempty time axis required')
     location = EarthLocation.from_geodetic(site["longitude_deg"] * u.deg,
                                           site["latitude_deg"] * u.deg, site["height_m"] * u.m)
     origin = np.array([v.to_value(u.m) for v in location.geocentric])
@@ -66,15 +74,18 @@ def observation_geometry(config):
     b = positions[:, pairs[:,1], :] - positions[:, pairs[:,0], :]
     uvw_m = uvw_from_vectors(b, celestial.ra.rad[:,None], celestial.dec.rad[:,None])
     valid = elevation >= obs["elevation_min_deg"]
-    if not valid.any():
+    if filter_elevation and not valid.any():
         raise ValueError("source below elevation limit throughout observation")
+    selected=valid if filter_elevation else np.ones(len(times),bool)
+    station_uvw=uvw_from_vectors(positions-positions[:,0:1,:],celestial.ra.rad[:,None],celestial.dec.rad[:,None])
     warnings_text = sorted({str(w.message) for w in captured})
     return {
-        "uvw_lambda": uvw_m[valid] * obs["frequency_hz"] / C_M_S,
-        "pairs": pairs, "times_mjd": times.mjd[valid], "elevation_deg": elevation[valid],
+        "uvw_lambda": uvw_m[selected] * obs["frequency_hz"] / C_M_S,
+        "pairs": pairs, "times_mjd": times.mjd[selected], "elevation_deg": elevation[selected],
+        "elevation_valid":valid[selected],"station_delay_s":station_uvw[selected,...,2]/C_M_S,
         "station_ecef_m": ecef,
         "model": "Astropy geocentric GCRS; no atmosphere, ionosphere or antenna propagation delays",
         "eop_status": sorted(set(int(v) for v in status)),
         "eop_warnings": warnings_text,
-        "dropped_time_count": int((~valid).sum())
+        "dropped_time_count": int((~valid).sum()) if filter_elevation else 0
     }

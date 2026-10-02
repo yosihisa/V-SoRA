@@ -1,0 +1,18 @@
+{
+  "state": "complete",
+  "input_voltage_unit": "ADC",
+  "uncalibrated_visibility_unit": "ADC^2",
+  "output_visibility_unit": "Jy",
+  "known_calibrator_flux_jy": 1000,
+  "recorded_span_s": 0.512,
+  "calibrated_mean_relative_error": 0.008849218219225774,
+  "image_peak_jy": 1000.0000030209236,
+  "model_flux_jy": 991.2720394264694,
+  "imaging_converged": true,
+  "shards": 1,
+  "limitations": [
+    "Synthetic stationary FFT-periodic point source with unknown ADC gains",
+    "Two pilot passes on the same recording; no target transfer in this smoke test",
+    "Common frame timestamps and sample rates; clock mapping API not integrated"
+  ]
+}

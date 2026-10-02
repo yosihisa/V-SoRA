@@ -22,7 +22,7 @@ def simulate(config, output):
     weights=1/sigma**2
     out.mkdir(parents=True)
     np.save(out/'truth.npy',image)
-    meta={k:v for k,v in geometry.items() if k not in ('uvw_lambda','pairs','times_mjd','elevation_deg','station_ecef_m')}
+    meta={k:v for k,v in geometry.items() if not isinstance(v,np.ndarray)}
     meta.update({'config':config,'frequency_hz':config['observation']['frequency_hz'],
                  'polarization':'ideal single co-polarization flux convention',
                  'sigma_real_imag_jy':sigma[0].tolist(),
