@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "source_sha256": "ca22e60b0755b04c31b2388a2c835b214558e7d9ad61944a92d744cd9da61006",
+  "rows": 60,
+  "channels": 8,
+  "flagged_channel_rows": 1,
+  "weight_policy": "Restore input NORMAL inverse variance, zero weight means flag",
+  "state": "complete",
+  "data_relative_error": 0.0,
+  "uvw_max_error_m": 0.0,
+  "time_max_error_s": 0.0,
+  "frequency_max_error_hz": 0.0,
+  "interval_max_error_s": 0.0,
+  "casatools_version": "6.7.6.14",
+  "casatasks_version": "6.7.6.14",
+  "weight_max_error": 0.0,
+  "dirty_peak_xy": [
+    67,
+    66
+  ],
+  "dirty_peak_jy": 1000.0007934570312
+}

@@ -22,4 +22,6 @@
 
 | 015 | [短いpilot積分・入力検査](015-short-pilot-input-validation.md) | 68件成功。1ms積分・設定誤字・FITS溢れを検査 |
 
+| 016 | [実データ用CASAアダプター](016-casa-production-adapter.md) | 71件成功。actual FITSのchannel重み・flagをMSへ保持 |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。
