@@ -1,0 +1,40 @@
+{
+  "stations": 4,
+  "sample_rate_hz": 2048000,
+  "fft_length": 128,
+  "short_integration_s": 0.008,
+  "duration_s": 0.512,
+  "channels": 128,
+  "time_samples": 64,
+  "receiver_sefd_jy": 10000.0,
+  "injected_delay_s": [
+    0.0,
+    2.3e-06,
+    -1.7e-06,
+    3.8e-07
+  ],
+  "injected_rate_hz": [
+    0.0,
+    17.3,
+    -11.7,
+    26.1
+  ],
+  "delay_max_error_s": 1.8773449645478777e-09,
+  "rate_max_error_hz": 0.014370943375149992,
+  "amplitude_max_relative_error": 0.010762276378237567,
+  "before_mean_relative_error": 1.0018483649538446,
+  "after_single_pass_relative_error": 0.03605277988882688,
+  "after_mean_relative_error": 0.005976332878978941,
+  "clipped_fraction": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "missing_frame_policy": "known invalid frame remains in timeline with zero weights",
+  "limitations": [
+    "FFT-periodic stationary sky generation, not a continuous propagation model",
+    "Measured total-power weights approximate; known 1000 Jy calibrator sets flux",
+    "Two-pass estimate and pre-FFT rephasing; within-FFT bin leakage remains"
+  ]
+}

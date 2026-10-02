@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "reference_station": 0,
+  "amplitude": [
+    1.199487202314032,
+    0.8045183821117695,
+    1.0998629790194852,
+    0.8903139512595862
+  ],
+  "phase_rad": [
+    0.0,
+    0.3940504041562518,
+    -0.706574620422611,
+    1.3968345599449792
+  ],
+  "delay_s": [
+    0.0,
+    2.3012547110336327e-06,
+    -1.6981226550354522e-06,
+    3.817229898615317e-07
+  ],
+  "rate_hz": [
+    0.0,
+    17.30872512436612,
+    -11.68562905662485,
+    26.110536445166854
+  ],
+  "time_reference_s": 0.256,
+  "frequency_reference_hz": 1419992000.0,
+  "time_range_s": [
+    0.004,
+    0.508
+  ],
+  "frequency_range_hz": [
+    1418976000.0,
+    1421008000.0
+  ],
+  "delay_alias_period_s": 6.25e-05,
+  "rate_alias_period_hz": 125.0,
+  "weighted_fit_relative_residual": 0.6984300006900471,
+  "reduced_noise_chi_square": 0.9991552446737652,
+  "evaluations": 5,
+  "reference_detections": [
+    {
+      "station": 1,
+      "coarse_coherence": 0.7901779091285306,
+      "peak_to_median": 110.31233307656105
+    },
+    {
+      "station": 2,
+      "coarse_coherence": 0.7940645132146285,
+      "peak_to_median": 111.04339135476096
+    },
+    {
+      "station": 3,
+      "coarse_coherence": 0.7823419324822037,
+      "peak_to_median": 108.58594841336657
+    }
+  ],
+  "assumptions": "Known sky flux/model; constant amplitude, phase, delay and rate over this interval"
+}

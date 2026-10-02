@@ -142,14 +142,18 @@ def solve_fringe(observed,model,weights,pairs,times_s,frequencies_hz,reference_s
     a,ph,de,ra=unpack(result.x)
     if not result.success or np.any(result.active_mask): raise ValueError('fringe solve did not converge inside search window')
     relative=float(np.linalg.norm((prediction(result.x)-v)*sw)/max(np.linalg.norm(v*sw),1e-30))
-    if relative>.7: raise ValueError('station model does not explain measured visibility')
+    dof=2*int((w>0).sum())-len(result.x)
+    chi=float(np.sum(abs(prediction(result.x)-v)**2*w)/max(dof,1))
+    # Low per-channel SNR can give a large relative residual even when the
+    # combined fringe is detected. Account for the supplied noise variance.
+    if relative>.7 and chi>3: raise ValueError('station model does not explain measured visibility within noise')
     return {'schema_version':1,'reference_station':ref,'amplitude':a.tolist(),
             'phase_rad':np.angle(np.exp(1j*ph)).tolist(),'delay_s':de.tolist(),'rate_hz':ra.tolist(),
             'time_reference_s':float(t.mean()),'frequency_reference_hz':float(f.mean()),
             'time_range_s':[float(t.min()),float(t.max())],
             'frequency_range_hz':[float(f.min()),float(f.max())],
             'delay_alias_period_s':1/df,'rate_alias_period_hz':1/dt,
-            'weighted_fit_relative_residual':relative,'evaluations':int(result.nfev),
+            'weighted_fit_relative_residual':relative,'reduced_noise_chi_square':chi,'evaluations':int(result.nfev),
             'reference_detections':detections,
             'assumptions':'Known sky flux/model; constant amplitude, phase, delay and rate over this interval'}
 

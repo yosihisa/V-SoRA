@@ -45,10 +45,11 @@ def write_vdif(path, data, start_utc, sample_rate_hz, station_id, scale=1., samp
     return metadata
 
 
-def read_vdif(path, sample_rate_hz, expected_station_id=None, scale=1.):
-    """Read a short dataset; streaming is added in a subsequent stage."""
-    if sample_rate_hz<=0 or scale<=0: raise ValueError('positive sample rate/scale required')
-    chunks=[];masks=[];first=None;expected=None;signature=None
+def iter_vdif_frames(path, sample_rate_hz, expected_station_id=None, scale=1.):
+    """Yield validated frames with bounded memory; reject discontinuous headers."""
+    if not np.isfinite(sample_rate_hz) or not np.isfinite(scale) or sample_rate_hz<=0 or scale<=0:
+        raise ValueError('positive finite sample rate/scale required')
+    first=None;expected=None;signature=None;sample_index=0
     # Inspect length separately to distinguish EOF from a truncated final frame.
     length=Path(path).stat().st_size
     with vdif.open(path,'rb') as reader:
@@ -68,7 +69,17 @@ def read_vdif(path, sample_rate_hz, expected_station_id=None, scale=1.):
             if abs((time-expected).to_value(u.s))>1e-7:
                 raise ValueError('missing, duplicate or misordered VDIF frame')
             expected=expected+h.samples_per_frame/sample_rate_hz*u.s
-            chunks.append(np.asarray(frame.data).reshape(-1).astype(complex)*scale)
-            masks.append(np.full(h.samples_per_frame,frame.valid,dtype=bool))
-    if not chunks: raise ValueError('empty VDIF')
-    return np.concatenate(chunks),np.concatenate(masks),{'start_utc':first.isot+'Z','station_id':signature[0]}
+            yield {'data':np.asarray(frame.data).reshape(-1).astype(complex)*scale,
+                   'valid':np.full(h.samples_per_frame,frame.valid,dtype=bool),
+                   'time':time,'sample_index':sample_index,'station_id':h['station_id']}
+            sample_index+=h.samples_per_frame
+    if first is None: raise ValueError('empty VDIF')
+
+
+def read_vdif(path, sample_rate_hz, expected_station_id=None, scale=1.):
+    """Convenience read for short datasets; long workflows use the iterator."""
+    chunks=[];masks=[];metadata=None
+    for frame in iter_vdif_frames(path,sample_rate_hz,expected_station_id,scale):
+        if metadata is None: metadata={'start_utc':frame['time'].isot+'Z','station_id':frame['station_id']}
+        chunks.append(frame['data']);masks.append(frame['valid'])
+    return np.concatenate(chunks),np.concatenate(masks),metadata
