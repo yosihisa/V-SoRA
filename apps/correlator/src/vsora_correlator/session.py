@@ -12,13 +12,16 @@ from vsora_formats.spectral import save_spectral,load_spectral
 from vsora_formats.fitsidi import write_fitsidi
 from .fx import fx_correlate_series,remove_fringe_rate
 from .fringe import solve_fringe,apply_calibration,save_calibration
+from .quality import validate_quality
 
 
 def load_session(path):
     p=Path(path);c=json.loads(p.read_text())
     required={'schema_version','observation_config','sample_rate_hz','fft_length',
               'blocks_per_integration','integrations_per_shard','voltage_unit','stations','phase_center_correction'}
-    if set(c)!=required or c['schema_version']!=1: raise ValueError('unsupported session keys/version')
+    if not isinstance(c,dict) or not required<=set(c) or set(c)-required-{'spectral_quality'} or isinstance(c['schema_version'],bool) or c['schema_version']!=1:
+        raise ValueError('unsupported session keys/version')
+    if 'spectral_quality' in c: validate_quality(c['spectral_quality'])
     for k in ('sample_rate_hz','fft_length','blocks_per_integration','integrations_per_shard'):
         if not isinstance(c[k],int) or isinstance(c[k],bool) or c[k]<=0: raise ValueError('positive session integers required')
     if c['fft_length']<8 or c['integrations_per_shard']>256: raise ValueError('unsupported FFT/shard dimensions')
@@ -71,12 +74,15 @@ def correlate_session(manifest,output,rate_calibration=None,allow_extrapolation=
         cube={'visibilities':values,'weights':weights,'pairs':pairs,'times_s':offsets,'frequencies_hz':frequency,
               'uvw_lambda':g['uvw_lambda'][:,None,:,:]*(frequency[None,:,None,None]/config['observation']['frequency_hz']),
               'integration_s':np.array([r['integration_s'][0] for r in pending])}
+        cube.update({k:np.array([r[k][0] for r in pending]) for k in pending[0] if k.startswith('diagnostic_')})
         name=f'shard-{len(shards):05d}.npz'
         metadata={'visibility_unit':'Jy' if c['voltage_unit']=='sqrt(Jy)' else 'ADC^2',
                   'time_origin_utc':first.isot+'Z','config':config,'phase_center_corrected':c['phase_center_correction'],
                   'rate_applied_hz':rate_applied,'rate_applied_reference_s':0. if cal is None else cal['time_reference_s'],
                   'eop_status':g['eop_status'],
                   'geometry_model':g['model'],'noise_weight_assumption':pending[0]['noise_weight_assumption']}
+        if 'spectral_quality' in c:
+            metadata.update(spectral_quality=c['spectral_quality'],diagnostic_power_unit='Jy' if c['voltage_unit']=='sqrt(Jy)' else 'ADC^2')
         save_spectral(partial/name,cube,metadata)
         shards.append({'file':name,'integrations':len(pending),'first_time_s':float(offsets[0]),'last_time_s':float(offsets[-1])})
         pending.clear()
@@ -102,7 +108,7 @@ def correlate_session(manifest,output,rate_calibration=None,allow_extrapolation=
                         raise ValueError('rate calibration extrapolation requires explicit permission')
                     x=remove_fringe_rate(x,fs,cal['rate_hz'],offset,cal['time_reference_s'])
                 pending.append(fx_correlate_series(x,fs,c['fft_length'],c['blocks_per_integration'],
-                               config['observation']['frequency_hz'],valid=ok,time_offset_s=offset))
+                               config['observation']['frequency_hz'],valid=ok,time_offset_s=offset,spectral_quality=c.get('spectral_quality')))
                 processed+=1
                 available-=ns
                 for i in range(len(buffers)):
@@ -119,7 +125,8 @@ def correlate_session(manifest,output,rate_calibration=None,allow_extrapolation=
                  'voltage_buffer_samples_per_station':max(ns,4096),'spectral_buffer_integrations':c['integrations_per_shard'],
                  'limitations':['Strict matching frame timestamps; no automatic gap filling or clock resampling',
                                 'Midpoint phase-only geometric correction; finite-FFT delay loss not removed',
-                                'Approximate total-power noise weights, no RFI or bandpass calibration']}
+                                ('Approximate channel-power noise weights and SK flags; no bandpass calibration'
+                                 if c.get('spectral_quality') else 'Approximate total-power noise weights, no RFI or bandpass calibration')]}
         (partial/'session.json').write_text(json.dumps(summary,indent=2)+'\n');partial.rename(out)
         return summary
     except Exception as exc:
@@ -171,6 +178,7 @@ def apply_shard(input_path,calibration_path,output,allow_extrapolation=False):
               'phase_rad':np.angle(np.exp(1j*(np.array(c['phase_rad'])-2*np.pi*removed*(c['time_reference_s']-meta.get('rate_applied_reference_s',0.))))).tolist()}
     v,w=apply_calibration(d['visibilities'],d['weights'],d['pairs'],residual,d['times_s'],d['frequencies_hz'],allow_extrapolation)
     cube={k:d[k] for k in ('pairs','times_s','frequencies_hz','uvw_lambda','integration_s')}
+    cube.update({k:v for k,v in d.items() if k.startswith('diagnostic_')})
     cube.update({'visibilities':v,'weights':w})
     total=w.sum(axis=1);continuum=np.divide((v*w).sum(axis=1),total,out=np.zeros(total.shape,complex),where=total>0)
     continuum_supported=np.allclose(w,w[:,0:1,:],rtol=1e-6,atol=0)

@@ -1,0 +1,33 @@
+{
+  "gaussian_seeds": 20,
+  "gaussian_fft_blocks": 128,
+  "gaussian_cells": 5120,
+  "false_flag_cells": 0,
+  "empirical_false_flag_fraction": 0.0,
+  "gaussian_sk_mean": 1.0010376677976762,
+  "sk_bounds": [
+    0.3,
+    3.0
+  ],
+  "rfi_fft_bins": [
+    13,
+    20
+  ],
+  "flagged_station_channel_cells": 8,
+  "continuum_visibility_error_before": 9.963794422024653,
+  "continuum_visibility_error_after": 0.047688439132772965,
+  "dirty_peak_yx": [
+    34,
+    29
+  ],
+  "expected_peak_yx": [
+    34,
+    29
+  ],
+  "dirty_peak_jy_per_beam": 993.0343106604821,
+  "assumed_source_flux_jy": 1000,
+  "assumed_sefd_jy": 10000,
+  "rfi_integrations": 1,
+  "rfi_fft_blocks": 1024,
+  "limits": "Synthetic stationary complex Gaussian signal, fixed thresholds; no field RFI false-alarm guarantee"
+}

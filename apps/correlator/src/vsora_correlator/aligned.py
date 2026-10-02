@@ -90,7 +90,7 @@ def correlate_aligned(manifest,clock_model,output,integrations,start_offset_s=.0
                 x,ok=b.query(queries)
                 data.append(x*np.exp(-2j*np.pi*config['observation']['frequency_hz']*delay));valid.append(ok)
             r=fx_correlate_series(np.array(data),fs,c['fft_length'],c['blocks_per_integration'],
-                                  config['observation']['frequency_hz'],valid=np.array(valid),time_offset_s=t[0])
+                                  config['observation']['frequency_hz'],valid=np.array(valid),time_offset_s=t[0],spectral_quality=c.get('spectral_quality'))
             r['weights'][:,abs(r['frequencies_hz']-config['observation']['frequency_hz'])>band]=0
             r['weights']*=g['elevation_valid'][index]
             results.append(r)
@@ -99,16 +99,19 @@ def correlate_aligned(manifest,clock_model,output,integrations,start_offset_s=.0
               'pairs':g['pairs'],'times_s':offsets,'frequencies_hz':f,
               'uvw_lambda':g['uvw_lambda'][:,None,:,:]*(f[None,:,None,None]/config['observation']['frequency_hz']),
               'integration_s':np.array([r['integration_s'][0] for r in results])}
+        cube.update({k:np.array([r[k][0] for r in results]) for k in results[0] if k.startswith('diagnostic_')})
         meta={'config':config,'time_origin_utc':origin.isot+'Z','visibility_unit':'ADC^2' if c['voltage_unit']=='ADC' else 'Jy',
               'phase_center_corrected':True,'rate_applied_hz':[0.]*len(stations),'rate_applied_reference_s':0.,
               'clock_mapping_applied':True,'filter':'65-tap Kaiser lowpass; group delay compensated',
               'max_abs_baseband_hz':band,'eop_status':g['eop_status']}
+        if 'spectral_quality' in c:
+            meta.update(spectral_quality=c['spectral_quality'],diagnostic_power_unit='ADC^2' if c['voltage_unit']=='ADC' else 'Jy')
         save_spectral(partial/'shard-00000.npz',cube,meta)
         summary={'state':'complete','integrations':integrations,'recorded_span_s':span,'start_offset_s':start_offset_s,
                  'station_max_buffer_samples':[b.maximum for b in buffers],'samples_per_integration':ns,
                  'clock_model':'Supplied linear ADC mapping; no automatic weak-source clock recovery',
                  'geometry':'Sample alignment and RF rephasing; linear delay over <=1s, <=600m',
-                 'weight_note':'Total-power noise approximation; band-dependent noise not yet fully modeled'}
+                 'weight_note':results[0]['noise_weight_assumption']+'; filtered FFT correlations not fully modeled'}
         (partial/'summary.json').write_text(json.dumps(summary,indent=2)+'\n');partial.rename(out)
         return summary
     except Exception as exc:

@@ -94,3 +94,18 @@ def test_subframe_one_millisecond_integrations(tmp_path):
     np.testing.assert_allclose(np.diff(d['times_s']),.001,rtol=0,atol=1e-15)
     assert result['voltage_buffer_samples_per_station']==4096
     assert np.all(d['integration_s']==.001)
+
+
+def test_session_keeps_channel_diagnostics_and_manual_flags(tmp_path):
+    m=prepare(tmp_path)
+    m['spectral_quality']={'channel_weights':True,'min_sk_blocks':128,'sk_bounds':[.3,3.],
+                           'exclude_rf_ranges_hz':[[1.42e9-1,1.42e9+1]]}
+    (tmp_path/'session.json').write_text(json.dumps(m))
+    correlate_session(tmp_path/'session.json',tmp_path/'quality')
+    d=load_spectral(tmp_path/'quality/shard-00000.npz')
+    assert d['diagnostic_station_power'].shape==(32,128,4)
+    index=np.argmin(abs(d['frequencies_hz']-1.42e9))
+    assert np.all(d['weights'][:,index,:]==0)
+    assert np.all(d['diagnostic_station_flags'][:,index,:]&8)
+    assert not d['diagnostic_station_sk_eligible'].any()
+    assert d['metadata']['diagnostic_power_unit']=='ADC^2'

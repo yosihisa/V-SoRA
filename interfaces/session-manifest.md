@@ -45,8 +45,29 @@ rate補正と較正の位相・時間原点・局順・入力単位は一致を�
 
 ## 制約
 
-幾何補正は積分中央の周波数位相補正。有限FFT内のsampleずれや端の損失を除く処理はまだCLIに組込んでいない。時計整列APIは別モジュール。EOPはofflineの予測を含む。主ビーム、RFI、bandpass、偏波、実UTCの同期精度は未検証。
+`correlate`の幾何補正は積分中央の周波数位相補正。sample整列を行う`correlate-aligned`は[clock規約](clock-model.md)の別入口を使う。EOPはofflineの予測を含む。主ビーム、bandpass較正、偏波、実UTCの同期精度は未検証。RFIは下記の模擬診断を追加した。
 
 短時間・多数channelのまま長時間データを保存すると相関出力も大きくなる。pilotを短時間で取得し、rate/clock補正後に積分・帯域平均を長くする設計が必要。段階013では`apply`が`spectral-visibility.fits`も保存し、channel別weights/flagsを保持する。channel別重みが異なる場合はcontinuumへの近似を行わず、`continuum_exported=false`にする。
 
 画像CLIは較正済みspectral NPZと多channel FITS-IDIを直接読める。RF帯域内でflux一定の狭帯域MFS参照処理。raw ADCは拒否する。CLEANは各点の正確なuvw応答（w項と全視野境界を含む）を使い、応答cacheを約16MiBまでに制限する。大規模な高速gridding/GPU処理は未実装。
+
+## channel品質診断
+
+manifestに任意の`spectral_quality`を追加すると、周波数別の雑音重みとRFI診断を有効にできる。
+
+```json
+{
+  "channel_weights": true,
+  "min_sk_blocks": 128,
+  "sk_bounds": [0.3, 3.0],
+  "exclude_rf_ranges_hz": [[1419999999, 1420000001]]
+}
+```
+
+瞬時FFT powerのspectral kurtosis(SK)を計算する。局別有効FFT数がmin_sk_blocks未満ならSKによる判定を行わず、`diagnostic_station_sk_eligible=false`を保存。SKのplaceholder=1を測定値と解釈しない。固定範囲[0.3,3]は試作上の仮定であり、実機のfalse alarmを保証しない。
+
+`diagnostic_station_flags`のbitは1=有効powerなし、2=SK下限、4=SK上限、8=指定RF範囲。局channelがflagなら、その局を含むbaseline/channelの重みを0にする。visibility値は残す。power、SK、eligible、局別有効FFT数をshardに保存し、較正後も診断値を保持する。power単位はmetadataのdiagnostic_power_unitを参照し、ADC段階のpowerをJyへ自動変換したとは扱わない。
+
+channel_weights=trueでは2M/(P_i P_j)を使用する。独立receiver・弱いsource・独立FFTの近似。filterや強い共通天体による分散・相関を完全には扱わず、bandpassそのものを較正する機能ではない。短いpilotではSKの統計量不足が起こるので、手動除外または別の長い診断区間を使う。
+
+通常の積分は4096sample frameの整数倍または約数。例えば2.048MHzでは2048sampleで1msに分割できる。
