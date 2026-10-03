@@ -26,3 +26,4 @@
 
 - [Closure pipeline](closure-pipeline.md)：VDIF・sample時計・モデル不要rate・相対RML・途中失敗の規約。
 - [既知のClosure雑音](joint-closure-noise.md)：模擬モデルの全実共分散からphase・log amplitudeの同時誤差へ伝播する診断API。
+- [標本からの雑音推定](sample-visibility-noise.md)：同一の独立Gaussian電圧標本から、有限標本の偏りを補正したvisibility雑音共分散を推定。

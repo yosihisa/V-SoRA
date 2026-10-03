@@ -82,4 +82,6 @@
 
 | 045 | [Closure雑音検証の日本語GUI](045-closure-noise-gui.md) | source/wheel298件成功。実Chromiumで8条件×16384試行、電圧標本と相関値近似・分散比を区別。日本語/390px・JS/外部通信0 |
 
+| 046 | [局の標本からvisibility雑音を推定](046-sample-noise-estimator.md) | source/wheel325件成功。真値不要の有限標本補正、4条件×32768試行の平均・半正定値・局gain変換を確認。実FFT独立性・信頼区間は未校正 |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。

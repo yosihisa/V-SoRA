@@ -1,0 +1,26 @@
+{
+  "state": "complete",
+  "source": {
+    "passed": 325,
+    "warnings": 22672,
+    "seconds": 447.09
+  },
+  "installed": {
+    "passed": 325,
+    "warnings": 22672,
+    "seconds": 449.15
+  },
+  "targeted": {
+    "passed": 27,
+    "seconds": 0.91
+  },
+  "wheel": {
+    "bytes": 5461603,
+    "sha256": "c3b26e344d766cc7bd8cccf207f207e64a1762eaca3926791564cd58fac79cec"
+  },
+  "source_then_installed": true,
+  "no_test_exclusions": true,
+  "installed_api_outside_checkout": true,
+  "pip_check": "No broken requirements found.",
+  "scope": "Conditional ensemble-unbiased covariance estimate from common iid proper zero-mean Gaussian voltage samples. No ADC/FIR/VDIF, hardware or confidence calibration."
+}

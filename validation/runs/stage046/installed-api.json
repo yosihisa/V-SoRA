@@ -1,0 +1,20 @@
+{
+  "installed_imports": true,
+  "outside_checkout": true,
+  "samples": 8,
+  "estimated_real_covariance": [
+    [
+      0.3955555555555556,
+      0.013333333333333332
+    ],
+    [
+      0.013333333333333332,
+      0.36
+    ]
+  ],
+  "conditional_ensemble_unbiased": true,
+  "generating_truth_used": false,
+  "distribution_gaussian_assumed": false,
+  "covariance_inverted": false,
+  "scope": "Algebraic installed API check. Conditional iid proper Gaussian model, not physical IQ, hardware covariance or confidence calibration."
+}
