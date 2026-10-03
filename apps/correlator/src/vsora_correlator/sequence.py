@@ -5,6 +5,7 @@ import numpy as np
 from .session import load_session
 from .aligned import validate_aligned_dimensions,MAX_SPECTRAL_CELLS
 from .closure_pipeline import process_closure_session
+from .input_identity import InputIdentity
 
 
 def plan_windows(config,window_count,step_s,start_offset_s,pilot_integrations,pilot_integration_s,integration_s):
@@ -40,27 +41,18 @@ def plan_windows(config,window_count,step_s,start_offset_s,pilot_integrations,pi
              'image_end_s':float(t+integration_s)} for i,t in enumerate(starts)]
 
 
-def file_snapshot(config,manifest,clock):
-    paths=[Path(manifest).resolve(),Path(clock).resolve(),(config['_root']/config['observation_config']).resolve(),
-           *((config['_root']/station['vdif']).resolve() for station in config['stations'])]
-    return {path:(s.st_dev,s.st_ino,s.st_size,s.st_mtime_ns,s.st_ctime_ns)
-            for path in paths for s in [path.stat()]}
-
-
 def process_sequence(manifest,clock_model,output,*,window_count=3,step_s=None,start_offset_s=.002,
                      pilot_integrations=256,pilot_integration_s=None,integration_s=.3,max_rate_hz=100.,
                      starts=3,max_iterations=800,prior_fwhm_arcsec=240.,entropy=.01,tsv=.0001,progress=None):
     config=load_session(manifest)
     plan=plan_windows(config,window_count,step_s,start_offset_s,pilot_integrations,pilot_integration_s,integration_s)
-    snapshot=file_snapshot(config,manifest,clock_model)
     out=Path(output);partial=out.with_name(out.name+'.partial')
     if out.exists() or partial.exists():raise FileExistsError('choose a new sequence directory')
     partial.mkdir(parents=True)
     state={'schema_version':1,'type':'short_window_sequence','state':'running','planned_windows':plan,
            'completed_windows':[],'current_window_index':None,'phase':'prepared','completed_steps':0,'total_steps':3*window_count+1}
     def unchanged():
-        if file_snapshot(config,manifest,clock_model)!=snapshot:
-            raise ValueError('input files changed during short-window sequence')
+        source_identity.assert_current(manifest,clock_model,config)
     def save():
         (partial/'sequence.json').write_text(json.dumps(state,indent=2)+'\n')
     def phase(label):
@@ -68,13 +60,16 @@ def process_sequence(manifest,clock_model,output,*,window_count=3,step_s=None,st
         if progress:progress(label,state['completed_steps'])
     identity=None;records=[];paths=[]
     try:
+        source_identity=InputIdentity(manifest,clock_model,expected_config=config)
+        state['input_identity']=source_identity.diagnostics;save()
         for window in plan:
             index=window['window_index'];state['current_window_index']=index;save();unchanged()
             prefix=f'window-{index:04d}'
             result=process_closure_session(manifest,clock_model,partial/prefix,
                 pilot_integrations=pilot_integrations,pilot_integration_s=pilot_integration_s,
                 start_offset_s=window['start_offset_s'],integration_s=integration_s,max_rate_hz=max_rate_hz,
-                correlation_only=True,progress=lambda label,done:phase(f'window_{index}:{label}'))
+                correlation_only=True,_source_identity=source_identity,
+                progress=lambda label,done:phase(f'window_{index}:{label}'))
             unchanged()
             current={key:result[key] for key in ['input_manifest_sha256','input_clock_sha256','input_observation_sha256','input_vdif']}
             if identity is not None and current!=identity:raise ValueError('input identity changed between windows')
@@ -88,14 +83,16 @@ def process_sequence(manifest,clock_model,output,*,window_count=3,step_s=None,st
             prior_fwhm_arcsec=prior_fwhm_arcsec,entropy=entropy,tsv=tsv,pixels=32,
             pixel_arcsec=config['_config']['image']['pixel_arcsec'])
         unchanged();phase('sequence_relative_rml')
+        unchanged()
         result={**state,'state':'complete','current_window_index':None,**identity,'windows':records,
+                'input_identity':source_identity.diagnostics,
                 'closures':synthesis['closures'],'rml':synthesis['rml'],'synthesis':synthesis['synthesis'],
                 'window_step_s':plan[1]['start_offset_s']-plan[0]['start_offset_s'],
                 'nominal_image_exposure_per_station_s':window_count*integration_s,
                 'effective_exposure_per_baseline_s':synthesis['synthesis']['exposure_per_baseline_s'],
                 'selected_pilot_start_to_end_span_s':plan[-1]['pilot_end_s']-plan[0]['start_offset_s'],
                 'inputs_stat_unchanged':True,'absolute_flux_measured':False,'absolute_position_measured':False,
-                'limits':'Each <=3s pilot has constant sky/gain/rate; supplied linear sample clocks, no within-window nonlinear LO recovery. Nonoverlapping windows, independent noise approximation, high-SNR closures, <=64 windows. Full original hashes recomputed per window; no hours-scale throughput claim.'}
+                'limits':'Each <=3s pilot has constant sky/gain/rate; supplied linear sample clocks, no within-window nonlinear LO recovery. Nonoverlapping windows, independent noise approximation, high-SNR closures, <=64 windows. Fresh full original hashes shared in this run, ordinary stat guards; no hours-scale throughput claim.'}
         (partial/'sequence.json').write_text(json.dumps(result,indent=2)+'\n')
         (partial/'summary.json').write_text(json.dumps(result,indent=2)+'\n');partial.rename(out);return result
     except Exception as exc:

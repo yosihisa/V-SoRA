@@ -1,18 +1,21 @@
 """Atomic short VDIF -> aligned pilot/rate -> ADC closures -> relative RML."""
 from copy import deepcopy
-import hashlib
 import json
 from pathlib import Path
 import numpy as np
 from .session import load_session
 from .aligned import correlate_aligned,validate_aligned_dimensions,MAX_ALIGNED_INTEGRATIONS
 from .rate import estimate_rate_shard
+from .input_identity import InputIdentity
 
 
 def process_closure_session(manifest,clock_model,output,*,pilot_integrations=256,pilot_integration_s=None,start_offset_s=.002,
                             integration_s=.3,max_rate_hz=100.,starts=3,max_iterations=800,
-                            prior_fwhm_arcsec=240.,entropy=.01,tsv=.0001,progress=None,correlation_only=False):
+                            prior_fwhm_arcsec=240.,entropy=.01,tsv=.0001,progress=None,correlation_only=False,
+                            _source_identity=None):
     if not isinstance(correlation_only,bool):raise ValueError('correlation_only bool required')
+    if _source_identity is not None and not isinstance(_source_identity,InputIdentity):
+        raise TypeError('verified in-memory InputIdentity required')
     c=load_session(manifest);fs=c['sample_rate_hz'];nf=c['fft_length']
     if not np.isfinite(integration_s) or not .1<=integration_s<=3:
         raise ValueError('short aligned pipeline integration must be 0.1..3 seconds')
@@ -45,26 +48,25 @@ def process_closure_session(manifest,clock_model,output,*,pilot_integrations=256
     if out.exists() or partial.exists():raise FileExistsError('choose a new pipeline output directory')
     partial.mkdir(parents=True)
     state={'schema_version':1,'state':'running','completed_steps':[]}
+    identity=None
+    def unchanged():identity.assert_current(manifest,clock_model,c)
     def record(step):
+        unchanged()
         state['completed_steps'].append(step)
         (partial/'pipeline.json').write_text(json.dumps(state,indent=2)+'\n')
         if progress:progress(step,len(state['completed_steps']))
+        unchanged()
     def clone(name,block_count):
         copied={k:deepcopy(v) for k,v in c.items() if not k.startswith('_')}
         copied['observation_config']='observation.json';copied['blocks_per_integration']=block_count
         for station in copied['stations']:station['vdif']=str((c['_root']/station['vdif']).resolve())
         path=partial/name;path.write_text(json.dumps(copied,indent=2)+'\n');return path
     try:
+        identity=_source_identity or InputIdentity(manifest,clock_model,expected_config=c)
+        unchanged()
         (partial/'observation.json').write_text(json.dumps(c['_config'],indent=2)+'\n')
         (partial/'clock.json').write_text(Path(clock_model).read_text())
-        source=[]
-        for station in c['stations']:
-            path=c['_root']/station['vdif']
-            with path.open('rb') as stream:sha=hashlib.file_digest(stream,'sha256').hexdigest()
-            source.append({'station_id':station['id'],'sha256':sha,'bytes':path.stat().st_size})
-        with open(manifest,'rb') as stream:manifest_sha=hashlib.file_digest(stream,'sha256').hexdigest()
-        with open(clock_model,'rb') as stream:clock_sha=hashlib.file_digest(stream,'sha256').hexdigest()
-        with open(c['_root']/c['observation_config'],'rb') as stream:observation_sha=hashlib.file_digest(stream,'sha256').hexdigest()
+        unchanged()
         pilot_manifest=clone('pilot-manifest.json',pilot_blocks)
         pilot=correlate_aligned(pilot_manifest,clock_model,partial/'pilot',pilot_integrations,start_offset_s)
         from vsora_formats.spectral import load_spectral
@@ -89,9 +91,10 @@ def process_closure_session(manifest,clock_model,output,*,pilot_integrations=256
             image=image_closure(visibility,partial/'rml',pixels=32,pixel_arcsec=c['_config']['image']['pixel_arcsec'],
                         starts=starts,max_iterations=max_iterations,prior_fwhm_arcsec=prior_fwhm_arcsec,entropy=entropy,tsv=tsv)
             record('relative_rml')
+        unchanged()
         result={**state,'state':'complete','type':'short_rate_correlation' if correlation_only else 'short_closure_pipeline',
-                'input_manifest_sha256':manifest_sha,'input_clock_sha256':clock_sha,
-                'input_observation_sha256':observation_sha,'input_vdif':source,
+                **identity.public_identity,
+                'input_identity':{**identity.diagnostics,'reuse_mode':'shared_sequence_snapshot' if _source_identity else 'standalone_snapshot'},
                 'pilot':pilot,'rate_acquisition':acquisition,'rate_estimate':estimate,'correlation':final,'closures':closure,'rml':image,
                 'coherent_integration_s':integration_s,'absolute_flux_measured':False,'absolute_position_measured':False,
                 'limits':'Supplied linear sample clocks; <=3s and 600m, <=1s geometry segments; stable pilot sky/gain; high SNR Gaussian closures; CPU small reference'}

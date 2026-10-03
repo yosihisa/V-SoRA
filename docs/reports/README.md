@@ -58,4 +58,6 @@
 
 | 033 | [短区間列の日本語解析GUI](033-sequence-gui.md) | source/wheel169件成功。3区間解析・入力不足・中止を実ブラウザで確認、RML上限を表示 |
 
+| 034 | [固定原本の識別情報共有](034-shared-input-identity.md) | source/wheel181件成功。全原本SHA読取12→4回、相関配列差0。JSON内容確認とVDIF stat検出限界を記録 |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。

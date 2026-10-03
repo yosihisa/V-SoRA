@@ -26,6 +26,8 @@ def run(manifest,clock,reference,output):
         (out/'cli.log').write_text(result.stdout+result.stderr)
         if result.returncode:raise AssertionError('installed sequence failed; inspect local cli.log')
     summary=json.loads((out/'sequence/summary.json').read_text())
+    assert summary['input_identity']['vdif_hash_file_reads']==4
+    assert summary['input_identity']['full_sha_passes_per_unique_vdif_file']==1
     expected=load_spectral(reference);observed=load_spectral(out/'sequence/synthesis/visibility.npz')
     differences={}
     for key,value in expected.items():
@@ -33,6 +35,7 @@ def run(manifest,clock,reference,output):
         np.testing.assert_array_equal(value,observed[key])
         if np.issubdtype(value.dtype,np.inexact):differences[key]=float(abs(value-observed[key]).max())
     result={'installed_import':True,'outside_checkout_entrypoint_help':True,'state':summary['state'],
+        'input_identity':summary['input_identity'],
         'window_count':len(summary['windows']),'window_rates_hz':[w['rate_estimate']['station_rates_hz'] for w in summary['windows']],
         'nominal_image_exposure_per_station_s':summary['nominal_image_exposure_per_station_s'],
         'closures':summary['closures'],'image_sum':summary['rml']['image_sum'],

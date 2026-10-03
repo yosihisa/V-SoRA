@@ -102,6 +102,6 @@ python tools/run.py vsora_correlator.sequence --manifest manifest.json --clock-m
 
 window間隔・pilotが覆うstart-to-end span・画像の公称露光・baselineの有効露光を分ける。例えば2ms×256pilotの3windowではpilotspan1.536秒でも、0.3秒画像3個の露光は0.9秒。欠損やRF flagの影響は別の露光/重み/Closure数で確認する。
 
-原本とmanifest/clock/観測設定のSHAは各windowで再計算し、一致を確認する。開始時と各window後/合成後のfile size、mtime/ctime、device/inodeも確認し、変化を検出した場合は完成扱いにしない。閉じた記録を前提にする。全SHAを毎回読む費用があるため、識別情報の安全な再利用は次段階。
+段階034から、原本VDIFのSHAは実行の最初に全体から一度計算し、同じ実行内のwindowだけで共有する。前回実行のcacheや任意のSHA文字列は受け取らない。manifest/clock/観測設定は小容量なので工程ごとに内容SHAも再確認する。解決済み参照先、file size、mtime_ns/ctime_ns、device/inodeを処理前後・工程間・合成後に確認し、変更を検出した場合は完成扱いにしない。単区間も同じ原本確認を行う。閉じた記録を前提にする。VDIFの全stat情報が同じに見える変更は検出を保証しない。時刻精度の限界や特別なファイルシステム操作があるため、収録中の原本を入力しない。SHAと全headerの構造検査は別である。summary.input_identityにSHA読取回数と容量、共有方式、制限を保存する。[段階034](../docs/reports/034-shared-input-identity.md)を参照。
 
-window内の一定LO/gain、実sample時計の線形対応、初期差の探索範囲、Gaussian高SNR Closureは依然必要。window間でLOが変わることと、window内の不規則な位相揺れを復元できることは別。[段階032](../docs/reports/032-short-window-sequence.md)を参照。GUI入口は後続段階。
+window内の一定LO/gain、実sample時計の線形対応、初期差の探索範囲、Gaussian高SNR Closureは依然必要。window間でLOが変わることと、window内の不規則な位相揺れを復元できることは別。[段階032](../docs/reports/032-short-window-sequence.md)を参照。GUIの「区間列解析」は2〜32window。各区間の周波数差、Nyquist、SK判定可能率、使用露光、最終RMLの停止、途中失敗を表示する。[段階033](../docs/reports/033-sequence-gui.md)を参照。

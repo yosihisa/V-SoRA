@@ -1,0 +1,19 @@
+{
+  "source_pytest": {
+    "passed": 181,
+    "warnings": 14968,
+    "elapsed_s": 124.06
+  },
+  "wheel_pytest": {
+    "passed": 181,
+    "warnings": 14968,
+    "elapsed_s": 125.2
+  },
+  "pip_check": "No broken requirements found",
+  "wheel": {
+    "bytes": 5440720,
+    "sha256": "120bd7702d072b6f6612fc944fde34fb1f4d2b3b111dcd4c6930f262da68f0a0"
+  },
+  "development_failure_and_fix": "Two same-size small-JSON changes with restored mtime were missed by stat-only checks. Added per-stage metadata SHA checks; final 12 identity tests passed.",
+  "explicit_limit_test": "A unit test hides every VDIF stat change and demonstrates the content change is not detected. This is a documented boundary, not a successful mutation detection claim."
+}

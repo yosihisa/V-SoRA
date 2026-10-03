@@ -1,0 +1,130 @@
+{
+  "type": "shared_input_identity_validation",
+  "legacy_hash_only": {
+    "actual_vdif_full_reads": 12,
+    "actual_vdif_hash_bytes": 78950400,
+    "elapsed_s": 0.021845729999768082
+  },
+  "new_sequence": {
+    "actual_vdif_full_hash_reads": 4,
+    "actual_vdif_hash_bytes": 26316800,
+    "actual_metadata_hash_reads": 111,
+    "actual_metadata_hash_bytes": 104747,
+    "hash_only_elapsed_s": 0.006970633000491944,
+    "whole_sequence_elapsed_s": 23.618019313999866,
+    "input_identity": {
+      "schema_version": 1,
+      "hash_policy": "fresh_full_vdif_hash_once_per_run_with_rehashed_metadata",
+      "initial_hashed_file_count": 7,
+      "initial_hash_bytes": 26319631,
+      "full_sha_passes_per_unique_vdif_file": 1,
+      "change_check": "Resolved input paths, device/inode, size, mtime_ns and ctime_ns before/after stages",
+      "structure_scope": "SHA identifies bytes; it does not validate all VDIF headers",
+      "limits": "Closed input files, in-memory run only; VDIF changes that preserve all stat fields may be missed, including timestamp granularity. No adversarial filesystem proof.",
+      "vdif_hash_bytes": 26316800,
+      "vdif_hash_file_reads": 4,
+      "metadata_hash_bytes": 104747,
+      "metadata_hash_file_reads": 111
+    },
+    "input_vdif": [
+      {
+        "station_id": "ST01",
+        "sha256": "733210c0ceeb7c5ee43353b4f86786ff53f15231ff0186d8086bca975bc4cd49",
+        "bytes": 6579200
+      },
+      {
+        "station_id": "ST02",
+        "sha256": "b941969d6d42489459d35ab7fb4c89cfe20aa4b474875428ddfdc965a7026c1e",
+        "bytes": 6579200
+      },
+      {
+        "station_id": "ST03",
+        "sha256": "bdbb6b5cb963bf9a18239424363e9300ae447c145e05cd8738aa5bb1373261a0",
+        "bytes": 6579200
+      },
+      {
+        "station_id": "ST04",
+        "sha256": "71a70329d444243fad9c44851591b6b4161f622d4b829674e521d4b72c8082e3",
+        "bytes": 6579200
+      }
+    ],
+    "window_count": 3,
+    "exposure_s": 0.8999999999999999,
+    "rml": {
+      "objective": 0.373373710148681,
+      "closure_chisq_per_measurement": 0.7412238732942109,
+      "data_loss": 0.37061193664710546,
+      "entropy_loss": 0.0026755050497158607,
+      "tsv_loss": 2.28573070136024e-05,
+      "centroid_loss": 6.317674731698667e-05,
+      "independent_closure_count": 195,
+      "independent_closure_counts": {
+        "phase": 117,
+        "logamp": 78
+      },
+      "centroid_arcsec": [
+        -3.8090644916870846,
+        -5.185994679888227
+      ],
+      "parameter_sum_penalty": 2.3439752904658953e-07,
+      "selected_start": 0,
+      "runs": [
+        {
+          "objective": 0.373373710148681,
+          "closure_chisq_per_measurement": 0.7412238732942109,
+          "data_loss": 0.37061193664710546,
+          "entropy_loss": 0.0026755050497158607,
+          "tsv_loss": 2.28573070136024e-05,
+          "centroid_loss": 6.317674731698667e-05,
+          "independent_closure_count": 195,
+          "independent_closure_counts": {
+            "phase": 117,
+            "logamp": 78
+          },
+          "centroid_arcsec": [
+            -3.8090644916870846,
+            -5.185994679888227
+          ],
+          "parameter_sum_penalty": 2.3439752904658953e-07,
+          "start": 0,
+          "circular_warmup_iterations": 100,
+          "iterations": 100,
+          "optimizer_success": false,
+          "optimizer_message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+          "elapsed_s": 0.354224744000021
+        }
+      ],
+      "image_sum": 1.0,
+      "output_unit": "relative flux/pixel",
+      "absolute_flux_measured": false,
+      "absolute_position_measured": false,
+      "amplitude_constraints_available": true,
+      "centroid_constraint": "Weak penalty around display center; actual centroid reported; not measured astrometry",
+      "settings": {
+        "prior_fwhm_arcsec": 240.0,
+        "entropy": 0.01,
+        "tsv": 0.0001,
+        "pixels": 32,
+        "pixel_arcsec": 16.0,
+        "starts": 1,
+        "max_iterations": 100,
+        "seed": 21
+      },
+      "noise_model": "Fixed observed high SNR independent-baseline covariance, full within each closure cell",
+      "likelihood_limit": "Wrapped local Gaussian phase residual; low SNR and phase branch boundaries excluded",
+      "input_sha256": "8a8e6324a00db4dd03cfd0e7fb0ff7d65d5d7a84c660f727b492a3e058b0147d",
+      "input_unit": "ADC^2"
+    }
+  },
+  "maximum_absolute_reference_array_differences": {
+    "visibilities": 0.0,
+    "weights": 0.0,
+    "uvw_lambda": 0.0,
+    "integration_s": 0.0,
+    "diagnostic_station_power": 0.0,
+    "diagnostic_station_sk": 0.0,
+    "times_s": 0.0,
+    "frequencies_hz": 0.0
+  },
+  "limits": "Same archived four-station point-noise VDIF. Counts concern full original SHA reads, not all IQ reads. Legacy timing hashes only; new total includes radio/RML. Single sequential WSL run, page cache uncontrolled. Metadata rehashed every boundary. Stat-invisible VDIF mutation can be missed; closed archive required. No real hardware or hours-scale throughput claim."
+}
