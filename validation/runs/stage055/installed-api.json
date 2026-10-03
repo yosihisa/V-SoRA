@@ -1,0 +1,12 @@
+{
+  "state": "complete",
+  "installed_imports": true,
+  "outside_checkout": true,
+  "pythonpath_removed": true,
+  "all_index_enumeration_maximum_difference": 5.003707553108401e-17,
+  "box_distinct_model_mean": 0.0013449723256600214,
+  "guarded_distinct_model_mean": 0.0,
+  "retained_outputs": 15,
+  "actual_temporal_independence_verified": false,
+  "production_rml_noise_model_changed": false
+}

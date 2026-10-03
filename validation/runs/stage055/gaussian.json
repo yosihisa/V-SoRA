@@ -1,0 +1,421 @@
+{
+  "type": "temporal_bispectrum_validation",
+  "state": "complete",
+  "trials_per_case": 8192,
+  "cases": [
+    {
+      "model": "white",
+      "trials": 8192,
+      "nominal_time_outputs": 128,
+      "retained_outputs": 128,
+      "guard_step_outputs": 1,
+      "kernel_length": 1,
+      "raw_stride_samples": 1,
+      "output_station_power_model": 1.0,
+      "true_astronomical_bispectrum": [
+        0.0,
+        0.0
+      ],
+      "methods": {
+        "ordinary": {
+          "known_coloured_model_mean": [
+            6.103515625e-05,
+            0.0
+          ],
+          "ensemble_mean": [
+            6.695910400590531e-05,
+            1.0122994740397811e-05
+          ],
+          "mean_standard_error": [
+            5.335327328867421e-06,
+            5.391195792510498e-06
+          ],
+          "sample_covariance_real_imag": [
+            [
+              2.3319115944885918e-07,
+              -4.916742459498103e-09
+            ],
+            [
+              -4.916742459498103e-09,
+              2.3810041506351436e-07
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "normalized_mean_difference": [
+            1.1103250821637056,
+            1.8776900576645876
+          ]
+        },
+        "distinct": {
+          "known_coloured_model_mean": [
+            0.0,
+            0.0
+          ],
+          "ensemble_mean": [
+            3.950470471900514e-06,
+            1.1606190909442975e-05
+          ],
+          "mean_standard_error": [
+            5.271486215379563e-06,
+            5.458298872475966e-06
+          ],
+          "sample_covariance_real_imag": [
+            [
+              2.276439401999298e-07,
+              -6.341124409021771e-09
+            ],
+            [
+              -6.341124409021771e-09,
+              2.440644737537835e-07
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "normalized_mean_difference": [
+            0.7494035476419555,
+            2.1263384762314956
+          ]
+        }
+      },
+      "conditional_temporal_covariance_is_identity": true,
+      "known_distinct_bias_above_six_mc_se": false,
+      "all_mean_components_within_6se": true,
+      "temporal_covariance_supplied": true,
+      "actual_temporal_independence_verified": false,
+      "gaussian_coefficients_generated_from_known_covariance": true,
+      "physical_raw_filter_convolution_performed": false
+    },
+    {
+      "model": "long_average",
+      "trials": 8192,
+      "nominal_time_outputs": 128,
+      "retained_outputs": 128,
+      "guard_step_outputs": 1,
+      "kernel_length": 65,
+      "raw_stride_samples": 8,
+      "output_station_power_model": 1.0000000000000002,
+      "true_astronomical_bispectrum": [
+        0.0,
+        0.0
+      ],
+      "methods": {
+        "ordinary": {
+          "known_coloured_model_mean": [
+            0.002175304622936641,
+            0.0
+          ],
+          "ensemble_mean": [
+            0.0021419203539694604,
+            -5.438911930133807e-06
+          ],
+          "mean_standard_error": [
+            8.113091101044843e-05,
+            6.982183474045403e-05
+          ],
+          "sample_covariance_real_imag": [
+            [
+              5.3921584917588385e-05,
+              -5.168497373099556e-07
+            ],
+            [
+              -5.168497373099556e-07,
+              3.993672586463866e-05
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "normalized_mean_difference": [
+            -0.4114864303997487,
+            -0.07789700672108896
+          ]
+        },
+        "distinct": {
+          "known_coloured_model_mean": [
+            0.0013449723256600214,
+            0.0
+          ],
+          "ensemble_mean": [
+            0.0013052109613396737,
+            -3.536238844824976e-06
+          ],
+          "mean_standard_error": [
+            7.778442156011929e-05,
+            6.999936916317829e-05
+          ],
+          "sample_covariance_real_imag": [
+            [
+              4.956500981712773e-05,
+              -3.4282617537008855e-07
+            ],
+            [
+              -3.4282617537008855e-07,
+              4.014007650912596e-05
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "normalized_mean_difference": [
+            -0.5111738767524947,
+            -0.05051815304979381
+          ]
+        }
+      },
+      "conditional_temporal_covariance_is_identity": false,
+      "known_distinct_bias_above_six_mc_se": true,
+      "all_mean_components_within_6se": true,
+      "temporal_covariance_supplied": true,
+      "actual_temporal_independence_verified": false,
+      "gaussian_coefficients_generated_from_known_covariance": true,
+      "physical_raw_filter_convolution_performed": false
+    },
+    {
+      "model": "reference_fft",
+      "trials": 8192,
+      "nominal_time_outputs": 128,
+      "retained_outputs": 128,
+      "guard_step_outputs": 1,
+      "kernel_length": 160,
+      "raw_stride_samples": 32,
+      "output_station_power_model": 1.0000000000000002,
+      "true_astronomical_bispectrum": [
+        0.0,
+        0.0
+      ],
+      "methods": {
+        "ordinary": {
+          "known_coloured_model_mean": [
+            6.103783520647406e-05,
+            0.0
+          ],
+          "ensemble_mean": [
+            5.359560370720068e-05,
+            2.552934259918197e-06
+          ],
+          "mean_standard_error": [
+            5.627948168671801e-06,
+            5.337847333021545e-06
+          ],
+          "sample_covariance_real_imag": [
+            [
+              2.594717744271874e-07,
+              9.607213051521899e-09
+            ],
+            [
+              9.607213051521899e-09,
+              2.3341149512208563e-07
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "normalized_mean_difference": [
+            -1.322370298180513,
+            0.47827037758212
+          ]
+        },
+        "distinct": {
+          "known_coloured_model_mean": [
+            4.967294056533121e-15,
+            0.0
+          ],
+          "ensemble_mean": [
+            -8.094976168127126e-06,
+            2.0131402764582917e-06
+          ],
+          "mean_standard_error": [
+            5.55870979514263e-06,
+            5.390371851516312e-06
+          ],
+          "sample_covariance_real_imag": [
+            [
+              2.5312669357354693e-07,
+              8.932646097289279e-09
+            ],
+            [
+              8.932646097289279e-09,
+              2.380276424508981e-07
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "normalized_mean_difference": [
+            -1.4562688951151557,
+            0.37346964764935936
+          ]
+        }
+      },
+      "conditional_temporal_covariance_is_identity": false,
+      "known_distinct_bias_above_six_mc_se": false,
+      "all_mean_components_within_6se": true,
+      "temporal_covariance_supplied": true,
+      "actual_temporal_independence_verified": false,
+      "gaussian_coefficients_generated_from_known_covariance": true,
+      "physical_raw_filter_convolution_performed": false
+    },
+    {
+      "model": "guarded_average",
+      "trials": 8192,
+      "nominal_time_outputs": 128,
+      "retained_outputs": 15,
+      "guard_step_outputs": 9,
+      "kernel_length": 65,
+      "raw_stride_samples": 8,
+      "output_station_power_model": 1.0000000000000002,
+      "true_astronomical_bispectrum": [
+        0.0,
+        0.0
+      ],
+      "methods": {
+        "ordinary": {
+          "known_coloured_model_mean": [
+            0.004444444444444446,
+            0.0
+          ],
+          "ensemble_mean": [
+            0.004324751242051426,
+            3.5116973259193704e-05
+          ],
+          "mean_standard_error": [
+            0.0001555027420999321,
+            0.00012887533499343295
+          ],
+          "sample_covariance_real_imag": [
+            [
+              0.00019809159414249877,
+              5.924084962017521e-06
+            ],
+            [
+              5.924084962017521e-06,
+              0.00013605971533553308
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "normalized_mean_difference": [
+            -0.7697176318301271,
+            0.2724879299883927
+          ]
+        },
+        "distinct": {
+          "known_coloured_model_mean": [
+            0.0,
+            0.0
+          ],
+          "ensemble_mean": [
+            0.00018766191712491322,
+            0.00011728091390331324
+          ],
+          "mean_standard_error": [
+            0.00014334141891207236,
+            0.00014553594531988815
+          ],
+          "sample_covariance_real_imag": [
+            [
+              0.00016831907738194915,
+              4.7107495312200615e-06
+            ],
+            [
+              4.7107495312200615e-06,
+              0.00017351238762621727
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "normalized_mean_difference": [
+            1.3091953361974078,
+            0.8058553070495666
+          ]
+        }
+      },
+      "conditional_temporal_covariance_is_identity": true,
+      "known_distinct_bias_above_six_mc_se": false,
+      "all_mean_components_within_6se": true,
+      "temporal_covariance_supplied": true,
+      "actual_temporal_independence_verified": false,
+      "gaussian_coefficients_generated_from_known_covariance": true,
+      "physical_raw_filter_convolution_performed": false
+    },
+    {
+      "model": "guarded_reference",
+      "trials": 8192,
+      "nominal_time_outputs": 128,
+      "retained_outputs": 26,
+      "guard_step_outputs": 5,
+      "kernel_length": 160,
+      "raw_stride_samples": 32,
+      "output_station_power_model": 1.0000000000000002,
+      "true_astronomical_bispectrum": [
+        0.0,
+        0.0
+      ],
+      "methods": {
+        "ordinary": {
+          "known_coloured_model_mean": [
+            0.0014792899408284034,
+            0.0
+          ],
+          "ensemble_mean": [
+            0.0014797309041863138,
+            -5.903321883054471e-05
+          ],
+          "mean_standard_error": [
+            6.444043570745591e-05,
+            5.724460964064726e-05
+          ],
+          "sample_covariance_real_imag": [
+            [
+              3.401785142613409e-05,
+              -1.4162931558362457e-06
+            ],
+            [
+              -1.4162931558362457e-06,
+              2.6844736167199417e-05
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "normalized_mean_difference": [
+            0.006842960527228352,
+            -1.0312450237689486
+          ]
+        },
+        "distinct": {
+          "known_coloured_model_mean": [
+            0.0,
+            0.0
+          ],
+          "ensemble_mean": [
+            3.4183620225471914e-05,
+            -7.256168121602428e-05
+          ],
+          "mean_standard_error": [
+            6.117164897926655e-05,
+            6.081921119517366e-05
+          ],
+          "sample_covariance_real_imag": [
+            [
+              3.06542234733986e-05,
+              -1.7803532935316713e-07
+            ],
+            [
+              -1.7803532935316713e-07,
+              3.03020150817025e-05
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "normalized_mean_difference": [
+            0.5588147580670787,
+            -1.1930717250175282
+          ]
+        }
+      },
+      "conditional_temporal_covariance_is_identity": true,
+      "known_distinct_bias_above_six_mc_se": false,
+      "all_mean_components_within_6se": true,
+      "temporal_covariance_supplied": true,
+      "actual_temporal_independence_verified": false,
+      "gaussian_coefficients_generated_from_known_covariance": true,
+      "physical_raw_filter_convolution_performed": false
+    }
+  ],
+  "zero_astronomical_cross_covariance": true,
+  "independent_receiver_stations_assumed": true,
+  "physical_adc_vdif_processed": false,
+  "physical_raw_filter_convolution_performed": false,
+  "actual_temporal_independence_verified": false,
+  "real_hardware_validation_performed": false,
+  "production_correlator_statistics_changed": false,
+  "production_rml_noise_model_changed": false,
+  "scope": "Known zero-source independent receiver Gaussian temporal covariances. Distinct-index bias and conditional disjoint-support guard; no observed covariance, clock/gain drift, actual ADC or sensitivity recommendation."
+}

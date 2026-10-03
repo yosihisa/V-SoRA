@@ -1,0 +1,29 @@
+{
+  "state": "complete",
+  "source": {
+    "passed": 511,
+    "warnings": 23952,
+    "seconds": 430.49
+  },
+  "installed": {
+    "passed": 511,
+    "warnings": 23952,
+    "seconds": 424.35
+  },
+  "targeted": {
+    "passed": 27,
+    "seconds": 0.73
+  },
+  "no_test_exclusions": true,
+  "source_then_installed_full_regression": true,
+  "trials_per_case": 8192,
+  "cases": 5,
+  "monte_carlo_wall_seconds": 1.14,
+  "monte_carlo_maximum_rss_kib": 142528,
+  "wheel": {
+    "bytes": 5481649,
+    "sha256": "e3422531e222091111f8e58e42c9417fb3f1f4138294718921afb124cfee17c4"
+  },
+  "pip_check": "No broken requirements found.",
+  "scope": "Known zero-source independent receiver Gaussian temporal covariances. No observed covariance, actual FFT independence, physical ADC/VDIF, variable gain/clock or sensitivity recommendation."
+}

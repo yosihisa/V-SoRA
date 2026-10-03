@@ -100,4 +100,6 @@
 
 | 054 | [三次統計検証の日本語GUI](054-bispectrum-validation-gui.md) | source/wheel484件成功。実Chromiumで5条件×16384試行、偏り・U₃平均・弱い真値の未分解、日本語/390px・JS/外部通信0 |
 
+| 055 | [時間相関と三基線積](055-temporal-bispectrum.md) | source/wheel511件成功。既知ゼロ源5条件×8192試行、残留偏りと128→15/26の間引き損失。実機独立性・感度は未確認 |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。
