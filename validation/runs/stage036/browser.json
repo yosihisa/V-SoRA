@@ -1,0 +1,657 @@
+{
+  "installed_wheel_imports": true,
+  "independent_temporary_workspace": true,
+  "browser": "153.0.8010.12",
+  "javascript_errors": [],
+  "external_requests": 0,
+  "japanese_font_loaded": true,
+  "mobile_result_horizontal_overflow": false,
+  "mobile_form_horizontal_overflow": false,
+  "report": {
+    "state": "complete",
+    "diagnosis": {
+      "schema_version": 1,
+      "type": "subpilot_rate_consistency",
+      "state": "variation_detected",
+      "parts": 4,
+      "station_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference_station": 0,
+      "threshold_sigma": 6.0,
+      "subpilots": [
+        {
+          "part_index": 0,
+          "times": 375,
+          "start_s": 0.002,
+          "end_s": 0.752,
+          "state": "complete",
+          "time_reference_s": 0.377,
+          "station_rates_hz": [
+            0.0,
+            17.329024068539113,
+            -11.721178339073589,
+            26.152647853927427
+          ],
+          "station_covariance_hz2": [
+            [
+              2.710567720147379e-05,
+              1.3289148623564416e-05,
+              1.3383386964197038e-05
+            ],
+            [
+              1.3289148623564416e-05,
+              2.6947291986338514e-05,
+              1.3304762090625347e-05
+            ],
+            [
+              1.338338696419704e-05,
+              1.3304762090625347e-05,
+              2.673936569998238e-05
+            ]
+          ],
+          "covariance_station_order": [
+            1,
+            2,
+            3
+          ],
+          "accepted_baselines": 6
+        },
+        {
+          "part_index": 1,
+          "times": 375,
+          "start_s": 0.752,
+          "end_s": 1.502,
+          "state": "complete",
+          "time_reference_s": 1.127,
+          "station_rates_hz": [
+            0.0,
+            17.426693261225545,
+            -11.741403966848173,
+            26.26671338793226
+          ],
+          "station_covariance_hz2": [
+            [
+              2.669464245236517e-05,
+              1.3058366471152669e-05,
+              1.325865357892438e-05
+            ],
+            [
+              1.3058366471152669e-05,
+              2.6535559107812066e-05,
+              1.3146324368827458e-05
+            ],
+            [
+              1.3258653578924379e-05,
+              1.3146324368827458e-05,
+              2.675034850375328e-05
+            ]
+          ],
+          "covariance_station_order": [
+            1,
+            2,
+            3
+          ],
+          "accepted_baselines": 6
+        },
+        {
+          "part_index": 2,
+          "times": 375,
+          "start_s": 1.502,
+          "end_s": 2.252,
+          "state": "complete",
+          "time_reference_s": 1.8769999999999998,
+          "station_rates_hz": [
+            0.0,
+            17.484484380856976,
+            -11.793682481116184,
+            26.38028144568473
+          ],
+          "station_covariance_hz2": [
+            [
+              2.716826105161772e-05,
+              1.3453108666656546e-05,
+              1.3740726044208965e-05
+            ],
+            [
+              1.3453108666656544e-05,
+              2.7127922351678713e-05,
+              1.3645284252624264e-05
+            ],
+            [
+              1.3740726044208963e-05,
+              1.3645284252624264e-05,
+              2.7193142668701308e-05
+            ]
+          ],
+          "covariance_station_order": [
+            1,
+            2,
+            3
+          ],
+          "accepted_baselines": 6
+        },
+        {
+          "part_index": 3,
+          "times": 375,
+          "start_s": 2.252,
+          "end_s": 3.002,
+          "state": "complete",
+          "time_reference_s": 2.627,
+          "station_rates_hz": [
+            0.0,
+            17.56641912629023,
+            -11.829119886265392,
+            26.49172437616156
+          ],
+          "station_covariance_hz2": [
+            [
+              2.6762890712512884e-05,
+              1.3350027087021244e-05,
+              1.3617536865150079e-05
+            ],
+            [
+              1.3350027087021246e-05,
+              2.706253563024709e-05,
+              1.3510269025460091e-05
+            ],
+            [
+              1.3617536865150077e-05,
+              1.351026902546009e-05,
+              2.713204121226262e-05
+            ]
+          ],
+          "covariance_station_order": [
+            1,
+            2,
+            3
+          ],
+          "accepted_baselines": 6
+        }
+      ],
+      "maximum_normalized_rate_difference": 46.197509265573956,
+      "absolute_common_rate_measured": false,
+      "coherence_stability_measured": false,
+      "limits": "Four constant-rate fits, >=8 times each. Fisher Gaussian independent-noise approximation. 6-sigma difference is a diagnostic rule, not calibrated false-alarm probability. Within-part phase oscillation, aliasing, stable sky/gain failure or weak data may be missed; consistency does not prove coherence.",
+      "worst_difference": {
+        "first_part": 0,
+        "second_part": 3,
+        "station_index": 3,
+        "difference_hz": 0.33907652223413365,
+        "nominal_sigma_hz": 0.007339714361761294,
+        "normalized_difference": 46.197509265573956
+      },
+      "station_ids": [
+        "ST01",
+        "ST02",
+        "ST03",
+        "ST04"
+      ],
+      "time_origin_utc": "2026-10-02T08:00:00.000Z",
+      "input_sha256": "436145e38eacafea46475458d922609799370e20e44b8b676c7e69a2097ede58"
+    },
+    "rml": {
+      "objective": 0.37751274462749884,
+      "closure_chisq_per_measurement": 0.7510469783307836,
+      "data_loss": 0.3755234891653918,
+      "entropy_loss": 0.0019264197585530337,
+      "tsv_loss": 1.704463176535598e-05,
+      "centroid_loss": 2.011563158405515e-05,
+      "independent_closure_count": 65,
+      "independent_closure_counts": {
+        "phase": 39,
+        "logamp": 26
+      },
+      "centroid_arcsec": [
+        -2.220362297257264,
+        -2.872798563046986
+      ],
+      "parameter_sum_penalty": 2.5675440204669355e-05,
+      "selected_start": 0,
+      "runs": [
+        {
+          "objective": 0.37751274462749884,
+          "closure_chisq_per_measurement": 0.7510469783307836,
+          "data_loss": 0.3755234891653918,
+          "entropy_loss": 0.0019264197585530337,
+          "tsv_loss": 1.704463176535598e-05,
+          "centroid_loss": 2.011563158405515e-05,
+          "independent_closure_count": 65,
+          "independent_closure_counts": {
+            "phase": 39,
+            "logamp": 26
+          },
+          "centroid_arcsec": [
+            -2.220362297257264,
+            -2.872798563046986
+          ],
+          "parameter_sum_penalty": 2.5675440204669355e-05,
+          "start": 0,
+          "circular_warmup_iterations": 100,
+          "iterations": 100,
+          "optimizer_success": false,
+          "optimizer_message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+          "elapsed_s": 0.13414417200147
+        }
+      ],
+      "image_sum": 1.0,
+      "output_unit": "relative flux/pixel",
+      "absolute_flux_measured": false,
+      "absolute_position_measured": false,
+      "amplitude_constraints_available": true,
+      "centroid_constraint": "Weak penalty around display center; actual centroid reported; not measured astrometry",
+      "settings": {
+        "pixels": 32,
+        "pixel_arcsec": 16.0,
+        "prior_fwhm_arcsec": 240.0,
+        "entropy": 0.01,
+        "tsv": 0.0001,
+        "starts": 1,
+        "max_iterations": 100,
+        "seed": 21
+      },
+      "noise_model": "Fixed observed high SNR independent-baseline covariance, full within each closure cell",
+      "likelihood_limit": "Wrapped local Gaussian phase residual; low SNR and phase branch boundaries excluded",
+      "input_sha256": "0149955d2c5e1105fddbf7e6281e93724fcae04fa9cefbee1f652a3e3be0240c",
+      "input_unit": "ADC^2"
+    }
+  },
+  "required": {
+    "state": "failed",
+    "completed_steps": 1,
+    "diagnosis": {
+      "schema_version": 1,
+      "type": "subpilot_rate_consistency",
+      "state": "variation_detected",
+      "parts": 4,
+      "station_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference_station": 0,
+      "threshold_sigma": 6.0,
+      "subpilots": [
+        {
+          "part_index": 0,
+          "times": 375,
+          "start_s": 0.002,
+          "end_s": 0.752,
+          "state": "complete",
+          "time_reference_s": 0.377,
+          "station_rates_hz": [
+            0.0,
+            17.329024068539113,
+            -11.721178339073589,
+            26.152647853927427
+          ],
+          "station_covariance_hz2": [
+            [
+              2.710567720147379e-05,
+              1.3289148623564416e-05,
+              1.3383386964197038e-05
+            ],
+            [
+              1.3289148623564416e-05,
+              2.6947291986338514e-05,
+              1.3304762090625347e-05
+            ],
+            [
+              1.338338696419704e-05,
+              1.3304762090625347e-05,
+              2.673936569998238e-05
+            ]
+          ],
+          "covariance_station_order": [
+            1,
+            2,
+            3
+          ],
+          "accepted_baselines": 6
+        },
+        {
+          "part_index": 1,
+          "times": 375,
+          "start_s": 0.752,
+          "end_s": 1.502,
+          "state": "complete",
+          "time_reference_s": 1.127,
+          "station_rates_hz": [
+            0.0,
+            17.426693261225545,
+            -11.741403966848173,
+            26.26671338793226
+          ],
+          "station_covariance_hz2": [
+            [
+              2.669464245236517e-05,
+              1.3058366471152669e-05,
+              1.325865357892438e-05
+            ],
+            [
+              1.3058366471152669e-05,
+              2.6535559107812066e-05,
+              1.3146324368827458e-05
+            ],
+            [
+              1.3258653578924379e-05,
+              1.3146324368827458e-05,
+              2.675034850375328e-05
+            ]
+          ],
+          "covariance_station_order": [
+            1,
+            2,
+            3
+          ],
+          "accepted_baselines": 6
+        },
+        {
+          "part_index": 2,
+          "times": 375,
+          "start_s": 1.502,
+          "end_s": 2.252,
+          "state": "complete",
+          "time_reference_s": 1.8769999999999998,
+          "station_rates_hz": [
+            0.0,
+            17.484484380856976,
+            -11.793682481116184,
+            26.38028144568473
+          ],
+          "station_covariance_hz2": [
+            [
+              2.716826105161772e-05,
+              1.3453108666656546e-05,
+              1.3740726044208965e-05
+            ],
+            [
+              1.3453108666656544e-05,
+              2.7127922351678713e-05,
+              1.3645284252624264e-05
+            ],
+            [
+              1.3740726044208963e-05,
+              1.3645284252624264e-05,
+              2.7193142668701308e-05
+            ]
+          ],
+          "covariance_station_order": [
+            1,
+            2,
+            3
+          ],
+          "accepted_baselines": 6
+        },
+        {
+          "part_index": 3,
+          "times": 375,
+          "start_s": 2.252,
+          "end_s": 3.002,
+          "state": "complete",
+          "time_reference_s": 2.627,
+          "station_rates_hz": [
+            0.0,
+            17.56641912629023,
+            -11.829119886265392,
+            26.49172437616156
+          ],
+          "station_covariance_hz2": [
+            [
+              2.6762890712512884e-05,
+              1.3350027087021244e-05,
+              1.3617536865150079e-05
+            ],
+            [
+              1.3350027087021246e-05,
+              2.706253563024709e-05,
+              1.3510269025460091e-05
+            ],
+            [
+              1.3617536865150077e-05,
+              1.351026902546009e-05,
+              2.713204121226262e-05
+            ]
+          ],
+          "covariance_station_order": [
+            1,
+            2,
+            3
+          ],
+          "accepted_baselines": 6
+        }
+      ],
+      "maximum_normalized_rate_difference": 46.197509265573956,
+      "absolute_common_rate_measured": false,
+      "coherence_stability_measured": false,
+      "limits": "Four constant-rate fits, >=8 times each. Fisher Gaussian independent-noise approximation. 6-sigma difference is a diagnostic rule, not calibrated false-alarm probability. Within-part phase oscillation, aliasing, stable sky/gain failure or weak data may be missed; consistency does not prove coherence.",
+      "worst_difference": {
+        "first_part": 0,
+        "second_part": 3,
+        "station_index": 3,
+        "difference_hz": 0.33907652223413365,
+        "nominal_sigma_hz": 0.007339714361761294,
+        "normalized_difference": 46.197509265573956
+      },
+      "station_ids": [
+        "ST01",
+        "ST02",
+        "ST03",
+        "ST04"
+      ],
+      "time_origin_utc": "2026-10-02T08:00:00.000Z",
+      "input_sha256": "436145e38eacafea46475458d922609799370e20e44b8b676c7e69a2097ede58"
+    },
+    "error_message": "\u5206\u5272rate\u306e\u6574\u5408\u3092\u5fc5\u9808\u306b\u3057\u305f\u305f\u3081\u505c\u6b62\u3057\u307e\u3057\u305f\u3002\u5909\u52d5\u691c\u51fa\u307e\u305f\u306f\u672a\u5224\u5b9a\u306e\u8a3a\u65ad\u3092\u78ba\u8a8d\u3057\u3001pilot\u3068\u7a4d\u5206\u306e\u9577\u3055\u30fb\u611f\u5ea6\u3092\u898b\u76f4\u3057\u3066\u304f\u3060\u3055\u3044\u3002"
+  },
+  "sequence": {
+    "state": "complete",
+    "diagnosis": {
+      "state": "consistent",
+      "window_counts": {
+        "consistent": 3,
+        "variation_detected": 0,
+        "unverified": 0
+      },
+      "coherence_stability_measured": false
+    }
+  },
+  "required_sequence": {
+    "state": "failed",
+    "sequence_failure": {
+      "completed_window_count": 0,
+      "total_window_count": 2,
+      "current_window_index": 0,
+      "phase": "window_0:aligned_pilot"
+    },
+    "diagnosis": {
+      "schema_version": 1,
+      "type": "subpilot_rate_consistency",
+      "state": "variation_detected",
+      "parts": 4,
+      "station_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference_station": 0,
+      "threshold_sigma": 6.0,
+      "subpilots": [
+        {
+          "part_index": 0,
+          "times": 375,
+          "start_s": 0.002,
+          "end_s": 0.752,
+          "state": "complete",
+          "time_reference_s": 0.377,
+          "station_rates_hz": [
+            0.0,
+            17.329024068539113,
+            -11.721178339073589,
+            26.152647853927427
+          ],
+          "station_covariance_hz2": [
+            [
+              2.710567720147379e-05,
+              1.3289148623564416e-05,
+              1.3383386964197038e-05
+            ],
+            [
+              1.3289148623564416e-05,
+              2.6947291986338514e-05,
+              1.3304762090625347e-05
+            ],
+            [
+              1.338338696419704e-05,
+              1.3304762090625347e-05,
+              2.673936569998238e-05
+            ]
+          ],
+          "covariance_station_order": [
+            1,
+            2,
+            3
+          ],
+          "accepted_baselines": 6
+        },
+        {
+          "part_index": 1,
+          "times": 375,
+          "start_s": 0.752,
+          "end_s": 1.502,
+          "state": "complete",
+          "time_reference_s": 1.127,
+          "station_rates_hz": [
+            0.0,
+            17.426693261225545,
+            -11.741403966848173,
+            26.26671338793226
+          ],
+          "station_covariance_hz2": [
+            [
+              2.669464245236517e-05,
+              1.3058366471152669e-05,
+              1.325865357892438e-05
+            ],
+            [
+              1.3058366471152669e-05,
+              2.6535559107812066e-05,
+              1.3146324368827458e-05
+            ],
+            [
+              1.3258653578924379e-05,
+              1.3146324368827458e-05,
+              2.675034850375328e-05
+            ]
+          ],
+          "covariance_station_order": [
+            1,
+            2,
+            3
+          ],
+          "accepted_baselines": 6
+        },
+        {
+          "part_index": 2,
+          "times": 375,
+          "start_s": 1.502,
+          "end_s": 2.252,
+          "state": "complete",
+          "time_reference_s": 1.8769999999999998,
+          "station_rates_hz": [
+            0.0,
+            17.484484380856976,
+            -11.793682481116184,
+            26.38028144568473
+          ],
+          "station_covariance_hz2": [
+            [
+              2.716826105161772e-05,
+              1.3453108666656546e-05,
+              1.3740726044208965e-05
+            ],
+            [
+              1.3453108666656544e-05,
+              2.7127922351678713e-05,
+              1.3645284252624264e-05
+            ],
+            [
+              1.3740726044208963e-05,
+              1.3645284252624264e-05,
+              2.7193142668701308e-05
+            ]
+          ],
+          "covariance_station_order": [
+            1,
+            2,
+            3
+          ],
+          "accepted_baselines": 6
+        },
+        {
+          "part_index": 3,
+          "times": 375,
+          "start_s": 2.252,
+          "end_s": 3.002,
+          "state": "complete",
+          "time_reference_s": 2.627,
+          "station_rates_hz": [
+            0.0,
+            17.56641912629023,
+            -11.829119886265392,
+            26.49172437616156
+          ],
+          "station_covariance_hz2": [
+            [
+              2.6762890712512884e-05,
+              1.3350027087021244e-05,
+              1.3617536865150079e-05
+            ],
+            [
+              1.3350027087021246e-05,
+              2.706253563024709e-05,
+              1.3510269025460091e-05
+            ],
+            [
+              1.3617536865150077e-05,
+              1.351026902546009e-05,
+              2.713204121226262e-05
+            ]
+          ],
+          "covariance_station_order": [
+            1,
+            2,
+            3
+          ],
+          "accepted_baselines": 6
+        }
+      ],
+      "maximum_normalized_rate_difference": 46.197509265573956,
+      "absolute_common_rate_measured": false,
+      "coherence_stability_measured": false,
+      "limits": "Four constant-rate fits, >=8 times each. Fisher Gaussian independent-noise approximation. 6-sigma difference is a diagnostic rule, not calibrated false-alarm probability. Within-part phase oscillation, aliasing, stable sky/gain failure or weak data may be missed; consistency does not prove coherence.",
+      "worst_difference": {
+        "first_part": 0,
+        "second_part": 3,
+        "station_index": 3,
+        "difference_hz": 0.33907652223413365,
+        "nominal_sigma_hz": 0.007339714361761294,
+        "normalized_difference": 46.197509265573956
+      },
+      "station_ids": [
+        "ST01",
+        "ST02",
+        "ST03",
+        "ST04"
+      ],
+      "time_origin_utc": "2026-10-02T08:00:00.000Z",
+      "input_sha256": "436145e38eacafea46475458d922609799370e20e44b8b676c7e69a2097ede58"
+    }
+  },
+  "scope": "WSL headless Chromium. Report mode allows constant-rate image exploration with diagnosis; required mode stops before image. No Windows desktop, phase coherence proof or image fidelity claim."
+}

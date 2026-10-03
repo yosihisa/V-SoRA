@@ -83,6 +83,8 @@ def test_vdif_analysis_real_subprocess(tmp_path):
         assert d['state']=='complete',d
         assert d['summary']['rml']['input_unit']=='ADC^2'
         assert d['completed_steps']==5 and d['summary']['closures']['phase_valid']>0
+        assert d['summary']['rate_consistency_policy']=='report'
+        assert not d['summary']['rate_consistency']['coherence_stability_measured']
 
 
 @pytest.mark.parametrize('payload',[
@@ -205,3 +207,20 @@ def test_sequence_gui_real_subprocess_and_failure(tmp_path):
         payload['step_s']=.1
         response=c.post('/api/jobs',json=payload,headers=HEADERS);d=wait(c,response.json()['id'])
         assert d['state']=='failed' and '間隔がpilotより短く' in d['error_message']
+
+
+def test_gui_required_rate_consistency_stops_before_image(tmp_path):
+    from workflows.vdif_closure_validation import make_fixture
+    make_fixture(tmp_path/'input',seed=23,rate_slopes_hz_per_s=[0.,20.,-10.,30.])
+    with TestClient(create_app(tmp_path),base_url='http://127.0.0.1') as c:
+        payload={'kind':'analysis','manifest':'input/manifest.json','clock_model':'input/clock.json',
+                 'require_rate_consistency':True,'starts':1,'max_iterations':100}
+        response=c.post('/api/jobs',json=payload,headers=HEADERS);assert response.status_code==202
+        d=wait(c,response.json()['id'],40)
+        assert d['state']=='failed' and '分割rateの整合を必須' in d['error_message']
+        assert d['rate_consistency']['state']=='variation_detected' and d['completed_steps']==1
+        assert d['summary'] is None
+        assert c.get(f"/api/jobs/{d['id']}/artifacts/rate-parts.png").status_code==200
+        assert not (tmp_path/'outputs/gui'/d['id']/'analysis.partial/correlation').exists()
+        payload['require_rate_consistency']=1
+        assert c.post('/api/jobs',json=payload,headers=HEADERS).status_code==422

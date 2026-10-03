@@ -43,7 +43,9 @@ def plan_windows(config,window_count,step_s,start_offset_s,pilot_integrations,pi
 
 def process_sequence(manifest,clock_model,output,*,window_count=3,step_s=None,start_offset_s=.002,
                      pilot_integrations=256,pilot_integration_s=None,integration_s=.3,max_rate_hz=100.,
-                     starts=3,max_iterations=800,prior_fwhm_arcsec=240.,entropy=.01,tsv=.0001,progress=None):
+                     starts=3,max_iterations=800,prior_fwhm_arcsec=240.,entropy=.01,tsv=.0001,progress=None,
+                     require_rate_consistency=False):
+    if not isinstance(require_rate_consistency,bool):raise ValueError('require_rate_consistency bool required')
     config=load_session(manifest)
     plan=plan_windows(config,window_count,step_s,start_offset_s,pilot_integrations,pilot_integration_s,integration_s)
     out=Path(output);partial=out.with_name(out.name+'.partial')
@@ -69,12 +71,14 @@ def process_sequence(manifest,clock_model,output,*,window_count=3,step_s=None,st
                 pilot_integrations=pilot_integrations,pilot_integration_s=pilot_integration_s,
                 start_offset_s=window['start_offset_s'],integration_s=integration_s,max_rate_hz=max_rate_hz,
                 correlation_only=True,_source_identity=source_identity,
+                require_rate_consistency=require_rate_consistency,
                 progress=lambda label,done:phase(f'window_{index}:{label}'))
             unchanged()
             current={key:result[key] for key in ['input_manifest_sha256','input_clock_sha256','input_observation_sha256','input_vdif']}
             if identity is not None and current!=identity:raise ValueError('input identity changed between windows')
             identity=current;records.append({**window,'relative_directory':prefix,
-                'rate_estimate':result['rate_estimate'],'rate_acquisition':result['rate_acquisition'],'correlation':result['correlation']})
+                'rate_estimate':result['rate_estimate'],'rate_acquisition':result['rate_acquisition'],
+                'rate_consistency':result.get('rate_consistency'),'correlation':result['correlation']})
             paths.append(partial/prefix/'correlation/shard-00000.npz')
             state['completed_windows'].append(index);save()
         state.update(current_window_index=None,phase='synthesis');save()
@@ -84,7 +88,12 @@ def process_sequence(manifest,clock_model,output,*,window_count=3,step_s=None,st
             pixel_arcsec=config['_config']['image']['pixel_arcsec'])
         unchanged();phase('sequence_relative_rml')
         unchanged()
+        diagnoses=[r['rate_consistency']['state'] for r in records if r['rate_consistency'] is not None]
+        aggregate='variation_detected' if 'variation_detected' in diagnoses else ('unverified' if 'unverified' in diagnoses or len(diagnoses)!=window_count else 'consistent')
         result={**state,'state':'complete','current_window_index':None,**identity,'windows':records,
+                'rate_consistency':{'state':aggregate,'window_counts':{s:diagnoses.count(s) for s in ('consistent','variation_detected','unverified')},
+                                    'coherence_stability_measured':False},
+                'rate_consistency_policy':'required' if require_rate_consistency else 'report',
                 'input_identity':source_identity.diagnostics,
                 'closures':synthesis['closures'],'rml':synthesis['rml'],'synthesis':synthesis['synthesis'],
                 'window_step_s':plan[1]['start_offset_s']-plan[0]['start_offset_s'],
@@ -108,6 +117,7 @@ def main():
     p.add_argument('--start-offset-s',type=float,default=.002);p.add_argument('--pilot-integrations',type=int,default=256)
     p.add_argument('--pilot-integration-s',type=float);p.add_argument('--integration-s',type=float,default=.3)
     p.add_argument('--max-rate-hz',type=float,default=100.);p.add_argument('--starts',type=int,default=3)
+    p.add_argument('--require-rate-consistency',action='store_true')
     p.add_argument('--max-iterations',type=int,default=800);p.add_argument('--prior-fwhm-arcsec',type=float,default=240.)
     p.add_argument('--entropy',type=float,default=.01);p.add_argument('--tsv',type=float,default=.0001)
     args=vars(p.parse_args());manifest=args.pop('manifest');clock=args.pop('clock_model');output=args.pop('output')

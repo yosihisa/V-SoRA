@@ -65,6 +65,7 @@ class AnalysisRequest(Request):
     start_offset_s:float=Field(default=.002,ge=0,le=86400)
     integration_s:Literal[.1,.3,1.,3.]=.3
     max_rate_hz:float=Field(default=100,gt=0,le=10000)
+    require_rate_consistency:bool=Field(default=False,strict=True)
     prior_fwhm_arcsec:float=Field(default=240,ge=40,le=500)
     entropy:float=Field(default=.01,ge=0,le=1)
     tsv:float=Field(default=.0001,ge=0,le=.01)

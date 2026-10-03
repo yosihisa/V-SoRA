@@ -85,3 +85,17 @@ def test_synthesis_failure_is_distinguished_from_window_failure(tmp_path,monkeyp
     state=json.loads((tmp_path/'failed-image.partial/failure.json').read_text())
     assert state['completed_windows']==[0,1] and state['current_window_index'] is None
     assert state['phase']=='synthesis' and not (tmp_path/'failed-image').exists()
+
+
+def test_sequence_forwards_required_policy_and_preserves_failure_context(tmp_path,monkeypatch):
+    import vsora_correlator.sequence as sequence
+    make_fixture(tmp_path/'input',frame_count=16);calls=[]
+    def rejected_window(*args,**kwargs):
+        calls.append(kwargs['require_rate_consistency'])
+        raise ValueError('required subpilot rate consistency was not confirmed')
+    monkeypatch.setattr(sequence,'process_closure_session',rejected_window)
+    with pytest.raises(ValueError,match='required subpilot'):
+        process_sequence(tmp_path/'input/manifest.json',tmp_path/'input/clock.json',tmp_path/'failed',
+                         require_rate_consistency=True)
+    state=json.loads((tmp_path/'failed.partial/failure.json').read_text())
+    assert calls==[True] and state['current_window_index']==0 and state['completed_windows']==[]

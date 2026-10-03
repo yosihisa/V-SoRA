@@ -62,4 +62,6 @@
 
 | 035 | [積分中の周波数変動とClosure](035-within-window-rate-drift.md) | source/wheel192件成功。中程度3秒は処理完了でも減衰・Closure偏り。強い変動は3秒停止、0.3秒で減衰縮小 |
 
+| 036 | [pilot内の分割rate診断](036-subpilot-rate-diagnostics.md) | source/wheel204件成功。4分割と必須停止をCLI/実GUIで確認。周期位相の見逃し・未判定を記録 |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。

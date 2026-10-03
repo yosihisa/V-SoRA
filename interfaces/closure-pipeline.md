@@ -105,3 +105,11 @@ window間隔・pilotが覆うstart-to-end span・画像の公称露光・baselin
 段階034から、原本VDIFのSHAは実行の最初に全体から一度計算し、同じ実行内のwindowだけで共有する。前回実行のcacheや任意のSHA文字列は受け取らない。manifest/clock/観測設定は小容量なので工程ごとに内容SHAも再確認する。解決済み参照先、file size、mtime_ns/ctime_ns、device/inodeを処理前後・工程間・合成後に確認し、変更を検出した場合は完成扱いにしない。単区間も同じ原本確認を行う。閉じた記録を前提にする。VDIFの全stat情報が同じに見える変更は検出を保証しない。時刻精度の限界や特別なファイルシステム操作があるため、収録中の原本を入力しない。SHAと全headerの構造検査は別である。summary.input_identityにSHA読取回数と容量、共有方式、制限を保存する。[段階034](../docs/reports/034-shared-input-identity.md)を参照。
 
 window内の一定LO/gain、実sample時計の線形対応、初期差の探索範囲、Gaussian高SNR Closureは依然必要。window間でLOが変わることと、window内の不規則な位相揺れを復元できることは別。[段階032](../docs/reports/032-short-window-sequence.md)を参照。GUIの「区間列解析」は2〜32window。各区間の周波数差、Nyquist、SK判定可能率、使用露光、最終RMLの停止、途中失敗を表示する。[段階033](../docs/reports/033-sequence-gui.md)を参照。
+
+## 分割rate診断（段階036）
+
+`vsora-rate-diagnose --input pilot/shard-00000.npz --output rate-consistency.json` は、sample/幾何整列済みpilotを4分割して診断する。各部分は8時刻以上必要。`state` は `consistent` / `variation_detected` / `unverified`。局周波数差・局間共分散・UTC origin・入力SHA・差の最大規格化値を保存する。6σはFisher Gaussian独立雑音近似の診断基準で、誤検出確率の校正ではない。
+
+単一区間・区間列CLIの `--require-rate-consistency` とGUIの対応指定は、変動検出・未判定をpilot後に停止する。初期値はfalse（診断のみ）。`rate_consistency_policy` は `report` / `required`。各子区間に `rate-consistency.json` とsummary/failureの `rate_consistency` を残す。区間列summaryは3状態の件数を集約する。失敗の `.partial` は未完了品。診断のみでは既存の一定rate推定・相関配列を変更しない。
+
+共通rateは不定。`coherence_stability_measured=false` を常に明記する。部分内の周期的位相・alias・sky/gain変化などは平均rateだけでは識別できない。

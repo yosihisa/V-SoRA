@@ -16,11 +16,29 @@ def plot_sequence_rates(result,path):
     windows=result['windows'];station_ids=windows[0]['rate_estimate']['station_ids']
     fig,ax=plt.subplots(figsize=(7.5,3.7))
     for index,station in enumerate(station_ids):
+        color=f'C{index}'
         ax.scatter([row['rate_estimate']['time_reference_s'] for row in windows],
-                   [row['rate_estimate']['station_rates_hz'][index] for row in windows],label=station)
+                   [row['rate_estimate']['station_rates_hz'][index] for row in windows],label=station,color=color)
+        parts=[p for row in windows for p in (row.get('rate_consistency') or {}).get('subpilots',[]) if p['state']=='complete']
+        ax.scatter([p['time_reference_s'] for p in parts],[p['station_rates_hz'][index] for p in parts],
+                   color=color,marker='x',s=18,alpha=.7)
     ax.set(xlabel='Seconds from observation UTC origin',ylabel='Relative station rate (Hz)',
-           title='Local pilot estimates (no interpolation)')
+           title='Pilot (circle) and four-part rates (x), no interpolation')
     ax.grid(alpha=.2);ax.legend(ncol=len(station_ids));fig.tight_layout();fig.savefig(path,dpi=140);plt.close(fig)
+
+
+def plot_rate_parts(diagnosis,path):
+    parts=[p for p in diagnosis.get('subpilots',[]) if p['state']=='complete']
+    if not parts:return
+    import matplotlib
+    matplotlib.use('Agg')
+    import matplotlib.pyplot as plt
+    fig,ax=plt.subplots(figsize=(7.5,3.7))
+    for index,station in enumerate(diagnosis['station_ids']):
+        ax.scatter([p['time_reference_s'] for p in parts],[p['station_rates_hz'][index] for p in parts],label=station)
+    ax.set(xlabel='Seconds from observation UTC origin',ylabel='Relative station rate (Hz)',
+           title='Four-part pilot rates; consistency does not prove coherence')
+    ax.grid(alpha=.2);ax.legend(ncol=len(diagnosis['station_ids']));fig.tight_layout();fig.savefig(path,dpi=140);plt.close(fig)
 
 
 def layout(stations,kind):
@@ -120,6 +138,7 @@ def run(job):
             else:
                 result=process_closure_session(input_path(request.manifest),input_path(request.clock_model),job/'analysis',
                                 progress=lambda step,done:phase(messages[step],done),**options)
+                plot_rate_parts(result['rate_consistency'],job/'analysis/rate-parts.png')
             write_json(job/'summary.json',result)
         elif request.kind=='sensitivity':
             from vsora_simulator.sensitivity import dish_area,sefd_from_area,write_plan
@@ -159,12 +178,22 @@ def run(job):
         status.update(state='complete',phase='処理完了');write_json(job/'status.json',status)
     except Exception as exc:
         message=str(exc)
+        failure_file=job/'analysis.partial/failure.json' if request.kind=='analysis' else None
         if request.kind=='sequence' and (job/'sequence.partial/failure.json').is_file():
             failure=json.loads((job/'sequence.partial/failure.json').read_text())
             status['sequence_failure']={'completed_window_count':len(failure['completed_windows']),
                 'total_window_count':len(failure['planned_windows']),
                 'current_window_index':failure['current_window_index'],'phase':failure['phase']}
-        translations={'windows must not overlap':'区間の開始間隔がpilotより短くなっています。空欄で自動設定するか、間隔を広げてください。',
+            if failure['current_window_index'] is not None:
+                failure_file=job/f"sequence.partial/window-{failure['current_window_index']:04d}.partial/failure.json"
+        if failure_file is not None and failure_file.is_file():
+            failure=json.loads(failure_file.read_text())
+            if failure.get('rate_consistency'):
+                status['rate_consistency']=failure['rate_consistency']
+                try:plot_rate_parts(failure['rate_consistency'],job/'rate-parts.png')
+                except Exception:status['diagnostic_plot_unavailable']=True
+        translations={'required subpilot rate consistency':'分割rateの整合を必須にしたため停止しました。変動検出または未判定の診断を確認し、pilotと積分の長さ・感度を見直してください。',
+            'windows must not overlap':'区間の開始間隔がpilotより短くなっています。空欄で自動設定するか、間隔を広げてください。',
             'covered by each pilot':'画像積分全体を各pilotで覆ってください。pilotの積分数か一回の積分を調整してください。',
             'input ends':'必要な区間までVDIFがありません。開始時刻・区間数・間隔と記録時間を確認してください。',
             'beyond VDIF record':'指定した開始時刻がVDIFの記録範囲を超えています。',

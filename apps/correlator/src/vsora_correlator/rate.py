@@ -8,7 +8,7 @@ import numpy as np
 from scipy.optimize import minimize_scalar
 
 
-def estimate_station_rates(data, reference_station=0, max_rate_hz=100., min_snr=8., min_peak_z=8., max_reduced_chisq=3.):
+def validate_pilot_arrays(data):
     v = np.asarray(data.get('visibilities', data.get('vis_jy')))
     w, t, pairs = (np.asarray(data[k]) for k in ('weights','times_s','pairs'))
     if (v.ndim != 3 or w.shape != v.shape or t.shape != (v.shape[0],) or len(t) < 8
@@ -23,6 +23,11 @@ def estimate_station_rates(data, reference_station=0, max_rate_hz=100., min_snr=
         raise ValueError('uniform increasing pilot times required')
     if t[-1]-t[0]+dt[0] > 3.+1e-9:
         raise ValueError('reference rate pilot is limited to three seconds of stable sky/gain')
+    return v,w,t,pairs,dt
+
+
+def estimate_station_rates(data, reference_station=0, max_rate_hz=100., min_snr=8., min_peak_z=8., max_reduced_chisq=3.):
+    v,w,t,pairs,dt=validate_pilot_arrays(data)
     if (not np.isfinite(max_rate_hz) or not 0 < max_rate_hz < .5/dt[0]
             or any(not np.isfinite(x) or x <= 0 for x in (min_snr,min_peak_z,max_reduced_chisq))):
         raise ValueError('rate search must be below the temporal Nyquist limit')
