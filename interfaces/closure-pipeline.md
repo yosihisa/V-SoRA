@@ -113,3 +113,15 @@ window内の一定LO/gain、実sample時計の線形対応、初期差の探索�
 単一区間・区間列CLIの `--require-rate-consistency` とGUIの対応指定は、変動検出・未判定をpilot後に停止する。初期値はfalse（診断のみ）。`rate_consistency_policy` は `report` / `required`。各子区間に `rate-consistency.json` とsummary/failureの `rate_consistency` を残す。区間列summaryは3状態の件数を集約する。失敗の `.partial` は未完了品。診断のみでは既存の一定rate推定・相関配列を変更しない。
 
 共通rateは不定。`coherence_stability_measured=false` を常に明記する。部分内の周期的位相・alias・sky/gain変化などは平均rateだけでは識別できない。
+
+## 滑らかな線形rateの補正（段階037・CLI）
+
+`vsora-closure-session --rate-model linear` は、4分割で測った相対局rateへ線形モデルを当てはめ、二次位相をIQへ適用してから相関する。初期値は `constant`。単一区間のCLIが対象。GUIと区間列のモデル選択は後続段階。
+
+`vsora-rate-linear --input pilot/shard-00000.npz --output rate-linear.json` は補正前LOの整列済みpilotからprofileを作る。`type=station_rate_linear`、局ID/順番、UTC origin、適用範囲、epoch `time_reference_s`、`station_rates_hz`、`station_rate_slopes_hz_per_s`、全局のrate/傾き共分散、近似model χ²を保存する。画像の正解や生成時の傾きを入力にしない。
+
+各部分の局間共分散を使うweighted least squares。4部分とも解けること、線形モデルのreduced χ²≤3、全基線の予測endpoint rateが指定探索範囲内であることを確認する。さらに推定傾きで計算した各部分の中心化coherenceが90%以上となる範囲に限る。このcoherenceは線形モデルの計算値で、実機の相関保持率を測定した値ではない。
+
+`correlate-aligned --rate-profile rate-linear.json` でも適用できる。基準局との差を `(rate * τ + 0.5 * slope * τ²)` cyclesとしてIQから除く。τはqueryした電圧のphysical timeからprofile epochを引いた秒。幾何補正は従来どおり。`rate_applied_slopes_hz_per_s` と `rate_profile_type` をmetadataへ残す。一定rate経路も相関数値は従来の式を使う。線形モデルの範囲外延長、補正済みLOのpilotへの重ね掛け推定は拒否する。
+
+`--require-rate-consistency` は一定rateの整合を必須にする指定なので、線形補正との同時指定は拒否する。線形モデル自体の適合確認は常に必要。部分内の位相振動、alias、共通局rate、未知sky/gain変化は残る。モデル適合を位相安定の保証に置き換えない。

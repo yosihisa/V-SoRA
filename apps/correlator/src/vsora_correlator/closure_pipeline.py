@@ -12,11 +12,14 @@ from .input_identity import InputIdentity
 def process_closure_session(manifest,clock_model,output,*,pilot_integrations=256,pilot_integration_s=None,start_offset_s=.002,
                             integration_s=.3,max_rate_hz=100.,starts=3,max_iterations=800,
                             prior_fwhm_arcsec=240.,entropy=.01,tsv=.0001,progress=None,correlation_only=False,
-                            _source_identity=None,require_rate_consistency=False):
+                            _source_identity=None,require_rate_consistency=False,rate_model="constant"):
     if not isinstance(correlation_only,bool):raise ValueError('correlation_only bool required')
     if not isinstance(require_rate_consistency,bool):raise ValueError('require_rate_consistency bool required')
     if _source_identity is not None and not isinstance(_source_identity,InputIdentity):
         raise TypeError('verified in-memory InputIdentity required')
+    if rate_model not in ('constant','linear'):raise ValueError('rate_model must be constant or linear')
+    if rate_model=='linear' and require_rate_consistency:
+        raise ValueError('constant subpilot consistency requirement cannot be combined with linear rate correction')
     c=load_session(manifest);fs=c['sample_rate_hz'];nf=c['fft_length']
     if not np.isfinite(integration_s) or not .1<=integration_s<=3:
         raise ValueError('short aligned pipeline integration must be 0.1..3 seconds')
@@ -82,8 +85,13 @@ def process_closure_session(manifest,clock_model,output,*,pilot_integrations=256
         record('aligned_pilot')
         if require_rate_consistency and state['rate_consistency']['state']!='consistent':
             raise ValueError('required subpilot rate consistency was not confirmed')
-        estimate=estimate_rate_shard(partial/'pilot/shard-00000.npz',max_rate_hz=max_rate_hz)
-        profile=partial/'rate-only.json';profile.write_text(json.dumps(estimate,indent=2)+'\n')
+        state['rate_model']=rate_model
+        if rate_model=='linear':
+            from .rate_linear import estimate_linear_shard
+            estimate=estimate_linear_shard(partial/'pilot/shard-00000.npz',max_rate_hz)
+        else:
+            estimate=estimate_rate_shard(partial/'pilot/shard-00000.npz',max_rate_hz=max_rate_hz)
+        profile=partial/('rate-linear.json' if rate_model=='linear' else 'rate-only.json');profile.write_text(json.dumps(estimate,indent=2)+'\n')
         record('model_free_rate')
         final_manifest=clone('final-manifest.json',blocks)
         final=correlate_aligned(final_manifest,clock_model,partial/'correlation',1,start_offset_s,profile)
@@ -121,6 +129,7 @@ def main():
     p.add_argument('--manifest',required=True);p.add_argument('--clock-model',required=True);p.add_argument('--output',required=True)
     p.add_argument('--pilot-integrations',type=int,default=256);p.add_argument('--pilot-integration-s',type=float); p.add_argument('--integration-s',type=float,default=.3)
     p.add_argument('--start-offset-s',type=float,default=.002);p.add_argument('--max-rate-hz',type=float,default=100.)
+    p.add_argument('--rate-model',choices=['constant','linear'],default='constant',help='Smooth measured linear rate; no arbitrary phase-noise recovery')
     p.add_argument('--require-rate-consistency',action='store_true',help='Stop if four-part rates vary or cannot be verified; not a phase coherence guarantee')
     p.add_argument('--correlation-only',action='store_true',help='Save rate-corrected spectral data; defer closure RML to a multi-window synthesis');p.add_argument('--starts',type=int,default=3);p.add_argument('--max-iterations',type=int,default=800)
     p.add_argument('--prior-fwhm-arcsec',type=float,default=240.);p.add_argument('--entropy',type=float,default=.01);p.add_argument('--tsv',type=float,default=.0001)

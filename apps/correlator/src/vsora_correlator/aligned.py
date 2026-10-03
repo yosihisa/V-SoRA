@@ -85,11 +85,17 @@ def correlate_aligned(manifest,clock_model,output,integrations,start_offset_s=.0
     ns,span,spectral_cells=validate_aligned_dimensions(c,integrations)
     if not np.isfinite(start_offset_s) or start_offset_s<0: raise ValueError('nonnegative start offset required')
     clock=json.loads(Path(clock_model).read_text())
-    rate=np.zeros(len(c['stations']));rate_epoch=0.;rate_sha=None
+    rate=np.zeros(len(c['stations']));slopes=np.zeros_like(rate);rate_epoch=0.;rate_sha=None;rate_type=None
     if rate_profile:
         import hashlib
         profile=json.loads(Path(rate_profile).read_text())
-        rate,rate_epoch=validate_rate_profile(profile,[s['id'] for s in config['stations']],
+        rate_type=profile.get('type')
+        if rate_type=='station_rate_linear':
+            from .rate_linear import validate_linear_profile
+            rate,slopes,rate_epoch=validate_linear_profile(profile,[s['id'] for s in config['stations']],
+                config['observation']['start_utc'],start_offset_s,start_offset_s+span,allow_rate_extrapolation)
+        else:
+            rate,rate_epoch=validate_rate_profile(profile,[s['id'] for s in config['stations']],
                 config['observation']['start_utc'],start_offset_s,start_offset_s+span,allow_rate_extrapolation)
         with open(rate_profile,'rb') as stream:rate_sha=hashlib.file_digest(stream,'sha256').hexdigest()
     if set(clock)!={'schema_version','max_abs_baseband_hz','stations'} or clock['schema_version']!=1:
@@ -134,6 +140,8 @@ def correlate_aligned(manifest,clock_model,output,integrations,start_offset_s=.0
                     queries=(t-delay-measured['input_start_offset_s'])*measured['actual_sample_rate_hz']
                     x,ok=b.query(queries)
                     phase=-2*np.pi*(config['observation']['frequency_hz']*delay+rate[station]*(t-delay-rate_epoch))
+                    if rate_type=='station_rate_linear':
+                        phase-=np.pi*slopes[station]*(t-delay-rate_epoch)**2
                     data.append(x*np.exp(1j*phase));valid.append(ok)
                 accumulator.consume(np.array(data),np.array(valid))
             r=accumulator.finish(start_offset_s+index*ns/fs)
@@ -149,6 +157,7 @@ def correlate_aligned(manifest,clock_model,output,integrations,start_offset_s=.0
         cube.update({k:np.array([r[k][0] for r in results]) for k in results[0] if k.startswith('diagnostic_')})
         meta={'config':config,'time_origin_utc':origin.isot+'Z','visibility_unit':'ADC^2' if c['voltage_unit']=='ADC' else 'Jy',
               'phase_center_corrected':True,'rate_applied_hz':rate.tolist(),'rate_applied_reference_s':rate_epoch,
+              'rate_applied_slopes_hz_per_s':slopes.tolist(),'rate_profile_type':rate_type,
               'rate_only_profile_sha256':rate_sha,'rate_only_extrapolation_allowed':bool(allow_rate_extrapolation),
               'nominal_integration_s':ns/fs,
               'vdif_read_mode':'guarded_seek' if seek_input else 'sequential_prefix',

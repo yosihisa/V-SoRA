@@ -1,0 +1,17 @@
+{
+  "source_tests": {
+    "passed": 211,
+    "warnings": 18272,
+    "elapsed_s": 146.39
+  },
+  "installed_tests": {
+    "passed": 211,
+    "warnings": 18272,
+    "elapsed_s": 144.96
+  },
+  "wheel": {
+    "bytes": 5449155,
+    "sha256": "5e0cba0be8d58b1c2bc84088126e373f95b0b5d4dae8aea944e9332f03f2cbe4"
+  },
+  "pip_check": "No broken requirements found"
+}

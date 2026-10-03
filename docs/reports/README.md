@@ -64,4 +64,6 @@
 
 | 036 | [pilot内の分割rate診断](036-subpilot-rate-diagnostics.md) | source/wheel204件成功。4分割と必須停止をCLI/実GUIで確認。周期位相の見逃し・未判定を記録 |
 
+| 037 | [測定した線形rateのIQ補正](037-measured-linear-rate-correction.md) | source/wheel211件成功。4部分から推定した傾きで3秒相関、模擬点源の最小対照振幅比99.93%。実機・Cas A画像は未検証 |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。

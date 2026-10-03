@@ -1,0 +1,297 @@
+{
+  "installed_imports": true,
+  "entrypoints_outside_checkout": true,
+  "state": "complete",
+  "rate_model": "linear",
+  "measured_rate_model": {
+    "schema_version": 1,
+    "type": "station_rate_linear",
+    "station_indices": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "station_rates_hz": [
+      0.0,
+      18.80358846886156,
+      -12.446964781230546,
+      28.350895404158955
+    ],
+    "station_rate_slopes_hz_per_s": [
+      0.0,
+      1.0026217793747016,
+      -0.5000535172783207,
+      1.500790671291926
+    ],
+    "reference_station": 0,
+    "time_reference_s": 1.5019999999999998,
+    "parameter_covariance": [
+      [
+        6.873505595574149e-06,
+        3.3585081507819014e-06,
+        3.4758092949072187e-06,
+        -1.4305621434491047e-08,
+        1.67613529358036e-08,
+        4.178722784442462e-08
+      ],
+      [
+        3.3585081507819014e-06,
+        6.887933459808006e-06,
+        3.3775446209494997e-06,
+        1.686497515649966e-08,
+        4.7076277311763833e-08,
+        3.200022779956519e-08
+      ],
+      [
+        3.475809294907218e-06,
+        3.3775446209494993e-06,
+        6.959203457721769e-06,
+        4.180380525025096e-08,
+        3.201972240059271e-08,
+        6.594254196990247e-08
+      ],
+      [
+        -1.4305621434491054e-08,
+        1.6864975156499658e-08,
+        4.180380525025096e-08,
+        9.773539891632426e-06,
+        4.791306703024064e-06,
+        4.9439575123329395e-06
+      ],
+      [
+        1.6761352935803605e-08,
+        4.707627731176383e-08,
+        3.2019722400592714e-08,
+        4.791306703024064e-06,
+        9.82171970484118e-06,
+        4.806113640045205e-06
+      ],
+      [
+        4.178722784442463e-08,
+        3.200022779956519e-08,
+        6.594254196990247e-08,
+        4.9439575123329395e-06,
+        4.806113640045205e-06,
+        9.893988970944405e-06
+      ]
+    ],
+    "covariance_station_order": [
+      1,
+      2,
+      3
+    ],
+    "parameter_order": "relative rates Hz, then relative rate slopes Hz/s",
+    "linear_model_reduced_chisq": 2.773556133742137,
+    "linear_model_degrees_of_freedom": 6,
+    "linear_model_max_reduced_chisq": 3.0,
+    "minimum_calculated_centered_subpilot_coherence": 0.9657024189520758,
+    "absolute_common_rate_measured": false,
+    "coherence_stability_measured": false,
+    "model": "Four independent local constant-rate estimates, full station covariance; weighted smooth linear rate",
+    "limits": "Approximate independent Gaussian Fisher errors, stable sky/gain. Linear adequacy is not phase stability. Subpart oscillation, alias and common drift remain invisible; no actual OCXO or low-SNR guarantee.",
+    "valid_time_range_s": [
+      0.003,
+      3.001
+    ],
+    "sample_cadence_s": 0.002,
+    "temporal_nyquist_hz": 250.0,
+    "max_baseline_rate_hz": 100.0,
+    "initial_baseline_rate_bound_externally_required": true,
+    "rate_consistency": {
+      "schema_version": 1,
+      "type": "subpilot_rate_consistency",
+      "state": "variation_detected",
+      "parts": 4,
+      "station_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference_station": 0,
+      "threshold_sigma": 6.0,
+      "subpilots": [
+        {
+          "part_index": 0,
+          "times": 375,
+          "start_s": 0.002,
+          "end_s": 0.752,
+          "state": "complete",
+          "time_reference_s": 0.377,
+          "station_rates_hz": [
+            0.0,
+            17.66792667916358,
+            -11.89097557715757,
+            26.661458573073702
+          ],
+          "station_covariance_hz2": [
+            [
+              2.763367044758882e-05,
+              1.3456714026964538e-05,
+              1.3768642144986164e-05
+            ],
+            [
+              1.3456714026964538e-05,
+              2.7503875578239873e-05,
+              1.3433117097803959e-05
+            ],
+            [
+              1.3768642144986164e-05,
+              1.3433117097803959e-05,
+              2.7545952363711423e-05
+            ]
+          ],
+          "covariance_station_order": [
+            1,
+            2,
+            3
+          ],
+          "accepted_baselines": 6
+        },
+        {
+          "part_index": 1,
+          "times": 375,
+          "start_s": 0.752,
+          "end_s": 1.502,
+          "state": "complete",
+          "time_reference_s": 1.127,
+          "station_rates_hz": [
+            0.0,
+            18.442033948930238,
+            -12.248281641791987,
+            27.789412385381
+          ],
+          "station_covariance_hz2": [
+            [
+              2.7280131276234684e-05,
+              1.322101875495584e-05,
+              1.368727820207933e-05
+            ],
+            [
+              1.3221018754955841e-05,
+              2.7172454606922538e-05,
+              1.3281195002399538e-05
+            ],
+            [
+              1.368727820207933e-05,
+              1.3281195002399538e-05,
+              2.7699975932899304e-05
+            ]
+          ],
+          "covariance_station_order": [
+            1,
+            2,
+            3
+          ],
+          "accepted_baselines": 6
+        },
+        {
+          "part_index": 2,
+          "times": 375,
+          "start_s": 1.502,
+          "end_s": 2.252,
+          "state": "complete",
+          "time_reference_s": 1.8769999999999998,
+          "station_rates_hz": [
+            0.0,
+            19.173391531313,
+            -12.637450338373323,
+            28.91386097437104
+          ],
+          "station_covariance_hz2": [
+            [
+              2.7725146854532054e-05,
+              1.3546961416638703e-05,
+              1.4117461090100045e-05
+            ],
+            [
+              1.35469614166387e-05,
+              2.7757543649778975e-05,
+              1.3725194518360771e-05
+            ],
+            [
+              1.4117461090100046e-05,
+              1.3725194518360773e-05,
+              2.7999702196246212e-05
+            ]
+          ],
+          "covariance_station_order": [
+            1,
+            2,
+            3
+          ],
+          "accepted_baselines": 6
+        },
+        {
+          "part_index": 3,
+          "times": 375,
+          "start_s": 2.252,
+          "end_s": 3.002,
+          "state": "complete",
+          "time_reference_s": 2.627,
+          "station_rates_hz": [
+            0.0,
+            19.93078542753174,
+            -13.01133944873167,
+            30.03865355766507
+          ],
+          "station_covariance_hz2": [
+            [
+              2.734266161427672e-05,
+              1.3515337121184e-05,
+              1.404273016863092e-05
+            ],
+            [
+              1.3515337121184e-05,
+              2.77789853566688e-05,
+              1.3604397817195624e-05
+            ],
+            [
+              1.404273016863092e-05,
+              1.3604397817195625e-05,
+              2.8105021972833752e-05
+            ]
+          ],
+          "covariance_station_order": [
+            1,
+            2,
+            3
+          ],
+          "accepted_baselines": 6
+        }
+      ],
+      "maximum_normalized_rate_difference": 452.7096472947884,
+      "absolute_common_rate_measured": false,
+      "coherence_stability_measured": false,
+      "limits": "Four constant-rate fits, >=8 times each. Fisher Gaussian independent-noise approximation. 6-sigma difference is a diagnostic rule, not calibrated false-alarm probability. Within-part phase oscillation, aliasing, stable sky/gain failure or weak data may be missed; consistency does not prove coherence.",
+      "worst_difference": {
+        "first_part": 0,
+        "second_part": 3,
+        "station_index": 3,
+        "difference_hz": 3.3771949845913696,
+        "nominal_sigma_hz": 0.007459958065334226,
+        "normalized_difference": 452.7096472947884
+      }
+    },
+    "station_ids": [
+      "ST01",
+      "ST02",
+      "ST03",
+      "ST04"
+    ],
+    "time_origin_utc": "2026-10-02T08:00:00.000Z",
+    "input_sha256": "367e62855370ac8e8b532d4c2cfc5a6dcb4e5f6ec3c8270b664cd612860f5c81"
+  },
+  "maximum_absolute_source_array_differences": {
+    "visibilities": 0.0,
+    "weights": 0.0,
+    "times_s": 0.0,
+    "frequencies_hz": 0.0,
+    "uvw_lambda": 0.0,
+    "integration_s": 0.0,
+    "diagnostic_station_power": 0.0,
+    "diagnostic_station_sk": 0.0
+  },
+  "scope": "Strong deterministic smooth LO drift, four-station matched point/noise fixture. No arbitrary phase noise, hardware or Cas A fidelity claim."
+}

@@ -129,6 +129,8 @@ def estimate_rate_shard(path,reference_station=0,max_rate_hz=100.):
     if not meta.get('phase_center_corrected') or not meta.get('clock_mapping_applied'):
         raise ValueError('rate-only production profile requires sample and phase-center alignment')
     if not meta.get('time_origin_utc'):raise ValueError('pilot UTC origin required')
+    if np.any(np.asarray(meta.get('rate_applied_slopes_hz_per_s',[]))!=0):
+        raise ValueError('constant residual profile cannot combine prior linear rate slopes')
     result=estimate_station_rates(d,reference_station,max_rate_hz)
     previous=np.asarray(meta.get('rate_applied_hz',np.zeros(len(result['station_indices']))),float)
     if previous.shape!=(len(result['station_indices']),) or not np.isfinite(previous).all():
