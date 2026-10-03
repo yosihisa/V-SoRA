@@ -48,4 +48,6 @@
 
 | 028 | [Cas Aの3秒合成・低感度](028-casa-three-second-sensitivity.md) | source130件成功。8時刻処理完了、形状誤差34〜37%で画像の良好復元は未確認 |
 
+| 029 | [短い刻みの広範囲LO探索](029-wide-rate-pilot.md) | source/wheel140件成功。1185Hz基線差をVDIFから補正、SK未判定と検出不能aliasを記録 |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。

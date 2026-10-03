@@ -10,7 +10,7 @@ import time
 import httpx
 
 
-def run(manifest,clock_model,output,port=8768):
+def run(manifest,clock_model,output,port=8768,pilot_integrations=256,pilot_integration_s=None,integration_s=.3,max_rate_hz=100.):
     from vsora_imaging import rml
     from vsora_correlator import rate,closure_pipeline
     from vsora_ui import server
@@ -25,8 +25,10 @@ def run(manifest,clock_model,output,port=8768):
             result=subprocess.run([str(binary/name),'--help'],cwd=directory,env=env,capture_output=True,text=True)
             if result.returncode:raise AssertionError('installed entrypoint help failed')
             checks.append(name)
+        pilot_options=['--pilot-integrations',str(pilot_integrations),'--integration-s',str(integration_s),'--max-rate-hz',str(max_rate_hz)]
+        if pilot_integration_s is not None:pilot_options+=['--pilot-integration-s',str(pilot_integration_s)]
         result=subprocess.run([str(binary/'vsora-closure-session'),'--manifest',str(manifest),'--clock-model',str(clock),
-            '--output',str(out/'cli'),'--starts','1','--max-iterations','100'],cwd=directory,env=env,capture_output=True,text=True)
+            '--output',str(out/'cli'),'--starts','1','--max-iterations','100',*pilot_options],cwd=directory,env=env,capture_output=True,text=True)
         (out/'cli.log').write_text(result.stdout+result.stderr)
         if result.returncode:raise AssertionError('installed pipeline CLI failed; inspect local cli.log')
         cli=json.loads((out/'cli/summary.json').read_text())
@@ -44,8 +46,9 @@ def run(manifest,clock_model,output,port=8768):
             else:raise AssertionError('installed GUI not ready')
             assert not environment.json()['validation_available']
             submit=httpx.post(url+'/api/jobs',headers={'X-VSoRA-Request':'1'},json={'kind':'analysis','manifest':str(manifest),
-                    'clock_model':str(clock),'starts':1,'max_iterations':100}).json()
-            job_id=submit['id'];deadline=time.monotonic()+45
+                    'clock_model':str(clock),'starts':1,'max_iterations':100,'pilot_integrations':pilot_integrations,
+                    'pilot_integration_s':pilot_integration_s,'integration_s':integration_s,'max_rate_hz':max_rate_hz}).json()
+            job_id=submit['id'];deadline=time.monotonic()+180
             while time.monotonic()<deadline:
                 job=httpx.get(url+'/api/jobs/'+job_id).json()
                 if job['state'] not in ('queued','running'):break
@@ -53,7 +56,7 @@ def run(manifest,clock_model,output,port=8768):
             if job['state']!='complete':raise AssertionError('installed GUI analysis failed')
             gui=job['summary']
             submit=httpx.post(url+'/api/jobs',headers={'X-VSoRA-Request':'1'},json={'kind':'sensitivity'}).json()
-            deadline=time.monotonic()+45
+            deadline=time.monotonic()+180
             while time.monotonic()<deadline:
                 planner=httpx.get(url+'/api/jobs/'+submit['id']).json()
                 if planner['state'] not in ('queued','running'):break
@@ -70,6 +73,7 @@ def run(manifest,clock_model,output,port=8768):
              'cli_state':cli['state'],'gui_state':job['state'],'sensitivity_gui_state':planner['state'],'checkout_validation_available':False,
              'cli_input_unit':cli['rml']['input_unit'],'gui_input_unit':gui['rml']['input_unit'],
              'relative_flux_sum':gui['rml']['image_sum'],'absolute_flux_measured':gui['absolute_flux_measured'],
+             'cli_rate_acquisition':cli.get('rate_acquisition'),'gui_rate_acquisition':gui.get('rate_acquisition'),
              'valid_phase_closures':gui['closures']['phase_valid'],'valid_logamp_closures':gui['closures']['logamp_valid']}
     (out/'summary.json').write_text(json.dumps(summary,indent=2)+'\n');return summary
 
@@ -77,4 +81,6 @@ def run(manifest,clock_model,output,port=8768):
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--manifest',required=True);p.add_argument('--clock-model',required=True)
     p.add_argument('--output',required=True);p.add_argument('--port',type=int,default=8768)
-    a=p.parse_args();print(json.dumps(run(a.manifest,a.clock_model,a.output,a.port),indent=2))
+    p.add_argument('--pilot-integrations',type=int,default=256);p.add_argument('--pilot-integration-s',type=float)
+    p.add_argument('--integration-s',type=float,default=.3);p.add_argument('--max-rate-hz',type=float,default=100.)
+    a=p.parse_args();print(json.dumps(run(a.manifest,a.clock_model,a.output,a.port,a.pilot_integrations,a.pilot_integration_s,a.integration_s,a.max_rate_hz),indent=2))

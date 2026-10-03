@@ -14,6 +14,25 @@ from .session import load_session
 from .rate import validate_rate_profile
 
 
+MAX_ALIGNED_INTEGRATIONS = 16384
+MAX_SPECTRAL_CELLS = 1_000_000
+
+
+def validate_aligned_dimensions(config, integrations):
+    """Bound retained spectral arrays as well as streaming sample buffers."""
+    if isinstance(integrations, bool) or not isinstance(integrations, int) or not 1 <= integrations <= MAX_ALIGNED_INTEGRATIONS:
+        raise ValueError('aligned reference chunk requires 1..16384 integrations')
+    ns = config['fft_length'] * config['blocks_per_integration']
+    span = ns * integrations / config['sample_rate_hz']
+    stations = len(config['stations'])
+    cells = integrations * config['fft_length'] * stations * (stations-1) // 2
+    if span > 3. + 1e-9:
+        raise ValueError('aligned reference chunk requires <=3 seconds')
+    if cells > MAX_SPECTRAL_CELLS:
+        raise ValueError('aligned reference chunk exceeds one million spectral cells')
+    return ns, span, cells
+
+
 class SampleBuffer:
     def __init__(self,path,nominal_rate,station_id,scale,actual_rate):
         self.reader=iter_vdif_frames(path,nominal_rate,station_id,scale)
@@ -53,9 +72,7 @@ class SampleBuffer:
 def correlate_aligned(manifest,clock_model,output,integrations,start_offset_s=.002,rate_profile=None,allow_rate_extrapolation=False):
     c=load_session(manifest);config=c['_config'];fs=c['sample_rate_hz']
     if not c['phase_center_correction']: raise ValueError('aligned mode requires explicit phase-center correction')
-    ns=c['fft_length']*c['blocks_per_integration'];span=ns*integrations/fs
-    if isinstance(integrations,bool) or not isinstance(integrations,int) or not 1<=integrations<=1024 or span>3:
-        raise ValueError('aligned reference chunk requires 1..1024 integrations and <=3 seconds')
+    ns,span,spectral_cells=validate_aligned_dimensions(c,integrations)
     if not np.isfinite(start_offset_s) or start_offset_s<0: raise ValueError('nonnegative start offset required')
     clock=json.loads(Path(clock_model).read_text())
     rate=np.zeros(len(c['stations']));rate_epoch=0.;rate_sha=None
@@ -131,7 +148,7 @@ def correlate_aligned(manifest,clock_model,output,integrations,start_offset_s=.0
             meta.update(spectral_quality=c['spectral_quality'],diagnostic_power_unit='ADC^2' if c['voltage_unit']=='ADC' else 'Jy')
         save_spectral(partial/'shard-00000.npz',cube,meta)
         summary={'state':'complete','integrations':integrations,'recorded_span_s':span,'start_offset_s':start_offset_s,
-                 'station_max_buffer_samples':[b.maximum for b in buffers],'samples_per_integration':ns,'maximum_fx_chunk_samples':maximum_chunk_samples,
+                 'station_max_buffer_samples':[b.maximum for b in buffers],'samples_per_integration':ns,'maximum_fx_chunk_samples':maximum_chunk_samples,'spectral_cells':spectral_cells,
                  'geometry_segment_max_span_s':float(np.diff(edges).max()),'geometry_midpoint_max_baseline_phase_error_rad':midpoint_baseline_phase,
                  'fft_accumulation':'Sums of cross-products, power and fourth moments; flags after whole integration',
                  'clock_model':'Supplied linear ADC mapping; no automatic weak-source clock recovery',

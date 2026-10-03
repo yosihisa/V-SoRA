@@ -1,0 +1,26 @@
+{
+  "source_pytest": {
+    "passed": 140,
+    "warnings": 3418,
+    "elapsed_s": 38.87
+  },
+  "wheel_pytest": {
+    "passed": 140,
+    "warnings": 3418,
+    "elapsed_s": 39.46
+  },
+  "pip_check": "No broken requirements found",
+  "wheel": {
+    "bytes": 5430116,
+    "sha256": "6f2d043988f52d1c0ba3c6b12db6a5ac61b4c0d91e6ef64ebf423a201da25552"
+  },
+  "environment": {
+    "python": "3.12.3",
+    "numpy": "2.5.1",
+    "scipy": "1.18.0",
+    "astropy": "7.2.2",
+    "baseband": "4.3.0"
+  },
+  "corrected_test_expectation": "The exact analytic alias error is 8000Hz; initial assertion >8000 was replaced with equality tolerance. Estimator was unchanged.",
+  "scope": "Synthetic and WSL headless browser; no actual hardware, Windows browser or WSLg desktop observation"
+}

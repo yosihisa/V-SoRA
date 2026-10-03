@@ -65,3 +65,29 @@ def test_three_second_uniform_stable_unknown_sky():
     d.update(visibilities=v,weights=np.full(v.shape,1e4),times_s=times)
     r=estimate_station_rates(d)
     assert max(abs(np.array(r['station_rates_hz'])-true))<.002
+
+
+def test_dense_pilot_large_unknown_rates():
+    rng=np.random.default_rng(291);pairs=np.array(list(combinations(range(4),2)))
+    rates=np.array([0.,420.,-375.,810.]);times=(np.arange(4096)+.5)*.00025
+    slope=rates[pairs[:,0]]-rates[pairs[:,1]]
+    sky=rng.uniform(.5,1.5,(3,6))*np.exp(1j*rng.uniform(-np.pi,np.pi,(3,6)))
+    v=sky[None]*np.sinc(slope*.00025)[None,None,:]*np.exp(2j*np.pi*times[:,None,None]*slope[None,None,:])
+    v+=.5*(rng.normal(size=v.shape)+1j*rng.normal(size=v.shape))
+    result=estimate_station_rates({'visibilities':v,'weights':np.full(v.shape,4.),'times_s':times,'pairs':pairs},max_rate_hz=1500)
+    assert max(abs(np.array(result['station_rates_hz'])-rates))<.02
+    assert result['initial_baseline_rate_bound_externally_required']
+    assert result['temporal_nyquist_hz']==pytest.approx(2000)
+
+
+def test_outside_nyquist_can_alias_into_connected_station_solution():
+    # Multiples of the temporal sample frequency are indistinguishable when
+    # per-baseline/channel constant complex amplitudes are unknown.
+    pairs=np.array(list(combinations(range(4),2)));times=(np.arange(1024)+.5)*.00025
+    true=np.array([0.,4100.,-4075.,8210.]);aliased=np.array([0.,100.,-75.,210.])
+    slope=true[pairs[:,0]]-true[pairs[:,1]]
+    v=np.exp(2j*np.pi*times[:,None,None]*slope[None,None,:])
+    result=estimate_station_rates({'visibilities':v,'weights':np.full(v.shape,1e4),'times_s':times,'pairs':pairs},max_rate_hz=1500)
+    assert max(abs(np.array(result['station_rates_hz'])-aliased))<1e-7
+    assert max(abs(np.array(result['station_rates_hz'])-true))==pytest.approx(8000)
+    assert result['initial_baseline_rate_bound_externally_required']

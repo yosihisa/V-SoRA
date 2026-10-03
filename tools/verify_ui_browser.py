@@ -10,7 +10,7 @@ import httpx
 from playwright.sync_api import sync_playwright
 
 
-def run(output,port=8767,analysis_manifest=None,clock_model=None,synthesis_inputs=None,analysis_integration_s=.3,analysis_pilot_integrations=256):
+def run(output,port=8767,analysis_manifest=None,clock_model=None,synthesis_inputs=None,analysis_integration_s=.3,analysis_pilot_integrations=256,analysis_pilot_integration_s=None,analysis_max_rate_hz=100.):
     root=Path(__file__).resolve().parents[1];out=Path(output)
     if out.exists(): raise FileExistsError('new output required')
     out.mkdir(parents=True);url=f'http://127.0.0.1:{port}'
@@ -61,6 +61,9 @@ def run(output,port=8767,analysis_manifest=None,clock_model=None,synthesis_input
                 page.locator('#analysis-form input[name=manifest]').fill(analysis_manifest)
                 page.locator('#analysis-form input[name=clock_model]').fill(clock_model)
                 page.locator('#analysis-form input[name=pilot_integrations]').fill(str(analysis_pilot_integrations))
+                if analysis_pilot_integration_s is not None:
+                    page.locator('#analysis-form input[name=pilot_integration_s]').fill(str(analysis_pilot_integration_s))
+                page.locator('#analysis-form input[name=max_rate_hz]').fill(str(analysis_max_rate_hz))
                 page.locator('#analysis-form select[name=integration_s]').select_option(f'{analysis_integration_s:g}')
                 page.screenshot(path=str(out/'analysis-screen.png'),full_page=True)
                 page.get_by_role('button',name='VDIFを解析して相対画像を作成',exact=True).click()
@@ -134,6 +137,7 @@ def run(output,port=8767,analysis_manifest=None,clock_model=None,synthesis_input
                     'quality_state':qresult['state'],'quality_relative_error':qresult['summary']['continuum_visibility_error_after'],
                     'rml_state':rresult['state'],'rml_registered_nrmse':rresult['summary']['metrics']['registered_nrmse'],
                     'analysis_integration_s':analysis_integration_s if analysis_result else None,
+                    'analysis_rate_acquisition':analysis_result['summary'].get('rate_acquisition') if analysis_result else None,
                     'analysis_state':analysis_result['state'] if analysis_result else 'not run',
                     'synthesis_state':synthesis_result['state'] if synthesis_result else 'not run',
                     'sensitivity_state':planner_result['state'],
@@ -154,4 +158,5 @@ if __name__=='__main__':
     p.add_argument('--analysis-manifest');p.add_argument('--clock-model')
     p.add_argument('--synthesis-inputs',nargs='+')
     p.add_argument('--analysis-integration-s',type=float,default=.3);p.add_argument('--analysis-pilot-integrations',type=int,default=256)
-    a=p.parse_args();print(json.dumps(run(a.output,a.port,a.analysis_manifest,a.clock_model,a.synthesis_inputs,a.analysis_integration_s,a.analysis_pilot_integrations),indent=2))
+    p.add_argument('--analysis-pilot-integration-s',type=float);p.add_argument('--analysis-max-rate-hz',type=float,default=100.)
+    a=p.parse_args();print(json.dumps(run(a.output,a.port,a.analysis_manifest,a.clock_model,a.synthesis_inputs,a.analysis_integration_s,a.analysis_pilot_integrations,a.analysis_pilot_integration_s,a.analysis_max_rate_hz),indent=2))

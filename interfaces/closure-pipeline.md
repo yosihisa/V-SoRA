@@ -37,7 +37,7 @@ rate-only JSONはtype=`station_rate_only`。局ID/順番、UTC原点、有効時
 
 ## 現在の制限
 
-整列chunkは1〜1024積分、span3秒以内、600m以下。一回のpipeline画像化は0.1〜3秒の一積分で、連続長記録処理は後続段階。別UTC原点の短露光は下記の合成入口で扱う。pilotは8時刻以上・一様cadence・3秒以内。安定sky/gain、時間Nyquist以内、使えるrate graphの連結、高SNR Gaussianを仮定する。bandpass/主ビーム差・低SNR/self-noise・RFIの実測率は未確認。
+整列chunkは1〜16384積分、span3秒以内、600m以下、保存するtime×channel×baselineは100万cell以下。一回のpipeline画像化は0.1〜3秒の一積分で、連続長記録処理は後続段階。別UTC原点の短露光は下記の合成入口で扱う。pilotは8時刻以上・一様cadence・3秒以内。安定sky/gain、時間Nyquist以内、使えるrate graphの連結、高SNR Gaussianを仮定する。bandpass/主ビーム差・低SNR/self-noise・RFIの実測率は未確認。
 
 [段階023レポート](../docs/reports/023-vdif-closure-pipeline.md)に実VDIFを使う模擬試験を記録する。
 
@@ -63,6 +63,21 @@ CLIは2〜64ファイル、GUIは2〜32ファイル。整列済みspectral NPZ�
 
 ## 3秒積分の条件
 
-FFT32・blocks_per_integration=256ならpilot一時刻4ms。750時刻で3秒を覆い、`--pilot-integrations 750 --integration-s 3`を使える。2msでは1024時刻までの現上限では3秒を覆えないため、manifestのcadenceも確認する。基線rateの探索上限は時間Nyquist未満（4msなら125Hz未満）にする。原本の前後guardも必要。
+FFT32・blocks_per_integration=256ならpilot一時刻4ms。750時刻で3秒を覆い、`--pilot-integrations 750 --integration-s 3`を使える。2msなら1500時刻で3秒を覆える。時刻数とともに100万cell上限を確認する。基線rateの探索上限は時間Nyquist未満（4msなら125Hz未満）にする。原本の前後guardも必要。
 
 幾何delayは全体3秒の中を1秒以下に分けて線形補間し、各区間中点をAstropyで再計算する。中点の基線RF位相差が0.001radを超えれば拒否する。これは参照modelの補間確認で、実EOP/局座標/大気が正確との証明ではない。rateは期間全体で一定、sky/gainは安定と仮定する。profile時間範囲外は従来通り拒否する。[段階027](../docs/reports/027-three-second-pilot.md)を参照。
+
+
+## 初期LO差が大きいときのpilot刻み
+
+画像積分とは別に`--pilot-integration-s`でpilot一回の時間を指定できる。省略時はmanifestのblocks_per_integrationを使用する。FFTの整数個で、4096sampleのVDIF frameを整数分割するか整数個含む必要がある。設定不正・時間Nyquist以上の探索・3秒超・100万cell超は原本の読取前に拒否する。
+
+```bash
+python tools/run.py vsora_correlator.closure_pipeline --manifest manifest.json --clock-model clock.json --pilot-integration-s 0.00025 --pilot-integrations 4096 --max-rate-hz 1500 --integration-s 1 --output outputs/wide-rate
+```
+
+Fs2.048MHz、FFT8なら0.25msは64 FFT。4096時刻で1.024秒、Nyquistは2000Hz。探索1500Hzは基線差の上限で、局の基準差の上限とは違う。時刻数の増加だけでは探索幅は広がらず、刻みを短くする必要がある。探索端ではpilot一セルのcoherenceはsincから約78.4%と計算される。現在の推定はこの一定減衰を未知の複素値へ含め、補正済みIQから最終積分を作る。
+
+summary.rate_acquisitionは刻み・時刻数・span・Nyquist・探索上限・探索端coherence・SK判定可能割合を保存し、GUIも表示する。例えばmin_sk_blocks=128で64FFT/cellならSK判定割合0%。channel powerによる重みと明示的RF除外は維持するが、SKでRFIが確認できたとはしない。
+
+**初期差がNyquist内であることは外部の条件**。周期的なsampleにより、範囲外の大きな差が小さな整合したrateに見えることがある。初期LOの測定・仕様で上限を決め、全基線を覆う刻みを選ぶ。外部上限が未確認なら「工程完了」で実機への対応を保証しない。[段階029のVDIF試験と折り返し例](../docs/reports/029-wide-rate-pilot.md)を参照。

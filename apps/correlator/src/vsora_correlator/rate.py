@@ -94,12 +94,13 @@ def estimate_station_rates(data, reference_station=0, max_rate_hz=100., min_snr=
     return {'schema_version':1,'type':'station_rate_only','station_indices':stations,'station_rates_hz':rates,
             'reference_station':int(reference_station),'time_reference_s':reference_time,
             'valid_time_range_s':[float(t[0]),float(t[-1])],'sample_cadence_s':float(dt[0]),
-            'max_baseline_rate_hz':max_rate_hz,'baseline_estimates':records,
+            'max_baseline_rate_hz':max_rate_hz,'temporal_nyquist_hz':float(.5/dt[0]),
+            'initial_baseline_rate_bound_externally_required':True,'baseline_estimates':records,
             'station_covariance_hz2':covariance.tolist(),'covariance_station_order':unknown,
             'reduced_rate_chisq':reduced,'accepted_baselines':len(accepted),
             'absolute_common_rate_measured':False,'amplitude_or_sky_phase_calibration':False,
             'model':'Unknown constant complex visibility per baseline/channel; temporal phase rate only',
-            'limits':'Short stable sky/gain; circular independent baseline/channel noise; no low SNR or clock drift inference'}
+            'limits':'Short stable sky/gain; circular independent baseline/channel noise; no low SNR or clock drift inference; out-of-Nyquist rates can alias undetectably; initial LO bound is an external assumption'}
 
 
 def main():

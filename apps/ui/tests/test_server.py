@@ -159,3 +159,13 @@ def test_sensitivity_plan_real_subprocess(tmp_path):
         assert d['summary']['antenna_assumptions']['mode']=='dish'
         r=c.post('/api/jobs',json={'kind':'sensitivity','antenna_mode':'effective','effective_area_m2':1.},headers=HEADERS)
         d=wait(c,r.json()['id']);assert d['summary']['assumptions']['station_sefd_jy'][0]==pytest.approx(276129.8)
+
+
+def test_dense_pilot_request_and_japanese_controls():
+    from vsora_ui.models import AnalysisRequest
+    request=AnalysisRequest(manifest='manifest.json',clock_model='clock.json',pilot_integrations=4096,
+                            pilot_integration_s=.00025,max_rate_hz=1500,integration_s=1)
+    assert request.pilot_integration_s==.00025 and request.pilot_integrations==4096
+    assert AnalysisRequest(manifest='manifest.json',clock_model='clock.json').pilot_integration_s is None
+    with pytest.raises(ValueError):AnalysisRequest(manifest='a',clock_model='b',pilot_integrations=16385)
+    with pytest.raises(ValueError):AnalysisRequest(manifest='a',clock_model='b',pilot_integration_s=-1)

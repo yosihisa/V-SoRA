@@ -1,0 +1,36 @@
+{
+  "browser": "153.0.8010.12",
+  "japanese_font_loaded": true,
+  "javascript_errors": [],
+  "external_requests": 0,
+  "mobile_horizontal_overflow": false,
+  "simulation_state": "complete",
+  "point_peak_jy_per_beam": 999.9999999999995,
+  "quality_state": "complete",
+  "quality_relative_error": 0.047688439132772965,
+  "rml_state": "complete",
+  "rml_registered_nrmse": 0.029411929188685255,
+  "analysis_integration_s": 1.0,
+  "analysis_rate_acquisition": {
+    "pilot_integration_s": 0.00025,
+    "pilot_integrations": 4096,
+    "pilot_span_s": 1.024,
+    "temporal_nyquist_hz": 2000.0,
+    "max_baseline_rate_hz": 1500.0,
+    "coherence_at_search_bound": 0.7842133035765372,
+    "initial_baseline_rate_bound_externally_required": true,
+    "sk_eligible_fraction": 0.0,
+    "limits": "Rates outside temporal Nyquist may alias undetectably; search range is not a measured initial LO bound. Short-cell SK may be ineligible. Noise search false-positive probability is not calibrated."
+  },
+  "analysis_state": "complete",
+  "synthesis_state": "not run",
+  "sensitivity_state": "complete",
+  "cancel_state": "cancelled",
+  "job_ids": [
+    "20261003T024518-781afffa",
+    "20261003T024520-0eaca9e1",
+    "20261003T024552-751188e5",
+    "20261003T024554-7cb98c69"
+  ],
+  "scope": "Headless Chromium in WSL; Windows browser and WSLg desktop not directly observed"
+}

@@ -12,7 +12,7 @@ from vsora_correlator.closure_pipeline import process_closure_session
 from vsora_formats.spectral import load_spectral
 
 
-def make_fixture(output,seed=23,frame_count=270,pilot_blocks=128):
+def make_fixture(output,seed=23,frame_count=270,pilot_blocks=128,rates_hz=None,fft_length=32):
     out=Path(output);out.mkdir(parents=True,exist_ok=False)
     root=Path(__file__).resolve().parents[1];c=load_config(root/'configs/experiments/ideal-point.json')
     # The observing pipeline receives no generating sky type or absolute flux.
@@ -26,7 +26,9 @@ def make_fixture(output,seed=23,frame_count=270,pilot_blocks=128):
     rng=np.random.default_rng(seed)
     def gaussian(n):return (rng.normal(size=n)+1j*rng.normal(size=n))/np.sqrt(2)
     sky=np.fft.fft(gaussian(ns))*active*np.sqrt(1000/power_fraction)
-    rates=np.array([0.,17.3,-11.7,26.1]);gain=np.array([.4,3,1.5,.75])*np.exp(1j*np.array([0.,.7,-1.1,2.]))
+    rates=np.array([0.,17.3,-11.7,26.1] if rates_hz is None else rates_hz,dtype=float)
+    if rates.shape!=(4,) or not np.isfinite(rates).all():raise ValueError('four finite generating station rates required')
+    gain=np.array([.4,3,1.5,.75])*np.exp(1j*np.array([0.,.7,-1.1,2.]))
     t=np.arange(ns)/fs;stations=[];clocks=[]
     for i in range(4):
         noise=np.fft.fft(gaussian(ns))*active*np.sqrt(10000/power_fraction)
@@ -38,7 +40,7 @@ def make_fixture(output,seed=23,frame_count=270,pilot_blocks=128):
         write_vdif(out/name,x,c['observation']['start_utc'],fs,i+1,scale,voltage_unit='ADC')
         stations.append({'id':c['stations'][i]['id'],'vdif':name,'station_numeric_id':i+1,'decoded_voltage_scale':scale})
         clocks.append({'id':c['stations'][i]['id'],'input_start_offset_s':0.,'actual_sample_rate_hz':float(fs)})
-    manifest={'schema_version':1,'observation_config':'observation.json','sample_rate_hz':fs,'fft_length':32,
+    manifest={'schema_version':1,'observation_config':'observation.json','sample_rate_hz':fs,'fft_length':fft_length,
         'blocks_per_integration':pilot_blocks,'integrations_per_shard':256,'voltage_unit':'ADC','phase_center_correction':True,'stations':stations,
         'spectral_quality':{'channel_weights':True,'min_sk_blocks':128,'sk_bounds':[.3,3.],
                            'exclude_rf_ranges_hz':[[fc-fs,fc-.2*fs],[fc+.2*fs,fc+fs]]}}
