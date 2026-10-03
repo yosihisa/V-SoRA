@@ -13,8 +13,8 @@ from vsora_ui.models import SimulationRequest
 HEADERS={'X-VSoRA-Request':'1'}
 
 
-def wait(client,job_id):
-    deadline=time.monotonic()+25
+def wait(client,job_id,timeout=25):
+    deadline=time.monotonic()+timeout
     while time.monotonic()<deadline:
         d=client.get('/api/jobs/'+job_id).json()
         if d['state'] not in ('queued','running'): return d
@@ -169,3 +169,39 @@ def test_dense_pilot_request_and_japanese_controls():
     assert AnalysisRequest(manifest='manifest.json',clock_model='clock.json').pilot_integration_s is None
     with pytest.raises(ValueError):AnalysisRequest(manifest='a',clock_model='b',pilot_integrations=16385)
     with pytest.raises(ValueError):AnalysisRequest(manifest='a',clock_model='b',pilot_integration_s=-1)
+
+
+@pytest.mark.parametrize('options',[{'window_count':1},{'window_count':33},{'window_count':True},
+                                  {'step_s':0},{'step_s':float('nan')},{'resume':True}])
+def test_sequence_request_limits(options):
+    from vsora_ui.models import SequenceRequest
+    with pytest.raises(ValueError):SequenceRequest(manifest='m',clock_model='c',**options)
+
+
+def test_sequence_gui_real_subprocess_and_failure(tmp_path):
+    import numpy as np
+    from workflows.vdif_closure_validation import make_fixture
+    from workflows.sequence_validation import RATES
+    make_fixture(tmp_path/'input',seed=32,frame_count=800,
+        rate_changes=[{'start_s':.514,'rates_hz':RATES[1]},{'start_s':1.026,'rates_hz':RATES[2]}])
+    make_fixture(tmp_path/'short',seed=23)
+    payload={'kind':'sequence','manifest':'input/manifest.json','clock_model':'input/clock.json',
+             'window_count':3,'starts':1,'max_iterations':100}
+    with TestClient(create_app(tmp_path),base_url='http://127.0.0.1') as c:
+        response=c.post('/api/jobs',json=payload,headers=HEADERS);assert response.status_code==202
+        d=wait(c,response.json()['id'],90);assert d['state']=='complete',d
+        assert d['completed_steps']==d['total_steps']==10
+        result=d['summary'];assert len(result['windows'])==3
+        assert result['nominal_image_exposure_per_station_s']==pytest.approx(.9)
+        assert result['rml']['image_sum']==pytest.approx(1.) and result['rml']['input_unit']=='ADC^2'
+        for index,row in enumerate(result['windows']):
+            assert np.max(abs(np.array(row['rate_estimate']['station_rates_hz'])-RATES[index]))<.05
+        assert c.get(f"/api/jobs/{d['id']}/artifacts/sequence/rates.png").status_code==200
+        payload.update(manifest='short/manifest.json',clock_model='short/clock.json',window_count=2)
+        response=c.post('/api/jobs',json=payload,headers=HEADERS);d=wait(c,response.json()['id'],60)
+        assert d['state']=='failed' and 'VDIFがありません' in d['error_message']
+        assert d['sequence_failure']['completed_window_count']==1 and d['sequence_failure']['current_window_index']==1
+        assert c.get(f"/api/jobs/{d['id']}/artifacts/sequence.partial/window-0000/correlation/shard-00000.npz").status_code==200
+        payload['step_s']=.1
+        response=c.post('/api/jobs',json=payload,headers=HEADERS);d=wait(c,response.json()['id'])
+        assert d['state']=='failed' and '間隔がpilotより短く' in d['error_message']

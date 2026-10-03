@@ -23,6 +23,8 @@ def test_window_plan_and_coverage():
     with pytest.raises(ValueError,match='covered'):plan_windows(config(),3,.512,.002,256,None,1.)
     with pytest.raises(ValueError,match='2..64'):plan_windows(config(),True,.512,.002,256,None,.3)
     with pytest.raises(ValueError,match='frame grid'):plan_windows(config(),3,.512,.002,256,.0003,.3)
+    large={**config(),'fft_length':8192,'blocks_per_integration':1}
+    with pytest.raises(ValueError,match='one million spectral'):plan_windows(large,32,None,.002,32,None,.1)
 
 
 def test_sequence_local_rates_and_relative_synthesis(tmp_path):

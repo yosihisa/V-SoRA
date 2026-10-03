@@ -72,6 +72,12 @@ class AnalysisRequest(Request):
     max_iterations:int=Field(default=800,ge=100,le=2000,strict=True)
 
 
+class SequenceRequest(AnalysisRequest):
+    kind:Literal['sequence']='sequence'
+    window_count:int=Field(default=3,ge=2,le=32,strict=True)
+    step_s:float|None=Field(default=None,gt=0,le=86400)
+
+
 class SynthesisRequest(Request):
     kind:Literal['synthesis']='synthesis'
     inputs:list[Annotated[str,Field(min_length=1,max_length=512)]]=Field(min_length=2,max_length=32)
@@ -96,4 +102,4 @@ class SensitivityRequest(Request):
     flux_jy:float=Field(default=1000.,gt=0,le=1e7)
 
 
-JobRequest=Annotated[SimulationRequest|ValidationRequest|RmlRequest|AnalysisRequest|SynthesisRequest|SensitivityRequest,Field(discriminator='kind')]
+JobRequest=Annotated[SimulationRequest|ValidationRequest|RmlRequest|AnalysisRequest|SequenceRequest|SynthesisRequest|SensitivityRequest,Field(discriminator='kind')]

@@ -56,4 +56,6 @@
 
 | 032 | [短window列・LO再推定](032-short-window-sequence.md) | source/wheel162件成功。同一VDIFの3区間でLO差変化を推定、露光0.9秒。選択RMLは800反復上限 |
 
+| 033 | [短区間列の日本語解析GUI](033-sequence-gui.md) | source/wheel169件成功。3区間解析・入力不足・中止を実ブラウザで確認、RML上限を表示 |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。

@@ -3,7 +3,7 @@ import json
 from pathlib import Path
 import numpy as np
 from .session import load_session
-from .aligned import validate_aligned_dimensions
+from .aligned import validate_aligned_dimensions,MAX_SPECTRAL_CELLS
 from .closure_pipeline import process_closure_session
 
 
@@ -29,6 +29,9 @@ def plan_windows(config,window_count,step_s,start_offset_s,pilot_integrations,pi
     if abs(image_blocks*nf/fs-integration_s)>1e-9 or (image_blocks*nf)%4096:
         raise ValueError('image integration must contain whole VDIF frames and FFT blocks')
     validate_aligned_dimensions({**config,'blocks_per_integration':image_blocks},1)
+    stations=len(config['stations'])
+    if window_count*nf*stations*(stations-1)//2>MAX_SPECTRAL_CELLS:
+        raise ValueError('sequence exceeds one million spectral cells')
     if integration_s>span+1e-9:raise ValueError('image integration must be covered by each pilot')
     if step_s is None:step_s=span
     if step_s<max(span,integration_s)-1e-9:raise ValueError('sequence pilot windows must not overlap')

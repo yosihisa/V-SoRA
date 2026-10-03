@@ -5,7 +5,22 @@ from pathlib import Path
 import subprocess
 import sys
 from .jobs import write_json
-from .models import SimulationRequest,ValidationRequest,RmlRequest,AnalysisRequest,SynthesisRequest,SensitivityRequest
+from .models import SimulationRequest,ValidationRequest,RmlRequest,AnalysisRequest,SequenceRequest,SynthesisRequest,SensitivityRequest
+
+
+def plot_sequence_rates(result,path):
+    """Measured local rates only: scatter without interpolating between pilots."""
+    import matplotlib
+    matplotlib.use('Agg')
+    import matplotlib.pyplot as plt
+    windows=result['windows'];station_ids=windows[0]['rate_estimate']['station_ids']
+    fig,ax=plt.subplots(figsize=(7.5,3.7))
+    for index,station in enumerate(station_ids):
+        ax.scatter([row['rate_estimate']['time_reference_s'] for row in windows],
+                   [row['rate_estimate']['station_rates_hz'][index] for row in windows],label=station)
+    ax.set(xlabel='Seconds from observation UTC origin',ylabel='Relative station rate (Hz)',
+           title='Local pilot estimates (no interpolation)')
+    ax.grid(alpha=.2);ax.legend(ncol=len(station_ids));fig.tight_layout();fig.savefig(path,dpi=140);plt.close(fig)
 
 
 def layout(stations,kind):
@@ -37,7 +52,8 @@ def simulation_config(request):
 def run(job):
     data=json.loads((job/'request.json').read_text());workspace=Path(data['workspace'])
     raw=data['request'];request={'simulation':SimulationRequest,'validation':ValidationRequest,'rml':RmlRequest,
-                              'analysis':AnalysisRequest,'synthesis':SynthesisRequest,'sensitivity':SensitivityRequest}[raw['kind']](**raw)
+                              'analysis':AnalysisRequest,'sequence':SequenceRequest,
+                              'synthesis':SynthesisRequest,'sensitivity':SensitivityRequest}[raw['kind']](**raw)
     status=json.loads((job/'status.json').read_text())
     def phase(text,done=0):
         if (job/'cancel').exists(): raise InterruptedError('cancelled')
@@ -77,7 +93,7 @@ def run(job):
                 starts=request.starts,max_iterations=request.max_iterations,prior_fwhm_arcsec=request.prior_fwhm_arcsec,
                 entropy=request.entropy,tsv=request.tsv)
             write_json(job/'summary.json',result)
-        elif request.kind=='analysis':
+        elif request.kind in ('analysis','sequence'):
             from vsora_correlator.closure_pipeline import process_closure_session
             def input_path(value):
                 path=Path(value);path=path if path.is_absolute() else workspace/path
@@ -88,8 +104,22 @@ def run(job):
             messages={'aligned_pilot':'周波数差を推定しています','model_free_rate':'IQを補正して短積分相関を実行しています',
                       'rate_corrected_short_correlation':'Closureを取り出しています','closure_extraction':'RMLで相対画像を探しています',
                       'relative_rml':'入力と結果を保存しています'}
-            result=process_closure_session(input_path(request.manifest),input_path(request.clock_model),job/'analysis',
-                            progress=lambda step,done:phase(messages[step],done),**options)
+            if request.kind=='sequence':
+                from vsora_correlator.sequence import process_sequence
+                def sequence_progress(step,done):
+                    if step=='sequence_relative_rml':return phase('入力と結果を保存しています',done)
+                    window,label=step.split(':');index=int(window.removeprefix('window_'))
+                    text={'aligned_pilot':'局周波数差を推定しています',
+                          'model_free_rate':'IQを補正して短積分相関を実行しています',
+                          'rate_corrected_short_correlation':'区間の相関結果を保存しています'}[label]
+                    if done==3*request.window_count:text='複数区間のClosureからRML画像を探しています'
+                    phase(f'区間 {index+1}/{request.window_count}：{text}',done)
+                result=process_sequence(input_path(request.manifest),input_path(request.clock_model),job/'sequence',
+                                       progress=sequence_progress,**options)
+                plot_sequence_rates(result,job/'sequence/rates.png')
+            else:
+                result=process_closure_session(input_path(request.manifest),input_path(request.clock_model),job/'analysis',
+                                progress=lambda step,done:phase(messages[step],done),**options)
             write_json(job/'summary.json',result)
         elif request.kind=='sensitivity':
             from vsora_simulator.sensitivity import dish_area,sefd_from_area,write_plan
@@ -129,7 +159,19 @@ def run(job):
         status.update(state='complete',phase='処理完了');write_json(job/'status.json',status)
     except Exception as exc:
         message=str(exc)
-        translations={'disconnected':'周波数差を測れる基線が局間をつないでいません。pilotのSNRと局数を確認してください。',
+        if request.kind=='sequence' and (job/'sequence.partial/failure.json').is_file():
+            failure=json.loads((job/'sequence.partial/failure.json').read_text())
+            status['sequence_failure']={'completed_window_count':len(failure['completed_windows']),
+                'total_window_count':len(failure['planned_windows']),
+                'current_window_index':failure['current_window_index'],'phase':failure['phase']}
+        translations={'windows must not overlap':'区間の開始間隔がpilotより短くなっています。空欄で自動設定するか、間隔を広げてください。',
+            'covered by each pilot':'画像積分全体を各pilotで覆ってください。pilotの積分数か一回の積分を調整してください。',
+            'input ends':'必要な区間までVDIFがありません。開始時刻・区間数・間隔と記録時間を確認してください。',
+            'beyond VDIF record':'指定した開始時刻がVDIFの記録範囲を超えています。',
+            'input files changed':'処理中に入力ファイルが変更されました。収録済みの原本を固定して新しく実行してください。',
+            'input identity changed':'区間の間で原本の識別情報が変わりました。入力を固定して新しく実行してください。',
+            'one million spectral':'相関値の個数が参照実装の上限を超えます。区間数・pilot数かchannel数を減らしてください。',
+            'disconnected':'周波数差を測れる基線が局間をつないでいません。pilotのSNRと局数を確認してください。',
             'extrapolation':'画像積分がpilotの有効時間をはみ出しました。短い積分か有効期間を覆うpilotを設定してください。',
             'duplicate synthesis':'入力の観測時刻が重複しています。同じ露光を二度含めないよう入力を見直してください。',
             'overlapping synthesis':'入力の積分区間が重なっています。独立した短露光を選んでください。',

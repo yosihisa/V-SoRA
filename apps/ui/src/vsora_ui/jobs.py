@@ -17,6 +17,7 @@ LABELS={'simulation':'模擬観測と画像復元','quality':'雑音・電波妨
         'clock':'時計ずれの検証','fringe':'位相回転と再相関の検証','basic':'基本動作の自動試験',
         'closure':'Closureと短積分の検証','rml':'Closure＋RMLの模擬画像復元',
         'rate':'skyモデルを使わない周波数差の推定','analysis':'VDIFからClosure＋RMLで解析',
+        'sequence':'VDIFの短区間列と画像合成',
         'synthesis':'複数時刻のClosure＋RML合成','sensitivity':'短積分の感度計画'}
 
 
@@ -73,7 +74,8 @@ class JobManager:
             label=LABELS[request.kind] if request.kind!='validation' else LABELS[request.validation]
             status={'id':job_id,'label':label,'kind':request.kind,'state':'queued','phase':'実行待ち',
                     'created_utc':stamp.isoformat(),'completed_steps':0,
-                    'total_steps':5 if request.kind=='analysis' else (2 if request.kind=='simulation' else 1)}
+                    'total_steps':3*request.window_count+1 if request.kind=='sequence' else
+                                  (5 if request.kind=='analysis' else (2 if request.kind=='simulation' else 1))}
             write_json(directory/'status.json',status)
             self.futures[job_id]=self.executor.submit(self._run,job_id)
             return status

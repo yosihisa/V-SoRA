@@ -1,0 +1,28 @@
+{
+  "source_pytest": {
+    "passed": 169,
+    "warnings": 13248,
+    "elapsed_s": 118.28
+  },
+  "wheel_pytest": {
+    "passed": 169,
+    "warnings": 13248,
+    "elapsed_s": 120.85
+  },
+  "pip_check": "No broken requirements found",
+  "wheel": {
+    "bytes": 5438914,
+    "sha256": "9b3f65adb24b80a870e335f4e435568f1e1319f3792460a74a2e1ab07dfd1f6c"
+  },
+  "installed_browser_maximum_station_rate_error_per_window_hz": [
+    0.015869444298321156,
+    0.018340750492736646,
+    0.00768715828992228
+  ],
+  "main_gui": {
+    "active_jobs_before_restart": 0,
+    "http_status": 200,
+    "sequence_schema_loaded": true
+  },
+  "scope": "Synthetic point-noise VDIF; local WSL browser only; no hardware Cas A fidelity, Windows capture or hours throughput claim."
+}
