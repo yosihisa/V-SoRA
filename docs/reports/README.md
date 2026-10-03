@@ -66,4 +66,6 @@
 
 | 037 | [測定した線形rateのIQ補正](037-measured-linear-rate-correction.md) | source/wheel211件成功。4部分から推定した傾きで3秒相関、模擬点源の最小対照振幅比99.93%。実機・Cas A画像は未検証 |
 
+| 038 | [線形rateの日本語GUIと区間列](038-linear-rate-gui-sequence.md) | source/wheel216件成功。実GUIで選択・傾きσ・3区間RML・未判定停止。独立CLIの合成配列差0 |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。

@@ -44,8 +44,11 @@ def plan_windows(config,window_count,step_s,start_offset_s,pilot_integrations,pi
 def process_sequence(manifest,clock_model,output,*,window_count=3,step_s=None,start_offset_s=.002,
                      pilot_integrations=256,pilot_integration_s=None,integration_s=.3,max_rate_hz=100.,
                      starts=3,max_iterations=800,prior_fwhm_arcsec=240.,entropy=.01,tsv=.0001,progress=None,
-                     require_rate_consistency=False):
+                     require_rate_consistency=False,rate_model="constant"):
     if not isinstance(require_rate_consistency,bool):raise ValueError('require_rate_consistency bool required')
+    if rate_model not in ('constant','linear'):raise ValueError('rate_model must be constant or linear')
+    if rate_model=='linear' and require_rate_consistency:
+        raise ValueError('constant subpilot consistency requirement cannot be combined with linear rate correction')
     config=load_session(manifest)
     plan=plan_windows(config,window_count,step_s,start_offset_s,pilot_integrations,pilot_integration_s,integration_s)
     out=Path(output);partial=out.with_name(out.name+'.partial')
@@ -71,7 +74,7 @@ def process_sequence(manifest,clock_model,output,*,window_count=3,step_s=None,st
                 pilot_integrations=pilot_integrations,pilot_integration_s=pilot_integration_s,
                 start_offset_s=window['start_offset_s'],integration_s=integration_s,max_rate_hz=max_rate_hz,
                 correlation_only=True,_source_identity=source_identity,
-                require_rate_consistency=require_rate_consistency,
+                require_rate_consistency=require_rate_consistency,rate_model=rate_model,
                 progress=lambda label,done:phase(f'window_{index}:{label}'))
             unchanged()
             current={key:result[key] for key in ['input_manifest_sha256','input_clock_sha256','input_observation_sha256','input_vdif']}
@@ -93,7 +96,7 @@ def process_sequence(manifest,clock_model,output,*,window_count=3,step_s=None,st
         result={**state,'state':'complete','current_window_index':None,**identity,'windows':records,
                 'rate_consistency':{'state':aggregate,'window_counts':{s:diagnoses.count(s) for s in ('consistent','variation_detected','unverified')},
                                     'coherence_stability_measured':False},
-                'rate_consistency_policy':'required' if require_rate_consistency else 'report',
+                'rate_model':rate_model,'rate_consistency_policy':'required' if require_rate_consistency else 'report',
                 'input_identity':source_identity.diagnostics,
                 'closures':synthesis['closures'],'rml':synthesis['rml'],'synthesis':synthesis['synthesis'],
                 'window_step_s':plan[1]['start_offset_s']-plan[0]['start_offset_s'],
@@ -101,7 +104,7 @@ def process_sequence(manifest,clock_model,output,*,window_count=3,step_s=None,st
                 'effective_exposure_per_baseline_s':synthesis['synthesis']['exposure_per_baseline_s'],
                 'selected_pilot_start_to_end_span_s':plan[-1]['pilot_end_s']-plan[0]['start_offset_s'],
                 'inputs_stat_unchanged':True,'absolute_flux_measured':False,'absolute_position_measured':False,
-                'limits':'Each <=3s pilot has constant sky/gain/rate; supplied linear sample clocks, no within-window nonlinear LO recovery. Nonoverlapping windows, independent noise approximation, high-SNR closures, <=64 windows. Fresh full original hashes shared in this run, ordinary stat guards; no hours-scale throughput claim.'}
+                'limits':'Each <=3s pilot has constant sky/gain and selected constant or smooth linear relative LO model; supplied linear sample clocks. No arbitrary phase-noise recovery. Nonoverlapping windows, independent noise approximation, high-SNR closures, <=64 windows. Fresh full original hashes shared in this run, ordinary stat guards; no hours-scale throughput claim.'}
         (partial/'sequence.json').write_text(json.dumps(result,indent=2)+'\n')
         (partial/'summary.json').write_text(json.dumps(result,indent=2)+'\n');partial.rename(out);return result
     except Exception as exc:
@@ -117,6 +120,7 @@ def main():
     p.add_argument('--start-offset-s',type=float,default=.002);p.add_argument('--pilot-integrations',type=int,default=256)
     p.add_argument('--pilot-integration-s',type=float);p.add_argument('--integration-s',type=float,default=.3)
     p.add_argument('--max-rate-hz',type=float,default=100.);p.add_argument('--starts',type=int,default=3)
+    p.add_argument('--rate-model',choices=['constant','linear'],default='constant')
     p.add_argument('--require-rate-consistency',action='store_true')
     p.add_argument('--max-iterations',type=int,default=800);p.add_argument('--prior-fwhm-arcsec',type=float,default=240.)
     p.add_argument('--entropy',type=float,default=.01);p.add_argument('--tsv',type=float,default=.0001)

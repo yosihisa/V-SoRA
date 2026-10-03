@@ -66,11 +66,19 @@ class AnalysisRequest(Request):
     integration_s:Literal[.1,.3,1.,3.]=.3
     max_rate_hz:float=Field(default=100,gt=0,le=10000)
     require_rate_consistency:bool=Field(default=False,strict=True)
+    rate_model:Literal['constant','linear']='constant'
     prior_fwhm_arcsec:float=Field(default=240,ge=40,le=500)
     entropy:float=Field(default=.01,ge=0,le=1)
     tsv:float=Field(default=.0001,ge=0,le=.01)
     starts:int=Field(default=3,ge=1,le=5,strict=True)
     max_iterations:int=Field(default=800,ge=100,le=2000,strict=True)
+
+
+    @model_validator(mode='after')
+    def rate_policy(self):
+        if self.rate_model=='linear' and self.require_rate_consistency:
+            raise ValueError('線形モデルと一定rate整合の必須指定は同時に使えません。線形モデル自身の適合は必ず確認します')
+        return self
 
 
 class SequenceRequest(AnalysisRequest):

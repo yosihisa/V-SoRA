@@ -105,6 +105,8 @@
               <div class="form-row"><label>entropy<input name="entropy" type="number" value="0.01" min="0" max="1" step="any"></label><label>滑らかさTSV<input name="tsv" type="number" value="0.0001" min="0" max="0.01" step="any"></label></div>
               <div class="form-row"><label>初期値の数<input name="starts" type="number" value="3" min="1" max="5"></label><label>最終反復上限<input name="max_iterations" type="number" value="800" min="100" max="2000"></label></div>
             </div></details>
+            <label>局周波数差の補正モデル<select name="rate_model"><option value="constant">一定rate（初期値）</option><option value="linear">滑らかな線形rate（時間に比例する変動）</option></select></label>
+            <p class="muted">線形モデルは4部分の測定から傾きを求め、平均前のIQへ補正します。高速な位相揺れや実機の安定性を保証する指定ではありません。</p>
             <label class="check-label"><input name="require_rate_consistency" type="checkbox">4分割のrate整合を必須にする</label>
             <p class="field-help">変動検出や未判定なら画像化前に停止します。未指定でも診断は記録します。整合していても速い位相揺れやcoherenceは保証できません。</p>
             <button type="submit" class="primary full">VDIFを解析して相対画像を作成</button>
@@ -135,6 +137,8 @@
               <div class="form-row"><label>entropy<input name="entropy" type="number" value="0.01" min="0" max="1" step="any"></label><label>滑らかさTSV<input name="tsv" type="number" value="0.0001" min="0" max="0.01" step="any"></label></div>
               <div class="form-row"><label>初期値の数<input name="starts" type="number" value="3" min="1" max="5"></label><label>最終反復上限<input name="max_iterations" type="number" value="800" min="100" max="2000"></label></div>
             </div></details>
+            <label>局周波数差の補正モデル<select name="rate_model"><option value="constant">一定rate（初期値）</option><option value="linear">滑らかな線形rate（時間に比例する変動）</option></select></label>
+            <p class="muted">線形モデルは4部分の測定から傾きを求め、平均前のIQへ補正します。高速な位相揺れや実機の安定性を保証する指定ではありません。</p>
             <label class="check-label"><input name="require_rate_consistency" type="checkbox">4分割のrate整合を必須にする</label>
             <p class="field-help">変動検出や未判定なら画像化前に停止します。未指定でも診断は記録します。整合していても速い位相揺れやcoherenceは保証できません。</p>
             <button type="submit" class="primary full">複数区間のVDIFをまとめて画像化</button>

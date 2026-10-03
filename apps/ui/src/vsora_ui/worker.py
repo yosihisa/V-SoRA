@@ -19,15 +19,20 @@ def plot_sequence_rates(result,path):
         color=f'C{index}'
         ax.scatter([row['rate_estimate']['time_reference_s'] for row in windows],
                    [row['rate_estimate']['station_rates_hz'][index] for row in windows],label=station,color=color)
+        for row in windows:
+            model=row['rate_estimate']
+            if model['type']=='station_rate_linear':
+                lo,hi=model['valid_time_range_s'];epoch=model['time_reference_s']
+                ax.plot([lo,hi],[model['station_rates_hz'][index]+model['station_rate_slopes_hz_per_s'][index]*(t-epoch) for t in (lo,hi)],color=color,linewidth=.8)
         parts=[p for row in windows for p in (row.get('rate_consistency') or {}).get('subpilots',[]) if p['state']=='complete']
         ax.scatter([p['time_reference_s'] for p in parts],[p['station_rates_hz'][index] for p in parts],
                    color=color,marker='x',s=18,alpha=.7)
     ax.set(xlabel='Seconds from observation UTC origin',ylabel='Relative station rate (Hz)',
-           title='Pilot (circle) and four-part rates (x), no interpolation')
+           title='Pilot (circle), subparts (x), selected linear model within pilot')
     ax.grid(alpha=.2);ax.legend(ncol=len(station_ids));fig.tight_layout();fig.savefig(path,dpi=140);plt.close(fig)
 
 
-def plot_rate_parts(diagnosis,path):
+def plot_rate_parts(diagnosis,path,model=None):
     parts=[p for p in diagnosis.get('subpilots',[]) if p['state']=='complete']
     if not parts:return
     import matplotlib
@@ -35,7 +40,11 @@ def plot_rate_parts(diagnosis,path):
     import matplotlib.pyplot as plt
     fig,ax=plt.subplots(figsize=(7.5,3.7))
     for index,station in enumerate(diagnosis['station_ids']):
-        ax.scatter([p['time_reference_s'] for p in parts],[p['station_rates_hz'][index] for p in parts],label=station)
+        color=f'C{index}'
+        ax.scatter([p['time_reference_s'] for p in parts],[p['station_rates_hz'][index] for p in parts],label=station,color=color)
+        if model and model.get('type')=='station_rate_linear':
+            lo,hi=model['valid_time_range_s'];epoch=model['time_reference_s']
+            ax.plot([lo,hi],[model['station_rates_hz'][index]+model['station_rate_slopes_hz_per_s'][index]*(t-epoch) for t in (lo,hi)],color=color,linewidth=.8)
     ax.set(xlabel='Seconds from observation UTC origin',ylabel='Relative station rate (Hz)',
            title='Four-part pilot rates; consistency does not prove coherence')
     ax.grid(alpha=.2);ax.legend(ncol=len(diagnosis['station_ids']));fig.tight_layout();fig.savefig(path,dpi=140);plt.close(fig)
@@ -138,7 +147,7 @@ def run(job):
             else:
                 result=process_closure_session(input_path(request.manifest),input_path(request.clock_model),job/'analysis',
                                 progress=lambda step,done:phase(messages[step],done),**options)
-                plot_rate_parts(result['rate_consistency'],job/'analysis/rate-parts.png')
+                plot_rate_parts(result['rate_consistency'],job/'analysis/rate-parts.png',result['rate_estimate'])
             write_json(job/'summary.json',result)
         elif request.kind=='sensitivity':
             from vsora_simulator.sensitivity import dish_area,sefd_from_area,write_plan
@@ -192,7 +201,11 @@ def run(job):
                 status['rate_consistency']=failure['rate_consistency']
                 try:plot_rate_parts(failure['rate_consistency'],job/'rate-parts.png')
                 except Exception:status['diagnostic_plot_unavailable']=True
-        translations={'required subpilot rate consistency':'分割rateの整合を必須にしたため停止しました。変動検出または未判定の診断を確認し、pilotと積分の長さ・感度を見直してください。',
+        translations={'four verified subpilot':'線形モデルに必要な4部分の推定が揃いません。pilotの長さと感度を確認してください。',
+            'inconsistent with a linear rate model':'分割rateが線形モデルと整合しません。pilotと積分を短くした比較、実機の位相変動を確認してください。',
+            'curvature too large within subpilot':'各部分内の変動が大きすぎます。pilotの刻み・全長と積分を見直してください。',
+            'outside supplied baseline rate bound':'線形モデルの端で基線周波数差が探索範囲を超えました。装置の初期差とpilot条件を確認してください。',
+            'required subpilot rate consistency':'分割rateの整合を必須にしたため停止しました。変動検出または未判定の診断を確認し、pilotと積分の長さ・感度を見直してください。',
             'windows must not overlap':'区間の開始間隔がpilotより短くなっています。空欄で自動設定するか、間隔を広げてください。',
             'covered by each pilot':'画像積分全体を各pilotで覆ってください。pilotの積分数か一回の積分を調整してください。',
             'input ends':'必要な区間までVDIFがありません。開始時刻・区間数・間隔と記録時間を確認してください。',

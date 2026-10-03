@@ -125,3 +125,9 @@ window内の一定LO/gain、実sample時計の線形対応、初期差の探索�
 `correlate-aligned --rate-profile rate-linear.json` でも適用できる。基準局との差を `(rate * τ + 0.5 * slope * τ²)` cyclesとしてIQから除く。τはqueryした電圧のphysical timeからprofile epochを引いた秒。幾何補正は従来どおり。`rate_applied_slopes_hz_per_s` と `rate_profile_type` をmetadataへ残す。一定rate経路も相関数値は従来の式を使う。線形モデルの範囲外延長、補正済みLOのpilotへの重ね掛け推定は拒否する。
 
 `--require-rate-consistency` は一定rateの整合を必須にする指定なので、線形補正との同時指定は拒否する。線形モデル自体の適合確認は常に必要。部分内の位相振動、alias、共通局rate、未知sky/gain変化は残る。モデル適合を位相安定の保証に置き換えない。
+
+## GUI・区間列のモデル選択（段階038）
+
+`vsora-sequence --rate-model linear` とGUIの補正モデル選択を追加した。各子区間へ `rate_model` を渡し、parent summaryへ保存する。各windowの `rate_estimate` に傾き・共分散・model適合を残す。window間のモデル補間はしない。原本SHAの共有と `.partial` の失敗位置記録は従来の規約を使う。
+
+UI/APIは `rate_model=constant/linear` のみ受け付け、線形モデルと一定rate整合必須の同時指定を拒否する。GUIは線形選択時に対応checkboxを外して無効化する。モデル不成立・情報不足を日本語で表示し、途中品を完成画像と扱わない。結果の近似σ・χ²・計算coherenceはFisher Gaussian等の仮定付きで、実機coherenceの保証ではない。

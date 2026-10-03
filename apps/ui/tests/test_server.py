@@ -224,3 +224,26 @@ def test_gui_required_rate_consistency_stops_before_image(tmp_path):
         assert not (tmp_path/'outputs/gui'/d['id']/'analysis.partial/correlation').exists()
         payload['require_rate_consistency']=1
         assert c.post('/api/jobs',json=payload,headers=HEADERS).status_code==422
+
+
+@pytest.mark.parametrize('kind,model,required',[
+    ('analysis','linear',True),('sequence','linear',True),('analysis','other',False),('sequence',True,False)])
+def test_invalid_rate_model_policy(tmp_path,kind,model,required):
+    with TestClient(create_app(tmp_path),base_url='http://127.0.0.1') as c:
+        r=c.post('/api/jobs',json={'kind':kind,'manifest':'m','clock_model':'c',
+             'rate_model':model,'require_rate_consistency':required},headers=HEADERS)
+        assert r.status_code==422 and c.get('/api/jobs').json()==[]
+
+
+def test_linear_sequence_gui_real_subprocess(tmp_path):
+    from workflows.vdif_closure_validation import make_fixture
+    make_fixture(tmp_path/'input',seed=38,frame_count=800,rate_slopes_hz_per_s=[0.,1.,-.5,1.5])
+    with TestClient(create_app(tmp_path),base_url='http://127.0.0.1') as c:
+        r=c.post('/api/jobs',json={'kind':'sequence','manifest':'input/manifest.json','clock_model':'input/clock.json',
+            'rate_model':'linear','window_count':3,'starts':1,'max_iterations':100},headers=HEADERS)
+        assert r.status_code==202
+        d=wait(c,r.json()['id'],90);assert d['state']=='complete',d
+        assert d['summary']['rate_model']=='linear'
+        assert all(w['rate_estimate']['type']=='station_rate_linear' for w in d['summary']['windows'])
+        assert d['summary']['nominal_image_exposure_per_station_s']==pytest.approx(.9)
+        assert c.get(f"/api/jobs/{d['id']}/artifacts/sequence/rates.png").status_code==200

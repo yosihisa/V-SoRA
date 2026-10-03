@@ -9,7 +9,7 @@ import tempfile
 import numpy as np
 
 
-def run(manifest,clock,reference,output):
+def run(manifest,clock,reference,output,rate_model="constant"):
     from vsora_correlator import sequence
     from vsora_formats.spectral import load_spectral
     if not Path(sequence.__file__).is_relative_to(Path(sys.prefix)):
@@ -21,7 +21,7 @@ def run(manifest,clock,reference,output):
         help_result=subprocess.run([binary,'--help'],cwd=directory,env=env,capture_output=True,text=True)
         assert help_result.returncode==0 and '--window-count' in help_result.stdout
         result=subprocess.run([binary,'--manifest',str(Path(manifest).resolve()),'--clock-model',str(Path(clock).resolve()),
-            '--window-count','3','--starts','1','--max-iterations','100','--output',str(out/'sequence')],
+            '--window-count','3','--rate-model',rate_model,'--starts','1','--max-iterations','100','--output',str(out/'sequence')],
             cwd=directory,env=env,capture_output=True,text=True)
         (out/'cli.log').write_text(result.stdout+result.stderr)
         if result.returncode:raise AssertionError('installed sequence failed; inspect local cli.log')
@@ -35,7 +35,7 @@ def run(manifest,clock,reference,output):
         np.testing.assert_array_equal(value,observed[key])
         if np.issubdtype(value.dtype,np.inexact):differences[key]=float(abs(value-observed[key]).max())
     result={'installed_import':True,'outside_checkout_entrypoint_help':True,'state':summary['state'],
-        'input_identity':summary['input_identity'],
+        'rate_model':summary['rate_model'],'input_identity':summary['input_identity'],
         'window_count':len(summary['windows']),'window_rates_hz':[w['rate_estimate']['station_rates_hz'] for w in summary['windows']],
         'nominal_image_exposure_per_station_s':summary['nominal_image_exposure_per_station_s'],
         'closures':summary['closures'],'image_sum':summary['rml']['image_sum'],
@@ -48,4 +48,5 @@ def run(manifest,clock,reference,output):
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--manifest',required=True);p.add_argument('--clock-model',required=True)
     p.add_argument('--reference',required=True);p.add_argument('--output',required=True)
-    a=p.parse_args();print(json.dumps(run(a.manifest,a.clock_model,a.reference,a.output),indent=2))
+    p.add_argument('--rate-model',choices=['constant','linear'],default='constant')
+    a=p.parse_args();print(json.dumps(run(a.manifest,a.clock_model,a.reference,a.output,a.rate_model),indent=2))

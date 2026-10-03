@@ -108,4 +108,4 @@ pilotを4分割して得た局周波数差を比較します。「変動検出�
 vsora-closure-session --manifest manifest.json --clock-model clock.json --pilot-integrations 1500 --integration-s 3 --rate-model linear --output outputs/new-linear-analysis
 ```
 
-この例はpilot2ms刻みの場合です。記録範囲・FFT・前後guard・感度は入力に合わせます。初期値は一定rateで、モデルが解けない場合は停止します。部分内の速い揺れは推定できません。適合した線形モデルを実OCXOの安定性測定と扱わず、[条件と検証](../reports/037-measured-linear-rate-correction.md)を確認してください。GUI・区間列の線形モデル選択は次段階です。
+この例はpilot2ms刻みの場合です。記録範囲・FFT・前後guard・感度は入力に合わせます。初期値は一定rateで、モデルが解けない場合は停止します。部分内の速い揺れは推定できません。適合した線形モデルを実OCXOの安定性測定と扱わず、[条件と検証](../reports/037-measured-linear-rate-correction.md)を確認してください。GUI・区間列の線形モデル選択は[段階038](../reports/038-linear-rate-gui-sequence.md)で追加しました。
