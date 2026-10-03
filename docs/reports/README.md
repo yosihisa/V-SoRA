@@ -60,4 +60,6 @@
 
 | 034 | [固定原本の識別情報共有](034-shared-input-identity.md) | source/wheel181件成功。全原本SHA読取12→4回、相関配列差0。JSON内容確認とVDIF stat検出限界を記録 |
 
+| 035 | [積分中の周波数変動とClosure](035-within-window-rate-drift.md) | source/wheel192件成功。中程度3秒は処理完了でも減衰・Closure偏り。強い変動は3秒停止、0.3秒で減衰縮小 |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。

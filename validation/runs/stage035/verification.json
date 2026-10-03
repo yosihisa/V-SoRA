@@ -1,0 +1,19 @@
+{
+  "source_pytest": {
+    "passed": 192,
+    "warnings": 14968,
+    "elapsed_s": 129.32
+  },
+  "wheel_pytest": {
+    "passed": 192,
+    "warnings": 14968,
+    "elapsed_s": 124.68
+  },
+  "pip_check": "No broken requirements found",
+  "wheel": {
+    "bytes": 5441712,
+    "sha256": "e084daf512686d02ec5fa97a146205d10670abfea5cc3a8b20a3367ff14995e5"
+  },
+  "supplemental_subpilot_execution": "Ran --diagnose-only on saved pilots after full tests; pilot SHA checked for completed cases. No IQ rerun or production diagnostic added.",
+  "scope": "One matched synthetic seed, deterministic linear LO drift, point sky. No real hardware, stochastic phase stability, curvature correction or image fidelity claim."
+}

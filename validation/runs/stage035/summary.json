@@ -1,0 +1,1132 @@
+{
+  "type": "within_window_rate_drift_validation",
+  "seed": 35,
+  "generating": {
+    "control": {
+      "seed": 35,
+      "generating_sky": "Common continuous band-limited Gaussian point at phase center, 1000Jy",
+      "generating_sefd_jy": 10000,
+      "true_rates_hz": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rate_slopes_hz_per_s": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rate_changes": [],
+      "input_samples_per_station": 6266880,
+      "recorded_span_s": 3.06,
+      "max_broadband_delay_phase_approximation_rad": 0.0001328714797653099,
+      "clock": "Supplied exact nominal clocks; zero sample offsets",
+      "band": "Continuous periodic Fourier realization, |f| <= 0.25 Fs; accepted |f| <= 0.2 Fs",
+      "limits": "No extended sky, nonlinear sample clock, stochastic LO phase noise, RFI or real receiver; optional generating linear rate slopes and steps; RF delay is piecewise linear over <=1s, broadband delay fixed at midpoint"
+    },
+    "moderate": {
+      "seed": 35,
+      "generating_sky": "Common continuous band-limited Gaussian point at phase center, 1000Jy",
+      "generating_sefd_jy": 10000,
+      "true_rates_hz": [
+        0.0,
+        17.3,
+        -11.7,
+        26.1
+      ],
+      "rate_slopes_hz_per_s": [
+        0.0,
+        0.1,
+        -0.05,
+        0.15
+      ],
+      "rate_changes": [],
+      "input_samples_per_station": 6266880,
+      "recorded_span_s": 3.06,
+      "max_broadband_delay_phase_approximation_rad": 0.0001328714797653099,
+      "clock": "Supplied exact nominal clocks; zero sample offsets",
+      "band": "Continuous periodic Fourier realization, |f| <= 0.25 Fs; accepted |f| <= 0.2 Fs",
+      "limits": "No extended sky, nonlinear sample clock, stochastic LO phase noise, RFI or real receiver; optional generating linear rate slopes and steps; RF delay is piecewise linear over <=1s, broadband delay fixed at midpoint"
+    },
+    "strong": {
+      "seed": 35,
+      "generating_sky": "Common continuous band-limited Gaussian point at phase center, 1000Jy",
+      "generating_sefd_jy": 10000,
+      "true_rates_hz": [
+        0.0,
+        17.3,
+        -11.7,
+        26.1
+      ],
+      "rate_slopes_hz_per_s": [
+        0.0,
+        1.0,
+        -0.5,
+        1.5
+      ],
+      "rate_changes": [],
+      "input_samples_per_station": 6266880,
+      "recorded_span_s": 3.06,
+      "max_broadband_delay_phase_approximation_rad": 0.0001328714797653099,
+      "clock": "Supplied exact nominal clocks; zero sample offsets",
+      "band": "Continuous periodic Fourier realization, |f| <= 0.25 Fs; accepted |f| <= 0.2 Fs",
+      "limits": "No extended sky, nonlinear sample clock, stochastic LO phase noise, RFI or real receiver; optional generating linear rate slopes and steps; RF delay is piecewise linear over <=1s, broadband delay fixed at midpoint"
+    }
+  },
+  "phase_model_cycles": "r0*t + 0.5*a*t^2; r0 Hz, a Hz/s; supplied exact nominal sample clocks",
+  "analytic_centered_cases": [
+    {
+      "integration_s": 0.1,
+      "baseline_rate_slope_hz_per_s": 0.01,
+      "best_centered_coherence": 0.9999999997258444
+    },
+    {
+      "integration_s": 0.1,
+      "baseline_rate_slope_hz_per_s": 0.1,
+      "best_centered_coherence": 0.9999999725844325
+    },
+    {
+      "integration_s": 0.1,
+      "baseline_rate_slope_hz_per_s": 1.0,
+      "best_centered_coherence": 0.9999972584459064
+    },
+    {
+      "integration_s": 0.1,
+      "baseline_rate_slope_hz_per_s": 10.0,
+      "best_centered_coherence": 0.9997258711649455
+    },
+    {
+      "integration_s": 0.3,
+      "baseline_rate_slope_hz_per_s": 0.01,
+      "best_centered_coherence": 0.9999999777933902
+    },
+    {
+      "integration_s": 0.3,
+      "baseline_rate_slope_hz_per_s": 0.1,
+      "best_centered_coherence": 0.9999977793407708
+    },
+    {
+      "integration_s": 0.3,
+      "baseline_rate_slope_hz_per_s": 1.0,
+      "best_centered_coherence": 0.9997779515125783
+    },
+    {
+      "integration_s": 0.3,
+      "baseline_rate_slope_hz_per_s": 10.0,
+      "best_centered_coherence": 0.977969203935297
+    },
+    {
+      "integration_s": 1.0,
+      "baseline_rate_slope_hz_per_s": 0.01,
+      "best_centered_coherence": 0.9999972584459064
+    },
+    {
+      "integration_s": 1.0,
+      "baseline_rate_slope_hz_per_s": 0.1,
+      "best_centered_coherence": 0.9997258711649455
+    },
+    {
+      "integration_s": 1.0,
+      "baseline_rate_slope_hz_per_s": 1.0,
+      "best_centered_coherence": 0.9728522926333484
+    },
+    {
+      "integration_s": 1.0,
+      "baseline_rate_slope_hz_per_s": 10.0,
+      "best_centered_coherence": 0.36113710252879666
+    },
+    {
+      "integration_s": 3.0,
+      "baseline_rate_slope_hz_per_s": 0.01,
+      "best_centered_coherence": 0.9997779515125783
+    },
+    {
+      "integration_s": 3.0,
+      "baseline_rate_slope_hz_per_s": 0.1,
+      "best_centered_coherence": 0.977969203935297
+    },
+    {
+      "integration_s": 3.0,
+      "baseline_rate_slope_hz_per_s": 1.0,
+      "best_centered_coherence": 0.33596190264925185
+    },
+    {
+      "integration_s": 3.0,
+      "baseline_rate_slope_hz_per_s": 10.0,
+      "best_centered_coherence": 0.11048975324585261
+    }
+  ],
+  "analytic_centered_limits": [
+    {
+      "integration_s": 0.1,
+      "baseline_drift_hz_per_s_at_90pct_centered_coherence": 194.59918749331496
+    },
+    {
+      "integration_s": 0.3,
+      "baseline_drift_hz_per_s_at_90pct_centered_coherence": 21.622131943701667
+    },
+    {
+      "integration_s": 1.0,
+      "baseline_drift_hz_per_s_at_90pct_centered_coherence": 1.94599187493315
+    },
+    {
+      "integration_s": 3.0,
+      "baseline_drift_hz_per_s_at_90pct_centered_coherence": 0.21622131943701667
+    }
+  ],
+  "actual_vdif_cases": [
+    {
+      "case": "control-3s",
+      "integration_s": 3.0,
+      "pilot_span_s": 3.0,
+      "generating_rate_slopes_hz_per_s": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "state": "complete",
+      "completed_steps": [
+        "aligned_pilot",
+        "model_free_rate",
+        "rate_corrected_short_correlation"
+      ],
+      "estimated_station_rates_hz": [
+        0.0,
+        -0.00021333320694800958,
+        -0.0005199157436174604,
+        -0.0003185873295172392
+      ],
+      "rate_reference_s": 1.502,
+      "true_station_rates_at_pilot_reference_hz": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "baseline_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "measured_amplitude_ratio_to_same_noise_control": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "calculated_coherence_for_estimated_rates": [
+        0.9999993262359407,
+        0.9999959981904145,
+        0.9999984973846959,
+        0.9999986084921854,
+        0.9999998359904211,
+        0.9999993999311659
+      ],
+      "maximum_amplitude_ratio_minus_calculated_coherence": 4.001809585485461e-06,
+      "closures": {
+        "phase": {
+          "valid_count": 52,
+          "measured_rms": 0.02771581656619922,
+          "predicted_rms": 0.0,
+          "rms_difference_from_predicted": 0.02771581656619922
+        },
+        "logamp": {
+          "valid_count": 26,
+          "measured_rms": 0.032729451162246244,
+          "predicted_rms": 2.3440322651587195e-06,
+          "rms_difference_from_predicted": 0.03272912368940783
+        }
+      },
+      "rate_estimate": {
+        "schema_version": 1,
+        "type": "station_rate_only",
+        "station_indices": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "station_rates_hz": [
+          0.0,
+          -0.00021333320694800958,
+          -0.0005199157436174604,
+          -0.0003185873295172392
+        ],
+        "reference_station": 0,
+        "time_reference_s": 1.502,
+        "valid_time_range_s": [
+          0.003,
+          3.001
+        ],
+        "sample_cadence_s": 0.002,
+        "max_baseline_rate_hz": 100.0,
+        "temporal_nyquist_hz": 250.0,
+        "initial_baseline_rate_bound_externally_required": true,
+        "baseline_estimates": [
+          {
+            "pair": [
+              0,
+              1
+            ],
+            "accepted": true,
+            "rate_hz": 0.0007852683903583883,
+            "coherent_snr": 200.9403146730187,
+            "noise_peak_z": 5599.2838509411795,
+            "channels": 13,
+            "rate_sigma_hz": 0.00091394030348027
+          },
+          {
+            "pair": [
+              0,
+              2
+            ],
+            "accepted": true,
+            "rate_hz": 0.0001809976796877036,
+            "coherent_snr": 201.51311760018626,
+            "noise_peak_z": 5631.252125199748,
+            "channels": 13,
+            "rate_sigma_hz": 0.000911414623368266
+          },
+          {
+            "pair": [
+              0,
+              3
+            ],
+            "accepted": true,
+            "rate_hz": 8.646596681166844e-05,
+            "coherent_snr": 200.56317987083258,
+            "noise_peak_z": 5578.285544520985,
+            "channels": 13,
+            "rate_sigma_hz": 0.0009158861144367008
+          },
+          {
+            "pair": [
+              1,
+              2
+            ],
+            "accepted": true,
+            "rate_hz": 0.0009292539670074869,
+            "coherent_snr": 198.23945226935643,
+            "noise_peak_z": 5449.774172327805,
+            "channels": 13,
+            "rate_sigma_hz": 0.0009262941386657656
+          },
+          {
+            "pair": [
+              1,
+              3
+            ],
+            "accepted": true,
+            "rate_hz": 7.120374680111878e-05,
+            "coherent_snr": 201.496220751174,
+            "noise_peak_z": 5630.307805258025,
+            "channels": 13,
+            "rate_sigma_hz": 0.0009114317903217558
+          },
+          {
+            "pair": [
+              2,
+              3
+            ],
+            "accepted": true,
+            "rate_hz": 6.294918251901563e-05,
+            "coherent_snr": 201.37663117513029,
+            "noise_peak_z": 5623.626525492395,
+            "channels": 13,
+            "rate_sigma_hz": 0.0009120500373056014
+          }
+        ],
+        "station_covariance_hz2": [
+          [
+            4.186913615336024e-07,
+            2.070696623595436e-07,
+            2.0926484273004274e-07
+          ],
+          [
+            2.0706966235954363e-07,
+            4.178851158164626e-07,
+            2.0889951013971308e-07
+          ],
+          [
+            2.0926484273004274e-07,
+            2.0889951013971305e-07,
+            4.177362169698333e-07
+          ]
+        ],
+        "covariance_station_order": [
+          1,
+          2,
+          3
+        ],
+        "reduced_rate_chisq": 0.3771197273051547,
+        "accepted_baselines": 6,
+        "absolute_common_rate_measured": false,
+        "amplitude_or_sky_phase_calibration": false,
+        "model": "Unknown constant complex visibility per baseline/channel; temporal phase rate only",
+        "limits": "Short stable sky/gain; circular independent baseline/channel noise; no low SNR or clock drift inference; out-of-Nyquist rates can alias undetectably; initial LO bound is an external assumption",
+        "residual_station_rates_hz": [
+          0.0,
+          -0.00021333320694800958,
+          -0.0005199157436174604,
+          -0.0003185873295172392
+        ],
+        "station_ids": [
+          "ST01",
+          "ST02",
+          "ST03",
+          "ST04"
+        ],
+        "time_origin_utc": "2026-10-02T08:00:00.000Z",
+        "input_sha256": "4b523de2b4a3c808cd2874f394631b902d80bf29ccabcb3b08bda7cd5732e6a2"
+      },
+      "limits": "Control uses matched seed/common sky/noise and zero LO. Quantization/filter/channelization differ; ratios are validation diagnostics, unavailable for unknown real sky."
+    },
+    {
+      "case": "control-short",
+      "integration_s": 0.3,
+      "pilot_span_s": 0.512,
+      "generating_rate_slopes_hz_per_s": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "state": "complete",
+      "completed_steps": [
+        "aligned_pilot",
+        "model_free_rate",
+        "rate_corrected_short_correlation"
+      ],
+      "estimated_station_rates_hz": [
+        0.0,
+        -0.00041191578471632756,
+        -0.007736571112198939,
+        0.0052002320185953
+      ],
+      "rate_reference_s": 0.258,
+      "true_station_rates_at_pilot_reference_hz": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "baseline_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "measured_amplitude_ratio_to_same_noise_control": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "calculated_coherence_for_estimated_rates": [
+        0.9999999748806805,
+        0.999991138915184,
+        0.999995996536026,
+        0.9999920573695599,
+        0.9999953371805713,
+        0.9999752233997028
+      ],
+      "maximum_amplitude_ratio_minus_calculated_coherence": 2.4776600297204965e-05,
+      "closures": {
+        "phase": {
+          "valid_count": 52,
+          "measured_rms": 0.07199699992210691,
+          "predicted_rms": 0.0,
+          "rms_difference_from_predicted": 0.07199699992210691
+        },
+        "logamp": {
+          "valid_count": 26,
+          "measured_rms": 0.08267256612459345,
+          "predicted_rms": 1.209274341425375e-05,
+          "rms_difference_from_predicted": 0.08267605801140863
+        }
+      },
+      "rate_estimate": {
+        "schema_version": 1,
+        "type": "station_rate_only",
+        "station_indices": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "station_rates_hz": [
+          0.0,
+          -0.00041191578471632756,
+          -0.007736571112198939,
+          0.0052002320185953
+        ],
+        "reference_station": 0,
+        "time_reference_s": 0.258,
+        "valid_time_range_s": [
+          0.003,
+          0.513
+        ],
+        "sample_cadence_s": 0.002,
+        "max_baseline_rate_hz": 100.0,
+        "temporal_nyquist_hz": 250.0,
+        "initial_baseline_rate_bound_externally_required": true,
+        "baseline_estimates": [
+          {
+            "pair": [
+              0,
+              1
+            ],
+            "accepted": true,
+            "rate_hz": 0.013253406140921613,
+            "coherent_snr": 82.70784862740628,
+            "noise_peak_z": 948.6189076167907,
+            "channels": 13,
+            "rate_sigma_hz": 0.012988057120772473
+          },
+          {
+            "pair": [
+              0,
+              2
+            ],
+            "accepted": true,
+            "rate_hz": -0.00217313027671596,
+            "coherent_snr": 82.78420091240855,
+            "noise_peak_z": 950.3711633977665,
+            "channels": 13,
+            "rate_sigma_hz": 0.012987220445152917
+          },
+          {
+            "pair": [
+              0,
+              3
+            ],
+            "accepted": true,
+            "rate_hz": -0.00804823404232937,
+            "coherent_snr": 83.97798888385805,
+            "noise_peak_z": 977.9784113692633,
+            "channels": 13,
+            "rate_sigma_hz": 0.012803908951623384
+          },
+          {
+            "pair": [
+              1,
+              2
+            ],
+            "accepted": true,
+            "rate_hz": 0.01805095836132614,
+            "coherent_snr": 81.1805527194036,
+            "noise_peak_z": 913.9076990355352,
+            "channels": 13,
+            "rate_sigma_hz": 0.013231743227522198
+          },
+          {
+            "pair": [
+              1,
+              3
+            ],
+            "accepted": true,
+            "rate_hz": -0.003109000743831159,
+            "coherent_snr": 82.78027973711032,
+            "noise_peak_z": 950.2811345364096,
+            "channels": 13,
+            "rate_sigma_hz": 0.01297901213067092
+          },
+          {
+            "pair": [
+              2,
+              3
+            ],
+            "accepted": true,
+            "rate_hz": -0.012513760051560172,
+            "coherent_snr": 82.891031553759,
+            "noise_peak_z": 952.8255996251321,
+            "channels": 13,
+            "rate_sigma_hz": 0.012975305752709703
+          }
+        ],
+        "station_covariance_hz2": [
+          [
+            8.441915346413328e-05,
+            4.1476817024967145e-05,
+            4.158358600514034e-05
+          ],
+          [
+            4.147681702496715e-05,
+            8.440880317119907e-05,
+            4.1588268838389995e-05
+          ],
+          [
+            4.158358600514035e-05,
+            4.158826883839e-05,
+            8.310476821911017e-05
+          ]
+        ],
+        "covariance_station_order": [
+          1,
+          2,
+          3
+        ],
+        "reduced_rate_chisq": 0.768222257907611,
+        "accepted_baselines": 6,
+        "absolute_common_rate_measured": false,
+        "amplitude_or_sky_phase_calibration": false,
+        "model": "Unknown constant complex visibility per baseline/channel; temporal phase rate only",
+        "limits": "Short stable sky/gain; circular independent baseline/channel noise; no low SNR or clock drift inference; out-of-Nyquist rates can alias undetectably; initial LO bound is an external assumption",
+        "residual_station_rates_hz": [
+          0.0,
+          -0.00041191578471632756,
+          -0.007736571112198939,
+          0.0052002320185953
+        ],
+        "station_ids": [
+          "ST01",
+          "ST02",
+          "ST03",
+          "ST04"
+        ],
+        "time_origin_utc": "2026-10-02T08:00:00.000Z",
+        "input_sha256": "f1cbdd60c5ececede8a08b99542bc3f89839213b7f6134922d322bb2bc256cad"
+      },
+      "limits": "Control uses matched seed/common sky/noise and zero LO. Quantization/filter/channelization differ; ratios are validation diagnostics, unavailable for unknown real sky."
+    },
+    {
+      "case": "moderate-3s",
+      "integration_s": 3.0,
+      "pilot_span_s": 3.0,
+      "generating_rate_slopes_hz_per_s": [
+        0.0,
+        0.1,
+        -0.05,
+        0.15
+      ],
+      "state": "complete",
+      "completed_steps": [
+        "aligned_pilot",
+        "model_free_rate",
+        "rate_corrected_short_correlation"
+      ],
+      "estimated_station_rates_hz": [
+        0.0,
+        17.449748000927553,
+        -11.775821515855867,
+        26.32477774588199
+      ],
+      "rate_reference_s": 1.502,
+      "true_station_rates_at_pilot_reference_hz": [
+        0.0,
+        17.450200000000002,
+        -11.7751,
+        26.325300000000002
+      ],
+      "baseline_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "measured_amplitude_ratio_to_same_noise_control": [
+        0.9767434695697148,
+        0.9942956780471129,
+        0.9520040988308448,
+        0.9501912670590138,
+        0.9949203148208985,
+        0.9170751211878438
+      ],
+      "calculated_coherence_for_estimated_rates": [
+        0.9779662842897787,
+        0.9944517103619481,
+        0.9509195774528106,
+        0.9509223103499604,
+        0.994459277724812,
+        0.9139720892563977
+      ],
+      "maximum_amplitude_ratio_minus_calculated_coherence": 0.0031030319314461208,
+      "closures": {
+        "phase": {
+          "valid_count": 52,
+          "measured_rms": 0.02962470530674151,
+          "predicted_rms": 0.0037669860327704794,
+          "rms_difference_from_predicted": 0.03024292080155125
+        },
+        "logamp": {
+          "valid_count": 26,
+          "measured_rms": 0.07773805725675666,
+          "predicted_rms": 0.07196730663827465,
+          "rms_difference_from_predicted": 0.03189876791703006
+        }
+      },
+      "rate_estimate": {
+        "schema_version": 1,
+        "type": "station_rate_only",
+        "station_indices": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "station_rates_hz": [
+          0.0,
+          17.449748000927553,
+          -11.775821515855867,
+          26.32477774588199
+        ],
+        "reference_station": 0,
+        "time_reference_s": 1.502,
+        "valid_time_range_s": [
+          0.003,
+          3.001
+        ],
+        "sample_cadence_s": 0.002,
+        "max_baseline_rate_hz": 100.0,
+        "temporal_nyquist_hz": 250.0,
+        "initial_baseline_rate_bound_externally_required": true,
+        "baseline_estimates": [
+          {
+            "pair": [
+              0,
+              1
+            ],
+            "accepted": true,
+            "rate_hz": -17.44916299276318,
+            "coherent_snr": 195.89201436906396,
+            "noise_peak_z": 5321.4721358568595,
+            "channels": 13,
+            "rate_sigma_hz": 0.000937468157533142
+          },
+          {
+            "pair": [
+              0,
+              2
+            ],
+            "accepted": true,
+            "rate_hz": 11.77533348660118,
+            "coherent_snr": 200.21756060045215,
+            "noise_peak_z": 5559.076616881149,
+            "channels": 13,
+            "rate_sigma_hz": 0.0009173077086363729
+          },
+          {
+            "pair": [
+              0,
+              3
+            ],
+            "accepted": true,
+            "rate_hz": -26.324857754196227,
+            "coherent_snr": 190.07787091848706,
+            "noise_peak_z": 5010.273638149219,
+            "channels": 13,
+            "rate_sigma_hz": 0.0009663869802505902
+          },
+          {
+            "pair": [
+              1,
+              2
+            ],
+            "accepted": true,
+            "rate_hz": 29.22634081998174,
+            "coherent_snr": 187.17687768264136,
+            "noise_peak_z": 4858.505795970672,
+            "channels": 13,
+            "rate_sigma_hz": 0.0009809981931358659
+          },
+          {
+            "pair": [
+              1,
+              3
+            ],
+            "accepted": true,
+            "rate_hz": -8.875143816375752,
+            "coherent_snr": 200.39311399671774,
+            "noise_peak_z": 5568.829434014048,
+            "channels": 13,
+            "rate_sigma_hz": 0.0009164515308477454
+          },
+          {
+            "pair": [
+              2,
+              3
+            ],
+            "accepted": true,
+            "rate_hz": -38.100376244419884,
+            "coherent_snr": 183.02289764497544,
+            "noise_peak_z": 4645.25096208103,
+            "channels": 13,
+            "rate_sigma_hz": 0.0010034441824755562
+          }
+        ],
+        "station_covariance_hz2": [
+          [
+            4.4288938565287204e-07,
+            2.1288882462238117e-07,
+            2.2698975512941685e-07
+          ],
+          [
+            2.1288882462238117e-07,
+            4.450771370374258e-07,
+            2.1370039274739827e-07
+          ],
+          [
+            2.2698975512941685e-07,
+            2.137003927473983e-07,
+            4.555141515676941e-07
+          ]
+        ],
+        "covariance_station_order": [
+          1,
+          2,
+          3
+        ],
+        "reduced_rate_chisq": 0.4541279954444412,
+        "accepted_baselines": 6,
+        "absolute_common_rate_measured": false,
+        "amplitude_or_sky_phase_calibration": false,
+        "model": "Unknown constant complex visibility per baseline/channel; temporal phase rate only",
+        "limits": "Short stable sky/gain; circular independent baseline/channel noise; no low SNR or clock drift inference; out-of-Nyquist rates can alias undetectably; initial LO bound is an external assumption",
+        "residual_station_rates_hz": [
+          0.0,
+          17.449748000927553,
+          -11.775821515855867,
+          26.32477774588199
+        ],
+        "station_ids": [
+          "ST01",
+          "ST02",
+          "ST03",
+          "ST04"
+        ],
+        "time_origin_utc": "2026-10-02T08:00:00.000Z",
+        "input_sha256": "436145e38eacafea46475458d922609799370e20e44b8b676c7e69a2097ede58"
+      },
+      "limits": "Control uses matched seed/common sky/noise and zero LO. Quantization/filter/channelization differ; ratios are validation diagnostics, unavailable for unknown real sky."
+    },
+    {
+      "case": "strong-3s",
+      "integration_s": 3.0,
+      "pilot_span_s": 3.0,
+      "generating_rate_slopes_hz_per_s": [
+        0.0,
+        1.0,
+        -0.5,
+        1.5
+      ],
+      "state": "incomplete",
+      "reason": "baseline rate estimates inconsistent with station rates",
+      "completed_steps": [
+        "aligned_pilot"
+      ]
+    },
+    {
+      "case": "strong-short",
+      "integration_s": 0.3,
+      "pilot_span_s": 0.512,
+      "generating_rate_slopes_hz_per_s": [
+        0.0,
+        1.0,
+        -0.5,
+        1.5
+      ],
+      "state": "complete",
+      "completed_steps": [
+        "aligned_pilot",
+        "model_free_rate",
+        "rate_corrected_short_correlation"
+      ],
+      "estimated_station_rates_hz": [
+        0.0,
+        17.556695904548654,
+        -11.8368608211045,
+        26.49214888660024
+      ],
+      "rate_reference_s": 0.258,
+      "true_station_rates_at_pilot_reference_hz": [
+        0.0,
+        17.558,
+        -11.828999999999999,
+        26.487000000000002
+      ],
+      "baseline_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "measured_amplitude_ratio_to_same_noise_control": [
+        0.9970087814444897,
+        0.9998955033765606,
+        0.9932376233780156,
+        0.9970974568712538,
+        1.000268608821129,
+        0.9934288168476993
+      ],
+      "calculated_coherence_for_estimated_rates": [
+        0.9981565622371302,
+        0.9993962615449672,
+        0.9955193181105603,
+        0.9954508198715525,
+        0.9994213273659184,
+        0.9916439438415033
+      ],
+      "maximum_amplitude_ratio_minus_calculated_coherence": 0.0022816947325446924,
+      "closures": {
+        "phase": {
+          "valid_count": 52,
+          "measured_rms": 0.07339668696438273,
+          "predicted_rms": 0.0001325645922626069,
+          "rms_difference_from_predicted": 0.07340055994898036
+        },
+        "logamp": {
+          "valid_count": 26,
+          "measured_rms": 0.0767910021898651,
+          "predicted_rms": 0.006456516049165956,
+          "rms_difference_from_predicted": 0.07817507780891196
+        }
+      },
+      "rate_estimate": {
+        "schema_version": 1,
+        "type": "station_rate_only",
+        "station_indices": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "station_rates_hz": [
+          0.0,
+          17.556695904548654,
+          -11.8368608211045,
+          26.49214888660024
+        ],
+        "reference_station": 0,
+        "time_reference_s": 0.258,
+        "valid_time_range_s": [
+          0.003,
+          0.513
+        ],
+        "sample_cadence_s": 0.002,
+        "max_baseline_rate_hz": 100.0,
+        "temporal_nyquist_hz": 250.0,
+        "initial_baseline_rate_bound_externally_required": true,
+        "baseline_estimates": [
+          {
+            "pair": [
+              0,
+              1
+            ],
+            "accepted": true,
+            "rate_hz": -17.5433197697657,
+            "coherent_snr": 82.3053134624076,
+            "noise_peak_z": 939.4076115688333,
+            "channels": 13,
+            "rate_sigma_hz": 0.013051144975198057
+          },
+          {
+            "pair": [
+              0,
+              2
+            ],
+            "accepted": true,
+            "rate_hz": 11.826617657132644,
+            "coherent_snr": 82.75334758602408,
+            "noise_peak_z": 949.6628966692549,
+            "channels": 13,
+            "rate_sigma_hz": 0.012992151400990644
+          },
+          {
+            "pair": [
+              0,
+              3
+            ],
+            "accepted": true,
+            "rate_hz": -26.495144497708488,
+            "coherent_snr": 82.98605573017414,
+            "noise_peak_z": 955.0114420110887,
+            "channels": 13,
+            "rate_sigma_hz": 0.012956070812724483
+          },
+          {
+            "pair": [
+              1,
+              2
+            ],
+            "accepted": true,
+            "rate_hz": 29.40257689793713,
+            "coherent_snr": 80.55394262186525,
+            "noise_peak_z": 899.8537499777638,
+            "channels": 13,
+            "rate_sigma_hz": 0.013334137005343498
+          },
+          {
+            "pair": [
+              1,
+              3
+            ],
+            "accepted": true,
+            "rate_hz": -8.93077085315735,
+            "coherent_snr": 82.78111662643829,
+            "noise_peak_z": 950.300348874961,
+            "channels": 13,
+            "rate_sigma_hz": 0.012978388121912262
+          },
+          {
+            "pair": [
+              2,
+              3
+            ],
+            "accepted": true,
+            "rate_hz": -38.33073212712537,
+            "coherent_snr": 81.74707398265568,
+            "noise_peak_z": 926.7076785457468,
+            "channels": 13,
+            "rate_sigma_hz": 0.013156147917485551
+          }
+        ],
+        "station_covariance_hz2": [
+          [
+            8.525103798413258e-05,
+            4.177870775112325e-05,
+            4.229928958110151e-05
+          ],
+          [
+            4.177870775112325e-05,
+            8.525259222740015e-05,
+            4.190780122188922e-05
+          ],
+          [
+            4.2299289581101505e-05,
+            4.190780122188921e-05,
+            8.449915546139853e-05
+          ]
+        ],
+        "covariance_station_order": [
+          1,
+          2,
+          3
+        ],
+        "reduced_rate_chisq": 0.7767934089043739,
+        "accepted_baselines": 6,
+        "absolute_common_rate_measured": false,
+        "amplitude_or_sky_phase_calibration": false,
+        "model": "Unknown constant complex visibility per baseline/channel; temporal phase rate only",
+        "limits": "Short stable sky/gain; circular independent baseline/channel noise; no low SNR or clock drift inference; out-of-Nyquist rates can alias undetectably; initial LO bound is an external assumption",
+        "residual_station_rates_hz": [
+          0.0,
+          17.556695904548654,
+          -11.8368608211045,
+          26.49214888660024
+        ],
+        "station_ids": [
+          "ST01",
+          "ST02",
+          "ST03",
+          "ST04"
+        ],
+        "time_origin_utc": "2026-10-02T08:00:00.000Z",
+        "input_sha256": "0ca2f3ec094dad5576e1525c7a0ec6a594d635ba4d73249247e316413239def2"
+      },
+      "limits": "Control uses matched seed/common sky/noise and zero LO. Quantization/filter/channelization differ; ratios are validation diagnostics, unavailable for unknown real sky."
+    }
+  ],
+  "references": [
+    {
+      "title": "HOPS4 fringe-fitting algorithm",
+      "url": "https://mithaystack.github.io/HOPS/hops4/data_processing/algorithm_and_output/algorithm.html"
+    },
+    {
+      "title": "Blackburn et al., Closure statistics in interferometric data",
+      "url": "https://arxiv.org/abs/1910.02062"
+    },
+    {
+      "title": "Cappallo, fourfit file-based phase corrections",
+      "url": "https://www.haystack.mit.edu/wp-content/uploads/2020/07/docs_hops_012_fourfit_phase_by_file.pdf"
+    }
+  ],
+  "limits": "Deterministic assumed linear LO drift, point sky, one matched seed, fixed gains. Drift truth used only for generating/comparing, never in the rate fit. No actual OCXO stability, stochastic phase noise, Cas A fidelity, automatic curvature recovery or low-SNR likelihood validation. Longer integration trades coherence against thermal sensitivity."
+}

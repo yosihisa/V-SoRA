@@ -1,0 +1,175 @@
+{
+  "installed_imports": true,
+  "entrypoint_outside_checkout": true,
+  "state": "complete",
+  "type": "short_rate_correlation",
+  "rate_estimate": {
+    "schema_version": 1,
+    "type": "station_rate_only",
+    "station_indices": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "station_rates_hz": [
+      0.0,
+      17.449748000927553,
+      -11.775821515855867,
+      26.32477774588199
+    ],
+    "reference_station": 0,
+    "time_reference_s": 1.502,
+    "valid_time_range_s": [
+      0.003,
+      3.001
+    ],
+    "sample_cadence_s": 0.002,
+    "max_baseline_rate_hz": 100.0,
+    "temporal_nyquist_hz": 250.0,
+    "initial_baseline_rate_bound_externally_required": true,
+    "baseline_estimates": [
+      {
+        "pair": [
+          0,
+          1
+        ],
+        "accepted": true,
+        "rate_hz": -17.44916299276318,
+        "coherent_snr": 195.89201436906396,
+        "noise_peak_z": 5321.4721358568595,
+        "channels": 13,
+        "rate_sigma_hz": 0.000937468157533142
+      },
+      {
+        "pair": [
+          0,
+          2
+        ],
+        "accepted": true,
+        "rate_hz": 11.77533348660118,
+        "coherent_snr": 200.21756060045215,
+        "noise_peak_z": 5559.076616881149,
+        "channels": 13,
+        "rate_sigma_hz": 0.0009173077086363729
+      },
+      {
+        "pair": [
+          0,
+          3
+        ],
+        "accepted": true,
+        "rate_hz": -26.324857754196227,
+        "coherent_snr": 190.07787091848706,
+        "noise_peak_z": 5010.273638149219,
+        "channels": 13,
+        "rate_sigma_hz": 0.0009663869802505902
+      },
+      {
+        "pair": [
+          1,
+          2
+        ],
+        "accepted": true,
+        "rate_hz": 29.22634081998174,
+        "coherent_snr": 187.17687768264136,
+        "noise_peak_z": 4858.505795970672,
+        "channels": 13,
+        "rate_sigma_hz": 0.0009809981931358659
+      },
+      {
+        "pair": [
+          1,
+          3
+        ],
+        "accepted": true,
+        "rate_hz": -8.875143816375752,
+        "coherent_snr": 200.39311399671774,
+        "noise_peak_z": 5568.829434014048,
+        "channels": 13,
+        "rate_sigma_hz": 0.0009164515308477454
+      },
+      {
+        "pair": [
+          2,
+          3
+        ],
+        "accepted": true,
+        "rate_hz": -38.100376244419884,
+        "coherent_snr": 183.02289764497544,
+        "noise_peak_z": 4645.25096208103,
+        "channels": 13,
+        "rate_sigma_hz": 0.0010034441824755562
+      }
+    ],
+    "station_covariance_hz2": [
+      [
+        4.4288938565287204e-07,
+        2.1288882462238117e-07,
+        2.2698975512941685e-07
+      ],
+      [
+        2.1288882462238117e-07,
+        4.450771370374258e-07,
+        2.1370039274739827e-07
+      ],
+      [
+        2.2698975512941685e-07,
+        2.137003927473983e-07,
+        4.555141515676941e-07
+      ]
+    ],
+    "covariance_station_order": [
+      1,
+      2,
+      3
+    ],
+    "reduced_rate_chisq": 0.4541279954444412,
+    "accepted_baselines": 6,
+    "absolute_common_rate_measured": false,
+    "amplitude_or_sky_phase_calibration": false,
+    "model": "Unknown constant complex visibility per baseline/channel; temporal phase rate only",
+    "limits": "Short stable sky/gain; circular independent baseline/channel noise; no low SNR or clock drift inference; out-of-Nyquist rates can alias undetectably; initial LO bound is an external assumption",
+    "residual_station_rates_hz": [
+      0.0,
+      17.449748000927553,
+      -11.775821515855867,
+      26.32477774588199
+    ],
+    "station_ids": [
+      "ST01",
+      "ST02",
+      "ST03",
+      "ST04"
+    ],
+    "time_origin_utc": "2026-10-02T08:00:00.000Z",
+    "input_sha256": "436145e38eacafea46475458d922609799370e20e44b8b676c7e69a2097ede58"
+  },
+  "input_identity": {
+    "schema_version": 1,
+    "hash_policy": "fresh_full_vdif_hash_once_per_run_with_rehashed_metadata",
+    "initial_hashed_file_count": 7,
+    "initial_hash_bytes": 50333710,
+    "full_sha_passes_per_unique_vdif_file": 1,
+    "change_check": "Resolved input paths, device/inode, size, mtime_ns and ctime_ns before/after stages",
+    "structure_scope": "SHA identifies bytes; it does not validate all VDIF headers",
+    "limits": "Closed input files, in-memory run only; VDIF changes that preserve all stat fields may be missed, including timestamp granularity. No adversarial filesystem proof.",
+    "vdif_hash_bytes": 50330880,
+    "vdif_hash_file_reads": 4,
+    "metadata_hash_bytes": 31130,
+    "metadata_hash_file_reads": 33,
+    "reuse_mode": "standalone_snapshot"
+  },
+  "centered_90pct_drift_limit_for_3s_hz_per_s": 0.21622131943701667,
+  "maximum_absolute_reference_array_differences": {
+    "visibilities": 0.0,
+    "weights": 0.0,
+    "times_s": 0.0,
+    "frequencies_hz": 0.0,
+    "uvw_lambda": 0.0,
+    "integration_s": 0.0,
+    "diagnostic_station_power": 0.0,
+    "diagnostic_station_sk": 0.0
+  },
+  "scope": "Moderate deterministic drift point-noise VDIF. Production still fits constant rate; this test reproduces completion with residual attenuation, not drift correction or Cas A fidelity."
+}

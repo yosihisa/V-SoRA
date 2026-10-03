@@ -12,7 +12,8 @@ from vsora_correlator.closure_pipeline import process_closure_session
 from vsora_formats.spectral import load_spectral
 
 
-def make_fixture(output,seed=23,frame_count=270,pilot_blocks=128,rates_hz=None,fft_length=32,rate_changes=None):
+def make_fixture(output,seed=23,frame_count=270,pilot_blocks=128,rates_hz=None,fft_length=32,rate_changes=None,
+                 rate_slopes_hz_per_s=None):
     out=Path(output);out.mkdir(parents=True,exist_ok=False)
     root=Path(__file__).resolve().parents[1];c=load_config(root/'configs/experiments/ideal-point.json')
     # The observing pipeline receives no generating sky type or absolute flux.
@@ -28,6 +29,8 @@ def make_fixture(output,seed=23,frame_count=270,pilot_blocks=128,rates_hz=None,f
     sky=np.fft.fft(gaussian(ns))*active*np.sqrt(1000/power_fraction)
     rates=np.array([0.,17.3,-11.7,26.1] if rates_hz is None else rates_hz,dtype=float)
     if rates.shape!=(4,) or not np.isfinite(rates).all():raise ValueError('four finite generating station rates required')
+    slopes=np.array([0.,0.,0.,0.] if rate_slopes_hz_per_s is None else rate_slopes_hz_per_s,dtype=float)
+    if slopes.shape!=(4,) or not np.isfinite(slopes).all():raise ValueError('four finite generating station rate slopes required')
     gain=np.array([.4,3,1.5,.75])*np.exp(1j*np.array([0.,.7,-1.1,2.]))
     changes=[] if rate_changes is None else rate_changes
     for change in changes:
@@ -40,6 +43,7 @@ def make_fixture(output,seed=23,frame_count=270,pilot_blocks=128,rates_hz=None,f
         d=np.interp(t,edges,delay[:,i]);mid=float(np.interp(span/2,edges,delay[:,i]))
         x=np.fft.ifft((sky+noise)*np.exp(2j*np.pi*frequency*mid))
         phase=rates[i]*t;previous=rates[i]
+        if slopes[i]!=0:phase+=.5*slopes[i]*t*t
         for change in changes:
             current=change['rates_hz'][i];phase+=(current-previous)*np.maximum(t-change['start_s'],0);previous=current
         x*=gain[i]*np.exp(2j*np.pi*(fc*d+phase))
@@ -56,11 +60,12 @@ def make_fixture(output,seed=23,frame_count=270,pilot_blocks=128,rates_hz=None,f
     (out/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
     (out/'clock.json').write_text(json.dumps({'schema_version':1,'max_abs_baseband_hz':.2*fs,'stations':clocks},indent=2)+'\n')
     return {'seed':seed,'generating_sky':'Common continuous band-limited Gaussian point at phase center, 1000Jy',
-        'generating_sefd_jy':10000,'true_rates_hz':rates.tolist(),'rate_changes':changes,'input_samples_per_station':ns,'recorded_span_s':span,
+        'generating_sefd_jy':10000,'true_rates_hz':rates.tolist(),'rate_slopes_hz_per_s':slopes.tolist(),
+        'rate_changes':changes,'input_samples_per_station':ns,'recorded_span_s':span,
         'max_broadband_delay_phase_approximation_rad':float(2*np.pi*.25*fs*np.max(abs(delay[-1]-delay[0]))/2),
         'clock':'Supplied exact nominal clocks; zero sample offsets',
         'band':'Continuous periodic Fourier realization, |f| <= 0.25 Fs; accepted |f| <= 0.2 Fs',
-        'limits':'No extended sky, nonlinear sample clock, within-window LO curvature, RFI or real receiver; RF delay is piecewise linear over <=1s, broadband delay fixed at midpoint'}
+        'limits':'No extended sky, nonlinear sample clock, stochastic LO phase noise, RFI or real receiver; optional generating linear rate slopes and steps; RF delay is piecewise linear over <=1s, broadband delay fixed at midpoint'}
 
 
 def run(output,seed=23):
