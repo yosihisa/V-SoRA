@@ -1,0 +1,25 @@
+{
+  "state": "complete",
+  "source": {
+    "passed": 269,
+    "warnings": 22672,
+    "seconds": 394.61
+  },
+  "installed": {
+    "passed": 269,
+    "warnings": 22672,
+    "seconds": 394.18
+  },
+  "targeted": {
+    "passed": 19,
+    "seconds": 1.81
+  },
+  "wheel": {
+    "bytes": 5456688,
+    "sha256": "a3642a26d3d896b8341b30b7489e917cedf812d95797ed9cd1418f2332cdf4db"
+  },
+  "scope": "Finite Gaussian station-moment and conditional visibility experiments. No hardware, actual VDIF or Cas A image fidelity.",
+  "source_then_installed": true,
+  "installed_api_outside_checkout": true,
+  "pip_check": "No broken requirements found."
+}

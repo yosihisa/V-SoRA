@@ -1,0 +1,17 @@
+{
+  "installed_imports": true,
+  "outside_checkout": true,
+  "two_station_real_covariance": [
+    [
+      0.09875,
+      0.00375
+    ],
+    [
+      0.00375,
+      0.08875
+    ]
+  ],
+  "common_signal_imaginary_variance_zero": true,
+  "gaussian_visibility_distribution_assumed": false,
+  "scope": "Known iid proper Gaussian station voltage forward moments. No measured covariance or real hardware."
+}
