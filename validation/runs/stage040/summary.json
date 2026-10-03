@@ -1,0 +1,1306 @@
+{
+  "type": "rate_uncertainty_validation",
+  "seed": 40,
+  "draws": 65536,
+  "gaussian_profile": {
+    "schema_version": 1,
+    "type": "station_rate_linear",
+    "station_ids": [
+      "ST01",
+      "ST02",
+      "ST03",
+      "ST04"
+    ],
+    "station_indices": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "reference_station": 0,
+    "time_origin_utc": "2026-10-03T00:00:00Z",
+    "time_reference_s": 1.5,
+    "valid_time_range_s": [
+      0.001,
+      2.999
+    ],
+    "sample_cadence_s": 0.002,
+    "temporal_nyquist_hz": 250.0,
+    "max_baseline_rate_hz": 100.0,
+    "station_rates_hz": [
+      0.0,
+      1.0,
+      -1.0,
+      2.0
+    ],
+    "station_rate_slopes_hz_per_s": [
+      0.0,
+      0.1,
+      -0.1,
+      0.2
+    ],
+    "parameter_covariance": [
+      [
+        0.03229982100979168,
+        -0.0068928961856221825,
+        -0.0015635114715247863,
+        -0.007632358649034617,
+        0.018098929782970195,
+        -0.015505015898500849
+      ],
+      [
+        -0.0068928961856221825,
+        0.01949278760969822,
+        0.0049450291289497685,
+        -0.009836963399450904,
+        -0.006901019448514806,
+        0.020602652756872026
+      ],
+      [
+        -0.0015635114715247863,
+        0.0049450291289497685,
+        0.018479362312814093,
+        -0.010661223254432287,
+        -0.009267973451814633,
+        0.01995808513563423
+      ],
+      [
+        -0.007632358649034617,
+        -0.009836963399450904,
+        -0.010661223254432287,
+        0.013988713567878798,
+        0.0008430135912651755,
+        -0.015706152641212476
+      ],
+      [
+        0.018098929782970195,
+        -0.006901019448514806,
+        -0.009267973451814633,
+        0.0008430135912651755,
+        0.018116797007881314,
+        -0.023344679489416025
+      ],
+      [
+        -0.015505015898500849,
+        0.020602652756872026,
+        0.01995808513563423,
+        -0.015706152641212476,
+        -0.023344679489416025,
+        0.047312007174353306
+      ]
+    ],
+    "covariance_station_order": [
+      1,
+      2,
+      3
+    ],
+    "parameter_order": "relative rates Hz, then relative rate slopes Hz/s"
+  },
+  "gaussian_results": [
+    {
+      "pair": [
+        0,
+        1
+      ],
+      "calculated_expected_centered_complex_coherence": 0.742244688516603,
+      "sample_mean_real": 0.7422907401981897,
+      "sample_mean_imaginary": 0.0005498027383439659,
+      "sample_standard_error_real": 0.0010239891083723247,
+      "sample_mean_absolute_coherence": 0.756561712246899
+    },
+    {
+      "pair": [
+        0,
+        2
+      ],
+      "calculated_expected_centered_complex_coherence": 0.8120872744496761,
+      "sample_mean_real": 0.8114174808995298,
+      "sample_mean_imaginary": 0.0006324229729628434,
+      "sample_standard_error_real": 0.0007498196965962513,
+      "sample_mean_absolute_coherence": 0.8240049974833211
+    },
+    {
+      "pair": [
+        0,
+        3
+      ],
+      "calculated_expected_centered_complex_coherence": 0.8216612077405059,
+      "sample_mean_real": 0.8214804547008634,
+      "sample_mean_imaginary": -0.0002734965340566514,
+      "sample_standard_error_real": 0.0006028907998047759,
+      "sample_mean_absolute_coherence": 0.8496455109661588
+    },
+    {
+      "pair": [
+        1,
+        2
+      ],
+      "calculated_expected_centered_complex_coherence": 0.5933909212984798,
+      "sample_mean_real": 0.5931200717265521,
+      "sample_mean_imaginary": -0.0010154852457314105,
+      "sample_standard_error_real": 0.0013499678716005852,
+      "sample_mean_absolute_coherence": 0.6379328258590893
+    },
+    {
+      "pair": [
+        1,
+        3
+      ],
+      "calculated_expected_centered_complex_coherence": 0.6418383351895394,
+      "sample_mean_real": 0.6404216316389826,
+      "sample_mean_imaginary": -0.0009594923838590337,
+      "sample_standard_error_real": 0.0010225169186349938,
+      "sample_mean_absolute_coherence": 0.6875172151719151
+    },
+    {
+      "pair": [
+        2,
+        3
+      ],
+      "calculated_expected_centered_complex_coherence": 0.6847572383494104,
+      "sample_mean_real": 0.6841673241217517,
+      "sample_mean_imaginary": -0.002030826425367719,
+      "sample_standard_error_real": 0.0008618664368991839,
+      "sample_mean_absolute_coherence": 0.7367937164012786
+    }
+  ],
+  "archived_profiles": [
+    {
+      "label": "drift-control",
+      "profile_sha256": "034d52dd424a54355a2a003b6ecc6280d085f9c863e7ad5296db6f247f42ab20",
+      "diagnostic": {
+        "schema_version": 1,
+        "type": "linear_rate_uncertainty",
+        "start_s": 0.002,
+        "end_s": 3.002,
+        "center_s": 1.5019999999999998,
+        "integration_s": 3.0,
+        "station_ids": [
+          "ST01",
+          "ST02",
+          "ST03",
+          "ST04"
+        ],
+        "reference_station": 0,
+        "profile_input_sha256": "69e33b531e5acf76bcc2c6f3e0f906b66865e37563d7fd71bda61cbd97f158a4",
+        "baselines": [
+          {
+            "pair": [
+              0,
+              1
+            ],
+            "expected_centered_complex_coherence": 0.999853335539387,
+            "quadrature_absolute_error_estimate": 1.11006019436409e-14,
+            "baseline_rate_slope_covariance": [
+              [
+                6.6954049086015305e-06,
+                -2.5286285293166786e-08
+              ],
+              [
+                -2.5286285293166786e-08,
+                9.519697957045449e-06
+              ]
+            ],
+            "endpoint_phase_sigma_rad": [
+              0.03276810352141636,
+              0.0326651241587968
+            ]
+          },
+          {
+            "pair": [
+              0,
+              2
+            ],
+            "expected_centered_complex_coherence": 0.999853416824313,
+            "quadrature_absolute_error_estimate": 1.1100602846084861e-14,
+            "baseline_rate_slope_covariance": [
+              [
+                6.685483724655022e-06,
+                2.5503355073436808e-08
+              ],
+              [
+                2.5503355073436808e-08,
+                9.532821925827606e-06
+              ]
+            ],
+            "endpoint_phase_sigma_rad": [
+              0.03266122912542254,
+              0.03276510345888112
+            ]
+          },
+          {
+            "pair": [
+              0,
+              3
+            ],
+            "expected_centered_complex_coherence": 0.9998535943923821,
+            "quadrature_absolute_error_estimate": 1.1100604817486449e-14,
+            "baseline_rate_slope_covariance": [
+              [
+                6.6845292410914726e-06,
+                5.114022746413015e-08
+              ],
+              [
+                5.114022746413015e-08,
+                9.500099517124849e-06
+              ]
+            ],
+            "endpoint_phase_sigma_rad": [
+              0.03258251502707234,
+              0.032790975869418974
+            ]
+          },
+          {
+            "pair": [
+              1,
+              2
+            ],
+            "expected_centered_complex_coherence": 0.9998520082587989,
+            "quadrature_absolute_error_estimate": 1.1100587207866208e-14,
+            "baseline_rate_slope_covariance": [
+              [
+                6.7535957912237316e-06,
+                -3.565333062421882e-08
+              ],
+              [
+                -3.565333062421882e-08,
+                9.61300414722379e-06
+              ]
+            ],
+            "endpoint_phase_sigma_rad": [
+              0.032938743612585315,
+              0.032794206127254984
+            ]
+          },
+          {
+            "pair": [
+              1,
+              3
+            ],
+            "expected_centered_complex_coherence": 0.9998536458665616,
+            "quadrature_absolute_error_estimate": 1.110060538896464e-14,
+            "baseline_rate_slope_covariance": [
+              [
+                6.682111633415016e-06,
+                -4.720038606933904e-08
+              ],
+              [
+                -4.720038606933904e-08,
+                9.496957616856719e-06
+              ]
+            ],
+            "endpoint_phase_sigma_rad": [
+              0.03277730042598596,
+              0.03258486606520114
+            ]
+          },
+          {
+            "pair": [
+              2,
+              3
+            ],
+            "expected_centered_complex_coherence": 0.9998535235956767,
+            "quadrature_absolute_error_estimate": 1.1100604031485125e-14,
+            "baseline_rate_slope_covariance": [
+              [
+                6.682918175790204e-06,
+                2.08625226682824e-09
+              ],
+              [
+                2.08625226682824e-09,
+                9.519047355237444e-06
+              ]
+            ],
+            "endpoint_phase_sigma_rad": [
+              0.03269495131597871,
+              0.03270345218225729
+            ]
+          }
+        ],
+        "minimum_expected_centered_complex_coherence": 0.9998520082587989,
+        "coherence_stability_measured": false,
+        "hardware_confidence_calibrated": false,
+        "assumption": "Zero-mean Gaussian parameter errors with supplied full Fisher covariance; uniform exposure; constant station phase removed at integration center.",
+        "quantity": "E[mean exp(i centered phase error)], not E[abs(mean)] or a single-realization bound.",
+        "limits": "Conditional model-error diagnostic only. Does not include unmodelled fast phase, aliases, shared sky/filter noise, incorrect covariance or gain changes. No actual OCXO, low-SNR or image-fidelity guarantee. No correction, gating or weights are changed. Windows <=3s within pilot; phase-variance numerical bound <=10000 rad^2."
+      },
+      "matched_control_minimum_amplitude_ratio": 0.9994549045098369,
+      "ratio_source_sha256": "35c3f2d6b89dfb2d235860aaefd656af5aa21b39cdb412cfab2be7100615deb9"
+    },
+    {
+      "label": "drift-moderate",
+      "profile_sha256": "87f545515197b65f33db44a8d279aadf3fc9626449b4601f563e730ee366aa4d",
+      "diagnostic": {
+        "schema_version": 1,
+        "type": "linear_rate_uncertainty",
+        "start_s": 0.002,
+        "end_s": 3.002,
+        "center_s": 1.5019999999999998,
+        "integration_s": 3.0,
+        "station_ids": [
+          "ST01",
+          "ST02",
+          "ST03",
+          "ST04"
+        ],
+        "reference_station": 0,
+        "profile_input_sha256": "59a4c79c02bf0aef532a8797146bf4618837ee1d71de8f8d96a5fb3f2a7c06c4",
+        "baselines": [
+          {
+            "pair": [
+              0,
+              1
+            ],
+            "expected_centered_complex_coherence": 0.9998525008666104,
+            "quadrature_absolute_error_estimate": 1.1100592676911551e-14,
+            "baseline_rate_slope_covariance": [
+              [
+                6.732821766070434e-06,
+                -1.849282943998132e-08
+              ],
+              [
+                -1.849282943998132e-08,
+                9.575935684017777e-06
+              ]
+            ],
+            "endpoint_phase_sigma_rad": [
+              0.03284778482214594,
+              0.03277268696841329
+            ]
+          },
+          {
+            "pair": [
+              0,
+              2
+            ],
+            "expected_centered_complex_coherence": 0.9998524576372219,
+            "quadrature_absolute_error_estimate": 1.1100592196968927e-14,
+            "baseline_rate_slope_covariance": [
+              [
+                6.729134972275248e-06,
+                3.140252318042994e-08
+              ],
+              [
+                3.140252318042994e-08,
+                9.595515218929005e-06
+              ]
+            ],
+            "endpoint_phase_sigma_rad": [
+              0.03275636933677526,
+              0.03288385401855866
+            ]
+          },
+          {
+            "pair": [
+              0,
+              3
+            ],
+            "expected_centered_complex_coherence": 0.9998524097017456,
+            "quadrature_absolute_error_estimate": 1.110059166477823e-14,
+            "baseline_rate_slope_covariance": [
+              [
+                6.7381790063321305e-06,
+                5.4051428937593544e-08
+              ],
+              [
+                5.4051428937593544e-08,
+                9.578313634669082e-06
+              ]
+            ],
+            "endpoint_phase_sigma_rad": [
+              0.03270941567840128,
+              0.032928854550188805
+            ]
+          },
+          {
+            "pair": [
+              1,
+              2
+            ],
+            "expected_centered_complex_coherence": 0.9998505866885332,
+            "quadrature_absolute_error_estimate": 1.1100571425265807e-14,
+            "baseline_rate_slope_covariance": [
+              [
+                6.818769684346483e-06,
+                -2.572517485330523e-08
+              ],
+              [
+                -2.5725174853305232e-08,
+                9.704497053615822e-06
+              ]
+            ],
+            "endpoint_phase_sigma_rad": [
+              0.03307564969802033,
+              0.03297185733128293
+            ]
+          },
+          {
+            "pair": [
+              1,
+              3
+            ],
+            "expected_centered_complex_coherence": 0.9998527769242541,
+            "quadrature_absolute_error_estimate": 1.1100595741767073e-14,
+            "baseline_rate_slope_covariance": [
+              [
+                6.721532136528799e-06,
+                -4.346352292934725e-08
+              ],
+              [
+                -4.346352292934725e-08,
+                9.554119220011342e-06
+              ]
+            ],
+            "endpoint_phase_sigma_rad": [
+              0.03286656629438923,
+              0.03268989216867109
+            ]
+          },
+          {
+            "pair": [
+              2,
+              3
+            ],
+            "expected_centered_complex_coherence": 0.9998516713153172,
+            "quadrature_absolute_error_estimate": 1.1100583467042092e-14,
+            "baseline_rate_slope_covariance": [
+              [
+                6.767079208003736e-06,
+                1.0977005375749908e-08
+              ],
+              [
+                1.0977005375749908e-08,
+                9.640510168683917e-06
+              ]
+            ],
+            "endpoint_phase_sigma_rad": [
+              0.03288342803668961,
+              0.032927875491131534
+            ]
+          }
+        ],
+        "minimum_expected_centered_complex_coherence": 0.9998505866885332,
+        "coherence_stability_measured": false,
+        "hardware_confidence_calibrated": false,
+        "assumption": "Zero-mean Gaussian parameter errors with supplied full Fisher covariance; uniform exposure; constant station phase removed at integration center.",
+        "quantity": "E[mean exp(i centered phase error)], not E[abs(mean)] or a single-realization bound.",
+        "limits": "Conditional model-error diagnostic only. Does not include unmodelled fast phase, aliases, shared sky/filter noise, incorrect covariance or gain changes. No actual OCXO, low-SNR or image-fidelity guarantee. No correction, gating or weights are changed. Windows <=3s within pilot; phase-variance numerical bound <=10000 rad^2."
+      },
+      "matched_control_minimum_amplitude_ratio": 0.9993254229772129,
+      "ratio_source_sha256": "35c3f2d6b89dfb2d235860aaefd656af5aa21b39cdb412cfab2be7100615deb9"
+    },
+    {
+      "label": "drift-strong",
+      "profile_sha256": "400dad8a7cc443ef0288d312f5cad052f13f17be69d305f72f70de8a5466c868",
+      "diagnostic": {
+        "schema_version": 1,
+        "type": "linear_rate_uncertainty",
+        "start_s": 0.002,
+        "end_s": 3.002,
+        "center_s": 1.5019999999999998,
+        "integration_s": 3.0,
+        "station_ids": [
+          "ST01",
+          "ST02",
+          "ST03",
+          "ST04"
+        ],
+        "reference_station": 0,
+        "profile_input_sha256": "367e62855370ac8e8b532d4c2cfc5a6dcb4e5f6ec3c8270b664cd612860f5c81",
+        "baselines": [
+          {
+            "pair": [
+              0,
+              1
+            ],
+            "expected_centered_complex_coherence": 0.9998494317378595,
+            "quadrature_absolute_error_estimate": 1.1100558602737504e-14,
+            "baseline_rate_slope_covariance": [
+              [
+                6.873505595574149e-06,
+                -1.430562143449105e-08
+              ],
+              [
+                -1.430562143449105e-08,
+                9.773539891632426e-06
+              ]
+            ],
+            "endpoint_phase_sigma_rad": [
+              0.03317813705189755,
+              0.03312063746335814
+            ]
+          },
+          {
+            "pair": [
+              0,
+              2
+            ],
+            "expected_centered_complex_coherence": 0.9998489775595311,
+            "quadrature_absolute_error_estimate": 1.110055356034513e-14,
+            "baseline_rate_slope_covariance": [
+              [
+                6.887933459808006e-06,
+                4.7076277311763833e-08
+              ],
+              [
+                4.7076277311763833e-08,
+                9.82171970484118e-06
+              ]
+            ],
+            "endpoint_phase_sigma_rad": [
+              0.03311040846887667,
+              0.03329930935150042
+            ]
+          },
+          {
+            "pair": [
+              0,
+              3
+            ],
+            "expected_centered_complex_coherence": 0.999847561792375,
+            "quadrature_absolute_error_estimate": 1.1100537842172186e-14,
+            "baseline_rate_slope_covariance": [
+              [
+                6.959203457721769e-06,
+                6.594254196990247e-08
+              ],
+              [
+                6.594254196990247e-08,
+                9.893988970944405e-06
+              ]
+            ],
+            "endpoint_phase_sigma_rad": [
+              0.033222387017111124,
+              0.03348580778151743
+            ]
+          },
+          {
+            "pair": [
+              1,
+              2
+            ],
+            "expected_centered_complex_coherence": 0.9998457078839302,
+            "quadrature_absolute_error_estimate": 1.1100517259653778e-14,
+            "baseline_rate_slope_covariance": [
+              [
+                7.044422753818352e-06,
+                -8.556722150304831e-10
+              ],
+              [
+                -8.556722150304765e-10,
+                1.0012646190425479e-05
+              ]
+            ],
+            "endpoint_phase_sigma_rad": [
+              0.03355779477106729,
+              0.03355439719244064
+            ]
+          },
+          {
+            "pair": [
+              1,
+              3
+            ],
+            "expected_centered_complex_coherence": 0.9998492891433184,
+            "quadrature_absolute_error_estimate": 1.1100557019620076e-14,
+            "baseline_rate_slope_covariance": [
+              [
+                6.881090463481481e-06,
+                -3.195411255926416e-08
+              ],
+              [
+                -3.195411255926416e-08,
+                9.779613837910952e-06
+              ]
+            ],
+            "endpoint_phase_sigma_rad": [
+              0.03322826323993341,
+              0.033099884709674114
+            ]
+          },
+          {
+            "pair": [
+              2,
+              3
+            ],
+            "expected_centered_complex_coherence": 0.9998445493428207,
+            "quadrature_absolute_error_estimate": 1.1100504397263631e-14,
+            "baseline_rate_slope_covariance": [
+              [
+                7.092047675630776e-06,
+                4.899886908150841e-08
+              ],
+              [
+                4.899886908150841e-08,
+                1.0103481395695175e-05
+              ]
+            ],
+            "endpoint_phase_sigma_rad": [
+              0.03358946128573084,
+              0.03378326648981509
+            ]
+          }
+        ],
+        "minimum_expected_centered_complex_coherence": 0.9998445493428207,
+        "coherence_stability_measured": false,
+        "hardware_confidence_calibrated": false,
+        "assumption": "Zero-mean Gaussian parameter errors with supplied full Fisher covariance; uniform exposure; constant station phase removed at integration center.",
+        "quantity": "E[mean exp(i centered phase error)], not E[abs(mean)] or a single-realization bound.",
+        "limits": "Conditional model-error diagnostic only. Does not include unmodelled fast phase, aliases, shared sky/filter noise, incorrect covariance or gain changes. No actual OCXO, low-SNR or image-fidelity guarantee. No correction, gating or weights are changed. Windows <=3s within pilot; phase-variance numerical bound <=10000 rad^2."
+      },
+      "matched_control_minimum_amplitude_ratio": 0.9993465578511167,
+      "ratio_source_sha256": "35c3f2d6b89dfb2d235860aaefd656af5aa21b39cdb412cfab2be7100615deb9"
+    },
+    {
+      "label": "short-0",
+      "profile_sha256": "45b8d54c1b79c3f394b7c24470f07051ce6aeb9d348a69b860091796b6b033d1",
+      "diagnostic": {
+        "schema_version": 1,
+        "type": "linear_rate_uncertainty",
+        "start_s": 0.002,
+        "end_s": 0.302,
+        "center_s": 0.152,
+        "integration_s": 0.3,
+        "station_ids": [
+          "ST01",
+          "ST02",
+          "ST03",
+          "ST04"
+        ],
+        "reference_station": 0,
+        "profile_input_sha256": "210e0ddc7b4ea54654c98cd46242a7f21ed0ad287cf80859e26fc8e01a73cd58",
+        "baselines": [
+          {
+            "pair": [
+              0,
+              1
+            ],
+            "expected_centered_complex_coherence": 0.9996720717505152,
+            "quadrature_absolute_error_estimate": 1.1098589511321536e-14,
+            "baseline_rate_slope_covariance": [
+              [
+                0.001309909515403798,
+                8.937152039151818e-05
+              ],
+              [
+                8.937152039151818e-05,
+                0.06330038821564513
+              ]
+            ],
+            "endpoint_phase_sigma_rad": [
+              0.054560763630966076,
+              0.034823249281715894
+            ]
+          },
+          {
+            "pair": [
+              0,
+              2
+            ],
+            "expected_centered_complex_coherence": 0.9996632680520543,
+            "quadrature_absolute_error_estimate": 1.1098491770634203e-14,
+            "baseline_rate_slope_covariance": [
+              [
+                0.0013199390439610787,
+                -7.238927634398226e-05
+              ],
+              [
+                -7.238927634398226e-05,
+                0.06433991103787709
+              ]
+            ],
+            "endpoint_phase_sigma_rad": [
+              0.05538998847395211,
+              0.0350907890677951
+            ]
+          },
+          {
+            "pair": [
+              0,
+              3
+            ],
+            "expected_centered_complex_coherence": 0.9996602997816102,
+            "quadrature_absolute_error_estimate": 1.1098458816212301e-14,
+            "baseline_rate_slope_covariance": [
+              [
+                0.0013336681007471464,
+                -8.769617896105928e-05
+              ],
+              [
+                -8.769617896105928e-05,
+                0.0645513566262259
+              ]
+            ],
+            "endpoint_phase_sigma_rad": [
+              0.055599649043222225,
+              0.03527863364855919
+            ]
+          },
+          {
+            "pair": [
+              1,
+              2
+            ],
+            "expected_centered_complex_coherence": 0.9996655642801526,
+            "quadrature_absolute_error_estimate": 1.1098517263887248e-14,
+            "baseline_rate_slope_covariance": [
+              [
+                0.001320928735589827,
+                -1.2695258993754258e-05
+              ],
+              [
+                -1.2695258993754258e-05,
+                0.06407591655669337
+              ]
+            ],
+            "endpoint_phase_sigma_rad": [
+              0.05515480817348906,
+              0.03505324152430381
+            ]
+          },
+          {
+            "pair": [
+              1,
+              3
+            ],
+            "expected_centered_complex_coherence": 0.9996660016724042,
+            "quadrature_absolute_error_estimate": 1.1098522119916733e-14,
+            "baseline_rate_slope_covariance": [
+              [
+                0.0013105728376984465,
+                -5.753674313652751e-05
+              ],
+              [
+                -5.753674313652752e-05,
+                0.06393178008956092
+              ]
+            ],
+            "endpoint_phase_sigma_rad": [
+              0.055164105286681475,
+              0.03495536376181324
+            ]
+          },
+          {
+            "pair": [
+              2,
+              3
+            ],
+            "expected_centered_complex_coherence": 0.9996606957374836,
+            "quadrature_absolute_error_estimate": 1.1098463212205575e-14,
+            "baseline_rate_slope_covariance": [
+              [
+                0.0013300148029719329,
+                -6.97751827870899e-05
+              ],
+              [
+                -6.97751827870899e-05,
+                0.06487829789392448
+              ]
+            ],
+            "endpoint_phase_sigma_rad": [
+              0.055604203832386935,
+              0.035222564215533096
+            ]
+          }
+        ],
+        "minimum_expected_centered_complex_coherence": 0.9996602997816102,
+        "coherence_stability_measured": false,
+        "hardware_confidence_calibrated": false,
+        "assumption": "Zero-mean Gaussian parameter errors with supplied full Fisher covariance; uniform exposure; constant station phase removed at integration center.",
+        "quantity": "E[mean exp(i centered phase error)], not E[abs(mean)] or a single-realization bound.",
+        "limits": "Conditional model-error diagnostic only. Does not include unmodelled fast phase, aliases, shared sky/filter noise, incorrect covariance or gain changes. No actual OCXO, low-SNR or image-fidelity guarantee. No correction, gating or weights are changed. Windows <=3s within pilot; phase-variance numerical bound <=10000 rad^2."
+      },
+      "matched_control_minimum_amplitude_ratio": null,
+      "ratio_source_sha256": null
+    },
+    {
+      "label": "short-1",
+      "profile_sha256": "c5628d024fd5b50a7eb7c0376d1133323457bc3ffa933cc9792e5063847c9420",
+      "diagnostic": {
+        "schema_version": 1,
+        "type": "linear_rate_uncertainty",
+        "start_s": 0.514,
+        "end_s": 0.8140000000000001,
+        "center_s": 0.664,
+        "integration_s": 0.30000000000000004,
+        "station_ids": [
+          "ST01",
+          "ST02",
+          "ST03",
+          "ST04"
+        ],
+        "reference_station": 0,
+        "profile_input_sha256": "9ec6c472cf29ecb44b2341c453b6196329a13aa6da62223ef752581455479b52",
+        "baselines": [
+          {
+            "pair": [
+              0,
+              1
+            ],
+            "expected_centered_complex_coherence": 0.9996583223263869,
+            "quadrature_absolute_error_estimate": 1.1098436862049109e-14,
+            "baseline_rate_slope_covariance": [
+              [
+                0.0013130640574753245,
+                -0.00025026989245840873
+              ],
+              [
+                -0.00025026989245840873,
+                0.0645177329555359
+              ]
+            ],
+            "endpoint_phase_sigma_rad": [
+              0.05589558594563535,
+              0.03514548015772031
+            ]
+          },
+          {
+            "pair": [
+              0,
+              2
+            ],
+            "expected_centered_complex_coherence": 0.9996587635814855,
+            "quadrature_absolute_error_estimate": 1.1098441760964811e-14,
+            "baseline_rate_slope_covariance": [
+              [
+                0.0013344645988994503,
+                -6.418951259366907e-05
+              ],
+              [
+                -6.418951259366907e-05,
+                0.06554874993981748
+              ]
+            ],
+            "endpoint_phase_sigma_rad": [
+              0.05579869568427026,
+              0.03528237976187475
+            ]
+          },
+          {
+            "pair": [
+              0,
+              3
+            ],
+            "expected_centered_complex_coherence": 0.9996606124477372,
+            "quadrature_absolute_error_estimate": 1.1098462287503631e-14,
+            "baseline_rate_slope_covariance": [
+              [
+                0.0013350242751252034,
+                -4.785665779228601e-05
+              ],
+              [
+                -4.785665779228601e-05,
+                0.064891959113512
+              ]
+            ],
+            "endpoint_phase_sigma_rad": [
+              0.0555844117332382,
+              0.0352687300817634
+            ]
+          },
+          {
+            "pair": [
+              1,
+              2
+            ],
+            "expected_centered_complex_coherence": 0.9996493375872688,
+            "quadrature_absolute_error_estimate": 1.1098337111406718e-14,
+            "baseline_rate_slope_covariance": [
+              [
+                0.0013350520068096939,
+                -0.0003496825321548583
+              ],
+              [
+                -0.0003496825321548583,
+                0.06572725016815147
+              ]
+            ],
+            "endpoint_phase_sigma_rad": [
+              0.056665786997145265,
+              0.03551398668942549
+            ]
+          },
+          {
+            "pair": [
+              1,
+              3
+            ],
+            "expected_centered_complex_coherence": 0.9996591171899418,
+            "quadrature_absolute_error_estimate": 1.109844568680731e-14,
+            "baseline_rate_slope_covariance": [
+              [
+                0.0013103770007473062,
+                -0.00024230077243746876
+              ],
+              [
+                -0.00024230077243746876,
+                0.06444953500477306
+              ]
+            ],
+            "endpoint_phase_sigma_rad": [
+              0.055833526106802145,
+              0.03510442799579397
+            ]
+          },
+          {
+            "pair": [
+              2,
+              3
+            ],
+            "expected_centered_complex_coherence": 0.9996554688871097,
+            "quadrature_absolute_error_estimate": 1.109840518250926e-14,
+            "baseline_rate_slope_covariance": [
+              [
+                0.0013508428338687062,
+                -4.838068514692229e-05
+              ],
+              [
+                -4.838068514692229e-05,
+                0.06618141499553064
+              ]
+            ],
+            "endpoint_phase_sigma_rad": [
+              0.056047926925364984,
+              0.035483291160319105
+            ]
+          }
+        ],
+        "minimum_expected_centered_complex_coherence": 0.9996493375872688,
+        "coherence_stability_measured": false,
+        "hardware_confidence_calibrated": false,
+        "assumption": "Zero-mean Gaussian parameter errors with supplied full Fisher covariance; uniform exposure; constant station phase removed at integration center.",
+        "quantity": "E[mean exp(i centered phase error)], not E[abs(mean)] or a single-realization bound.",
+        "limits": "Conditional model-error diagnostic only. Does not include unmodelled fast phase, aliases, shared sky/filter noise, incorrect covariance or gain changes. No actual OCXO, low-SNR or image-fidelity guarantee. No correction, gating or weights are changed. Windows <=3s within pilot; phase-variance numerical bound <=10000 rad^2."
+      },
+      "matched_control_minimum_amplitude_ratio": null,
+      "ratio_source_sha256": null
+    },
+    {
+      "label": "short-2",
+      "profile_sha256": "8f8064030a85b8efacc50f04792d638df350b6dc0ac1d6a21d3def5683574431",
+      "diagnostic": {
+        "schema_version": 1,
+        "type": "linear_rate_uncertainty",
+        "start_s": 1.026,
+        "end_s": 1.326,
+        "center_s": 1.1760000000000002,
+        "integration_s": 0.30000000000000004,
+        "station_ids": [
+          "ST01",
+          "ST02",
+          "ST03",
+          "ST04"
+        ],
+        "reference_station": 0,
+        "profile_input_sha256": "408f7fdca8628fe9039ff47d38c9bdd60ea940b2feba67b96e9fb37f9aac2caf",
+        "baselines": [
+          {
+            "pair": [
+              0,
+              1
+            ],
+            "expected_centered_complex_coherence": 0.9996649664761643,
+            "quadrature_absolute_error_estimate": 1.109851062692973e-14,
+            "baseline_rate_slope_covariance": [
+              [
+                0.0013400336427965265,
+                0.0001232047125262291
+              ],
+              [
+                0.0001232047125262291,
+                0.06501669560541487
+              ]
+            ],
+            "endpoint_phase_sigma_rad": [
+              0.055160685998612305,
+              0.03519969720631456
+            ]
+          },
+          {
+            "pair": [
+              0,
+              2
+            ],
+            "expected_centered_complex_coherence": 0.9996558809916871,
+            "quadrature_absolute_error_estimate": 1.1098409757789164e-14,
+            "baseline_rate_slope_covariance": [
+              [
+                0.0013490522999717047,
+                -0.00016284635787564114
+              ],
+              [
+                -0.00016284635787564114,
+                0.06445227777816717
+              ]
+            ],
+            "endpoint_phase_sigma_rad": [
+              0.055913036420262574,
+              0.03552888054532643
+            ]
+          },
+          {
+            "pair": [
+              0,
+              3
+            ],
+            "expected_centered_complex_coherence": 0.9996598149560578,
+            "quadrature_absolute_error_estimate": 1.1098453433567387e-14,
+            "baseline_rate_slope_covariance": [
+              [
+                0.0013464549994935597,
+                -8.785636983353725e-06
+              ],
+              [
+                -8.785636983353725e-06,
+                0.06504540048527184
+              ]
+            ],
+            "endpoint_phase_sigma_rad": [
+              0.055602897311930355,
+              0.03538383915583923
+            ]
+          },
+          {
+            "pair": [
+              1,
+              2
+            ],
+            "expected_centered_complex_coherence": 0.9996632335800899,
+            "quadrature_absolute_error_estimate": 1.1098491387918518e-14,
+            "baseline_rate_slope_covariance": [
+              [
+                0.0013412101449106213,
+                3.8319818204139895e-05
+              ],
+              [
+                3.8319818204139895e-05,
+                0.06450619409621415
+              ]
+            ],
+            "endpoint_phase_sigma_rad": [
+              0.055282776652816404,
+              0.03527467600440816
+            ]
+          },
+          {
+            "pair": [
+              1,
+              3
+            ],
+            "expected_centered_complex_coherence": 0.9996622862361237,
+            "quadrature_absolute_error_estimate": 1.1098480870287684e-14,
+            "baseline_rate_slope_covariance": [
+              [
+                0.0013539869654740847,
+                0.0001360528562924974
+              ],
+              [
+                0.00013605285629249736,
+                0.06548807133582558
+              ]
+            ],
+            "endpoint_phase_sigma_rad": [
+              0.055359564786523284,
+              0.035371001143231426
+            ]
+          },
+          {
+            "pair": [
+              2,
+              3
+            ],
+            "expected_centered_complex_coherence": 0.999657830600182,
+            "quadrature_absolute_error_estimate": 1.1098431402791564e-14,
+            "baseline_rate_slope_covariance": [
+              [
+                0.0013496249719255316,
+                -7.535629201852105e-05
+              ],
+              [
+                -7.535629201852105e-05,
+                0.06478055078440614
+              ]
+            ],
+            "endpoint_phase_sigma_rad": [
+              0.05575120295594362,
+              0.03547212949270748
+            ]
+          }
+        ],
+        "minimum_expected_centered_complex_coherence": 0.9996558809916871,
+        "coherence_stability_measured": false,
+        "hardware_confidence_calibrated": false,
+        "assumption": "Zero-mean Gaussian parameter errors with supplied full Fisher covariance; uniform exposure; constant station phase removed at integration center.",
+        "quantity": "E[mean exp(i centered phase error)], not E[abs(mean)] or a single-realization bound.",
+        "limits": "Conditional model-error diagnostic only. Does not include unmodelled fast phase, aliases, shared sky/filter noise, incorrect covariance or gain changes. No actual OCXO, low-SNR or image-fidelity guarantee. No correction, gating or weights are changed. Windows <=3s within pilot; phase-variance numerical bound <=10000 rad^2."
+      },
+      "matched_control_minimum_amplitude_ratio": null,
+      "ratio_source_sha256": null
+    },
+    {
+      "label": "fast-phase",
+      "profile_sha256": "783f6a218682d3746cb37d04dba875cec0f03588bdef437e64c57f43fc30a19a",
+      "diagnostic": {
+        "schema_version": 1,
+        "type": "linear_rate_uncertainty",
+        "start_s": 0.002,
+        "end_s": 3.002,
+        "center_s": 1.5019999999999998,
+        "integration_s": 3.0,
+        "station_ids": [
+          "ST01",
+          "ST02",
+          "ST03",
+          "ST04"
+        ],
+        "reference_station": 0,
+        "profile_input_sha256": "75083c9a3a6e3fd51b1ca4b83c529ae605f55c62c7eb3458698df0b43bc8a2b2",
+        "baselines": [
+          {
+            "pair": [
+              0,
+              1
+            ],
+            "expected_centered_complex_coherence": 0.999845490507101,
+            "quadrature_absolute_error_estimate": 1.110051484628617e-14,
+            "baseline_rate_slope_covariance": [
+              [
+                7.053689443755673e-06,
+                -5.399341585662322e-08
+              ],
+              [
+                -5.399341585662322e-08,
+                1.0028709374117631e-05
+              ]
+            ],
+            "endpoint_phase_sigma_rad": [
+              0.03368725822559087,
+              0.03347302254172595
+            ]
+          },
+          {
+            "pair": [
+              0,
+              2
+            ],
+            "expected_centered_complex_coherence": 0.9998385590683272,
+            "quadrature_absolute_error_estimate": 1.1100437891856966e-14,
+            "baseline_rate_slope_covariance": [
+              [
+                7.360631086867034e-06,
+                1.3215880952712218e-08
+              ],
+              [
+                1.3215880952712218e-08,
+                1.0506966923040837e-05
+              ]
+            ],
+            "endpoint_phase_sigma_rad": [
+              0.0343079733242284,
+              0.034359260652260505
+            ]
+          },
+          {
+            "pair": [
+              0,
+              3
+            ],
+            "expected_centered_complex_coherence": 0.9998357069385959,
+            "quadrature_absolute_error_estimate": 1.1100406226855997e-14,
+            "baseline_rate_slope_covariance": [
+              [
+                7.501058809747773e-06,
+                3.031734410887636e-08
+              ],
+              [
+                3.031734410887636e-08,
+                1.0661900600035589e-05
+              ]
+            ],
+            "endpoint_phase_sigma_rad": [
+              0.034568386952800505,
+              0.03468504464067184
+            ]
+          },
+          {
+            "pair": [
+              1,
+              2
+            ],
+            "expected_centered_complex_coherence": 0.9998331622349306,
+            "quadrature_absolute_error_estimate": 1.1100377974969994e-14,
+            "baseline_rate_slope_covariance": [
+              [
+                7.612764451470181e-06,
+                -6.96193313321852e-08
+              ],
+              [
+                -6.96193313321852e-08,
+                1.084039385176679e-05
+              ]
+            ],
+            "endpoint_phase_sigma_rad": [
+              0.0350304112462524,
+              0.034764602688522224
+            ]
+          },
+          {
+            "pair": [
+              1,
+              3
+            ],
+            "expected_centered_complex_coherence": 0.999839059400105,
+            "quadrature_absolute_error_estimate": 1.110044344665556e-14,
+            "baseline_rate_slope_covariance": [
+              [
+                7.348163298762448e-06,
+                -7.580051668948098e-08
+              ],
+              [
+                -7.580051668948099e-08,
+                1.0443736843018848e-05
+              ]
+            ],
+            "endpoint_phase_sigma_rad": [
+              0.034418465916138855,
+              0.03412376775747487
+            ]
+          },
+          {
+            "pair": [
+              2,
+              3
+            ],
+            "expected_centered_complex_coherence": 0.9998209623444223,
+            "quadrature_absolute_error_estimate": 1.1100242528976592e-14,
+            "baseline_rate_slope_covariance": [
+              [
+                8.17442739489001e-06,
+                -1.97698075644655e-08
+              ],
+              [
+                -1.97698075644655e-08,
+                1.1618766782744215e-05
+              ]
+            ],
+            "endpoint_phase_sigma_rad": [
+              0.03618383067228253,
+              0.03611095896355075
+            ]
+          }
+        ],
+        "minimum_expected_centered_complex_coherence": 0.9998209623444223,
+        "coherence_stability_measured": false,
+        "hardware_confidence_calibrated": false,
+        "assumption": "Zero-mean Gaussian parameter errors with supplied full Fisher covariance; uniform exposure; constant station phase removed at integration center.",
+        "quantity": "E[mean exp(i centered phase error)], not E[abs(mean)] or a single-realization bound.",
+        "limits": "Conditional model-error diagnostic only. Does not include unmodelled fast phase, aliases, shared sky/filter noise, incorrect covariance or gain changes. No actual OCXO, low-SNR or image-fidelity guarantee. No correction, gating or weights are changed. Windows <=3s within pilot; phase-variance numerical bound <=10000 rad^2."
+      },
+      "matched_control_minimum_amplitude_ratio": 0.8458994717535843,
+      "ratio_source_sha256": "c9a266789ae9fecfa299e3e5792bca5ddb74999cb10f23181473e7fdfd711c8f"
+    }
+  ],
+  "actual_hardware_data": false,
+  "covariance_calibrated_against_rate_solver": false,
+  "scope": "Conditional formula checked with draws from its own assumed Gaussian covariance; archive diagnostics reuse saved measured profiles, without rerunning IQ/correlation/RML. Means of centered complex integrals differ from means of magnitudes. No real receiver coherence or calibrated inference guarantee."
+}

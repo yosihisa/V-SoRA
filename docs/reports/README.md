@@ -70,4 +70,6 @@
 
 | 039 | [周期位相を加えたVDIFとClosure](039-periodic-phase-coherence.md) | source/wheel225件成功。実GUI/CLIでも分割整合・線形採用のまま約15%減衰。遅い周期は不整合停止 |
 
+| 040 | [線形rateの推定誤差診断](040-linear-rate-uncertainty.md) | source/wheel249件成功。全共分散・Gaussian65536標本・CLI一致。99.98%の条件付き予測でも周期位相の対照比84.59%、実機保証なし |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。

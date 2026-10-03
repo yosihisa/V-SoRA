@@ -40,3 +40,23 @@ def test_rate_profile_identity_and_epoch_checks():
     with pytest.raises(ValueError,match='station order'):validate_rate_profile(profile,['ST02','ST01'],profile['time_origin_utc'],.002,.3)
     with pytest.raises(ValueError,match='origin'):validate_rate_profile(profile,['ST01','ST02'],'2026-10-02T08:00:01Z',.002,.3)
     with pytest.raises(ValueError,match='values'):validate_rate_profile({**profile,'station_rates_hz':[0,float('nan')]},profile['station_ids'],profile['time_origin_utc'],.002,.3)
+
+
+def test_linear_diagnostic_saved_without_altering_correlation(tmp_path):
+    from vsora_correlator.aligned import correlate_aligned
+    make_fixture(tmp_path/'input',38,frame_count=300,rate_slopes_hz_per_s=[0.,1.,-.5,1.5])
+    result=process_closure_session(tmp_path/'input/manifest.json',tmp_path/'input/clock.json',tmp_path/'complete',
+        integration_s=.3,correlation_only=True,rate_model='linear')
+    diagnostic=result['rate_estimate']['integration_uncertainty']
+    assert diagnostic['type']=='linear_rate_uncertainty' and diagnostic['integration_s']==pytest.approx(.3)
+    assert not diagnostic['coherence_stability_measured']
+    original=json.loads((tmp_path/'complete/rate-linear.json').read_text())
+    assert original['integration_uncertainty']==diagnostic
+    original.pop('integration_uncertainty')
+    profile=tmp_path/'without-diagnostic.json';profile.write_text(json.dumps(original))
+    correlate_aligned(tmp_path/'complete/final-manifest.json',tmp_path/'input/clock.json',tmp_path/'comparison',
+        1,.002,profile)
+    a=load_spectral(tmp_path/'complete/correlation/shard-00000.npz')
+    b=load_spectral(tmp_path/'comparison/shard-00000.npz')
+    for key in a:
+        if isinstance(a[key],np.ndarray):np.testing.assert_array_equal(a[key],b[key])

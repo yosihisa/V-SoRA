@@ -89,6 +89,10 @@ def process_closure_session(manifest,clock_model,output,*,pilot_integrations=256
         if rate_model=='linear':
             from .rate_linear import estimate_linear_shard
             estimate=estimate_linear_shard(partial/'pilot/shard-00000.npz',max_rate_hz)
+            from .rate_uncertainty import linear_rate_uncertainty
+            estimate['integration_uncertainty']=linear_rate_uncertainty(estimate,
+                estimate['station_ids'],estimate['time_origin_utc'],start_offset_s,
+                start_offset_s+integration_s)
         else:
             estimate=estimate_rate_shard(partial/'pilot/shard-00000.npz',max_rate_hz=max_rate_hz)
         profile=partial/('rate-linear.json' if rate_model=='linear' else 'rate-only.json');profile.write_text(json.dumps(estimate,indent=2)+'\n')

@@ -1,0 +1,29 @@
+{
+  "state": "complete",
+  "source": {
+    "passed": 249,
+    "warnings": 22672,
+    "seconds": 384.44
+  },
+  "installed": {
+    "passed": 249,
+    "warnings": 22672,
+    "seconds": 388.54
+  },
+  "pip_check": "No broken requirements found.",
+  "versions": {
+    "python": "3.12.3",
+    "numpy": "2.5.1",
+    "scipy": "1.18.0",
+    "astropy": "7.2.2",
+    "baseband": "4.3.0",
+    "pytest": "8.4.2",
+    "matplotlib": "3.11.1"
+  },
+  "wheel": {
+    "bytes": 5454223,
+    "sha256": "07d97445552883a6df13e2071560ec2a106c248436bec88cb96b67c44d308fa5"
+  },
+  "scope": "Source and installed checks separate; no hardware data or Cas A image-fidelity claim.",
+  "source_and_installed_sequential": true
+}

@@ -115,3 +115,15 @@ vsora-closure-session --manifest manifest.json --clock-model clock.json --pilot-
 平均したrateが同じになる速い揺れでは、分割診断や線形モデルが通ることがあります。段階039の模擬IQ→VDIFでは、32Hzのcos位相変動を加えると、分割rateが整合したまま最小振幅比は約85%、Closure log amplitude RMSも対照の約3倍になりました。位相揺れを測定・補正できた結果ではありません。
 
 遅い周期変動の別例は線形モデルと整合せず停止しました。検出できる変動と見逃す変動があるため、モデル適合と実機の位相安定性を分けて確認します。GUIの周期位相検証で再現できます。[段階039](../reports/039-periodic-phase-coherence.md)の生成条件を確認してください。
+
+### 推定誤差だけによる条件付きの予測
+
+線形rateの推定には、各局の周波数差・傾きと、それらの誤差の相関を表す共分散が保存されます。段階040以降の線形解析は、画像積分中の位相誤差をこの共分散から計算し、`rate_estimate.integration_uncertainty`へ保存します。積分中央の一定局位相を除いて、時間変化だけを評価します。
+
+誤差が保存された共分散をもつ平均0のGaussian分布だと仮定した計算です。「中央の位相をそろえた複素平均」の期待値で、振幅の平均値・実機の保持率・1回の観測の下限を示しません。未観測の速い位相揺れや、雑音モデルの誤りを含まないので、この値から自動的に積分時間や合否を決めません。
+
+```bash
+vsora-rate-uncertainty --profile outputs/new-linear-analysis/rate-linear.json --start-offset-s 0.002 --integration-s 3 --output outputs/new-uncertainty.json
+```
+
+pilotの時間範囲内・3秒以内の診断です。保存済みの速い周期位相の例では予測値約99.98%に対して、模擬VDIFの対照振幅比は約84.59%でした。推定が精密なことと、実際の位相が安定なことを区別してください。[計算式・検証・制約](../reports/040-linear-rate-uncertainty.md)を参照できます。
