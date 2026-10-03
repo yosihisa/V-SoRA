@@ -1,0 +1,32 @@
+{
+  "state": "complete",
+  "source": {
+    "passed": 355,
+    "warnings": 23312,
+    "seconds": 610.2
+  },
+  "targeted_final": {
+    "passed": 30,
+    "warnings": 640,
+    "seconds": 2.42
+  },
+  "installed": {
+    "passed": 355,
+    "warnings": 23312,
+    "seconds": 633.63
+  },
+  "wheel": {
+    "bytes": 5464360,
+    "sha256": "f8483d04f2cefcdd947f37987bc2d6d77545b719082fc5bcd288daaa326118b2"
+  },
+  "pip_check": "No broken requirements found.",
+  "no_test_exclusions": true,
+  "installed_cli_outside_checkout": true,
+  "source_final_label_clarification": "Source full collection preceded clarification that visibility covariance alone is conditionally ensemble-unbiased; final targeted tests and final wheel cover clarified flags.",
+  "frozen_vdif_matching_array_count": 12,
+  "frozen_vdif_maximum_array_difference": 0.0,
+  "scope": "Conditional nominal iid FFT noise diagnostic only. Actual independence, ADC/FIR covariance accuracy, hardware confidence and Cas A image fidelity unverified.",
+  "gui_server_restarted_with_final_wheel": true,
+  "gui_environment_api_ok": true,
+  "gui_preserved_job_history_count": 39
+}

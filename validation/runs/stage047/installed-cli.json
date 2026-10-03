@@ -1,0 +1,15 @@
+{
+  "installed_imports": true,
+  "installed_cli_outside_checkout": true,
+  "state": "conditional_estimate",
+  "nominal_common_fft_blocks": 512,
+  "time_index": 0,
+  "channel_index": 32,
+  "input_sha256": "d53eebb7eaefd91d39eda45757c395558964f932697c0e72651d50ab0f165929",
+  "no_overwrite_checked": true,
+  "iid_fft_independence_verified": false,
+  "scope": "Software transport/statistics diagnostic. Nominal FFT count, no actual FIR/ADC covariance accuracy, hardware confidence or image fidelity.",
+  "frozen_vdif_recorrelated": false,
+  "iid_gaussian_iq_generated": true,
+  "dummy_geometry_not_image_validation": true
+}

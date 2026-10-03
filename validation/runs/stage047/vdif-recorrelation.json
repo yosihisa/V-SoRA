@@ -1,0 +1,29 @@
+{
+  "installed_imports": true,
+  "installed_cli_outside_checkout": true,
+  "state": "conditional_estimate",
+  "nominal_common_fft_blocks": 192000,
+  "time_index": 0,
+  "channel_index": 16,
+  "input_sha256": "f6be4f1bfd3539afaf5fb34779cf0c73d360826e4ef55dc77b646d857ad878a4",
+  "no_overwrite_checked": true,
+  "iid_fft_independence_verified": false,
+  "scope": "Software transport/statistics diagnostic. Nominal FFT count, no actual FIR/ADC covariance accuracy, hardware confidence or image fidelity.",
+  "frozen_vdif_recorrelated": true,
+  "matching_arrays": [
+    "visibilities",
+    "weights",
+    "uvw_lambda",
+    "pairs",
+    "times_s",
+    "frequencies_hz",
+    "integration_s",
+    "diagnostic_station_power",
+    "diagnostic_station_sk",
+    "diagnostic_station_sk_eligible",
+    "diagnostic_station_flags",
+    "diagnostic_station_valid_fft_count"
+  ],
+  "maximum_array_difference": 0.0,
+  "old_archive_unverified_without_pair_counts": true
+}

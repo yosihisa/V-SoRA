@@ -84,4 +84,6 @@
 
 | 046 | [局の標本からvisibility雑音を推定](046-sample-noise-estimator.md) | source/wheel325件成功。真値不要の有限標本補正、4条件×32768試行の平均・半正定値・局gain変換を確認。実FFT独立性・信頼区間は未校正 |
 
+| 047 | [相関ファイルの雑音診断](047-observation-noise-diagnostic.md) | Gaussian IQ→FFT・条件付き一cell CLI・固定VDIFの既存12配列差0。source/wheel355件成功。実FFT独立性・信頼区間・実機は未検証 |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。

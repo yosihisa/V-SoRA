@@ -153,13 +153,16 @@ def correlate_aligned(manifest,clock_model,output,integrations,start_offset_s=.0
         cube={'visibilities':np.array([r['vis_jy'][0] for r in results]),'weights':np.array([r['weights'][0] for r in results]),
               'pairs':g['pairs'],'times_s':offsets,'frequencies_hz':f,
               'uvw_lambda':g['uvw_lambda'][:,None,:,:]*(f[None,:,None,None]/config['observation']['frequency_hz']),
-              'integration_s':np.array([r['integration_s'][0] for r in results])}
+              'integration_s':np.array([r['integration_s'][0] for r in results]),
+              'valid_fft_count':np.array([r['valid_fft_count'][0] for r in results])}
         cube.update({k:np.array([r[k][0] for r in results]) for k in results[0] if k.startswith('diagnostic_')})
         meta={'config':config,'time_origin_utc':origin.isot+'Z','visibility_unit':'ADC^2' if c['voltage_unit']=='ADC' else 'Jy',
               'phase_center_corrected':True,'rate_applied_hz':rate.tolist(),'rate_applied_reference_s':rate_epoch,
               'rate_applied_slopes_hz_per_s':slopes.tolist(),'rate_profile_type':rate_type,
               'rate_only_profile_sha256':rate_sha,'rate_only_extrapolation_allowed':bool(allow_rate_extrapolation),
               'nominal_integration_s':ns/fs,
+              'fft_length':c['fft_length'],'fft_sample_rate_hz':fs,
+              'fft_count_note':'Counts of nonoverlapping rectangular FFT blocks; actual independence after filtering/interpolation is unverified',
               'vdif_read_mode':'guarded_seek' if seek_input else 'sequential_prefix',
               'vdif_validation_scope':'File origin and length, decoded range headers and nominal continuity; skipped prefix not structurally scanned' if seek_input else 'Sequential prefix and decoded range headers',
               'clock_mapping_applied':True,'filter':'65-tap Kaiser lowpass; group delay compensated',
