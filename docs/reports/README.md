@@ -72,4 +72,6 @@
 
 | 040 | [線形rateの推定誤差診断](040-linear-rate-uncertainty.md) | source/wheel249件成功。全共分散・Gaussian65536標本・CLI一致。99.98%の条件付き予測でも周期位相の対照比84.59%、実機保証なし |
 
+| 041 | [推定誤差診断の日本語GUI](041-rate-uncertainty-gui.md) | source/wheel250件成功。実Chromiumで単区間・3区間・周期位相・Gaussian表を確認、日本語/390px・JS/外部通信0。RMLは100反復上限 |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。

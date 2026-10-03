@@ -66,18 +66,21 @@ def plot(summary, out):
     import matplotlib
     matplotlib.use('Agg')
     import matplotlib.pyplot as plt
-    fig, axes = plt.subplots(1, 2, figsize=(10, 3.8))
+    archived = summary['archived_profiles']
+    fig, axes = plt.subplots(1, 2 if archived else 1, figsize=(10 if archived else 6, 3.8))
+    axes = np.atleast_1d(axes)
     rows = summary['gaussian_results']; x = np.arange(len(rows))
     axes[0].plot(x, [r['calculated_expected_centered_complex_coherence'] for r in rows], 'x', markersize=9, label='Conditional formula')
     axes[0].errorbar(x, [r['sample_mean_real'] for r in rows], yerr=[6*r['sample_standard_error_real'] for r in rows], fmt='o', label='Gaussian draws (6 SE)')
     axes[0].plot(x, [r['sample_mean_absolute_coherence'] for r in rows], 's', label='Mean magnitude (different quantity)')
     axes[0].set(xlabel='Baseline index', ylabel='Centered coherence', title='Explicit Gaussian error assumption'); axes[0].legend(fontsize=7)
-    for i, r in enumerate(summary['archived_profiles']):
+    for i, r in enumerate(archived):
         axes[1].plot(i, r['diagnostic']['minimum_expected_centered_complex_coherence'], 'o', color='C0')
         measured = r['matched_control_minimum_amplitude_ratio']
         if measured is not None: axes[1].plot(i, measured, 'x', color='C1', markersize=8)
-    axes[1].set_xticks(range(len(summary['archived_profiles'])), [r['label'] for r in summary['archived_profiles']], rotation=35, ha='right', fontsize=6)
-    axes[1].set(ylabel='Minimum diagnostic / control ratio', title='Blue: parameter error only; orange: archive ratio', ylim=(.8, 1.01))
+    if archived:
+        axes[1].set_xticks(range(len(archived)), [r['label'] for r in archived], rotation=35, ha='right', fontsize=6)
+        axes[1].set(ylabel='Minimum diagnostic / control ratio', title='Blue: parameter error only; orange: archive ratio', ylim=(.8, 1.01))
     fig.tight_layout(); fig.savefig(out/'rate-uncertainty.png', dpi=140); plt.close(fig)
 
 

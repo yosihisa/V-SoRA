@@ -1,0 +1,28 @@
+{
+  "state": "complete",
+  "full_regression": "source_then_installed_passed",
+  "targeted_api": {
+    "passed": 2,
+    "deselected": 30,
+    "warnings": 3201,
+    "seconds": 29.74
+  },
+  "pip_check": "No broken requirements found.",
+  "wheel": {
+    "bytes": 5455199,
+    "sha256": "74e46d2ea18ed8b39835129f7344fd713270eae468d3bde50a55f0a737986ef3"
+  },
+  "scope": "Source/installed sequential regression, installed GUI with checkout validation workflow, real headless Chromium. No hardware, Windows or image-fidelity claim.",
+  "source": {
+    "passed": 250,
+    "warnings": 22672,
+    "seconds": 394.11
+  },
+  "installed": {
+    "passed": 250,
+    "warnings": 22672,
+    "seconds": 399.7
+  },
+  "main_gui_active_jobs_before_update": 0,
+  "main_gui_environment_responded": true
+}

@@ -245,6 +245,8 @@ def test_linear_sequence_gui_real_subprocess(tmp_path):
         d=wait(c,r.json()['id'],90);assert d['state']=='complete',d
         assert d['summary']['rate_model']=='linear'
         assert all(w['rate_estimate']['type']=='station_rate_linear' for w in d['summary']['windows'])
+        assert all(w['rate_estimate']['integration_uncertainty']['type']=='linear_rate_uncertainty' for w in d['summary']['windows'])
+        assert all(not w['rate_estimate']['integration_uncertainty']['coherence_stability_measured'] for w in d['summary']['windows'])
         assert d['summary']['nominal_image_exposure_per_station_s']==pytest.approx(.9)
         assert c.get(f"/api/jobs/{d['id']}/artifacts/sequence/rates.png").status_code==200
 
@@ -259,4 +261,20 @@ def test_periodic_phase_validation_real_subprocess(tmp_path):
         assert d['summary']['type']=='periodic_phase_validation' and not d['summary']['actual_hardware_data']
         assert d['summary']['cases'][0]['state']=='complete'
         assert len(d['summary']['cases'])==4
+        fast=next(r for r in d['summary']['cases'] if r['case']=='fast' and r['rate_model']=='linear')
+        assert fast['rate_estimate']['integration_uncertainty']['minimum_expected_centered_complex_coherence']>.99
+        assert min(fast['measured_amplitude_ratio_to_same_noise_control'])<.9
         assert c.get(f"/api/jobs/{d['id']}/artifacts/validation/periodic-coherence.png").status_code==200
+
+
+def test_uncertainty_validation_real_subprocess(tmp_path):
+    (tmp_path/'tools').mkdir()
+    (tmp_path/'tools/run.py').symlink_to(Path(__file__).resolve().parents[3]/'tools/run.py')
+    with TestClient(create_app(tmp_path),base_url='http://127.0.0.1') as c:
+        r=c.post('/api/jobs',json={'kind':'validation','validation':'uncertainty'},headers=HEADERS)
+        assert r.status_code==202
+        d=wait(c,r.json()['id'],90);assert d['state']=='complete',d
+        q=d['summary'];assert q['type']=='rate_uncertainty_validation' and q['draws']==65536
+        assert not q['actual_hardware_data'] and not q['covariance_calibrated_against_rate_solver']
+        assert len(q['gaussian_results'])==6
+        assert c.get(f"/api/jobs/{d['id']}/artifacts/validation/rate-uncertainty.png").status_code==200

@@ -114,9 +114,9 @@ window内の一定LO/gain、実sample時計の線形対応、初期差の探索�
 
 共通rateは不定。`coherence_stability_measured=false` を常に明記する。部分内の周期的位相・alias・sky/gain変化などは平均rateだけでは識別できない。
 
-## 滑らかな線形rateの補正（段階037・CLI）
+## 滑らかな線形rateの補正
 
-`vsora-closure-session --rate-model linear` は、4分割で測った相対局rateへ線形モデルを当てはめ、二次位相をIQへ適用してから相関する。初期値は `constant`。単一区間のCLIが対象。GUIと区間列のモデル選択は後続段階。
+`vsora-closure-session --rate-model linear` は、4分割で測った相対局rateへ線形モデルを当てはめ、二次位相をIQへ適用してから相関する。初期値は `constant`。単一区間・区間列のCLIとGUIで選択できる。
 
 `vsora-rate-linear --input pilot/shard-00000.npz --output rate-linear.json` は補正前LOの整列済みpilotからprofileを作る。`type=station_rate_linear`、局ID/順番、UTC origin、適用範囲、epoch `time_reference_s`、`station_rates_hz`、`station_rate_slopes_hz_per_s`、全局のrate/傾き共分散、近似model χ²を保存する。画像の正解や生成時の傾きを入力にしない。
 
@@ -131,3 +131,13 @@ window内の一定LO/gain、実sample時計の線形対応、初期差の探索�
 `vsora-sequence --rate-model linear` とGUIの補正モデル選択を追加した。各子区間へ `rate_model` を渡し、parent summaryへ保存する。各windowの `rate_estimate` に傾き・共分散・model適合を残す。window間のモデル補間はしない。原本SHAの共有と `.partial` の失敗位置記録は従来の規約を使う。
 
 UI/APIは `rate_model=constant/linear` のみ受け付け、線形モデルと一定rate整合必須の同時指定を拒否する。GUIは線形選択時に対応checkboxを外して無効化する。モデル不成立・情報不足を日本語で表示し、途中品を完成画像と扱わない。結果の近似σ・χ²・計算coherenceはFisher Gaussian等の仮定付きで、実機coherenceの保証ではない。
+
+## 線形モデルの推定誤差診断（段階040/041）
+
+pipelineが線形モデルを選んだ場合、`rate_estimate.integration_uncertainty`とrate JSONの`integration_uncertainty`へ画像積分の条件付き診断を保存する。区間列では各windowに入る。既存記録には項目がない場合があり、GUIは未記録と表示する。相関配列・IQ補正値・重みを診断値で変更しない。
+
+診断の`type=linear_rate_uncertainty`、`schema_version=1`。積分start/end/centerと各基線の`expected_centered_complex_coherence`、両端の位相σ、数値積分誤差、最小値を持つ。`coherence_stability_measured=false`、`hardware_confidence_calibrated=false`。mean-zero Gaussianパラメータ誤差、保存された全共分散、一様露光を仮定し、中央の一定局位相を除いた複素平均の期待値を計算する。振幅の期待値、単一実現の下限、実機保持率ではない。
+
+CLI `vsora-rate-uncertainty --profile rate-linear.json --start-offset-s 0.002 --integration-s 3 --output diagnostic.json`は保存プロファイルへ計算だけを適用する。profile内の局ID・UTCを使い、そのプロファイル自体のSHAを保存する。このCLIの実行だけでVDIFの局ID・時刻を外部検証したことにはならない。
+
+入力covarianceは基準局を除く順番、relative rates Hz→relative slopes Hz/sの順序。局間とrate/傾きの相関を保持し、対称・半正定値と時間coverageを確認する。窓はpilot内・3秒以内、位相分散の係数上界10000rad²まで。数値計算範囲外はエラーとなる。実データの欠損/除外mask、微小な局別query時刻の違い、速い位相揺れ・alias・誤ったcovarianceを含まない。[計算と検証](../docs/reports/040-linear-rate-uncertainty.md)、[GUI](../docs/reports/041-rate-uncertainty-gui.md)を参照。

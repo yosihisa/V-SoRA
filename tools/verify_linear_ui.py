@@ -18,6 +18,8 @@ def run(output,manifest,clock_model,sequence_manifest,sequence_clock,port=8772):
     out=Path(output).resolve();out.mkdir(parents=True,exist_ok=False);url=f'http://127.0.0.1:{port}'
     env=os.environ.copy();env.pop('PYTHONPATH',None);env.update(OPENBLAS_NUM_THREADS='1',OMP_NUM_THREADS='1')
     with tempfile.TemporaryDirectory(prefix='vsora-linear-ui-') as directory:
+        checkout=Path(__file__).resolve().parents[1]
+        (Path(directory)/'tools').mkdir();(Path(directory)/'tools/run.py').symlink_to(checkout/'tools/run.py')
         inputs=Path(directory)/'inputs';inputs.mkdir()
         for name,path in [('session',manifest),('clock',clock_model),('sequence',sequence_manifest),('sequence-clock',sequence_clock)]:
             (inputs/name).symlink_to(Path(path).resolve().parent,target_is_directory=True)
@@ -55,6 +57,10 @@ def run(output,manifest,clock_model,sequence_manifest,sequence_clock,port=8772):
                 assert analysis['summary']['rate_estimate']['type']=='station_rate_linear'
                 text=page.locator('#job-detail').inner_text();assert '滑らかな線形rateによるIQ補正' in text and '実測の保持率ではありません' in text and '近似σ' in text
                 assert '一定rateで補正した結果です' not in text
+                assert '推定誤差だけから計算した条件付き予測' in text and '欠損や除外maskを含みません' in text
+                diagnostic=analysis['summary']['rate_estimate']['integration_uncertainty']
+                assert not diagnostic['coherence_stability_measured']
+                assert f"{100*diagnostic['minimum_expected_centered_complex_coherence']:.4f}%" in text
                 page.wait_for_function('Array.from(document.querySelectorAll("#job-detail img")).every(x=>x.complete&&x.naturalWidth>0)')
                 page.screenshot(path=str(out/'analysis.png'),full_page=True)
                 page.get_by_role('button',name='区間列解析',exact=True).click();form=page.locator('#sequence-form')
@@ -68,6 +74,7 @@ def run(output,manifest,clock_model,sequence_manifest,sequence_clock,port=8772):
                 result=latest();assert result['summary']['rate_model']=='linear' and len(result['summary']['windows'])==3
                 assert all(w['rate_estimate']['type']=='station_rate_linear' for w in result['summary']['windows'])
                 page.locator('#job-detail details').filter(has=page.get_by_text('区間ごとの周波数差とpilot条件',exact=True)).evaluate('node => node.open = true')
+                assert page.locator('#job-detail').get_by_text('推定誤差だけから計算した条件付き予測',exact=True).count()==3
                 page.wait_for_function('Array.from(document.querySelectorAll("#job-detail img")).every(x=>x.complete&&x.naturalWidth>0)')
                 page.screenshot(path=str(out/'sequence.png'),full_page=True)
                 page.set_viewport_size({'width':390,'height':844})
@@ -86,12 +93,25 @@ def run(output,manifest,clock_model,sequence_manifest,sequence_clock,port=8772):
                 page.get_by_role('button',name='VDIF解析',exact=True).click()
                 form.locator('select[name=rate_model]').select_option('constant')
                 assert not form.locator('input[name=require_rate_consistency]').is_disabled()
+                page.get_by_role('button',name='動作検証',exact=True).click()
+                page.locator('#validation-form select[name=validation]').select_option('uncertainty')
+                page.get_by_role('button',name='検証を開始',exact=True).click()
+                page.locator('#job-detail .phase-line').get_by_text('処理完了',exact=True).wait_for(timeout=90000)
+                gaussian=latest();assert gaussian['summary']['type']=='rate_uncertainty_validation'
+                text=page.locator('#job-detail').inner_text();assert '仮定Gaussian誤差の計算検証' in text and '65,536' in text
+                assert '振幅の平均は違う量' in text and '標本の振幅平均' in text
+                gaussian_overflow=page.evaluate('document.documentElement.scrollWidth>document.documentElement.clientWidth')
+                page.wait_for_function('Array.from(document.querySelectorAll("#job-detail img")).every(x=>x.complete&&x.naturalWidth>0)')
+                page.screenshot(path=str(out/'gaussian.png'),full_page=True)
                 page.evaluate('document.fonts.ready');font=page.evaluate('document.fonts.check("14px \'VSoRA Japanese\'")')
                 external=[r for r in requests if not r.startswith(url+'/')]
-                assert not errors and not external and not result_overflow and not form_overflow and font
+                assert not errors and not external and not result_overflow and not form_overflow and not gaussian_overflow and font
                 summary={'installed_imports':True,'independent_workspace':True,'browser':browser.version,
                     'javascript_errors':errors,'external_requests':len(external),'japanese_font_loaded':font,
                     'mobile_result_horizontal_overflow':result_overflow,'mobile_form_horizontal_overflow':form_overflow,
+                    'mobile_gaussian_horizontal_overflow':gaussian_overflow,
+                    'validation_workflow_from_checkout':True,'gaussian_validation_state':gaussian['state'],
+                    'conditional_diagnostic_displayed':True,'sequence_diagnostics_displayed':3,
                     'model_selection_clears_and_disables_constant_requirement':True,
                     'analysis':{'state':analysis['state'],'model':analysis['summary']['rate_estimate'],'rml':analysis['summary']['rml']},
                     'sequence':{'state':result['state'],'rate_model':result['summary']['rate_model'],

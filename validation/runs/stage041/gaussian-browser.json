@@ -1,0 +1,16 @@
+{
+  "installed_gui_imports": true,
+  "validation_workflow_from_checkout": true,
+  "independent_workspace": true,
+  "state": "complete",
+  "browser": "153.0.8010.12",
+  "javascript_errors": [],
+  "external_requests": 0,
+  "japanese_font_loaded": true,
+  "mobile_horizontal_overflow": false,
+  "draws": 65536,
+  "cases": 6,
+  "actual_hardware_data": false,
+  "covariance_calibrated_against_rate_solver": false,
+  "scope": "Conditional Gaussian calculation/UI, WSL headless Chromium. No real rate covariance calibration, OCXO, Windows or image-fidelity guarantee."
+}

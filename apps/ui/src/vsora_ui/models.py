@@ -29,7 +29,7 @@ class SimulationRequest(Request):
 
 class ValidationRequest(Request):
     kind:Literal['validation']='validation'
-    validation:Literal['rate','phase','closure','quality','clock','fringe','basic']='quality'
+    validation:Literal['rate','phase','uncertainty','closure','quality','clock','fringe','basic']='quality'
 
 
 class RmlRequest(Request):

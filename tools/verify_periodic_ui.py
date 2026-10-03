@@ -39,6 +39,10 @@ def run(output,port=8773):
                 assert next(r['state'] for r in q['cases'] if r['case']=='slow')=='incomplete'
                 text=page.locator('#job-detail').inner_text();assert '仮定した周期位相変動の結果' in text and '実機の相関保持率を測定した結果ではありません' in text
                 assert '相関処理は未完了' in text and '84.59%' in text
+                diagnostic=fast['rate_estimate']['integration_uncertainty']
+                assert diagnostic['minimum_expected_centered_complex_coherence']>.99
+                assert f"{100*diagnostic['minimum_expected_centered_complex_coherence']:.4f}%" in text
+                assert '推定誤差だけから計算した条件付き予測' in text and '実機の保持率・1回の観測の下限' in text
                 page.wait_for_function('Array.from(document.querySelectorAll("#job-detail img")).every(x=>x.complete&&x.naturalWidth>0)')
                 page.screenshot(path=str(out/'result.png'),full_page=True)
                 page.set_viewport_size({'width':390,'height':844});overflow=page.evaluate('document.documentElement.scrollWidth>document.documentElement.clientWidth')
@@ -51,6 +55,7 @@ def run(output,port=8773):
                     'japanese_font_loaded':font,'mobile_horizontal_overflow':overflow,'state':job['state'],
                     'cases':[{'case':r['case'],'model':r['rate_model'],'state':r['state'],'diagnosis':r['diagnosis']['state']} for r in q['cases']],
                     'fast_linear_minimum_amplitude_ratio':min(fast['measured_amplitude_ratio_to_same_noise_control']),
+                    'fast_linear_conditional_uncertainty':diagnostic,
                     'scope':'Installed GUI with explicitly checkout-owned validation runner. Synthetic point-noise IQ/VDIF, not Windows browser, WSLg, hardware or Cas A image fidelity.'}
                 browser.close();(out/'summary.json').write_text(json.dumps(summary,indent=2)+'\n');return summary
         finally:
