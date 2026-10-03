@@ -1,0 +1,27 @@
+{
+  "state": "complete",
+  "source": {
+    "passed": 298,
+    "warnings": 22672,
+    "seconds": 448.31
+  },
+  "installed": {
+    "passed": 298,
+    "warnings": 22672,
+    "seconds": 428.1
+  },
+  "targeted_api": {
+    "passed": 1,
+    "warnings": 1,
+    "seconds": 6.65
+  },
+  "wheel": {
+    "bytes": 5460256,
+    "sha256": "519a4576b7975ca46677b8da163f13bc8d1a758a53c089395202f9420e49cdd6"
+  },
+  "source_then_browser_then_installed": true,
+  "installed_ignored_only_uncommitted_future_test": "apps/simulator/tests/test_visibility_noise_estimate.py",
+  "same_stage045_298_tests": true,
+  "pip_check": "No broken requirements found.",
+  "scope": "GUI for known forward covariance and high-SNR closure propagation. No ADC/FIR/VDIF, hardware or image fidelity."
+}

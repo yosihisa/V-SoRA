@@ -1,0 +1,24 @@
+{
+  "installed_gui_imports": true,
+  "validation_workflow_from_checkout": true,
+  "independent_workspace": true,
+  "state": "complete",
+  "browser": "153.0.8010.12",
+  "javascript_errors": [],
+  "external_requests": 0,
+  "japanese_font_loaded": true,
+  "mobile_horizontal_overflow": false,
+  "validation": "closure_noise",
+  "actual_hardware_data": false,
+  "browser_environment": "WSL headless Chromium; Windows/WSLg unverified",
+  "trials_per_case": 16384,
+  "cases": 8,
+  "generation_methods": [
+    "gaussian_visibility",
+    "gaussian_voltage"
+  ],
+  "selection_on_observed_visibility": false,
+  "physical_iq_vdif_processed": false,
+  "production_rml_noise_model_changed": false,
+  "scope": "Known station covariance and first-order closure propagation. Visibility approximation and iid Gaussian voltage samples shown separately. No ADC/FIR/VDIF, hardware or image fidelity."
+}

@@ -1,4 +1,4 @@
-"""Installed uncertainty/covariance GUI; explicitly checkout-owned workflow."""
+"""Installed noise-diagnostic GUI; explicitly checkout-owned workflows."""
 import argparse
 import json
 import os
@@ -12,7 +12,7 @@ from playwright.sync_api import sync_playwright
 
 
 def run(output, port=8774, validation='uncertainty'):
-    if validation not in ('uncertainty', 'covariance'):
+    if validation not in ('uncertainty', 'covariance', 'closure_noise'):
         raise ValueError('Unknown validation workflow')
     from vsora_ui import models, worker
     assert all(Path(m.__file__).is_relative_to(Path(sys.prefix)) for m in (models, worker))
@@ -49,7 +49,7 @@ def run(output, port=8774, validation='uncertainty'):
                     scientific={'draws':q['draws'],'cases':len(q['gaussian_results']),
                         'covariance_calibrated_against_rate_solver':False,
                         'scope':'Conditional Gaussian calculation/UI. No real rate covariance calibration or image fidelity.'}
-                else:
+                elif validation=='covariance':
                     assert q['type']=='rate_covariance_validation' and q['trials_per_group']==1024 and len(q['groups'])==8
                     assert not q['physical_iq_vdif_processed']
                     assert 'rate近似σと推定誤差の比較' in text and '誤差統計は採用例だけ' in text
@@ -64,6 +64,23 @@ def run(output, port=8774, validation='uncertainty'):
                     scientific={'trials_per_group':q['trials_per_group'],'groups':len(q['groups']),
                         'statistics_conditioned_on_accepted':True,'physical_iq_vdif_processed':False,
                         'scope':'Finite assumed visibility-noise experiment/UI, conditional on accepted fits. No physical IQ, OCXO or image fidelity.'}
+                else:
+                    assert q['type']=='joint_closure_noise_validation' and q['trials_per_case']==16384 and len(q['cases'])==8
+                    assert not q['physical_iq_vdif_processed'] and not q['production_rml_noise_model_changed']
+                    assert '共有信号がClosureの雑音へ与える影響' in text
+                    assert '実受信機から未知の雑音を推定した結果ではありません' in text
+                    assert 'Gaussian電圧512標本' in text and '観測された値による選別はしていません' in text
+                    assert 'phaseとlog amplitudeの交差共分散' in text
+                    assert page.locator('#job-detail .window-table tr').count()==9
+                    for r in q['cases']:
+                        assert not r['selection_on_observed_visibility']
+                        for key in ('empirical_to_first_order_variance_ratio','first_order_to_independent_circular_variance_ratio'):
+                            values=r[key];assert f'{min(values):.3f}〜{max(values):.3f}' in text
+                    scientific={'trials_per_case':q['trials_per_case'],'cases':len(q['cases']),
+                        'generation_methods':sorted({r['noise_generation'] for r in q['cases']}),
+                        'selection_on_observed_visibility':False,'physical_iq_vdif_processed':False,
+                        'production_rml_noise_model_changed':False,
+                        'scope':'Known station covariance and first-order closure propagation. Visibility approximation and iid Gaussian voltage samples shown separately. No ADC/FIR/VDIF, hardware or image fidelity.'}
                 page.wait_for_function('Array.from(document.querySelectorAll("#job-detail img")).every(x=>x.complete&&x.naturalWidth>0)')
                 page.screenshot(path=str(out/'result.png'),full_page=True)
                 page.set_viewport_size({'width':390,'height':844});overflow=page.evaluate('document.documentElement.scrollWidth>document.documentElement.clientWidth')
@@ -84,5 +101,5 @@ def run(output, port=8774, validation='uncertainty'):
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser();parser.add_argument('--output',required=True);parser.add_argument('--port',type=int,default=8774)
-    parser.add_argument('--validation',choices=('uncertainty','covariance'),default='uncertainty')
+    parser.add_argument('--validation',choices=('uncertainty','covariance','closure_noise'),default='uncertainty')
     print(json.dumps(run(**vars(parser.parse_args())),indent=2))

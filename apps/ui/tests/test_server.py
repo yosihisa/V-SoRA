@@ -292,3 +292,17 @@ def test_covariance_validation_real_subprocess(tmp_path):
         assert all(r['statistics_conditioned_on_accepted'] for r in q['groups'])
         assert q['groups'][3]['accepted_count']<1024
         assert c.get(f"/api/jobs/{d['id']}/artifacts/validation/rate-covariance.png").status_code==200
+
+
+def test_closure_noise_validation_real_subprocess(tmp_path):
+    (tmp_path/'tools').mkdir()
+    (tmp_path/'tools/run.py').symlink_to(Path(__file__).resolve().parents[3]/'tools/run.py')
+    with TestClient(create_app(tmp_path),base_url='http://127.0.0.1') as c:
+        r=c.post('/api/jobs',json={'kind':'validation','validation':'closure_noise'},headers=HEADERS)
+        assert r.status_code==202
+        d=wait(c,r.json()['id'],90);assert d['state']=='complete',d
+        q=d['summary'];assert q['type']=='joint_closure_noise_validation' and q['trials_per_case']==16384
+        assert len(q['cases'])==8 and not q['actual_hardware_data'] and not q['production_rml_noise_model_changed']
+        assert all(not r['selection_on_observed_visibility'] for r in q['cases'])
+        assert {r['noise_generation'] for r in q['cases']}=={'gaussian_voltage','gaussian_visibility'}
+        assert c.get(f"/api/jobs/{d['id']}/artifacts/validation/closure-noise.png").status_code==200
