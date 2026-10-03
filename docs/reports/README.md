@@ -78,4 +78,6 @@
 
 | 043 | [rate共分散検証の日本語GUI](043-rate-covariance-gui.md) | source/wheel270件成功。実Chromiumで8条件×1024試行、採用率と選別後の誤差統計を表示。日本語/390px・JS/外部通信0 |
 
+| 044 | [共有信号を含むClosureの誤差伝播](044-joint-closure-noise.md) | source/wheel297件成功。全実共分散・phase/log amplitude交差・局gain不変性・8条件×16384標本。一次近似との差と特異極限を記録 |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。

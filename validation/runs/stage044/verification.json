@@ -1,0 +1,25 @@
+{
+  "state": "complete",
+  "source": {
+    "passed": 297,
+    "warnings": 22672,
+    "seconds": 417.95
+  },
+  "installed": {
+    "passed": 297,
+    "warnings": 22672,
+    "seconds": 423.18
+  },
+  "targeted": {
+    "passed": 27,
+    "seconds": 1.22
+  },
+  "wheel": {
+    "bytes": 5459432,
+    "sha256": "6c94a4be8909f349397dfb1bfe0fc84bc513cfb5333bc46c399aabcfdec26bc3"
+  },
+  "source_then_installed": true,
+  "installed_api_outside_checkout": true,
+  "pip_check": "No broken requirements found.",
+  "scope": "Known forward covariance, high-SNR first-order closure noise. Gaussian visibility approximation and iid proper Gaussian voltages separate. No physical IQ/VDIF or hardware/image fidelity."
+}

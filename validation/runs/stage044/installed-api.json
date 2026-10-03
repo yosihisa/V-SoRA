@@ -1,0 +1,18 @@
+{
+  "installed_imports": true,
+  "outside_checkout": true,
+  "shared_point_rho": 0.5,
+  "first_order_variance_ratio": [
+    0.25,
+    0.25,
+    0.25,
+    0.25,
+    0.25,
+    0.25
+  ],
+  "phase_count": 4,
+  "logamp_count": 2,
+  "covariance_inverted": false,
+  "closure_distribution_gaussian_guaranteed": false,
+  "scope": "Known one-cell forward covariance, high-SNR first-order closure propagation. No receiver covariance estimate, physical VDIF, hardware or image fidelity."
+}

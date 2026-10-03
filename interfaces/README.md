@@ -25,3 +25,4 @@
 独自NPZは開発用の形式です。VDIFやFITS-IDIとは役割が違い、他装置のファイルを無条件に読めるという意味ではありません。
 
 - [Closure pipeline](closure-pipeline.md)：VDIF・sample時計・モデル不要rate・相対RML・途中失敗の規約。
+- [既知のClosure雑音](joint-closure-noise.md)：模擬モデルの全実共分散からphase・log amplitudeの同時誤差へ伝播する診断API。
