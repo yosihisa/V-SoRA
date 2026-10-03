@@ -86,3 +86,22 @@ summary.rate_acquisitionは刻み・時刻数・span・Nyquist・探索上限・
 ## 原本の部分seekと検査範囲
 
 段階031から後方の短区間はFIR/補間guardを含むframeから読み始める。公称sample0を基準にしたglobal indexを保持し、sample時計とrateを同じphysical timeで評価する。完成summaryには読取mode・範囲・各局のdecoded frame数を残す。読取中のheader/time/invalidは検査するが、飛ばしたprefixの全構造を正常と判定しない。pipelineの全原本SHA計算は維持し、長記録ではこの読取時間も掛かる。単独aligned CLIの`--sequential-input`で先頭からFIRとheader検査を行える。[時計と読取規約](clock-model.md)を参照。
+
+
+## 同じ原本から複数の短windowを処理する
+
+```bash
+python tools/run.py vsora_correlator.sequence --manifest manifest.json --clock-model clock.json --window-count 3 --integration-s 0.3 --output outputs/sequence
+```
+
+配布CLIは`vsora-sequence`。2〜64window。`--step-s`を省略するとpilotのspanを開始間隔に使う。指定するならpilot/画像積分が重ならない間隔が必要。pilotはmanifestの値、または--pilot-integration-sを使う。各画像積分はそのpilot内に収め、最終積分はVDIF/FFTの整数格子に合わせる。
+
+各windowでsample/幾何整列・rate再推定・IQ再相関を3工程で実施。高精度gain/既知skyを入力せず、windowごとの未知定数phase/amplitudeを保持する。rate profileを別windowへ暗黙に外挿しない。単一区間CLIの--correlation-onlyもこの3工程だけを保存できる。
+
+各windowの`correlation/shard-00000.npz`を、複素平均せず最後のsynthesisへ渡す。相対RMLは最後に一度だけ実行。出力はwindow-0000/など、synthesis/、sequence.json、summary.json。window途中の失敗はcurrent_window_index、最終画像化の失敗はphase=synthesisとして区別し、全体は.partial/incompleteに残す。上書き・自動resume・弱い区間の自動skipは現段階では行わない。
+
+window間隔・pilotが覆うstart-to-end span・画像の公称露光・baselineの有効露光を分ける。例えば2ms×256pilotの3windowではpilotspan1.536秒でも、0.3秒画像3個の露光は0.9秒。欠損やRF flagの影響は別の露光/重み/Closure数で確認する。
+
+原本とmanifest/clock/観測設定のSHAは各windowで再計算し、一致を確認する。開始時と各window後/合成後のfile size、mtime/ctime、device/inodeも確認し、変化を検出した場合は完成扱いにしない。閉じた記録を前提にする。全SHAを毎回読む費用があるため、識別情報の安全な再利用は次段階。
+
+window内の一定LO/gain、実sample時計の線形対応、初期差の探索範囲、Gaussian高SNR Closureは依然必要。window間でLOが変わることと、window内の不規則な位相揺れを復元できることは別。[段階032](../docs/reports/032-short-window-sequence.md)を参照。GUI入口は後続段階。

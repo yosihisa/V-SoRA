@@ -1,0 +1,47 @@
+{
+  "installed_import": true,
+  "outside_checkout_entrypoint_help": true,
+  "state": "complete",
+  "window_count": 3,
+  "window_rates_hz": [
+    [
+      0.0,
+      17.315869444298322,
+      -11.68730248775785,
+      26.107653831739885
+    ],
+    [
+      0.0,
+      31.191641204165677,
+      -6.309876684639062,
+      14.381659249507264
+    ],
+    [
+      0.0,
+      -20.49582693904901,
+      13.695787810085456,
+      4.307687158289922
+    ]
+  ],
+  "nominal_image_exposure_per_station_s": 0.8999999999999999,
+  "closures": {
+    "phase_valid": 156,
+    "logamp_valid": 78,
+    "input_unit": "ADC^2",
+    "absolute_flux_available": false,
+    "absolute_centroid_available": false
+  },
+  "image_sum": 1.0,
+  "selected_optimizer_success": false,
+  "maximum_absolute_reference_array_differences": {
+    "visibilities": 0.0,
+    "weights": 0.0,
+    "uvw_lambda": 0.0,
+    "integration_s": 0.0,
+    "diagnostic_station_power": 0.0,
+    "diagnostic_station_sk": 0.0,
+    "times_s": 0.0,
+    "frequencies_hz": 0.0
+  },
+  "scope": "Installed CLI on identical three-window point-noise VDIF. Scientific arrays compared; RML uses one start and 100 iterations, not convergence/fidelity validation."
+}

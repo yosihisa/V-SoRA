@@ -47,3 +47,16 @@ sample rate2.048MHz、8bit I+8bit Qなら、一局は約4.096MB/sです。4時�
 
 
 「感度計画」で、有効面積・Tsys・短積分からSNR10のClosure期待数を調べられます。未知gainを消せることと、信号が十分強いことは別です。[感度の概算](08-sensitivity.md)を観測条件の検討に使ってください。
+
+
+## 一つの原本から短区間を繰り返す
+
+段階032の`vsora-sequence`は、同じVDIFから短いwindowを順番に読む入口です。毎windowで周波数差を推定し直し、短い画像積分を保存します。最後に、時刻ごと・channelごとの相関をClosure＋RMLへ集めます。全時間を一つの複素値に平均する処理ではありません。
+
+まずpilotを全て覆う間隔でwindowを並べます。開始間隔を省略するとpilotspanが使われます。0.512秒pilotを3個並べた範囲は1.536秒ですが、画像には0.3秒ずつを使うので、使用露光は一局0.9秒です。今回の模擬試験はwindowの境界でだけLOを変え、その内部では安定させています。実OCXOの揺れを測ったものではありません。
+
+```bash
+python tools/run.py vsora_correlator.sequence --manifest manifest.json --clock-model clock.json --window-count 3 --integration-s 0.3 --output outputs/sequence
+```
+
+不正な間隔は前検査で拒否し、途中でデータが足りないと.partialに既にできたwindowを残します。元ファイルが変わった場合も完成扱いにしません。再実行は新しい出力先を指定します。現在は原本SHAを各windowで計算する参照処理で、長記録の実用性能・自動resume・日本語GUIは後続段階です。[条件と結果](../reports/032-short-window-sequence.md)を参照してください。

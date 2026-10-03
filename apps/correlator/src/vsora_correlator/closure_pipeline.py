@@ -11,7 +11,8 @@ from .rate import estimate_rate_shard
 
 def process_closure_session(manifest,clock_model,output,*,pilot_integrations=256,pilot_integration_s=None,start_offset_s=.002,
                             integration_s=.3,max_rate_hz=100.,starts=3,max_iterations=800,
-                            prior_fwhm_arcsec=240.,entropy=.01,tsv=.0001,progress=None):
+                            prior_fwhm_arcsec=240.,entropy=.01,tsv=.0001,progress=None,correlation_only=False):
+    if not isinstance(correlation_only,bool):raise ValueError('correlation_only bool required')
     c=load_session(manifest);fs=c['sample_rate_hz'];nf=c['fft_length']
     if not np.isfinite(integration_s) or not .1<=integration_s<=3:
         raise ValueError('short aligned pipeline integration must be 0.1..3 seconds')
@@ -78,15 +79,18 @@ def process_closure_session(manifest,clock_model,output,*,pilot_integrations=256
         final_manifest=clone('final-manifest.json',blocks)
         final=correlate_aligned(final_manifest,clock_model,partial/'correlation',1,start_offset_s,profile)
         record('rate_corrected_short_correlation')
-        from vsora_imaging.closure import extract_closures
-        from vsora_imaging.rml import image_closure
-        visibility=partial/'correlation/shard-00000.npz'
-        closure=extract_closures(visibility,partial/'closures.npz',min_snr=10.)
-        record('closure_extraction')
-        image=image_closure(visibility,partial/'rml',pixels=32,pixel_arcsec=c['_config']['image']['pixel_arcsec'],
-                    starts=starts,max_iterations=max_iterations,prior_fwhm_arcsec=prior_fwhm_arcsec,entropy=entropy,tsv=tsv)
-        record('relative_rml')
-        result={**state,'state':'complete','input_manifest_sha256':manifest_sha,'input_clock_sha256':clock_sha,
+        closure=image=None
+        if not correlation_only:
+            from vsora_imaging.closure import extract_closures
+            from vsora_imaging.rml import image_closure
+            visibility=partial/'correlation/shard-00000.npz'
+            closure=extract_closures(visibility,partial/'closures.npz',min_snr=10.)
+            record('closure_extraction')
+            image=image_closure(visibility,partial/'rml',pixels=32,pixel_arcsec=c['_config']['image']['pixel_arcsec'],
+                        starts=starts,max_iterations=max_iterations,prior_fwhm_arcsec=prior_fwhm_arcsec,entropy=entropy,tsv=tsv)
+            record('relative_rml')
+        result={**state,'state':'complete','type':'short_rate_correlation' if correlation_only else 'short_closure_pipeline',
+                'input_manifest_sha256':manifest_sha,'input_clock_sha256':clock_sha,
                 'input_observation_sha256':observation_sha,'input_vdif':source,
                 'pilot':pilot,'rate_acquisition':acquisition,'rate_estimate':estimate,'correlation':final,'closures':closure,'rml':image,
                 'coherent_integration_s':integration_s,'absolute_flux_measured':False,'absolute_position_measured':False,
@@ -107,7 +111,7 @@ def main():
     p.add_argument('--manifest',required=True);p.add_argument('--clock-model',required=True);p.add_argument('--output',required=True)
     p.add_argument('--pilot-integrations',type=int,default=256);p.add_argument('--pilot-integration-s',type=float); p.add_argument('--integration-s',type=float,default=.3)
     p.add_argument('--start-offset-s',type=float,default=.002);p.add_argument('--max-rate-hz',type=float,default=100.)
-    p.add_argument('--starts',type=int,default=3);p.add_argument('--max-iterations',type=int,default=800)
+    p.add_argument('--correlation-only',action='store_true',help='Save rate-corrected spectral data; defer closure RML to a multi-window synthesis');p.add_argument('--starts',type=int,default=3);p.add_argument('--max-iterations',type=int,default=800)
     p.add_argument('--prior-fwhm-arcsec',type=float,default=240.);p.add_argument('--entropy',type=float,default=.01);p.add_argument('--tsv',type=float,default=.0001)
     args=vars(p.parse_args());manifest=args.pop('manifest');clock=args.pop('clock_model');out=args.pop('output')
     print(json.dumps(process_closure_session(manifest,clock,out,**args),indent=2))

@@ -1,0 +1,19 @@
+{
+  "source_pytest": {
+    "passed": 162,
+    "warnings": 8968,
+    "elapsed_s": 82.61
+  },
+  "wheel_pytest": {
+    "passed": 162,
+    "warnings": 8968,
+    "elapsed_s": 80.72
+  },
+  "pip_check": "No broken requirements found",
+  "wheel": {
+    "bytes": 5436446,
+    "sha256": "fb08c19a06ccab084b0feaab291cdb1e58e7b25d48cdb8868d8217c74007bca8"
+  },
+  "extra_plot_check": "Plot generation moved into the validation workflow and invoked on the same saved summary after the full core test runs; packaged core unchanged.",
+  "scope": "Synthetic three-window point-noise VDIF. Production GUI is the next stage; no actual receiver/Windows collection or within-window nonlinear phase recovery."
+}
