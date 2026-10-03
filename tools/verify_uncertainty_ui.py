@@ -12,7 +12,7 @@ from playwright.sync_api import sync_playwright
 
 
 def run(output, port=8774, validation='uncertainty'):
-    if validation not in ('uncertainty', 'covariance', 'closure_noise', 'filtered_noise'):
+    if validation not in ('uncertainty', 'covariance', 'closure_noise', 'filtered_noise', 'bispectrum'):
         raise ValueError('Unknown validation workflow')
     from vsora_ui import models, worker
     assert all(Path(m.__file__).is_relative_to(Path(sys.prefix)) for m in (models, worker))
@@ -40,7 +40,8 @@ def run(output, port=8774, validation='uncertainty'):
                 page.locator('#job-detail .phase-line').get_by_text('処理完了',exact=True).wait_for(timeout=90000)
                 job_id=httpx.get(url+'/api/jobs').json()[0]['id'];job=httpx.get(url+'/api/jobs/'+job_id).json();q=job['summary']
                 text=page.locator('#job-detail').inner_text()
-                assert not q['actual_hardware_data']
+                hardware_markers=[q[k] for k in ('actual_hardware_data','real_hardware_validation_performed') if k in q]
+                assert hardware_markers and all(marker is False for marker in hardware_markers)
                 if validation=='uncertainty':
                     assert q['type']=='rate_uncertainty_validation' and q['draws']==65536 and len(q['gaussian_results'])==6
                     assert not q['covariance_calibrated_against_rate_solver']
@@ -81,7 +82,7 @@ def run(output, port=8774, validation='uncertainty'):
                         'selection_on_observed_visibility':False,'physical_iq_vdif_processed':False,
                         'production_rml_noise_model_changed':False,
                         'scope':'Known station covariance and first-order closure propagation. Visibility approximation and iid Gaussian voltage samples shown separately. No ADC/FIR/VDIF, hardware or image fidelity.'}
-                else:
+                elif validation=='filtered_noise':
                     assert q['type']=='filtered_visibility_noise_validation' and q['trials_per_case']==8192 and len(q['cases'])==6
                     assert not q['physical_adc_vdif_processed'] and not q['measured_effective_sample_count']
                     assert not q['production_rml_noise_model_changed']
@@ -97,6 +98,28 @@ def run(output, port=8774, validation='uncertainty'):
                         'raw_covariance_supplied':True,'measured_effective_sample_count':False,
                         'physical_adc_vdif_processed':False,'production_rml_noise_model_changed':False,
                         'scope':'Known fixed Gaussian raw covariance and fixed station operators. Model-only effective-count calculation/UI, no real receiver spectrum, variable clocks, ADC or image confidence.'}
+                else:
+                    assert q['type']=='distinct_sample_bispectrum_validation' and q['trials_per_case']==16384 and len(q['cases'])==5
+                    assert not q['physical_adc_vdif_processed'] and not q['production_correlator_statistics_changed']
+                    assert not q['production_rml_noise_model_changed'] and not q['observed_sample_selection_used']
+                    assert '三基線の積と共通標本の雑音偏り' in text and '既知真値はこの試行数では未分解' in text
+                    assert '角度・振幅の不偏性を保証せず' in text and '平均相関・局power・標本数だけから再構成できません' in text
+                    assert page.locator('#bispectrum-table tr').count()==6
+                    def number(v):return f'{v:.4e}'.replace('e-0','e-').replace('e+0','e+')
+                    def complex_text(v):return number(v[0])+(' + ' if v[1]>=0 else ' − ')+number(abs(v[1]))+' i'
+                    for c in q['cases']:
+                        assert c['all_mean_components_within_6se'] and not c['estimator_generating_truth_used']
+                        assert complex_text(c['true_bispectrum']) in text
+                        assert complex_text(c['ordinary_analytic_bias']) in text
+                        assert complex_text(c['methods']['distinct']['ensemble_mean']) in text
+                        assert ' / '.join(number(v) for v in c['methods']['distinct']['mean_standard_error']) in text
+                    weak=next(c for c in q['cases'] if c['model']=='weak_unresolved')
+                    assert not weak['known_true_mean_above_six_mc_standard_errors']
+                    scientific={'trials_per_case':q['trials_per_case'],'cases':len(q['cases']),
+                        'estimator_generating_truth_used':False,'weak_true_mean_unresolved':True,
+                        'physical_adc_vdif_processed':False,'production_correlator_statistics_changed':False,
+                        'production_rml_noise_model_changed':False,
+                        'scope':'Fixed iid Gaussian voltage/gain bispectrum means. Known model bias and unresolved weak mean; no unbiased phase, actual independent FFTs, hardware sensitivity or image guarantee.'}
                 page.wait_for_function('() => Array.from(document.querySelectorAll("#job-detail img")).every(x=>x.complete&&x.naturalWidth>0)')
                 page.screenshot(path=str(out/'result.png'),full_page=True)
                 page.set_viewport_size({'width':390,'height':844});overflow=page.evaluate('document.documentElement.scrollWidth>document.documentElement.clientWidth')
@@ -117,5 +140,5 @@ def run(output, port=8774, validation='uncertainty'):
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser();parser.add_argument('--output',required=True);parser.add_argument('--port',type=int,default=8774)
-    parser.add_argument('--validation',choices=('uncertainty','covariance','closure_noise','filtered_noise'),default='uncertainty')
+    parser.add_argument('--validation',choices=('uncertainty','covariance','closure_noise','filtered_noise','bispectrum'),default='uncertainty')
     print(json.dumps(run(**vars(parser.parse_args())),indent=2))

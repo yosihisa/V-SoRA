@@ -1,0 +1,26 @@
+{
+  "state": "complete",
+  "source": {
+    "passed": 484,
+    "warnings": 23952,
+    "seconds": 423.85
+  },
+  "installed": {
+    "passed": 484,
+    "warnings": 23952,
+    "seconds": 424.05
+  },
+  "targeted_real_worker": {
+    "passed": 1,
+    "warnings": 1,
+    "seconds": 1.12
+  },
+  "no_test_exclusions": true,
+  "source_then_installed_browser_then_installed_regression": true,
+  "wheel": {
+    "bytes": 5480095,
+    "sha256": "58f9049ad10c36ade3c9d85fb09751b2f6b72dc958d1b43fc2d9d1f33c4445f6"
+  },
+  "pip_check": "No broken requirements found.",
+  "scope": "Installed Japanese GUI with checkout-owned iid Gaussian voltage bispectrum validation. No actual FFT independence, unbiased phase, hardware sensitivity or image guarantee."
+}

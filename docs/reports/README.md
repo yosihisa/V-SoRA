@@ -98,4 +98,6 @@
 
 | 053 | [異標本bispectrumの試作](053-distinct-sample-bispectrum.md) | source/wheel483件成功。全組合せ・Gaussian5条件×16384試行で共通標本の偏りとU₃の平均を確認。非常に弱い信号は未分解、実機・RML未適用 |
 
+| 054 | [三次統計検証の日本語GUI](054-bispectrum-validation-gui.md) | source/wheel484件成功。実Chromiumで5条件×16384試行、偏り・U₃平均・弱い真値の未分解、日本語/390px・JS/外部通信0 |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。

@@ -83,7 +83,7 @@
         <div class="page-heading"><div class="eyebrow">VALIDATION</div><h1>動作検証を実行する</h1><p>正解がわかる入力で、重要な補正や検出が成立するかを確認します。実行条件と結果は履歴に残ります。</p></div>
         <form id="validation-form" class="card narrow">
           <h2>検証項目</h2>
-          <label>確認する処理<select name="validation"><option value="rate">skyモデルを使わない周波数差推定・IQ補正</option><option value="phase">周期位相変動とClosure（数分・模擬VDIF）</option><option value="uncertainty">推定誤差のGaussian計算（仮定分布）</option><option value="filtered_noise">FIR・補間とFFT雑音</option><option value="closure_noise">Closure共有雑音と一次近似（仮定モデル）</option><option value="covariance">rate近似σの共分散（仮定雑音・約1分）</option><option value="closure">Closureの局誤差不変性・短積分の周波数差</option><option value="quality">周波数別雑音・連続波とパルスの妨害除外</option><option value="clock">sample開始差とADC時計のずれ</option><option value="fringe">未知の位相回転・二回の相関と較正</option><option value="basic">基本的な動作検証（自動試験）</option></select></label>
+          <label>確認する処理<select name="validation"><option value="rate">skyモデルを使わない周波数差推定・IQ補正</option><option value="phase">周期位相変動とClosure（数分・模擬VDIF）</option><option value="uncertainty">推定誤差のGaussian計算（仮定分布）</option><option value="filtered_noise">FIR・補間とFFT雑音</option><option value="bispectrum">Closure向け三基線積の雑音偏り</option><option value="closure_noise">Closure共有雑音と一次近似（仮定モデル）</option><option value="covariance">rate近似σの共分散（仮定雑音・約1分）</option><option value="closure">Closureの局誤差不変性・短積分の周波数差</option><option value="quality">周波数別雑音・連続波とパルスの妨害除外</option><option value="clock">sample開始差とADC時計のずれ</option><option value="fringe">未知の位相回転・二回の相関と較正</option><option value="basic">基本的な動作検証（自動試験）</option></select></label>
           <p class="field-help">雑音・妨害の検証は、有限の模擬条件での誤flag数と相関誤差を確認します。実環境の検出率は別に測定する必要があります。</p>
           <button type="submit" class="primary">検証を開始</button>
         </form>

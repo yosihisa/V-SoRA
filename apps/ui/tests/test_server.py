@@ -322,3 +322,18 @@ def test_filtered_noise_validation_real_subprocess(tmp_path):
         assert q['cases'][-1]['known_variance_to_iid_variance_range']==[1.,1.]
         assert q['cases'][-1]['maximum_normalized_iid_counterfactual_difference']>.2
         assert client.get(f"/api/jobs/{d['id']}/artifacts/validation/filtered-noise.png").status_code==200
+
+
+def test_bispectrum_validation_real_subprocess(tmp_path):
+    (tmp_path/'tools').mkdir()
+    (tmp_path/'tools/run.py').symlink_to(Path(__file__).resolve().parents[3]/'tools/run.py')
+    with TestClient(create_app(tmp_path),base_url='http://127.0.0.1') as client:
+        r=client.post('/api/jobs',json={'kind':'validation','validation':'bispectrum'},headers=HEADERS)
+        assert r.status_code==202;job=wait(client,r.json()['id'],30);assert job['state']=='complete',job
+        q=job['summary'];assert q['type']=='distinct_sample_bispectrum_validation' and len(q['cases'])==5
+        assert q['trials_per_case']==16384 and not q['physical_adc_vdif_processed']
+        assert not q['production_correlator_statistics_changed'] and not q['production_rml_noise_model_changed']
+        assert all(c['all_mean_components_within_6se'] and not c['estimator_generating_truth_used'] for c in q['cases'])
+        weak=next(c for c in q['cases'] if c['model']=='weak_unresolved')
+        assert not weak['known_true_mean_above_six_mc_standard_errors']
+        assert client.get(f"/api/jobs/{job['id']}/artifacts/validation/bispectrum-distinct.png").status_code==200
