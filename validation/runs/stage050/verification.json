@@ -1,0 +1,26 @@
+{
+  "state": "complete",
+  "source": {
+    "passed": 401,
+    "warnings": 23312,
+    "seconds": 420.42
+  },
+  "targeted_real_worker": {
+    "passed": 1,
+    "warnings": 1,
+    "seconds": 15.52
+  },
+  "installed": {
+    "passed": 401,
+    "warnings": 23312,
+    "seconds": 420.93
+  },
+  "no_test_exclusions": true,
+  "source_then_browser_then_installed": true,
+  "wheel": {
+    "bytes": 5471849,
+    "sha256": "22712371f0f10ed692e3cf86e5ba71209ac2aa4726377ae5a1d8e9bde9b06686"
+  },
+  "pip_check": "No broken requirements found.",
+  "scope": "Installed Japanese GUI with checkout-owned validation workflow; known Gaussian fixed operators only. No real ADC, measured independence or image confidence."
+}

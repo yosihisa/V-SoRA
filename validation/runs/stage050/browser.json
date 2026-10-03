@@ -1,0 +1,21 @@
+{
+  "installed_gui_imports": true,
+  "validation_workflow_from_checkout": true,
+  "independent_workspace": true,
+  "state": "complete",
+  "browser": "153.0.8010.12",
+  "javascript_errors": [],
+  "external_requests": 0,
+  "japanese_font_loaded": true,
+  "mobile_horizontal_overflow": false,
+  "validation": "filtered_noise",
+  "actual_hardware_data": false,
+  "browser_environment": "WSL headless Chromium; Windows/WSLg unverified",
+  "trials_per_case": 8192,
+  "cases": 6,
+  "raw_covariance_supplied": true,
+  "measured_effective_sample_count": false,
+  "physical_adc_vdif_processed": false,
+  "production_rml_noise_model_changed": false,
+  "scope": "Known fixed Gaussian raw covariance and fixed station operators. Model-only effective-count calculation/UI, no real receiver spectrum, variable clocks, ADC or image confidence."
+}

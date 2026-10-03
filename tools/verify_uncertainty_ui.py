@@ -12,7 +12,7 @@ from playwright.sync_api import sync_playwright
 
 
 def run(output, port=8774, validation='uncertainty'):
-    if validation not in ('uncertainty', 'covariance', 'closure_noise'):
+    if validation not in ('uncertainty', 'covariance', 'closure_noise', 'filtered_noise'):
         raise ValueError('Unknown validation workflow')
     from vsora_ui import models, worker
     assert all(Path(m.__file__).is_relative_to(Path(sys.prefix)) for m in (models, worker))
@@ -64,7 +64,7 @@ def run(output, port=8774, validation='uncertainty'):
                     scientific={'trials_per_group':q['trials_per_group'],'groups':len(q['groups']),
                         'statistics_conditioned_on_accepted':True,'physical_iq_vdif_processed':False,
                         'scope':'Finite assumed visibility-noise experiment/UI, conditional on accepted fits. No physical IQ, OCXO or image fidelity.'}
-                else:
+                elif validation=='closure_noise':
                     assert q['type']=='joint_closure_noise_validation' and q['trials_per_case']==16384 and len(q['cases'])==8
                     assert not q['physical_iq_vdif_processed'] and not q['production_rml_noise_model_changed']
                     assert '共有信号がClosureの雑音へ与える影響' in text
@@ -81,7 +81,23 @@ def run(output, port=8774, validation='uncertainty'):
                         'selection_on_observed_visibility':False,'physical_iq_vdif_processed':False,
                         'production_rml_noise_model_changed':False,
                         'scope':'Known station covariance and first-order closure propagation. Visibility approximation and iid Gaussian voltage samples shown separately. No ADC/FIR/VDIF, hardware or image fidelity.'}
-                page.wait_for_function('Array.from(document.querySelectorAll("#job-detail img")).every(x=>x.complete&&x.naturalWidth>0)')
+                else:
+                    assert q['type']=='filtered_visibility_noise_validation' and q['trials_per_case']==8192 and len(q['cases'])==6
+                    assert not q['physical_adc_vdif_processed'] and not q['measured_effective_sample_count']
+                    assert not q['production_rml_noise_model_changed']
+                    assert '固定フィルターとFFT間の雑音' in text and '実機の独立標本数を測った結果ではありません' in text
+                    assert '単一の換算数を仮定しない' in text and '全共分散の差' in text
+                    assert page.locator('#job-detail .window-table tr').count()==7
+                    for r in q['cases']:
+                        assert r['raw_covariance_supplied'] and not r['observed_visibility_selection']
+                        assert f"{r['maximum_normalized_covariance_difference']:.6f}" in text
+                        assert f"{r['maximum_normalized_iid_counterfactual_difference']:.6f}" in text
+                        if r['common_kernel_effective_count'] is not None:assert f"{r['common_kernel_effective_count']:.4f}" in text
+                    scientific={'trials_per_case':q['trials_per_case'],'cases':len(q['cases']),
+                        'raw_covariance_supplied':True,'measured_effective_sample_count':False,
+                        'physical_adc_vdif_processed':False,'production_rml_noise_model_changed':False,
+                        'scope':'Known fixed Gaussian raw covariance and fixed station operators. Model-only effective-count calculation/UI, no real receiver spectrum, variable clocks, ADC or image confidence.'}
+                page.wait_for_function('() => Array.from(document.querySelectorAll("#job-detail img")).every(x=>x.complete&&x.naturalWidth>0)')
                 page.screenshot(path=str(out/'result.png'),full_page=True)
                 page.set_viewport_size({'width':390,'height':844});overflow=page.evaluate('document.documentElement.scrollWidth>document.documentElement.clientWidth')
                 page.screenshot(path=str(out/'mobile.png'),full_page=True)
@@ -101,5 +117,5 @@ def run(output, port=8774, validation='uncertainty'):
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser();parser.add_argument('--output',required=True);parser.add_argument('--port',type=int,default=8774)
-    parser.add_argument('--validation',choices=('uncertainty','covariance','closure_noise'),default='uncertainty')
+    parser.add_argument('--validation',choices=('uncertainty','covariance','closure_noise','filtered_noise'),default='uncertainty')
     print(json.dumps(run(**vars(parser.parse_args())),indent=2))

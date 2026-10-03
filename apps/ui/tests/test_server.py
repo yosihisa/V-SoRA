@@ -306,3 +306,19 @@ def test_closure_noise_validation_real_subprocess(tmp_path):
         assert all(not r['selection_on_observed_visibility'] for r in q['cases'])
         assert {r['noise_generation'] for r in q['cases']}=={'gaussian_voltage','gaussian_visibility'}
         assert c.get(f"/api/jobs/{d['id']}/artifacts/validation/closure-noise.png").status_code==200
+
+
+
+def test_filtered_noise_validation_real_subprocess(tmp_path):
+    (tmp_path/'tools').mkdir()
+    (tmp_path/'tools/run.py').symlink_to(Path(__file__).resolve().parents[3]/'tools/run.py')
+    with TestClient(create_app(tmp_path),base_url='http://127.0.0.1') as client:
+        r=client.post('/api/jobs',json={'kind':'validation','validation':'filtered_noise'},headers=HEADERS)
+        assert r.status_code==202;d=wait(client,r.json()['id'],60);assert d['state']=='complete',d
+        q=d['summary'];assert q['type']=='filtered_visibility_noise_validation' and len(q['cases'])==6
+        assert q['trials_per_case']==8192 and not q['measured_effective_sample_count']
+        assert not q['actual_hardware_data'] and not q['production_rml_noise_model_changed']
+        assert all(r['raw_covariance_supplied'] and not r['observed_visibility_selection'] for r in q['cases'])
+        assert q['cases'][-1]['known_variance_to_iid_variance_range']==[1.,1.]
+        assert q['cases'][-1]['maximum_normalized_iid_counterfactual_difference']>.2
+        assert client.get(f"/api/jobs/{d['id']}/artifacts/validation/filtered-noise.png").status_code==200

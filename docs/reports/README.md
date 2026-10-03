@@ -90,4 +90,6 @@
 
 | 049 | [FIR・補間後のFFT雑音](049-filtered-fft-noise.md) | source/wheel400件成功。既知Gaussian6条件×8192試行、時刻差と局別係数の全共分散、モデル換算数。実測独立数・実機は未確認 |
 
+| 050 | [FFT雑音検証の日本語GUI](050-filtered-noise-gui.md) | source/wheel401件成功。実Chromiumで6条件×8192試行、モデル換算数と全共分散差を表示、日本語/390px・JS/外部通信0 |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。
