@@ -86,6 +86,7 @@ function renderDetail(job){const box=byId("job-detail");box.replaceChildren();co
   if(summary&&summary.type==="joint_closure_noise_validation")renderClosureNoise(box,summary);
   if(summary&&summary.type==="filtered_visibility_noise_validation")renderFilteredNoise(box,summary);
   if(summary&&summary.type==="spectral_noise_diagnostic")renderObservationNoise(box,summary);
+  if(summary&&summary.type==="pilot_time_scatter")renderTimeScatter(box,summary);
   if(summary&&summary.windows){const details=node("details"),table=node("table",undefined,"window-table"),head=node("tr");head.append(node("th","区間・開始時刻"),node("th","pilotと局周波数差"));table.append(head);for(const w of summary.windows){const row=node("tr"),a=w.rate_acquisition,r=w.rate_estimate,info=node("td"),sk=a.sk_eligible_fraction===null?"未記録":(100*a.sk_eligible_fraction).toFixed(1)+"%";row.append(node("td",(w.window_index+1)+" / "+w.start_offset_s.toFixed(3)+" 秒"));if(w.rate_consistency)info.append(node("p",rateConsistencyLabels[w.rate_consistency.state]||w.rate_consistency.state));info.append(node("p",(a.pilot_integration_s*1000).toFixed(3)+"ms × "+a.pilot_integrations+" / Nyquist "+a.temporal_nyquist_hz.toFixed(1)+"Hz / SK判定可能 "+sk));for(let i=0;i<r.station_ids.length;i++)info.append(node("span",r.station_ids[i]+": "+r.station_rates_hz[i].toFixed(4)+" Hz","station-rate"));renderLinearRate(info,r);row.append(info);table.append(row);}details.append(node("summary","区間ごとの周波数差とpilot条件"),table);box.append(details,node("p","周波数差は基準局との差です。選択した一定または滑らかな線形モデルを各pilot内で使い、区間の間は補間していません。初期の基線差が各pilotのNyquist内にあることは別途確認が必要です。SK判定可能な割合が低い区間は、電波妨害の確認を別途行ってください。","muted"));if(summary.windows.some(w=>w.correlation.station_read_start_samples.some(x=>x>0)))box.append(node("p","必要な区間とguardを部分読取しました。飛ばした前方区間のheaderは検査していません。原本のSHA確認と、読んだ区間の時刻検査は別です。","muted"));}
   if(summary&&summary.correlation&&summary.correlation.vdif_read_mode==="guarded_seek"&&summary.correlation.station_read_start_samples.some(x=>x>0))box.append(node("p","必要な区間と直前のguardを部分読取しました。飛ばした前方区間のheaderは検査していません。原本のSHA確認と、読んだ区間の時刻検査は別に記録しています。","muted"));
   if(summary&&summary.metrics&&summary.metrics.comparison_version===2){box.append(node("p","形状誤差は、位置合わせで画面外へ出た成分も含めて比較しています。表示画像は元の画面範囲だけです。","muted"));if(summary.metrics.registration_boundary_reached)box.append(node("p","位置合わせが探索範囲の端に達しています。移動量と比較条件を確認してください。","muted"));}
@@ -153,18 +154,19 @@ byId("read-noise-input").addEventListener("click",async()=>{
     axes.times_s.forEach((v,i)=>{const option=node("option",i+" / "+v.toFixed(6)+" 秒");option.value=i;form.elements.time_index.append(option);});
     axes.frequencies_hz.forEach((v,i)=>{const option=node("option",i+" / "+(v/1e6).toFixed(6)+" MHz");option.value=i;form.elements.channel_index.append(option);});
     form.elements.channel_index.value=Math.floor(axes.frequencies_hz.length/2);
-    for(const name of ["time_index","channel_index"])form.elements[name].disabled=false;form.querySelector("button[type=submit]").disabled=false;
+    for(const name of ["time_index","channel_index"])form.elements[name].disabled=false;form.querySelector("button[type=submit]").disabled=false;updateNoiseMode();
     byId("noise-input-note").textContent=axes.times_s.length+"時刻 / "+axes.frequencies_hz.length+"channel。時刻のUTC原点："+(axes.time_origin_utc||"未保存（絶対時刻は未確認）")+"。基線FFT数："+(axes.diagnostic_pair_counts_available?"保存あり（独立性の確認ではありません）":"未保存（診断は未判定）");
   }catch(e){message(e.message);}finally{button.disabled=false;}
 });
 async function loadNoiseHistory(){try{const history=await api("/api/jobs"),select=byId("noise-input-history");select.replaceChildren();
   for(const job of history.filter(j=>["analysis","sequence"].includes(j.kind)&&j.state==="complete")){
-    const detail=await api("/api/jobs/"+job.id);for(const a of detail.artifacts.filter(a=>a.path.endsWith("correlation/shard-00000.npz"))){
+    const detail=await api("/api/jobs/"+job.id);for(const a of detail.artifacts.filter(a=>(a.path.endsWith("correlation/shard-00000.npz")||a.path.endsWith("pilot/shard-00000.npz")))){
       const option=node("option",new Date(job.created_utc).toLocaleString("ja-JP")+" / "+job.label+" / "+a.path);option.value="outputs/gui/"+job.id+"/"+a.path;select.append(option);}}
   if(!select.options.length){const option=node("option","完了した解析がありません。ファイルを直接指定できます。");option.value="";select.append(option);}byId("choose-noise-input").disabled=!select.value;
 }catch(e){message(e.message);}}
 byId("choose-noise-input").addEventListener("click",()=>{byId("noise-form").elements.input.value=byId("noise-input-history").value;invalidateNoiseInput();});
-byId("noise-form").addEventListener("submit",event=>{event.preventDefault();const form=event.currentTarget,d=new FormData(form);submit(form,{kind:"noise",input:d.get("input").trim(),time_index:Number(d.get("time_index")),channel_index:Number(d.get("channel_index"))});});
+byId("noise-form").addEventListener("submit",event=>{event.preventDefault();const form=event.currentTarget,d=new FormData(form);const request={kind:d.get("diagnostic_mode"),input:d.get("input").trim(),channel_index:Number(d.get("channel_index"))};
+  if(request.kind==="noise")request.time_index=Number(d.get("time_index"));else request.rate_profile=d.get("rate_profile").trim()||null;submit(form,request);});
 
 
 function renderFilteredNoise(box,s){
@@ -183,4 +185,33 @@ function renderFilteredNoise(box,s){
       node("p",r.all_covariance_elements_within_six_standard_errors?"全要素が6 MC標準誤差内":"理論との差を要確認"));row.append(info,check);table.append(row);}
   box.append(table,node("p","差は真の行・列分散の平方根の積で規格化しました。対角分散比が1でも、基線間の雑音の関係が変わる例があります。共通係数の換算数は理論値で、相関ファイルのFFT数を書き換える値ではありません。","muted"),
     node("p","標本visibilityによる選別はしていません。MCの有限標本の差と、実機の誤差や正しい信頼区間は区別します。現行RMLの重み・採否は変更しません。","muted"));
+}
+
+function updateNoiseMode(){
+  const form=byId("noise-form"),series=form.elements.diagnostic_mode.value==="time_scatter";
+  form.elements.time_index.disabled=series||!form.elements.channel_index.options.length;
+  form.elements.rate_profile.disabled=!series;
+  byId("noise-profile-field").classList.toggle("hidden",!series);byId("noise-series-note").classList.toggle("hidden",!series);
+  form.querySelector("button[type=submit]").textContent=series?"時間方向の散らばりを診断":"選んだ場所の雑音を診断";
+}
+byId("noise-mode").addEventListener("change",updateNoiseMode);
+function renderTimeScatter(box,s){
+  box.append(node("h3","pilotの時間散乱："+(s.state==="conditional_estimate"?"条件付き推定":"未判定")),
+    node("p",s.time_cells+"時間cell / channel番号 "+s.channel_index+" / RF "+(s.frequency_hz/1e6).toFixed(6)+" MHz","muted"),
+    node("p","処理完了と診断の有効性は別です。独立FFT・時間cellの雑音を仮定したpowerです。実機のcoherence・信頼区間は未校正で、RMLの重み・採否は変更していません。","muted"));
+  if(s.state!=="conditional_estimate"){
+    const reasons={time_cell_count_outside_32_to_8192:"32〜8192個の時間cellが必要です。",overlapping_time_cells:"時間cellが重なっています。",baseline_exposures_differ:"同じ時刻の基線露光が一致しません。",stored_rate_correction_unknown:"保存相関のrate補正状態が未確認です。",ineligible_time_cell:"雑音診断の条件を満たさない時間cellがあります。"};
+    box.append(node("p",reasons[s.reason]||"条件を確認できません。保存した詳細を確認してください。","muted"));
+    if(s.time_index!==undefined)box.append(node("p","時刻番号 "+s.time_index+" / "+(noiseReasons[s.cell_reason]||s.cell_reason),"muted"));return;
+  }
+  box.append(node("p","時間範囲 "+s.time_range_s.map(v=>v.toFixed(6)).join("〜")+" 秒 / powerの単位 "+s.power_unit+" / 公称FFT数 "+s.nominal_common_fft_blocks_range.join("〜"),"muted"),
+    node("p",s.additional_center_rotation_applied?"追加profileでcell中心の位相を回転しました。同じpilotで推定したprofileの依存性は未校正です。":"追加profileなしで保存相関を使いました。","muted"));
+  const table=node("table",undefined,"window-table");table.id="time-scatter-table";const head=node("tr");head.append(node("th","基線・判定"),node("th","雑音を引いたpower"),node("th","平均 / 時間power"));table.append(head);
+  for(const r of s.baselines){const row=node("tr"),power=node("td"),ratio=r.mean_to_time_power_ratio_unbounded;
+    row.append(node("td",r.station_ids.join(" / ")+" / "+(r.state==="conditional_estimate"?"条件付き":"未判定（信号power不足）")));
+    power.append(node("p","時間 "+r.noise_subtracted_time_power.toExponential(5)),node("p","平均 "+r.noise_subtracted_mean_power.toExponential(5)),node("p","差 "+r.excess_time_scatter.toExponential(5)));
+    row.append(power,node("td",ratio===null?"—":ratio.toFixed(6)));table.append(row);
+  }
+  box.append(table,node("p","比はpowerの比で、振幅保持率ではありません。負や1超を切り詰めません。時間powerが非正なら比は未判定です。差には位相・振幅・天体・雑音モデルの変化が含まれ、速い変動やaliasを見逃す場合もあります。","muted"),
+    node("p","入力とprofileのSHA256、raw power・雑音推定値は保存JSONで確認できます。","muted"));
 }

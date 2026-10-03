@@ -1,0 +1,74 @@
+{
+  "state": "complete",
+  "installed_gui_imports": true,
+  "independent_workspace": true,
+  "browser": "153.0.8010.12",
+  "cases": [
+    {
+      "fixture": "fast",
+      "state": "conditional_estimate",
+      "valid_baselines": 6,
+      "ratios": [
+        0.9756926950874613,
+        0.9873786328631232,
+        0.872956516526796,
+        0.9025655328328338,
+        0.9300637883847958,
+        0.7261951367514199
+      ],
+      "input_sha256": "b596991271d47b7f2573676c7cc5c0dc13edfaddd18eb5b9f815a43057cbeead"
+    },
+    {
+      "fixture": "control",
+      "state": "conditional_estimate",
+      "valid_baselines": 6,
+      "ratios": [
+        0.9942497777150457,
+        1.0264894423134978,
+        0.9945626236894268,
+        1.027908897257711,
+        0.9852468754376251,
+        1.0308392857061
+      ],
+      "input_sha256": "b7cfa2131a1d21f2230ebb60e005ce9657f8d5c01c5611c76190c8d21315bc16"
+    },
+    {
+      "fixture": "old",
+      "state": "unverified",
+      "valid_baselines": 0,
+      "ratios": [],
+      "input_sha256": "4ee9a5579e07c7c388ebfb3b515aaeeeed2084ce3ceb223669e580b51f607114"
+    },
+    {
+      "fixture": "weak",
+      "state": "conditional_estimate",
+      "valid_baselines": 0,
+      "ratios": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "input_sha256": "90e797716f9e2249bbd79db72d70958089bb994a63650c94cdaf38a65bb83b77"
+    }
+  ],
+  "history_selection_fixture_verified": true,
+  "seeded_history_fixture_not_new_analysis": true,
+  "matches_installed_library": true,
+  "json_download_verified": true,
+  "mode_switch_preserves_axes": true,
+  "double_correction_failure_japanese": true,
+  "nonpositive_power_ratio_displayed_as_unverified": true,
+  "javascript_errors": [],
+  "external_requests": 0,
+  "japanese_font_loaded": true,
+  "mobile_horizontal_overflow": false,
+  "mobile_input_horizontal_overflow": false,
+  "actual_hardware_data": false,
+  "hardware_coherence_measured": false,
+  "production_rml_noise_model_changed": false,
+  "scope": "Frozen Stage051 synthetic VDIF-derived pilot and constructed old/zero-visibility fixtures. GUI transport only; no hardware covariance or confidence.",
+  "browser_environment": "WSL headless Chromium; Windows/WSLg unverified"
+}

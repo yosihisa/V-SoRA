@@ -107,6 +107,12 @@ class NoiseDiagnosticRequest(NoiseInputRequest):
     channel_index:int=Field(ge=0,strict=True)
 
 
+class TimeScatterRequest(NoiseInputRequest):
+    kind:Literal['time_scatter']='time_scatter'
+    channel_index:int=Field(ge=0,strict=True)
+    rate_profile:str|None=Field(default=None,min_length=1,max_length=512)
+
+
 class SensitivityRequest(Request):
     kind:Literal['sensitivity']='sensitivity'
     antenna_mode:Literal['dish','effective']='dish'
@@ -121,4 +127,4 @@ class SensitivityRequest(Request):
     flux_jy:float=Field(default=1000.,gt=0,le=1e7)
 
 
-JobRequest=Annotated[SimulationRequest|ValidationRequest|RmlRequest|AnalysisRequest|SequenceRequest|SynthesisRequest|SensitivityRequest|NoiseDiagnosticRequest,Field(discriminator='kind')]
+JobRequest=Annotated[SimulationRequest|ValidationRequest|RmlRequest|AnalysisRequest|SequenceRequest|SynthesisRequest|SensitivityRequest|NoiseDiagnosticRequest|TimeScatterRequest,Field(discriminator='kind')]

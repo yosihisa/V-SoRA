@@ -1,0 +1,26 @@
+{
+  "state": "complete",
+  "source": {
+    "passed": 447,
+    "warnings": 23952,
+    "seconds": 423.57
+  },
+  "installed": {
+    "passed": 447,
+    "warnings": 23952,
+    "seconds": 423.02
+  },
+  "targeted_final": {
+    "passed": 24,
+    "warnings": 1,
+    "seconds": 4.05
+  },
+  "no_test_exclusions": true,
+  "source_then_two_installed_browser_checks_then_installed_regression": true,
+  "wheel": {
+    "bytes": 5477226,
+    "sha256": "1f2eb06a5b68fc966151d5c305bd9b1de438d9498d3ce79370b473e9195ee10a"
+  },
+  "pip_check": "No broken requirements found.",
+  "scope": "Installed GUI transport of frozen Stage051 synthetic VDIF pilot and modified old/zero-visibility fixtures; no measured time independence, hardware coherence or confidence."
+}

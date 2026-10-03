@@ -41,3 +41,9 @@ JSONに時刻・RF・局ID・公称FFT数範囲・基線別raw/差引power・平
 FFT/time cellの独立性、実機のcoherence、信頼区間、profile推定依存性は未校正と明示します。雑音の大きさや閾値を画像の採否へ適用せず、RMLの重みも変更しません。aliasやcellより速い変動・すでに失われた信号は検出できない場合があります。
 
 [一cell雑音の規約](observation-noise-diagnostic.md)、[固定係数の時間相関モデル](filtered-visibility-noise.md)、[段階051レポート](../docs/reports/051-pilot-time-scatter.md)を参照してください。
+
+## 日本語GUI
+
+「雑音診断」の種類でpilot全体の時間散乱を選べます。履歴には保存pilotと最終相関を表示します。時間cellが足りない最終相関を選んだ場合も、処理完了と系列の未判定を区別します。profileは任意のWSL側JSONで、APIの`kind=time_scatter`、`input`、整数`channel_index`、nullableな`rate_profile`へ渡します。個別時刻番号は受け付けません。
+
+[操作ガイド](../docs/guide/06-gui.md)、[段階052](../docs/reports/052-pilot-time-scatter-gui.md)を参照してください。

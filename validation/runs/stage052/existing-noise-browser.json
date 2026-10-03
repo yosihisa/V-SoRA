@@ -1,0 +1,50 @@
+{
+  "installed_gui_imports": true,
+  "independent_workspace": true,
+  "browser": "153.0.8010.12",
+  "cases": [
+    {
+      "fixture": "frozen",
+      "state": "conditional_estimate",
+      "nominal_common_fft_blocks": 192000,
+      "valid_closure_rows": 6,
+      "input_sha256": "f6be4f1bfd3539afaf5fb34779cf0c73d360826e4ef55dc77b646d857ad878a4"
+    },
+    {
+      "fixture": "old",
+      "state": "unverified",
+      "nominal_common_fft_blocks": null,
+      "valid_closure_rows": 0,
+      "input_sha256": "f58591c6c034547bcd6abe23fb4f51038b752ea192f6ff19ad451c476dce8264"
+    },
+    {
+      "fixture": "inactive",
+      "state": "inactive",
+      "nominal_common_fft_blocks": null,
+      "valid_closure_rows": 0,
+      "input_sha256": "94183c48aaecfc15a777fc87817fd4d82196d7cfc0e7096c4e9b19c1ef1e1204"
+    },
+    {
+      "fixture": "low",
+      "state": "conditional_estimate",
+      "nominal_common_fft_blocks": 192000,
+      "valid_closure_rows": 0,
+      "input_sha256": "faacd64e4f3a2975e65815fa58265aca8893f85684ec2c42392428dfa35beb09"
+    }
+  ],
+  "history_selection_fixture_verified": true,
+  "seeded_history_fixture_not_new_scientific_analysis": true,
+  "matches_installed_library": true,
+  "missing_input_error_seen": true,
+  "invalid_closure_rows_not_displayed_as_zero_error": true,
+  "javascript_errors": [],
+  "external_requests": 0,
+  "japanese_font_loaded": true,
+  "mobile_horizontal_overflow": false,
+  "mobile_result_horizontal_overflow": false,
+  "actual_hardware_data": false,
+  "iid_fft_independence_verified": false,
+  "production_rml_noise_model_changed": false,
+  "scope": "GUI transport of frozen synthetic NPZ; modified low-SNR/inactive/old statistics fixtures. No actual ADC/FIR covariance accuracy or hardware/image validation.",
+  "browser_environment": "WSL headless Chromium; Windows/WSLg unverified"
+}

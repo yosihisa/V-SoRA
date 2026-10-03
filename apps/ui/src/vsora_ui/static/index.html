@@ -188,16 +188,19 @@
         </div>
       </section>
       <section id="panel-noise" class="panel hidden">
-        <div class="page-heading"><div class="eyebrow">NOISE DIAGNOSTIC</div><h1>保存した相関の雑音を調べる</h1><p>局power・基線相関・共通FFT数を確認して、一つの時刻・周波数を条件付きで診断します。</p></div>
+        <div class="page-heading"><div class="eyebrow">NOISE DIAGNOSTIC</div><h1>保存した相関の雑音を調べる</h1><p>保存した局power・基線相関・共通FFT数から、一つの時刻の雑音またはpilot全体の時間散乱を条件付きで診断します。</p></div>
         <div class="two-column">
           <form id="noise-form" class="card">
             <h2>相関ファイルと診断する場所</h2>
+            <label>診断の種類<select name="diagnostic_mode" id="noise-mode"><option value="noise">一つの時刻の雑音・Closure誤差</option><option value="time_scatter">pilot全体の時間方向の散らばり</option></select></label>
             <label>完了した解析の履歴<select id="noise-input-history"><option value="">履歴を読み込みます</option></select></label>
             <button type="button" id="choose-noise-input" class="secondary">選んだファイルを入力に使う</button>
             <label>WSL側の相関NPZ<input name="input" type="text" maxlength="512" placeholder="outputs/run/correlation/shard-00000.npz" required></label>
             <button type="button" id="read-noise-input" class="secondary">入力の時刻・周波数を読む</button>
             <p id="noise-input-note" class="field-help" role="status">保存済みのファイルを指定し、時刻・周波数を読み込んでください。</p>
             <div class="form-row"><label>診断する時刻<select name="time_index" disabled required></select></label><label>診断するRF周波数<select name="channel_index" disabled required></select></label></div>
+            <label id="noise-profile-field" class="hidden">追加するrate profile（任意）<input name="rate_profile" type="text" maxlength="512" placeholder="outputs/run/rate-linear.json" disabled><span class="field-help">補正前pilotへ一定/線形rateをcell中心で掛けます。補正済み相関は空欄にしてください。</span></label>
+            <p id="noise-series-note" class="field-help hidden">選んだRFの全時刻を使います。32〜8192個の非重複cellが必要です。時間power比は振幅保持率と異なり、負や1超もあります。実機のcoherence・信頼区間は未測定です。</p>
             <button type="submit" class="primary full" disabled>選んだ場所の雑音を診断</button>
           </form>
           <div class="explanation-stack">
