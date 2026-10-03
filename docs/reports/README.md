@@ -96,4 +96,6 @@
 
 | 052 | [pilot時間散乱の日本語GUI](052-pilot-time-scatter-gui.md) | source/wheel447件成功。実Chromiumで対照・高速・旧/信号不足fixture、RF・profile・二重補正・JSON、日本語/390px。既存一cell GUIも回帰 |
 
+| 053 | [異標本bispectrumの試作](053-distinct-sample-bispectrum.md) | source/wheel483件成功。全組合せ・Gaussian5条件×16384試行で共通標本の偏りとU₃の平均を確認。非常に弱い信号は未分解、実機・RML未適用 |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。

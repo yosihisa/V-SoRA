@@ -33,3 +33,5 @@
 - [固定フィルターのFFT雑音](filtered-visibility-noise.md)：既知のGaussian入力と局別係数から、FFT間の相関を含む全共分散を計算するforwardモデル。
 
 - [保存pilotの時間散乱診断](pilot-time-scatter.md)：短相関の雑音差引power、無制限の比、profile補正と未校正の範囲。
+
+- [実験用の異標本bispectrum](distinct-sample-bispectrum.md)：共通標本の偏りとU₃、独立標本・一定gainの条件。現行RMLには未適用。

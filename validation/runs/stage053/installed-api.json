@@ -1,0 +1,12 @@
+{
+  "state": "complete",
+  "installed_imports": true,
+  "outside_checkout": true,
+  "pythonpath_removed": true,
+  "all_four_triangles_match_ordered_enumeration": true,
+  "maximum_absolute_difference": 1.807312143953211e-15,
+  "zero_source_ordinary_mean": 0.0009765625,
+  "rank_one_ordinary_mean": 1.095703125,
+  "production_rml_noise_model_changed": false,
+  "closure_phase_unbiased_guarantee": false
+}

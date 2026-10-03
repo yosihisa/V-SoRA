@@ -1,0 +1,625 @@
+{
+  "type": "distinct_sample_bispectrum_validation",
+  "state": "complete",
+  "trials_per_case": 16384,
+  "cases": [
+    {
+      "model": "zero_source",
+      "trials": 16384,
+      "samples_per_window": 32,
+      "station_covariance_real": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "station_covariance_imag": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "triangle": [
+        0,
+        1,
+        2
+      ],
+      "true_bispectrum": [
+        0.0,
+        0.0
+      ],
+      "ordinary_analytic_bias": [
+        0.0009765625,
+        0.0
+      ],
+      "known_quadrature_rms_baseline_snr_range": [
+        0.0,
+        0.0
+      ],
+      "methods": {
+        "ordinary": {
+          "target_mean": [
+            0.0009765625,
+            0.0
+          ],
+          "ensemble_mean": [
+            0.0009175092840077342,
+            3.23871479967623e-05
+          ],
+          "mean_standard_error": [
+            3.270347121534816e-05,
+            3.0422370538584544e-05
+          ],
+          "sample_covariance_real_imag": [
+            [
+              1.7522967011870406e-05,
+              -2.222008320329021e-07
+            ],
+            [
+              -2.222008320329021e-07,
+              1.5163729988598773e-05
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "normalized_mean_difference": [
+            -1.8057170629258976,
+            1.0645833122905808
+          ]
+        },
+        "distinct": {
+          "target_mean": [
+            0.0,
+            0.0
+          ],
+          "ensemble_mean": [
+            -4.467581315299451e-05,
+            2.65968706504069e-05
+          ],
+          "mean_standard_error": [
+            3.1989002099249636e-05,
+            3.1927816703700024e-05
+          ],
+          "sample_covariance_real_imag": [
+            [
+              1.6765685846930185e-05,
+              -2.359064343368961e-07
+            ],
+            [
+              -2.359064343368961e-07,
+              1.6701611695555643e-05
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "normalized_mean_difference": [
+            -1.396599150326289,
+            0.8330312998349064
+          ]
+        }
+      },
+      "all_mean_components_within_6se": true,
+      "known_true_mean_above_six_mc_standard_errors": false,
+      "estimator_generating_truth_used": false,
+      "truth_used_only_for_validation": true,
+      "closure_phase_unbiased_guarantee": false,
+      "mean_confidence_calibrated": false
+    },
+    {
+      "model": "weak_unresolved",
+      "trials": 16384,
+      "samples_per_window": 128,
+      "station_covariance_real": [
+        [
+          1.001,
+          0.001,
+          0.001
+        ],
+        [
+          0.001,
+          1.001,
+          0.001
+        ],
+        [
+          0.001,
+          0.001,
+          1.001
+        ]
+      ],
+      "station_covariance_imag": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "triangle": [
+        0,
+        1,
+        2
+      ],
+      "true_bispectrum": [
+        1e-09,
+        0.0
+      ],
+      "ordinary_analytic_bias": [
+        6.124190588378903e-05,
+        0.0
+      ],
+      "known_quadrature_rms_baseline_snr_range": [
+        0.015984015984015987,
+        0.015984015984015987
+      ],
+      "methods": {
+        "ordinary": {
+          "target_mean": [
+            6.124290588378904e-05,
+            0.0
+          ],
+          "ensemble_mean": [
+            5.704672606852409e-05,
+            -1.3354090023007116e-05
+          ],
+          "mean_standard_error": [
+            3.8470545633211886e-06,
+            3.871586685188476e-06
+          ],
+          "sample_covariance_real_imag": [
+            [
+              2.424803952749835e-07,
+              9.589566581234266e-10
+            ],
+            [
+              9.589566581234266e-10,
+              2.4558278182385567e-07
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "normalized_mean_difference": [
+            -1.0907513124928496,
+            -3.4492550743204546
+          ]
+        },
+        "distinct": {
+          "target_mean": [
+            1e-09,
+            0.0
+          ],
+          "ensemble_mean": [
+            -4.286429433023622e-06,
+            -1.3282546759803447e-05
+          ],
+          "mean_standard_error": [
+            3.8280380726690235e-06,
+            3.911263353577513e-06
+          ],
+          "sample_covariance_real_imag": [
+            [
+              2.4008909595940576e-07,
+              2.573321474763953e-09
+            ],
+            [
+              2.573321474763953e-09,
+              2.506421210486934e-07
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "normalized_mean_difference": [
+            -1.1200069984973502,
+            -3.3959735143526797
+          ]
+        }
+      },
+      "all_mean_components_within_6se": true,
+      "known_true_mean_above_six_mc_standard_errors": false,
+      "estimator_generating_truth_used": false,
+      "truth_used_only_for_validation": true,
+      "closure_phase_unbiased_guarantee": false,
+      "mean_confidence_calibrated": false
+    },
+    {
+      "model": "low_snr",
+      "trials": 16384,
+      "samples_per_window": 128,
+      "station_covariance_real": [
+        [
+          1.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          1.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          1.1
+        ]
+      ],
+      "station_covariance_imag": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "triangle": [
+        0,
+        1,
+        2
+      ],
+      "true_bispectrum": [
+        0.0010000000000000002,
+        0.0
+      ],
+      "ordinary_analytic_bias": [
+        0.00033911132812500006,
+        0.0
+      ],
+      "known_quadrature_rms_baseline_snr_range": [
+        1.4545454545454546,
+        1.4545454545454546
+      ],
+      "methods": {
+        "ordinary": {
+          "target_mean": [
+            0.0013391113281250003,
+            0.0
+          ],
+          "ensemble_mean": [
+            0.0013153674359717806,
+            3.3972803301509586e-05
+          ],
+          "mean_standard_error": [
+            1.6109574061557023e-05,
+            1.333976026509887e-05
+          ],
+          "sample_covariance_real_imag": [
+            [
+              4.251949079671453e-06,
+              2.2088484922222988e-08
+            ],
+            [
+              2.2088484922222988e-08,
+              2.91551975719421e-06
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "normalized_mean_difference": [
+            -1.4738994377515462,
+            2.5467326716392873
+          ]
+        },
+        "distinct": {
+          "target_mean": [
+            0.0010000000000000002,
+            0.0
+          ],
+          "ensemble_mean": [
+            0.0009778414270906178,
+            3.4767478958490417e-05
+          ],
+          "mean_standard_error": [
+            1.4657234851572326e-05,
+            1.3370762750364787e-05
+          ],
+          "sample_covariance_real_imag": [
+            [
+              3.5198489967680954e-06,
+              1.8758924211757924e-08
+            ],
+            [
+              1.8758924211757924e-08,
+              2.929087226290873e-06
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "normalized_mean_difference": [
+            -1.5117839846506698,
+            2.6002614514225533
+          ]
+        }
+      },
+      "all_mean_components_within_6se": true,
+      "known_true_mean_above_six_mc_standard_errors": true,
+      "estimator_generating_truth_used": false,
+      "truth_used_only_for_validation": true,
+      "closure_phase_unbiased_guarantee": false,
+      "mean_confidence_calibrated": false
+    },
+    {
+      "model": "two_components",
+      "trials": 16384,
+      "samples_per_window": 32,
+      "station_covariance_real": [
+        [
+          1.35,
+          0.3147263280926733,
+          0.15150656497047452
+        ],
+        [
+          0.3147263280926733,
+          1.35,
+          0.25435366317150104
+        ],
+        [
+          0.15150656497047452,
+          0.25435366317150104,
+          1.35
+        ]
+      ],
+      "station_covariance_imag": [
+        [
+          0.0,
+          -0.09663265308565365,
+          -0.14194501315311217
+        ],
+        [
+          0.09663265308565365,
+          -5.199194263647242e-18,
+          -0.13980586289508395
+        ],
+        [
+          0.14194501315311217,
+          0.13980586289508395,
+          -3.0376548177303753e-18
+        ]
+      ],
+      "triangle": [
+        0,
+        1,
+        2
+      ],
+      "true_bispectrum": [
+        0.01981605893642542,
+        -0.0009449350282762558
+      ],
+      "ordinary_analytic_bias": [
+        0.012367115967452304,
+        9.227881135510799e-07
+      ],
+      "known_quadrature_rms_baseline_snr_range": [
+        1.2302916698900728,
+        1.950975838159527
+      ],
+      "methods": {
+        "ordinary": {
+          "target_mean": [
+            0.032183174903877725,
+            -0.0009440122401627048
+          ],
+          "ensemble_mean": [
+            0.0319963225922091,
+            -0.0010018683350791898
+          ],
+          "mean_standard_error": [
+            0.00035283224786435667,
+            0.00021519395585145782
+          ],
+          "sample_covariance_real_imag": [
+            [
+              0.002039653910659315,
+              -4.892232349509856e-05
+            ],
+            [
+              -4.892232349509856e-05,
+              0.0007587174585958266
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "normalized_mean_difference": [
+            -0.5295783273753563,
+            -0.2688555758329597
+          ]
+        },
+        "distinct": {
+          "target_mean": [
+            0.01981605893642542,
+            -0.0009449350282762558
+          ],
+          "ensemble_mean": [
+            0.01962934686989116,
+            -0.001054060268971244
+          ],
+          "mean_standard_error": [
+            0.00028505181234069567,
+            0.00021832204132901572
+          ],
+          "sample_covariance_real_imag": [
+            [
+              0.0013312743132154294,
+              -3.293911917174887e-05
+            ],
+            [
+              -3.293911917174887e-05,
+              0.0007809353929534414
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "normalized_mean_difference": [
+            -0.6550109785320183,
+            -0.49983611379867243
+          ]
+        }
+      },
+      "all_mean_components_within_6se": true,
+      "known_true_mean_above_six_mc_standard_errors": true,
+      "estimator_generating_truth_used": false,
+      "truth_used_only_for_validation": true,
+      "closure_phase_unbiased_guarantee": false,
+      "mean_confidence_calibrated": false
+    },
+    {
+      "model": "rank_one",
+      "trials": 16384,
+      "samples_per_window": 32,
+      "station_covariance_real": [
+        [
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0
+        ]
+      ],
+      "station_covariance_imag": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "triangle": [
+        0,
+        1,
+        2
+      ],
+      "true_bispectrum": [
+        1.0,
+        0.0
+      ],
+      "ordinary_analytic_bias": [
+        0.095703125,
+        0.0
+      ],
+      "known_quadrature_rms_baseline_snr_range": [
+        8.0,
+        8.0
+      ],
+      "methods": {
+        "ordinary": {
+          "target_mean": [
+            1.095703125,
+            0.0
+          ],
+          "ensemble_mean": [
+            1.095823643104391,
+            7.186320502416704e-20
+          ],
+          "mean_standard_error": [
+            0.004694248202613906,
+            1.216346528620207e-19
+          ],
+          "sample_covariance_real_imag": [
+            [
+              0.36103727001999597,
+              4.1689729235797353e-20
+            ],
+            [
+              4.1689729235797353e-20,
+              2.4240109612014436e-34
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "normalized_mean_difference": [
+            0.02567356884195669,
+            7.185446503125638e-05
+          ]
+        },
+        "distinct": {
+          "target_mean": [
+            1.0,
+            0.0
+          ],
+          "ensemble_mean": [
+            0.9999116997708493,
+            6.334282409778706e-20
+          ],
+          "mean_standard_error": [
+            0.004288795795933732,
+            1.0535859677036976e-19
+          ],
+          "sample_covariance_real_imag": [
+            [
+              0.3013635175091217,
+              2.7536123025559404e-20
+            ],
+            [
+              2.7536123025559404e-20,
+              1.8186950923749573e-34
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "normalized_mean_difference": [
+            -0.02058858321826319,
+            6.33361510897834e-05
+          ]
+        }
+      },
+      "all_mean_components_within_6se": true,
+      "known_true_mean_above_six_mc_standard_errors": true,
+      "estimator_generating_truth_used": false,
+      "truth_used_only_for_validation": true,
+      "closure_phase_unbiased_guarantee": false,
+      "mean_confidence_calibrated": false
+    }
+  ],
+  "iid_gaussian_voltage_model": true,
+  "physical_adc_vdif_processed": false,
+  "filter_correlation_included": false,
+  "observed_sample_selection_used": false,
+  "real_hardware_validation_performed": false,
+  "production_correlator_statistics_changed": false,
+  "production_rml_noise_model_changed": false,
+  "scope": "Experimental iid fixed-gain voltage bispectrum means; sample-distinct indices remove shared-sample bias under assumptions. No unbiased phase, actual sensitivity or image guarantee."
+}

@@ -1,0 +1,31 @@
+{
+  "state": "complete",
+  "source": {
+    "passed": 483,
+    "warnings": 23952,
+    "seconds": 422.35
+  },
+  "installed": {
+    "passed": 483,
+    "warnings": 23952,
+    "seconds": 422.88
+  },
+  "targeted_final": {
+    "passed": 36,
+    "seconds": 0.38
+  },
+  "no_test_exclusions": true,
+  "source_then_installed_api_then_installed_regression": true,
+  "wheel": {
+    "bytes": 5478928,
+    "sha256": "6e96b3684cf89c59cd34d53f167d9ce304192b64bee26bef732adfbf65f00966"
+  },
+  "pip_check": "No broken requirements found.",
+  "gaussian_mc": {
+    "trials_per_case": 16384,
+    "cases": 5,
+    "wall_seconds": 0.85,
+    "maximum_rss_kib": 82964
+  },
+  "scope": "Experimental iid constant-gain voltage sample-distinct bispectrum means; no unbiased phase, FFT independence, hardware sensitivity or image guarantee."
+}
