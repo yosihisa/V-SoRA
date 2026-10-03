@@ -1,0 +1,143 @@
+{
+  "type": "guarded_vdif_seek",
+  "runs": {
+    "sequential": {
+      "state": "complete",
+      "mode": "sequential",
+      "input_vdif_sha256": [
+        "75d54aad44fcc31ca22813c40613728bf2c048ed4acd1f55442c4a7bc2f3afbc",
+        "1a10e6cd6d4325744bc7f9833ddcfb005fac21050fe1dd4ddf3116d29e50adf4",
+        "2674a7150232824ccc18d242df334c77af496c84b3ca3a121fecee02ac5c3b61",
+        "cf04773ba71ad1b1b3a39ba431c76acf31f8022ccdac9cc9240a1cd75acc389c"
+      ],
+      "input_manifest_sha256": "fd5a81d277cb91518bf2cb6f7ff7019a6c3867dff74c5f535df539116229b492",
+      "input_clock_sha256": "de055e1594cfae7a3d08cedbf88dde5c6d14807f430f6af9bf0cf69500d1787d",
+      "input_rate_sha256": "6590daf3dcc8775bfa8dd033a44ed1cf65bf562a2f1e663063153971751f04e1",
+      "wall_elapsed_s": 5.689313107000089,
+      "peak_rss_kib": 227476,
+      "correlation": {
+        "state": "complete",
+        "integrations": 1,
+        "recorded_span_s": 0.3,
+        "start_offset_s": 2.502,
+        "station_max_buffer_samples": [
+          12289,
+          12290,
+          12290,
+          12291
+        ],
+        "station_decoded_frames": [
+          1402,
+          1402,
+          1402,
+          1402
+        ],
+        "station_read_start_samples": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "vdif_read_mode": "sequential_prefix",
+        "vdif_validation_scope": "Sequential prefix and decoded range headers",
+        "samples_per_integration": 614400,
+        "maximum_fx_chunk_samples": 8192,
+        "spectral_cells": 192,
+        "geometry_segment_max_span_s": 0.2999999999999998,
+        "geometry_midpoint_max_baseline_phase_error_rad": 3.24545855059935e-07,
+        "fft_accumulation": "Sums of cross-products, power and fourth moments; flags after whole integration",
+        "clock_model": "Supplied linear ADC mapping; no automatic weak-source clock recovery",
+        "geometry": "Sample alignment and RF rephasing; piecewise linear delay over <=1s per segment, <=3s total, <=600m",
+        "weight_note": "2*valid FFT blocks / product of measured station channel powers; weak-source quadrature approximation; filtered FFT correlations not fully modeled"
+      }
+    },
+    "seek": {
+      "state": "complete",
+      "mode": "seek",
+      "input_vdif_sha256": [
+        "75d54aad44fcc31ca22813c40613728bf2c048ed4acd1f55442c4a7bc2f3afbc",
+        "1a10e6cd6d4325744bc7f9833ddcfb005fac21050fe1dd4ddf3116d29e50adf4",
+        "2674a7150232824ccc18d242df334c77af496c84b3ca3a121fecee02ac5c3b61",
+        "cf04773ba71ad1b1b3a39ba431c76acf31f8022ccdac9cc9240a1cd75acc389c"
+      ],
+      "input_manifest_sha256": "fd5a81d277cb91518bf2cb6f7ff7019a6c3867dff74c5f535df539116229b492",
+      "input_clock_sha256": "de055e1594cfae7a3d08cedbf88dde5c6d14807f430f6af9bf0cf69500d1787d",
+      "input_rate_sha256": "6590daf3dcc8775bfa8dd033a44ed1cf65bf562a2f1e663063153971751f04e1",
+      "wall_elapsed_s": 3.0525500799999463,
+      "peak_rss_kib": 226840,
+      "correlation": {
+        "state": "complete",
+        "integrations": 1,
+        "recorded_span_s": 0.3,
+        "start_offset_s": 2.502,
+        "station_max_buffer_samples": [
+          12289,
+          12290,
+          12290,
+          12291
+        ],
+        "station_decoded_frames": [
+          152,
+          152,
+          152,
+          152
+        ],
+        "station_read_start_samples": [
+          5120000,
+          5120000,
+          5120000,
+          5120000
+        ],
+        "vdif_read_mode": "guarded_seek",
+        "vdif_validation_scope": "File origin and length, decoded range headers and nominal continuity; skipped prefix not structurally scanned",
+        "samples_per_integration": 614400,
+        "maximum_fx_chunk_samples": 8192,
+        "spectral_cells": 192,
+        "geometry_segment_max_span_s": 0.2999999999999998,
+        "geometry_midpoint_max_baseline_phase_error_rad": 3.24545855059935e-07,
+        "fft_accumulation": "Sums of cross-products, power and fourth moments; flags after whole integration",
+        "clock_model": "Supplied linear ADC mapping; no automatic weak-source clock recovery",
+        "geometry": "Sample alignment and RF rephasing; piecewise linear delay over <=1s per segment, <=3s total, <=600m",
+        "weight_note": "2*valid FFT blocks / product of measured station channel powers; weak-source quadrature approximation; filtered FFT correlations not fully modeled"
+      }
+    },
+    "buffer-sequential": {
+      "mode": "sequential",
+      "elapsed_s": 7.660823124000217,
+      "frames_decoded": 14753,
+      "read_start_sample": 0,
+      "maximum_buffer_samples": 12288,
+      "peak_rss_kib": 134396,
+      "scope": "Single station, sparse constant payload, 30s logical VDIF; late query at 29.5s. Algorithm/count benchmark, not storage-device throughput or scientific sensitivity."
+    },
+    "buffer-seek": {
+      "mode": "seek",
+      "elapsed_s": 0.01778486500006693,
+      "frames_decoded": 4,
+      "read_start_sample": 60411904,
+      "maximum_buffer_samples": 12288,
+      "peak_rss_kib": 134464,
+      "scope": "Single station, sparse constant payload, 30s logical VDIF; late query at 29.5s. Algorithm/count benchmark, not storage-device throughput or scientific sensitivity."
+    }
+  },
+  "maximum_normalized_spectral_differences": {
+    "visibilities": 0.0,
+    "weights": 0.0,
+    "times_s": 0.0,
+    "frequencies_hz": 0.0,
+    "uvw_lambda": 0.0,
+    "integration_s": 0.0,
+    "diagnostic_station_power": 0.0,
+    "diagnostic_station_sk": 0.0
+  },
+  "sparse_generating": {
+    "frames": 15000,
+    "logical_bytes": 123360000,
+    "allocated_bytes": 61440000,
+    "decoded_payload": "Sparse holes are encoded zero bytes, a constant decoded complex ADC value. Not receiver noise or sky.",
+    "sample_rate_hz": 2048000,
+    "duration_s": 30.0,
+    "sha256": "b841d479e4721972f11c5f6e383232fc16e9b733c2f0b6864088d077bea8b37f"
+  },
+  "scope": "One four-station 3.04s point-noise VDIF, same 0.3s late interval and existing rate profile; independent process benchmarks. No continuous hours, real receiver, storage throughput or nonlinear clock validation."
+}

@@ -52,4 +52,6 @@
 
 | 030 | [全成分を保持した位置合わせ評価](030-full-support-registration.md) | source/wheel151件成功。固定Cas A画像の高感度2.36%、低感度35〜39%。復元画像は変更せず |
 
+| 031 | [guard付きVDIF部分読取](031-guarded-vdif-seek.md) | source/wheel157件成功。後方区間の相関差0、decoded frame1402→152。未読prefixの範囲を明示 |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。

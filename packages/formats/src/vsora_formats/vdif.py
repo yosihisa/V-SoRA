@@ -48,35 +48,46 @@ def write_vdif(path, data, start_utc, sample_rate_hz, station_id, scale=1., samp
     return metadata
 
 
-def iter_vdif_frames(path, sample_rate_hz, expected_station_id=None, scale=1.):
-    """Yield validated frames with bounded memory; reject discontinuous headers."""
+def iter_vdif_frames(path, sample_rate_hz, expected_station_id=None, scale=1., *, start_sample=0):
+    """Read a validated contiguous range, rounding a requested start down to a frame.
+
+    File origin, physical length, and decoded-range headers are checked. A
+    skipped prefix is not a complete structural validation of that prefix.
+    Returned sample_index is always relative to the original file sample0.
+    """
     if not np.isfinite(sample_rate_hz) or not np.isfinite(scale) or sample_rate_hz<=0 or scale<=0:
         raise ValueError('positive finite sample rate/scale required')
-    first=None;expected=None;signature=None;sample_index=0
-    # Inspect length separately to distinguish EOF from a truncated final frame.
+    if isinstance(start_sample,bool) or not isinstance(start_sample,int) or start_sample<0:
+        raise ValueError('nonnegative integer start sample required')
     length=Path(path).stat().st_size
+    if length==0:raise ValueError('empty VDIF')
+    def signature(h):
+        if not h.complex_data or h.bps!=8 or h.nchan!=1 or h['thread_id']!=0 or h.edv is False or h.edv!=0:
+            raise ValueError('only EDV0 8-bit complex single-channel/thread supported')
+        if expected_station_id is not None and h['station_id']!=expected_station_id:
+            raise ValueError('station ID mismatch')
+        if sample_rate_hz%h.samples_per_frame:raise ValueError('noninteger frame rate')
+        return (h['station_id'],h.samples_per_frame,h.frame_nbytes)
     with vdif.open(path,'rb') as reader:
+        initial=reader.read_header(verify=True);sig=signature(initial)
+        _,samples_per_frame,frame_bytes=sig
+        if length%frame_bytes:raise EOFError('truncated fixed-length VDIF file')
+        frame_index=start_sample//samples_per_frame
+        if frame_index>=length//frame_bytes:raise ValueError('requested start is beyond VDIF record')
+        first=initial.get_time(frame_rate=sample_rate_hz/samples_per_frame*u.Hz)
+        sample_index=frame_index*samples_per_frame
+        reader.seek(frame_index*frame_bytes)
         while reader.tell()<length:
-            frame=reader.read_frame(verify=True)
-            h=frame.header
-            if not h.complex_data or h.bps!=8 or h.nchan!=1 or h['thread_id']!=0 or h.edv!=0:
-                raise ValueError('only EDV0 8-bit complex single-channel/thread supported')
-            if expected_station_id is not None and h['station_id']!=expected_station_id:
-                raise ValueError('station ID mismatch')
-            sig=(h['station_id'],h.samples_per_frame,h.frame_nbytes)
-            if signature is not None and sig!=signature: raise ValueError('VDIF header changes midstream')
-            signature=sig
-            if sample_rate_hz%h.samples_per_frame: raise ValueError('noninteger frame rate')
-            time=h.get_time(frame_rate=sample_rate_hz/h.samples_per_frame*u.Hz)
-            if first is None: first=time;expected=time
+            frame=reader.read_frame(verify=True);h=frame.header
+            if signature(h)!=sig:raise ValueError('VDIF header changes midstream')
+            time=h.get_time(frame_rate=sample_rate_hz/samples_per_frame*u.Hz)
+            expected=first+sample_index/sample_rate_hz*u.s
             if abs((time-expected).to_value(u.s))>1e-7:
                 raise ValueError('missing, duplicate or misordered VDIF frame')
-            expected=expected+h.samples_per_frame/sample_rate_hz*u.s
             yield {'data':np.asarray(frame.data).reshape(-1).astype(complex)*scale,
-                   'valid':np.full(h.samples_per_frame,frame.valid,dtype=bool),
+                   'valid':np.full(samples_per_frame,frame.valid,dtype=bool),
                    'time':time,'sample_index':sample_index,'station_id':h['station_id']}
-            sample_index+=h.samples_per_frame
-    if first is None: raise ValueError('empty VDIF')
+            sample_index+=samples_per_frame
 
 
 def read_vdif(path, sample_rate_hz, expected_station_id=None, scale=1.):

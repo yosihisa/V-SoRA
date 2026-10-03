@@ -81,3 +81,8 @@ Fs2.048MHz、FFT8なら0.25msは64 FFT。4096時刻で1.024秒、Nyquistは2000H
 summary.rate_acquisitionは刻み・時刻数・span・Nyquist・探索上限・探索端coherence・SK判定可能割合を保存し、GUIも表示する。例えばmin_sk_blocks=128で64FFT/cellならSK判定割合0%。channel powerによる重みと明示的RF除外は維持するが、SKでRFIが確認できたとはしない。
 
 **初期差がNyquist内であることは外部の条件**。周期的なsampleにより、範囲外の大きな差が小さな整合したrateに見えることがある。初期LOの測定・仕様で上限を決め、全基線を覆う刻みを選ぶ。外部上限が未確認なら「工程完了」で実機への対応を保証しない。[段階029のVDIF試験と折り返し例](../docs/reports/029-wide-rate-pilot.md)を参照。
+
+
+## 原本の部分seekと検査範囲
+
+段階031から後方の短区間はFIR/補間guardを含むframeから読み始める。公称sample0を基準にしたglobal indexを保持し、sample時計とrateを同じphysical timeで評価する。完成summaryには読取mode・範囲・各局のdecoded frame数を残す。読取中のheader/time/invalidは検査するが、飛ばしたprefixの全構造を正常と判定しない。pipelineの全原本SHA計算は維持し、長記録ではこの読取時間も掛かる。単独aligned CLIの`--sequential-input`で先頭からFIRとheader検査を行える。[時計と読取規約](clock-model.md)を参照。

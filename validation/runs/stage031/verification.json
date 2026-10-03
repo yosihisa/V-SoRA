@@ -1,0 +1,19 @@
+{
+  "source_pytest": {
+    "passed": 157,
+    "warnings": 3544,
+    "elapsed_s": 39.38
+  },
+  "wheel_pytest": {
+    "passed": 157,
+    "warnings": 3544,
+    "elapsed_s": 38.91
+  },
+  "pip_check": "No broken requirements found",
+  "wheel": {
+    "bytes": 5433323,
+    "sha256": "a3b6e3ab2f86fac29a4c7a22d06585b8cb4bcd9b0060b9500131a86828fe02ba"
+  },
+  "initial_test_fix": "The new generating test expression applied modulo after multiplication by 1j, which NumPy rejects; parentheses now apply modulo to real integer sequences before complex assembly. Reader algorithm unchanged for this fix.",
+  "hardware_scope": "Synthetic closed VDIF and WSL headless browser, no real receiver, Windows browser or WSLg desktop observation"
+}

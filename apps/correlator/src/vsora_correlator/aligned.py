@@ -34,8 +34,9 @@ def validate_aligned_dimensions(config, integrations):
 
 
 class SampleBuffer:
-    def __init__(self,path,nominal_rate,station_id,scale,actual_rate):
-        self.reader=iter_vdif_frames(path,nominal_rate,station_id,scale)
+    def __init__(self,path,nominal_rate,station_id,scale,actual_rate,seek_input=True):
+        self.reader=None;self.reader_arguments=(path,nominal_rate,station_id,scale)
+        self.seek_input=seek_input;self.started=False;self.frames_read=0;self.initial_sample_index=0
         self.taps=firwin(65,.35*nominal_rate,fs=actual_rate,window=('kaiser',8.6))
         self.state=np.zeros(64,complex);self.history=np.zeros(64,bool)
         self.data=np.empty(0,complex);self.valid=np.empty(0,bool)
@@ -46,9 +47,16 @@ class SampleBuffer:
         minimum=int(np.floor(positions.min()))-32
         maximum=int(np.floor(positions.max()))+33
         if minimum<0 or minimum<self.first: raise ValueError('query before available guard samples')
+        if self.reader is None:
+            first_sample=max(0,minimum-64) if self.seek_input else 0
+            self.reader=iter_vdif_frames(*self.reader_arguments,start_sample=first_sample)
         while self.first+len(self.data)<=maximum:
             try: frame=next(self.reader)
             except StopIteration: raise ValueError('input ends before requested aligned chunk') from None
+            if not self.started:
+                self.first=self.next=self.initial_sample_index=frame['sample_index'];self.started=True
+            if frame['sample_index']!=self.next:raise ValueError('unexpected VDIF sample index')
+            self.frames_read+=1
             filtered,self.state=lfilter(self.taps,[1],frame['data'],zi=self.state)
             support=np.r_[self.history,frame['valid']]
             good=np.convolve(support.astype(int),np.ones(65,dtype=int),'valid')==65
@@ -66,10 +74,12 @@ class SampleBuffer:
         self.data=self.data[discard:];self.valid=self.valid[discard:];self.first+=discard
         return result,good
 
-    def close(self): self.reader.close()
+    def close(self):
+        if self.reader is not None:self.reader.close()
 
 
-def correlate_aligned(manifest,clock_model,output,integrations,start_offset_s=.002,rate_profile=None,allow_rate_extrapolation=False):
+def correlate_aligned(manifest,clock_model,output,integrations,start_offset_s=.002,rate_profile=None,allow_rate_extrapolation=False,seek_input=True):
+    if not isinstance(seek_input,bool):raise ValueError('seek_input bool required')
     c=load_session(manifest);config=c['_config'];fs=c['sample_rate_hz']
     if not c['phase_center_correction']: raise ValueError('aligned mode requires explicit phase-center correction')
     ns,span,spectral_cells=validate_aligned_dimensions(c,integrations)
@@ -93,7 +103,7 @@ def correlate_aligned(manifest,clock_model,output,integrations,start_offset_s=.0
         actual=measured['actual_sample_rate_hz'];offset=measured['input_start_offset_s']
         if not np.isfinite(actual) or not np.isfinite(offset) or abs(actual/fs-1)>.001:
             raise ValueError('clock model must be finite and within 1000 ppm')
-        buffers.append(SampleBuffer(c['_root']/station['vdif'],fs,station['station_numeric_id'],station['decoded_voltage_scale'],actual))
+        buffers.append(SampleBuffer(c['_root']/station['vdif'],fs,station['station_numeric_id'],station['decoded_voltage_scale'],actual,seek_input))
     out=Path(output);partial=out.with_name(out.name+'.partial')
     if out.exists() or partial.exists(): raise FileExistsError('choose a new output directory')
     origin=Time(config['observation']['start_utc']);offsets=start_offset_s+(np.arange(integrations)+.5)*ns/fs
@@ -141,6 +151,8 @@ def correlate_aligned(manifest,clock_model,output,integrations,start_offset_s=.0
               'phase_center_corrected':True,'rate_applied_hz':rate.tolist(),'rate_applied_reference_s':rate_epoch,
               'rate_only_profile_sha256':rate_sha,'rate_only_extrapolation_allowed':bool(allow_rate_extrapolation),
               'nominal_integration_s':ns/fs,
+              'vdif_read_mode':'guarded_seek' if seek_input else 'sequential_prefix',
+              'vdif_validation_scope':'File origin and length, decoded range headers and nominal continuity; skipped prefix not structurally scanned' if seek_input else 'Sequential prefix and decoded range headers',
               'clock_mapping_applied':True,'filter':'65-tap Kaiser lowpass; group delay compensated',
               'max_abs_baseband_hz':band,'eop_status':g['eop_status'],
               'geometry_segment_max_span_s':float(np.diff(edges).max()),'geometry_midpoint_max_baseline_phase_error_rad':midpoint_baseline_phase}
@@ -148,7 +160,9 @@ def correlate_aligned(manifest,clock_model,output,integrations,start_offset_s=.0
             meta.update(spectral_quality=c['spectral_quality'],diagnostic_power_unit='ADC^2' if c['voltage_unit']=='ADC' else 'Jy')
         save_spectral(partial/'shard-00000.npz',cube,meta)
         summary={'state':'complete','integrations':integrations,'recorded_span_s':span,'start_offset_s':start_offset_s,
-                 'station_max_buffer_samples':[b.maximum for b in buffers],'samples_per_integration':ns,'maximum_fx_chunk_samples':maximum_chunk_samples,'spectral_cells':spectral_cells,
+                 'station_max_buffer_samples':[b.maximum for b in buffers],
+                 'station_decoded_frames':[b.frames_read for b in buffers],'station_read_start_samples':[b.initial_sample_index for b in buffers],
+                 'vdif_read_mode':meta['vdif_read_mode'],'vdif_validation_scope':meta['vdif_validation_scope'],'samples_per_integration':ns,'maximum_fx_chunk_samples':maximum_chunk_samples,'spectral_cells':spectral_cells,
                  'geometry_segment_max_span_s':float(np.diff(edges).max()),'geometry_midpoint_max_baseline_phase_error_rad':midpoint_baseline_phase,
                  'fft_accumulation':'Sums of cross-products, power and fourth moments; flags after whole integration',
                  'clock_model':'Supplied linear ADC mapping; no automatic weak-source clock recovery',
