@@ -1,12 +1,13 @@
 from contextlib import asynccontextmanager
 import json
+from zipfile import BadZipFile
 from pathlib import Path
 from fastapi import FastAPI,HTTPException,Request
 from fastapi.responses import FileResponse,JSONResponse
 from fastapi.staticfiles import StaticFiles
 from starlette.middleware.trustedhost import TrustedHostMiddleware
 from .jobs import JobManager
-from .models import JobRequest
+from .models import JobRequest,NoiseInputRequest
 
 
 def create_app(workspace):
@@ -38,6 +39,13 @@ def create_app(workspace):
         return {'project':manager.workspace.name,'validation_available':(manager.workspace/'tools/run.py').is_file(),
                 'frequency_hz':1.42e9,'sample_rate_hz':2048000,'max_baseline_m':600,
                 'real_observation_verified':False}
+
+    @app.post('/api/noise-input')
+    def noise_input(request:NoiseInputRequest):
+        from .noise import input_axes
+        try:return input_axes(manager.workspace,request.input)
+        except (ValueError,OSError,KeyError,EOFError,BadZipFile):
+            raise HTTPException(400,'相関ファイルの読込に失敗しました。保存済みのspectral NPZを確認してください。') from None
 
     @app.get('/api/jobs')
     def jobs(): return manager.list()

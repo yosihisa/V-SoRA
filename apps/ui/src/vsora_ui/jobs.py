@@ -21,7 +21,7 @@ LABELS={'simulation':'模擬観測と画像復元','quality':'雑音・電波妨
         'closure_noise':'Closure共有雑音の共分散検証',
         'rate':'skyモデルを使わない周波数差の推定','analysis':'VDIFからClosure＋RMLで解析',
         'sequence':'VDIFの短区間列と画像合成',
-        'synthesis':'複数時刻のClosure＋RML合成','sensitivity':'短積分の感度計画'}
+        'noise':'相関ファイルの雑音診断','synthesis':'複数時刻のClosure＋RML合成','sensitivity':'短積分の感度計画'}
 
 
 def write_json(path,data):

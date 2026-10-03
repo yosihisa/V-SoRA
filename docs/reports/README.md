@@ -86,4 +86,6 @@
 
 | 047 | [相関ファイルの雑音診断](047-observation-noise-diagnostic.md) | Gaussian IQ→FFT・条件付き一cell CLI・固定VDIFの既存12配列差0。source/wheel355件成功。実FFT独立性・信頼区間・実機は未検証 |
 
+| 048 | [保存相関の雑音診断GUI](048-observation-noise-gui.md) | source/wheel365件成功。実Chromiumで軸選択・4状態fixture・低SNR無効行・JSON保存、日本語/390px・JS/外部通信0 |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。

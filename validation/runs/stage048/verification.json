@@ -1,0 +1,30 @@
+{
+  "state": "complete",
+  "source": {
+    "passed": 365,
+    "warnings": 23312,
+    "seconds": 420.28
+  },
+  "targeted": {
+    "passed": 40,
+    "warnings": 641,
+    "seconds": 3.29
+  },
+  "installed": {
+    "passed": 365,
+    "warnings": 23312,
+    "seconds": 407.44
+  },
+  "no_test_exclusions": true,
+  "source_browser_installed_sequential": true,
+  "wheel": {
+    "bytes": 5468468,
+    "sha256": "31a4f969879e16fa87cb9a4e5de5f3bd0e613beb15e915f15a4eff71352648d2"
+  },
+  "pip_check": "No broken requirements found.",
+  "matching_prior_stage047_diagnostic_fields": 29,
+  "prior_numerical_values_unchanged": true,
+  "main_gui_history_preserved": 39,
+  "scope": "Installed GUI and CLI transport of synthetic spectral statistics. No real FFT independence, hardware confidence or image fidelity.",
+  "main_gui_axes_api_ok": true
+}

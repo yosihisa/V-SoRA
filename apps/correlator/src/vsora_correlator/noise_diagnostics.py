@@ -61,6 +61,7 @@ def diagnose_noise_cell(data,time_index,channel_index):
     except ValueError:return unavailable('closure_noise_outside_numerical_range')
     if not np.isfinite(closure['baseline_snr']).all():return unavailable('noise_snr_outside_numerical_range')
     return {**result,'state':'conditional_estimate','station_ids':[station['id'] for station in identities],
+        'pairs':p.tolist(),'triangles':closure['triangles'].tolist(),'quadrangles':closure['quadrangles'].tolist(),
         'nominal_common_fft_blocks':m,'visibility_unit':unit,'covariance_unit':'ADC^4' if unit=='ADC^2' else 'Jy^2',
         'station_sample_covariance_real':s.real.tolist(),'station_sample_covariance_imag':s.imag.tolist(),
         'real_parameter_order':q['real_parameter_order'],'estimated_visibility_covariance':q['real_covariance'].tolist(),

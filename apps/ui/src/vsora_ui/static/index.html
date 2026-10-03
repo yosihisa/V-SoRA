@@ -24,6 +24,7 @@
         <button class="nav-button" data-panel="sequence">区間列解析</button>
         <button class="nav-button" data-panel="sensitivity">感度計画</button>
         <button class="nav-button" data-panel="synthesis">合成画像</button>
+        <button class="nav-button" data-panel="noise">雑音診断</button>
         <button class="nav-button" data-panel="history">実行履歴</button>
         <button class="nav-button" data-panel="help">使い方</button>
       </nav>
@@ -183,6 +184,25 @@
           <div class="explanation-stack">
             <div class="card"><h2>長い観測時間と短い積分</h2><p>各短露光の局gainは異なっていても、時刻とchannelごとのClosureで消します。複素相関を長く平均する必要はありません。</p><p>sample/幾何整列済みの出力を使います。原本の識別情報、露光、flag、周波数は保持し、時刻をUTCへ合わせて並べます。</p></div>
             <div class="note-card"><h3>使える情報を確認する</h3><p>低SNRではClosure phaseやamplitudeが作れない場合があります。測定数・探索の停止・事前条件依存を確認してください。描画された画像だけで復元成功とは判断できません。</p><p>結果は総相対flux1です。データを選ぶ量には直接Fourier参照実装のメモリ上限があります。</p></div>
+          </div>
+        </div>
+      </section>
+      <section id="panel-noise" class="panel hidden">
+        <div class="page-heading"><div class="eyebrow">NOISE DIAGNOSTIC</div><h1>保存した相関の雑音を調べる</h1><p>局power・基線相関・共通FFT数を確認して、一つの時刻・周波数を条件付きで診断します。</p></div>
+        <div class="two-column">
+          <form id="noise-form" class="card">
+            <h2>相関ファイルと診断する場所</h2>
+            <label>完了した解析の履歴<select id="noise-input-history"><option value="">履歴を読み込みます</option></select></label>
+            <button type="button" id="choose-noise-input" class="secondary">選んだファイルを入力に使う</button>
+            <label>WSL側の相関NPZ<input name="input" type="text" maxlength="512" placeholder="outputs/run/correlation/shard-00000.npz" required></label>
+            <button type="button" id="read-noise-input" class="secondary">入力の時刻・周波数を読む</button>
+            <p id="noise-input-note" class="field-help" role="status">保存済みのファイルを指定し、時刻・周波数を読み込んでください。</p>
+            <div class="form-row"><label>診断する時刻<select name="time_index" disabled required></select></label><label>診断するRF周波数<select name="channel_index" disabled required></select></label></div>
+            <button type="submit" class="primary full" disabled>選んだ場所の雑音を診断</button>
+          </form>
+          <div class="explanation-stack">
+            <div class="card"><h2>局の雑音も基線間で共有する</h2><p>局powerと複素相関を同じFFT集合で測っていると、基線間の雑音の関係を推定できます。真の天体画像や局gainを診断へ与える必要はありません。</p><p>処理完了と、条件付き推定・未判定・無効は別々に表示します。旧ファイルにFFT数がなければ推測して補いません。</p></div>
+            <div class="note-card"><h3>計算の仮定を確認する</h3><p>独立・平均0・Gaussian電圧と、区間中に一定の局共分散を仮定します。FFT数は実際の独立標本数ではありません。FIR・補間・量子化・RFI・実機の信頼区間は未検証です。</p><p>Closureの誤差は一次近似です。現行RMLの重み・採否に適用する処理ではありません。</p></div>
           </div>
         </div>
       </section>

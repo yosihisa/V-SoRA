@@ -58,7 +58,7 @@ let selected=null, jobs=[], refreshing=false, detailFingerprint="", listFingerpr
 const byId=id=>document.getElementById(id);
 function node(tag,text,className){const element=document.createElement(tag);if(text!==undefined)element.textContent=text;if(className)element.className=className;return element;}
 function message(text){const box=byId("message");box.textContent=text;box.classList.toggle("hidden",!text);}
-function showPanel(name){document.querySelectorAll(".panel").forEach(p=>p.classList.toggle("hidden",p.id!=="panel-"+name));document.querySelectorAll(".nav-button").forEach(b=>b.classList.toggle("active",b.dataset.panel===name));if(name==="history")refresh();if(name==="synthesis")loadSynthesisHistory();}
+function showPanel(name){document.querySelectorAll(".panel").forEach(p=>p.classList.toggle("hidden",p.id!=="panel-"+name));document.querySelectorAll(".nav-button").forEach(b=>b.classList.toggle("active",b.dataset.panel===name));if(name==="history")refresh();if(name==="synthesis")loadSynthesisHistory();if(name==="noise")loadNoiseHistory();}
 document.querySelectorAll(".nav-button").forEach(b=>b.addEventListener("click",()=>showPanel(b.dataset.panel)));
 async function api(path,body){const response=await fetch(path,body===undefined?{}:{method:"POST",headers:{"Content-Type":"application/json","X-VSoRA-Request":"1"},body:JSON.stringify(body)});const data=await response.json();if(!response.ok){const detail=Array.isArray(data.detail)?data.detail.map(x=>x.msg).join(" / "):data.detail;throw new Error(detail||"処理できませんでした");}return data;}
 async function submit(form,request){const button=form.querySelector("button[type=submit]");button.disabled=true;message("");try{const job=await api("/api/jobs",request);selected=job.id;showPanel("history");await refresh();}catch(error){message("入力と実行条件を確認してください："+error.message);}finally{button.disabled=false;}}
@@ -84,6 +84,7 @@ function renderDetail(job){const box=byId("job-detail");box.replaceChildren();co
   if(summary&&summary.type==="rate_uncertainty_validation")renderGaussianUncertainty(box,summary);
   if(summary&&summary.type==="rate_covariance_validation")renderRateCovariance(box,summary);
   if(summary&&summary.type==="joint_closure_noise_validation")renderClosureNoise(box,summary);
+  if(summary&&summary.type==="spectral_noise_diagnostic")renderObservationNoise(box,summary);
   if(summary&&summary.windows){const details=node("details"),table=node("table",undefined,"window-table"),head=node("tr");head.append(node("th","区間・開始時刻"),node("th","pilotと局周波数差"));table.append(head);for(const w of summary.windows){const row=node("tr"),a=w.rate_acquisition,r=w.rate_estimate,info=node("td"),sk=a.sk_eligible_fraction===null?"未記録":(100*a.sk_eligible_fraction).toFixed(1)+"%";row.append(node("td",(w.window_index+1)+" / "+w.start_offset_s.toFixed(3)+" 秒"));if(w.rate_consistency)info.append(node("p",rateConsistencyLabels[w.rate_consistency.state]||w.rate_consistency.state));info.append(node("p",(a.pilot_integration_s*1000).toFixed(3)+"ms × "+a.pilot_integrations+" / Nyquist "+a.temporal_nyquist_hz.toFixed(1)+"Hz / SK判定可能 "+sk));for(let i=0;i<r.station_ids.length;i++)info.append(node("span",r.station_ids[i]+": "+r.station_rates_hz[i].toFixed(4)+" Hz","station-rate"));renderLinearRate(info,r);row.append(info);table.append(row);}details.append(node("summary","区間ごとの周波数差とpilot条件"),table);box.append(details,node("p","周波数差は基準局との差です。選択した一定または滑らかな線形モデルを各pilot内で使い、区間の間は補間していません。初期の基線差が各pilotのNyquist内にあることは別途確認が必要です。SK判定可能な割合が低い区間は、電波妨害の確認を別途行ってください。","muted"));if(summary.windows.some(w=>w.correlation.station_read_start_samples.some(x=>x>0)))box.append(node("p","必要な区間とguardを部分読取しました。飛ばした前方区間のheaderは検査していません。原本のSHA確認と、読んだ区間の時刻検査は別です。","muted"));}
   if(summary&&summary.correlation&&summary.correlation.vdif_read_mode==="guarded_seek"&&summary.correlation.station_read_start_samples.some(x=>x>0))box.append(node("p","必要な区間と直前のguardを部分読取しました。飛ばした前方区間のheaderは検査していません。原本のSHA確認と、読んだ区間の時刻検査は別に記録しています。","muted"));
   if(summary&&summary.metrics&&summary.metrics.comparison_version===2){box.append(node("p","形状誤差は、位置合わせで画面外へ出た成分も含めて比較しています。表示画像は元の画面範囲だけです。","muted"));if(summary.metrics.registration_boundary_reached)box.append(node("p","位置合わせが探索範囲の端に達しています。移動量と比較条件を確認してください。","muted"));}
@@ -105,3 +106,61 @@ function renderLinearRate(box,r){if(r.type!=="station_rate_linear")return;box.ap
 for(const id of ["analysis-form","sequence-form"]){const form=byId(id),model=form.querySelector("select[name=rate_model]"),required=form.querySelector("input[name=require_rate_consistency]");model.addEventListener("change",()=>{required.disabled=model.value==="linear";if(required.disabled)required.checked=false;});}
 
 function renderPeriodicPhase(box,s){box.append(node("h3","仮定した周期位相変動の結果"),node("p","同じsky・雑音・局gainの対照と比べました。比率は検証でだけ使える値で、実機の相関保持率を測定した結果ではありません。一定/線形rateの適合と、積分中の位相安定は別に確認します。","muted"));const table=node("table",undefined,"window-table"),head=node("tr");head.append(node("th","条件・補正モデル"),node("th","結果・対照との比較"));table.append(head);for(const c of s.cases){const row=node("tr"),info=node("td"),label=c.case==="control"?"変動なし":(c.case==="fast"?"速い周期32Hz":"遅い周期0.5Hz");row.append(node("td",label+" / "+(c.rate_model==="linear"?"線形rate":"一定rate")));info.append(node("p",c.state==="complete"?"相関処理完了":"相関処理は未完了"));if(c.diagnosis)info.append(node("p",rateConsistencyLabels[c.diagnosis.state]||c.diagnosis.state));if(c.state==="complete"){info.append(node("p","最小振幅比（対照比） "+(100*Math.min(...c.measured_amplitude_ratio_to_same_noise_control)).toFixed(2)+"% / 計算値 "+(100*Math.min(...c.calculated_coherence)).toFixed(2)+"%"));info.append(node("p","Closure log amplitude RMS "+c.closures.logamp.measured_rms.toFixed(5)));if(c.rate_estimate&&c.rate_estimate.integration_uncertainty)renderRateUncertainty(info,c.rate_estimate.integration_uncertainty);}else info.append(node("p","分割推定または選択したモデルが成立せず停止。詳細は保存した条件と数値を確認してください。"));row.append(info);table.append(row);}box.append(table,node("p","画像品質の合格判定ではありません。Cas A・低SNR・実OCXOの位相noiseスペクトルは別に検証します。","muted"));}
+
+
+const noiseReasons={
+  no_positive_baseline_weights:"選択した場所に有効な基線がありません。",
+  partial_baseline_mask:"一部の基線が無効です。完全基線を使う参照診断の条件を満たしません。",
+  missing_station_power_flags_or_fft_counts:"必要な局power・flag・FFT数の保存情報がありません。旧ファイルの数を推測して補いません。",
+  station_count_outside_reference_range:"この診断は2〜8局が対象です。",
+  incomplete_baseline_set:"全局間の基線が揃っていません。",
+  missing_or_invalid_station_identity:"局IDの情報が不足、重複、または不正です。",
+  power_visibility_units_differ_or_missing:"局powerとvisibilityの単位が不明、または一致しません。",
+  station_quality_flag:"選択した場所に局の品質flagがあります。",
+  insufficient_common_fft_blocks:"共通FFT数が局数未満です。",
+  unsupported_fft_count:"FFT数が参照実装の範囲を超えています。",
+  station_and_baseline_fft_sets_differ:"局と基線が同じFFT集合を使った条件を確認できません。",
+  invalid_station_sample_covariance:"局powerとvisibilityが有効な標本共分散を作りません。",
+  closure_noise_outside_numerical_range:"Closureの誤差伝播が計算可能な数値範囲を超えました。",
+  noise_snr_outside_numerical_range:"雑音またはSNRが診断の数値範囲を超えました。"
+};
+function renderObservationNoise(box,s){
+  const labels={conditional_estimate:"条件付き推定",unverified:"未判定",inactive:"無効"};
+  box.append(node("h3","保存相関の雑音診断："+(labels[s.state]||s.state)),
+    node("p","時刻番号 "+s.time_index+" / 原点から "+s.time_s.toFixed(6)+" 秒 / channel番号 "+s.channel_index+" / RF "+(s.frequency_hz/1e6).toFixed(6)+" MHz","muted"),
+    node("p","処理完了は診断を実行できた意味です。FFTの独立性・Gaussianモデル・実機の信頼区間を確認した意味ではありません。RMLの重み・採否は変更していません。","muted"));
+  if(s.state!=="conditional_estimate"){box.append(node("p",noiseReasons[s.reason]||"必要条件を確認できません。詳細な数値を確認してください。","muted"));return;}
+  const validPhase=s.closure_joint_valid.slice(0,s.phase_count).filter(Boolean).length,
+    validAmp=s.closure_joint_valid.slice(s.phase_count).filter(Boolean).length,grid=node("div",undefined,"metric-grid");
+  grid.append(metric("公称の共通FFT数",s.nominal_common_fft_blocks.toLocaleString("ja-JP")),
+    metric("有効phase / 全行",validPhase+" / "+s.phase_count),metric("有効log amplitude / 全行",validAmp+" / "+s.logamp_count));box.append(grid);
+  box.append(node("p","相関の単位 "+s.visibility_unit+" / visibility共分散の単位 "+s.covariance_unit+"。公称FFT数を独立標本数と仮定した計算です。冗長なClosure行を含み、独立な測定数ではありません。","muted"),
+    node("p","visibility共分散の補正は仮定の下で多数の試行の平均が不偏という性質です。測定visibilityを使ったClosureの一次近似に、不偏性や正しい信頼区間を保証しません。","muted"));
+  const baselines=node("details"),bt=node("table",undefined,"window-table"),bh=node("tr");bh.append(node("th","基線"),node("th","条件付きSNR"));bt.append(bh);
+  s.baseline_snr_conditional.forEach((v,i)=>{const row=node("tr"),label=s.pairs?s.pairs[i].map(k=>s.station_ids[k]).join(" / "):"保存順の基線 "+(i+1);row.append(node("td",label),node("td",v.toFixed(3)));bt.append(row);});baselines.append(node("summary","基線ごとの条件付きSNR"),bt);box.append(baselines);
+  const details=node("details"),table=node("table",undefined,"window-table"),head=node("tr");head.append(node("th","Closure行"),node("th","状態"),node("th","一次近似σ"));table.append(head);
+  s.closure_joint_valid.forEach((valid,i)=>{const row=node("tr"),phase=i<s.phase_count,index=phase?i:i-s.phase_count,
+    label=(phase?"phase ":"log amplitude ")+(index+1),sigma=valid?Math.sqrt(Math.max(0,s.estimated_joint_closure_covariance[i][i])).toExponential(4)+(phase?" rad":"（無次元）"):"—";
+    row.append(node("td",label),node("td",valid?"一次近似の対象":"未判定（SNR不足）"),node("td",sigma));table.append(row);});
+  details.append(node("summary","Closure行ごとの誤差と有効状態"),table);box.append(details,node("p","無効行の保存値0は、誤差ゼロの測定ではありません。σは分散の平方根で、正しい誤差領域を確認した結果ではありません。全共分散・局番号・入力SHA256は詳しい数値と保存JSONで確認できます。","muted"));
+}
+function invalidateNoiseInput(){const form=byId("noise-form");for(const name of ["time_index","channel_index"]){const select=form.elements[name];select.replaceChildren();select.disabled=true;}form.querySelector("button[type=submit]").disabled=true;byId("noise-input-note").textContent="保存済みのファイルを指定し、時刻・周波数を読み込んでください。";}
+byId("noise-form").elements.input.addEventListener("input",invalidateNoiseInput);
+byId("read-noise-input").addEventListener("click",async()=>{
+  const form=byId("noise-form"),value=form.elements.input.value.trim(),button=byId("read-noise-input");invalidateNoiseInput();button.disabled=true;message("");
+  try{const axes=await api("/api/noise-input",{input:value});if(value!==form.elements.input.value.trim())return;
+    axes.times_s.forEach((v,i)=>{const option=node("option",i+" / "+v.toFixed(6)+" 秒");option.value=i;form.elements.time_index.append(option);});
+    axes.frequencies_hz.forEach((v,i)=>{const option=node("option",i+" / "+(v/1e6).toFixed(6)+" MHz");option.value=i;form.elements.channel_index.append(option);});
+    form.elements.channel_index.value=Math.floor(axes.frequencies_hz.length/2);
+    for(const name of ["time_index","channel_index"])form.elements[name].disabled=false;form.querySelector("button[type=submit]").disabled=false;
+    byId("noise-input-note").textContent=axes.times_s.length+"時刻 / "+axes.frequencies_hz.length+"channel。時刻のUTC原点："+(axes.time_origin_utc||"未保存（絶対時刻は未確認）")+"。基線FFT数："+(axes.diagnostic_pair_counts_available?"保存あり（独立性の確認ではありません）":"未保存（診断は未判定）");
+  }catch(e){message(e.message);}finally{button.disabled=false;}
+});
+async function loadNoiseHistory(){try{const history=await api("/api/jobs"),select=byId("noise-input-history");select.replaceChildren();
+  for(const job of history.filter(j=>["analysis","sequence"].includes(j.kind)&&j.state==="complete")){
+    const detail=await api("/api/jobs/"+job.id);for(const a of detail.artifacts.filter(a=>a.path.endsWith("correlation/shard-00000.npz"))){
+      const option=node("option",new Date(job.created_utc).toLocaleString("ja-JP")+" / "+job.label+" / "+a.path);option.value="outputs/gui/"+job.id+"/"+a.path;select.append(option);}}
+  if(!select.options.length){const option=node("option","完了した解析がありません。ファイルを直接指定できます。");option.value="";select.append(option);}byId("choose-noise-input").disabled=!select.value;
+}catch(e){message(e.message);}}
+byId("choose-noise-input").addEventListener("click",()=>{byId("noise-form").elements.input.value=byId("noise-input-history").value;invalidateNoiseInput();});
+byId("noise-form").addEventListener("submit",event=>{event.preventDefault();const form=event.currentTarget,d=new FormData(form);submit(form,{kind:"noise",input:d.get("input").trim(),time_index:Number(d.get("time_index")),channel_index:Number(d.get("channel_index"))});});

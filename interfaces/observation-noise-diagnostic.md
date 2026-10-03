@@ -34,3 +34,6 @@ visibility共分散は仮定の下で多数の試行の平均が不偏ですが�
 `nominal_common_fft_blocks`は矩形FFT blockの**個数**です。FIR・補間後の実際の独立標本数ではありません。`iid_fft_independence_verified`、`stationary_gaussian_model_verified`、`covariance_confidence_calibrated`はfalseです。量子化・RFI・gain変動も未校正です。現行rate/RMLの重み・採否には適用していません。
 
 詳細な条件と模擬VDIFの検証は[段階047](../docs/reports/047-observation-noise-diagnostic.md)を参照してください。
+
+
+段階048以降はJSONに`pairs`、`triangles`、`quadrangles`も保存し、局番号と行順を確認できます。相関値や共分散の数値計算法の変更ではありません。日本語GUIの操作は[GUIガイド](../docs/guide/06-gui.md)を参照してください。

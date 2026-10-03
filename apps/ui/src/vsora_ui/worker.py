@@ -5,7 +5,7 @@ from pathlib import Path
 import subprocess
 import sys
 from .jobs import write_json
-from .models import SimulationRequest,ValidationRequest,RmlRequest,AnalysisRequest,SequenceRequest,SynthesisRequest,SensitivityRequest
+from .models import SimulationRequest,ValidationRequest,RmlRequest,AnalysisRequest,SequenceRequest,SynthesisRequest,SensitivityRequest,NoiseDiagnosticRequest
 
 
 def plot_sequence_rates(result,path):
@@ -80,7 +80,7 @@ def run(job):
     data=json.loads((job/'request.json').read_text());workspace=Path(data['workspace'])
     raw=data['request'];request={'simulation':SimulationRequest,'validation':ValidationRequest,'rml':RmlRequest,
                               'analysis':AnalysisRequest,'sequence':SequenceRequest,
-                              'synthesis':SynthesisRequest,'sensitivity':SensitivityRequest}[raw['kind']](**raw)
+                              'synthesis':SynthesisRequest,'sensitivity':SensitivityRequest,'noise':NoiseDiagnosticRequest}[raw['kind']](**raw)
     status=json.loads((job/'status.json').read_text())
     def phase(text,done=0):
         if (job/'cancel').exists(): raise InterruptedError('cancelled')
@@ -149,6 +149,13 @@ def run(job):
                                 progress=lambda step,done:phase(messages[step],done),**options)
                 plot_rate_parts(result['rate_consistency'],job/'analysis/rate-parts.png',result['rate_estimate'])
             write_json(job/'summary.json',result)
+        elif request.kind=='noise':
+            from vsora_correlator.noise_diagnostics import diagnose_noise_file
+            from .noise import spectral_input
+            phase('相関の保存情報と共通FFT集合を確認しています')
+            result=diagnose_noise_file(spectral_input(workspace,request.input),job/'noise.json',
+                                      request.channel_index,request.time_index)
+            write_json(job/'summary.json',result)
         elif request.kind=='sensitivity':
             from vsora_simulator.sensitivity import dish_area,sefd_from_area,write_plan
             phase('仮定した感度と短積分のClosure情報を計算しています')
@@ -201,7 +208,10 @@ def run(job):
                 status['rate_consistency']=failure['rate_consistency']
                 try:plot_rate_parts(failure['rate_consistency'],job/'rate-parts.png')
                 except Exception:status['diagnostic_plot_unavailable']=True
-        translations={'four verified subpilot':'線形モデルに必要な4部分の推定が揃いません。pilotの長さと感度を確認してください。',
+        translations={'integer time/channel indices':'時刻または周波数の番号が入力の範囲外です。入力情報を読み直して選んでください。',
+            '指定したWSL側の相関NPZ':'指定したWSL側の相関NPZが見つかりません。入力ファイルの場所を確認してください。',
+            'input changed during diagnostic':'診断中に入力が変更されました。保存済みのファイルを固定して再実行してください。',
+            'four verified subpilot':'線形モデルに必要な4部分の推定が揃いません。pilotの長さと感度を確認してください。',
             'inconsistent with a linear rate model':'分割rateが線形モデルと整合しません。pilotと積分を短くした比較、実機の位相変動を確認してください。',
             'curvature too large within subpilot':'各部分内の変動が大きすぎます。pilotの刻み・全長と積分を見直してください。',
             'outside supplied baseline rate bound':'線形モデルの端で基線周波数差が探索範囲を超えました。装置の初期差とpilot条件を確認してください。',

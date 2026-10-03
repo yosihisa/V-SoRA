@@ -97,6 +97,16 @@ class SynthesisRequest(Request):
     max_iterations:int=Field(default=800,ge=100,le=2000,strict=True)
 
 
+class NoiseInputRequest(Request):
+    input:str=Field(min_length=1,max_length=512)
+
+
+class NoiseDiagnosticRequest(NoiseInputRequest):
+    kind:Literal['noise']='noise'
+    time_index:int=Field(default=0,ge=0,strict=True)
+    channel_index:int=Field(ge=0,strict=True)
+
+
 class SensitivityRequest(Request):
     kind:Literal['sensitivity']='sensitivity'
     antenna_mode:Literal['dish','effective']='dish'
@@ -111,4 +121,4 @@ class SensitivityRequest(Request):
     flux_jy:float=Field(default=1000.,gt=0,le=1e7)
 
 
-JobRequest=Annotated[SimulationRequest|ValidationRequest|RmlRequest|AnalysisRequest|SequenceRequest|SynthesisRequest|SensitivityRequest,Field(discriminator='kind')]
+JobRequest=Annotated[SimulationRequest|ValidationRequest|RmlRequest|AnalysisRequest|SequenceRequest|SynthesisRequest|SensitivityRequest|NoiseDiagnosticRequest,Field(discriminator='kind')]
