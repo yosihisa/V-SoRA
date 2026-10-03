@@ -85,6 +85,7 @@ function renderDetail(job){const box=byId("job-detail");box.replaceChildren();co
   if(summary&&summary.type==="rate_covariance_validation")renderRateCovariance(box,summary);
   if(summary&&summary.type==="joint_closure_noise_validation")renderClosureNoise(box,summary);
   if(summary&&summary.type==="filtered_visibility_noise_validation")renderFilteredNoise(box,summary);
+  if(summary&&summary.type==="temporal_bispectrum_validation")renderTemporalBispectrum(box,summary);
   if(summary&&summary.type==="distinct_sample_bispectrum_validation")renderDistinctBispectrum(box,summary);
   if(summary&&summary.type==="spectral_noise_diagnostic")renderObservationNoise(box,summary);
   if(summary&&summary.type==="pilot_time_scatter")renderTimeScatter(box,summary);
@@ -93,7 +94,7 @@ function renderDetail(job){const box=byId("job-detail");box.replaceChildren();co
   if(summary&&summary.metrics&&summary.metrics.comparison_version===2){box.append(node("p","形状誤差は、位置合わせで画面外へ出た成分も含めて比較しています。表示画像は元の画面範囲だけです。","muted"));if(summary.metrics.registration_boundary_reached)box.append(node("p","位置合わせが探索範囲の端に達しています。移動量と比較条件を確認してください。","muted"));}
   if(summary&&summary.rate_acquisition){const a=summary.rate_acquisition;box.append(node("p","pilot: "+(a.pilot_integration_s*1000).toFixed(3)+" ms / Nyquist: "+a.temporal_nyquist_hz.toFixed(1)+" Hz。初期の基線周波数差がこの範囲内であることは別途確認が必要です。","muted"));if(a.sk_eligible_fraction!==null&&a.sk_eligible_fraction<1)box.append(node("p","pilotでSK判定が可能だった局・時刻・channelの割合: "+(100*a.sk_eligible_fraction).toFixed(1)+"%。妨害波の確認を別途行ってください。","muted"));}
   if(summary&&summary.rml&&summary.rml.amplitude_constraints_available===false)box.append(node("p","有効なlog closure amplitudeがありません。画像のサイズや広がりは事前条件への依存が強くなります。","muted"));
-  const pictures=job.artifacts.filter(a=>a.path.endsWith(".png"));for(const file of pictures){const figure=node("figure",undefined,"plot"),img=node("img");img.src=artifactURL(job.id,file.path);img.alt=file.path.endsWith("bispectrum-distinct.png")?"既知Gaussian電圧の三基線積の偏りと異標本量の平均（角度・実機・画像の保証ではありません）":file.path.endsWith("filtered-noise.png")?"仮定した固定係数の分散倍率・MC差・基線間共分散の構造（実測独立数ではありません）":file.path.endsWith("closure-noise.png")?"既知の模擬モデルのClosure分散比（一次近似・独立雑音・有限標本を比較、実機保証ではありません）":file.path.endsWith("rate-covariance.png")?"仮定雑音のrate採用率・採用例の誤差距離・公称95%領域の割合（実機の信頼区間ではありません）":file.path.endsWith("rate-uncertainty.png")?"仮定Gaussian誤差による条件付き複素平均と乱数標本の比較（実機保持率ではありません）":file.path.endsWith("periodic-coherence.png")?"仮定した周期位相の相関減衰とClosure誤差（対照比較・実機測定ではありません）":file.path.endsWith("rate-parts.png")?"pilotを4分割した局周波数差（平均rateの整合は位相安定の保証ではありません）":file.path.endsWith("rates.png")?"区間ごとの局周波数差（丸：基準時刻、×：4分割、線：選択した線形モデル、区間間の補間なし）":file.path.includes("comparison")?"局配置・測った基線・正解と復元の比較":file.path.includes("quality")?"周波数別統計と妨害除外後の画像":"画像復元の比較";figure.append(img,node("figcaption",img.alt));box.append(figure);}
+  const pictures=job.artifacts.filter(a=>a.path.endsWith(".png"));for(const file of pictures){const figure=node("figure",undefined,"plot"),img=node("img");img.src=artifactURL(job.id,file.path);img.alt=file.path.endsWith("bispectrum-temporal.png")?"既知時間相関モデルの三基線積の平均と間引き後の保持数（実機の独立性・感度は未確認）":file.path.endsWith("bispectrum-distinct.png")?"既知Gaussian電圧の三基線積の偏りと異標本量の平均（角度・実機・画像の保証ではありません）":file.path.endsWith("filtered-noise.png")?"仮定した固定係数の分散倍率・MC差・基線間共分散の構造（実測独立数ではありません）":file.path.endsWith("closure-noise.png")?"既知の模擬モデルのClosure分散比（一次近似・独立雑音・有限標本を比較、実機保証ではありません）":file.path.endsWith("rate-covariance.png")?"仮定雑音のrate採用率・採用例の誤差距離・公称95%領域の割合（実機の信頼区間ではありません）":file.path.endsWith("rate-uncertainty.png")?"仮定Gaussian誤差による条件付き複素平均と乱数標本の比較（実機保持率ではありません）":file.path.endsWith("periodic-coherence.png")?"仮定した周期位相の相関減衰とClosure誤差（対照比較・実機測定ではありません）":file.path.endsWith("rate-parts.png")?"pilotを4分割した局周波数差（平均rateの整合は位相安定の保証ではありません）":file.path.endsWith("rates.png")?"区間ごとの局周波数差（丸：基準時刻、×：4分割、線：選択した線形モデル、区間間の補間なし）":file.path.includes("comparison")?"局配置・測った基線・正解と復元の比較":file.path.includes("quality")?"周波数別統計と妨害除外後の画像":"画像復元の比較";figure.append(img,node("figcaption",img.alt));box.append(figure);}
   if(summary){const details=node("details");details.append(node("summary","詳しい条件と数値"),node("pre",JSON.stringify(summary,null,2)));box.append(details);}const downloads=node("details"),links=node("ul",undefined,"download-list");downloads.append(node("summary","条件・画像・相関ファイルを保存"));for(const file of job.artifacts.filter(a=>!a.path.endsWith(".png")&&!a.path.endsWith(".log")&&!a.path.endsWith("request.json")&&!a.path.endsWith("status.json"))){const li=node("li"),link=node("a",file.path);link.href=artifactURL(job.id,file.path);li.append(link);links.append(li);}downloads.append(links);box.append(downloads);const log=job.artifacts.find(a=>a.path==="execution.log");if(log){const details=node("details"),pre=node("pre","開くと読み込みます。");details.append(node("summary","詳細ログ"),pre);details.addEventListener("toggle",async()=>{if(details.open){const response=await fetch(artifactURL(job.id,"execution.log"));pre.textContent=(await response.text()).slice(-30000);}});box.append(details);}}
 async function refresh(){if(refreshing)return;refreshing=true;try{jobs=await api("/api/jobs");if(!selected&&jobs.length)selected=jobs[0].id;const listKey=JSON.stringify({jobs,selected});if(listKey!==listFingerprint){renderList();listFingerprint=listKey;}if(selected){const job=await api("/api/jobs/"+selected);const detailKey=JSON.stringify({...job,artifacts:job.artifacts.map(a=>a.path)});if(detailKey!==detailFingerprint){renderDetail(job);detailFingerprint=detailKey;}}byId("connection").textContent="ローカル処理に接続";}catch(error){byId("connection").textContent="接続を確認してください";message(error.message);}finally{refreshing=false;}}
 api("/api/environment").then(env=>{byId("connection").textContent="ローカル処理に接続";if(!env.validation_available){byId("validation-form").querySelector("button").disabled=true;}}).catch(()=>message("解析サーバーに接続できません。起動状態を確認してください。"));
@@ -234,4 +235,23 @@ function renderDistinctBispectrum(box,s){
   }
   box.append(table,node("p","MC SEは繰り返し生成した平均の有限試行誤差です。この固定モデルでの整合基準で、未知観測の検出確率・信頼区間ではありません。非常に弱い信号は偏りを除いても分解できません。完全共通の例は独立受信機雑音がない特殊条件です。","muted"),
     node("p","U₃には同じ標本内の追加積も必要です。保存した平均相関・局power・標本数だけから再構成できません。FIRで標本間に相関が残る場合や積分中にgain/LOが変わる場合、不偏性の条件が崩れます。実IQ・VDIF・実OCXOを測った実験ではありません。","muted"));
+}
+
+function renderTemporalBispectrum(box,s){
+  box.append(node("h3","時間相関が三基線の積へ残す偏り"),
+    node("p","5条件、それぞれ "+s.trials_per_case.toLocaleString("ja-JP")+"試行。天体の相互相関は0、三つの受信局の雑音は互いに独立と仮定します。フィルターで近くの出力に相関が残ると、異なる標本番号を使うU₃にも偏りが残り得ます。","muted"),
+    node("p","時間共分散は既知モデルから与えています。観測から未知の共分散や独立標本数を測った結果ではありません。Gaussian係数を既知共分散から生成した検証で、実ADC・VDIF・raw畳み込みは未実施です。","muted"));
+  const labels={white:"白色",long_average:"長い平均",reference_fft:"基準FFT",guarded_average:"平均を間引く",guarded_reference:"FFTを間引く"},table=node("table",undefined,"window-table"),head=node("tr");table.id="temporal-bispectrum-table";
+  head.append(node("th","条件・保持数"),node("th","既知モデルの平均（天体真値0）"),node("th","U₃の反復標本平均"));table.append(head);
+  for(const c of s.cases){const row=node("tr"),model=node("td"),truth=node("td"),u=node("td"),r=c.methods.distinct;
+    model.append(node("p",labels[c.model]||c.model),node("p",c.retained_outputs+" / "+c.nominal_time_outputs+"出力 / "+c.guard_step_outputs+"個おき"),
+      node("p",c.conditional_temporal_covariance_is_identity?"この既知モデルでは時間共分散が単位行列":"既知モデルに時間相関あり"));
+    truth.append(node("p","通常積 "+complexText(c.methods.ordinary.known_coloured_model_mean)),node("p","U₃ "+complexText(r.known_coloured_model_mean)));
+    u.append(node("p","平均 "+complexText(r.ensemble_mean)),node("p","平均のMC SE（実/虚） "+r.mean_standard_error.map(v=>v.toExponential(4)).join(" / ")),
+      node("p",c.all_mean_components_within_6se?"両方法・実虚ともモデル平均の6 MC SE内":"モデルとの差を要確認"),
+      node("p",c.known_distinct_bias_above_six_mc_se?"既知モデルの残留偏りが6 MC SEを超える":"この試行数では残留偏りを分解していません"));
+    row.append(model,truth,u);table.append(row);
+  }
+  box.append(table,node("p","有限係数の入力範囲が重ならない間隔で間引くと、白色Gaussian入力・固定係数の仮定では時間相関が消えます。一方、保持数は減り、三基線積の散らばりが大きくなります。実機に一律の間引き間隔を推奨する結果ではありません。","muted"),
+    node("p","MC SEは既知モデルを繰り返し生成した平均の有限試行誤差です。実機の検出確率・信頼区間・画像品質を示しません。時間変化するgain・時計・局間雑音は未評価です。現行相関器とRMLの重み・採否は変更していません。","muted"));
 }

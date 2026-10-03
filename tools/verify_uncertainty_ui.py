@@ -12,7 +12,7 @@ from playwright.sync_api import sync_playwright
 
 
 def run(output, port=8774, validation='uncertainty'):
-    if validation not in ('uncertainty', 'covariance', 'closure_noise', 'filtered_noise', 'bispectrum'):
+    if validation not in ('uncertainty', 'covariance', 'closure_noise', 'filtered_noise', 'bispectrum', 'temporal_bispectrum'):
         raise ValueError('Unknown validation workflow')
     from vsora_ui import models, worker
     assert all(Path(m.__file__).is_relative_to(Path(sys.prefix)) for m in (models, worker))
@@ -98,7 +98,7 @@ def run(output, port=8774, validation='uncertainty'):
                         'raw_covariance_supplied':True,'measured_effective_sample_count':False,
                         'physical_adc_vdif_processed':False,'production_rml_noise_model_changed':False,
                         'scope':'Known fixed Gaussian raw covariance and fixed station operators. Model-only effective-count calculation/UI, no real receiver spectrum, variable clocks, ADC or image confidence.'}
-                else:
+                elif validation=='bispectrum':
                     assert q['type']=='distinct_sample_bispectrum_validation' and q['trials_per_case']==16384 and len(q['cases'])==5
                     assert not q['physical_adc_vdif_processed'] and not q['production_correlator_statistics_changed']
                     assert not q['production_rml_noise_model_changed'] and not q['observed_sample_selection_used']
@@ -120,6 +120,35 @@ def run(output, port=8774, validation='uncertainty'):
                         'physical_adc_vdif_processed':False,'production_correlator_statistics_changed':False,
                         'production_rml_noise_model_changed':False,
                         'scope':'Fixed iid Gaussian voltage/gain bispectrum means. Known model bias and unresolved weak mean; no unbiased phase, actual independent FFTs, hardware sensitivity or image guarantee.'}
+                else:
+                    assert q['type']=='temporal_bispectrum_validation' and q['trials_per_case']==8192 and len(q['cases'])==5
+                    assert not q['physical_adc_vdif_processed'] and not q['actual_temporal_independence_verified']
+                    assert not q['production_rml_noise_model_changed'] and not q['physical_raw_filter_convolution_performed']
+                    assert '時間相関が三基線の積へ残す偏り' in text
+                    assert '観測から未知の共分散や独立標本数を測った結果ではありません' in text
+                    assert '実機に一律の間引き間隔を推奨する結果ではありません' in text
+                    assert page.locator('#temporal-bispectrum-table tr').count()==6
+                    def number(v):return f'{v:.4e}'.replace('e-0','e-').replace('e+0','e+')
+                    def complex_text(v):return number(v[0])+(' + ' if v[1]>=0 else ' − ')+number(abs(v[1]))+' i'
+                    for c in q['cases']:
+                        assert c['all_mean_components_within_6se'] and not c['actual_temporal_independence_verified']
+                        assert f"{c['retained_outputs']} / {c['nominal_time_outputs']}出力 / {c['guard_step_outputs']}個おき" in text
+                        for name in ('ordinary','distinct'):
+                            assert complex_text(c['methods'][name]['known_coloured_model_mean']) in text
+                        assert complex_text(c['methods']['distinct']['ensemble_mean']) in text
+                        assert ' / '.join(number(v) for v in c['methods']['distinct']['mean_standard_error']) in text
+                    long=next(c for c in q['cases'] if c['model']=='long_average')
+                    assert long['known_distinct_bias_above_six_mc_se']
+                    guarded=next(c for c in q['cases'] if c['model']=='guarded_average')
+                    assert guarded['retained_outputs']==15 and guarded['conditional_temporal_covariance_is_identity']
+                    reference=next(c for c in q['cases'] if c['model']=='reference_fft')
+                    assert not reference['known_distinct_bias_above_six_mc_se']
+                    scientific={'trials_per_case':q['trials_per_case'],'cases':len(q['cases']),
+                        'known_time_covariance_supplied':True,'actual_temporal_independence_verified':False,
+                        'physical_raw_filter_convolution_performed':False,'physical_adc_vdif_processed':False,
+                        'long_average_known_bias_resolved_in_model_validation':True,'guarded_average_retained_outputs':15,
+                        'reference_fft_known_bias_unresolved':True,'production_rml_noise_model_changed':False,
+                        'scope':'Known zero-source independent receiver Gaussian temporal covariance. Model-only residual bias and output thinning, no observed independence or hardware sensitivity recommendation.'}
                 page.wait_for_function('() => Array.from(document.querySelectorAll("#job-detail img")).every(x=>x.complete&&x.naturalWidth>0)')
                 page.screenshot(path=str(out/'result.png'),full_page=True)
                 page.set_viewport_size({'width':390,'height':844});overflow=page.evaluate('document.documentElement.scrollWidth>document.documentElement.clientWidth')
@@ -140,5 +169,5 @@ def run(output, port=8774, validation='uncertainty'):
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser();parser.add_argument('--output',required=True);parser.add_argument('--port',type=int,default=8774)
-    parser.add_argument('--validation',choices=('uncertainty','covariance','closure_noise','filtered_noise','bispectrum'),default='uncertainty')
+    parser.add_argument('--validation',choices=('uncertainty','covariance','closure_noise','filtered_noise','bispectrum','temporal_bispectrum'),default='uncertainty')
     print(json.dumps(run(**vars(parser.parse_args())),indent=2))

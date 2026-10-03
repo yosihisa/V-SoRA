@@ -337,3 +337,20 @@ def test_bispectrum_validation_real_subprocess(tmp_path):
         weak=next(c for c in q['cases'] if c['model']=='weak_unresolved')
         assert not weak['known_true_mean_above_six_mc_standard_errors']
         assert client.get(f"/api/jobs/{job['id']}/artifacts/validation/bispectrum-distinct.png").status_code==200
+
+
+def test_temporal_bispectrum_validation_real_subprocess(tmp_path):
+    (tmp_path/'tools').mkdir()
+    (tmp_path/'tools/run.py').symlink_to(Path(__file__).resolve().parents[3]/'tools/run.py')
+    with TestClient(create_app(tmp_path),base_url='http://127.0.0.1') as client:
+        r=client.post('/api/jobs',json={'kind':'validation','validation':'temporal_bispectrum'},headers=HEADERS)
+        assert r.status_code==202;job=wait(client,r.json()['id'],30);assert job['state']=='complete',job
+        q=job['summary'];assert q['type']=='temporal_bispectrum_validation' and len(q['cases'])==5
+        assert q['trials_per_case']==8192 and not q['physical_adc_vdif_processed']
+        assert not q['actual_temporal_independence_verified'] and not q['production_rml_noise_model_changed']
+        assert all(c['all_mean_components_within_6se'] for c in q['cases'])
+        long=next(c for c in q['cases'] if c['model']=='long_average')
+        assert long['known_distinct_bias_above_six_mc_se']
+        guard=next(c for c in q['cases'] if c['model']=='guarded_average')
+        assert guard['retained_outputs']==15 and guard['conditional_temporal_covariance_is_identity']
+        assert client.get(f"/api/jobs/{job['id']}/artifacts/validation/bispectrum-temporal.png").status_code==200

@@ -102,4 +102,6 @@
 
 | 055 | [時間相関と三基線積](055-temporal-bispectrum.md) | source/wheel511件成功。既知ゼロ源5条件×8192試行、残留偏りと128→15/26の間引き損失。実機独立性・感度は未確認 |
 
+| 056 | [時間相関の日本語検証GUI](056-temporal-bispectrum-gui.md) | source/wheel512件成功。実Chromiumで5条件×8192試行、残留偏り・保持数・モデル条件、日本語/390px・JS/外部通信0 |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。

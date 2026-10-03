@@ -1,0 +1,26 @@
+{
+  "state": "complete",
+  "source": {
+    "passed": 512,
+    "warnings": 23952,
+    "seconds": 423.46
+  },
+  "installed": {
+    "passed": 512,
+    "warnings": 23952,
+    "seconds": 425.01
+  },
+  "targeted_real_worker": {
+    "passed": 1,
+    "warnings": 1,
+    "seconds": 1.53
+  },
+  "no_test_exclusions": true,
+  "source_then_installed_browser_then_installed_regression": true,
+  "wheel": {
+    "bytes": 5482383,
+    "sha256": "389e6db884060d15fa9bb46ecd6b38e4317a80e6198cdfa1e7044b1e43e9e89e"
+  },
+  "pip_check": "No broken requirements found.",
+  "scope": "Installed Japanese GUI with checkout-owned zero-source Gaussian time covariance validation. No observed independence, hardware sensitivity recommendation or RML changes."
+}
