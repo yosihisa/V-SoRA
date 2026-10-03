@@ -3,9 +3,7 @@ from copy import deepcopy
 import json
 from pathlib import Path
 import numpy as np
-from scipy.ndimage import gaussian_filter, shift
-from scipy.signal import fftconvolve
-from scipy.optimize import minimize
+from scipy.ndimage import gaussian_filter
 import astropy.units as u
 from astropy.time import Time
 from vsora_observation.geometry import geometry_at_times
@@ -15,23 +13,43 @@ from vsora_formats.spectral import save_spectral
 from .rml import image_closure, ClosureObjective
 
 
-def compare_relative(truth, recovered, pixel_arcsec, common_beam_arcsec=110.):
-    # Flux normalization is the explicitly chosen closure gauge, not Jy calibration.
-    truth = truth/truth.sum(); recovered = recovered/recovered.sum()
-    sigma = common_beam_arcsec/(np.sqrt(8*np.log(2))*pixel_arcsec)
-    a, b = gaussian_filter(truth, sigma, mode='constant'), gaussian_filter(recovered, sigma, mode='constant')
-    correlation = fftconvolve(a, b[::-1, ::-1], mode='full')
-    peak = np.array(np.unravel_index(np.argmax(correlation), correlation.shape))-(np.array(a.shape)-1)
-    def error(offset): return float(np.sum((shift(b, offset, order=1, mode='constant')-a)**2))
-    fit = minimize(error, peak.astype(float), method='Powell', bounds=[(v-1., v+1.) for v in peak], options={'xtol':1e-5})
-    registered = shift(b, fit.x, order=1, mode='constant')
-    metrics = {'raw_nrmse': float(np.linalg.norm(b-a)/np.linalg.norm(a)),
-               'registered_nrmse': float(np.linalg.norm(registered-a)/np.linalg.norm(a)),
-               'registered_correlation': float(np.corrcoef(a.ravel(), registered.ravel())[0, 1]),
-               'registration_shift_yx_arcsec': (fit.x*pixel_arcsec).tolist(),
-               'common_beam_arcsec': common_beam_arcsec,
-               'comparison': 'Unit-flux gauge, Gaussian common beam, explicit translation only; no calibrated Jy or astrometry'}
-    return metrics, a, b, registered
+def compare_relative(truth, recovered, pixel_arcsec, common_beam_arcsec=110.,max_shift_pixels=None):
+    """Unit-flux shape error over full support; never crop away translated flux.
+
+    Returned images are the original display window. Metrics use the padded
+    complete beam/translated support, including components outside that window.
+    """
+    from .registration import register_translation
+    truth=np.asarray(truth);recovered=np.asarray(recovered)
+    if (truth.ndim!=2 or truth.shape!=recovered.shape or min(truth.shape)<2 or max(truth.shape)>128
+            or np.iscomplexobj(truth) or np.iscomplexobj(recovered) or not np.isfinite(truth).all()
+            or not np.isfinite(recovered).all() or np.any(truth<0) or np.any(recovered<0)
+            or truth.sum()<=0 or recovered.sum()<=0):
+        raise ValueError('matching finite nonnegative 2D images with positive flux and <=128 pixels required')
+    if any(not np.isfinite(x) or x<=0 for x in (pixel_arcsec,common_beam_arcsec)):
+        raise ValueError('positive finite image and beam scales required')
+    limit=min(truth.shape)-1 if max_shift_pixels is None else max_shift_pixels
+    if isinstance(limit,bool) or not isinstance(limit,int) or not 0<=limit<=min(truth.shape)-1:
+        raise ValueError('integer image translation bound within field required')
+    truth=truth/truth.sum();recovered=recovered/recovered.sum()
+    sigma=common_beam_arcsec/(np.sqrt(8*np.log(2))*pixel_arcsec)
+    pad=int(np.ceil(4*sigma))+limit+2
+    if pad>1024:raise ValueError('common beam requires excessive comparison padding')
+    a,b=[gaussian_filter(np.pad(image,pad),sigma,mode='constant') for image in (truth,recovered)]
+    registered,registration=register_translation(a,b,limit)
+    corr=float(np.corrcoef(a.ravel(),registered.ravel())[0,1]) if np.std(a)>0 and np.std(registered)>0 else None
+    norm=float(np.linalg.norm(a))
+    metrics={'raw_nrmse':float(np.linalg.norm(b-a)/norm),
+        'registered_nrmse':float(np.linalg.norm(registered-a)/norm),'registered_correlation':corr,
+        'registration_shift_yx_arcsec':(np.array(registration['shift_yx_pixels'])*pixel_arcsec).tolist(),
+        'common_beam_arcsec':common_beam_arcsec,'comparison_version':2,
+        'registration_method':'All bounded integer cells, bilinear subpixels, 9 deterministic coordinate starts per cell',
+        'registration_max_shift_pixels':limit,'registration_boundary_reached':registration['boundary_reached'],
+        'registration_diagnostics':registration,'comparison_padding_pixels':pad,
+        'registered_flux_retained_fraction':float(registered.sum()/b.sum()),
+        'comparison':'Unit-flux gauge, Gaussian common beam, translation only over complete zero-extended support. No post-shift flux rescaling, cropped-error masking, rotation, Jy calibration or astrometry.'}
+    window=(slice(pad,pad+truth.shape[0]),slice(pad,pad+truth.shape[1]))
+    return metrics,a[window],b[window],registered[window]
 
 
 def run_simulation(config, output, snapshots=16, starts=3, max_iterations=800,

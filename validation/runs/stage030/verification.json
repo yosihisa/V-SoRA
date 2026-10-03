@@ -1,0 +1,24 @@
+{
+  "source_pytest": {
+    "passed": 151,
+    "warnings": 3418,
+    "elapsed_s": 39.24
+  },
+  "wheel_pytest": {
+    "passed": 151,
+    "warnings": 3418,
+    "elapsed_s": 40.33
+  },
+  "registration_tests_passed": 11,
+  "pip_check": "No broken requirements found",
+  "wheel": {
+    "bytes": 5432514,
+    "sha256": "ec3361c328ea43fda6882e1e7bdfdd1d8a822542d802b64722e25ed8ad5e9893"
+  },
+  "initial_checks": {
+    "fractional_gaussian": "Observed 0.7831% interpolation error exceeded initial 0.5% assertion; 1% tolerance matches finite bilinear interpolation. No image algorithm change for this assertion.",
+    "edge_crop": "Initial source at pixel(1,1) lost only 3% of display flux; test source moved to (0,0) to demonstrate a larger crop loss while full-support metric retains all flux.",
+    "browser": "First harness failed filling controls in a collapsed details element; harness now opens the element. Product unchanged by this correction."
+  },
+  "scope": "Synthetic comparisons and WSL installed Chromium; no real observation or confidence interval"
+}

@@ -1,0 +1,41 @@
+{
+  "installed_wheel_imports": true,
+  "independent_temporary_workspace": true,
+  "browser": "153.0.8010.12",
+  "state": "complete",
+  "japanese_full_support_explanation": true,
+  "japanese_font_loaded": true,
+  "javascript_errors": [],
+  "external_requests": 0,
+  "mobile_horizontal_overflow": false,
+  "metrics": {
+    "raw_nrmse": 0.6750807232685854,
+    "registered_nrmse": 0.6663981172216907,
+    "registered_correlation": 0.7762201086156357,
+    "registration_shift_yx_arcsec": [
+      0.0,
+      -27.522420542341074
+    ],
+    "common_beam_arcsec": 110.0,
+    "comparison_version": 2,
+    "registration_method": "All bounded integer cells, bilinear subpixels, 9 deterministic coordinate starts per cell",
+    "registration_max_shift_pixels": 31,
+    "registration_boundary_reached": false,
+    "registration_diagnostics": {
+      "shift_yx_pixels": [
+        0.0,
+        -1.720151283896317
+      ],
+      "boundary_reached": false,
+      "grid_cells": 3844,
+      "multistarts_per_cell": 9,
+      "selected_coordinate_converged": true,
+      "selected_coordinate_iterations": 6,
+      "objective_identity_error": 1.3010426069826053e-18
+    },
+    "comparison_padding_pixels": 45,
+    "registered_flux_retained_fraction": 1.0,
+    "comparison": "Unit-flux gauge, Gaussian common beam, translation only over complete zero-extended support. No post-shift flux rescaling, cropped-error masking, rotation, Jy calibration or astrometry."
+  },
+  "scope": "WSL headless Chromium; Windows browser/WSLg desktop not directly observed"
+}

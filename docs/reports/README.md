@@ -50,4 +50,6 @@
 
 | 029 | [短い刻みの広範囲LO探索](029-wide-rate-pilot.md) | source/wheel140件成功。1185Hz基線差をVDIFから補正、SK未判定と検出不能aliasを記録 |
 
+| 030 | [全成分を保持した位置合わせ評価](030-full-support-registration.md) | source/wheel151件成功。固定Cas A画像の高感度2.36%、低感度35〜39%。復元画像は変更せず |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。

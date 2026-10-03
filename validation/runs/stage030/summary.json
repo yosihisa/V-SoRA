@@ -1,0 +1,196 @@
+{
+  "type": "fixed_image_full_support_registration",
+  "rows": [
+    {
+      "case": "stage024_sefd1000_prior240",
+      "truth_sha256": "4f4af93041623eaed2a15c1420c13d0e30b198c34b66a561b57ee1cc5b75a320",
+      "recovered_sha256": "c4868694442b791db1ada1de2e7e3510c0ba7c53827433b574f60303579d2b8b",
+      "spectral_sha256": "1d9d34f881b77212a3e54fc2753315e82c55b637fc057e1eff835b25ad25880b",
+      "original_saved_metrics": {
+        "raw_nrmse": 0.33451238916931947,
+        "registered_nrmse": 0.027972901922860546,
+        "registered_correlation": 0.9996177442093214,
+        "registration_shift_yx_arcsec": [
+          37.029590111399656,
+          -24.668099285273136
+        ],
+        "common_beam_arcsec": 110.0,
+        "comparison": "Unit-flux gauge, Gaussian common beam, explicit translation only; no calibrated Jy or astrometry"
+      },
+      "full_support_metrics": {
+        "raw_nrmse": 0.334685478482721,
+        "registered_nrmse": 0.023551193824257376,
+        "registered_correlation": 0.9998880632316739,
+        "registration_shift_yx_arcsec": [
+          37.0149397760374,
+          -24.66965745088058
+        ],
+        "common_beam_arcsec": 110.0,
+        "comparison_version": 2,
+        "registration_method": "All bounded integer cells, bilinear subpixels, 9 deterministic coordinate starts per cell",
+        "registration_max_shift_pixels": 31,
+        "registration_boundary_reached": false,
+        "registration_diagnostics": {
+          "shift_yx_pixels": [
+            2.3134337360023376,
+            -1.5418535906800364
+          ],
+          "boundary_reached": false,
+          "grid_cells": 3844,
+          "multistarts_per_cell": 9,
+          "selected_coordinate_converged": true,
+          "selected_coordinate_iterations": 6,
+          "objective_identity_error": 6.649208635946258e-19
+        },
+        "comparison_padding_pixels": 45,
+        "registered_flux_retained_fraction": 1.0,
+        "comparison": "Unit-flux gauge, Gaussian common beam, translation only over complete zero-extended support. No post-shift flux rescaling, cropped-error masking, rotation, Jy calibration or astrometry."
+      },
+      "evaluation_elapsed_s": 0.22747975399988718
+    },
+    {
+      "case": "stage028_sefd10000_prior160",
+      "truth_sha256": "4f4af93041623eaed2a15c1420c13d0e30b198c34b66a561b57ee1cc5b75a320",
+      "recovered_sha256": "ab3a5878649f8932123a2b849f66bf14fb17be295689c58641c6dd41144ed7cb",
+      "spectral_sha256": "c78daf150aeb7a0c0ab2a532f58fc1fed30a0ab7ddbff0b53dc98cbe924da6a2",
+      "original_saved_metrics": {
+        "raw_nrmse": 0.46928745755787815,
+        "registered_nrmse": 0.35466931008463853,
+        "registered_correlation": 0.9222971984454736,
+        "registration_shift_yx_arcsec": [
+          48.00000000008623,
+          -47.999974153612584
+        ],
+        "common_beam_arcsec": 110.0,
+        "comparison": "Unit-flux gauge, Gaussian common beam, explicit translation only; no calibrated Jy or astrometry"
+      },
+      "full_support_metrics": {
+        "raw_nrmse": 0.4755478007378231,
+        "registered_nrmse": 0.3739808219059551,
+        "registered_correlation": 0.940962956240519,
+        "registration_shift_yx_arcsec": [
+          48.0,
+          -47.11885313888322
+        ],
+        "common_beam_arcsec": 110.0,
+        "comparison_version": 2,
+        "registration_method": "All bounded integer cells, bilinear subpixels, 9 deterministic coordinate starts per cell",
+        "registration_max_shift_pixels": 31,
+        "registration_boundary_reached": false,
+        "registration_diagnostics": {
+          "shift_yx_pixels": [
+            3.0,
+            -2.944928321180201
+          ],
+          "boundary_reached": false,
+          "grid_cells": 3844,
+          "multistarts_per_cell": 9,
+          "selected_coordinate_converged": true,
+          "selected_coordinate_iterations": 6,
+          "objective_identity_error": 2.168404344971009e-19
+        },
+        "comparison_padding_pixels": 45,
+        "registered_flux_retained_fraction": 1.0,
+        "comparison": "Unit-flux gauge, Gaussian common beam, translation only over complete zero-extended support. No post-shift flux rescaling, cropped-error masking, rotation, Jy calibration or astrometry."
+      },
+      "evaluation_elapsed_s": 0.031712149999975736
+    },
+    {
+      "case": "stage028_sefd10000_prior240",
+      "truth_sha256": "4f4af93041623eaed2a15c1420c13d0e30b198c34b66a561b57ee1cc5b75a320",
+      "recovered_sha256": "3753f555eb8610dc28a1613bb5cdf772a2791eb4b19fafd5d3aa990659eaf010",
+      "spectral_sha256": "c78daf150aeb7a0c0ab2a532f58fc1fed30a0ab7ddbff0b53dc98cbe924da6a2",
+      "original_saved_metrics": {
+        "raw_nrmse": 0.35622333098569414,
+        "registered_nrmse": 0.3399265149162324,
+        "registered_correlation": 0.935208382940105,
+        "registration_shift_yx_arcsec": [
+          16.000068722730315,
+          -6.44422545888646
+        ],
+        "common_beam_arcsec": 110.0,
+        "comparison": "Unit-flux gauge, Gaussian common beam, explicit translation only; no calibrated Jy or astrometry"
+      },
+      "full_support_metrics": {
+        "raw_nrmse": 0.36307627567430084,
+        "registered_nrmse": 0.35147726545030294,
+        "registered_correlation": 0.9492573822996284,
+        "registration_shift_yx_arcsec": [
+          16.0,
+          -5.961661006645457
+        ],
+        "common_beam_arcsec": 110.0,
+        "comparison_version": 2,
+        "registration_method": "All bounded integer cells, bilinear subpixels, 9 deterministic coordinate starts per cell",
+        "registration_max_shift_pixels": 31,
+        "registration_boundary_reached": false,
+        "registration_diagnostics": {
+          "shift_yx_pixels": [
+            1.0,
+            -0.37260381291534106
+          ],
+          "boundary_reached": false,
+          "grid_cells": 3844,
+          "multistarts_per_cell": 9,
+          "selected_coordinate_converged": true,
+          "selected_coordinate_iterations": 6,
+          "objective_identity_error": 6.505213034913027e-19
+        },
+        "comparison_padding_pixels": 45,
+        "registered_flux_retained_fraction": 1.0000000000000002,
+        "comparison": "Unit-flux gauge, Gaussian common beam, translation only over complete zero-extended support. No post-shift flux rescaling, cropped-error masking, rotation, Jy calibration or astrometry."
+      },
+      "evaluation_elapsed_s": 0.03003890600007253
+    },
+    {
+      "case": "stage028_sefd10000_prior320",
+      "truth_sha256": "4f4af93041623eaed2a15c1420c13d0e30b198c34b66a561b57ee1cc5b75a320",
+      "recovered_sha256": "696cbc6f2bd29809aa4596f1c5eb0f722123ee96a3809e1808c8cc50ce65fd6e",
+      "spectral_sha256": "c78daf150aeb7a0c0ab2a532f58fc1fed30a0ab7ddbff0b53dc98cbe924da6a2",
+      "original_saved_metrics": {
+        "raw_nrmse": 0.5414208406408906,
+        "registered_nrmse": 0.3661457806166113,
+        "registered_correlation": 0.9197063025011192,
+        "registration_shift_yx_arcsec": [
+          64.00000000021686,
+          -63.99998123647293
+        ],
+        "common_beam_arcsec": 110.0,
+        "comparison": "Unit-flux gauge, Gaussian common beam, explicit translation only; no calibrated Jy or astrometry"
+      },
+      "full_support_metrics": {
+        "raw_nrmse": 0.5484389238168869,
+        "registered_nrmse": 0.38544028684634785,
+        "registered_correlation": 0.9388042801411551,
+        "registration_shift_yx_arcsec": [
+          64.0,
+          -64.0
+        ],
+        "common_beam_arcsec": 110.0,
+        "comparison_version": 2,
+        "registration_method": "All bounded integer cells, bilinear subpixels, 9 deterministic coordinate starts per cell",
+        "registration_max_shift_pixels": 31,
+        "registration_boundary_reached": false,
+        "registration_diagnostics": {
+          "shift_yx_pixels": [
+            4.0,
+            -4.0
+          ],
+          "boundary_reached": false,
+          "grid_cells": 3844,
+          "multistarts_per_cell": 9,
+          "selected_coordinate_converged": true,
+          "selected_coordinate_iterations": 6,
+          "objective_identity_error": 6.505213034913027e-19
+        },
+        "comparison_padding_pixels": 45,
+        "registered_flux_retained_fraction": 1.0,
+        "comparison": "Unit-flux gauge, Gaussian common beam, translation only over complete zero-extended support. No post-shift flux rescaling, cropped-error masking, rotation, Jy calibration or astrometry."
+      },
+      "evaluation_elapsed_s": 0.029018647999919267
+    }
+  ],
+  "rml_reoptimized": false,
+  "comparison_version": 2,
+  "limits": "Truth is used for evaluation only. Original recovered arrays and visibilities unchanged, identified by SHA. Whole padded support and bounded translation, not astrometry or statistical confidence intervals. Continuous refinement is deterministic numerical multistart, not a mathematical global-optimum proof."
+}
