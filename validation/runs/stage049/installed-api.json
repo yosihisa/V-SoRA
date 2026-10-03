@@ -1,0 +1,11 @@
+{
+  "installed_api_outside_checkout": true,
+  "integer_shift_cross_covariance": 0.109375,
+  "common_kernel_variance_factor": 5.372647928994084,
+  "common_kernel_effective_count": 23.82437890806765,
+  "maximum_fir_sinc_fft_operator_error": 2.9392145555428837e-15,
+  "raw_covariance_supplied": true,
+  "actual_hardware_data": false,
+  "production_rml_noise_model_changed": false,
+  "scope": "Known raw Gaussian covariance and fixed FIR/sinc/FFT coefficients; no measured effective count, ADC or image fidelity."
+}

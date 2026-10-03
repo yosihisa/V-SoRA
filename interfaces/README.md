@@ -29,3 +29,5 @@
 - [標本からの雑音推定](sample-visibility-noise.md)：同一の独立Gaussian電圧標本から、有限標本の偏りを補正したvisibility雑音共分散を推定。
 
 - [相関ファイルの雑音診断](observation-noise-diagnostic.md)：局power・共通FFT数から一cellを条件付き推定し、情報不足は未判定として返すCLI。
+
+- [固定フィルターのFFT雑音](filtered-visibility-noise.md)：既知のGaussian入力と局別係数から、FFT間の相関を含む全共分散を計算するforwardモデル。

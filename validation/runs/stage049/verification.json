@@ -1,0 +1,35 @@
+{
+  "state": "complete",
+  "source": {
+    "passed": 400,
+    "warnings": 23312,
+    "seconds": 406.67
+  },
+  "targeted_final": {
+    "passed": 35,
+    "seconds": 1.21
+  },
+  "installed": {
+    "passed": 400,
+    "warnings": 23312,
+    "seconds": 404.66
+  },
+  "no_test_exclusions": true,
+  "source_then_installed_api_then_installed_regression": true,
+  "source_core_final_plot_layout_adjusted_then_targeted_reverified": true,
+  "wheel": {
+    "bytes": 5470832,
+    "sha256": "ad40f9294d470d24939bc45f8c41b98cbea952c98b1f37eccdc624c29daaf4c1"
+  },
+  "pip_check": "No broken requirements found.",
+  "workflow_resource_measurement": {
+    "wall_seconds": 16.34,
+    "user_seconds": 13.6,
+    "system_seconds": 1.92,
+    "maximum_rss_kib": 204596,
+    "openblas_threads": 1,
+    "omp_threads": 1,
+    "exit_status": 0
+  },
+  "scope": "Exact Gaussian second moments under known white raw covariance and fixed station operators. No measured FFT independence, real ADC or image fidelity."
+}

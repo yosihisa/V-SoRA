@@ -88,4 +88,6 @@
 
 | 048 | [保存相関の雑音診断GUI](048-observation-noise-gui.md) | source/wheel365件成功。実Chromiumで軸選択・4状態fixture・低SNR無効行・JSON保存、日本語/390px・JS/外部通信0 |
 
+| 049 | [FIR・補間後のFFT雑音](049-filtered-fft-noise.md) | source/wheel400件成功。既知Gaussian6条件×8192試行、時刻差と局別係数の全共分散、モデル換算数。実測独立数・実機は未確認 |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。
