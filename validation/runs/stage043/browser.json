@@ -1,0 +1,19 @@
+{
+  "installed_gui_imports": true,
+  "validation_workflow_from_checkout": true,
+  "independent_workspace": true,
+  "state": "complete",
+  "browser": "153.0.8010.12",
+  "javascript_errors": [],
+  "external_requests": 0,
+  "japanese_font_loaded": true,
+  "mobile_horizontal_overflow": false,
+  "validation": "covariance",
+  "actual_hardware_data": false,
+  "browser_environment": "WSL headless Chromium; Windows/WSLg unverified",
+  "trials_per_group": 1024,
+  "groups": 8,
+  "statistics_conditioned_on_accepted": true,
+  "physical_iq_vdif_processed": false,
+  "scope": "Finite assumed visibility-noise experiment/UI, conditional on accepted fits. No physical IQ, OCXO or image fidelity."
+}

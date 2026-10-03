@@ -1,0 +1,25 @@
+{
+  "state": "complete",
+  "source": {
+    "passed": 270,
+    "warnings": 22672,
+    "seconds": 420.99
+  },
+  "installed": {
+    "passed": 270,
+    "warnings": 22672,
+    "seconds": 420.02
+  },
+  "targeted_api": {
+    "passed": 1,
+    "warnings": 1,
+    "seconds": 39.35
+  },
+  "wheel": {
+    "bytes": 5457628,
+    "sha256": "446764662999f8cc2660d9b3874ba4da82c49571f41c9d3c2b34373776aac738"
+  },
+  "source_then_browser_then_installed": true,
+  "pip_check": "No broken requirements found.",
+  "scope": "GUI of finite assumed visibility-noise covariance experiments. Selection-conditioned errors, no physical IQ/VDIF, OCXO or image fidelity."
+}

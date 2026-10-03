@@ -76,4 +76,6 @@
 
 | 042 | [rate推定の誤差共分散検証](042-rate-covariance-validation.md) | source/wheel269件成功。Gaussian電圧モーメント・8条件×1024試行。公称95%領域内79〜100%、近似σの限界と未採用例を記録 |
 
+| 043 | [rate共分散検証の日本語GUI](043-rate-covariance-gui.md) | source/wheel270件成功。実Chromiumで8条件×1024試行、採用率と選別後の誤差統計を表示。日本語/390px・JS/外部通信0 |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。

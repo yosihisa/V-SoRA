@@ -278,3 +278,17 @@ def test_uncertainty_validation_real_subprocess(tmp_path):
         assert not q['actual_hardware_data'] and not q['covariance_calibrated_against_rate_solver']
         assert len(q['gaussian_results'])==6
         assert c.get(f"/api/jobs/{d['id']}/artifacts/validation/rate-uncertainty.png").status_code==200
+
+
+def test_covariance_validation_real_subprocess(tmp_path):
+    (tmp_path/'tools').mkdir()
+    (tmp_path/'tools/run.py').symlink_to(Path(__file__).resolve().parents[3]/'tools/run.py')
+    with TestClient(create_app(tmp_path),base_url='http://127.0.0.1') as c:
+        r=c.post('/api/jobs',json={'kind':'validation','validation':'covariance'},headers=HEADERS)
+        assert r.status_code==202
+        d=wait(c,r.json()['id'],120);assert d['state']=='complete',d
+        q=d['summary'];assert q['type']=='rate_covariance_validation' and q['trials_per_group']==1024
+        assert not q['actual_hardware_data'] and not q['physical_iq_vdif_processed'] and len(q['groups'])==8
+        assert all(r['statistics_conditioned_on_accepted'] for r in q['groups'])
+        assert q['groups'][3]['accepted_count']<1024
+        assert c.get(f"/api/jobs/{d['id']}/artifacts/validation/rate-covariance.png").status_code==200
