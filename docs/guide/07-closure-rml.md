@@ -109,3 +109,9 @@ vsora-closure-session --manifest manifest.json --clock-model clock.json --pilot-
 ```
 
 この例はpilot2ms刻みの場合です。記録範囲・FFT・前後guard・感度は入力に合わせます。初期値は一定rateで、モデルが解けない場合は停止します。部分内の速い揺れは推定できません。適合した線形モデルを実OCXOの安定性測定と扱わず、[条件と検証](../reports/037-measured-linear-rate-correction.md)を確認してください。GUI・区間列の線形モデル選択は[段階038](../reports/038-linear-rate-gui-sequence.md)で追加しました。
+
+### 線形モデルが通っても位相の揺れが残る
+
+平均したrateが同じになる速い揺れでは、分割診断や線形モデルが通ることがあります。段階039の模擬IQ→VDIFでは、32Hzのcos位相変動を加えると、分割rateが整合したまま最小振幅比は約85%、Closure log amplitude RMSも対照の約3倍になりました。位相揺れを測定・補正できた結果ではありません。
+
+遅い周期変動の別例は線形モデルと整合せず停止しました。検出できる変動と見逃す変動があるため、モデル適合と実機の位相安定性を分けて確認します。GUIの周期位相検証で再現できます。[段階039](../reports/039-periodic-phase-coherence.md)の生成条件を確認してください。

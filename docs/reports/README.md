@@ -68,4 +68,6 @@
 
 | 038 | [線形rateの日本語GUIと区間列](038-linear-rate-gui-sequence.md) | source/wheel216件成功。実GUIで選択・傾きσ・3区間RML・未判定停止。独立CLIの合成配列差0 |
 
+| 039 | [周期位相を加えたVDIFとClosure](039-periodic-phase-coherence.md) | source/wheel225件成功。実GUI/CLIでも分割整合・線形採用のまま約15%減衰。遅い周期は不整合停止 |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。

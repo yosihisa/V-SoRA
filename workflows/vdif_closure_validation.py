@@ -13,7 +13,12 @@ from vsora_formats.spectral import load_spectral
 
 
 def make_fixture(output,seed=23,frame_count=270,pilot_blocks=128,rates_hz=None,fft_length=32,rate_changes=None,
-                 rate_slopes_hz_per_s=None):
+                 rate_slopes_hz_per_s=None,phase_modulation_hz=0.,phase_modulation_amplitudes_rad=None):
+    modulation=np.array([0.,0.,0.,0.] if phase_modulation_amplitudes_rad is None else phase_modulation_amplitudes_rad,dtype=float)
+    if (modulation.shape!=(4,) or not np.isfinite(modulation).all() or np.max(abs(modulation))>10
+            or isinstance(phase_modulation_hz,bool) or not np.isfinite(phase_modulation_hz)
+            or not 0<=phase_modulation_hz<=1000 or (np.any(modulation!=0) and phase_modulation_hz==0)):
+        raise ValueError('four finite phase amplitudes <=10rad and positive modulation frequency <=1000Hz required')
     out=Path(output);out.mkdir(parents=True,exist_ok=False)
     root=Path(__file__).resolve().parents[1];c=load_config(root/'configs/experiments/ideal-point.json')
     # The observing pipeline receives no generating sky type or absolute flux.
@@ -44,6 +49,7 @@ def make_fixture(output,seed=23,frame_count=270,pilot_blocks=128,rates_hz=None,f
         x=np.fft.ifft((sky+noise)*np.exp(2j*np.pi*frequency*mid))
         phase=rates[i]*t;previous=rates[i]
         if slopes[i]!=0:phase+=.5*slopes[i]*t*t
+        if modulation[i]!=0:phase+=modulation[i]/(2*np.pi)*np.cos(2*np.pi*phase_modulation_hz*t)
         for change in changes:
             current=change['rates_hz'][i];phase+=(current-previous)*np.maximum(t-change['start_s'],0);previous=current
         x*=gain[i]*np.exp(2j*np.pi*(fc*d+phase))
@@ -61,6 +67,7 @@ def make_fixture(output,seed=23,frame_count=270,pilot_blocks=128,rates_hz=None,f
     (out/'clock.json').write_text(json.dumps({'schema_version':1,'max_abs_baseband_hz':.2*fs,'stations':clocks},indent=2)+'\n')
     return {'seed':seed,'generating_sky':'Common continuous band-limited Gaussian point at phase center, 1000Jy',
         'generating_sefd_jy':10000,'true_rates_hz':rates.tolist(),'rate_slopes_hz_per_s':slopes.tolist(),
+        'phase_modulation_hz':phase_modulation_hz,'phase_modulation_amplitudes_rad':modulation.tolist(),
         'rate_changes':changes,'input_samples_per_station':ns,'recorded_span_s':span,
         'max_broadband_delay_phase_approximation_rad':float(2*np.pi*.25*fs*np.max(abs(delay[-1]-delay[0]))/2),
         'clock':'Supplied exact nominal clocks; zero sample offsets',

@@ -1,0 +1,39 @@
+{
+  "installed_gui_imports": true,
+  "validation_workflow_from_checkout": true,
+  "independent_workspace": true,
+  "browser": "153.0.8010.12",
+  "javascript_errors": [],
+  "external_requests": 0,
+  "japanese_font_loaded": true,
+  "mobile_horizontal_overflow": false,
+  "state": "complete",
+  "cases": [
+    {
+      "case": "control",
+      "model": "constant",
+      "state": "complete",
+      "diagnosis": "consistent"
+    },
+    {
+      "case": "fast",
+      "model": "constant",
+      "state": "complete",
+      "diagnosis": "consistent"
+    },
+    {
+      "case": "fast",
+      "model": "linear",
+      "state": "complete",
+      "diagnosis": "consistent"
+    },
+    {
+      "case": "slow",
+      "model": "linear",
+      "state": "incomplete",
+      "diagnosis": "variation_detected"
+    }
+  ],
+  "fast_linear_minimum_amplitude_ratio": 0.8458994717535843,
+  "scope": "Installed GUI with explicitly checkout-owned validation runner. Synthetic point-noise IQ/VDIF, not Windows browser, WSLg, hardware or Cas A image fidelity."
+}

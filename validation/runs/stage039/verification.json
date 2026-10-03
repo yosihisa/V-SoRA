@@ -1,0 +1,32 @@
+{
+  "source_tests": {
+    "passed": 225,
+    "warnings": 21472,
+    "elapsed_s": 372.91
+  },
+  "installed_tests": {
+    "passed": 225,
+    "warnings": 21472,
+    "elapsed_s": 373.56
+  },
+  "wheel": {
+    "bytes": 5451282,
+    "sha256": "99cba728a4ebcbaca25f6b64e982d61980a526dd7be7717119100d6bd4f9da2d"
+  },
+  "pip_check": "No broken requirements found",
+  "initial_parallel_tests": {
+    "source": {
+      "passed": 224,
+      "failed": 1,
+      "warnings": 21472,
+      "elapsed_s": 413.38
+    },
+    "installed": {
+      "passed": 224,
+      "failed": 1,
+      "warnings": 21472,
+      "elapsed_s": 413.38
+    },
+    "reason": "New heavy GUI test exceeded 240-second completion wait; final test waits up to480 seconds and source/wheel run sequentially. Scientific acceptance unchanged."
+  }
+}

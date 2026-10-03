@@ -247,3 +247,16 @@ def test_linear_sequence_gui_real_subprocess(tmp_path):
         assert all(w['rate_estimate']['type']=='station_rate_linear' for w in d['summary']['windows'])
         assert d['summary']['nominal_image_exposure_per_station_s']==pytest.approx(.9)
         assert c.get(f"/api/jobs/{d['id']}/artifacts/sequence/rates.png").status_code==200
+
+
+def test_periodic_phase_validation_real_subprocess(tmp_path):
+    (tmp_path/'tools').mkdir()
+    (tmp_path/'tools/run.py').symlink_to(Path(__file__).resolve().parents[3]/'tools/run.py')
+    with TestClient(create_app(tmp_path),base_url='http://127.0.0.1') as c:
+        r=c.post('/api/jobs',json={'kind':'validation','validation':'phase'},headers=HEADERS)
+        assert r.status_code==202
+        d=wait(c,r.json()['id'],480);assert d['state']=='complete',d
+        assert d['summary']['type']=='periodic_phase_validation' and not d['summary']['actual_hardware_data']
+        assert d['summary']['cases'][0]['state']=='complete'
+        assert len(d['summary']['cases'])==4
+        assert c.get(f"/api/jobs/{d['id']}/artifacts/validation/periodic-coherence.png").status_code==200
