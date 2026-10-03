@@ -1,0 +1,36 @@
+{
+  "state": "complete",
+  "source": {
+    "passed": 433,
+    "warnings": 23952,
+    "seconds": 420.08
+  },
+  "installed": {
+    "passed": 433,
+    "warnings": 23952,
+    "seconds": 423.66
+  },
+  "targeted_final": {
+    "passed": 32,
+    "warnings": 640,
+    "seconds": 2.91
+  },
+  "no_test_exclusions": true,
+  "source_then_installed_cli_then_installed_regression": true,
+  "wheel": {
+    "bytes": 5475521,
+    "sha256": "c9c597c657d0ab132af4162b064ce2553d51c3d3baf4bbf26b705c890a5cc920"
+  },
+  "pip_check": "No broken requirements found.",
+  "gaussian_mc": {
+    "trials_per_case": 2048,
+    "cases": 4,
+    "wall_seconds": 5.34,
+    "maximum_rss_kib": 101800
+  },
+  "vdif_replay": {
+    "wall_seconds": 58.72,
+    "maximum_rss_kib": 229060
+  },
+  "scope": "Passive time powers under nominal iid FFT and independent time-cell noise. Center rotations from same-pilot profile; fit dependence, actual covariance and hardware confidence uncalibrated."
+}

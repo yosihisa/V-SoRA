@@ -1,0 +1,363 @@
+{
+  "state": "complete",
+  "source": "Stage039 fixed Gaussian IQ -> complex8 VDIF archives; re-correlated for common FFT counts",
+  "old_archive_state": "unverified",
+  "old_archive_reason": "missing_station_power_flags_or_fft_counts",
+  "control": {
+    "type": "pilot_time_scatter",
+    "channel_index": 16,
+    "frequency_hz": 1420000000.0,
+    "time_cells": 1500,
+    "iid_fft_independence_verified": false,
+    "time_cell_independence_verified": false,
+    "covariance_confidence_calibrated": false,
+    "hardware_coherence_measured": false,
+    "production_rml_noise_model_changed": false,
+    "generating_truth_used": false,
+    "rate_profile_fit_dependence_calibrated": false,
+    "scope": "Conditional noise-subtracted time and mean powers under common iid proper Gaussian FFT and independent time-cell noise. Center rotations only; ratios unbounded, no hardware confidence or automatic image gate.",
+    "state": "conditional_estimate",
+    "station_ids": [
+      "ST01",
+      "ST02",
+      "ST03",
+      "ST04"
+    ],
+    "visibility_unit": "ADC^2",
+    "power_unit": "ADC^4",
+    "time_origin_utc": "2026-10-02T08:00:00.000Z",
+    "time_range_s": [
+      0.002,
+      3.002
+    ],
+    "nominal_common_fft_blocks_range": [
+      128,
+      128
+    ],
+    "rate_profile_type": "station_rate_only",
+    "rate_reference_s": 1.502,
+    "additional_center_rotation_applied": true,
+    "stored_rate_profile_type": null,
+    "ratio_clipped_to_physical_interval": false,
+    "confidence_interval_computed": false,
+    "noise_subtraction_ensemble_unbiased_only_if_assumptions_hold": true,
+    "power_ratio_unbiased_guarantee": false,
+    "baselines": [
+      {
+        "pair": [
+          0,
+          1
+        ],
+        "station_ids": [
+          "ST01",
+          "ST02"
+        ],
+        "state": "conditional_estimate",
+        "reason": null,
+        "mean_visibility_real": 1854.789409531793,
+        "mean_visibility_imag": -1489.2734080044356,
+        "raw_time_power": 11017481.786262214,
+        "raw_mean_power": 5658179.037500445,
+        "estimated_cell_noise_variance_mean": 5330152.777941552,
+        "estimated_noise_variance_of_mean": 3553.435185294368,
+        "noise_subtracted_time_power": 5687329.008320662,
+        "noise_subtracted_mean_power": 5654625.60231515,
+        "excess_time_scatter": 32703.40600551199,
+        "mean_to_time_power_ratio_unbounded": 0.9942497777150457
+      },
+      {
+        "pair": [
+          0,
+          2
+        ],
+        "station_ids": [
+          "ST01",
+          "ST03"
+        ],
+        "state": "conditional_estimate",
+        "reason": null,
+        "mean_visibility_real": 522.569003493562,
+        "mean_visibility_imag": 1074.522515449478,
+        "raw_time_power": 2724506.4135717377,
+        "raw_mean_power": 1427676.9996201277,
+        "estimated_cell_noise_variance_mean": 1334538.5791063688,
+        "estimated_noise_variance_of_mean": 889.6923860709126,
+        "noise_subtracted_time_power": 1389967.834465369,
+        "noise_subtracted_mean_power": 1426787.3072340568,
+        "excess_time_scatter": -36819.472768687876,
+        "mean_to_time_power_ratio_unbounded": 1.0264894423134978
+      },
+      {
+        "pair": [
+          0,
+          3
+        ],
+        "station_ids": [
+          "ST01",
+          "ST04"
+        ],
+        "state": "conditional_estimate",
+        "reason": null,
+        "mean_visibility_real": -246.42300257106515,
+        "mean_visibility_imag": -548.1740456526671,
+        "raw_time_power": 696967.7473500205,
+        "raw_mean_power": 361219.0805233515,
+        "estimated_cell_noise_variance_mean": 333997.7273902851,
+        "estimated_noise_variance_of_mean": 222.6651515935234,
+        "noise_subtracted_time_power": 362970.01995973533,
+        "noise_subtracted_mean_power": 360996.415371758,
+        "excess_time_scatter": 1973.6045879773446,
+        "mean_to_time_power_ratio_unbounded": 0.9945626236894268
+      },
+      {
+        "pair": [
+          1,
+          2
+        ],
+        "station_ids": [
+          "ST02",
+          "ST03"
+        ],
+        "state": "conditional_estimate",
+        "reason": null,
+        "mean_visibility_real": -2111.9915100930643,
+        "mean_visibility_imag": 8303.42339138026,
+        "raw_time_power": 146082840.18441996,
+        "raw_mean_power": 73407348.15522604,
+        "estimated_cell_noise_variance_mean": 74717044.06355493,
+        "estimated_noise_variance_of_mean": 49811.36270903662,
+        "noise_subtracted_time_power": 71365796.12086503,
+        "noise_subtracted_mean_power": 73357536.792517,
+        "excess_time_scatter": -1991740.6716519743,
+        "mean_to_time_power_ratio_unbounded": 1.027908897257711
+      },
+      {
+        "pair": [
+          1,
+          3
+        ],
+        "station_ids": [
+          "ST02",
+          "ST04"
+        ],
+        "state": "conditional_estimate",
+        "reason": null,
+        "mean_visibility_real": 1241.905988991985,
+        "mean_visibility_imag": -4315.510316435174,
+        "raw_time_power": 39141752.40163527,
+        "raw_mean_power": 20165959.77675258,
+        "estimated_cell_noise_variance_mean": 18686470.957077406,
+        "estimated_noise_variance_of_mean": 12457.647304718272,
+        "noise_subtracted_time_power": 20455281.44455786,
+        "noise_subtracted_mean_power": 20153502.129447863,
+        "excess_time_scatter": 301779.315109998,
+        "mean_to_time_power_ratio_unbounded": 0.9852468754376251
+      },
+      {
+        "pair": [
+          2,
+          3
+        ],
+        "station_ids": [
+          "ST03",
+          "ST04"
+        ],
+        "state": "conditional_estimate",
+        "reason": null,
+        "mean_visibility_real": -2238.205929749595,
+        "mean_visibility_imag": -71.93905719233135,
+        "raw_time_power": 9542587.29488684,
+        "raw_mean_power": 5014741.011915971,
+        "estimated_cell_noise_variance_mean": 4680897.909546071,
+        "estimated_noise_variance_of_mean": 3120.598606364047,
+        "noise_subtracted_time_power": 4861689.38534077,
+        "noise_subtracted_mean_power": 5011620.413309607,
+        "excess_time_scatter": -149931.02796883695,
+        "mean_to_time_power_ratio_unbounded": 1.0308392857061
+      }
+    ],
+    "input_sha256": "b7cfa2131a1d21f2230ebb60e005ce9657f8d5c01c5611c76190c8d21315bc16",
+    "rate_profile_sha256": "be42d03af5871f879942a5a4d6e6246269d709368d251b7fd624ee0d1aac4ad4"
+  },
+  "fast_periodic": {
+    "type": "pilot_time_scatter",
+    "channel_index": 16,
+    "frequency_hz": 1420000000.0,
+    "time_cells": 1500,
+    "iid_fft_independence_verified": false,
+    "time_cell_independence_verified": false,
+    "covariance_confidence_calibrated": false,
+    "hardware_coherence_measured": false,
+    "production_rml_noise_model_changed": false,
+    "generating_truth_used": false,
+    "rate_profile_fit_dependence_calibrated": false,
+    "scope": "Conditional noise-subtracted time and mean powers under common iid proper Gaussian FFT and independent time-cell noise. Center rotations only; ratios unbounded, no hardware confidence or automatic image gate.",
+    "state": "conditional_estimate",
+    "station_ids": [
+      "ST01",
+      "ST02",
+      "ST03",
+      "ST04"
+    ],
+    "visibility_unit": "ADC^2",
+    "power_unit": "ADC^4",
+    "time_origin_utc": "2026-10-02T08:00:00.000Z",
+    "time_range_s": [
+      0.002,
+      3.002
+    ],
+    "nominal_common_fft_blocks_range": [
+      128,
+      128
+    ],
+    "rate_profile_type": "station_rate_linear",
+    "rate_reference_s": 1.5019999999999998,
+    "additional_center_rotation_applied": true,
+    "stored_rate_profile_type": null,
+    "ratio_clipped_to_physical_interval": false,
+    "confidence_interval_computed": false,
+    "noise_subtraction_ensemble_unbiased_only_if_assumptions_hold": true,
+    "power_ratio_unbiased_guarantee": false,
+    "baselines": [
+      {
+        "pair": [
+          0,
+          1
+        ],
+        "station_ids": [
+          "ST01",
+          "ST02"
+        ],
+        "state": "conditional_estimate",
+        "reason": null,
+        "mean_visibility_real": 1840.7932395178166,
+        "mean_visibility_imag": -1468.4751516739088,
+        "raw_time_power": 11009590.3750435,
+        "raw_mean_power": 5544939.021738205,
+        "estimated_cell_noise_variance_mean": 5330152.971930778,
+        "estimated_noise_variance_of_mean": 3553.4353146205185,
+        "noise_subtracted_time_power": 5679437.403112723,
+        "noise_subtracted_mean_power": 5541385.586423584,
+        "excess_time_scatter": 138051.8166891383,
+        "mean_to_time_power_ratio_unbounded": 0.9756926950874613
+      },
+      {
+        "pair": [
+          0,
+          2
+        ],
+        "station_ids": [
+          "ST01",
+          "ST03"
+        ],
+        "state": "conditional_estimate",
+        "reason": null,
+        "mean_visibility_real": 505.3937745786642,
+        "mean_visibility_imag": 1055.960442846239,
+        "raw_time_power": 2721485.8930266406,
+        "raw_mean_power": 1370475.3242388947,
+        "estimated_cell_noise_variance_mean": 1334393.1575588852,
+        "estimated_noise_variance_of_mean": 889.5954383725901,
+        "noise_subtracted_time_power": 1387092.7354677555,
+        "noise_subtracted_mean_power": 1369585.7288005222,
+        "excess_time_scatter": 17507.006667233305,
+        "mean_to_time_power_ratio_unbounded": 0.9873786328631232
+      },
+      {
+        "pair": [
+          0,
+          3
+        ],
+        "station_ids": [
+          "ST01",
+          "ST04"
+        ],
+        "state": "conditional_estimate",
+        "reason": null,
+        "mean_visibility_real": -226.62588988426378,
+        "mean_visibility_imag": -515.33813485679,
+        "raw_time_power": 696824.0492225399,
+        "raw_mean_power": 316932.68720350956,
+        "estimated_cell_noise_variance_mean": 334022.4668263828,
+        "estimated_noise_variance_of_mean": 222.68164455092187,
+        "noise_subtracted_time_power": 362801.5823961571,
+        "noise_subtracted_mean_power": 316710.0055589586,
+        "excess_time_scatter": 46091.57683719846,
+        "mean_to_time_power_ratio_unbounded": 0.872956516526796
+      },
+      {
+        "pair": [
+          1,
+          2
+        ],
+        "station_ids": [
+          "ST02",
+          "ST03"
+        ],
+        "state": "conditional_estimate",
+        "reason": null,
+        "mean_visibility_real": -1934.5736917549948,
+        "mean_visibility_imag": 7768.636917468945,
+        "raw_time_power": 145665014.6274658,
+        "raw_mean_power": 64094294.924291946,
+        "estimated_cell_noise_variance_mean": 74706742.79086572,
+        "estimated_noise_variance_of_mean": 49804.49519391047,
+        "noise_subtracted_time_power": 70958271.8366001,
+        "noise_subtracted_mean_power": 64044490.42909803,
+        "excess_time_scatter": 6913781.407502063,
+        "mean_to_time_power_ratio_unbounded": 0.9025655328328338
+      },
+      {
+        "pair": [
+          1,
+          3
+        ],
+        "station_ids": [
+          "ST02",
+          "ST04"
+        ],
+        "state": "conditional_estimate",
+        "reason": null,
+        "mean_visibility_real": 1206.1487120185052,
+        "mean_visibility_imag": -4193.861642226019,
+        "raw_time_power": 39149525.32136195,
+        "raw_mean_power": 19043270.189638626,
+        "estimated_cell_noise_variance_mean": 18687690.372987054,
+        "estimated_noise_variance_of_mean": 12458.460248658037,
+        "noise_subtracted_time_power": 20461834.948374897,
+        "noise_subtracted_mean_power": 19030811.72938997,
+        "excess_time_scatter": 1431023.218984928,
+        "mean_to_time_power_ratio_unbounded": 0.9300637883847958
+      },
+      {
+        "pair": [
+          2,
+          3
+        ],
+        "station_ids": [
+          "ST03",
+          "ST04"
+        ],
+        "state": "conditional_estimate",
+        "reason": null,
+        "mean_visibility_real": -1877.3631931650286,
+        "mean_visibility_imag": -59.77931370773526,
+        "raw_time_power": 9534789.696471585,
+        "raw_mean_power": 3528066.125398161,
+        "estimated_cell_noise_variance_mean": 4680797.407895432,
+        "estimated_noise_variance_of_mean": 3120.5316052636213,
+        "noise_subtracted_time_power": 4853992.288576153,
+        "noise_subtracted_mean_power": 3524945.593792897,
+        "excess_time_scatter": 1329046.694783256,
+        "mean_to_time_power_ratio_unbounded": 0.7261951367514199
+      }
+    ],
+    "input_sha256": "b596991271d47b7f2573676c7cc5c0dc13edfaddd18eb5b9f815a43057cbeead",
+    "rate_profile_sha256": "783f6a218682d3746cb37d04dba875cec0f03588bdef437e64c57f43fc30a19a"
+  },
+  "generating_truth_used_by_diagnostic": false,
+  "same_pilot_profile_fit_dependence_calibrated": false,
+  "within_cell_loss_recovered": false,
+  "real_hardware_validation_performed": false,
+  "scope": "Center-rotated saved pilot, passive scatter only. Independent nominal FFT/time cells assumed, no hardware false-alarm or coherence estimate."
+}

@@ -1,0 +1,15 @@
+{
+  "state": "complete",
+  "installed_imports": true,
+  "outside_checkout": true,
+  "pythonpath_removed": true,
+  "console_entry_point_verified": true,
+  "cli_equals_frozen_source": true,
+  "direct_api_equals_cli": true,
+  "overwrite_rejected": true,
+  "input_sha256": "b596991271d47b7f2573676c7cc5c0dc13edfaddd18eb5b9f815a43057cbeead",
+  "rate_profile_sha256": "783f6a218682d3746cb37d04dba875cec0f03588bdef437e64c57f43fc30a19a",
+  "scientific_state": "conditional_estimate",
+  "hardware_coherence_measured": false,
+  "production_rml_noise_model_changed": false
+}

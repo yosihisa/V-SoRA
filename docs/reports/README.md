@@ -92,4 +92,6 @@
 
 | 050 | [FFT雑音検証の日本語GUI](050-filtered-noise-gui.md) | source/wheel401件成功。実Chromiumで6条件×8192試行、モデル換算数と全共分散差を表示、日本語/390px・JS/外部通信0 |
 
+| 051 | [pilot時間散乱の条件付き診断](051-pilot-time-scatter.md) | source/wheel433件成功。Gaussian4条件×2048試行、固定VDIFの対照比約0.985〜1.031・高速変動最小約0.726。実機信頼区間・coherenceは未測定 |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。
