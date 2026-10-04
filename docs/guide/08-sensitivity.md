@@ -52,3 +52,9 @@ python tools/run.py vsora_simulator.sensitivity --config configs/experiments/ide
 ```
 
 [段階025の比較](../reports/025-sensitivity-planning.md)には、SEFD1000〜100万Jy・0.1〜3秒の条件と制約を残しています。
+
+## 三基線積では、短い積分の雑音も確認する
+
+三基線積の平均の偏りを除いても、その散らばりが小さくなるとは限りません。天体ゼロ・独立な単位power Gaussian電圧という仮定で、異標本量U₃の複素分散は1/[M(M−1)(M−2)]です。Mは独立電圧標本数の仮定で、実機の帯域×積分秒を測定なしで採用できる値ではありません。
+
+三辺の既知相関係数を同じρとすると、三基線積の信号はρ³。標本数を間引くと、偏りを避ける条件を満たせる場合がある一方、三次統計の雑音が増えます。[式と条件付き比較](../../interfaces/bispectrum-sensitivity.md)、[段階057](../reports/057-bispectrum-sensitivity.md)で確認できます。点源の必要反復数は同じbispectrumと正規化を保つ仮定の計算で、実際のCas Aの観測時間・検出確率・画像化の保証ではありません。

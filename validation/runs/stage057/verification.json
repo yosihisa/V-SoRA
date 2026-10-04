@@ -1,0 +1,43 @@
+{
+  "state": "complete",
+  "source": {
+    "passed": 539,
+    "warnings": 23952,
+    "seconds": 440.15
+  },
+  "installed": {
+    "passed": 539,
+    "warnings": 23952,
+    "seconds": 431.85
+  },
+  "targeted": {
+    "passed": 27,
+    "warnings": 0,
+    "seconds": 2.14
+  },
+  "no_test_exclusions": true,
+  "source_then_installed_full_regression": true,
+  "null_gaussian_samples": [
+    3,
+    8,
+    32,
+    128,
+    4096
+  ],
+  "trials_per_null_case": [
+    8192,
+    8192,
+    8192,
+    8192,
+    2048
+  ],
+  "conditional_point_plans": 32,
+  "monte_carlo_wall_seconds": 1.6,
+  "monte_carlo_maximum_rss_kib": 143952,
+  "wheel": {
+    "bytes": 5484102,
+    "sha256": "6bdf40cc946b70439392fd68dd75ecdd559b15b4846471a7ac71da8beff9eb3b"
+  },
+  "pip_check": "No broken requirements found.",
+  "scope": "Exact iid zero-source Gaussian U3 variance and conditional known-coherence scale. No nonzero-source variance, actual FFT independence, hardware detectability, extended Cas A or image guarantee."
+}

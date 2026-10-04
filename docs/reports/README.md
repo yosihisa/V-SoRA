@@ -104,4 +104,6 @@
 
 | 056 | [時間相関の日本語検証GUI](056-temporal-bispectrum-gui.md) | source/wheel512件成功。実Chromiumで5条件×8192試行、残留偏り・保持数・モデル条件、日本語/390px・JS/外部通信0 |
 
+| 057 | [三基線積の雑音と条件付き感度](057-bispectrum-sensitivity.md) | source/wheel539件成功。ゼロ源分散の添字列挙・Gaussian5条件、短積分/間引きの32仮定計算。実機感度・検出確率・画像は未確認 |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。

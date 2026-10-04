@@ -1,0 +1,12 @@
+{
+  "state": "complete",
+  "installed_imports": true,
+  "outside_checkout": true,
+  "pythonpath_removed": true,
+  "null_complex_variance": 1.4130716238951998e-13,
+  "sqrt_window_scaling_verified": true,
+  "cubic_coherence_scaling_verified": true,
+  "nonzero_source_variance_calculated": false,
+  "actual_temporal_independence_verified": false,
+  "image_reconstructed": false
+}
