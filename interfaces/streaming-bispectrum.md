@@ -34,3 +34,6 @@ validは厳密なboolの`[block,station]`です。三角形の3局が全て有�
 標本間独立・一定pair平均ならU₃の平均は不偏になりますが、この蓄積API自体は独立性やmaskの信号からの独立性を確認しません。FFTの入力共有、同じ記録からのLO補正、観測値による除外、gain変動は別に検証が必要です。現行相関器のvisibilityとRMLの重みには、この実験APIを適用していません。
 
 [段階061レポート](../docs/reports/061-streaming-bispectrum-sums.md)
+# FX処理からの明示的な収集
+
+`FXAccumulator(..., collect_bispectrum=True)` は同じ非重複FFTブロックから追加統計を集め、finish結果の `raw_bispectrum` に返します。既定値Falseでは従来の返り値です。対象は3〜8局、FFT長2〜4096。追加統計の周波数順は既存visibilityと同じ昇順です。三局すべてのFFTが有効な集合だけを使用し、M<3または構成基線の重みが0のchannelは `channel_triangle_usable=False` です。品質flagは追加統計の数値を消去せず、利用可否に反映します。実FFT・品質選別の独立性は未確認です。段階063ではVDIF経路とファイル保存への自動接続は未実装です。

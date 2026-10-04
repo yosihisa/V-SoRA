@@ -116,4 +116,6 @@
 
 | 062 | [三次統計の保存形式と元相関の照合](062-bispectrum-sidecar-format.md) | source/wheel669件成功。raw配列の完全読戻し・U₃再計算・元相関との識別と必要な整合性。実VDIFの経路・実機・RML未適用 |
 
+| 063 | [相関器のFFTから三次統計を収集](063-fx-bispectrum-accumulation.md) | source/wheel688件成功。0.1秒合成IQで既存7/12配列差0、局別欠損の共通U₃とバッチ一致。実VDIFの経路は次段階 |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。

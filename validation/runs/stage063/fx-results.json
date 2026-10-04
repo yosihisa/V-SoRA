@@ -1,0 +1,75 @@
+{
+  "type": "fx_bispectrum_validation",
+  "state": "complete",
+  "seed": 63,
+  "cases": [
+    {
+      "case": "all",
+      "nominal_seconds": 0.1,
+      "ordinary_numeric_arrays_compared": 7,
+      "ordinary_changed_fields": [],
+      "ordinary_arrays_bit_identical": true,
+      "common_fft_count": [
+        6400,
+        6400,
+        6400,
+        6400
+      ],
+      "source_baseline_fft_count": [
+        6400,
+        6400,
+        6400,
+        6400,
+        6400,
+        6400
+      ],
+      "channels": 32,
+      "triangles": 4,
+      "available_channel_triangles": 128,
+      "total_channel_triangles": 128,
+      "maximum_chunk_blocks": 256,
+      "maximum_absolute_batch_u3_difference": 4.7745728203148115e-17,
+      "fx_seconds_without_raw_sums": 0.012351934987236746,
+      "fx_seconds_with_raw_sums": 0.029476796000381,
+      "input_sample_independence_verified": false,
+      "input_mask_independence_verified": false
+    },
+    {
+      "case": "quality_and_gaps",
+      "nominal_seconds": 0.1,
+      "ordinary_numeric_arrays_compared": 12,
+      "ordinary_changed_fields": [],
+      "ordinary_arrays_bit_identical": true,
+      "common_fft_count": [
+        6286,
+        6286,
+        6336,
+        6350
+      ],
+      "source_baseline_fft_count": [
+        6286,
+        6336,
+        6336,
+        6350,
+        6350,
+        6400
+      ],
+      "channels": 32,
+      "triangles": 4,
+      "available_channel_triangles": 124,
+      "total_channel_triangles": 128,
+      "maximum_chunk_blocks": 256,
+      "maximum_absolute_batch_u3_difference": 3.861038637093425e-17,
+      "fx_seconds_without_raw_sums": 0.012544127996079624,
+      "fx_seconds_with_raw_sums": 0.025345753994770348,
+      "input_sample_independence_verified": false,
+      "input_mask_independence_verified": false
+    }
+  ],
+  "input_iq_complex128_le_sha256": "3a99f823bfd19022558cc6761975e539299df830f90f4b18e2c051297268936b",
+  "synthetic_iq_fft_processed": true,
+  "physical_adc_vdif_processed": false,
+  "production_rml_noise_model_changed": false,
+  "real_hardware_validation_performed": false,
+  "scope": "Opt-in reference FX common-sample raw U3 sums on0.1s synthetic Gaussian IQ with constant gains. Ordinary arrays bit-identical, external missing samples/quality masks preserved. No VDIF/FIR/clock/rate/geometry, actual FFT independence, empirical likelihood or imaging."
+}

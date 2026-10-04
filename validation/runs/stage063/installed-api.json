@@ -1,0 +1,15 @@
+{
+  "state": "complete",
+  "installed_imports": true,
+  "outside_checkout": true,
+  "ordinary_arrays_bit_identical": true,
+  "batch_u3_matches": true,
+  "common_fft_count": [
+    31,
+    32,
+    31,
+    32
+  ],
+  "actual_temporal_independence_verified": false,
+  "production_rml_noise_model_changed": false
+}
