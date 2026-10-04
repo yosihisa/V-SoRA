@@ -219,7 +219,9 @@ def run(job):
                 status['rate_consistency']=failure['rate_consistency']
                 try:plot_rate_parts(failure['rate_consistency'],job/'rate-parts.png')
                 except Exception:status['diagnostic_plot_unavailable']=True
-        translations={'integer channel index':'周波数の番号が入力の範囲外です。入力情報を読み直して選んでください。',
+        translations={
+            'raw bispectrum requires':'追加統計の保存には3〜8局、対応するchannel数とFFT保持数が必要です。観測設定を確認してください。',
+            'raw bispectrum exceeds':'追加統計の容量上限を超えました。保存する時刻数かchannel数を減らしてください。','integer channel index':'周波数の番号が入力の範囲外です。入力情報を読み直して選んでください。',
             'double-correct':'保存相関はrate補正済みです。追加profileを空欄にするか、補正前のpilotを選んでください。',
             'UTC origin differs':'相関とrate profileのUTC原点が一致しません。同じ観測のファイルを選んでください。',
             'station order differs':'相関とrate profileの局ID・順序または形式が一致しません。',

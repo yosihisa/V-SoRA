@@ -120,4 +120,6 @@
 
 | 064 | [VDIF相関から三次統計を保存](064-vdif-bispectrum-sidecar.md) | source/wheel704件成功。実合成VDIFのFIR・補間・幾何補正後のU₃、元13配列・metadata差0。欠損/RF/仰角、導入済みCLIと元相関照合 |
 
+| 065 | [三次統計の保存を指定する日本語GUI](065-bispectrum-storage-gui.md) | source/wheel723件成功。相関13配列・相対画像差0。実Chromiumで単一/区間列の全保存値・ダウンロード照合、日本語/390px・失敗/中止。初回の表selectorを修正 |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。

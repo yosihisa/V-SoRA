@@ -1,0 +1,36 @@
+{
+  "state": "complete",
+  "source": {
+    "passed": 723,
+    "warnings": 25596,
+    "seconds": 527.85
+  },
+  "installed": {
+    "passed": 723,
+    "warnings": 25596,
+    "seconds": 561.26
+  },
+  "targeted_final": {
+    "passed": 19,
+    "warnings": 1081,
+    "seconds": 22.92
+  },
+  "targeted_initial": {
+    "passed": 19,
+    "warnings": 1081,
+    "seconds": 17.82
+  },
+  "wheel": {
+    "bytes": 5496618,
+    "sha256": "c799206793961805d6dc4a6d42523051e1106795cc1f902c0763d15c5f956110"
+  },
+  "pip_check": "No broken requirements found.",
+  "browser_final_passed": true,
+  "browser_initial_row_selector_failure_fixed": true,
+  "source_then_installed_browser_then_installed_regression": true,
+  "no_test_exclusions": true,
+  "main_gui_active_jobs_before_update": 0,
+  "main_gui_updated_and_responding": true,
+  "production_rml_noise_model_changed": false,
+  "real_hardware_validation_performed": false
+}

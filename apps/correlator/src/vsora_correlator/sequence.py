@@ -3,7 +3,7 @@ import json
 from pathlib import Path
 import numpy as np
 from .session import load_session
-from .aligned import validate_aligned_dimensions,MAX_SPECTRAL_CELLS
+from .aligned import validate_aligned_dimensions,validate_bispectrum_dimensions,MAX_SPECTRAL_CELLS
 from .closure_pipeline import process_closure_session
 from .input_identity import InputIdentity
 
@@ -44,13 +44,17 @@ def plan_windows(config,window_count,step_s,start_offset_s,pilot_integrations,pi
 def process_sequence(manifest,clock_model,output,*,window_count=3,step_s=None,start_offset_s=.002,
                      pilot_integrations=256,pilot_integration_s=None,integration_s=.3,max_rate_hz=100.,
                      starts=3,max_iterations=800,prior_fwhm_arcsec=240.,entropy=.01,tsv=.0001,progress=None,
-                     require_rate_consistency=False,rate_model="constant"):
+                     require_rate_consistency=False,rate_model="constant",save_bispectrum=False):
+    if not isinstance(save_bispectrum,bool):raise ValueError('save_bispectrum bool required')
     if not isinstance(require_rate_consistency,bool):raise ValueError('require_rate_consistency bool required')
     if rate_model not in ('constant','linear'):raise ValueError('rate_model must be constant or linear')
     if rate_model=='linear' and require_rate_consistency:
         raise ValueError('constant subpilot consistency requirement cannot be combined with linear rate correction')
     config=load_session(manifest)
     plan=plan_windows(config,window_count,step_s,start_offset_s,pilot_integrations,pilot_integration_s,integration_s)
+    if save_bispectrum:
+        blocks=round(integration_s*config['sample_rate_hz']/config['fft_length'])
+        validate_bispectrum_dimensions({**config,'blocks_per_integration':blocks},1)
     out=Path(output);partial=out.with_name(out.name+'.partial')
     if out.exists() or partial.exists():raise FileExistsError('choose a new sequence directory')
     partial.mkdir(parents=True)
@@ -74,7 +78,7 @@ def process_sequence(manifest,clock_model,output,*,window_count=3,step_s=None,st
                 pilot_integrations=pilot_integrations,pilot_integration_s=pilot_integration_s,
                 start_offset_s=window['start_offset_s'],integration_s=integration_s,max_rate_hz=max_rate_hz,
                 correlation_only=True,_source_identity=source_identity,
-                require_rate_consistency=require_rate_consistency,rate_model=rate_model,
+                require_rate_consistency=require_rate_consistency,rate_model=rate_model,save_bispectrum=save_bispectrum,
                 progress=lambda label,done:phase(f'window_{index}:{label}'))
             unchanged()
             current={key:result[key] for key in ['input_manifest_sha256','input_clock_sha256','input_observation_sha256','input_vdif']}
@@ -115,6 +119,7 @@ def process_sequence(manifest,clock_model,output,*,window_count=3,step_s=None,st
 def main():
     import argparse
     p=argparse.ArgumentParser(description='Short nonoverlapping VDIF windows -> local rates -> relative closure synthesis')
+    p.add_argument('--save-bispectrum',action='store_true',help='Save raw third-order statistics per corrected window; existing image objective unchanged')
     p.add_argument('--manifest',required=True);p.add_argument('--clock-model',required=True);p.add_argument('--output',required=True)
     p.add_argument('--window-count',type=int,default=3);p.add_argument('--step-s',type=float,help='Start spacing; defaults to nonoverlapping pilot span')
     p.add_argument('--start-offset-s',type=float,default=.002);p.add_argument('--pilot-integrations',type=int,default=256)

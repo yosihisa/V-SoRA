@@ -1,0 +1,162 @@
+{
+  "installed_wheel_imports": true,
+  "independent_temporary_workspace": true,
+  "browser": "153.0.8010.12",
+  "japanese_font_loaded": true,
+  "javascript_errors": [],
+  "external_requests": 0,
+  "mobile_form_horizontal_overflow": false,
+  "mobile_result_horizontal_overflow": false,
+  "raw_bispectrum_requested": true,
+  "raw_bispectrum_downloads": [
+    {
+      "window_index": 0,
+      "filename": "raw-bispectrum.npz",
+      "schema_version": 1,
+      "bytes": 15070,
+      "visibility_sha256": "8cc69996be04f1f09166b87892bca307b9b16a3850a8ace8f19310b873de7088",
+      "source_visibility_verified": true,
+      "common_fft_count": [
+        [
+          19200,
+          19200,
+          19200,
+          19200
+        ]
+      ],
+      "usable_channel_triangles": 52,
+      "total_channel_triangles": 128,
+      "input_sample_independence_verified": false,
+      "input_mask_independence_verified": false,
+      "production_rml_noise_model_changed": false
+    },
+    {
+      "window_index": 1,
+      "filename": "raw-bispectrum.npz",
+      "schema_version": 1,
+      "bytes": 15011,
+      "visibility_sha256": "27f05ce0b1898cc4d7c2056b45f0f2a4505b83c2100696156ada4782b668dc5f",
+      "source_visibility_verified": true,
+      "common_fft_count": [
+        [
+          19200,
+          19200,
+          19200,
+          19200
+        ]
+      ],
+      "usable_channel_triangles": 52,
+      "total_channel_triangles": 128,
+      "input_sample_independence_verified": false,
+      "input_mask_independence_verified": false,
+      "production_rml_noise_model_changed": false
+    },
+    {
+      "window_index": 2,
+      "filename": "raw-bispectrum.npz",
+      "schema_version": 1,
+      "bytes": 15045,
+      "visibility_sha256": "0555265ec24894aa9eb50d6274b5f0136f2f5958ef99916627b6d3a3e9539ba3",
+      "source_visibility_verified": true,
+      "common_fft_count": [
+        [
+          19200,
+          19200,
+          19200,
+          19200
+        ]
+      ],
+      "usable_channel_triangles": 52,
+      "total_channel_triangles": 128,
+      "input_sample_independence_verified": false,
+      "input_mask_independence_verified": false,
+      "production_rml_noise_model_changed": false
+    }
+  ],
+  "analysis_storage": {
+    "state": "complete",
+    "completed_steps": 5,
+    "raw_bispectrum": {
+      "filename": "raw-bispectrum.npz",
+      "schema_version": 1,
+      "bytes": 15059,
+      "visibility_sha256": "26b8b9d1744d1cfac41419a3415e83af875b79fd4135ca164696940cd87156da",
+      "source_visibility_verified": true,
+      "common_fft_count": [
+        [
+          19200,
+          19200,
+          19200,
+          19200
+        ]
+      ],
+      "usable_channel_triangles": 52,
+      "total_channel_triangles": 128,
+      "input_sample_independence_verified": false,
+      "input_mask_independence_verified": false,
+      "production_rml_noise_model_changed": false
+    },
+    "download_source_verified": true,
+    "mobile_horizontal_overflow": false
+  },
+  "scope": "WSL headless Chromium; Windows browser/WSLg desktop not directly observed",
+  "complete": {
+    "state": "complete",
+    "completed_steps": 10,
+    "total_steps": 10,
+    "completed_windows": [
+      0,
+      1,
+      2
+    ],
+    "nominal_image_exposure_per_station_s": 0.8999999999999999,
+    "image_sum": 1.0,
+    "input_unit": "ADC^2",
+    "rml_runs": [
+      {
+        "objective": 0.373373710148681,
+        "closure_chisq_per_measurement": 0.7412238732942109,
+        "data_loss": 0.37061193664710546,
+        "entropy_loss": 0.0026755050497158607,
+        "tsv_loss": 2.28573070136024e-05,
+        "centroid_loss": 6.317674731698667e-05,
+        "independent_closure_count": 195,
+        "independent_closure_counts": {
+          "phase": 117,
+          "logamp": 78
+        },
+        "centroid_arcsec": [
+          -3.8090644916870846,
+          -5.185994679888227
+        ],
+        "parameter_sum_penalty": 2.3439752904658953e-07,
+        "start": 0,
+        "circular_warmup_iterations": 100,
+        "iterations": 100,
+        "optimizer_success": false,
+        "optimizer_message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+        "elapsed_s": 0.3846214460063493
+      }
+    ],
+    "absolute_flux_measured": false,
+    "absolute_position_measured": false
+  },
+  "failed": {
+    "state": "failed",
+    "sequence_failure": {
+      "completed_window_count": 1,
+      "total_window_count": 2,
+      "current_window_index": 1,
+      "phase": "window_0:rate_corrected_short_correlation"
+    }
+  },
+  "cancelled": {
+    "state": "cancelled",
+    "reached_running_subprocess": true
+  },
+  "real_hardware_validation_performed": false,
+  "initial_browser_check": {
+    "state": "failed",
+    "reason": "Generic window-table row selector included newly added raw-statistics table; rate-specific table selector fixed with the same four-row check."
+  }
+}

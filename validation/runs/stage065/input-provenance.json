@@ -1,0 +1,113 @@
+{
+  "fixtures": [
+    {
+      "fixture": "full",
+      "location": "outputs/stage061-browser-fixtures/full",
+      "seed": 32,
+      "frames_per_station": 800,
+      "sample_rate_hz": 2048000,
+      "rf_hz": 1420000000,
+      "generating_flux_jy": 1000,
+      "generating_sefd_jy": 10000,
+      "initial_rates_hz": [
+        0.0,
+        17.3,
+        -11.7,
+        26.1
+      ],
+      "rate_changes": [
+        {
+          "start_s": 0.514,
+          "rates_hz": [
+            0.0,
+            31.2,
+            -6.3,
+            14.4
+          ]
+        },
+        {
+          "start_s": 1.026,
+          "rates_hz": [
+            0.0,
+            -20.5,
+            13.7,
+            4.3
+          ]
+        }
+      ],
+      "json_sha256": {
+        "manifest.json": "4be92e16e41173f773d346d7665b5bc3df49f05b6a751d13a9669c97159f67cf",
+        "clock.json": "de055e1594cfae7a3d08cedbf88dde5c6d14807f430f6af9bf0cf69500d1787d",
+        "observation.json": "e87d53bda1bfb668574aaa39e4908839bfb3a840652ceea8906a897ca1a8d75b"
+      },
+      "vdif_files": [
+        {
+          "filename": "station-1.vdif",
+          "bytes": 6579200,
+          "sha256": "733210c0ceeb7c5ee43353b4f86786ff53f15231ff0186d8086bca975bc4cd49"
+        },
+        {
+          "filename": "station-2.vdif",
+          "bytes": 6579200,
+          "sha256": "b941969d6d42489459d35ab7fb4c89cfe20aa4b474875428ddfdc965a7026c1e"
+        },
+        {
+          "filename": "station-3.vdif",
+          "bytes": 6579200,
+          "sha256": "bdbb6b5cb963bf9a18239424363e9300ae447c145e05cd8738aa5bb1373261a0"
+        },
+        {
+          "filename": "station-4.vdif",
+          "bytes": 6579200,
+          "sha256": "71a70329d444243fad9c44851591b6b4161f622d4b829674e521d4b72c8082e3"
+        }
+      ],
+      "scope": "Synthetic band-limited point source, fixed gains, supplied exact clocks, no hardware or Cas A morphology."
+    },
+    {
+      "fixture": "short",
+      "location": "outputs/stage061-browser-fixtures/short",
+      "seed": 23,
+      "frames_per_station": 270,
+      "sample_rate_hz": 2048000,
+      "rf_hz": 1420000000,
+      "generating_flux_jy": 1000,
+      "generating_sefd_jy": 10000,
+      "initial_rates_hz": [
+        0.0,
+        17.3,
+        -11.7,
+        26.1
+      ],
+      "rate_changes": [],
+      "json_sha256": {
+        "manifest.json": "0640267dfb762f75a6cd191670b892423d83b6ced402871989ad71d33739a233",
+        "clock.json": "de055e1594cfae7a3d08cedbf88dde5c6d14807f430f6af9bf0cf69500d1787d",
+        "observation.json": "e87d53bda1bfb668574aaa39e4908839bfb3a840652ceea8906a897ca1a8d75b"
+      },
+      "vdif_files": [
+        {
+          "filename": "station-1.vdif",
+          "bytes": 2220480,
+          "sha256": "44156d2336f3e05fc498c185c68c4b9ebe30c66aeba6503e08143537d75d8ddc"
+        },
+        {
+          "filename": "station-2.vdif",
+          "bytes": 2220480,
+          "sha256": "7ebadb1a1d6f5546437c6c1924511ea58f0b7b56132ea957eb844a237fdb9a95"
+        },
+        {
+          "filename": "station-3.vdif",
+          "bytes": 2220480,
+          "sha256": "3745cba3263ad1f7ec7b18fd1607256d133201c98d1fb14f114cf552a10b459b"
+        },
+        {
+          "filename": "station-4.vdif",
+          "bytes": 2220480,
+          "sha256": "43f943a2dbe20575a0a45b320ece43f1376a4c952eeae9e35302326ddb075def"
+        }
+      ],
+      "scope": "Synthetic band-limited point source, fixed gains, supplied exact clocks, no hardware or Cas A morphology."
+    }
+  ]
+}

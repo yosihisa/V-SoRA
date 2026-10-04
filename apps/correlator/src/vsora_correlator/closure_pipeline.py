@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 import numpy as np
 from .session import load_session
-from .aligned import correlate_aligned,validate_aligned_dimensions,MAX_ALIGNED_INTEGRATIONS
+from .aligned import correlate_aligned,validate_aligned_dimensions,validate_bispectrum_dimensions,MAX_ALIGNED_INTEGRATIONS
 from .rate import estimate_rate_shard
 from .input_identity import InputIdentity
 
@@ -12,7 +12,8 @@ from .input_identity import InputIdentity
 def process_closure_session(manifest,clock_model,output,*,pilot_integrations=256,pilot_integration_s=None,start_offset_s=.002,
                             integration_s=.3,max_rate_hz=100.,starts=3,max_iterations=800,
                             prior_fwhm_arcsec=240.,entropy=.01,tsv=.0001,progress=None,correlation_only=False,
-                            _source_identity=None,require_rate_consistency=False,rate_model="constant"):
+                            _source_identity=None,require_rate_consistency=False,rate_model="constant",save_bispectrum=False):
+    if not isinstance(save_bispectrum,bool):raise ValueError('save_bispectrum bool required')
     if not isinstance(correlation_only,bool):raise ValueError('correlation_only bool required')
     if not isinstance(require_rate_consistency,bool):raise ValueError('require_rate_consistency bool required')
     if _source_identity is not None and not isinstance(_source_identity,InputIdentity):
@@ -39,6 +40,7 @@ def process_closure_session(manifest,clock_model,output,*,pilot_integrations=256
     pilot_config={**c,'blocks_per_integration':pilot_blocks}
     _,pilot_span,_=validate_aligned_dimensions(pilot_config,pilot_integrations)
     validate_aligned_dimensions({**c,'blocks_per_integration':blocks},1)
+    if save_bispectrum:validate_bispectrum_dimensions({**c,'blocks_per_integration':blocks},1)
     cadence=pilot_blocks*nf/fs
     if not np.isfinite(max_rate_hz) or not 0<max_rate_hz<.5/cadence:
         raise ValueError('rate search must be below the temporal Nyquist limit')
@@ -98,7 +100,7 @@ def process_closure_session(manifest,clock_model,output,*,pilot_integrations=256
         profile=partial/('rate-linear.json' if rate_model=='linear' else 'rate-only.json');profile.write_text(json.dumps(estimate,indent=2)+'\n')
         record('model_free_rate')
         final_manifest=clone('final-manifest.json',blocks)
-        final=correlate_aligned(final_manifest,clock_model,partial/'correlation',1,start_offset_s,profile)
+        final=correlate_aligned(final_manifest,clock_model,partial/'correlation',1,start_offset_s,profile,collect_bispectrum=save_bispectrum)
         record('rate_corrected_short_correlation')
         closure=image=None
         if not correlation_only:
@@ -130,6 +132,7 @@ def process_closure_session(manifest,clock_model,output,*,pilot_integrations=256
 def main():
     import argparse
     p=argparse.ArgumentParser(description='VDIF short pilot -> unknown rates -> closure-only relative RML')
+    p.add_argument('--save-bispectrum',action='store_true',help='Save raw common-FFT third-order statistics for later analysis; RML unchanged')
     p.add_argument('--manifest',required=True);p.add_argument('--clock-model',required=True);p.add_argument('--output',required=True)
     p.add_argument('--pilot-integrations',type=int,default=256);p.add_argument('--pilot-integration-s',type=float); p.add_argument('--integration-s',type=float,default=.3)
     p.add_argument('--start-offset-s',type=float,default=.002);p.add_argument('--max-rate-hz',type=float,default=100.)
