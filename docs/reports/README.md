@@ -106,4 +106,6 @@
 
 | 057 | [三基線積の雑音と条件付き感度](057-bispectrum-sensitivity.md) | source/wheel539件成功。ゼロ源分散の添字列挙・Gaussian5条件、短積分/間引きの32仮定計算。実機感度・検出確率・画像は未確認 |
 
+| 058 | [三基線積の短積分比較GUI](058-bispectrum-sensitivity-gui.md) | source/wheel540件成功。実Chromiumで5分散・32仮定行の全数値、日本語/390px・JS/外部通信0。実機観測時間は未計算 |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。

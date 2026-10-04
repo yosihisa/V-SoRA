@@ -354,3 +354,17 @@ def test_temporal_bispectrum_validation_real_subprocess(tmp_path):
         guard=next(c for c in q['cases'] if c['model']=='guarded_average')
         assert guard['retained_outputs']==15 and guard['conditional_temporal_covariance_is_identity']
         assert client.get(f"/api/jobs/{job['id']}/artifacts/validation/bispectrum-temporal.png").status_code==200
+
+
+def test_bispectrum_sensitivity_validation_real_subprocess(tmp_path):
+    (tmp_path/'tools').mkdir()
+    (tmp_path/'tools/run.py').symlink_to(Path(__file__).resolve().parents[3]/'tools/run.py')
+    with TestClient(create_app(tmp_path),base_url='http://127.0.0.1') as client:
+        r=client.post('/api/jobs',json={'kind':'validation','validation':'bispectrum_sensitivity'},headers=HEADERS)
+        assert r.status_code==202;job=wait(client,r.json()['id'],30);assert job['state']=='complete',job
+        q=job['summary'];assert q['type']=='bispectrum_sensitivity_validation'
+        assert len(q['null_variance_cases'])==5 and len(q['conditional_point_source_plans'])==32
+        assert all(c['means_and_second_moments_within_6se'] for c in q['null_variance_cases'])
+        assert not q['nonzero_source_variance_calculated'] and not q['actual_temporal_independence_verified']
+        assert not q['physical_adc_vdif_processed'] and not q['image_reconstructed']
+        assert client.get(f"/api/jobs/{job['id']}/artifacts/validation/bispectrum-sensitivity.png").status_code==200

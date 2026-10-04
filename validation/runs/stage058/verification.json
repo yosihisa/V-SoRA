@@ -1,0 +1,26 @@
+{
+  "state": "complete",
+  "source": {
+    "passed": 540,
+    "warnings": 23952,
+    "seconds": 433.55
+  },
+  "installed": {
+    "passed": 540,
+    "warnings": 23952,
+    "seconds": 428.75
+  },
+  "targeted_real_worker": {
+    "passed": 1,
+    "warnings": 1,
+    "seconds": 1.83
+  },
+  "no_test_exclusions": true,
+  "source_then_installed_browser_then_installed_regression": true,
+  "wheel": {
+    "bytes": 5485300,
+    "sha256": "241ece5a3816115f046d4c0da1dbe3f3964c5b57ef731568fcc4b6a95b0168ba"
+  },
+  "pip_check": "No broken requirements found.",
+  "scope": "Installed Japanese GUI, checkout-owned exact iid null Gaussian U3 variance and conditional point-source scale. No nonzero-source variance, actual independence, Cas A observing time or image guarantee."
+}

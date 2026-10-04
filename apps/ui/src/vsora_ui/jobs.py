@@ -21,6 +21,7 @@ LABELS={'simulation':'模擬観測と画像復元','quality':'雑音・電波妨
         'closure_noise':'Closure共有雑音の共分散検証',
         'filtered_noise':'FIR・補間とFFT雑音の検証','bispectrum':'三基線の積の雑音偏りの検証',
         'temporal_bispectrum':'時間相関と三基線積の検証',
+        'bispectrum_sensitivity':'三基線積の雑音と短積分の比較',
         'rate':'skyモデルを使わない周波数差の推定','analysis':'VDIFからClosure＋RMLで解析',
         'sequence':'VDIFの短区間列と画像合成',
         'time_scatter':'pilotの時間散乱診断','noise':'相関ファイルの雑音診断','synthesis':'複数時刻のClosure＋RML合成','sensitivity':'短積分の感度計画'}

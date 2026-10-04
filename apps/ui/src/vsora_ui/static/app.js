@@ -85,6 +85,7 @@ function renderDetail(job){const box=byId("job-detail");box.replaceChildren();co
   if(summary&&summary.type==="rate_covariance_validation")renderRateCovariance(box,summary);
   if(summary&&summary.type==="joint_closure_noise_validation")renderClosureNoise(box,summary);
   if(summary&&summary.type==="filtered_visibility_noise_validation")renderFilteredNoise(box,summary);
+  if(summary&&summary.type==="bispectrum_sensitivity_validation")renderBispectrumSensitivity(box,summary);
   if(summary&&summary.type==="temporal_bispectrum_validation")renderTemporalBispectrum(box,summary);
   if(summary&&summary.type==="distinct_sample_bispectrum_validation")renderDistinctBispectrum(box,summary);
   if(summary&&summary.type==="spectral_noise_diagnostic")renderObservationNoise(box,summary);
@@ -94,7 +95,7 @@ function renderDetail(job){const box=byId("job-detail");box.replaceChildren();co
   if(summary&&summary.metrics&&summary.metrics.comparison_version===2){box.append(node("p","形状誤差は、位置合わせで画面外へ出た成分も含めて比較しています。表示画像は元の画面範囲だけです。","muted"));if(summary.metrics.registration_boundary_reached)box.append(node("p","位置合わせが探索範囲の端に達しています。移動量と比較条件を確認してください。","muted"));}
   if(summary&&summary.rate_acquisition){const a=summary.rate_acquisition;box.append(node("p","pilot: "+(a.pilot_integration_s*1000).toFixed(3)+" ms / Nyquist: "+a.temporal_nyquist_hz.toFixed(1)+" Hz。初期の基線周波数差がこの範囲内であることは別途確認が必要です。","muted"));if(a.sk_eligible_fraction!==null&&a.sk_eligible_fraction<1)box.append(node("p","pilotでSK判定が可能だった局・時刻・channelの割合: "+(100*a.sk_eligible_fraction).toFixed(1)+"%。妨害波の確認を別途行ってください。","muted"));}
   if(summary&&summary.rml&&summary.rml.amplitude_constraints_available===false)box.append(node("p","有効なlog closure amplitudeがありません。画像のサイズや広がりは事前条件への依存が強くなります。","muted"));
-  const pictures=job.artifacts.filter(a=>a.path.endsWith(".png"));for(const file of pictures){const figure=node("figure",undefined,"plot"),img=node("img");img.src=artifactURL(job.id,file.path);img.alt=file.path.endsWith("bispectrum-temporal.png")?"既知時間相関モデルの三基線積の平均と間引き後の保持数（実機の独立性・感度は未確認）":file.path.endsWith("bispectrum-distinct.png")?"既知Gaussian電圧の三基線積の偏りと異標本量の平均（角度・実機・画像の保証ではありません）":file.path.endsWith("filtered-noise.png")?"仮定した固定係数の分散倍率・MC差・基線間共分散の構造（実測独立数ではありません）":file.path.endsWith("closure-noise.png")?"既知の模擬モデルのClosure分散比（一次近似・独立雑音・有限標本を比較、実機保証ではありません）":file.path.endsWith("rate-covariance.png")?"仮定雑音のrate採用率・採用例の誤差距離・公称95%領域の割合（実機の信頼区間ではありません）":file.path.endsWith("rate-uncertainty.png")?"仮定Gaussian誤差による条件付き複素平均と乱数標本の比較（実機保持率ではありません）":file.path.endsWith("periodic-coherence.png")?"仮定した周期位相の相関減衰とClosure誤差（対照比較・実機測定ではありません）":file.path.endsWith("rate-parts.png")?"pilotを4分割した局周波数差（平均rateの整合は位相安定の保証ではありません）":file.path.endsWith("rates.png")?"区間ごとの局周波数差（丸：基準時刻、×：4分割、線：選択した線形モデル、区間間の補間なし）":file.path.includes("comparison")?"局配置・測った基線・正解と復元の比較":file.path.includes("quality")?"周波数別統計と妨害除外後の画像":"画像復元の比較";figure.append(img,node("figcaption",img.alt));box.append(figure);}
+  const pictures=job.artifacts.filter(a=>a.path.endsWith(".png"));for(const file of pictures){const figure=node("figure",undefined,"plot"),img=node("img");img.src=artifactURL(job.id,file.path);img.alt=file.path.endsWith("bispectrum-sensitivity.png")?"ゼロ源モデルの分散比と有限試行誤差・同じ点源三角形の条件付き記録秒（実観測時間・検出確率は未計算）":file.path.endsWith("bispectrum-temporal.png")?"既知時間相関モデルの三基線積の平均と間引き後の保持数（実機の独立性・感度は未確認）":file.path.endsWith("bispectrum-distinct.png")?"既知Gaussian電圧の三基線積の偏りと異標本量の平均（角度・実機・画像の保証ではありません）":file.path.endsWith("filtered-noise.png")?"仮定した固定係数の分散倍率・MC差・基線間共分散の構造（実測独立数ではありません）":file.path.endsWith("closure-noise.png")?"既知の模擬モデルのClosure分散比（一次近似・独立雑音・有限標本を比較、実機保証ではありません）":file.path.endsWith("rate-covariance.png")?"仮定雑音のrate採用率・採用例の誤差距離・公称95%領域の割合（実機の信頼区間ではありません）":file.path.endsWith("rate-uncertainty.png")?"仮定Gaussian誤差による条件付き複素平均と乱数標本の比較（実機保持率ではありません）":file.path.endsWith("periodic-coherence.png")?"仮定した周期位相の相関減衰とClosure誤差（対照比較・実機測定ではありません）":file.path.endsWith("rate-parts.png")?"pilotを4分割した局周波数差（平均rateの整合は位相安定の保証ではありません）":file.path.endsWith("rates.png")?"区間ごとの局周波数差（丸：基準時刻、×：4分割、線：選択した線形モデル、区間間の補間なし）":file.path.includes("comparison")?"局配置・測った基線・正解と復元の比較":file.path.includes("quality")?"周波数別統計と妨害除外後の画像":"画像復元の比較";figure.append(img,node("figcaption",img.alt));box.append(figure);}
   if(summary){const details=node("details");details.append(node("summary","詳しい条件と数値"),node("pre",JSON.stringify(summary,null,2)));box.append(details);}const downloads=node("details"),links=node("ul",undefined,"download-list");downloads.append(node("summary","条件・画像・相関ファイルを保存"));for(const file of job.artifacts.filter(a=>!a.path.endsWith(".png")&&!a.path.endsWith(".log")&&!a.path.endsWith("request.json")&&!a.path.endsWith("status.json"))){const li=node("li"),link=node("a",file.path);link.href=artifactURL(job.id,file.path);li.append(link);links.append(li);}downloads.append(links);box.append(downloads);const log=job.artifacts.find(a=>a.path==="execution.log");if(log){const details=node("details"),pre=node("pre","開くと読み込みます。");details.append(node("summary","詳細ログ"),pre);details.addEventListener("toggle",async()=>{if(details.open){const response=await fetch(artifactURL(job.id,"execution.log"));pre.textContent=(await response.text()).slice(-30000);}});box.append(details);}}
 async function refresh(){if(refreshing)return;refreshing=true;try{jobs=await api("/api/jobs");if(!selected&&jobs.length)selected=jobs[0].id;const listKey=JSON.stringify({jobs,selected});if(listKey!==listFingerprint){renderList();listFingerprint=listKey;}if(selected){const job=await api("/api/jobs/"+selected);const detailKey=JSON.stringify({...job,artifacts:job.artifacts.map(a=>a.path)});if(detailKey!==detailFingerprint){renderDetail(job);detailFingerprint=detailKey;}}byId("connection").textContent="ローカル処理に接続";}catch(error){byId("connection").textContent="接続を確認してください";message(error.message);}finally{refreshing=false;}}
 api("/api/environment").then(env=>{byId("connection").textContent="ローカル処理に接続";if(!env.validation_available){byId("validation-form").querySelector("button").disabled=true;}}).catch(()=>message("解析サーバーに接続できません。起動状態を確認してください。"));
@@ -254,4 +255,33 @@ function renderTemporalBispectrum(box,s){
   }
   box.append(table,node("p","有限係数の入力範囲が重ならない間隔で間引くと、白色Gaussian入力・固定係数の仮定では時間相関が消えます。一方、保持数は減り、三基線積の散らばりが大きくなります。実機に一律の間引き間隔を推奨する結果ではありません。","muted"),
     node("p","MC SEは既知モデルを繰り返し生成した平均の有限試行誤差です。実機の検出確率・信頼区間・画像品質を示しません。時間変化するgain・時計・局間雑音は未評価です。現行相関器とRMLの重み・採否は変更していません。","muted"));
+}
+
+function renderBispectrumPlanTable(rows,id){
+  const table=node("table",undefined,"window-table"),head=node("tr");table.id=id;
+  head.append(node("th","仮定条件"),node("th","一窓の尺度SNR_null"),node("th","同条件の反復と記録秒"));table.append(head);
+  for(const r of rows){const row=node("tr"),condition=node("td"),repeat=node("td");
+    condition.append(node("p",r.window_seconds+"秒 / "+r.illustrative_guard_step+"個おき / M="+r.independent_samples_assumed),node("p","仮定SEFD "+r.assumed_sefd_jy.toFixed(0)+" Jy"));
+    repeat.append(node("p",r.required_identical_independent_windows.toLocaleString("ja-JP")+"窓"),node("p",r.conditional_recorded_seconds.toFixed(1)+"秒（条件付き）"));
+    row.append(condition,node("td",r.single_window_null_variance_snr.toExponential(4)),repeat);table.append(row);
+  }
+  return table;
+}
+function renderBispectrumSensitivity(box,s){
+  box.append(node("h3","三基線積の雑音と短積分の仮定比較"),
+    node("p","三基線の積の平均の偏りを除いても、一回の値には雑音が残ります。最初の表は天体なし・局間と標本間が独立な単位power Gaussian電圧で、U₃の複素分散1/[M(M−1)(M−2)]を確かめた結果です。","muted"));
+  const table=node("table",undefined,"window-table"),head=node("tr");table.id="bispectrum-null-table";
+  head.append(node("th","仮定標本数・試行数"),node("th","正確なゼロ源分散"),node("th","反復計算との比較"));table.append(head);
+  for(const c of s.null_variance_cases){const row=node("tr"),model=node("td"),comparison=node("td");
+    model.append(node("p","M="+c.samples+" / "+c.trials.toLocaleString("ja-JP")+"試行"));
+    comparison.append(node("p","分散比 "+c.complex_variance_ratio.toFixed(5)+" / MC SE "+c.complex_variance_ratio_standard_error.toFixed(5)),node("p",c.means_and_second_moments_within_6se?"平均・実虚二次量が固定6 MC SE内":"モデルとの差を要確認"));
+    row.append(model,node("td",c.null_complex_variance.toExponential(4)),comparison);table.append(row);
+  }
+  box.append(table,node("p","図の棒は複素powerの反復平均の6 MC SEです。未知観測の信頼区間や検出確率ではありません。Mは仮定した独立電圧標本数で、実FFTの独立数を測定した値ではありません。","muted"),node("h3","短積分・間引きの条件付き点源比較"),
+    node("p","総fluxと全ての辺の相関fluxが1000 Jy、64 kHz、一定gain、同じ天体bispectrumと正規化、窓間独立を仮定します。天体ありの分散は未計算で、ゼロ源の実虚σを基準とする尺度です。目標尺度5は検出確率を意味しません。","muted"),
+    node("p","次の8行は直径1m・開口効率0.6・Tsys100Kという円形開口の仮定（SEFD約"+s.one_m_dish_assumed_sefd_jy.toFixed(0)+" Jy）。実受信機の測定値やアンテナの推奨仕様ではありません。","muted"));
+  const reference=s.conditional_point_source_plans.filter(r=>r.assumed_sefd_jy===s.one_m_dish_assumed_sefd_jy);
+  box.append(renderBispectrumPlanTable(reference,"bispectrum-point-table"));
+  const all=node("details");all.id="bispectrum-all-plans";all.append(node("summary","全32仮定条件を表示"),renderBispectrumPlanTable(s.conditional_point_source_plans,"bispectrum-all-table"));box.append(all,
+    node("p","間引きでMが減ると、三次統計の雑音が増えます。長時間では地球回転によるuv・天体bispectrum・gainの変化を別に扱う必要があります。拡がったCas Aや600mの配置の相関flux、実機の時計安定性・感度・画像復元の成功は未確認です。","muted"));
 }

@@ -1,0 +1,22 @@
+{
+  "installed_gui_imports": true,
+  "validation_workflow_from_checkout": true,
+  "independent_workspace": true,
+  "state": "complete",
+  "browser": "153.0.8010.12",
+  "javascript_errors": [],
+  "external_requests": 0,
+  "japanese_font_loaded": true,
+  "mobile_horizontal_overflow": false,
+  "validation": "bispectrum_sensitivity",
+  "actual_hardware_data": false,
+  "browser_environment": "WSL headless Chromium; Windows/WSLg unverified",
+  "null_cases": 5,
+  "conditional_point_plans": 32,
+  "all_plan_numbers_checked": true,
+  "nonzero_source_variance_calculated": false,
+  "actual_temporal_independence_verified": false,
+  "image_reconstructed": false,
+  "physical_adc_vdif_processed": false,
+  "scope": "Exact iid null Gaussian variance and conditional fixed point-source scale. No observed independence, nonzero-source likelihood, Cas A flux prediction, hardware detectability or image guarantee."
+}

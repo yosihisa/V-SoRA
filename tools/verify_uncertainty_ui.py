@@ -12,7 +12,7 @@ from playwright.sync_api import sync_playwright
 
 
 def run(output, port=8774, validation='uncertainty'):
-    if validation not in ('uncertainty', 'covariance', 'closure_noise', 'filtered_noise', 'bispectrum', 'temporal_bispectrum'):
+    if validation not in ('uncertainty', 'covariance', 'closure_noise', 'filtered_noise', 'bispectrum', 'temporal_bispectrum', 'bispectrum_sensitivity'):
         raise ValueError('Unknown validation workflow')
     from vsora_ui import models, worker
     assert all(Path(m.__file__).is_relative_to(Path(sys.prefix)) for m in (models, worker))
@@ -120,7 +120,7 @@ def run(output, port=8774, validation='uncertainty'):
                         'physical_adc_vdif_processed':False,'production_correlator_statistics_changed':False,
                         'production_rml_noise_model_changed':False,
                         'scope':'Fixed iid Gaussian voltage/gain bispectrum means. Known model bias and unresolved weak mean; no unbiased phase, actual independent FFTs, hardware sensitivity or image guarantee.'}
-                else:
+                elif validation=='temporal_bispectrum':
                     assert q['type']=='temporal_bispectrum_validation' and q['trials_per_case']==8192 and len(q['cases'])==5
                     assert not q['physical_adc_vdif_processed'] and not q['actual_temporal_independence_verified']
                     assert not q['production_rml_noise_model_changed'] and not q['physical_raw_filter_convolution_performed']
@@ -149,6 +149,34 @@ def run(output, port=8774, validation='uncertainty'):
                         'long_average_known_bias_resolved_in_model_validation':True,'guarded_average_retained_outputs':15,
                         'reference_fft_known_bias_unresolved':True,'production_rml_noise_model_changed':False,
                         'scope':'Known zero-source independent receiver Gaussian temporal covariance. Model-only residual bias and output thinning, no observed independence or hardware sensitivity recommendation.'}
+                else:
+                    assert q['type']=='bispectrum_sensitivity_validation'
+                    assert len(q['null_variance_cases'])==5 and len(q['conditional_point_source_plans'])==32
+                    assert not q['nonzero_source_variance_calculated'] and not q['actual_temporal_independence_verified']
+                    assert not q['image_reconstructed'] and not q['physical_adc_vdif_processed']
+                    assert '三基線積の雑音と短積分の仮定比較' in text
+                    assert '目標尺度5は検出確率を意味しません' in text and '実FFTの独立数を測定した値ではありません' in text
+                    assert page.locator('#bispectrum-null-table tr').count()==6
+                    assert page.locator('#bispectrum-point-table tr').count()==9
+                    def number(v):return f'{v:.4e}'.replace('e-0','e-').replace('e+0','e+')
+                    for c in q['null_variance_cases']:
+                        assert c['means_and_second_moments_within_6se']
+                        assert number(c['null_complex_variance']) in text
+                        assert f"{c['complex_variance_ratio']:.5f}" in text
+                        assert f"{c['complex_variance_ratio_standard_error']:.5f}" in text
+                    page.locator('#bispectrum-all-plans summary').click()
+                    all_text=page.locator('#bispectrum-all-table').inner_text()
+                    assert page.locator('#bispectrum-all-table tr').count()==33
+                    for r in q['conditional_point_source_plans']:
+                        assert f"M={r['independent_samples_assumed']}" in all_text
+                        assert number(r['single_window_null_variance_snr']) in all_text
+                        assert f"{r['required_identical_independent_windows']:,}窓" in all_text
+                        assert f"{r['conditional_recorded_seconds']:.1f}秒（条件付き）" in all_text
+                    page.locator('#bispectrum-all-plans summary').click()
+                    scientific={'null_cases':5,'conditional_point_plans':32,'all_plan_numbers_checked':True,
+                        'nonzero_source_variance_calculated':False,'actual_temporal_independence_verified':False,
+                        'image_reconstructed':False,'physical_adc_vdif_processed':False,
+                        'scope':'Exact iid null Gaussian variance and conditional fixed point-source scale. No observed independence, nonzero-source likelihood, Cas A flux prediction, hardware detectability or image guarantee.'}
                 page.wait_for_function('() => Array.from(document.querySelectorAll("#job-detail img")).every(x=>x.complete&&x.naturalWidth>0)')
                 page.screenshot(path=str(out/'result.png'),full_page=True)
                 page.set_viewport_size({'width':390,'height':844});overflow=page.evaluate('document.documentElement.scrollWidth>document.documentElement.clientWidth')
@@ -169,5 +197,5 @@ def run(output, port=8774, validation='uncertainty'):
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser();parser.add_argument('--output',required=True);parser.add_argument('--port',type=int,default=8774)
-    parser.add_argument('--validation',choices=('uncertainty','covariance','closure_noise','filtered_noise','bispectrum','temporal_bispectrum'),default='uncertainty')
+    parser.add_argument('--validation',choices=('uncertainty','covariance','closure_noise','filtered_noise','bispectrum','temporal_bispectrum','bispectrum_sensitivity'),default='uncertainty')
     print(json.dumps(run(**vars(parser.parse_args())),indent=2))
