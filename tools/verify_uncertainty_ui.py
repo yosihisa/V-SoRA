@@ -12,7 +12,7 @@ from playwright.sync_api import sync_playwright
 
 
 def run(output, port=8774, validation='uncertainty'):
-    if validation not in ('uncertainty', 'covariance', 'closure_noise', 'filtered_noise', 'bispectrum', 'temporal_bispectrum', 'bispectrum_sensitivity'):
+    if validation not in ('uncertainty', 'covariance', 'closure_noise', 'filtered_noise', 'bispectrum', 'temporal_bispectrum', 'bispectrum_sensitivity', 'bispectrum_moments'):
         raise ValueError('Unknown validation workflow')
     from vsora_ui import models, worker
     assert all(Path(m.__file__).is_relative_to(Path(sys.prefix)) for m in (models, worker))
@@ -149,6 +149,30 @@ def run(output, port=8774, validation='uncertainty'):
                         'long_average_known_bias_resolved_in_model_validation':True,'guarded_average_retained_outputs':15,
                         'reference_fft_known_bias_unresolved':True,'production_rml_noise_model_changed':False,
                         'scope':'Known zero-source independent receiver Gaussian temporal covariance. Model-only residual bias and output thinning, no observed independence or hardware sensitivity recommendation.'}
+                elif validation=='bispectrum_moments':
+                    assert q['type']=='joint_bispectrum_moments_validation'
+                    assert q['trials_per_case']==8192 and len(q['cases'])==5
+                    assert not q['physical_adc_vdif_processed'] and not q['actual_temporal_independence_verified']
+                    assert not q['production_rml_noise_model_changed'] and not q['gaussian_bispectrum_likelihood_assumed']
+                    assert '天体信号と三角形間の誤差相関' in text
+                    assert '観測から未知の共分散を推定した結果ではありません' in text
+                    assert 'U₃の分布がGaussianであるとは判断できません' in text
+                    assert page.locator('#bispectrum-moments-table tr').count()==6
+                    assert '三基線積の分散比・実成分間の相関・全共分散の反復比較' in page.locator('#job-detail figcaption').inner_text()
+                    assert '画像復元の比較' not in page.locator('#job-detail figcaption').inner_text()
+                    for c in q['cases']:
+                        assert c['all_means_and_real_covariances_within_6se']
+                        assert len(c['real_covariance_model'])==8
+                        lo,hi=c['exact_complex_to_null_variance_ratio_range']
+                        assert f'{lo:.6f}〜{hi:.6f}' in text
+                        for key in ('maximum_absolute_offdiagonal_real_correlation','maximum_normalized_covariance_difference'):
+                            assert f'{c[key]:.6f}' in text
+                        assert f"M={c['samples']} / {c['trials']:,}試行" in text
+                    scientific={'cases':5,'trials_per_case':8192,'all_case_numbers_checked':True,
+                        'generating_covariance_supplied':True,'joint_real_covariance_size':8,
+                        'gaussian_bispectrum_likelihood_assumed':False,'actual_temporal_independence_verified':False,
+                        'physical_adc_vdif_processed':False,'production_rml_noise_model_changed':False,
+                        'scope':'Known iid Gaussian voltage U3 moments/UI. No empirical covariance, Gaussian bispectrum likelihood, hardware independence or image confidence.'}
                 else:
                     assert q['type']=='bispectrum_sensitivity_validation'
                     assert len(q['null_variance_cases'])==5 and len(q['conditional_point_source_plans'])==32
@@ -197,5 +221,5 @@ def run(output, port=8774, validation='uncertainty'):
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser();parser.add_argument('--output',required=True);parser.add_argument('--port',type=int,default=8774)
-    parser.add_argument('--validation',choices=('uncertainty','covariance','closure_noise','filtered_noise','bispectrum','temporal_bispectrum','bispectrum_sensitivity'),default='uncertainty')
+    parser.add_argument('--validation',choices=('uncertainty','covariance','closure_noise','filtered_noise','bispectrum','temporal_bispectrum','bispectrum_sensitivity','bispectrum_moments'),default='uncertainty')
     print(json.dumps(run(**vars(parser.parse_args())),indent=2))

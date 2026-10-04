@@ -368,3 +368,18 @@ def test_bispectrum_sensitivity_validation_real_subprocess(tmp_path):
         assert not q['nonzero_source_variance_calculated'] and not q['actual_temporal_independence_verified']
         assert not q['physical_adc_vdif_processed'] and not q['image_reconstructed']
         assert client.get(f"/api/jobs/{job['id']}/artifacts/validation/bispectrum-sensitivity.png").status_code==200
+
+
+def test_joint_bispectrum_validation_real_subprocess(tmp_path):
+    (tmp_path/'tools').mkdir()
+    (tmp_path/'tools/run.py').symlink_to(Path(__file__).resolve().parents[3]/'tools/run.py')
+    with TestClient(create_app(tmp_path),base_url='http://127.0.0.1') as client:
+        r=client.post('/api/jobs',json={'kind':'validation','validation':'bispectrum_moments'},headers=HEADERS)
+        assert r.status_code==202;job=wait(client,r.json()['id'],30);assert job['state']=='complete',job
+        q=job['summary'];assert q['type']=='joint_bispectrum_moments_validation'
+        assert len(q['cases'])==5 and q['trials_per_case']==8192
+        assert all(c['all_means_and_real_covariances_within_6se'] for c in q['cases'])
+        assert all(len(c['real_covariance_model'])==8 for c in q['cases'])
+        assert not q['gaussian_bispectrum_likelihood_assumed'] and not q['actual_temporal_independence_verified']
+        assert not q['physical_adc_vdif_processed'] and not q['production_rml_noise_model_changed']
+        assert client.get(f"/api/jobs/{job['id']}/artifacts/validation/bispectrum-moments.png").status_code==200

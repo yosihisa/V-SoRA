@@ -1,0 +1,29 @@
+{
+  "state": "complete",
+  "source": {
+    "passed": 572,
+    "warnings": 23952,
+    "seconds": 427.05
+  },
+  "installed": {
+    "passed": 572,
+    "warnings": 23952,
+    "seconds": 424.86
+  },
+  "targeted_real_worker": {
+    "passed": 1,
+    "warnings": 1,
+    "seconds": 1.21
+  },
+  "no_test_exclusions": true,
+  "source_then_installed_browser_then_installed_regression": true,
+  "wheel": {
+    "bytes": 5488087,
+    "sha256": "b22b4d16075231bd5aaac3dbf15115fb1659c69d622de0d754f9e1ef118bbb4b"
+  },
+  "pip_check": "No broken requirements found.",
+  "initial_plot_caption_corrected_after_visual_review": true,
+  "initial_installed_regression_interrupted_not_counted": true,
+  "final_plot_caption_checked_in_browser": true,
+  "scope": "Installed Japanese known iid Gaussian U3 joint-moments GUI. Checkout-owned workflow, no empirical covariance, Gaussian U3 likelihood, receiver independence or image confidence."
+}
