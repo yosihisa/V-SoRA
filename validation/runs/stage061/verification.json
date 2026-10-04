@@ -1,0 +1,56 @@
+{
+  "state": "complete",
+  "source": {
+    "passed": 610,
+    "warnings": 23952,
+    "seconds": 423.44
+  },
+  "installed": {
+    "passed": 610,
+    "warnings": 23952,
+    "seconds": 429.22
+  },
+  "targeted_accumulator": {
+    "passed": 36,
+    "seconds": 0.39
+  },
+  "targeted_artifact_race_and_real_sequence": {
+    "passed": 3,
+    "warnings": 4281,
+    "seconds": 34.92
+  },
+  "initial_source": {
+    "passed": 608,
+    "seconds": 450.36
+  },
+  "initial_installed": {
+    "passed": 607,
+    "failed": 1,
+    "warnings": 23952,
+    "seconds": 425.07,
+    "failure": "sequence GUI state API response lacked state (KeyError). Transient artifact stat raised FileNotFoundError and produced job-level404."
+  },
+  "deterministic_race_before_fix": {
+    "passed": 1,
+    "failed": 1,
+    "seconds": 0.22,
+    "observed_status": 404
+  },
+  "deterministic_race_fixed": true,
+  "no_test_exclusions": true,
+  "source_then_installed_api_browser_then_installed_regression": true,
+  "wheel": {
+    "bytes": 5490218,
+    "sha256": "f9bbb993dde8ef9d8ebd4fa2e82b9723f826116a74c5e53fdd61dd07bcb4866b"
+  },
+  "pip_check": "No broken requirements found.",
+  "synthetic_iq_fft_workflow": {
+    "seconds": 0.33,
+    "max_rss_kib": 81472,
+    "numeric_state_bytes": 14368,
+    "maximum_chunk_blocks": 7
+  },
+  "actual_receiver_independence_verified": false,
+  "production_rml_noise_model_changed": false,
+  "scope": "Experimental common-sample raw U3 sums and GUI transient artifact listing fix. Synthetic IQ/FFT algebra; installed sequence GUI regression uses synthetic VDIF, RML100iteration limit, no hardware or image-fidelity certification."
+}

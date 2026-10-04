@@ -61,8 +61,13 @@ def create_app(workspace):
             status=manager.status(job_id);directory=manager.directory(job_id)
             summary=directory/'summary.json'
             status['summary']=json.loads(summary.read_text()) if summary.exists() else None
-            status['artifacts']=[{'path':str(p.relative_to(directory)),'bytes':p.stat().st_size}
-                 for p in sorted(directory.rglob('*')) if p.is_file() and p.suffix in ('.png','.fits','.npz','.json','.npy','.log')]
+            artifacts=[]
+            for p in sorted(directory.rglob('*')):
+                if p.suffix not in ('.png','.fits','.npz','.json','.npy','.log'):continue
+                try:info=p.stat()
+                except (FileNotFoundError,NotADirectoryError):continue
+                if S_ISREG(info.st_mode):artifacts.append({'path':str(p.relative_to(directory)),'bytes':info.st_size})
+            status['artifacts']=artifacts
             return status
         except FileNotFoundError: raise HTTPException(404,'実行が見つかりません') from None
 
@@ -80,3 +85,4 @@ def create_app(workspace):
             return FileResponse(path,filename=None if path.suffix=='.png' else path.name)
         except FileNotFoundError: raise HTTPException(404,'ファイルが見つかりません') from None
     return app
+from stat import S_ISREG

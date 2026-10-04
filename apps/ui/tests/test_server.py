@@ -383,3 +383,36 @@ def test_joint_bispectrum_validation_real_subprocess(tmp_path):
         assert not q['gaussian_bispectrum_likelihood_assumed'] and not q['actual_temporal_independence_verified']
         assert not q['physical_adc_vdif_processed'] and not q['production_rml_noise_model_changed']
         assert client.get(f"/api/jobs/{job['id']}/artifacts/validation/bispectrum-moments.png").status_code==200
+
+
+def test_artifact_moves_after_stat_do_not_hide_job(tmp_path,monkeypatch):
+    job_id='20261004T000000-1234abcd';directory=tmp_path/'outputs/gui'/job_id;directory.mkdir(parents=True)
+    write_json(directory/'status.json',{'id':job_id,'state':'complete','phase':'処理完了'})
+    transient=directory/'plot.png';transient.write_bytes(b'fixture')
+    original_stat=Path.stat;calls=[]
+    def moving_stat(path,*args,**kwargs):
+        if path==transient:
+            calls.append(path)
+            if len(calls)==1:
+                snapshot=original_stat(path,*args,**kwargs);path.unlink();return snapshot
+            raise FileNotFoundError('artifact moved during listing')
+        return original_stat(path,*args,**kwargs)
+    with TestClient(create_app(tmp_path),base_url='http://127.0.0.1') as client:
+        monkeypatch.setattr(Path,'stat',moving_stat)
+        response=client.get('/api/jobs/'+job_id)
+        assert response.status_code==200,response.json()
+        assert response.json()['state']=='complete' and len(calls)==1
+
+
+def test_artifact_disappears_before_stat_do_not_hide_job(tmp_path,monkeypatch):
+    job_id='20261004T000000-1234abcd';directory=tmp_path/'outputs/gui'/job_id;directory.mkdir(parents=True)
+    write_json(directory/'status.json',{'id':job_id,'state':'complete','phase':'処理完了'})
+    stable=directory/'stable.png';stable.write_bytes(b'fixture');missing=directory/'moved.png'
+    original_glob=Path.rglob
+    def moving_glob(path,*args,**kwargs):
+        return iter([stable,missing]) if path==directory else original_glob(path,*args,**kwargs)
+    with TestClient(create_app(tmp_path),base_url='http://127.0.0.1') as client:
+        monkeypatch.setattr(Path,'rglob',moving_glob)
+        response=client.get('/api/jobs/'+job_id)
+        assert response.status_code==200 and response.json()['state']=='complete'
+        assert [v['path'] for v in response.json()['artifacts']]==['stable.png']

@@ -1,0 +1,70 @@
+{
+  "type": "streaming_bispectrum_validation",
+  "state": "complete",
+  "seed": 61,
+  "input_iq_complex128_le_sha256": "c5ffd78f4c105f5c8c82b97f37b92d4514dc342c4fb09e02ac4ce80ac8a6ad28",
+  "cases": [
+    {
+      "case": "all",
+      "common_sample_count": [
+        257,
+        257,
+        257,
+        257
+      ],
+      "distinct_sample_available": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "nominal_fft_blocks": 257,
+      "channels": 32,
+      "stations": 4,
+      "triangles": 4,
+      "maximum_chunk_blocks": 7,
+      "persistent_numeric_state_bytes": 14368,
+      "maximum_absolute_distinct_batch_difference": 9.543442895606955e-18,
+      "maximum_absolute_ordinary_batch_difference": 8.673617379884035e-18,
+      "saved_raw_sums_roundtrip_exact": true,
+      "input_sample_independence_verified": false,
+      "input_mask_independence_verified": false,
+      "generating_truth_used": false
+    },
+    {
+      "case": "deterministic_gaps",
+      "common_sample_count": [
+        245,
+        250,
+        249,
+        248
+      ],
+      "distinct_sample_available": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "nominal_fft_blocks": 257,
+      "channels": 32,
+      "stations": 4,
+      "triangles": 4,
+      "maximum_chunk_blocks": 7,
+      "persistent_numeric_state_bytes": 14368,
+      "maximum_absolute_distinct_batch_difference": 5.485677294651096e-18,
+      "maximum_absolute_ordinary_batch_difference": 6.209365080825174e-18,
+      "saved_raw_sums_roundtrip_exact": true,
+      "input_sample_independence_verified": false,
+      "input_mask_independence_verified": false,
+      "generating_truth_used": false
+    }
+  ],
+  "synthetic_gaussian_iq_fft_processed": true,
+  "chunked_fft_processed": true,
+  "full_batch_reference_retained_for_validation": true,
+  "physical_adc_vdif_processed": false,
+  "production_visibility_statistics_changed": false,
+  "production_rml_noise_model_changed": false,
+  "real_hardware_validation_performed": false,
+  "scope": "Synthetic iid Gaussian IQ, unitary rectangular FFT, deterministic supplied block gaps, bounded incremental common-sample raw U3 sums. Algebra/roundtrip, no actual independence, signal-dependent flag selection, empirical uncertainty, calibration or image confidence."
+}

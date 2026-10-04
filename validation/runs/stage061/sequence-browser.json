@@ -1,0 +1,67 @@
+{
+  "installed_wheel_imports": true,
+  "independent_temporary_workspace": true,
+  "browser": "153.0.8010.12",
+  "japanese_font_loaded": true,
+  "javascript_errors": [],
+  "external_requests": 0,
+  "mobile_form_horizontal_overflow": false,
+  "mobile_result_horizontal_overflow": false,
+  "scope": "WSL headless Chromium; Windows browser/WSLg desktop not directly observed",
+  "complete": {
+    "state": "complete",
+    "completed_steps": 10,
+    "total_steps": 10,
+    "completed_windows": [
+      0,
+      1,
+      2
+    ],
+    "nominal_image_exposure_per_station_s": 0.8999999999999999,
+    "image_sum": 1.0,
+    "input_unit": "ADC^2",
+    "max_iterations_configured": 100,
+    "absolute_flux_measured": false,
+    "absolute_position_measured": false,
+    "rml_runs": [
+      {
+        "objective": 0.373373710148681,
+        "closure_chisq_per_measurement": 0.7412238732942109,
+        "data_loss": 0.37061193664710546,
+        "entropy_loss": 0.0026755050497158607,
+        "tsv_loss": 2.28573070136024e-05,
+        "centroid_loss": 6.317674731698667e-05,
+        "independent_closure_count": 195,
+        "independent_closure_counts": {
+          "phase": 117,
+          "logamp": 78
+        },
+        "centroid_arcsec": [
+          -3.8090644916870846,
+          -5.185994679888227
+        ],
+        "parameter_sum_penalty": 2.3439752904658953e-07,
+        "start": 0,
+        "circular_warmup_iterations": 100,
+        "iterations": 100,
+        "optimizer_success": false,
+        "optimizer_message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+        "elapsed_s": 0.32392325800901745
+      }
+    ]
+  },
+  "failed": {
+    "state": "failed",
+    "sequence_failure": {
+      "completed_window_count": 1,
+      "total_window_count": 2,
+      "current_window_index": 1,
+      "phase": "window_0:rate_corrected_short_correlation"
+    }
+  },
+  "cancelled": {
+    "state": "cancelled",
+    "reached_running_subprocess": true
+  },
+  "real_hardware_validation_performed": false
+}

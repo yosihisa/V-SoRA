@@ -112,4 +112,6 @@
 
 | 060 | [三角形間の誤差相関の日本語GUI](060-joint-bispectrum-gui.md) | source/wheel572件成功。実Chromiumで5条件の全表示値・図の説明、日本語/390px・JS/外部通信0。RML未適用 |
 
+| 061 | [三次統計の追加の和の蓄積](061-streaming-bispectrum-sums.md) | 最終source/wheel610件成功。chunk FFTとバッチU₃の差約10⁻¹⁷。初回installedの状態API競合を再現修正、実区間列ブラウザで完了・失敗・中止 |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。

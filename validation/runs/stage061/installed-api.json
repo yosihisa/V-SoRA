@@ -1,0 +1,11 @@
+{
+  "state": "complete",
+  "installed_imports": true,
+  "outside_checkout": true,
+  "pythonpath_removed": true,
+  "chunked_common_mask_batch_match": true,
+  "input_sample_independence_verified": false,
+  "input_mask_independence_verified": false,
+  "production_visibility_statistics_changed": false,
+  "production_rml_noise_model_changed": false
+}
