@@ -1,5 +1,7 @@
 """Bounded VDIF clock/geometric alignment for short reference chunks."""
 import json
+import hashlib
+import math
 from pathlib import Path
 import numpy as np
 import astropy.units as u
@@ -7,6 +9,7 @@ from astropy.time import Time
 from scipy.signal import firwin,lfilter
 from vsora_formats.vdif import iter_vdif_frames
 from vsora_formats.spectral import save_spectral
+from vsora_formats.bispectrum import save_bispectrum,load_bispectrum,MAX_CELLS
 from vsora_observation.geometry import geometry_at_times
 from .clock import interpolate_samples
 from .stream_fx import FXAccumulator
@@ -31,6 +34,17 @@ def validate_aligned_dimensions(config, integrations):
     if cells > MAX_SPECTRAL_CELLS:
         raise ValueError('aligned reference chunk exceeds one million spectral cells')
     return ns, span, cells
+
+
+def validate_bispectrum_dimensions(config,integrations):
+    """Bound opt-in raw third-order arrays before reading VDIF."""
+    validate_aligned_dimensions(config,integrations)
+    n=len(config['stations']);nf=config['fft_length'];m=config['blocks_per_integration']
+    if not 3<=n<=8 or not 2<=nf<=4096 or not 1<=m<=1000000:
+        raise ValueError('raw bispectrum requires3..8 stations, FFT2..4096 and <=1000000 blocks per integration')
+    cells=integrations*nf*math.comb(n,3)
+    if cells>MAX_CELLS:raise ValueError('raw bispectrum exceeds supported time-channel-triangle cells')
+    return cells
 
 
 class SampleBuffer:
@@ -78,16 +92,17 @@ class SampleBuffer:
         if self.reader is not None:self.reader.close()
 
 
-def correlate_aligned(manifest,clock_model,output,integrations,start_offset_s=.002,rate_profile=None,allow_rate_extrapolation=False,seek_input=True):
+def correlate_aligned(manifest,clock_model,output,integrations,start_offset_s=.002,rate_profile=None,allow_rate_extrapolation=False,seek_input=True,collect_bispectrum=False):
+    if not isinstance(collect_bispectrum,bool):raise ValueError("collect_bispectrum bool required")
     if not isinstance(seek_input,bool):raise ValueError('seek_input bool required')
     c=load_session(manifest);config=c['_config'];fs=c['sample_rate_hz']
     if not c['phase_center_correction']: raise ValueError('aligned mode requires explicit phase-center correction')
     ns,span,spectral_cells=validate_aligned_dimensions(c,integrations)
+    if collect_bispectrum:validate_bispectrum_dimensions(c,integrations)
     if not np.isfinite(start_offset_s) or start_offset_s<0: raise ValueError('nonnegative start offset required')
-    clock=json.loads(Path(clock_model).read_text())
+    clock_bytes=Path(clock_model).read_bytes();clock=json.loads(clock_bytes)
     rate=np.zeros(len(c['stations']));slopes=np.zeros_like(rate);rate_epoch=0.;rate_sha=None;rate_type=None
     if rate_profile:
-        import hashlib
         profile=json.loads(Path(rate_profile).read_text())
         rate_type=profile.get('type')
         if rate_type=='station_rate_linear':
@@ -129,7 +144,7 @@ def correlate_aligned(manifest,clock_model,output,integrations,start_offset_s=.0
     try:
         maximum_chunk_samples=0
         for index in range(integrations):
-            accumulator=FXAccumulator(len(buffers),fs,c['fft_length'],config['observation']['frequency_hz'],c.get('spectral_quality'))
+            accumulator=FXAccumulator(len(buffers),fs,c['fft_length'],config['observation']['frequency_hz'],c.get('spectral_quality'),collect_bispectrum=collect_bispectrum)
             chunk_samples=max(c['fft_length'],8192//c['fft_length']*c['fft_length'])
             for first in range(0,ns,chunk_samples):
                 count=min(chunk_samples,ns-first)
@@ -148,6 +163,11 @@ def correlate_aligned(manifest,clock_model,output,integrations,start_offset_s=.0
             maximum_chunk_samples=max(maximum_chunk_samples,accumulator.maximum_chunk_samples)
             r['weights'][:,abs(r['frequencies_hz']-config['observation']['frequency_hz'])>band]=0
             r['weights']*=g['elevation_valid'][index]
+            if collect_bispectrum:
+                raw=r['raw_bispectrum'];pair_index={tuple(pair):n for n,pair in enumerate(r['pairs'])}
+                for triangle,(i,j,k) in enumerate(raw['triangles']):
+                    indices=[pair_index[(i,j)],pair_index[(j,k)],pair_index[(i,k)]]
+                    raw['channel_triangle_usable'][:,triangle]&=(r['weights'][0][:,indices]>0).all(axis=1)
             results.append(r)
         f=results[0]['frequencies_hz']
         cube={'visibilities':np.array([r['vis_jy'][0] for r in results]),'weights':np.array([r['weights'][0] for r in results]),
@@ -171,6 +191,37 @@ def correlate_aligned(manifest,clock_model,output,integrations,start_offset_s=.0
         if 'spectral_quality' in c:
             meta.update(spectral_quality=c['spectral_quality'],diagnostic_power_unit='ADC^2' if c['voltage_unit']=='ADC' else 'Jy')
         save_spectral(partial/'shard-00000.npz',cube,meta)
+        raw_summary=None
+        if collect_bispectrum:
+            states=[r['raw_bispectrum'] for r in results]
+            data={'triangles':states[0]['triangles'],'times_s':offsets,'frequencies_hz':f,
+                  'common_fft_count':np.array([q['common_sample_count'] for q in states]),
+                  'nominal_fft_count':np.array([q['nominal_blocks_seen'] for q in states]),
+                  'edge_sums':np.array([q['edge_sums'] for q in states]),
+                  'paired_edge_sums':np.array([q['paired_edge_sums'] for q in states]),
+                  'triple_edge_sum':np.array([q['triple_edge_sum'] for q in states]),
+                  'channel_triangle_usable':np.array([q['channel_triangle_usable'] for q in states])}
+            source=partial/'shard-00000.npz'
+            with source.open('rb') as stream:digest=hashlib.file_digest(stream,'sha256').hexdigest()
+            raw_meta={'station_ids':[s['id'] for s in config['stations']],'time_origin_utc':meta['time_origin_utc'],
+                      'voltage_unit':c['voltage_unit'],'fft_length':c['fft_length'],'sample_rate_hz':fs,
+                      'visibility_sha256':digest,'processing_notes':[
+                          'VDIF8bit complex EDV0; supplied decoded voltage scale and linear sample clocks.',
+                          '65-tap Kaiser lowpass with delay compensation; 65-tap fractional sample interpolation.',
+                          'Geometric sample alignment and RF rephasing; rectangular unitary nonoverlapping FFT blocks.',
+                          'Common valid FFT blocks of each triangle; SK, RF guard and elevation affect usability.',
+                          'clock_model_sha256='+hashlib.sha256(clock_bytes).hexdigest(),
+                          'rate_profile_sha256='+str(rate_sha),
+                          'Actual FFT/mask independence, raw U3 likelihood and real receiver behavior unverified.']}
+            destination=partial/'raw-bispectrum.npz';save_bispectrum(destination,data,raw_meta)
+            checked=load_bispectrum(destination,source)
+            raw_summary={'filename':destination.name,'schema_version':1,'bytes':destination.stat().st_size,
+                         'visibility_sha256':digest,'source_visibility_verified':checked['source_visibility_verified'],
+                         'common_fft_count':data['common_fft_count'].tolist(),
+                         'usable_channel_triangles':int(data['channel_triangle_usable'].sum()),
+                         'total_channel_triangles':int(data['channel_triangle_usable'].size),
+                         'input_sample_independence_verified':False,'input_mask_independence_verified':False,
+                         'production_rml_noise_model_changed':False}
         summary={'state':'complete','integrations':integrations,'recorded_span_s':span,'start_offset_s':start_offset_s,
                  'station_max_buffer_samples':[b.maximum for b in buffers],
                  'station_decoded_frames':[b.frames_read for b in buffers],'station_read_start_samples':[b.initial_sample_index for b in buffers],
@@ -180,6 +231,7 @@ def correlate_aligned(manifest,clock_model,output,integrations,start_offset_s=.0
                  'clock_model':'Supplied linear ADC mapping; no automatic weak-source clock recovery',
                  'geometry':'Sample alignment and RF rephasing; piecewise linear delay over <=1s per segment, <=3s total, <=600m',
                  'weight_note':results[0]['noise_weight_assumption']+'; filtered FFT correlations not fully modeled'}
+        if collect_bispectrum:summary['raw_bispectrum']=raw_summary
         (partial/'summary.json').write_text(json.dumps(summary,indent=2)+'\n');partial.rename(out)
         return summary
     except Exception as exc:

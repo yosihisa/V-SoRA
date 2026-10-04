@@ -1,0 +1,131 @@
+{
+  "type": "vdif_bispectrum_validation",
+  "state": "complete",
+  "seed": 64,
+  "generating": {
+    "seed": 64,
+    "generating_sky": "Common continuous band-limited Gaussian point at phase center, 1000Jy",
+    "generating_sefd_jy": 10000,
+    "true_rates_hz": [
+      0.0,
+      17.3,
+      -11.7,
+      26.1
+    ],
+    "rate_slopes_hz_per_s": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "phase_modulation_hz": 0.0,
+    "phase_modulation_amplitudes_rad": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "rate_changes": [],
+    "input_samples_per_station": 286720,
+    "recorded_span_s": 0.14,
+    "max_broadband_delay_phase_approximation_rad": 6.077997092211717e-06,
+    "clock": "Supplied exact nominal clocks; zero sample offsets",
+    "band": "Continuous periodic Fourier realization, |f| <= 0.25 Fs; accepted |f| <= 0.2 Fs",
+    "limits": "No extended sky, nonlinear sample clock, stochastic LO phase noise, RFI or real receiver; optional generating linear rate slopes and steps; RF delay is piecewise linear over <=1s, broadband delay fixed at midpoint"
+  },
+  "input_files": [
+    {
+      "station_id": "ST01",
+      "vdif_sha256": "7e3cc3c8fd4d7f106b12d9f6d0ca80b0c89b2b84bdcc7cd12a755ef9f003526b",
+      "bytes": 575680,
+      "clipped_fraction": 0.0
+    },
+    {
+      "station_id": "ST02",
+      "vdif_sha256": "095b7d615c0a99e3c5aa1eb6947b077259837b278445a87c2cf2cad7c4a4a56b",
+      "bytes": 575680,
+      "clipped_fraction": 0.0
+    },
+    {
+      "station_id": "ST03",
+      "vdif_sha256": "5c08677bcad817ed8cf14c374c9b91fbe9d2b4b2f9c07cb1800f0cfd26ceaad9",
+      "bytes": 575680,
+      "clipped_fraction": 0.0
+    },
+    {
+      "station_id": "ST04",
+      "vdif_sha256": "2a9cc9f42557ba5f5a9e614afcb09ce38b975ed4e968c2a11a2bb5b31c499561",
+      "bytes": 575680,
+      "clipped_fraction": 0.0
+    }
+  ],
+  "invalid_frames_by_station": [
+    [
+      7
+    ],
+    [
+      19
+    ],
+    [],
+    []
+  ],
+  "integrations": 2,
+  "nominal_integration_s": 0.05,
+  "recorded_span_s": 0.1,
+  "ordinary_numeric_arrays_compared": 13,
+  "ordinary_arrays_bit_identical": true,
+  "ordinary_metadata_identical": true,
+  "default_has_no_raw_sidecar": true,
+  "source_visibility_verified": true,
+  "common_fft_count": [
+    [
+      2935,
+      2935,
+      3068,
+      3067
+    ],
+    [
+      3200,
+      3200,
+      3200,
+      3200
+    ]
+  ],
+  "source_baseline_fft_count": [
+    [
+      2935,
+      3068,
+      3068,
+      3067,
+      3067,
+      3200
+    ],
+    [
+      3200,
+      3200,
+      3200,
+      3200,
+      3200,
+      3200
+    ]
+  ],
+  "raw_sidecar_bytes": 28599,
+  "source_visibility_bytes": 23830,
+  "raw_sidecar_uncompressed_numeric_bytes": 33480,
+  "usable_channel_triangles": 96,
+  "total_channel_triangles": 256,
+  "station_max_buffer_samples": [
+    12288,
+    12290,
+    12290,
+    12291
+  ],
+  "maximum_fx_chunk_samples": 8192,
+  "supplied_rate_profile_used": true,
+  "automatic_rate_recovery_tested": false,
+  "vdif_fir_interpolation_geometry_processed": true,
+  "actual_temporal_independence_verified": false,
+  "production_rml_noise_model_changed": false,
+  "real_hardware_validation_performed": false,
+  "scope": "Synthetic band-limited phase-center Gaussian source, known fixed gains and supplied clocks/rates, VDIF8bit -> FIR65/interpolation65/geometric and RF correction -> FX raw sums -> checked sidecar. Missing frames and RF masks. Not actual independence, weak-signal detection, closure likelihood or Cas A image fidelity."
+}

@@ -1,0 +1,29 @@
+{
+  "state": "complete",
+  "installed_imports": true,
+  "outside_checkout": true,
+  "pythonpath_removed": true,
+  "installed_cli_save_bispectrum": true,
+  "frozen_vdif_recorrelated": true,
+  "ordinary_numeric_arrays_compared": 13,
+  "ordinary_arrays_bit_identical": true,
+  "ordinary_metadata_identical": true,
+  "source_visibility_verified": true,
+  "common_fft_count": [
+    [
+      2935,
+      2935,
+      3068,
+      3067
+    ],
+    [
+      3200,
+      3200,
+      3200,
+      3200
+    ]
+  ],
+  "no_overwrite_checked": true,
+  "actual_temporal_independence_verified": false,
+  "production_rml_noise_model_changed": false
+}

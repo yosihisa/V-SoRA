@@ -40,3 +40,8 @@ raw sumsは有限な複素配列で、保持数0の和は0です。3〜8局・FF
 NPZの余分な項目、object配列、不正version/header、宣言容量とpayloadの矛盾、非有限値、不正なshape・単位・標本数を拒否します。宣言非圧縮容量は40MiBまでです。未知の雑音共分散の推定、局power正規化、RMLへの適用は含みません。
 
 [蓄積式](streaming-bispectrum.md)、[段階062レポート](../docs/reports/062-bispectrum-sidecar-format.md)
+# VDIF相関での保存指定
+
+段階064から `vsora-correlate correlate-aligned --manifest inputs/manifest.json --clock-model inputs/clock.json --output outputs/correlation --integrations 2 --save-bispectrum` で明示的に保存できます。rate補正を使う場合は対応する `--rate-profile` を加えます。`shard-00000.npz` と `raw-bispectrum.npz` を一緒に保持してください。既定では追加統計を出力しません。
+
+三角形の利用可否は、共通数M≥3、品質flag、帯域guard、仰角による元基線の正重みを反映します。利用不可でも追加統計を消去しません。処理notesにはFIR・補間・FFT規約、使用したclock modelとrate profileのSHAを記録します。名目の非重複FFT数は、実際の独立標本数ではありません。実FFTの独立性と品質選別の独立性は未確認で、RMLには自動適用しません。

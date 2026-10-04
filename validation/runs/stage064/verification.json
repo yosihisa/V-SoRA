@@ -1,0 +1,18 @@
+{
+  "state":"complete",
+  "source":{"passed":704,"warnings":24516,"seconds":439.73},
+  "installed":{"passed":704,"warnings":24516,"seconds":439.48},
+  "targeted_final":{"passed":16,"warnings":564,"seconds":3.36},
+  "workflow_final":{"seconds":2.97,"max_rss_kib":286808},
+  "initial_workflow":{"seconds":3.18,"max_rss_kib":286528},
+  "figure_ticks_and_colorbar_improved":true,
+  "initial_and_final_workflow_input_and_scientific_results_identical":true,
+  "wheel":{"bytes":5495696,"sha256":"0683f2a7d5db3ac7d8ce83f487e8a5c210e617df444766d5de3f4d3b2d63d98d"},
+  "pip_check":"No broken requirements found.",
+  "source_then_installed_cli_then_installed_regression":true,
+  "no_test_exclusions":true,
+  "synthetic_vdif_fir_interpolation_geometry_processed":true,
+  "actual_temporal_independence_verified":false,
+  "production_rml_noise_model_changed":false,
+  "real_hardware_validation_performed":false
+}

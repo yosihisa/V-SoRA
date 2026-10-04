@@ -118,4 +118,6 @@
 
 | 063 | [相関器のFFTから三次統計を収集](063-fx-bispectrum-accumulation.md) | source/wheel688件成功。0.1秒合成IQで既存7/12配列差0、局別欠損の共通U₃とバッチ一致。実VDIFの経路は次段階 |
 
+| 064 | [VDIF相関から三次統計を保存](064-vdif-bispectrum-sidecar.md) | source/wheel704件成功。実合成VDIFのFIR・補間・幾何補正後のU₃、元13配列・metadata差0。欠損/RF/仰角、導入済みCLIと元相関照合 |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。
