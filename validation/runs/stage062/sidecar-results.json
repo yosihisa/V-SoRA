@@ -1,0 +1,53 @@
+{
+  "type": "bispectrum_sidecar_validation",
+  "state": "complete",
+  "seed": 62,
+  "times": 2,
+  "channels": 8,
+  "stations": 4,
+  "triangles": 4,
+  "common_fft_count": [
+    [
+      13,
+      13,
+      15,
+      15
+    ],
+    [
+      14,
+      16,
+      13,
+      13
+    ]
+  ],
+  "source_baseline_fft_count": [
+    [
+      13,
+      15,
+      15,
+      15,
+      15,
+      17
+    ],
+    [
+      17,
+      14,
+      16,
+      14,
+      16,
+      13
+    ]
+  ],
+  "visibility_sha256": "bd6263715346cb18e9005ef9d100a22d724a5f968de97b3b3cd272162e0044b5",
+  "input_iq_complex128_le_sha256": "84b9ee61fd6a69a51891a1e2b3d26bdb4ee79a688a31c8a7a8c1ff878ba23048",
+  "source_visibility_verified": true,
+  "raw_arrays_roundtrip_exact": true,
+  "maximum_absolute_batch_u3_difference": 3.273069708340169e-17,
+  "raw_sidecar_bytes": 10066,
+  "source_visibility_bytes": 3999,
+  "actual_temporal_independence_verified": false,
+  "physical_adc_vdif_processed": false,
+  "real_hardware_validation_performed": false,
+  "production_rml_noise_model_changed": false,
+  "scope": "Synthetic IQ -> chunk FFT/raw sums -> version1 sidecar -> raw U3 reconstruction and source spectral hash/axes/stations/units/counts/same-count mean checks. Format-only weights/zero UVW; no actual independent FFT, empirical uncertainty, normalization or imaging."
+}

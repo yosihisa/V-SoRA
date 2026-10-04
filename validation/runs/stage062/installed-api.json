@@ -1,0 +1,11 @@
+{
+  "state": "complete",
+  "installed_imports": true,
+  "outside_checkout": true,
+  "pythonpath_removed": true,
+  "source_visibility_verified": true,
+  "raw_u3_reconstruction_matches_accumulator": true,
+  "same_count_edge_means_checked": true,
+  "actual_temporal_independence_verified": false,
+  "production_rml_noise_model_changed": false
+}

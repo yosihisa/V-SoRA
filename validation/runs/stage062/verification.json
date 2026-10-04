@@ -1,0 +1,15 @@
+{
+  "state": "complete",
+  "source": {"passed": 669, "warnings": 23952, "seconds": 428.83},
+  "installed": {"passed": 669, "warnings": 23952, "seconds": 432.50},
+  "targeted": {"passed": 59, "seconds": 0.50},
+  "workflow": {"seconds": 0.36, "max_rss_kib": 79868},
+  "wheel": {"bytes": 5494183, "sha256": "012605ebb3662e57e7c963cfff9afec79721713fba4838d5395c2b9791dbb1a2"},
+  "pip_check": "No broken requirements found.",
+  "source_then_installed_api_then_installed_regression": true,
+  "no_test_exclusions": true,
+  "physical_adc_vdif_processed": false,
+  "actual_temporal_independence_verified": false,
+  "production_rml_noise_model_changed": false,
+  "real_hardware_validation_performed": false
+}
