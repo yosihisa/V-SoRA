@@ -1,0 +1,31 @@
+{
+  "state": "complete",
+  "installed_imports": true,
+  "known_random_psd_input": true,
+  "monte_carlo_performed": false,
+  "actual_temporal_independence_verified": false,
+  "cases": [
+    {
+      "stations": 8,
+      "triangles": 56,
+      "independent_samples_assumed": 3,
+      "real_covariance_shape": [
+        112,
+        112
+      ],
+      "minimum_real_covariance_eigenvalue": 1.7226879950611786,
+      "finite_and_psd": true
+    },
+    {
+      "stations": 8,
+      "triangles": 56,
+      "independent_samples_assumed": 1000000,
+      "real_covariance_shape": [
+        112,
+        112
+      ],
+      "minimum_real_covariance_eigenvalue": 1.486751685686545e-13,
+      "finite_and_psd": true
+    }
+  ]
+}

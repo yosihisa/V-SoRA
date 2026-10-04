@@ -1,0 +1,39 @@
+{
+  "state": "complete",
+  "source": {
+    "passed": 571,
+    "warnings": 23952,
+    "seconds": 424.4
+  },
+  "installed": {
+    "passed": 571,
+    "warnings": 23952,
+    "seconds": 422.02
+  },
+  "targeted": {
+    "passed": 31,
+    "seconds": 1.16
+  },
+  "no_test_exclusions": true,
+  "source_then_installed_api_then_installed_regression": true,
+  "wheel": {
+    "bytes": 5487303,
+    "sha256": "32768c89d59fb0fadb81aaa1edda6b934d0c008984337a2d53f54a9166c1fa98"
+  },
+  "pip_check": "No broken requirements found.",
+  "monte_carlo": {
+    "cases": 5,
+    "trials_per_case": 8192,
+    "seconds": 0.88,
+    "max_rss_kib": 85448,
+    "all_fixed_6se_criteria_passed": true
+  },
+  "initial_file_test_failure_preserved": {
+    "trials": 128,
+    "maximum_covariance_difference_mc_se": 6.140064917,
+    "criterion_mc_se": 6,
+    "failure_state_test_added": true,
+    "seed_or_criterion_changed": false
+  },
+  "scope": "Exact known iid proper Gaussian voltage U3 joint moments. No empirical covariance, Gaussian U3 likelihood, actual FFT independence or image confidence."
+}

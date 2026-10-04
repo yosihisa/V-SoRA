@@ -1,0 +1,12 @@
+{
+  "state": "complete",
+  "installed_imports": true,
+  "outside_checkout": true,
+  "pythonpath_removed": true,
+  "null_limit_verified": true,
+  "fixed_gain_covariance_verified": true,
+  "real_covariance_psd_verified": true,
+  "distribution_gaussian_assumed": false,
+  "actual_temporal_independence_verified": false,
+  "production_rml_noise_model_changed": false
+}

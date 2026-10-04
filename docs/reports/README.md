@@ -108,4 +108,6 @@
 
 | 058 | [三基線積の短積分比較GUI](058-bispectrum-sensitivity-gui.md) | source/wheel540件成功。実Chromiumで5分散・32仮定行の全数値、日本語/390px・JS/外部通信0。実機観測時間は未計算 |
 
+| 059 | [天体信号を含む三基線積の全共分散](059-joint-bispectrum-moments.md) | source/wheel571件成功。独立添字列挙・Gaussian5条件×8192試行で共有三角形の全実共分散。実機・非Gaussian尤度・画像は未確認 |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。
