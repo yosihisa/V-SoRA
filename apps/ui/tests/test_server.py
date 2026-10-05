@@ -495,3 +495,27 @@ def test_signal_temporal_choice_and_label(tmp_path):
     with TestClient(create_app(tmp_path),base_url='http://127.0.0.1') as client:
         assert 'value="signal_temporal_bispectrum"' in client.get('/').text
     with pytest.raises(ValueError):ValidationRequest(validation='signal_temporal_unknown')
+
+def test_bispectrum_pooling_validation_real_subprocess(tmp_path):
+    (tmp_path/'tools').mkdir()
+    (tmp_path/'tools/run.py').symlink_to(Path(__file__).resolve().parents[3]/'tools/run.py')
+    with TestClient(create_app(tmp_path),base_url='http://127.0.0.1') as client:
+        r=client.post('/api/jobs',json={'kind':'validation','validation':'bispectrum_pooling'},headers=HEADERS)
+        assert r.status_code==202;job=wait(client,r.json()['id'],30);assert job['state']=='complete',job
+        q=job['summary'];assert q['type']=='independent_group_bispectrum_pooling_validation' and len(q['cases'])==15
+        assert q['trials_per_model']==8192 and all(c['all_calculated_moments_within_6se'] for c in q['cases'])
+        phase=q['frequency_dependent_phase_example'];assert phase['all_calculated_moments_within_6se'] and phase['fixed_per_group_phase_invariance_checked']
+        assert not q['observed_frequency_coaddition_performed'] and not q['frequency_phase_alignment_performed']
+        assert not q['actual_frequency_independence_verified'] and not q['production_rml_noise_model_changed']
+        assert client.get(f"/api/jobs/{job['id']}/artifacts/validation/bispectrum-pooling.png").status_code==200
+        assert client.get(f"/api/jobs/{job['id']}/artifacts/validation/summary.json").json()==q
+
+
+def test_bispectrum_pooling_choice_and_label(tmp_path):
+    from vsora_ui.models import ValidationRequest
+    from vsora_ui.jobs import LABELS
+    assert ValidationRequest(validation='bispectrum_pooling').validation=='bispectrum_pooling'
+    assert LABELS['bispectrum_pooling']=='周波数群の三次統計・標本のまとめ方'
+    with TestClient(create_app(tmp_path),base_url='http://127.0.0.1') as client:
+        assert 'value="bispectrum_pooling"' in client.get('/').text
+    with pytest.raises(ValueError):ValidationRequest(validation='pooling_unknown')

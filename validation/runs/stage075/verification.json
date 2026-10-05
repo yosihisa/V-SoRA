@@ -1,0 +1,45 @@
+{
+  "state": "complete",
+  "python": "3.12.3",
+  "numpy": "2.5.1",
+  "scipy": "1.18.0",
+  "pytest": "8.4.2",
+  "chromium": "153.0.8010.12",
+  "blas_threads": 1,
+  "omp_threads": 1,
+  "targeted_tests": {
+    "passed": 2,
+    "deselected": 47,
+    "warnings": 1,
+    "elapsed_s": 5.15
+  },
+  "full_regression": {
+    "source": {
+      "passed": 911,
+      "warnings": 25596,
+      "elapsed_s": 554.99,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 911,
+      "warnings": 25596,
+      "elapsed_s": 554.56,
+      "excluded_tests": 0
+    }
+  },
+  "pip_check_passed": true,
+  "wheel": {
+    "filename": "v_sora-0.1.0-py3-none-any.whl",
+    "bytes": 5512440,
+    "sha256": "b425a1592d4e6762cf5e79b9c5d51c6b3f3fa2878aa96391a9759884ea85c589",
+    "packaged_files_identical_to_source": 74
+  },
+  "source_and_installed_gui_real_workflow_identical_to_stage074": true,
+  "scientific_reference": "validation/runs/stage074/known-independent-groups.json",
+  "verification_order": "targeted real worker, source Chromium, source full, wheel install, installed Chromium, installed full",
+  "observed_statistic_logarithms_taken": false,
+  "noise_likelihood_implemented": false,
+  "production_rml_noise_model_changed": false,
+  "actual_hardware_data": false,
+  "private_logs": "outputs/stage075-source-final/ and outputs/stage075-installed-final/; ignored"
+}
