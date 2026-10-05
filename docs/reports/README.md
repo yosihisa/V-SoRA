@@ -138,4 +138,6 @@
 
 | 073 | [天体信号と共通時間相関の平均比較を日本語GUIで確認](073-bispectrum-signal-temporal-gui.md) | source/wheel874件成功。実workerと両実Chromiumで概要25行・詳細200行の全値、JSON、図説明、日本語/390pxを確認。全科学計算は072と完全一致 |
 
+| 074 | [独立周波数群の三次統計とまとめ方の条件](074-bispectrum-independent-group-pooling.md) | source/wheel909件成功。全順序三つ組と15条件各8,192反復を照合。同じSの分散改善幅は信号で異なり、群別局位相で標本混合の母平均が変わる。実FFT・未知補正・画像への適用は未確認 |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。

@@ -1,0 +1,57 @@
+{
+  "state": "complete",
+  "python": "3.12.3",
+  "numpy": "2.5.1",
+  "scipy": "1.18.0",
+  "pytest": "8.4.2",
+  "blas_threads": 1,
+  "omp_threads": 1,
+  "targeted_tests": {
+    "passed": 35,
+    "elapsed_s": 0.22
+  },
+  "full_regression": {
+    "source": {
+      "passed": 909,
+      "warnings": 25596,
+      "elapsed_s": 552.58,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 909,
+      "warnings": 25596,
+      "elapsed_s": 549.06,
+      "excluded_tests": 0
+    }
+  },
+  "pip_check_passed": true,
+  "wheel": {
+    "filename": "v_sora-0.1.0-py3-none-any.whl",
+    "bytes": 5511264,
+    "sha256": "c7899af855f407f15cc68ad36470e0f1337f0d9580f0f4deda69ee16255e1800",
+    "packaged_files_identical_to_source": 74
+  },
+  "independent_group_experiment": {
+    "state": "complete",
+    "conditions": 15,
+    "trials_per_model": 8192,
+    "seeds": [
+      74,
+      75,
+      76,
+      77,
+      78,
+      79
+    ],
+    "elapsed_s": 5.02,
+    "max_rss_kib": 495460,
+    "entire_result_matches_preliminary": true
+  },
+  "heterogeneous_group_covariance_calculated": false,
+  "observed_frequency_coaddition_performed": false,
+  "frequency_phase_alignment_performed": false,
+  "actual_frequency_independence_verified": false,
+  "production_rml_noise_model_changed": false,
+  "actual_hardware_data": false,
+  "private_logs": "outputs/stage074-source-final/ and outputs/stage074-installed-final/; ignored"
+}
