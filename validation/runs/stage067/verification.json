@@ -1,0 +1,45 @@
+{
+  "state": "complete",
+  "python": "3.12.3",
+  "numpy": "2.5.1",
+  "scipy": "1.18.0",
+  "pytest": "8.4.2",
+  "blas_threads": 1,
+  "omp_threads": 1,
+  "targeted_tests": {
+    "passed": 38,
+    "elapsed_s": 1.81
+  },
+  "full_regression": {
+    "source": {
+      "passed": 761,
+      "warnings": 25596,
+      "elapsed_s": 462.1,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 761,
+      "warnings": 25596,
+      "elapsed_s": 459.65,
+      "excluded_tests": 0
+    }
+  },
+  "pip_check_passed": true,
+  "wheel": {
+    "filename": "v_sora-0.1.0-py3-none-any.whl",
+    "bytes": 5502352,
+    "sha256": "3322bea2cca3d1a385d16843084eabed190a0c9b24d9ef8289f251921c0e938f",
+    "packaged_files_identical_to_source": 70
+  },
+  "verification_order": "source full after timestamp fixture correction, wheel install, outside-checkout Chromium, installed full",
+  "initial_source_run": {
+    "passed": 760,
+    "failed": 1,
+    "elapsed_s": 463.53
+  },
+  "chromium": "153.0.8010.12",
+  "noise_covariance_estimated": false,
+  "production_rml_noise_model_changed": false,
+  "actual_hardware_data": false,
+  "private_logs": "outputs/stage067-source-final/ and outputs/stage067-installed-final/; ignored"
+}

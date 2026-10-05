@@ -24,6 +24,7 @@
         <button class="nav-button" data-panel="sequence">区間列解析</button>
         <button class="nav-button" data-panel="sensitivity">感度計画</button>
         <button class="nav-button" data-panel="synthesis">合成画像</button>
+        <button class="nav-button" data-panel="raw">保存三次統計</button>
         <button class="nav-button" data-panel="noise">雑音診断</button>
         <button class="nav-button" data-panel="history">実行履歴</button>
         <button class="nav-button" data-panel="help">使い方</button>
@@ -210,6 +211,26 @@
           <div class="explanation-stack">
             <div class="card"><h2>局の雑音も基線間で共有する</h2><p>局powerと複素相関を同じFFT集合で測っていると、基線間の雑音の関係を推定できます。真の天体画像や局gainを診断へ与える必要はありません。</p><p>処理完了と、条件付き推定・未判定・無効は別々に表示します。旧ファイルにFFT数がなければ推測して補いません。</p></div>
             <div class="note-card"><h3>計算の仮定を確認する</h3><p>独立・平均0・Gaussian電圧と、区間中に一定の局共分散を仮定します。FFT数は実際の独立標本数ではありません。FIR・補間・量子化・RFI・実機の信頼区間は未検証です。</p><p>Closureの誤差は一次近似です。現行RMLの重み・採否に適用する処理ではありません。</p></div>
+          </div>
+        </div>
+      </section>
+      <section id="panel-raw" class="panel hidden">
+        <div class="page-heading"><div class="eyebrow">STORED STATISTICS</div><h1>保存した三次統計を確認する</h1><p>追加統計と元相関を照合し、時刻・RFごとに三角形の値と利用可否を確認します。</p></div>
+        <div class="two-column">
+          <form id="raw-form" class="card">
+            <h2>保存ファイルと確認する場所</h2>
+            <label>三次統計を保存した解析の履歴<select id="raw-input-history"><option value="">履歴を読み込みます</option></select></label>
+            <button type="button" id="choose-raw-input" class="secondary" disabled>選んだ二つのファイルを入力に使う</button>
+            <label>WSL側の追加統計NPZ<input name="input" type="text" maxlength="512" placeholder="outputs/run/correlation/raw-bispectrum.npz" required></label>
+            <label>対応する元相関NPZ<input name="source_visibility" type="text" maxlength="512" placeholder="outputs/run/correlation/shard-00000.npz" required></label>
+            <button type="button" id="read-raw-input" class="secondary">二つの入力を照合し時刻・周波数を読む</button>
+            <p id="raw-input-note" class="field-help" role="status">二つの保存済みファイルを指定し、時刻・周波数を読み込んでください。</p>
+            <div class="form-row"><label>確認する時刻<select name="time_index" disabled required></select></label><label>確認するRF周波数<select name="channel_index" disabled required></select></label></div>
+            <button type="submit" class="primary full" disabled>選んだ三次統計の値を確認</button>
+          </form>
+          <div class="explanation-stack">
+            <div class="card"><h2>三つの状態を区別する</h2><p>三局に共通するFFTが3個未満ならU₃は未計算です。品質マスクで除外された値は利用不可として表示します。形式上利用可でも、実FFTが独立であることや十分な感度があることは保証しません。</p><p>複素数は実部・虚部の組で読みます。未計算は、測定したゼロとは異なります。</p></div>
+            <div class="note-card"><h3>観測の成功を判定する機能ではありません</h3><p>元相関との照合は、対応する保存ファイルかを確認します。雑音の大きさ、位相の信頼度、検出確率、未知gainの正規化、画像品質は推定しません。現在のRMLへの適用はありません。</p><p>ファイルを変更した場合は時刻・周波数を読み直してください。</p></div>
           </div>
         </div>
       </section>

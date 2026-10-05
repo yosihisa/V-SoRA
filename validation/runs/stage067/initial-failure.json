@@ -1,0 +1,27 @@
+{
+  "source_initial": {
+    "passed": 760,
+    "failed": 1,
+    "warnings": 25596,
+    "elapsed_s": 463.53
+  },
+  "failed_case": "test_changed_during_axes_read[raw.npz]",
+  "failure": "DID NOT RAISE ValueError; touch did not necessarily advance observed timestamps",
+  "isolated_repetitions_before_fix": {
+    "passed": 8,
+    "failed": 0
+  },
+  "isolated_timestamp_probe": {
+    "trials": 200,
+    "write_then_touch_observable_timestamps_unchanged": 199,
+    "changed": 1,
+    "explicit_mtime_change_detected": true
+  },
+  "change": "Explicit os.utime nanoseconds increased by one second in UI and inspector input-change tests; production checks and pass criteria unchanged",
+  "related_targeted_reverification": {
+    "passed": 38,
+    "elapsed_s": 1.81
+  },
+  "full_source_reverification": "complete",
+  "full_source_reverification_passed": 761
+}

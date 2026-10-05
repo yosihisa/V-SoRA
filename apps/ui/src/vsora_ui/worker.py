@@ -5,7 +5,7 @@ from pathlib import Path
 import subprocess
 import sys
 from .jobs import write_json
-from .models import SimulationRequest,ValidationRequest,RmlRequest,AnalysisRequest,SequenceRequest,SynthesisRequest,SensitivityRequest,NoiseDiagnosticRequest,TimeScatterRequest
+from .models import SimulationRequest,ValidationRequest,RmlRequest,AnalysisRequest,SequenceRequest,SynthesisRequest,SensitivityRequest,NoiseDiagnosticRequest,TimeScatterRequest,BispectrumInspectionRequest
 
 
 def plot_sequence_rates(result,path):
@@ -80,7 +80,7 @@ def run(job):
     data=json.loads((job/'request.json').read_text());workspace=Path(data['workspace'])
     raw=data['request'];request={'simulation':SimulationRequest,'validation':ValidationRequest,'rml':RmlRequest,
                               'analysis':AnalysisRequest,'sequence':SequenceRequest,
-                              'synthesis':SynthesisRequest,'sensitivity':SensitivityRequest,'noise':NoiseDiagnosticRequest,'time_scatter':TimeScatterRequest}[raw['kind']](**raw)
+                              'synthesis':SynthesisRequest,'sensitivity':SensitivityRequest,'noise':NoiseDiagnosticRequest,'time_scatter':TimeScatterRequest,'bispectrum_inspection':BispectrumInspectionRequest}[raw['kind']](**raw)
     status=json.loads((job/'status.json').read_text())
     def phase(text,done=0):
         if (job/'cancel').exists(): raise InterruptedError('cancelled')
@@ -148,6 +148,11 @@ def run(job):
                 result=process_closure_session(input_path(request.manifest),input_path(request.clock_model),job/'analysis',
                                 progress=lambda step,done:phase(messages[step],done),**options)
                 plot_rate_parts(result['rate_consistency'],job/'analysis/rate-parts.png',result['rate_estimate'])
+            write_json(job/'summary.json',result)
+        elif request.kind=='bispectrum_inspection':
+            from .raw_bispectrum import inspect_selected_file
+            phase('元相関と選択時の原本を照合し、三次統計の値を確認しています')
+            result=inspect_selected_file(workspace,request,job/'bispectrum-inspection.json')
             write_json(job/'summary.json',result)
         elif request.kind=='noise':
             from vsora_correlator.noise_diagnostics import diagnose_noise_file
@@ -226,6 +231,10 @@ def run(job):
             'UTC origin differs':'相関とrate profileのUTC原点が一致しません。同じ観測のファイルを選んでください。',
             'station order differs':'相関とrate profileの局ID・順序または形式が一致しません。',
             'positive real integration':'正の時間露光が保存されていません。pilot相関の保存形式を確認してください。',
+            'selected raw/source identity changed':'時刻・周波数の選択後に原本が変わりました。入力情報を読み直して選んでください。',
+            'existing raw/source NPZ':'三次統計または対応する元相関NPZが見つかりません。保存済みの二つの入力を確認してください。',
+            'input changed during raw inspection':'確認中に入力が変更されました。保存済みの二つのファイルを固定して読み直してください。',
+            'visibility SHA256':'三次統計と元相関の識別情報が一致しません。対応する二つの保存ファイルを選んでください。',
             'integer time/channel indices':'時刻または周波数の番号が入力の範囲外です。入力情報を読み直して選んでください。',
             '指定したWSL側の相関NPZ':'指定したWSL側の相関NPZが見つかりません。入力ファイルの場所を確認してください。',
             'input changed during diagnostic':'診断中に入力が変更されました。保存済みのファイルを固定して再実行してください。',

@@ -124,4 +124,6 @@
 
 | 066 | [保存した三次統計を時刻と周波数で確認](066-bispectrum-inspection.md) | source/wheel743件成功。保存VDIFの利用可・マスクcell、M0/1/2のnull、原本照合・変更・上書き拒否、checkout外CLI一致。雑音・RML未適用 |
 
+| 067 | [保存三次統計の日本語GUI](067-bispectrum-inspection-gui.md) | 最終source/wheel761件成功。実Chromiumの全値・履歴の二入力・M0/1/2・マスク・JSON・日本語/390px。初回touchの時刻が変わらないテストを修正、基準は維持 |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。

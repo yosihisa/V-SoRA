@@ -7,7 +7,7 @@ from fastapi.responses import FileResponse,JSONResponse
 from fastapi.staticfiles import StaticFiles
 from starlette.middleware.trustedhost import TrustedHostMiddleware
 from .jobs import JobManager
-from .models import JobRequest,NoiseInputRequest
+from .models import JobRequest,NoiseInputRequest,BispectrumInputRequest
 
 
 def create_app(workspace):
@@ -46,6 +46,13 @@ def create_app(workspace):
         try:return input_axes(manager.workspace,request.input)
         except (ValueError,OSError,KeyError,EOFError,BadZipFile):
             raise HTTPException(400,'相関ファイルの読込に失敗しました。保存済みのspectral NPZを確認してください。') from None
+
+    @app.post('/api/bispectrum-input')
+    def bispectrum_input(request:BispectrumInputRequest):
+        from .raw_bispectrum import input_axes
+        try:return input_axes(manager.workspace,request.input,request.source_visibility)
+        except (ValueError,OSError,KeyError,EOFError,BadZipFile):
+            raise HTTPException(400,'三次統計と元相関の照合に失敗しました。対応する保存済みNPZを確認してください。') from None
 
     @app.get('/api/jobs')
     def jobs(): return manager.list()

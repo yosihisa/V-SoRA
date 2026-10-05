@@ -1,4 +1,5 @@
 import hashlib,json
+import os
 from itertools import combinations
 import numpy as np
 import pytest
@@ -80,7 +81,8 @@ def test_verified_file_identity_and_no_overwrite(tmp_path):
 def test_input_changed_during_read_refuses_output(tmp_path,monkeypatch,which):
     raw,source=files(tmp_path);original=module.load_bispectrum
     def changed(*a,**kw):
-        q=original(*a,**kw);(raw if which=='raw' else source).touch();return q
+        q=original(*a,**kw);path=raw if which=='raw' else source;stamp=path.stat()
+        os.utime(path,ns=(stamp.st_atime_ns,stamp.st_mtime_ns+1_000_000_000));return q
     monkeypatch.setattr(module,'load_bispectrum',changed)
     with pytest.raises(ValueError,match='changed'):module.inspect_bispectrum_file(raw,source,tmp_path/'inspect.json',1)
     assert not (tmp_path/'inspect.json').exists()

@@ -1,0 +1,130 @@
+{
+  "state": "complete",
+  "installed_gui_imports": true,
+  "source_checkout": false,
+  "outside_checkout": true,
+  "pythonpath_removed": true,
+  "browser": "153.0.8010.12",
+  "cases": [
+    {
+      "fixture": "frozen",
+      "time_index": 0,
+      "channel_index": 10,
+      "frequency_hz": 1419616000.0,
+      "raw_bispectrum_sha256": "a3b2b4862eee94a3a94fc37a30dd4a08a65e3a05a6f9a2bb98dcb174007cbe94",
+      "source_visibility_sha256": "b28deb4c8c4eee02906dec716c44bf2f42a7208158bb0ee03bf075ee608b44e9",
+      "common_fft_count": [
+        2935,
+        2935,
+        3068,
+        3067
+      ],
+      "states": [
+        "usable_raw_value",
+        "usable_raw_value",
+        "usable_raw_value",
+        "usable_raw_value"
+      ],
+      "json_matches_library": true
+    },
+    {
+      "fixture": "masked",
+      "time_index": 1,
+      "channel_index": 16,
+      "frequency_hz": 1420000000.0,
+      "raw_bispectrum_sha256": "a3b2b4862eee94a3a94fc37a30dd4a08a65e3a05a6f9a2bb98dcb174007cbe94",
+      "source_visibility_sha256": "b28deb4c8c4eee02906dec716c44bf2f42a7208158bb0ee03bf075ee608b44e9",
+      "common_fft_count": [
+        3200,
+        3200,
+        3200,
+        3200
+      ],
+      "states": [
+        "masked_raw_value",
+        "masked_raw_value",
+        "masked_raw_value",
+        "masked_raw_value"
+      ],
+      "json_matches_library": true
+    },
+    {
+      "fixture": "m0",
+      "time_index": 0,
+      "channel_index": 1,
+      "frequency_hz": 1420000001.0,
+      "raw_bispectrum_sha256": "ba6efd0af77d535a1f12a89a60906af92a3af06b9de90b5ff887c1fe277b4f04",
+      "source_visibility_sha256": "4e6332b00b0fd18ffb60e4ddd23ecc64feb3cf7e938e6fb77226cd4f00808b9f",
+      "common_fft_count": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "states": [
+        "insufficient_samples",
+        "insufficient_samples",
+        "insufficient_samples",
+        "insufficient_samples"
+      ],
+      "json_matches_library": true
+    },
+    {
+      "fixture": "m1",
+      "time_index": 0,
+      "channel_index": 1,
+      "frequency_hz": 1420000001.0,
+      "raw_bispectrum_sha256": "7a649dec387d8238b49cd1ac081cefbbd1d22f308f921a0e94428c9896ba6661",
+      "source_visibility_sha256": "923695ada8cfa6e3d719e1d18f4112fd600ce316e1add719ae2a78c79ca4fa3c",
+      "common_fft_count": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "states": [
+        "insufficient_samples",
+        "insufficient_samples",
+        "insufficient_samples",
+        "insufficient_samples"
+      ],
+      "json_matches_library": true
+    },
+    {
+      "fixture": "m2",
+      "time_index": 0,
+      "channel_index": 1,
+      "frequency_hz": 1420000001.0,
+      "raw_bispectrum_sha256": "d1d8dbd7533f26237fa581cf7013f35e31d8487b882009ff40734d0b4cc2a054",
+      "source_visibility_sha256": "85cc4221f3b778ea15d68089a3fdd7f0eec81f8ca8ccb754e962babb784fa3b3",
+      "common_fft_count": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "states": [
+        "insufficient_samples",
+        "insufficient_samples",
+        "insufficient_samples",
+        "insufficient_samples"
+      ],
+      "json_matches_library": true
+    }
+  ],
+  "history_analysis_sequence_pair_selection": true,
+  "history_is_seeded_closed_fixture": true,
+  "downloaded_json_identical": true,
+  "input_edit_invalidates_selection": true,
+  "missing_and_mismatched_source_errors": true,
+  "unavailable_values_not_numeric_zero": true,
+  "japanese_font_loaded": true,
+  "javascript_errors": [],
+  "external_requests": 0,
+  "mobile_input_horizontal_overflow": false,
+  "mobile_result_horizontal_overflow": false,
+  "noise_covariance_estimated": false,
+  "production_rml_noise_model_changed": false,
+  "actual_hardware_data": false,
+  "scope": "Stored stage064 VDIF output and independent synthetic spectra M0/1/2; UI transport and identity only. No uncertainty, phase confidence, real FFT independence or image validation."
+}

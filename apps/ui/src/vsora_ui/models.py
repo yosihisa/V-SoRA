@@ -102,6 +102,18 @@ class NoiseInputRequest(Request):
     input:str=Field(min_length=1,max_length=512)
 
 
+class BispectrumInputRequest(NoiseInputRequest):
+    source_visibility:str=Field(min_length=1,max_length=512)
+
+
+class BispectrumInspectionRequest(BispectrumInputRequest):
+    kind:Literal['bispectrum_inspection']='bispectrum_inspection'
+    time_index:int=Field(default=0,ge=0,strict=True)
+    channel_index:int=Field(ge=0,strict=True)
+    raw_bispectrum_sha256:str=Field(pattern='^[0-9a-f]{64}$',min_length=64,max_length=64)
+    source_visibility_sha256:str=Field(pattern='^[0-9a-f]{64}$',min_length=64,max_length=64)
+
+
 class NoiseDiagnosticRequest(NoiseInputRequest):
     kind:Literal['noise']='noise'
     time_index:int=Field(default=0,ge=0,strict=True)
@@ -128,4 +140,4 @@ class SensitivityRequest(Request):
     flux_jy:float=Field(default=1000.,gt=0,le=1e7)
 
 
-JobRequest=Annotated[SimulationRequest|ValidationRequest|RmlRequest|AnalysisRequest|SequenceRequest|SynthesisRequest|SensitivityRequest|NoiseDiagnosticRequest|TimeScatterRequest,Field(discriminator='kind')]
+JobRequest=Annotated[SimulationRequest|ValidationRequest|RmlRequest|AnalysisRequest|SequenceRequest|SynthesisRequest|SensitivityRequest|NoiseDiagnosticRequest|TimeScatterRequest|BispectrumInspectionRequest,Field(discriminator='kind')]

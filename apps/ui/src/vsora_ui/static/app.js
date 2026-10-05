@@ -58,7 +58,7 @@ let selected=null, jobs=[], refreshing=false, detailFingerprint="", listFingerpr
 const byId=id=>document.getElementById(id);
 function node(tag,text,className){const element=document.createElement(tag);if(text!==undefined)element.textContent=text;if(className)element.className=className;return element;}
 function message(text){const box=byId("message");box.textContent=text;box.classList.toggle("hidden",!text);}
-function showPanel(name){document.querySelectorAll(".panel").forEach(p=>p.classList.toggle("hidden",p.id!=="panel-"+name));document.querySelectorAll(".nav-button").forEach(b=>b.classList.toggle("active",b.dataset.panel===name));if(name==="history")refresh();if(name==="synthesis")loadSynthesisHistory();if(name==="noise")loadNoiseHistory();}
+function showPanel(name){document.querySelectorAll(".panel").forEach(p=>p.classList.toggle("hidden",p.id!=="panel-"+name));document.querySelectorAll(".nav-button").forEach(b=>b.classList.toggle("active",b.dataset.panel===name));if(name==="history")refresh();if(name==="synthesis")loadSynthesisHistory();if(name==="noise")loadNoiseHistory();if(name==="raw")loadRawHistory();}
 document.querySelectorAll(".nav-button").forEach(b=>b.addEventListener("click",()=>showPanel(b.dataset.panel)));
 async function api(path,body){const response=await fetch(path,body===undefined?{}:{method:"POST",headers:{"Content-Type":"application/json","X-VSoRA-Request":"1"},body:JSON.stringify(body)});const data=await response.json();if(!response.ok){const detail=Array.isArray(data.detail)?data.detail.map(x=>x.msg).join(" / "):data.detail;throw new Error(detail||"処理できませんでした");}return data;}
 async function submit(form,request){const button=form.querySelector("button[type=submit]");button.disabled=true;message("");try{const job=await api("/api/jobs",request);selected=job.id;showPanel("history");await refresh();}catch(error){message("入力と実行条件を確認してください："+error.message);}finally{button.disabled=false;}}
@@ -90,6 +90,7 @@ function renderDetail(job){const box=byId("job-detail");box.replaceChildren();co
   if(summary&&summary.type==="joint_bispectrum_moments_validation")renderBispectrumMoments(box,summary);
   if(summary&&summary.type==="temporal_bispectrum_validation")renderTemporalBispectrum(box,summary);
   if(summary&&summary.type==="distinct_sample_bispectrum_validation")renderDistinctBispectrum(box,summary);
+  if(summary&&summary.type==="raw_bispectrum_inspection")renderBispectrumInspection(box,summary);
   if(summary&&summary.type==="spectral_noise_diagnostic")renderObservationNoise(box,summary);
   if(summary&&summary.type==="pilot_time_scatter")renderTimeScatter(box,summary);
   if(summary&&summary.windows){const details=node("details"),table=node("table",undefined,"window-table"),head=node("tr");head.append(node("th","区間・開始時刻"),node("th","pilotと局周波数差"));table.append(head);for(const w of summary.windows){const row=node("tr"),a=w.rate_acquisition,r=w.rate_estimate,info=node("td"),sk=a.sk_eligible_fraction===null?"未記録":(100*a.sk_eligible_fraction).toFixed(1)+"%";row.append(node("td",(w.window_index+1)+" / "+w.start_offset_s.toFixed(3)+" 秒"));if(w.rate_consistency)info.append(node("p",rateConsistencyLabels[w.rate_consistency.state]||w.rate_consistency.state));info.append(node("p",(a.pilot_integration_s*1000).toFixed(3)+"ms × "+a.pilot_integrations+" / Nyquist "+a.temporal_nyquist_hz.toFixed(1)+"Hz / SK判定可能 "+sk));for(let i=0;i<r.station_ids.length;i++)info.append(node("span",r.station_ids[i]+": "+r.station_rates_hz[i].toFixed(4)+" Hz","station-rate"));renderLinearRate(info,r);row.append(info);table.append(row);}details.append(node("summary","区間ごとの周波数差とpilot条件"),table);box.append(details,node("p","周波数差は基準局との差です。選択した一定または滑らかな線形モデルを各pilot内で使い、区間の間は補間していません。初期の基線差が各pilotのNyquist内にあることは別途確認が必要です。SK判定可能な割合が低い区間は、電波妨害の確認を別途行ってください。","muted"));if(summary.windows.some(w=>w.correlation.station_read_start_samples.some(x=>x>0)))box.append(node("p","必要な区間とguardを部分読取しました。飛ばした前方区間のheaderは検査していません。原本のSHA確認と、読んだ区間の時刻検査は別です。","muted"));}
@@ -306,3 +307,77 @@ function renderBispectrumMoments(box,s){
 }
 
 function renderRawBispectrum(box,s){const records=s.windows?s.windows.map(w=>({label:"区間 "+(w.window_index+1),raw:w.correlation&&w.correlation.raw_bispectrum})):[{label:"短積分",raw:s.correlation&&s.correlation.raw_bispectrum}];const saved=records.filter(r=>r.raw);if(!saved.length)return;box.append(node("h3","再解析用の三次統計"),node("p","三局共通の有効FFTから追加の和を保存しました。実FFT・品質選別の独立性とU₃の尤度は未確認です。今回の画像は従来のClosureから復元しています。","muted"));const table=node("table",undefined,"window-table"),head=node("tr");head.append(node("th","対象"),node("th","保存量と利用可否"));table.append(head);for(const row of saved){const r=row.raw,tr=node("tr"),info=node("td"),counts=r.common_fft_count.flat();tr.append(node("td",row.label));info.append(node("p","三局共通FFT数："+Math.min(...counts)+"〜"+Math.max(...counts)),node("p","利用可channel・三角形："+r.usable_channel_triangles+" / "+r.total_channel_triangles),node("p","追加ファイル："+(r.bytes/1024).toFixed(1)+" KiB / 元相関の照合："+(r.source_visibility_verified?"一致":"未確認")));tr.append(info);table.append(tr);}box.append(table,node("p","raw-bispectrum.npz は下の保存ファイル一覧から取得できます。元のshard-00000.npzも一緒に保持してください。","muted"));}
+
+let rawSelection=null,rawReadGeneration=0;
+function invalidateRawInput(){
+  rawSelection=null;rawReadGeneration++;
+  const form=byId("raw-form");
+  for(const name of ["time_index","channel_index"]){form.elements[name].replaceChildren();form.elements[name].disabled=true;}
+  form.querySelector("button[type=submit]").disabled=true;
+  byId("raw-input-note").textContent="二つの保存済みファイルを指定し、時刻・周波数を読み込んでください。";
+}
+for(const name of ["input","source_visibility"])byId("raw-form").elements[name].addEventListener("input",invalidateRawInput);
+byId("read-raw-input").addEventListener("click",async()=>{
+  const form=byId("raw-form"),button=byId("read-raw-input");
+  invalidateRawInput();const generation=rawReadGeneration;
+  const paths={input:form.elements.input.value.trim(),source_visibility:form.elements.source_visibility.value.trim()};
+  button.disabled=true;message("");
+  try{
+    const axes=await api("/api/bispectrum-input",paths);
+    if(generation!==rawReadGeneration)return;
+    axes.times_s.forEach((value,index)=>{const option=node("option",index+" / 原点から "+value.toFixed(6)+" 秒");option.value=index;form.elements.time_index.append(option);});
+    axes.frequencies_hz.forEach((value,index)=>{const option=node("option",index+" / "+(value/1e6).toFixed(6)+" MHz");option.value=index;form.elements.channel_index.append(option);});
+    form.elements.channel_index.value=String(Math.floor(axes.frequencies_hz.length/2));
+    for(const name of ["time_index","channel_index"])form.elements[name].disabled=false;
+    rawSelection={...paths,raw_bispectrum_sha256:axes.raw_bispectrum_sha256,source_visibility_sha256:axes.source_visibility_sha256};
+    form.querySelector("button[type=submit]").disabled=false;
+    byId("raw-input-note").textContent=axes.times_s.length+"時刻 / "+axes.frequencies_hz.length+"channel。UTC原点："+axes.time_origin_utc+"。元相関：照合一致。単位："+axes.bispectrum_unit+"。実FFTの独立性や信頼区間は未確認です。";
+  }catch(error){if(generation===rawReadGeneration)message(error.message);}finally{button.disabled=false;}
+});
+async function loadRawHistory(){
+  const select=byId("raw-input-history");select.replaceChildren();
+  try{
+    const history=await api("/api/jobs");
+    for(const item of history.filter(j=>j.state==="complete"&&["analysis","sequence"].includes(j.kind))){
+      const detail=await api("/api/jobs/"+encodeURIComponent(item.id)),names=new Set(detail.artifacts.map(a=>a.path));
+      for(const name of names){
+        if(!name.endsWith("/raw-bispectrum.npz"))continue;
+        const source=name.slice(0,-"raw-bispectrum.npz".length)+"shard-00000.npz";
+        if(!names.has(source))continue;
+        const option=node("option",item.label+" / "+item.id+" / "+name.replace(/\/raw-bispectrum.npz$/,""));
+        option.value=JSON.stringify({input:"outputs/gui/"+item.id+"/"+name,source_visibility:"outputs/gui/"+item.id+"/"+source});select.append(option);
+      }
+    }
+    if(!select.options.length){const option=node("option","三次統計を保存した完了履歴がありません。ファイルを直接指定できます。");option.value="";select.append(option);}
+    byId("choose-raw-input").disabled=!select.value;
+  }catch(error){message(error.message);byId("choose-raw-input").disabled=true;}
+}
+byId("choose-raw-input").addEventListener("click",()=>{
+  const selected=byId("raw-input-history").value;if(!selected)return;
+  const paths=JSON.parse(selected),form=byId("raw-form");
+  form.elements.input.value=paths.input;form.elements.source_visibility.value=paths.source_visibility;invalidateRawInput();
+});
+byId("raw-form").addEventListener("submit",event=>{
+  event.preventDefault();if(!rawSelection)return;
+  const form=event.currentTarget;
+  submit(form,{kind:"bispectrum_inspection",...rawSelection,time_index:Number(form.elements.time_index.value),channel_index:Number(form.elements.channel_index.value)}).finally(()=>{form.querySelector("button[type=submit]").disabled=!rawSelection;});
+});
+function renderBispectrumInspection(box,s){
+  box.append(node("h3","保存した三次統計の確認"),
+    node("p","UTC原点："+s.time_origin_utc+" / 原点から "+s.time_s.toFixed(6)+" 秒 / "+(s.frequency_hz/1e6).toFixed(6)+" MHz"),
+    node("p","単位："+s.bispectrum_unit+"。元相関の照合："+(s.source_visibility_verified?"一致":"未確認")+"。候補FFT数："+s.nominal_fft_count.toLocaleString("ja-JP")),
+    node("p","形式上利用可でも、実FFT・品質選別の独立性や信頼区間は未確認です。雑音σ、位相の信頼度、画像の正しさは推定していません。現在のRMLへの適用はありません。","muted"));
+  const labels={insufficient_samples:"未計算（共通FFT数が3未満）",masked_raw_value:"品質マスクで利用不可",usable_raw_value:"形式上利用可（独立性は未確認）"};
+  const table=node("table",undefined,"window-table");table.id="raw-inspection-table";
+  const head=node("tr");head.append(node("th","三角形・共通FFT数・状態"),node("th","複素数の実部・虚部"));table.append(head);
+  const number=value=>value===null?"未計算":value.toExponential(6);
+  for(const row of s.triangles){
+    const tr=node("tr"),label=node("td"),values=node("td");
+    label.append(node("p",row.station_ids.join(" / ")),node("p","三局共通FFT数："+row.common_fft_count.toLocaleString("ja-JP")),node("p",labels[row.state]||row.state));
+    values.append(node("p","U₃ 実部："+number(row.distinct_sample_bispectrum_real)),node("p","U₃ 虚部："+number(row.distinct_sample_bispectrum_imag)),
+      node("p","通常の積 実部："+number(row.ordinary_common_sample_product_real)),node("p","通常の積 虚部："+number(row.ordinary_common_sample_product_imag)));
+    tr.append(label,values);table.append(tr);
+  }
+  box.append(table,node("p","未計算は測定したゼロではありません。品質マスクでは保存値が残っていても解析には使えません。通常の積は三局共通集合での辺平均の積です。二局ごとの元相関の積と異なる場合があり、U₃との差を実機の偏りの推定値とは扱いません。","muted"),
+    node("p","全桁の値と入力SHAは、保存ファイルの bispectrum-inspection.json から確認できます。","muted"));
+}

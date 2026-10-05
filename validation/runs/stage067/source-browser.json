@@ -1,0 +1,120 @@
+{
+  "state": "complete",
+  "installed_gui_imports": false,
+  "source_checkout": true,
+  "outside_checkout": false,
+  "pythonpath_removed": false,
+  "browser": "153.0.8010.12",
+  "cases": [
+    {
+      "fixture": "frozen",
+      "time_index": 0,
+      "channel_index": 10,
+      "frequency_hz": 1419616000.0,
+      "common_fft_count": [
+        2935,
+        2935,
+        3068,
+        3067
+      ],
+      "states": [
+        "usable_raw_value",
+        "usable_raw_value",
+        "usable_raw_value",
+        "usable_raw_value"
+      ],
+      "json_matches_library": true
+    },
+    {
+      "fixture": "masked",
+      "time_index": 1,
+      "channel_index": 16,
+      "frequency_hz": 1420000000.0,
+      "common_fft_count": [
+        3200,
+        3200,
+        3200,
+        3200
+      ],
+      "states": [
+        "masked_raw_value",
+        "masked_raw_value",
+        "masked_raw_value",
+        "masked_raw_value"
+      ],
+      "json_matches_library": true
+    },
+    {
+      "fixture": "m0",
+      "time_index": 0,
+      "channel_index": 1,
+      "frequency_hz": 1420000001.0,
+      "common_fft_count": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "states": [
+        "insufficient_samples",
+        "insufficient_samples",
+        "insufficient_samples",
+        "insufficient_samples"
+      ],
+      "json_matches_library": true
+    },
+    {
+      "fixture": "m1",
+      "time_index": 0,
+      "channel_index": 1,
+      "frequency_hz": 1420000001.0,
+      "common_fft_count": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "states": [
+        "insufficient_samples",
+        "insufficient_samples",
+        "insufficient_samples",
+        "insufficient_samples"
+      ],
+      "json_matches_library": true
+    },
+    {
+      "fixture": "m2",
+      "time_index": 0,
+      "channel_index": 1,
+      "frequency_hz": 1420000001.0,
+      "common_fft_count": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "states": [
+        "insufficient_samples",
+        "insufficient_samples",
+        "insufficient_samples",
+        "insufficient_samples"
+      ],
+      "json_matches_library": true
+    }
+  ],
+  "history_analysis_sequence_pair_selection": true,
+  "history_is_seeded_closed_fixture": true,
+  "downloaded_json_identical": true,
+  "input_edit_invalidates_selection": true,
+  "missing_and_mismatched_source_errors": true,
+  "unavailable_values_not_numeric_zero": true,
+  "japanese_font_loaded": true,
+  "javascript_errors": [],
+  "external_requests": 0,
+  "mobile_input_horizontal_overflow": false,
+  "mobile_result_horizontal_overflow": false,
+  "noise_covariance_estimated": false,
+  "production_rml_noise_model_changed": false,
+  "actual_hardware_data": false,
+  "scope": "Stored stage064 VDIF output and independent synthetic spectra M0/1/2; UI transport and identity only. No uncertainty, phase confidence, real FFT independence or image validation."
+}
