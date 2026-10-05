@@ -23,6 +23,7 @@ LABELS={'simulation':'模擬観測と画像復元','quality':'雑音・電波妨
         'temporal_bispectrum':'時間相関と三基線積の検証',
         'bispectrum_sensitivity':'三基線積の雑音と短積分の比較',
         'bispectrum_moments':'天体信号と三角形間の誤差相関',
+        'bispectrum_average':'短積分平均と三次統計の誤差分布',
         'rate':'skyモデルを使わない周波数差の推定','analysis':'VDIFからClosure＋RMLで解析',
         'sequence':'VDIFの短区間列と画像合成',
         'bispectrum_inspection':'保存した三次統計の確認','time_scatter':'pilotの時間散乱診断','noise':'相関ファイルの雑音診断','synthesis':'複数時刻のClosure＋RML合成','sensitivity':'短積分の感度計画'}

@@ -128,4 +128,6 @@
 
 | 068 | [短積分U₃を平均した分布の確認](068-bispectrum-window-averaging.md) | source/wheel799件成功。5既知モデル×Q4条件各8,192反復、全共分散1/Q・Gaussian対照一致。弱い源はQ64でも公称包含率と差が残り、Gaussian尤度を保証しない |
 
+| 069 | [短積分平均の誤差分布を日本語GUIで確認](069-bispectrum-averaging-gui.md) | source/wheel801件成功。実workerの20条件が068と完全一致、両実Chromiumで全数値・JSON・図説明・日本語/390pxを確認。包含率の差を処理失敗と混同しない |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。

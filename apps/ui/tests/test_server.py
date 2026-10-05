@@ -416,3 +416,29 @@ def test_artifact_disappears_before_stat_do_not_hide_job(tmp_path,monkeypatch):
         response=client.get('/api/jobs/'+job_id)
         assert response.status_code==200 and response.json()['state']=='complete'
         assert [v['path'] for v in response.json()['artifacts']]==['stable.png']
+
+def test_bispectrum_average_validation_real_subprocess(tmp_path):
+    (tmp_path/'tools').mkdir()
+    (tmp_path/'tools/run.py').symlink_to(Path(__file__).resolve().parents[3]/'tools/run.py')
+    with TestClient(create_app(tmp_path),base_url='http://127.0.0.1') as client:
+        r=client.post('/api/jobs',json={'kind':'validation','validation':'bispectrum_average'},headers=HEADERS)
+        assert r.status_code==202;job=wait(client,r.json()['id'],150);assert job['state']=='complete',job
+        q=job['summary'];assert q['type']=='averaged_bispectrum_distribution_validation'
+        assert len(q['cases'])==20 and q['trials_per_model']==8192
+        assert q['gaussian_u3_coverage_is_not_a_pass_requirement'] and q['q_comparisons_statistically_paired']
+        assert all(c['means_and_covariances_within_6se'] and c['all_residuals_within_covariance_support'] for c in q['cases'])
+        assert any(not r['u3_within_6_reference_se'] for c in q['cases'] for r in c['coverage_references'])
+        for key in ('gaussian_u3_distribution_verified','physical_adc_vdif_processed','actual_temporal_independence_verified','real_hardware_validation_performed','production_rml_noise_model_changed'):assert q[key] is False
+        assert client.get(f"/api/jobs/{job['id']}/artifacts/validation/averaged-bispectrum.png").status_code==200
+        result=client.get(f"/api/jobs/{job['id']}/artifacts/validation/summary.json")
+        assert result.status_code==200 and result.json()==q
+
+
+def test_bispectrum_average_choice_and_label(tmp_path):
+    from vsora_ui.models import ValidationRequest
+    from vsora_ui.jobs import LABELS
+    q=ValidationRequest(validation='bispectrum_average');assert q.validation=='bispectrum_average'
+    assert LABELS['bispectrum_average']=='短積分平均と三次統計の誤差分布'
+    with TestClient(create_app(tmp_path),base_url='http://127.0.0.1') as client:
+        assert 'value="bispectrum_average"' in client.get('/').text
+    with pytest.raises(ValueError):ValidationRequest(validation='bispectrum_average_unknown')
