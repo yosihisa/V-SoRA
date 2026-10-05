@@ -1,0 +1,54 @@
+{
+  "state": "complete",
+  "python": "3.12.3",
+  "numpy": "2.5.1",
+  "scipy": "1.18.0",
+  "pytest": "8.4.2",
+  "blas_threads": 1,
+  "omp_threads": 1,
+  "targeted_tests": {
+    "passed": 64,
+    "elapsed_s": 1.71
+  },
+  "full_regression": {
+    "source": {
+      "passed": 975,
+      "warnings": 25596,
+      "elapsed_s": 554.92,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 975,
+      "warnings": 25596,
+      "elapsed_s": 556.98,
+      "excluded_tests": 0
+    }
+  },
+  "pip_check_passed": true,
+  "wheel": {
+    "filename": "v_sora-0.1.0-py3-none-any.whl",
+    "bytes": 5515487,
+    "sha256": "14ae9b93f59e28096497fb723ab87063bb0dbc8402e6c3ca4d0dd383c879366b",
+    "packaged_files_identical_to_source": 76
+  },
+  "known_sky_experiment": {
+    "state": "complete",
+    "forecasts": 144,
+    "mc_cases": 3,
+    "trials_per_mc_case": 8192,
+    "seeds": [
+      76,
+      77,
+      78
+    ],
+    "elapsed_s": 2.61,
+    "max_rss_kib": 199788,
+    "entire_result_matches_preliminary": true
+  },
+  "observed_power_normalization_performed": false,
+  "gaussian_detection_probability_calculated": false,
+  "actual_temporal_independence_verified": false,
+  "production_rml_noise_model_changed": false,
+  "actual_hardware_data": false,
+  "private_logs": "outputs/stage076-source-final/ and outputs/stage076-installed-final/; ignored"
+}

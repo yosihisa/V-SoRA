@@ -1,0 +1,16 @@
+{
+  "state": "complete",
+  "installed_modules_verified": true,
+  "outside_checkout": true,
+  "packaged_scientific_reference_used": true,
+  "template_sha_verified": true,
+  "forecasts_with_mean_variance_scale_count_checked": 144,
+  "mc_full_covariances_checked": 3,
+  "station_counts": [
+    4,
+    8
+  ],
+  "source_normalized_coordinates_used": true,
+  "uv_snapshot_recomputed": false,
+  "observed_normalization_or_detection_test_performed": false
+}
