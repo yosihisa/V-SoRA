@@ -130,4 +130,6 @@
 
 | 069 | [短積分平均の誤差分布を日本語GUIで確認](069-bispectrum-averaging-gui.md) | source/wheel801件成功。実workerの20条件が068と完全一致、両実Chromiumで全数値・JSON・図説明・日本語/390pxを確認。包含率の差を処理失敗と混同しない |
 
+| 070 | [未知の局gainとbispectrum平均の振幅制約](070-bispectrum-gain-constraints.md) | source/wheel825件成功。有理数rank照合、4局の平均振幅制約0対従来2、8局の48行中非自明20。正定値反例は局power・有限標本共分散が異なり、全分布・画像化不能の主張に使わない |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。

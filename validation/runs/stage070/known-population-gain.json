@@ -1,0 +1,274 @@
+{
+  "type": "population_bispectrum_gain_validation",
+  "state": "complete",
+  "cases": [
+    {
+      "stations": 3,
+      "baselines": 3,
+      "triangle_count": 1,
+      "triangle_amplitude_rank": 1,
+      "triangle_station_gain_rank": 1,
+      "left_null_weight_rows": 0,
+      "gain_invariant_amplitude_rank": 0,
+      "zero_identity_directions_in_left_null": 0,
+      "conventional_logamp_rank": 0,
+      "closure_phase_rank": 1,
+      "all_population_visibilities_nonzero_assumed": true,
+      "complete_baseline_set_assumed": true,
+      "observed_statistic_logarithms_taken": false,
+      "noise_or_likelihood_calculated": false,
+      "independent_noisy_constraints_verified": false,
+      "hardware_imaging_feasibility_verified": false,
+      "production_rml_noise_model_changed": false,
+      "scope": "Population/noiseless mean constraints only, unknown freely varying station gain amplitudes in one cell. Matrix rank is not statistical independence, detectability or image uniqueness. No low-SNR observed logs, hardware or image likelihood.",
+      "gain_null_maximum_residual": 0.0,
+      "same_gain_invariant_baseline_row_span": true
+    },
+    {
+      "stations": 4,
+      "baselines": 6,
+      "triangle_count": 4,
+      "triangle_amplitude_rank": 4,
+      "triangle_station_gain_rank": 4,
+      "left_null_weight_rows": 0,
+      "gain_invariant_amplitude_rank": 0,
+      "zero_identity_directions_in_left_null": 0,
+      "conventional_logamp_rank": 2,
+      "closure_phase_rank": 3,
+      "all_population_visibilities_nonzero_assumed": true,
+      "complete_baseline_set_assumed": true,
+      "observed_statistic_logarithms_taken": false,
+      "noise_or_likelihood_calculated": false,
+      "independent_noisy_constraints_verified": false,
+      "hardware_imaging_feasibility_verified": false,
+      "production_rml_noise_model_changed": false,
+      "scope": "Population/noiseless mean constraints only, unknown freely varying station gain amplitudes in one cell. Matrix rank is not statistical independence, detectability or image uniqueness. No low-SNR observed logs, hardware or image likelihood.",
+      "gain_null_maximum_residual": 0.0,
+      "same_gain_invariant_baseline_row_span": false
+    },
+    {
+      "stations": 5,
+      "baselines": 10,
+      "triangle_count": 10,
+      "triangle_amplitude_rank": 10,
+      "triangle_station_gain_rank": 5,
+      "left_null_weight_rows": 5,
+      "gain_invariant_amplitude_rank": 5,
+      "zero_identity_directions_in_left_null": 0,
+      "conventional_logamp_rank": 5,
+      "closure_phase_rank": 6,
+      "all_population_visibilities_nonzero_assumed": true,
+      "complete_baseline_set_assumed": true,
+      "observed_statistic_logarithms_taken": false,
+      "noise_or_likelihood_calculated": false,
+      "independent_noisy_constraints_verified": false,
+      "hardware_imaging_feasibility_verified": false,
+      "production_rml_noise_model_changed": false,
+      "scope": "Population/noiseless mean constraints only, unknown freely varying station gain amplitudes in one cell. Matrix rank is not statistical independence, detectability or image uniqueness. No low-SNR observed logs, hardware or image likelihood.",
+      "gain_null_maximum_residual": 8.881784197001252e-16,
+      "same_gain_invariant_baseline_row_span": true
+    },
+    {
+      "stations": 6,
+      "baselines": 15,
+      "triangle_count": 20,
+      "triangle_amplitude_rank": 15,
+      "triangle_station_gain_rank": 6,
+      "left_null_weight_rows": 14,
+      "gain_invariant_amplitude_rank": 9,
+      "zero_identity_directions_in_left_null": 5,
+      "conventional_logamp_rank": 9,
+      "closure_phase_rank": 10,
+      "all_population_visibilities_nonzero_assumed": true,
+      "complete_baseline_set_assumed": true,
+      "observed_statistic_logarithms_taken": false,
+      "noise_or_likelihood_calculated": false,
+      "independent_noisy_constraints_verified": false,
+      "hardware_imaging_feasibility_verified": false,
+      "production_rml_noise_model_changed": false,
+      "scope": "Population/noiseless mean constraints only, unknown freely varying station gain amplitudes in one cell. Matrix rank is not statistical independence, detectability or image uniqueness. No low-SNR observed logs, hardware or image likelihood.",
+      "gain_null_maximum_residual": 9.992007221626409e-16,
+      "same_gain_invariant_baseline_row_span": true
+    },
+    {
+      "stations": 7,
+      "baselines": 21,
+      "triangle_count": 35,
+      "triangle_amplitude_rank": 21,
+      "triangle_station_gain_rank": 7,
+      "left_null_weight_rows": 28,
+      "gain_invariant_amplitude_rank": 14,
+      "zero_identity_directions_in_left_null": 14,
+      "conventional_logamp_rank": 14,
+      "closure_phase_rank": 15,
+      "all_population_visibilities_nonzero_assumed": true,
+      "complete_baseline_set_assumed": true,
+      "observed_statistic_logarithms_taken": false,
+      "noise_or_likelihood_calculated": false,
+      "independent_noisy_constraints_verified": false,
+      "hardware_imaging_feasibility_verified": false,
+      "production_rml_noise_model_changed": false,
+      "scope": "Population/noiseless mean constraints only, unknown freely varying station gain amplitudes in one cell. Matrix rank is not statistical independence, detectability or image uniqueness. No low-SNR observed logs, hardware or image likelihood.",
+      "gain_null_maximum_residual": 1.2212453270876722e-15,
+      "same_gain_invariant_baseline_row_span": true
+    },
+    {
+      "stations": 8,
+      "baselines": 28,
+      "triangle_count": 56,
+      "triangle_amplitude_rank": 28,
+      "triangle_station_gain_rank": 8,
+      "left_null_weight_rows": 48,
+      "gain_invariant_amplitude_rank": 20,
+      "zero_identity_directions_in_left_null": 28,
+      "conventional_logamp_rank": 20,
+      "closure_phase_rank": 21,
+      "all_population_visibilities_nonzero_assumed": true,
+      "complete_baseline_set_assumed": true,
+      "observed_statistic_logarithms_taken": false,
+      "noise_or_likelihood_calculated": false,
+      "independent_noisy_constraints_verified": false,
+      "hardware_imaging_feasibility_verified": false,
+      "production_rml_noise_model_changed": false,
+      "scope": "Population/noiseless mean constraints only, unknown freely varying station gain amplitudes in one cell. Matrix rank is not statistical independence, detectability or image uniqueness. No low-SNR observed logs, hardware or image likelihood.",
+      "gain_null_maximum_residual": 1.3322676295501878e-15,
+      "same_gain_invariant_baseline_row_span": true
+    }
+  ],
+  "four_station_example": {
+    "stations": 4,
+    "samples_per_window_for_conditional_moments": 128,
+    "base_station_covariance": [
+      [
+        10.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      [
+        1.0,
+        10.0,
+        1.0,
+        1.0
+      ],
+      [
+        1.0,
+        1.0,
+        10.0,
+        1.0
+      ],
+      [
+        1.0,
+        1.0,
+        1.0,
+        10.0
+      ]
+    ],
+    "changed_station_covariance": [
+      [
+        10.0,
+        2.0,
+        1.0,
+        1.0
+      ],
+      [
+        2.0,
+        10.0,
+        1.0,
+        1.0
+      ],
+      [
+        1.0,
+        1.0,
+        10.0,
+        1.0
+      ],
+      [
+        1.0,
+        1.0,
+        1.0,
+        10.0
+      ]
+    ],
+    "matched_station_covariance": [
+      [
+        6.299605249474366,
+        1.2599210498948732,
+        0.8908987181403394,
+        0.8908987181403394
+      ],
+      [
+        1.2599210498948732,
+        6.299605249474365,
+        0.8908987181403393,
+        0.8908987181403393
+      ],
+      [
+        0.8908987181403394,
+        0.8908987181403393,
+        12.599210498948732,
+        1.2599210498948732
+      ],
+      [
+        0.8908987181403394,
+        0.8908987181403393,
+        1.2599210498948732,
+        12.599210498948732
+      ]
+    ],
+    "matching_station_gain_amplitudes": [
+      0.7937005259840998,
+      0.7937005259840997,
+      1.122462048309373,
+      1.122462048309373
+    ],
+    "base_population_bispectrum_amplitudes": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "matched_population_bispectrum_amplitudes": [
+      1.0,
+      1.0,
+      1.0000000000000002,
+      1.0
+    ],
+    "population_means_identical": true,
+    "base_conventional_logamps": [
+      0.0,
+      0.0
+    ],
+    "matched_conventional_logamps": [
+      0.6931471805599453,
+      0.6931471805599453
+    ],
+    "conventional_logamp_difference": [
+      0.6931471805599453,
+      0.6931471805599453
+    ],
+    "all_covariances_positive_definite": true,
+    "base_station_powers": [
+      10.0,
+      10.0,
+      10.0,
+      10.0
+    ],
+    "matched_station_powers": [
+      6.299605249474366,
+      6.299605249474365,
+      12.599210498948732,
+      12.599210498948732
+    ],
+    "station_powers_identical": false,
+    "conditional_u3_covariances_identical": false,
+    "scope": "Two positive-definite proper-Gaussian station models have the same four population bispectrum means and different conventional closure amplitudes. Powers and finite-sample covariance are allowed to differ. This is not full distributional nonidentifiability, a sky image, or a four-station imaging impossibility proof."
+  },
+  "observed_statistic_logarithms_taken": false,
+  "extra_station_powers_or_higher_moments_used_as_constraints": false,
+  "noise_likelihood_implemented": false,
+  "physical_adc_vdif_processed": false,
+  "real_hardware_validation_performed": false,
+  "production_rml_noise_model_changed": false,
+  "scope": "Population-mean, complete nonzero baseline topology, freely unknown station gain amplitudes per cell. No noisy observed ratios, array layout, detectability, image uniqueness, or recommendation for a minimum practical station count."
+}

@@ -1,0 +1,21 @@
+{
+  "state": "complete",
+  "installed_imports": true,
+  "outside_checkout": true,
+  "pythonpath_removed": true,
+  "complete_array_station_counts_checked": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "rank_results_match_frozen_reference": true,
+  "four_station_population_means_identical": true,
+  "finite_sample_covariances_differ": true,
+  "noise_likelihood_implemented": false,
+  "actual_hardware_data": false,
+  "production_rml_noise_model_changed": false,
+  "scope": "Population mean constraints only; this is not full distributional nonidentifiability or image feasibility."
+}

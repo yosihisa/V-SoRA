@@ -1,0 +1,52 @@
+{
+  "state": "complete",
+  "python": "3.12.3",
+  "numpy": "2.5.1",
+  "scipy": "1.18.0",
+  "pytest": "8.4.2",
+  "blas_threads": 1,
+  "omp_threads": 1,
+  "targeted_tests": {
+    "passed": 24,
+    "elapsed_s": 0.42
+  },
+  "full_regression": {
+    "source": {
+      "passed": 825,
+      "warnings": 25596,
+      "elapsed_s": 511.63,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 825,
+      "warnings": 25596,
+      "elapsed_s": 509.4,
+      "excluded_tests": 0
+    }
+  },
+  "pip_check_passed": true,
+  "wheel": {
+    "filename": "v_sora-0.1.0-py3-none-any.whl",
+    "bytes": 5505762,
+    "sha256": "67d4ddb11709c6dd68f37ae6b315fba78668f8e4bddf1dad5a42a14693b6280a",
+    "packaged_files_identical_to_source": 72
+  },
+  "known_population_conditions": {
+    "station_counts": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "exact_fraction_ranks_checked": true,
+    "four_station_positive_definite_counterexample": true,
+    "population_means_only": true
+  },
+  "observed_statistic_logarithms_taken": false,
+  "noise_likelihood_implemented": false,
+  "production_rml_noise_model_changed": false,
+  "actual_hardware_data": false,
+  "private_logs": "outputs/stage070-source-final/ and outputs/stage070-installed-final/; ignored"
+}
