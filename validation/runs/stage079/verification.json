@@ -1,0 +1,45 @@
+{
+  "state": "complete",
+  "python": "3.12.3",
+  "numpy": "2.5.1",
+  "scipy": "1.18.0",
+  "pytest": "8.4.2",
+  "chromium": "153.0.8010.12",
+  "blas_threads": 1,
+  "omp_threads": 1,
+  "targeted_tests": {
+    "passed": 2,
+    "deselected": 51,
+    "warnings": 1,
+    "elapsed_s": 3.18
+  },
+  "full_regression": {
+    "source": {
+      "passed": 1037,
+      "warnings": 25596,
+      "elapsed_s": 566.35,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 1037,
+      "warnings": 25596,
+      "elapsed_s": 565.41,
+      "excluded_tests": 0
+    }
+  },
+  "pip_check_passed": true,
+  "wheel": {
+    "filename": "v_sora-0.1.0-py3-none-any.whl",
+    "bytes": 5520637,
+    "sha256": "72f6daaf298077635c187c1be8494019e70d32c6dbb5d585f06c0ff645751169",
+    "packaged_files_identical_to_source": 77
+  },
+  "source_and_installed_gui_real_workflow_identical_to_stage078": true,
+  "scientific_reference": "validation/runs/stage078/known-joint-time.json",
+  "verification_order": "targeted real worker, source Chromium, source full, wheel install, installed Chromium, installed full",
+  "observed_gain_or_clock_estimated": false,
+  "covariance_of_bispectrum_calculated": false,
+  "production_rml_noise_model_changed": false,
+  "actual_hardware_data": false,
+  "private_logs": "outputs/stage079-source-final/ and outputs/stage079-installed-final/; ignored"
+}

@@ -544,3 +544,28 @@ def test_known_sky_bispectrum_choice_and_label(tmp_path):
     with TestClient(create_app(tmp_path),base_url='http://127.0.0.1') as client:
         assert 'value="known_sky_bispectrum"' in client.get('/').text
     with pytest.raises(ValueError):ValidationRequest(validation='unknown_sky')
+
+
+def test_joint_temporal_bispectrum_validation_real_subprocess(tmp_path):
+    (tmp_path/'tools').mkdir()
+    (tmp_path/'tools/run.py').symlink_to(Path(__file__).resolve().parents[3]/'tools/run.py')
+    with TestClient(create_app(tmp_path),base_url='http://127.0.0.1') as client:
+        r=client.post('/api/jobs',json={'kind':'validation','validation':'joint_temporal_bispectrum'},headers=HEADERS)
+        assert r.status_code==202;job=wait(client,r.json()['id'],30);assert job['state']=='complete',job
+        q=job['summary'];assert q['type']=='joint_station_time_bispectrum_validation' and len(q['cases'])==12
+        assert len(q['models'])==6 and q['trials_per_case']==8192
+        assert all(c['all_calculated_means_and_known_phase_invariance_checked'] for c in q['cases'])
+        assert q['known_inverse_phase_supplied'] and not q['observed_gain_or_clock_estimated']
+        assert not q['covariance_of_bispectrum_calculated'] and not q['production_rml_noise_model_changed']
+        assert client.get(f"/api/jobs/{job['id']}/artifacts/validation/joint-time-bispectrum.png").status_code==200
+        assert client.get(f"/api/jobs/{job['id']}/artifacts/validation/summary.json").json()==q
+
+
+def test_joint_temporal_bispectrum_choice_and_label(tmp_path):
+    from vsora_ui.models import ValidationRequest
+    from vsora_ui.jobs import LABELS
+    assert ValidationRequest(validation='joint_temporal_bispectrum').validation=='joint_temporal_bispectrum'
+    assert LABELS['joint_temporal_bispectrum']=='局別時間変化と三次統計の平均（既知補正）'
+    with TestClient(create_app(tmp_path),base_url='http://127.0.0.1') as client:
+        assert 'value="joint_temporal_bispectrum"' in client.get('/').text
+    with pytest.raises(ValueError):ValidationRequest(validation='joint_time_unknown')
