@@ -1,0 +1,12 @@
+{
+  "state": "complete",
+  "installed_imports": true,
+  "outside_checkout": true,
+  "pythonpath_removed": true,
+  "installed_cli_verified": true,
+  "source_visibility_verified": true,
+  "frozen_inspection_json_identical": true,
+  "no_overwrite_checked": true,
+  "noise_covariance_estimated": false,
+  "production_rml_noise_model_changed": false
+}

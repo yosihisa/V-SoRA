@@ -1,0 +1,103 @@
+{
+  "type": "raw_bispectrum_inspection",
+  "state": "complete",
+  "time_index": 0,
+  "channel_index": 10,
+  "time_s": 0.027000000000000003,
+  "time_origin_utc": "2026-10-02T08:00:00.000Z",
+  "frequency_hz": 1419616000.0,
+  "bispectrum_unit": "ADC^6",
+  "nominal_fft_count": 3200,
+  "triangles": [
+    {
+      "triangle": [
+        0,
+        1,
+        2
+      ],
+      "station_ids": [
+        "ST01",
+        "ST02",
+        "ST03"
+      ],
+      "common_fft_count": 2935,
+      "distinct_sample_available": true,
+      "channel_triangle_usable": true,
+      "state": "usable_raw_value",
+      "ordinary_common_sample_product_real": 17560700492.942436,
+      "ordinary_common_sample_product_imag": 454301464.18216896,
+      "distinct_sample_bispectrum_real": 17367920722.548798,
+      "distinct_sample_bispectrum_imag": 445891141.98917675
+    },
+    {
+      "triangle": [
+        0,
+        1,
+        3
+      ],
+      "station_ids": [
+        "ST01",
+        "ST02",
+        "ST04"
+      ],
+      "common_fft_count": 2935,
+      "distinct_sample_available": true,
+      "channel_triangle_usable": true,
+      "state": "usable_raw_value",
+      "ordinary_common_sample_product_real": 4628512683.788453,
+      "ordinary_common_sample_product_imag": -504876098.8339646,
+      "distinct_sample_bispectrum_real": 4572511718.391504,
+      "distinct_sample_bispectrum_imag": -497149244.6240979
+    },
+    {
+      "triangle": [
+        0,
+        2,
+        3
+      ],
+      "station_ids": [
+        "ST01",
+        "ST03",
+        "ST04"
+      ],
+      "common_fft_count": 3068,
+      "distinct_sample_available": true,
+      "channel_triangle_usable": true,
+      "state": "usable_raw_value",
+      "ordinary_common_sample_product_real": 1055259846.6071622,
+      "ordinary_common_sample_product_imag": -158216956.3454357,
+      "distinct_sample_bispectrum_real": 1041720261.5178542,
+      "distinct_sample_bispectrum_imag": -157116564.44894865
+    },
+    {
+      "triangle": [
+        1,
+        2,
+        3
+      ],
+      "station_ids": [
+        "ST02",
+        "ST03",
+        "ST04"
+      ],
+      "common_fft_count": 3067,
+      "distinct_sample_available": true,
+      "channel_triangle_usable": true,
+      "state": "usable_raw_value",
+      "ordinary_common_sample_product_real": 96598468693.6111,
+      "ordinary_common_sample_product_imag": -271440504.2993102,
+      "distinct_sample_bispectrum_real": 95624965396.49745,
+      "distinct_sample_bispectrum_imag": -274814262.1437879
+    }
+  ],
+  "source_visibility_verified": true,
+  "noise_covariance_estimated": false,
+  "input_sample_independence_verified": false,
+  "input_mask_independence_verified": false,
+  "closure_phase_unbiased_guarantee": false,
+  "production_rml_noise_model_changed": false,
+  "real_hardware_validation_performed": false,
+  "scope": "Stored common-FFT raw sums and complex U3 values only. M<3 is unavailable, not zero; masks retain raw values but do not qualify them for inference. No uncertainty, phase confidence, normalized flux, detection probability or image likelihood.",
+  "raw_bispectrum_sha256": "a3b2b4862eee94a3a94fc37a30dd4a08a65e3a05a6f9a2bb98dcb174007cbe94",
+  "source_visibility_sha256": "b28deb4c8c4eee02906dec716c44bf2f42a7208158bb0ee03bf075ee608b44e9"
+}

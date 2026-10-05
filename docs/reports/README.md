@@ -122,4 +122,6 @@
 
 | 065 | [三次統計の保存を指定する日本語GUI](065-bispectrum-storage-gui.md) | source/wheel723件成功。相関13配列・相対画像差0。実Chromiumで単一/区間列の全保存値・ダウンロード照合、日本語/390px・失敗/中止。初回の表selectorを修正 |
 
+| 066 | [保存した三次統計を時刻と周波数で確認](066-bispectrum-inspection.md) | source/wheel743件成功。保存VDIFの利用可・マスクcell、M0/1/2のnull、原本照合・変更・上書き拒否、checkout外CLI一致。雑音・RML未適用 |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。

@@ -1,0 +1,39 @@
+{
+  "state": "complete",
+  "python": "3.12.3",
+  "numpy": "2.5.1",
+  "scipy": "1.18.0",
+  "pytest": "8.4.2",
+  "blas_threads": 1,
+  "omp_threads": 1,
+  "targeted_tests": {
+    "passed": 20,
+    "elapsed_s": 0.08
+  },
+  "full_regression": {
+    "source": {
+      "passed": 743,
+      "warnings": 25596,
+      "elapsed_s": 468.18,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 743,
+      "warnings": 25596,
+      "elapsed_s": 465.12,
+      "excluded_tests": 0
+    }
+  },
+  "pip_check_passed": true,
+  "wheel": {
+    "filename": "v_sora-0.1.0-py3-none-any.whl",
+    "bytes": 5498947,
+    "sha256": "8d4c4a2eedc45829568242e640b7578ab697e274b2a866988b69501fe32bf3f2",
+    "packaged_files_identical_to_source": 69
+  },
+  "verification_order": "source full, wheel install, outside-checkout CLI, installed full",
+  "noise_covariance_estimated": false,
+  "production_rml_noise_model_changed": false,
+  "actual_hardware_data": false,
+  "private_logs": "outputs/stage066-source-final/ and outputs/stage066-installed-final/; ignored"
+}

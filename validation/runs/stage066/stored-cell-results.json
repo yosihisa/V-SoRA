@@ -1,0 +1,49 @@
+{
+  "state": "complete",
+  "fixture_stage": "stage064",
+  "fixture": "Gaussian sky+receiver simulation recorded as complex8-bit VDIF, FIR65 and interpolation65 applied; no hardware",
+  "input_raw": "../stage064/raw-bispectrum.npz",
+  "input_visibility": "../stage064/spectral-visibility.npz",
+  "input_raw_sha256": "a3b2b4862eee94a3a94fc37a30dd4a08a65e3a05a6f9a2bb98dcb174007cbe94",
+  "input_visibility_sha256": "b28deb4c8c4eee02906dec716c44bf2f42a7208158bb0ee03bf075ee608b44e9",
+  "cells": [
+    {
+      "file": "active-cell.json",
+      "channel_index": 10,
+      "frequency_hz": 1419616000.0,
+      "common_fft_count": [
+        2935,
+        2935,
+        3068,
+        3067
+      ],
+      "states": [
+        "usable_raw_value",
+        "usable_raw_value",
+        "usable_raw_value",
+        "usable_raw_value"
+      ],
+      "source_visibility_verified": true
+    },
+    {
+      "file": "masked-cell.json",
+      "channel_index": 16,
+      "frequency_hz": 1420000000.0,
+      "common_fft_count": [
+        2935,
+        2935,
+        3068,
+        3067
+      ],
+      "states": [
+        "masked_raw_value",
+        "masked_raw_value",
+        "masked_raw_value",
+        "masked_raw_value"
+      ],
+      "source_visibility_verified": true
+    }
+  ],
+  "noise_covariance_estimated": false,
+  "production_rml_noise_model_changed": false
+}
