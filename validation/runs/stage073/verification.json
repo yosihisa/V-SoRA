@@ -1,0 +1,45 @@
+{
+  "state": "complete",
+  "python": "3.12.3",
+  "numpy": "2.5.1",
+  "scipy": "1.18.0",
+  "pytest": "8.4.2",
+  "chromium": "153.0.8010.12",
+  "blas_threads": 1,
+  "omp_threads": 1,
+  "targeted_tests": {
+    "passed": 2,
+    "deselected": 45,
+    "warnings": 1,
+    "elapsed_s": 4.82
+  },
+  "full_regression": {
+    "source": {
+      "passed": 874,
+      "warnings": 25596,
+      "elapsed_s": 514.59,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 874,
+      "warnings": 25596,
+      "elapsed_s": 514.97,
+      "excluded_tests": 0
+    }
+  },
+  "pip_check_passed": true,
+  "wheel": {
+    "filename": "v_sora-0.1.0-py3-none-any.whl",
+    "bytes": 5509776,
+    "sha256": "02c2fedef5445beb6d1c30a6fc092d32ed284648cd28deec149af3aa71c36a70",
+    "packaged_files_identical_to_source": 73
+  },
+  "source_and_installed_gui_real_workflow_identical_to_stage072": true,
+  "scientific_reference": "validation/runs/stage072/known-signal-temporal.json",
+  "verification_order": "targeted real worker, source Chromium, source full, wheel install, installed Chromium, installed full",
+  "observed_statistic_logarithms_taken": false,
+  "noise_likelihood_implemented": false,
+  "production_rml_noise_model_changed": false,
+  "actual_hardware_data": false,
+  "private_logs": "outputs/stage073-source-final/ and outputs/stage073-installed-final/; ignored"
+}

@@ -469,3 +469,29 @@ def test_population_gain_choice_and_label(tmp_path):
     with TestClient(create_app(tmp_path),base_url='http://127.0.0.1') as client:
         assert 'value="bispectrum_gain"' in client.get('/').text
     with pytest.raises(ValueError):ValidationRequest(validation='bispectrum_gain_unknown')
+
+def test_signal_temporal_validation_real_subprocess(tmp_path):
+    (tmp_path/'tools').mkdir()
+    (tmp_path/'tools/run.py').symlink_to(Path(__file__).resolve().parents[3]/'tools/run.py')
+    with TestClient(create_app(tmp_path),base_url='http://127.0.0.1') as client:
+        r=client.post('/api/jobs',json={'kind':'validation','validation':'signal_temporal_bispectrum'},headers=HEADERS)
+        assert r.status_code==202;job=wait(client,r.json()['id'],30);assert job['state']=='complete',job
+        q=job['summary'];assert q['type']=='signal_temporal_bispectrum_validation' and len(q['cases'])==25
+        assert q['trials_per_condition']==8192 and all(c['all_mean_components_within_6se'] for c in q['cases'])
+        assert not q['observed_bias_correction_performed'] and not q['variance_or_likelihood_calculated']
+        assert not q['physical_raw_filter_convolution_performed'] and not q['physical_adc_vdif_processed']
+        assert not q['actual_temporal_independence_verified'] and not q['production_rml_noise_model_changed']
+        long=[c for c in q['cases'] if c['time_model']=='long_average']
+        assert all(c['methods']['distinct']['known_bias_exceeds_six_mc_se'] for c in long)
+        assert client.get(f"/api/jobs/{job['id']}/artifacts/validation/bispectrum-signal-temporal.png").status_code==200
+        assert client.get(f"/api/jobs/{job['id']}/artifacts/validation/summary.json").json()==q
+
+
+def test_signal_temporal_choice_and_label(tmp_path):
+    from vsora_ui.models import ValidationRequest
+    from vsora_ui.jobs import LABELS
+    assert ValidationRequest(validation='signal_temporal_bispectrum').validation=='signal_temporal_bispectrum'
+    assert LABELS['signal_temporal_bispectrum']=='天体信号と共通時間相関・三次統計の平均'
+    with TestClient(create_app(tmp_path),base_url='http://127.0.0.1') as client:
+        assert 'value="signal_temporal_bispectrum"' in client.get('/').text
+    with pytest.raises(ValueError):ValidationRequest(validation='signal_temporal_unknown')

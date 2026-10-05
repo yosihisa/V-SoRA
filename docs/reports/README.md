@@ -136,4 +136,6 @@
 
 | 072 | [天体信号と共通時間相関が三次統計の平均へ与える影響](072-bispectrum-signal-temporal.md) | source/wheel872件成功。全Gaussian縮約の総当たりと25条件各8,192反復を照合。共通Kの条件で天体由来の追加項を確認し、実機の偏り補正・独立性・尤度として使用しない |
 
+| 073 | [天体信号と共通時間相関の平均比較を日本語GUIで確認](073-bispectrum-signal-temporal-gui.md) | source/wheel874件成功。実workerと両実Chromiumで概要25行・詳細200行の全値、JSON、図説明、日本語/390pxを確認。全科学計算は072と完全一致 |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。

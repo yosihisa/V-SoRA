@@ -29,7 +29,7 @@ class SimulationRequest(Request):
 
 class ValidationRequest(Request):
     kind:Literal['validation']='validation'
-    validation:Literal['rate','phase','uncertainty','covariance','closure_noise','filtered_noise','bispectrum','temporal_bispectrum','bispectrum_sensitivity','bispectrum_moments','bispectrum_average','bispectrum_gain','closure','quality','clock','fringe','basic']='quality'
+    validation:Literal['rate','phase','uncertainty','covariance','closure_noise','filtered_noise','bispectrum','temporal_bispectrum','bispectrum_sensitivity','bispectrum_moments','bispectrum_average','bispectrum_gain','signal_temporal_bispectrum','closure','quality','clock','fringe','basic']='quality'
 
 
 class RmlRequest(Request):
