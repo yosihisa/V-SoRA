@@ -1,0 +1,12 @@
+{
+  "state": "complete",
+  "installed_module_verified": true,
+  "outside_checkout": true,
+  "covariance_axis_order_verified": "time,station,time,station",
+  "conditions_checked": 12,
+  "mean_arrays_checked": 48,
+  "known_inverse_phase_supplied": true,
+  "observed_gain_or_clock_estimated": false,
+  "variance_or_likelihood_calculated": false,
+  "real_hardware_validation_performed": false
+}

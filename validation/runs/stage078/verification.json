@@ -1,0 +1,63 @@
+{
+  "state": "complete",
+  "python": "3.12.3",
+  "numpy": "2.5.1",
+  "scipy": "1.18.0",
+  "pytest": "8.4.2",
+  "blas_threads": 1,
+  "omp_threads": 1,
+  "targeted_tests": {
+    "passed": 58,
+    "elapsed_s": 1.12
+  },
+  "full_regression": {
+    "source": {
+      "passed": 1035,
+      "warnings": 25596,
+      "elapsed_s": 560.22,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 1035,
+      "warnings": 25596,
+      "elapsed_s": 558.45,
+      "excluded_tests": 0
+    }
+  },
+  "pip_check_passed": true,
+  "wheel": {
+    "filename": "v_sora-0.1.0-py3-none-any.whl",
+    "bytes": 5519586,
+    "sha256": "bb0119e8c2fcd419fbf8cc1fa3060da33094a2a219fac9c2b3cd4cc427075ef9",
+    "packaged_files_identical_to_source": 77
+  },
+  "joint_station_time_experiment": {
+    "state": "complete",
+    "conditions": 12,
+    "trials_per_case": 8192,
+    "seeds": [
+      78,
+      79,
+      80,
+      81,
+      82,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88,
+      89
+    ],
+    "elapsed_s": 2.68,
+    "max_rss_kib": 98596,
+    "entire_result_matches_preliminary": true
+  },
+  "variance_or_likelihood_calculated": false,
+  "observed_gain_or_clock_estimated": false,
+  "known_inverse_phase_supplied": true,
+  "actual_temporal_independence_verified": false,
+  "production_rml_noise_model_changed": false,
+  "actual_hardware_data": false,
+  "private_logs": "outputs/stage078-source-final/ and outputs/stage078-installed-final/; ignored"
+}
