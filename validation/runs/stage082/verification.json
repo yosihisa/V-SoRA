@@ -1,0 +1,44 @@
+{
+  "state": "complete",
+  "python": "3.12.3",
+  "numpy": "2.5.1",
+  "scipy": "1.18.0",
+  "pytest": "8.4.2",
+  "chromium": "153.0.8010.12",
+  "blas_threads": 1,
+  "omp_threads": 1,
+  "targeted_tests": {
+    "passed": 2,
+    "deselected": 111,
+    "warnings": 1,
+    "elapsed_s": 2.28
+  },
+  "full_regression": {
+    "source": {
+      "passed": 1192,
+      "warnings": 25596,
+      "elapsed_s": 573.57,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 1192,
+      "warnings": 25596,
+      "elapsed_s": 570.77,
+      "excluded_tests": 0
+    }
+  },
+  "wheel": {
+    "filename": "v_sora-0.1.0-py3-none-any.whl",
+    "bytes": 5524350,
+    "sha256": "c5916eaec9b50a6943d63b1189af676407c489ffa09e6cebf509e4ec515b34bb",
+    "packaged_files_identical_to_source": 79
+  },
+  "pip_check_passed": true,
+  "source_and_installed_scientific_results_identical_to_stage081": true,
+  "workflow_owned_by_checkout": true,
+  "installed_outer_ui_and_worker": true,
+  "installed_core_api_checked_separately": true,
+  "production_rml_noise_model_changed": false,
+  "image_reconstructed": false,
+  "actual_hardware_data": false
+}

@@ -613,3 +613,27 @@ def test_maximum_baseline_default_fields(tmp_path):
     for name in ('SimulationRequest','RmlRequest','SensitivityRequest'):assert getattr(models,name)().maximum_baseline_m==600.
     with TestClient(create_app(tmp_path),base_url='http://127.0.0.1') as client:
         assert client.get('/').text.count('name="maximum_baseline_m"')==3
+
+
+def test_array_scale_validation_real_subprocess(tmp_path):
+    (tmp_path/'tools').mkdir()
+    (tmp_path/'tools/run.py').symlink_to(Path(__file__).resolve().parents[3]/'tools/run.py')
+    with TestClient(create_app(tmp_path),base_url='http://127.0.0.1') as client:
+        r=client.post('/api/jobs',json={'kind':'validation','validation':'array_scale'},headers=HEADERS)
+        assert r.status_code==202;job=wait(client,r.json()['id'],30);assert job['state']=='complete',job
+        q=job['summary'];assert q['type']=='array_scale_known_sky_comparison'
+        assert len(q['snapshots'])==18 and len(q['conditional_scale_cases'])==108
+        assert not q['optimal_array_selected'] and not q['image_reconstructed'] and not q['actual_hardware_data']
+        assert q['known_source_self_noise_included'] and not q['population_closure_rms_is_image_information_rank']
+        assert client.get(f"/api/jobs/{job['id']}/artifacts/validation/array-scale-tradeoff.png").status_code==200
+        assert client.get(f"/api/jobs/{job['id']}/artifacts/validation/summary.json").json()==q
+
+
+def test_array_scale_choice_and_label(tmp_path):
+    from vsora_ui.models import ValidationRequest
+    from vsora_ui.jobs import LABELS
+    assert ValidationRequest(validation='array_scale').validation=='array_scale'
+    assert LABELS['array_scale']=='最大基線と既知Cas A形状の比較'
+    with TestClient(create_app(tmp_path),base_url='http://127.0.0.1') as client:
+        assert 'value="array_scale"' in client.get('/').text
+    with pytest.raises(ValueError):ValidationRequest(validation='array_unknown')
