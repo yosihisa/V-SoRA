@@ -1,0 +1,76 @@
+{
+  "state": "complete",
+  "python": "3.12.3",
+  "numpy": "2.5.1",
+  "scipy": "1.18.0",
+  "pytest": "8.4.2",
+  "blas_threads": 1,
+  "omp_threads": 1,
+  "targeted_tests": {
+    "passed": 45,
+    "elapsed_s": 0.52
+  },
+  "full_regression": {
+    "source": {
+      "passed": 872,
+      "warnings": 25596,
+      "elapsed_s": 510.03,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 872,
+      "warnings": 25596,
+      "elapsed_s": 506.15,
+      "excluded_tests": 0
+    }
+  },
+  "pip_check_passed": true,
+  "wheel": {
+    "filename": "v_sora-0.1.0-py3-none-any.whl",
+    "bytes": 5508695,
+    "sha256": "6382b7240a269090851b0a92556f06cb2b5d119273026ebcad296be0a017a644",
+    "packaged_files_identical_to_source": 73
+  },
+  "known_common_time_experiment": {
+    "conditions": 25,
+    "trials_per_condition": 8192,
+    "seeds": [
+      72,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      80,
+      81,
+      82,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88,
+      89,
+      90,
+      91,
+      92,
+      93,
+      94,
+      95,
+      96
+    ],
+    "elapsed_s": 4.45,
+    "max_rss_kib": 150428,
+    "preliminary_elapsed_s": 4.45,
+    "preliminary_max_rss_kib": 150548,
+    "preliminary_and_source_results_identical": true
+  },
+  "variance_or_likelihood_calculated": false,
+  "observed_bias_correction_performed": false,
+  "actual_temporal_independence_verified": false,
+  "production_rml_noise_model_changed": false,
+  "actual_hardware_data": false,
+  "private_logs": "outputs/stage072-source-final/ and outputs/stage072-installed-final/; ignored"
+}

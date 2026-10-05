@@ -134,4 +134,6 @@
 
 | 071 | [未知gainと母平均の制約を日本語GUIで確認](071-bispectrum-gain-gui.md) | source/wheel827件成功。実workerと両実Chromiumで6局数・4局の例の全数値・JSON・日本語/390px・図説明を確認。母平均rankを雑音rankや画像化の可否に使わない |
 
+| 072 | [天体信号と共通時間相関が三次統計の平均へ与える影響](072-bispectrum-signal-temporal.md) | source/wheel872件成功。全Gaussian縮約の総当たりと25条件各8,192反復を照合。共通Kの条件で天体由来の追加項を確認し、実機の偏り補正・独立性・尤度として使用しない |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。

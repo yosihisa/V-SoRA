@@ -1,0 +1,6320 @@
+{
+  "type": "signal_temporal_bispectrum_validation",
+  "state": "complete",
+  "trials_per_condition": 8192,
+  "cases": [
+    {
+      "source_model": "zero",
+      "time_model": "white",
+      "trials": 8192,
+      "seed": 72,
+      "nominal_time_outputs": 128,
+      "retained_outputs": 128,
+      "guard_step_outputs": 1,
+      "kernel_length": 1,
+      "raw_stride_samples": 1,
+      "known_temporal_covariance_is_identity": true,
+      "triangles": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          3
+        ],
+        [
+          0,
+          2,
+          3
+        ],
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "true_marginal_bispectrum_real_imag": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "temporal_diagonal_power": 1.0,
+      "off_diagonal_pair_sum": 0.0,
+      "distinct_time_cycle_sum": 0.0,
+      "distinct_pair_bias_real_imag": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "distinct_cycle_bias_real_imag": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "methods": {
+        "ordinary": {
+          "known_mean_real_imag": [
+            [
+              6.103515625e-05,
+              0.0
+            ],
+            [
+              6.103515625e-05,
+              0.0
+            ],
+            [
+              6.103515625e-05,
+              0.0
+            ],
+            [
+              6.103515625e-05,
+              0.0
+            ]
+          ],
+          "ensemble_mean_real_imag": [
+            [
+              6.132253029417239e-05,
+              9.447332470340099e-07
+            ],
+            [
+              6.169174071226738e-05,
+              6.102990847995042e-06
+            ],
+            [
+              6.436050190015554e-05,
+              3.007086575119657e-06
+            ],
+            [
+              5.8195622610278215e-05,
+              1.425224528099189e-07
+            ]
+          ],
+          "mc_mean_standard_error": [
+            [
+              5.471097332413732e-06,
+              5.434799367572844e-06
+            ],
+            [
+              5.4041480053438895e-06,
+              5.270228059876824e-06
+            ],
+            [
+              5.643106952661255e-06,
+              5.5765318092107735e-06
+            ],
+            [
+              5.421493023629253e-06,
+              5.398402833303269e-06
+            ]
+          ],
+          "bias_from_marginal_true_bispectrum": [
+            [
+              6.103515625e-05,
+              0.0
+            ],
+            [
+              6.103515625e-05,
+              0.0
+            ],
+            [
+              6.103515625e-05,
+              0.0
+            ],
+            [
+              6.103515625e-05,
+              0.0
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "maximum_absolute_normalized_mean_difference": 1.1580124466426287,
+          "known_bias_exceeds_six_mc_se": true
+        },
+        "distinct": {
+          "known_mean_real_imag": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "ensemble_mean_real_imag": [
+            [
+              -1.5249512357065289e-07,
+              1.425470495390671e-06
+            ],
+            [
+              1.3386765030777633e-06,
+              8.06147341437029e-06
+            ],
+            [
+              3.837481335001419e-06,
+              2.0718954679899416e-06
+            ],
+            [
+              -1.3688856589272758e-06,
+              6.557230381716281e-07
+            ]
+          ],
+          "mc_mean_standard_error": [
+            [
+              5.412755296015441e-06,
+              5.49290281656166e-06
+            ],
+            [
+              5.359815876714866e-06,
+              5.3404511847590244e-06
+            ],
+            [
+              5.556876519553559e-06,
+              5.623655486817811e-06
+            ],
+            [
+              5.419732969172681e-06,
+              5.466439664776038e-06
+            ]
+          ],
+          "bias_from_marginal_true_bispectrum": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "maximum_absolute_normalized_mean_difference": 1.509511392570224,
+          "known_bias_exceeds_six_mc_se": false
+        }
+      },
+      "all_mean_components_within_6se": true,
+      "gaussian_coefficients_generated_from_known_covariance": true,
+      "common_separable_space_time_covariance_assumed": true,
+      "physical_raw_filter_convolution_performed": false,
+      "actual_temporal_independence_verified": false
+    },
+    {
+      "source_model": "zero",
+      "time_model": "long_average",
+      "trials": 8192,
+      "seed": 73,
+      "nominal_time_outputs": 128,
+      "retained_outputs": 128,
+      "guard_step_outputs": 1,
+      "kernel_length": 65,
+      "raw_stride_samples": 8,
+      "known_temporal_covariance_is_identity": false,
+      "triangles": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          3
+        ],
+        [
+          0,
+          2,
+          3
+        ],
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "true_marginal_bispectrum_real_imag": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "temporal_diagonal_power": 1.0000000000000002,
+      "off_diagonal_pair_sum": 559.6989349112428,
+      "distinct_time_cycle_sum": 2754.8476358670937,
+      "distinct_pair_bias_real_imag": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "distinct_cycle_bias_real_imag": [
+        [
+          0.0013449723256600218,
+          0.0
+        ],
+        [
+          0.0013449723256600218,
+          0.0
+        ],
+        [
+          0.0013449723256600218,
+          0.0
+        ],
+        [
+          0.0013449723256600218,
+          0.0
+        ]
+      ],
+      "methods": {
+        "ordinary": {
+          "known_mean_real_imag": [
+            [
+              0.002175304622936641,
+              0.0
+            ],
+            [
+              0.002175304622936641,
+              0.0
+            ],
+            [
+              0.002175304622936641,
+              0.0
+            ],
+            [
+              0.002175304622936641,
+              0.0
+            ]
+          ],
+          "ensemble_mean_real_imag": [
+            [
+              0.0021657284515950127,
+              6.183875948953802e-05
+            ],
+            [
+              0.0021198971220107534,
+              -9.749060053926845e-05
+            ],
+            [
+              0.0020926564694277723,
+              -1.7285856014981024e-06
+            ],
+            [
+              0.0020578276457957254,
+              2.057641401290219e-05
+            ]
+          ],
+          "mc_mean_standard_error": [
+            [
+              8.065733143054526e-05,
+              6.629243981893024e-05
+            ],
+            [
+              8.234160075732497e-05,
+              6.693899455085082e-05
+            ],
+            [
+              7.826473571733979e-05,
+              6.578045225767614e-05
+            ],
+            [
+              7.579766072206391e-05,
+              6.637776132144407e-05
+            ]
+          ],
+          "bias_from_marginal_true_bispectrum": [
+            [
+              0.002175304622936641,
+              0.0
+            ],
+            [
+              0.002175304622936641,
+              0.0
+            ],
+            [
+              0.002175304622936641,
+              0.0
+            ],
+            [
+              0.002175304622936641,
+              0.0
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "maximum_absolute_normalized_mean_difference": 1.5498760050366989,
+          "known_bias_exceeds_six_mc_se": true
+        },
+        "distinct": {
+          "known_mean_real_imag": [
+            [
+              0.0013449723256600218,
+              0.0
+            ],
+            [
+              0.0013449723256600218,
+              0.0
+            ],
+            [
+              0.0013449723256600218,
+              0.0
+            ],
+            [
+              0.0013449723256600218,
+              0.0
+            ]
+          ],
+          "ensemble_mean_real_imag": [
+            [
+              0.0013383409371718802,
+              6.017136929099493e-05
+            ],
+            [
+              0.001302605396800147,
+              -9.68142439740457e-05
+            ],
+            [
+              0.0012655093019647643,
+              -2.269072730948e-06
+            ],
+            [
+              0.0012234480303492704,
+              1.8012738820739833e-05
+            ]
+          ],
+          "mc_mean_standard_error": [
+            [
+              7.711396738455565e-05,
+              6.653421652049787e-05
+            ],
+            [
+              7.874545155609278e-05,
+              6.730182462567955e-05
+            ],
+            [
+              7.50242762591429e-05,
+              6.599798701987416e-05
+            ],
+            [
+              7.263138448721796e-05,
+              6.657313385050306e-05
+            ]
+          ],
+          "bias_from_marginal_true_bispectrum": [
+            [
+              0.0013449723256600218,
+              0.0
+            ],
+            [
+              0.0013449723256600218,
+              0.0
+            ],
+            [
+              0.0013449723256600218,
+              0.0
+            ],
+            [
+              0.0013449723256600218,
+              0.0
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "maximum_absolute_normalized_mean_difference": 1.6731650442237238,
+          "known_bias_exceeds_six_mc_se": true
+        }
+      },
+      "all_mean_components_within_6se": true,
+      "gaussian_coefficients_generated_from_known_covariance": true,
+      "common_separable_space_time_covariance_assumed": true,
+      "physical_raw_filter_convolution_performed": false,
+      "actual_temporal_independence_verified": false
+    },
+    {
+      "source_model": "zero",
+      "time_model": "reference_fft",
+      "trials": 8192,
+      "seed": 74,
+      "nominal_time_outputs": 128,
+      "retained_outputs": 128,
+      "guard_step_outputs": 1,
+      "kernel_length": 160,
+      "raw_stride_samples": 32,
+      "known_temporal_covariance_is_identity": false,
+      "triangles": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          3
+        ],
+        [
+          0,
+          2,
+          3
+        ],
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "true_marginal_bispectrum_real_imag": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "temporal_diagonal_power": 1.0000000000000002,
+      "off_diagonal_pair_sum": 0.0018727229177090104,
+      "distinct_time_cycle_sum": 1.0174282067070054e-08,
+      "distinct_pair_bias_real_imag": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "distinct_cycle_bias_real_imag": [
+        [
+          4.967290254279764e-15,
+          0.0
+        ],
+        [
+          4.967290254279764e-15,
+          0.0
+        ],
+        [
+          4.967290254279764e-15,
+          0.0
+        ],
+        [
+          4.967290254279764e-15,
+          0.0
+        ]
+      ],
+      "methods": {
+        "ordinary": {
+          "known_mean_real_imag": [
+            [
+              6.103783520647407e-05,
+              0.0
+            ],
+            [
+              6.103783520647407e-05,
+              0.0
+            ],
+            [
+              6.103783520647407e-05,
+              0.0
+            ],
+            [
+              6.103783520647407e-05,
+              0.0
+            ]
+          ],
+          "ensemble_mean_real_imag": [
+            [
+              6.743977603198303e-05,
+              -1.1546791827304184e-07
+            ],
+            [
+              5.86337099223096e-05,
+              6.135782936400809e-06
+            ],
+            [
+              6.060668546638165e-05,
+              2.664073769561062e-06
+            ],
+            [
+              6.989125980321007e-05,
+              -1.273943290936126e-07
+            ]
+          ],
+          "mc_mean_standard_error": [
+            [
+              5.472057129657026e-06,
+              5.282058005934028e-06
+            ],
+            [
+              5.464611353254724e-06,
+              5.157255595908714e-06
+            ],
+            [
+              5.475314580092998e-06,
+              5.3348171522492866e-06
+            ],
+            [
+              5.43770077632841e-06,
+              5.279285519673282e-06
+            ]
+          ],
+          "bias_from_marginal_true_bispectrum": [
+            [
+              6.103783520647407e-05,
+              0.0
+            ],
+            [
+              6.103783520647407e-05,
+              0.0
+            ],
+            [
+              6.103783520647407e-05,
+              0.0
+            ],
+            [
+              6.103783520647407e-05,
+              0.0
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "maximum_absolute_normalized_mean_difference": 1.6281555997199102,
+          "known_bias_exceeds_six_mc_se": true
+        },
+        "distinct": {
+          "known_mean_real_imag": [
+            [
+              4.967290254279764e-15,
+              0.0
+            ],
+            [
+              4.967290254279764e-15,
+              0.0
+            ],
+            [
+              4.967290254279764e-15,
+              0.0
+            ],
+            [
+              4.967290254279764e-15,
+              0.0
+            ]
+          ],
+          "ensemble_mean_real_imag": [
+            [
+              8.834543057489889e-06,
+              -1.6464145741841015e-07
+            ],
+            [
+              -1.4333077850390259e-06,
+              6.76258909381959e-06
+            ],
+            [
+              -3.041952062902172e-08,
+              1.132560390317081e-06
+            ],
+            [
+              7.70415751230612e-06,
+              4.5805714200075335e-07
+            ]
+          ],
+          "mc_mean_standard_error": [
+            [
+              5.374287030991129e-06,
+              5.340675284052953e-06
+            ],
+            [
+              5.428030070304268e-06,
+              5.232715657836791e-06
+            ],
+            [
+              5.409982535794243e-06,
+              5.39412594629875e-06
+            ],
+            [
+              5.324770029696425e-06,
+              5.332777063466915e-06
+            ]
+          ],
+          "bias_from_marginal_true_bispectrum": [
+            [
+              4.967290254279764e-15,
+              0.0
+            ],
+            [
+              4.967290254279764e-15,
+              0.0
+            ],
+            [
+              4.967290254279764e-15,
+              0.0
+            ],
+            [
+              4.967290254279764e-15,
+              0.0
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "maximum_absolute_normalized_mean_difference": 1.6438536605365617,
+          "known_bias_exceeds_six_mc_se": false
+        }
+      },
+      "all_mean_components_within_6se": true,
+      "gaussian_coefficients_generated_from_known_covariance": true,
+      "common_separable_space_time_covariance_assumed": true,
+      "physical_raw_filter_convolution_performed": false,
+      "actual_temporal_independence_verified": false
+    },
+    {
+      "source_model": "zero",
+      "time_model": "guarded_average",
+      "trials": 8192,
+      "seed": 75,
+      "nominal_time_outputs": 128,
+      "retained_outputs": 15,
+      "guard_step_outputs": 9,
+      "kernel_length": 65,
+      "raw_stride_samples": 8,
+      "known_temporal_covariance_is_identity": true,
+      "triangles": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          3
+        ],
+        [
+          0,
+          2,
+          3
+        ],
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "true_marginal_bispectrum_real_imag": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "temporal_diagonal_power": 1.0000000000000002,
+      "off_diagonal_pair_sum": 0.0,
+      "distinct_time_cycle_sum": 0.0,
+      "distinct_pair_bias_real_imag": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "distinct_cycle_bias_real_imag": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "methods": {
+        "ordinary": {
+          "known_mean_real_imag": [
+            [
+              0.004444444444444448,
+              0.0
+            ],
+            [
+              0.004444444444444448,
+              0.0
+            ],
+            [
+              0.004444444444444448,
+              0.0
+            ],
+            [
+              0.004444444444444448,
+              0.0
+            ]
+          ],
+          "ensemble_mean_real_imag": [
+            [
+              0.004728498034968329,
+              0.00013596701580364257
+            ],
+            [
+              0.004680317093237422,
+              -0.00015371267185149208
+            ],
+            [
+              0.004613624549044004,
+              -0.000156593592420301
+            ],
+            [
+              0.004562379377955979,
+              -9.165826587715754e-05
+            ]
+          ],
+          "mc_mean_standard_error": [
+            [
+              0.00016189452599427268,
+              0.00013272362263071316
+            ],
+            [
+              0.00016799972598055462,
+              0.000136751235934135
+            ],
+            [
+              0.0001620627206847648,
+              0.00013507954602209781
+            ],
+            [
+              0.00016321840712516813,
+              0.0001403101928076737
+            ]
+          ],
+          "bias_from_marginal_true_bispectrum": [
+            [
+              0.004444444444444448,
+              0.0
+            ],
+            [
+              0.004444444444444448,
+              0.0
+            ],
+            [
+              0.004444444444444448,
+              0.0
+            ],
+            [
+              0.004444444444444448,
+              0.0
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "maximum_absolute_normalized_mean_difference": 1.7545595629303137,
+          "known_bias_exceeds_six_mc_se": true
+        },
+        "distinct": {
+          "known_mean_real_imag": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "ensemble_mean_real_imag": [
+            [
+              0.00023477291163722356,
+              0.00018004091512773029
+            ],
+            [
+              3.870350719078598e-05,
+              -4.283461859441753e-05
+            ],
+            [
+              0.00024188681744755273,
+              -0.00021913722075385058
+            ],
+            [
+              1.8326093888776e-05,
+              -3.6495747677868466e-05
+            ]
+          ],
+          "mc_mean_standard_error": [
+            [
+              0.00014684141127346186,
+              0.00015046585494615978
+            ],
+            [
+              0.00015009557852219092,
+              0.00015041035567432454
+            ],
+            [
+              0.00014764123313351006,
+              0.00014964970090040468
+            ],
+            [
+              0.0001476751748669874,
+              0.00015628233773816276
+            ]
+          ],
+          "bias_from_marginal_true_bispectrum": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "maximum_absolute_normalized_mean_difference": 1.6383418823823812,
+          "known_bias_exceeds_six_mc_se": false
+        }
+      },
+      "all_mean_components_within_6se": true,
+      "gaussian_coefficients_generated_from_known_covariance": true,
+      "common_separable_space_time_covariance_assumed": true,
+      "physical_raw_filter_convolution_performed": false,
+      "actual_temporal_independence_verified": false
+    },
+    {
+      "source_model": "zero",
+      "time_model": "guarded_reference",
+      "trials": 8192,
+      "seed": 76,
+      "nominal_time_outputs": 128,
+      "retained_outputs": 26,
+      "guard_step_outputs": 5,
+      "kernel_length": 160,
+      "raw_stride_samples": 32,
+      "known_temporal_covariance_is_identity": true,
+      "triangles": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          3
+        ],
+        [
+          0,
+          2,
+          3
+        ],
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "true_marginal_bispectrum_real_imag": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "temporal_diagonal_power": 1.0000000000000002,
+      "off_diagonal_pair_sum": 0.0,
+      "distinct_time_cycle_sum": 0.0,
+      "distinct_pair_bias_real_imag": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "distinct_cycle_bias_real_imag": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "methods": {
+        "ordinary": {
+          "known_mean_real_imag": [
+            [
+              0.0014792899408284034,
+              0.0
+            ],
+            [
+              0.0014792899408284034,
+              0.0
+            ],
+            [
+              0.0014792899408284034,
+              0.0
+            ],
+            [
+              0.0014792899408284034,
+              0.0
+            ]
+          ],
+          "ensemble_mean_real_imag": [
+            [
+              0.0014558389637325253,
+              -4.2494003996382635e-05
+            ],
+            [
+              0.0014280041433612147,
+              -4.011451851508763e-05
+            ],
+            [
+              0.0014935906539514288,
+              -1.5969806164673213e-06
+            ],
+            [
+              0.0015022986789042592,
+              4.4462554783469045e-05
+            ]
+          ],
+          "mc_mean_standard_error": [
+            [
+              6.595305744732885e-05,
+              5.824486576347529e-05
+            ],
+            [
+              6.423791068018857e-05,
+              5.702987099655141e-05
+            ],
+            [
+              6.45823218431592e-05,
+              5.895845147178248e-05
+            ],
+            [
+              6.605754218570807e-05,
+              5.996148771751358e-05
+            ]
+          ],
+          "bias_from_marginal_true_bispectrum": [
+            [
+              0.0014792899408284034,
+              0.0
+            ],
+            [
+              0.0014792899408284034,
+              0.0
+            ],
+            [
+              0.0014792899408284034,
+              0.0
+            ],
+            [
+              0.0014792899408284034,
+              0.0
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "maximum_absolute_normalized_mean_difference": 0.7983727385553481,
+          "known_bias_exceeds_six_mc_se": true
+        },
+        "distinct": {
+          "known_mean_real_imag": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "ensemble_mean_real_imag": [
+            [
+              -5.66317360469242e-05,
+              -6.706137431693327e-05
+            ],
+            [
+              -7.026223235678461e-06,
+              -4.280997805859889e-05
+            ],
+            [
+              3.3476793025899725e-05,
+              -2.253603919443314e-06
+            ],
+            [
+              -5.1894008047138214e-05,
+              -6.488760815099055e-06
+            ]
+          ],
+          "mc_mean_standard_error": [
+            [
+              6.336220407495985e-05,
+              6.20424189690726e-05
+            ],
+            [
+              6.0863912136453204e-05,
+              6.0650591546832e-05
+            ],
+            [
+              6.131471012198215e-05,
+              6.208620595169223e-05
+            ],
+            [
+              6.189561895266205e-05,
+              6.303019430272011e-05
+            ]
+          ],
+          "bias_from_marginal_true_bispectrum": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "maximum_absolute_normalized_mean_difference": 1.0808955284201127,
+          "known_bias_exceeds_six_mc_se": false
+        }
+      },
+      "all_mean_components_within_6se": true,
+      "gaussian_coefficients_generated_from_known_covariance": true,
+      "common_separable_space_time_covariance_assumed": true,
+      "physical_raw_filter_convolution_performed": false,
+      "actual_temporal_independence_verified": false
+    },
+    {
+      "source_model": "weak",
+      "time_model": "white",
+      "trials": 8192,
+      "seed": 77,
+      "nominal_time_outputs": 128,
+      "retained_outputs": 128,
+      "guard_step_outputs": 1,
+      "kernel_length": 1,
+      "raw_stride_samples": 1,
+      "known_temporal_covariance_is_identity": true,
+      "triangles": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          3
+        ],
+        [
+          0,
+          2,
+          3
+        ],
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "true_marginal_bispectrum_real_imag": [
+        [
+          1e-09,
+          0.0
+        ],
+        [
+          1e-09,
+          0.0
+        ],
+        [
+          1e-09,
+          0.0
+        ],
+        [
+          1e-09,
+          0.0
+        ]
+      ],
+      "temporal_diagonal_power": 1.0,
+      "off_diagonal_pair_sum": 0.0,
+      "distinct_time_cycle_sum": 0.0,
+      "distinct_pair_bias_real_imag": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "distinct_cycle_bias_real_imag": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "methods": {
+        "ordinary": {
+          "known_mean_real_imag": [
+            [
+              6.124290588378904e-05,
+              0.0
+            ],
+            [
+              6.124290588378904e-05,
+              0.0
+            ],
+            [
+              6.124290588378904e-05,
+              0.0
+            ],
+            [
+              6.124290588378904e-05,
+              0.0
+            ]
+          ],
+          "ensemble_mean_real_imag": [
+            [
+              5.140789588617813e-05,
+              -4.7303867416203395e-06
+            ],
+            [
+              6.5833950742039e-05,
+              1.2358999588908364e-05
+            ],
+            [
+              5.325939712340551e-05,
+              -2.694949411106629e-06
+            ],
+            [
+              7.291849764071341e-05,
+              1.0126148072500602e-05
+            ]
+          ],
+          "mc_mean_standard_error": [
+            [
+              5.755365120089895e-06,
+              5.513878754216449e-06
+            ],
+            [
+              5.4928815766934985e-06,
+              5.440291120355961e-06
+            ],
+            [
+              5.420601764732278e-06,
+              5.476377563272045e-06
+            ],
+            [
+              5.823501833422308e-06,
+              5.511093728643529e-06
+            ]
+          ],
+          "bias_from_marginal_true_bispectrum": [
+            [
+              6.124190588378903e-05,
+              0.0
+            ],
+            [
+              6.124190588378903e-05,
+              0.0
+            ],
+            [
+              6.124190588378903e-05,
+              0.0
+            ],
+            [
+              6.124190588378903e-05,
+              0.0
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "maximum_absolute_normalized_mean_difference": 2.271752934491266,
+          "known_bias_exceeds_six_mc_se": true
+        },
+        "distinct": {
+          "known_mean_real_imag": [
+            [
+              1e-09,
+              0.0
+            ],
+            [
+              1e-09,
+              0.0
+            ],
+            [
+              1e-09,
+              0.0
+            ],
+            [
+              1e-09,
+              0.0
+            ]
+          ],
+          "ensemble_mean_real_imag": [
+            [
+              -9.402954134298951e-06,
+              -4.953103587675346e-06
+            ],
+            [
+              4.491749857603805e-06,
+              1.1949003987106176e-05
+            ],
+            [
+              -1.0456828764898803e-05,
+              -2.077778942315329e-06
+            ],
+            [
+              1.0766766359444921e-05,
+              8.821369442038677e-06
+            ]
+          ],
+          "mc_mean_standard_error": [
+            [
+              5.699905228469316e-06,
+              5.590492922913844e-06
+            ],
+            [
+              5.397018390598828e-06,
+              5.50923763694323e-06
+            ],
+            [
+              5.388623740672088e-06,
+              5.544711223594341e-06
+            ],
+            [
+              5.6623873835470646e-06,
+              5.575220822062054e-06
+            ]
+          ],
+          "bias_from_marginal_true_bispectrum": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "maximum_absolute_normalized_mean_difference": 2.1689029600169967,
+          "known_bias_exceeds_six_mc_se": false
+        }
+      },
+      "all_mean_components_within_6se": true,
+      "gaussian_coefficients_generated_from_known_covariance": true,
+      "common_separable_space_time_covariance_assumed": true,
+      "physical_raw_filter_convolution_performed": false,
+      "actual_temporal_independence_verified": false
+    },
+    {
+      "source_model": "weak",
+      "time_model": "long_average",
+      "trials": 8192,
+      "seed": 78,
+      "nominal_time_outputs": 128,
+      "retained_outputs": 128,
+      "guard_step_outputs": 1,
+      "kernel_length": 65,
+      "raw_stride_samples": 8,
+      "known_temporal_covariance_is_identity": false,
+      "triangles": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          3
+        ],
+        [
+          0,
+          2,
+          3
+        ],
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "true_marginal_bispectrum_real_imag": [
+        [
+          1.0000000000000007e-09,
+          0.0
+        ],
+        [
+          1.0000000000000007e-09,
+          0.0
+        ],
+        [
+          1.0000000000000007e-09,
+          0.0
+        ],
+        [
+          1.0000000000000007e-09,
+          0.0
+        ]
+      ],
+      "temporal_diagonal_power": 1.0000000000000002,
+      "off_diagonal_pair_sum": 559.6989349112428,
+      "distinct_time_cycle_sum": 2754.8476358670937,
+      "distinct_pair_bias_real_imag": [
+        [
+          1.0339418685645068e-07,
+          0.0
+        ],
+        [
+          1.0339418685645068e-07,
+          0.0
+        ],
+        [
+          1.0339418685645068e-07,
+          0.0
+        ],
+        [
+          1.0339418685645068e-07,
+          0.0
+        ]
+      ],
+      "distinct_cycle_bias_real_imag": [
+        [
+          0.0013490112802439227,
+          0.0
+        ],
+        [
+          0.0013490112802439227,
+          0.0
+        ],
+        [
+          0.0013490112802439227,
+          0.0
+        ],
+        [
+          0.0013490112802439227,
+          0.0
+        ]
+      ],
+      "methods": {
+        "ordinary": {
+          "known_mean_real_imag": [
+            [
+              0.0021819641144271997,
+              0.0
+            ],
+            [
+              0.0021819641144271997,
+              0.0
+            ],
+            [
+              0.0021819641144271997,
+              0.0
+            ],
+            [
+              0.0021819641144271997,
+              0.0
+            ]
+          ],
+          "ensemble_mean_real_imag": [
+            [
+              0.0021934274441108357,
+              4.2312956738646414e-05
+            ],
+            [
+              0.002152030730276178,
+              -1.7276821458572936e-05
+            ],
+            [
+              0.0023547848983804837,
+              8.395066637360136e-07
+            ],
+            [
+              0.002173811505840679,
+              7.760495398925169e-07
+            ]
+          ],
+          "mc_mean_standard_error": [
+            [
+              7.91210443727926e-05,
+              6.824449087449286e-05
+            ],
+            [
+              7.934575193136204e-05,
+              6.800782798054026e-05
+            ],
+            [
+              8.158461194632975e-05,
+              6.962170530628362e-05
+            ],
+            [
+              7.757311684340161e-05,
+              6.593673176345602e-05
+            ]
+          ],
+          "bias_from_marginal_true_bispectrum": [
+            [
+              0.0021819631144272,
+              0.0
+            ],
+            [
+              0.0021819631144272,
+              0.0
+            ],
+            [
+              0.0021819631144272,
+              0.0
+            ],
+            [
+              0.0021819631144272,
+              0.0
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "maximum_absolute_normalized_mean_difference": 2.1183012054855705,
+          "known_bias_exceeds_six_mc_se": true
+        },
+        "distinct": {
+          "known_mean_real_imag": [
+            [
+              0.0013491156744307791,
+              0.0
+            ],
+            [
+              0.0013491156744307791,
+              0.0
+            ],
+            [
+              0.0013491156744307791,
+              0.0
+            ],
+            [
+              0.0013491156744307791,
+              0.0
+            ]
+          ],
+          "ensemble_mean_real_imag": [
+            [
+              0.001366727625149437,
+              4.118686876115667e-05
+            ],
+            [
+              0.0013217523117552464,
+              -1.591958198121491e-05
+            ],
+            [
+              0.0015170586027879746,
+              -1.960612515785694e-07
+            ],
+            [
+              0.0013402328566451563,
+              2.9428017890463747e-06
+            ]
+          ],
+          "mc_mean_standard_error": [
+            [
+              7.576098204919379e-05,
+              6.845043325005183e-05
+            ],
+            [
+              7.605864355345462e-05,
+              6.820186354874021e-05
+            ],
+            [
+              7.776457294217126e-05,
+              6.982485085053985e-05
+            ],
+            [
+              7.442192814206831e-05,
+              6.606371007393674e-05
+            ]
+          ],
+          "bias_from_marginal_true_bispectrum": [
+            [
+              0.0013491146744307792,
+              0.0
+            ],
+            [
+              0.0013491146744307792,
+              0.0
+            ],
+            [
+              0.0013491146744307792,
+              0.0
+            ],
+            [
+              0.0013491146744307792,
+              0.0
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "maximum_absolute_normalized_mean_difference": 2.159632848783874,
+          "known_bias_exceeds_six_mc_se": true
+        }
+      },
+      "all_mean_components_within_6se": true,
+      "gaussian_coefficients_generated_from_known_covariance": true,
+      "common_separable_space_time_covariance_assumed": true,
+      "physical_raw_filter_convolution_performed": false,
+      "actual_temporal_independence_verified": false
+    },
+    {
+      "source_model": "weak",
+      "time_model": "reference_fft",
+      "trials": 8192,
+      "seed": 79,
+      "nominal_time_outputs": 128,
+      "retained_outputs": 128,
+      "guard_step_outputs": 1,
+      "kernel_length": 160,
+      "raw_stride_samples": 32,
+      "known_temporal_covariance_is_identity": false,
+      "triangles": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          3
+        ],
+        [
+          0,
+          2,
+          3
+        ],
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "true_marginal_bispectrum_real_imag": [
+        [
+          1.0000000000000007e-09,
+          0.0
+        ],
+        [
+          1.0000000000000007e-09,
+          0.0
+        ],
+        [
+          1.0000000000000007e-09,
+          0.0
+        ],
+        [
+          1.0000000000000007e-09,
+          0.0
+        ]
+      ],
+      "temporal_diagonal_power": 1.0000000000000002,
+      "off_diagonal_pair_sum": 0.0018727229177090104,
+      "distinct_time_cycle_sum": 1.0174282067070054e-08,
+      "distinct_pair_bias_real_imag": [
+        [
+          3.459514592692027e-13,
+          0.0
+        ],
+        [
+          3.459514592692027e-13,
+          0.0
+        ],
+        [
+          3.459514592692027e-13,
+          0.0
+        ],
+        [
+          3.459514592692027e-13,
+          0.0
+        ]
+      ],
+      "distinct_cycle_bias_real_imag": [
+        [
+          4.982207036847945e-15,
+          0.0
+        ],
+        [
+          4.982207036847945e-15,
+          0.0
+        ],
+        [
+          4.982207036847945e-15,
+          0.0
+        ],
+        [
+          4.982207036847945e-15,
+          0.0
+        ]
+      ],
+      "methods": {
+        "ordinary": {
+          "known_mean_real_imag": [
+            [
+              6.124559322842347e-05,
+              0.0
+            ],
+            [
+              6.124559322842347e-05,
+              0.0
+            ],
+            [
+              6.124559322842347e-05,
+              0.0
+            ],
+            [
+              6.124559322842347e-05,
+              0.0
+            ]
+          ],
+          "ensemble_mean_real_imag": [
+            [
+              6.70072317612755e-05,
+              8.881390552619408e-06
+            ],
+            [
+              6.130946389366196e-05,
+              1.1273550140924825e-06
+            ],
+            [
+              6.293732484311631e-05,
+              -6.792934074776623e-06
+            ],
+            [
+              5.7048370923694896e-05,
+              -2.1808640959125353e-06
+            ]
+          ],
+          "mc_mean_standard_error": [
+            [
+              5.642358500227917e-06,
+              5.469773320537592e-06
+            ],
+            [
+              5.4287860472238195e-06,
+              5.412447493670229e-06
+            ],
+            [
+              5.669328991189362e-06,
+              5.47295476070613e-06
+            ],
+            [
+              5.452254700867343e-06,
+              5.3214890764456575e-06
+            ]
+          ],
+          "bias_from_marginal_true_bispectrum": [
+            [
+              6.124459322842347e-05,
+              0.0
+            ],
+            [
+              6.124459322842347e-05,
+              0.0
+            ],
+            [
+              6.124459322842347e-05,
+              0.0
+            ],
+            [
+              6.124459322842347e-05,
+              0.0
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "maximum_absolute_normalized_mean_difference": 1.6237215709745239,
+          "known_bias_exceeds_six_mc_se": true
+        },
+        "distinct": {
+          "known_mean_real_imag": [
+            [
+              1.0003509336663068e-09,
+              0.0
+            ],
+            [
+              1.0003509336663068e-09,
+              0.0
+            ],
+            [
+              1.0003509336663068e-09,
+              0.0
+            ],
+            [
+              1.0003509336663068e-09,
+              0.0
+            ]
+          ],
+          "ensemble_mean_real_imag": [
+            [
+              4.0558787228501095e-06,
+              7.853815777058753e-06
+            ],
+            [
+              2.3428756869033795e-07,
+              1.0151742414900364e-06
+            ],
+            [
+              1.6142064633304174e-06,
+              -6.9635574068542314e-06
+            ],
+            [
+              -3.1132141799071778e-06,
+              -1.5029549414116972e-06
+            ]
+          ],
+          "mc_mean_standard_error": [
+            [
+              5.549119575852525e-06,
+              5.519124145775117e-06
+            ],
+            [
+              5.3623306749188524e-06,
+              5.4852935558564065e-06
+            ],
+            [
+              5.5936730545478366e-06,
+              5.532666052887897e-06
+            ],
+            [
+              5.423498937821408e-06,
+              5.387653617731716e-06
+            ]
+          ],
+          "bias_from_marginal_true_bispectrum": [
+            [
+              3.509336663061259e-13,
+              0.0
+            ],
+            [
+              3.509336663061259e-13,
+              0.0
+            ],
+            [
+              3.509336663061259e-13,
+              0.0
+            ],
+            [
+              3.509336663061259e-13,
+              0.0
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "maximum_absolute_normalized_mean_difference": 1.4230182446706863,
+          "known_bias_exceeds_six_mc_se": false
+        }
+      },
+      "all_mean_components_within_6se": true,
+      "gaussian_coefficients_generated_from_known_covariance": true,
+      "common_separable_space_time_covariance_assumed": true,
+      "physical_raw_filter_convolution_performed": false,
+      "actual_temporal_independence_verified": false
+    },
+    {
+      "source_model": "weak",
+      "time_model": "guarded_average",
+      "trials": 8192,
+      "seed": 80,
+      "nominal_time_outputs": 128,
+      "retained_outputs": 15,
+      "guard_step_outputs": 9,
+      "kernel_length": 65,
+      "raw_stride_samples": 8,
+      "known_temporal_covariance_is_identity": true,
+      "triangles": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          3
+        ],
+        [
+          0,
+          2,
+          3
+        ],
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "true_marginal_bispectrum_real_imag": [
+        [
+          1.0000000000000007e-09,
+          0.0
+        ],
+        [
+          1.0000000000000007e-09,
+          0.0
+        ],
+        [
+          1.0000000000000007e-09,
+          0.0
+        ],
+        [
+          1.0000000000000007e-09,
+          0.0
+        ]
+      ],
+      "temporal_diagonal_power": 1.0000000000000002,
+      "off_diagonal_pair_sum": 0.0,
+      "distinct_time_cycle_sum": 0.0,
+      "distinct_pair_bias_real_imag": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "distinct_cycle_bias_real_imag": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "methods": {
+        "ordinary": {
+          "known_mean_real_imag": [
+            [
+              0.004457992320000001,
+              0.0
+            ],
+            [
+              0.004457992320000001,
+              0.0
+            ],
+            [
+              0.004457992320000001,
+              0.0
+            ],
+            [
+              0.004457992320000001,
+              0.0
+            ]
+          ],
+          "ensemble_mean_real_imag": [
+            [
+              0.004561648953786896,
+              3.0755415180525016e-05
+            ],
+            [
+              0.004661471855163161,
+              -0.00027082052509019877
+            ],
+            [
+              0.004338387951620176,
+              0.00014960451777727563
+            ],
+            [
+              0.004537186041263315,
+              0.00040778586276509214
+            ]
+          ],
+          "mc_mean_standard_error": [
+            [
+              0.00016271691618725955,
+              0.0001364351357102672
+            ],
+            [
+              0.0001655894299498975,
+              0.00013760660314413755
+            ],
+            [
+              0.00015646712959620495,
+              0.00013901541227452418
+            ],
+            [
+              0.00016668204692767036,
+              0.00013954409357248913
+            ]
+          ],
+          "bias_from_marginal_true_bispectrum": [
+            [
+              0.004457991320000001,
+              0.0
+            ],
+            [
+              0.004457991320000001,
+              0.0
+            ],
+            [
+              0.004457991320000001,
+              0.0
+            ],
+            [
+              0.004457991320000001,
+              0.0
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "maximum_absolute_normalized_mean_difference": 2.9222724473894464,
+          "known_bias_exceeds_six_mc_se": true
+        },
+        "distinct": {
+          "known_mean_real_imag": [
+            [
+              1.0000000000000007e-09,
+              0.0
+            ],
+            [
+              1.0000000000000007e-09,
+              0.0
+            ],
+            [
+              1.0000000000000007e-09,
+              0.0
+            ],
+            [
+              1.0000000000000007e-09,
+              0.0
+            ]
+          ],
+          "ensemble_mean_real_imag": [
+            [
+              -2.095810669889503e-05,
+              2.899681292429651e-05
+            ],
+            [
+              0.00022390597871476032,
+              -0.00036171992557402886
+            ],
+            [
+              -3.3527604401645476e-06,
+              0.0002942279994597517
+            ],
+            [
+              0.000126540700489852,
+              0.00048533524853010257
+            ]
+          ],
+          "mc_mean_standard_error": [
+            [
+              0.0001492429961263098,
+              0.00015342922949342216
+            ],
+            [
+              0.000153358563586906,
+              0.00015690098727595814
+            ],
+            [
+              0.00014652095919542976,
+              0.00015453512747758225
+            ],
+            [
+              0.0001519844849938616,
+              0.00015345984099522105
+            ]
+          ],
+          "bias_from_marginal_true_bispectrum": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "maximum_absolute_normalized_mean_difference": 3.162620541113398,
+          "known_bias_exceeds_six_mc_se": false
+        }
+      },
+      "all_mean_components_within_6se": true,
+      "gaussian_coefficients_generated_from_known_covariance": true,
+      "common_separable_space_time_covariance_assumed": true,
+      "physical_raw_filter_convolution_performed": false,
+      "actual_temporal_independence_verified": false
+    },
+    {
+      "source_model": "weak",
+      "time_model": "guarded_reference",
+      "trials": 8192,
+      "seed": 81,
+      "nominal_time_outputs": 128,
+      "retained_outputs": 26,
+      "guard_step_outputs": 5,
+      "kernel_length": 160,
+      "raw_stride_samples": 32,
+      "known_temporal_covariance_is_identity": true,
+      "triangles": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          3
+        ],
+        [
+          0,
+          2,
+          3
+        ],
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "true_marginal_bispectrum_real_imag": [
+        [
+          1.0000000000000007e-09,
+          0.0
+        ],
+        [
+          1.0000000000000007e-09,
+          0.0
+        ],
+        [
+          1.0000000000000007e-09,
+          0.0
+        ],
+        [
+          1.0000000000000007e-09,
+          0.0
+        ]
+      ],
+      "temporal_diagonal_power": 1.0000000000000002,
+      "off_diagonal_pair_sum": 0.0,
+      "distinct_time_cycle_sum": 0.0,
+      "distinct_pair_bias_real_imag": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "distinct_cycle_bias_real_imag": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "methods": {
+        "ordinary": {
+          "known_mean_real_imag": [
+            [
+              0.0014838487514792903,
+              0.0
+            ],
+            [
+              0.0014838487514792903,
+              0.0
+            ],
+            [
+              0.0014838487514792903,
+              0.0
+            ],
+            [
+              0.0014838487514792903,
+              0.0
+            ]
+          ],
+          "ensemble_mean_real_imag": [
+            [
+              0.0014749355738916288,
+              4.061977104983539e-05
+            ],
+            [
+              0.0014688822974940866,
+              -3.9182167581824345e-05
+            ],
+            [
+              0.0013860697014230652,
+              2.261850773260785e-06
+            ],
+            [
+              0.0014956958722802448,
+              0.00013178135382433821
+            ]
+          ],
+          "mc_mean_standard_error": [
+            [
+              6.52789376346833e-05,
+              5.8401026143400994e-05
+            ],
+            [
+              6.541005960815786e-05,
+              5.8889399803556226e-05
+            ],
+            [
+              6.474024135220274e-05,
+              5.761227383420465e-05
+            ],
+            [
+              6.704025689764292e-05,
+              5.8725465100918205e-05
+            ]
+          ],
+          "bias_from_marginal_true_bispectrum": [
+            [
+              0.0014838477514792904,
+              0.0
+            ],
+            [
+              0.0014838477514792904,
+              0.0
+            ],
+            [
+              0.0014838477514792904,
+              0.0
+            ],
+            [
+              0.0014838477514792904,
+              0.0
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "maximum_absolute_normalized_mean_difference": 2.2440239741626797,
+          "known_bias_exceeds_six_mc_se": true
+        },
+        "distinct": {
+          "known_mean_real_imag": [
+            [
+              1.0000000000000007e-09,
+              0.0
+            ],
+            [
+              1.0000000000000007e-09,
+              0.0
+            ],
+            [
+              1.0000000000000007e-09,
+              0.0
+            ],
+            [
+              1.0000000000000007e-09,
+              0.0
+            ]
+          ],
+          "ensemble_mean_real_imag": [
+            [
+              4.933883131511819e-05,
+              1.0938302003438253e-05
+            ],
+            [
+              -9.950939883038881e-06,
+              -4.842670166331175e-05
+            ],
+            [
+              -9.299209997060916e-05,
+              1.8209971454203604e-05
+            ],
+            [
+              -8.60318275115822e-06,
+              0.00011063856426648497
+            ]
+          ],
+          "mc_mean_standard_error": [
+            [
+              6.212741113988377e-05,
+              6.179817500686923e-05
+            ],
+            [
+              6.299030535154779e-05,
+              6.264320231080436e-05
+            ],
+            [
+              6.266256713801012e-05,
+              6.161735665280523e-05
+            ],
+            [
+              6.433998550218989e-05,
+              6.249105468429942e-05
+            ]
+          ],
+          "bias_from_marginal_true_bispectrum": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "maximum_absolute_normalized_mean_difference": 1.770470398602698,
+          "known_bias_exceeds_six_mc_se": false
+        }
+      },
+      "all_mean_components_within_6se": true,
+      "gaussian_coefficients_generated_from_known_covariance": true,
+      "common_separable_space_time_covariance_assumed": true,
+      "physical_raw_filter_convolution_performed": false,
+      "actual_temporal_independence_verified": false
+    },
+    {
+      "source_model": "low",
+      "time_model": "white",
+      "trials": 8192,
+      "seed": 82,
+      "nominal_time_outputs": 128,
+      "retained_outputs": 128,
+      "guard_step_outputs": 1,
+      "kernel_length": 1,
+      "raw_stride_samples": 1,
+      "known_temporal_covariance_is_identity": true,
+      "triangles": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          3
+        ],
+        [
+          0,
+          2,
+          3
+        ],
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "true_marginal_bispectrum_real_imag": [
+        [
+          0.0010000000000000002,
+          0.0
+        ],
+        [
+          0.0010000000000000002,
+          0.0
+        ],
+        [
+          0.0010000000000000002,
+          0.0
+        ],
+        [
+          0.0010000000000000002,
+          0.0
+        ]
+      ],
+      "temporal_diagonal_power": 1.0,
+      "off_diagonal_pair_sum": 0.0,
+      "distinct_time_cycle_sum": 0.0,
+      "distinct_pair_bias_real_imag": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "distinct_cycle_bias_real_imag": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "methods": {
+        "ordinary": {
+          "known_mean_real_imag": [
+            [
+              0.0013391113281250003,
+              0.0
+            ],
+            [
+              0.0013391113281250003,
+              0.0
+            ],
+            [
+              0.0013391113281250003,
+              0.0
+            ],
+            [
+              0.0013391113281250003,
+              0.0
+            ]
+          ],
+          "ensemble_mean_real_imag": [
+            [
+              0.0013429325554111383,
+              2.4581173339041353e-05
+            ],
+            [
+              0.001333929139202014,
+              2.6339777530063398e-05
+            ],
+            [
+              0.001389264407560189,
+              -9.372662561106627e-06
+            ],
+            [
+              0.0014026835707455461,
+              -1.631194993278676e-05
+            ]
+          ],
+          "mc_mean_standard_error": [
+            [
+              2.2685347537024408e-05,
+              1.8967926163237e-05
+            ],
+            [
+              2.244498999545872e-05,
+              1.8993872707583085e-05
+            ],
+            [
+              2.2692132388227285e-05,
+              1.904550314881019e-05
+            ],
+            [
+              2.382092184427883e-05,
+              1.9115022859552426e-05
+            ]
+          ],
+          "bias_from_marginal_true_bispectrum": [
+            [
+              0.00033911132812500006,
+              0.0
+            ],
+            [
+              0.00033911132812500006,
+              0.0
+            ],
+            [
+              0.00033911132812500006,
+              0.0
+            ],
+            [
+              0.00033911132812500006,
+              0.0
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "maximum_absolute_normalized_mean_difference": 2.6687564976440137,
+          "known_bias_exceeds_six_mc_se": true
+        },
+        "distinct": {
+          "known_mean_real_imag": [
+            [
+              0.0010000000000000002,
+              0.0
+            ],
+            [
+              0.0010000000000000002,
+              0.0
+            ],
+            [
+              0.0010000000000000002,
+              0.0
+            ],
+            [
+              0.0010000000000000002,
+              0.0
+            ]
+          ],
+          "ensemble_mean_real_imag": [
+            [
+              0.0010010060735332258,
+              2.2989256510154768e-05
+            ],
+            [
+              0.000991293179473951,
+              2.6951785782982685e-05
+            ],
+            [
+              0.0010434442434955303,
+              -9.4639603280433e-06
+            ],
+            [
+              0.0010603659223017224,
+              -1.7703637821803833e-05
+            ]
+          ],
+          "mc_mean_standard_error": [
+            [
+              2.0685284174994536e-05,
+              1.9047914321955064e-05
+            ],
+            [
+              2.0425308435925755e-05,
+              1.9023421537960995e-05
+            ],
+            [
+              2.063733969564303e-05,
+              1.9146958649212187e-05
+            ],
+            [
+              2.1653112211809168e-05,
+              1.9157908158502555e-05
+            ]
+          ],
+          "bias_from_marginal_true_bispectrum": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "maximum_absolute_normalized_mean_difference": 2.7878634222814567,
+          "known_bias_exceeds_six_mc_se": false
+        }
+      },
+      "all_mean_components_within_6se": true,
+      "gaussian_coefficients_generated_from_known_covariance": true,
+      "common_separable_space_time_covariance_assumed": true,
+      "physical_raw_filter_convolution_performed": false,
+      "actual_temporal_independence_verified": false
+    },
+    {
+      "source_model": "low",
+      "time_model": "long_average",
+      "trials": 8192,
+      "seed": 83,
+      "nominal_time_outputs": 128,
+      "retained_outputs": 128,
+      "guard_step_outputs": 1,
+      "kernel_length": 65,
+      "raw_stride_samples": 8,
+      "known_temporal_covariance_is_identity": false,
+      "triangles": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          3
+        ],
+        [
+          0,
+          2,
+          3
+        ],
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "true_marginal_bispectrum_real_imag": [
+        [
+          0.0010000000000000009,
+          0.0
+        ],
+        [
+          0.0010000000000000009,
+          0.0
+        ],
+        [
+          0.0010000000000000009,
+          0.0
+        ],
+        [
+          0.0010000000000000009,
+          0.0
+        ]
+      ],
+      "temporal_diagonal_power": 1.0000000000000002,
+      "off_diagonal_pair_sum": 559.6989349112428,
+      "distinct_time_cycle_sum": 2754.8476358670937,
+      "distinct_pair_bias_real_imag": [
+        [
+          0.0011361998555653925,
+          0.0
+        ],
+        [
+          0.0011361998555653925,
+          0.0
+        ],
+        [
+          0.0011361998555653925,
+          0.0
+        ],
+        [
+          0.0011361998555653925,
+          0.0
+        ]
+      ],
+      "distinct_cycle_bias_real_imag": [
+        [
+          0.0017915031377791493,
+          0.0
+        ],
+        [
+          0.0017915031377791493,
+          0.0
+        ],
+        [
+          0.0017915031377791493,
+          0.0
+        ],
+        [
+          0.0017915031377791493,
+          0.0
+        ]
+      ],
+      "methods": {
+        "ordinary": {
+          "known_mean_real_imag": [
+            [
+              0.005282641551945395,
+              0.0
+            ],
+            [
+              0.005282641551945395,
+              0.0
+            ],
+            [
+              0.005282641551945395,
+              0.0
+            ],
+            [
+              0.005282641551945395,
+              0.0
+            ]
+          ],
+          "ensemble_mean_real_imag": [
+            [
+              0.005396050513011664,
+              -0.0001903194359025403
+            ],
+            [
+              0.0054539552707693765,
+              -0.0002826973759359281
+            ],
+            [
+              0.005204172964788013,
+              -7.24154859362369e-05
+            ],
+            [
+              0.005369081396408225,
+              -5.5347245826328806e-05
+            ]
+          ],
+          "mc_mean_standard_error": [
+            [
+              0.00016363332845412473,
+              0.00011675775302614363
+            ],
+            [
+              0.00016480271783655522,
+              0.00011817667130017559
+            ],
+            [
+              0.00015650513232645923,
+              0.0001178151472028143
+            ],
+            [
+              0.00015847558130010225,
+              0.00011195157745076713
+            ]
+          ],
+          "bias_from_marginal_true_bispectrum": [
+            [
+              0.004282641551945394,
+              0.0
+            ],
+            [
+              0.004282641551945394,
+              0.0
+            ],
+            [
+              0.004282641551945394,
+              0.0
+            ],
+            [
+              0.004282641551945394,
+              0.0
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "maximum_absolute_normalized_mean_difference": 2.3921588790202217,
+          "known_bias_exceeds_six_mc_se": true
+        },
+        "distinct": {
+          "known_mean_real_imag": [
+            [
+              0.003927702993344543,
+              0.0
+            ],
+            [
+              0.003927702993344543,
+              0.0
+            ],
+            [
+              0.003927702993344543,
+              0.0
+            ],
+            [
+              0.003927702993344543,
+              0.0
+            ]
+          ],
+          "ensemble_mean_real_imag": [
+            [
+              0.004025993601682631,
+              -0.00018670079117529044
+            ],
+            [
+              0.004073945771628266,
+              -0.00027152888223489413
+            ],
+            [
+              0.0038452920340535943,
+              -7.217942392441689e-05
+            ],
+            [
+              0.0040135911267955935,
+              -5.099934991019001e-05
+            ]
+          ],
+          "mc_mean_standard_error": [
+            [
+              0.00015614230878650736,
+              0.00011711474667236889
+            ],
+            [
+              0.00015674815118056154,
+              0.00011848239641345934
+            ],
+            [
+              0.00014927774955178925,
+              0.00011813935189159482
+            ],
+            [
+              0.00015096550068104835,
+              0.0001121437666823813
+            ]
+          ],
+          "bias_from_marginal_true_bispectrum": [
+            [
+              0.002927702993344542,
+              0.0
+            ],
+            [
+              0.002927702993344542,
+              0.0
+            ],
+            [
+              0.002927702993344542,
+              0.0
+            ],
+            [
+              0.002927702993344542,
+              0.0
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "maximum_absolute_normalized_mean_difference": 2.2917233965764523,
+          "known_bias_exceeds_six_mc_se": true
+        }
+      },
+      "all_mean_components_within_6se": true,
+      "gaussian_coefficients_generated_from_known_covariance": true,
+      "common_separable_space_time_covariance_assumed": true,
+      "physical_raw_filter_convolution_performed": false,
+      "actual_temporal_independence_verified": false
+    },
+    {
+      "source_model": "low",
+      "time_model": "reference_fft",
+      "trials": 8192,
+      "seed": 84,
+      "nominal_time_outputs": 128,
+      "retained_outputs": 128,
+      "guard_step_outputs": 1,
+      "kernel_length": 160,
+      "raw_stride_samples": 32,
+      "known_temporal_covariance_is_identity": false,
+      "triangles": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          3
+        ],
+        [
+          0,
+          2,
+          3
+        ],
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "true_marginal_bispectrum_real_imag": [
+        [
+          0.0010000000000000009,
+          0.0
+        ],
+        [
+          0.0010000000000000009,
+          0.0
+        ],
+        [
+          0.0010000000000000009,
+          0.0
+        ],
+        [
+          0.0010000000000000009,
+          0.0
+        ]
+      ],
+      "temporal_diagonal_power": 1.0000000000000002,
+      "off_diagonal_pair_sum": 0.0018727229177090104,
+      "distinct_time_cycle_sum": 1.0174282067070054e-08,
+      "distinct_pair_bias_real_imag": [
+        [
+          3.801664387573657e-09,
+          0.0
+        ],
+        [
+          3.801664387573657e-09,
+          0.0
+        ],
+        [
+          3.801664387573657e-09,
+          0.0
+        ],
+        [
+          3.801664387573657e-09,
+          0.0
+        ]
+      ],
+      "distinct_cycle_bias_real_imag": [
+        [
+          6.616430618700647e-15,
+          0.0
+        ],
+        [
+          6.616430618700647e-15,
+          0.0
+        ],
+        [
+          6.616430618700647e-15,
+          0.0
+        ],
+        [
+          6.616430618700647e-15,
+          0.0
+        ]
+      ],
+      "methods": {
+        "ordinary": {
+          "known_mean_real_imag": [
+            [
+              0.0013391186684589091,
+              0.0
+            ],
+            [
+              0.0013391186684589091,
+              0.0
+            ],
+            [
+              0.0013391186684589091,
+              0.0
+            ],
+            [
+              0.0013391186684589091,
+              0.0
+            ]
+          ],
+          "ensemble_mean_real_imag": [
+            [
+              0.0013232105698457403,
+              1.9141355955538504e-05
+            ],
+            [
+              0.00132195065660347,
+              -7.071640059588565e-06
+            ],
+            [
+              0.0013585868976866105,
+              -1.711385754730401e-05
+            ],
+            [
+              0.0013123658972464562,
+              -2.2821674444027787e-05
+            ]
+          ],
+          "mc_mean_standard_error": [
+            [
+              2.247512080223126e-05,
+              1.8877391692146554e-05
+            ],
+            [
+              2.277420892663655e-05,
+              1.859949906511788e-05
+            ],
+            [
+              2.2747557548120388e-05,
+              1.893239358630909e-05
+            ],
+            [
+              2.294453869301693e-05,
+              1.9055397174329015e-05
+            ]
+          ],
+          "bias_from_marginal_true_bispectrum": [
+            [
+              0.00033911866845890825,
+              0.0
+            ],
+            [
+              0.00033911866845890825,
+              0.0
+            ],
+            [
+              0.00033911866845890825,
+              0.0
+            ],
+            [
+              0.00033911866845890825,
+              0.0
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "maximum_absolute_normalized_mean_difference": 1.1976487835752816,
+          "known_bias_exceeds_six_mc_se": true
+        },
+        "distinct": {
+          "known_mean_real_imag": [
+            [
+              0.001000003801671005,
+              0.0
+            ],
+            [
+              0.001000003801671005,
+              0.0
+            ],
+            [
+              0.001000003801671005,
+              0.0
+            ],
+            [
+              0.001000003801671005,
+              0.0
+            ]
+          ],
+          "ensemble_mean_real_imag": [
+            [
+              0.0009805747679348005,
+              1.8776653232196987e-05
+            ],
+            [
+              0.000981492646465513,
+              -8.005821492854478e-06
+            ],
+            [
+              0.0010151150445093383,
+              -1.7308293922382405e-05
+            ],
+            [
+              0.0009738120667032621,
+              -2.2232793599134866e-05
+            ]
+          ],
+          "mc_mean_standard_error": [
+            [
+              2.0474271266880768e-05,
+              1.894325273456553e-05
+            ],
+            [
+              2.0736549997199686e-05,
+              1.8665310804996467e-05
+            ],
+            [
+              2.06764464653439e-05,
+              1.9016422896943296e-05
+            ],
+            [
+              2.092502327747619e-05,
+              1.9112943973940772e-05
+            ]
+          ],
+          "bias_from_marginal_true_bispectrum": [
+            [
+              3.801671004041718e-09,
+              0.0
+            ],
+            [
+              3.801671004041718e-09,
+              0.0
+            ],
+            [
+              3.801671004041718e-09,
+              0.0
+            ],
+            [
+              3.801671004041718e-09,
+              0.0
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "maximum_absolute_normalized_mean_difference": 1.2516943646242646,
+          "known_bias_exceeds_six_mc_se": false
+        }
+      },
+      "all_mean_components_within_6se": true,
+      "gaussian_coefficients_generated_from_known_covariance": true,
+      "common_separable_space_time_covariance_assumed": true,
+      "physical_raw_filter_convolution_performed": false,
+      "actual_temporal_independence_verified": false
+    },
+    {
+      "source_model": "low",
+      "time_model": "guarded_average",
+      "trials": 8192,
+      "seed": 85,
+      "nominal_time_outputs": 128,
+      "retained_outputs": 15,
+      "guard_step_outputs": 9,
+      "kernel_length": 65,
+      "raw_stride_samples": 8,
+      "known_temporal_covariance_is_identity": true,
+      "triangles": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          3
+        ],
+        [
+          0,
+          2,
+          3
+        ],
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "true_marginal_bispectrum_real_imag": [
+        [
+          0.0010000000000000009,
+          0.0
+        ],
+        [
+          0.0010000000000000009,
+          0.0
+        ],
+        [
+          0.0010000000000000009,
+          0.0
+        ],
+        [
+          0.0010000000000000009,
+          0.0
+        ]
+      ],
+      "temporal_diagonal_power": 1.0000000000000002,
+      "off_diagonal_pair_sum": 0.0,
+      "distinct_time_cycle_sum": 0.0,
+      "distinct_pair_bias_real_imag": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "distinct_cycle_bias_real_imag": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "methods": {
+        "ordinary": {
+          "known_mean_real_imag": [
+            [
+              0.009120000000000008,
+              0.0
+            ],
+            [
+              0.009120000000000008,
+              0.0
+            ],
+            [
+              0.009120000000000008,
+              0.0
+            ],
+            [
+              0.009120000000000008,
+              0.0
+            ]
+          ],
+          "ensemble_mean_real_imag": [
+            [
+              0.009194684887010147,
+              -0.000337616233208007
+            ],
+            [
+              0.008635339466350455,
+              1.0073291124202854e-05
+            ],
+            [
+              0.009453099118727841,
+              9.594405848543923e-05
+            ],
+            [
+              0.009181790028693028,
+              7.919442428460298e-05
+            ]
+          ],
+          "mc_mean_standard_error": [
+            [
+              0.0002780538668414058,
+              0.00021210624988173875
+            ],
+            [
+              0.0002663057707803618,
+              0.0002087264925293473
+            ],
+            [
+              0.00027649695662712825,
+              0.00021533153366542118
+            ],
+            [
+              0.0002793947490298293,
+              0.00021492768955070588
+            ]
+          ],
+          "bias_from_marginal_true_bispectrum": [
+            [
+              0.008120000000000007,
+              0.0
+            ],
+            [
+              0.008120000000000007,
+              0.0
+            ],
+            [
+              0.008120000000000007,
+              0.0
+            ],
+            [
+              0.008120000000000007,
+              0.0
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "maximum_absolute_normalized_mean_difference": 1.819940027620886,
+          "known_bias_exceeds_six_mc_se": true
+        },
+        "distinct": {
+          "known_mean_real_imag": [
+            [
+              0.0010000000000000009,
+              0.0
+            ],
+            [
+              0.0010000000000000009,
+              0.0
+            ],
+            [
+              0.0010000000000000009,
+              0.0
+            ],
+            [
+              0.0010000000000000009,
+              0.0
+            ]
+          ],
+          "ensemble_mean_real_imag": [
+            [
+              0.0008268617782051697,
+              -0.00023910262237631448
+            ],
+            [
+              0.0006423971953847014,
+              3.859910506656223e-05
+            ],
+            [
+              0.0011989999002016425,
+              0.00017865449559307175
+            ],
+            [
+              0.0009390516434906462,
+              -7.578983254848728e-06
+            ]
+          ],
+          "mc_mean_standard_error": [
+            [
+              0.00023594266041603422,
+              0.00023097824831465934
+            ],
+            [
+              0.00023003316703929322,
+              0.00022635247601639484
+            ],
+            [
+              0.00022930600297401535,
+              0.00023556387586785786
+            ],
+            [
+              0.00023435317242483856,
+              0.00023237106975307958
+            ]
+          ],
+          "bias_from_marginal_true_bispectrum": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "maximum_absolute_normalized_mean_difference": 1.5545706198082503,
+          "known_bias_exceeds_six_mc_se": false
+        }
+      },
+      "all_mean_components_within_6se": true,
+      "gaussian_coefficients_generated_from_known_covariance": true,
+      "common_separable_space_time_covariance_assumed": true,
+      "physical_raw_filter_convolution_performed": false,
+      "actual_temporal_independence_verified": false
+    },
+    {
+      "source_model": "low",
+      "time_model": "guarded_reference",
+      "trials": 8192,
+      "seed": 86,
+      "nominal_time_outputs": 128,
+      "retained_outputs": 26,
+      "guard_step_outputs": 5,
+      "kernel_length": 160,
+      "raw_stride_samples": 32,
+      "known_temporal_covariance_is_identity": true,
+      "triangles": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          3
+        ],
+        [
+          0,
+          2,
+          3
+        ],
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "true_marginal_bispectrum_real_imag": [
+        [
+          0.0010000000000000009,
+          0.0
+        ],
+        [
+          0.0010000000000000009,
+          0.0
+        ],
+        [
+          0.0010000000000000009,
+          0.0
+        ],
+        [
+          0.0010000000000000009,
+          0.0
+        ]
+      ],
+      "temporal_diagonal_power": 1.0000000000000002,
+      "off_diagonal_pair_sum": 0.0,
+      "distinct_time_cycle_sum": 0.0,
+      "distinct_pair_bias_real_imag": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "distinct_cycle_bias_real_imag": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "methods": {
+        "ordinary": {
+          "known_mean_real_imag": [
+            [
+              0.004239644970414205,
+              0.0
+            ],
+            [
+              0.004239644970414205,
+              0.0
+            ],
+            [
+              0.004239644970414205,
+              0.0
+            ],
+            [
+              0.004239644970414205,
+              0.0
+            ]
+          ],
+          "ensemble_mean_real_imag": [
+            [
+              0.004200205819425736,
+              3.1646707037423686e-05
+            ],
+            [
+              0.004124298960928616,
+              0.00010764973942163332
+            ],
+            [
+              0.004341263244783636,
+              -4.843433402885647e-05
+            ],
+            [
+              0.00430817921617478,
+              -8.196424326952127e-05
+            ]
+          ],
+          "mc_mean_standard_error": [
+            [
+              0.00013843180623515563,
+              0.00010235732226576318
+            ],
+            [
+              0.00013349616880880885,
+              0.00010286350853988297
+            ],
+            [
+              0.00013811194125098512,
+              0.00010412301044053053
+            ],
+            [
+              0.00013093951734153924,
+              0.0001029066929717105
+            ]
+          ],
+          "bias_from_marginal_true_bispectrum": [
+            [
+              0.0032396449704142037,
+              0.0
+            ],
+            [
+              0.0032396449704142037,
+              0.0
+            ],
+            [
+              0.0032396449704142037,
+              0.0
+            ],
+            [
+              0.0032396449704142037,
+              0.0
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "maximum_absolute_normalized_mean_difference": 1.0465299103944592,
+          "known_bias_exceeds_six_mc_se": true
+        },
+        "distinct": {
+          "known_mean_real_imag": [
+            [
+              0.0010000000000000009,
+              0.0
+            ],
+            [
+              0.0010000000000000009,
+              0.0
+            ],
+            [
+              0.0010000000000000009,
+              0.0
+            ],
+            [
+              0.0010000000000000009,
+              0.0
+            ]
+          ],
+          "ensemble_mean_real_imag": [
+            [
+              0.0009582792856676915,
+              5.508966689282131e-07
+            ],
+            [
+              0.0009158027345416409,
+              0.00016980005262320596
+            ],
+            [
+              0.0010746476246474952,
+              -5.912226429839221e-05
+            ],
+            [
+              0.0010185946285350246,
+              -8.203633118994378e-05
+            ]
+          ],
+          "mc_mean_standard_error": [
+            [
+              0.00011800203754663541,
+              0.00010660344962723109
+            ],
+            [
+              0.00011349020319029662,
+              0.00010846142859953766
+            ],
+            [
+              0.00011668149968304183,
+              0.00010838575517312862
+            ],
+            [
+              0.00010986560212502485,
+              0.00010800286726693601
+            ]
+          ],
+          "bias_from_marginal_true_bispectrum": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "maximum_absolute_normalized_mean_difference": 1.565533971386357,
+          "known_bias_exceeds_six_mc_se": false
+        }
+      },
+      "all_mean_components_within_6se": true,
+      "gaussian_coefficients_generated_from_known_covariance": true,
+      "common_separable_space_time_covariance_assumed": true,
+      "physical_raw_filter_convolution_performed": false,
+      "actual_temporal_independence_verified": false
+    },
+    {
+      "source_model": "two_components",
+      "time_model": "white",
+      "trials": 8192,
+      "seed": 87,
+      "nominal_time_outputs": 128,
+      "retained_outputs": 128,
+      "guard_step_outputs": 1,
+      "kernel_length": 1,
+      "raw_stride_samples": 1,
+      "known_temporal_covariance_is_identity": true,
+      "triangles": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          3
+        ],
+        [
+          0,
+          2,
+          3
+        ],
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "true_marginal_bispectrum_real_imag": [
+        [
+          0.01981605893642542,
+          -0.0009449350282762558
+        ],
+        [
+          0.03242521628834113,
+          -0.00028740620981200255
+        ],
+        [
+          0.009452442434599053,
+          -0.0011253936686107001
+        ],
+        [
+          0.01124187883082707,
+          -0.0017829224870749532
+        ]
+      ],
+      "temporal_diagonal_power": 1.0,
+      "off_diagonal_pair_sum": 0.0,
+      "distinct_time_cycle_sum": 0.0,
+      "distinct_pair_bias_real_imag": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "distinct_cycle_bias_real_imag": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "methods": {
+        "ordinary": {
+          "known_mean_real_imag": [
+            [
+              0.022453701381852383,
+              -0.0009448773540191589
+            ],
+            [
+              0.035823555229634305,
+              -0.00028738866792907947
+            ],
+            [
+              0.011464859376258083,
+              -0.0011253249800322936
+            ],
+            [
+              0.013362250488110242,
+              -0.001782813666122373
+            ]
+          ],
+          "ensemble_mean_real_imag": [
+            [
+              0.02244262277557313,
+              -0.0011094737939121855
+            ],
+            [
+              0.03602388391398178,
+              -0.00020855327939168052
+            ],
+            [
+              0.011420422955502404,
+              -0.0011183238369778857
+            ],
+            [
+              0.013491793033212539,
+              -0.0019142286957876677
+            ]
+          ],
+          "mc_mean_standard_error": [
+            [
+              0.00017518578031329684,
+              0.00011346821725834318
+            ],
+            [
+              0.00023691373157986716,
+              0.00014002135177047616
+            ],
+            [
+              0.00011663955302984688,
+              8.34661972562859e-05
+            ],
+            [
+              0.00013377983888718378,
+              9.262027922894283e-05
+            ]
+          ],
+          "bias_from_marginal_true_bispectrum": [
+            [
+              0.0026376424454269617,
+              5.767425709690861e-08
+            ],
+            [
+              0.003398338941293176,
+              1.7541882923078223e-08
+            ],
+            [
+              0.0020124169416590298,
+              6.868857840651964e-08
+            ],
+            [
+              0.0021203716572831717,
+              1.088209525801874e-07
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "maximum_absolute_normalized_mean_difference": 1.4505950866195432,
+          "known_bias_exceeds_six_mc_se": true
+        },
+        "distinct": {
+          "known_mean_real_imag": [
+            [
+              0.01981605893642542,
+              -0.0009449350282762558
+            ],
+            [
+              0.03242521628834113,
+              -0.00028740620981200255
+            ],
+            [
+              0.009452442434599053,
+              -0.0011253936686107001
+            ],
+            [
+              0.01124187883082707,
+              -0.0017829224870749532
+            ]
+          ],
+          "ensemble_mean_real_imag": [
+            [
+              0.019813378998339876,
+              -0.0011042458616645704
+            ],
+            [
+              0.03262752321944662,
+              -0.0002063028318574676
+            ],
+            [
+              0.009426017801330169,
+              -0.001116259217675874
+            ],
+            [
+              0.011365109709026287,
+              -0.0019192413670662716
+            ]
+          ],
+          "mc_mean_standard_error": [
+            [
+              0.00016328484970163683,
+              0.00011359131062982162
+            ],
+            [
+              0.00022215096783083423,
+              0.00014007228848640158
+            ],
+            [
+              0.00010845926188329893,
+              8.351496938753455e-05
+            ],
+            [
+              0.00012450578952516428,
+              9.275419117773944e-05
+            ]
+          ],
+          "bias_from_marginal_true_bispectrum": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "maximum_absolute_normalized_mean_difference": 1.469678909284213,
+          "known_bias_exceeds_six_mc_se": false
+        }
+      },
+      "all_mean_components_within_6se": true,
+      "gaussian_coefficients_generated_from_known_covariance": true,
+      "common_separable_space_time_covariance_assumed": true,
+      "physical_raw_filter_convolution_performed": false,
+      "actual_temporal_independence_verified": false
+    },
+    {
+      "source_model": "two_components",
+      "time_model": "long_average",
+      "trials": 8192,
+      "seed": 88,
+      "nominal_time_outputs": 128,
+      "retained_outputs": 128,
+      "guard_step_outputs": 1,
+      "kernel_length": 65,
+      "raw_stride_samples": 8,
+      "known_temporal_covariance_is_identity": false,
+      "triangles": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          3
+        ],
+        [
+          0,
+          2,
+          3
+        ],
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "true_marginal_bispectrum_real_imag": [
+        [
+          0.019816058936425435,
+          -0.0009449350282762565
+        ],
+        [
+          0.03242521628834115,
+          -0.00028740620981200277
+        ],
+        [
+          0.00945244243459906,
+          -0.0011253936686107008
+        ],
+        [
+          0.011241878830827078,
+          -0.0017829224870749543
+        ]
+      ],
+      "temporal_diagonal_power": 1.0000000000000002,
+      "off_diagonal_pair_sum": 559.6989349112428,
+      "distinct_time_cycle_sum": 2754.8476358670937,
+      "distinct_pair_bias_real_imag": [
+        [
+          0.010957158164834403,
+          0.0
+        ],
+        [
+          0.014306215433884568,
+          0.0
+        ],
+        [
+          0.008204528134896949,
+          0.0
+        ],
+        [
+          0.008679811677090182,
+          0.0
+        ]
+      ],
+      "distinct_cycle_bias_real_imag": [
+        [
+          0.0033357883366189147,
+          1.2709114625783342e-06
+        ],
+        [
+          0.003352747304307134,
+          3.8655339841998124e-07
+        ],
+        [
+          0.003321849559230205,
+          1.5136233397543973e-06
+        ],
+        [
+          0.0033242563016616608,
+          2.39798140391275e-06
+        ]
+      ],
+      "methods": {
+        "ordinary": {
+          "known_mean_real_imag": [
+            [
+              0.03856904897598252,
+              -0.0009428795067408723
+            ],
+            [
+              0.05528845473928996,
+              -0.00028678101375513804
+            ],
+            [
+              0.024827170384625383,
+              -0.0011229455945607483
+            ],
+            [
+              0.027199915236732517,
+              -0.0017790440875464825
+            ]
+          ],
+          "ensemble_mean_real_imag": [
+            [
+              0.04003532731481792,
+              -0.001002735746793281
+            ],
+            [
+              0.057316924040819554,
+              -0.0008819555174568795
+            ],
+            [
+              0.0257511268679531,
+              -0.0015505861610113586
+            ],
+            [
+              0.027756985081075956,
+              -0.001398266022148913
+            ]
+          ],
+          "mc_mean_standard_error": [
+            [
+              0.0007239543133787043,
+              0.00040120491214990737
+            ],
+            [
+              0.0008695478479250219,
+              0.00046427307914727035
+            ],
+            [
+              0.0005581353335178059,
+              0.0003394459142537824
+            ],
+            [
+              0.0005752146721310306,
+              0.000347904602313736
+            ]
+          ],
+          "bias_from_marginal_true_bispectrum": [
+            [
+              0.018752990039557084,
+              2.055521535384154e-06
+            ],
+            [
+              0.022863238450948814,
+              6.251960568647279e-07
+            ],
+            [
+              0.015374727950026323,
+              2.4480740499525314e-06
+            ],
+            [
+              0.01595803640590544,
+              3.878399528471849e-06
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "maximum_absolute_normalized_mean_difference": 2.3327862912170794,
+          "known_bias_exceeds_six_mc_se": true
+        },
+        "distinct": {
+          "known_mean_real_imag": [
+            [
+              0.03410900543787875,
+              -0.0009436641168136782
+            ],
+            [
+              0.050084179026532845,
+              -0.0002870196564135828
+            ],
+            [
+              0.020978820128726212,
+              -0.0011238800452709463
+            ],
+            [
+              0.02324594680957892,
+              -0.0017805245056710416
+            ]
+          ],
+          "ensemble_mean_real_imag": [
+            [
+              0.03551417207947638,
+              -0.0010031389281730107
+            ],
+            [
+              0.052006978533730784,
+              -0.0008944026925605542
+            ],
+            [
+              0.021834167750327434,
+              -0.0015444881334437477
+            ],
+            [
+              0.023747215670849513,
+              -0.0013885579494695107
+            ]
+          ],
+          "mc_mean_standard_error": [
+            [
+              0.0006900096068566713,
+              0.00040219680746670543
+            ],
+            [
+              0.0008291489093412282,
+              0.000464901795613392
+            ],
+            [
+              0.0005313591764394147,
+              0.00033979683441418966
+            ],
+            [
+              0.0005473857613321447,
+              0.0003484448671244776
+            ]
+          ],
+          "bias_from_marginal_true_bispectrum": [
+            [
+              0.014292946501453317,
+              1.2709114625783112e-06
+            ],
+            [
+              0.017658962738191696,
+              3.865533984199771e-07
+            ],
+            [
+              0.011526377694127152,
+              1.5136233397544576e-06
+            ],
+            [
+              0.012004067978751844,
+              2.3979814039126832e-06
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "maximum_absolute_normalized_mean_difference": 2.3190038402228974,
+          "known_bias_exceeds_six_mc_se": true
+        }
+      },
+      "all_mean_components_within_6se": true,
+      "gaussian_coefficients_generated_from_known_covariance": true,
+      "common_separable_space_time_covariance_assumed": true,
+      "physical_raw_filter_convolution_performed": false,
+      "actual_temporal_independence_verified": false
+    },
+    {
+      "source_model": "two_components",
+      "time_model": "reference_fft",
+      "trials": 8192,
+      "seed": 89,
+      "nominal_time_outputs": 128,
+      "retained_outputs": 128,
+      "guard_step_outputs": 1,
+      "kernel_length": 160,
+      "raw_stride_samples": 32,
+      "known_temporal_covariance_is_identity": false,
+      "triangles": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          3
+        ],
+        [
+          0,
+          2,
+          3
+        ],
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "true_marginal_bispectrum_real_imag": [
+        [
+          0.019816058936425435,
+          -0.0009449350282762565
+        ],
+        [
+          0.03242521628834115,
+          -0.00028740620981200277
+        ],
+        [
+          0.00945244243459906,
+          -0.0011253936686107008
+        ],
+        [
+          0.011241878830827078,
+          -0.0017829224870749543
+        ]
+      ],
+      "temporal_diagonal_power": 1.0000000000000002,
+      "off_diagonal_pair_sum": 0.0018727229177090104,
+      "distinct_time_cycle_sum": 1.0174282067070054e-08,
+      "distinct_pair_bias_real_imag": [
+        [
+          3.6662069423987404e-08,
+          0.0
+        ],
+        [
+          4.7867837220320244e-08,
+          0.0
+        ],
+        [
+          2.745191550104778e-08,
+          0.0
+        ],
+        [
+          2.904218899695203e-08,
+          0.0
+        ]
+      ],
+      "distinct_cycle_bias_real_imag": [
+        [
+          1.2319828875806711e-14,
+          4.693766556884219e-18
+        ],
+        [
+          1.2382462220235559e-14,
+          1.4276300650186454e-18
+        ],
+        [
+          1.2268349784558095e-14,
+          5.5901570023180816e-18
+        ],
+        [
+          1.2277238434529733e-14,
+          8.856293494183655e-18
+        ]
+      ],
+      "methods": {
+        "ordinary": {
+          "known_mean_real_imag": [
+            [
+              0.022453744401823298,
+              -0.0009448773514877198
+            ],
+            [
+              0.03582360940160735,
+              -0.00028738866715913097
+            ],
+            [
+              0.011464893230265718,
+              -0.0011253249770174138
+            ],
+            [
+              0.013362285924761186,
+              -0.0017828136613460023
+            ]
+          ],
+          "ensemble_mean_real_imag": [
+            [
+              0.022452167366343787,
+              -0.0007183280920093995
+            ],
+            [
+              0.03571255720300577,
+              -0.0003669783290127956
+            ],
+            [
+              0.011389255704789492,
+              -0.0011955415129252306
+            ],
+            [
+              0.013081782312800305,
+              -0.0016930339667122474
+            ]
+          ],
+          "mc_mean_standard_error": [
+            [
+              0.0001749389792933877,
+              0.00011187484882614375
+            ],
+            [
+              0.00024010862828997042,
+              0.00013871757028644457
+            ],
+            [
+              0.00011916795273211178,
+              8.424456715255325e-05
+            ],
+            [
+              0.00013025311103104828,
+              9.330747155041686e-05
+            ]
+          ],
+          "bias_from_marginal_true_bispectrum": [
+            [
+              0.0026376854653978633,
+              5.767678853670164e-08
+            ],
+            [
+              0.0033983931132662015,
+              1.754265287179889e-08
+            ],
+            [
+              0.0020124507956666583,
+              6.869159328696563e-08
+            ],
+            [
+              0.0021204070939341083,
+              1.088257289519768e-07
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "maximum_absolute_normalized_mean_difference": 2.1535271410176953,
+          "known_bias_exceeds_six_mc_se": true
+        },
+        "distinct": {
+          "known_mean_real_imag": [
+            [
+              0.01981609559850718,
+              -0.0009449350282762518
+            ],
+            [
+              0.03242526415619076,
+              -0.00028740620981200136
+            ],
+            [
+              0.00945246988652683,
+              -0.0011253936686106952
+            ],
+            [
+              0.011241907873028352,
+              -0.0017829224870749454
+            ]
+          ],
+          "ensemble_mean_real_imag": [
+            [
+              0.01982710895901743,
+              -0.0007058787595736493
+            ],
+            [
+              0.032315348996676894,
+              -0.0003657089008344843
+            ],
+            [
+              0.009379660203264662,
+              -0.0011929368720466748
+            ],
+            [
+              0.010995165495438152,
+              -0.0016852444535495348
+            ]
+          ],
+          "mc_mean_standard_error": [
+            [
+              0.0001632462487372008,
+              0.00011206157181306596
+            ],
+            [
+              0.0002251765817221882,
+              0.0001387920310402891
+            ],
+            [
+              0.00011090653701850993,
+              8.435514422212475e-05
+            ],
+            [
+              0.00012133437208881984,
+              9.335256298342725e-05
+            ]
+          ],
+          "bias_from_marginal_true_bispectrum": [
+            [
+              3.666208174546437e-08,
+              4.662069341687669e-18
+            ],
+            [
+              4.7867849607696744e-08,
+              1.4094628242311558e-18
+            ],
+            [
+              2.7451927769178708e-08,
+              5.637851296924623e-18
+            ],
+            [
+              2.9042201274073753e-08,
+              8.890457814381136e-18
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "maximum_absolute_normalized_mean_difference": 2.133258196379067,
+          "known_bias_exceeds_six_mc_se": false
+        }
+      },
+      "all_mean_components_within_6se": true,
+      "gaussian_coefficients_generated_from_known_covariance": true,
+      "common_separable_space_time_covariance_assumed": true,
+      "physical_raw_filter_convolution_performed": false,
+      "actual_temporal_independence_verified": false
+    },
+    {
+      "source_model": "two_components",
+      "time_model": "guarded_average",
+      "trials": 8192,
+      "seed": 90,
+      "nominal_time_outputs": 128,
+      "retained_outputs": 15,
+      "guard_step_outputs": 9,
+      "kernel_length": 65,
+      "raw_stride_samples": 8,
+      "known_temporal_covariance_is_identity": true,
+      "triangles": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          3
+        ],
+        [
+          0,
+          2,
+          3
+        ],
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "true_marginal_bispectrum_real_imag": [
+        [
+          0.019816058936425435,
+          -0.0009449350282762565
+        ],
+        [
+          0.03242521628834115,
+          -0.00028740620981200277
+        ],
+        [
+          0.00945244243459906,
+          -0.0011253936686107008
+        ],
+        [
+          0.011241878830827078,
+          -0.0017829224870749543
+        ]
+      ],
+      "temporal_diagonal_power": 1.0000000000000002,
+      "off_diagonal_pair_sum": 0.0,
+      "distinct_time_cycle_sum": 0.0,
+      "distinct_pair_bias_real_imag": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "distinct_cycle_bias_real_imag": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "methods": {
+        "ordinary": {
+          "known_mean_real_imag": [
+            [
+              0.05205524633392358,
+              -0.0009407353170394732
+            ],
+            [
+              0.0712051538804521,
+              -0.00028612884887950496
+            ],
+            [
+              0.036315709399086335,
+              -0.001120391918972431
+            ],
+            [
+              0.03903338042116723,
+              -0.001774998387132399
+            ]
+          ],
+          "ensemble_mean_real_imag": [
+            [
+              0.05253004506250746,
+              -0.0014260124519098164
+            ],
+            [
+              0.07058824553728482,
+              -0.0020411761471986005
+            ],
+            [
+              0.03540672162043668,
+              -0.0014038321268540065
+            ],
+            [
+              0.0382601477475402,
+              -0.0020388271334096765
+            ]
+          ],
+          "mc_mean_standard_error": [
+            [
+              0.0011231236808295264,
+              0.0006317422395587538
+            ],
+            [
+              0.0013561828405254982,
+              0.000700989135296654
+            ],
+            [
+              0.000848524292522028,
+              0.000538677425060818
+            ],
+            [
+              0.00086906038519408,
+              0.0005622985328565602
+            ]
+          ],
+          "bias_from_marginal_true_bispectrum": [
+            [
+              0.03223918739749815,
+              4.1997112367833135e-06
+            ],
+            [
+              0.038779937592110944,
+              1.2773609324978055e-06
+            ],
+            [
+              0.026863266964487275,
+              5.001749638269782e-06
+            ],
+            [
+              0.027791501590340155,
+              7.924099942555399e-06
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "maximum_absolute_normalized_mean_difference": 2.5036726069551682,
+          "known_bias_exceeds_six_mc_se": true
+        },
+        "distinct": {
+          "known_mean_real_imag": [
+            [
+              0.019816058936425435,
+              -0.0009449350282762565
+            ],
+            [
+              0.03242521628834115,
+              -0.00028740620981200277
+            ],
+            [
+              0.00945244243459906,
+              -0.0011253936686107008
+            ],
+            [
+              0.011241878830827078,
+              -0.0017829224870749543
+            ]
+          ],
+          "ensemble_mean_real_imag": [
+            [
+              0.0202338740294217,
+              -0.0017088873271809773
+            ],
+            [
+              0.032495047159406945,
+              -0.002009185681426868
+            ],
+            [
+              0.008781169308670128,
+              -0.0014917705351496057
+            ],
+            [
+              0.010947865623894895,
+              -0.0019348148696945366
+            ]
+          ],
+          "mc_mean_standard_error": [
+            [
+              0.0008057126338335976,
+              0.0006638179630925087
+            ],
+            [
+              0.0009646642717495257,
+              0.0007308176149066163
+            ],
+            [
+              0.000631819359038823,
+              0.000568134870556798
+            ],
+            [
+              0.0006373075225512893,
+              0.0005921368427335268
+            ]
+          ],
+          "bias_from_marginal_true_bispectrum": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "maximum_absolute_normalized_mean_difference": 2.3559632856946267,
+          "known_bias_exceeds_six_mc_se": false
+        }
+      },
+      "all_mean_components_within_6se": true,
+      "gaussian_coefficients_generated_from_known_covariance": true,
+      "common_separable_space_time_covariance_assumed": true,
+      "physical_raw_filter_convolution_performed": false,
+      "actual_temporal_independence_verified": false
+    },
+    {
+      "source_model": "two_components",
+      "time_model": "guarded_reference",
+      "trials": 8192,
+      "seed": 91,
+      "nominal_time_outputs": 128,
+      "retained_outputs": 26,
+      "guard_step_outputs": 5,
+      "kernel_length": 160,
+      "raw_stride_samples": 32,
+      "known_temporal_covariance_is_identity": true,
+      "triangles": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          3
+        ],
+        [
+          0,
+          2,
+          3
+        ],
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "true_marginal_bispectrum_real_imag": [
+        [
+          0.019816058936425435,
+          -0.0009449350282762565
+        ],
+        [
+          0.03242521628834115,
+          -0.00028740620981200277
+        ],
+        [
+          0.00945244243459906,
+          -0.0011253936686107008
+        ],
+        [
+          0.011241878830827078,
+          -0.0017829224870749543
+        ]
+      ],
+      "temporal_diagonal_power": 1.0000000000000002,
+      "off_diagonal_pair_sum": 0.0,
+      "distinct_time_cycle_sum": 0.0,
+      "distinct_pair_bias_real_imag": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "distinct_cycle_bias_real_imag": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "methods": {
+        "ordinary": {
+          "known_mean_real_imag": [
+            [
+              0.03572504755842381,
+              -0.000943537195394191
+            ],
+            [
+              0.05209403606493654,
+              -0.0002869810526968962
+            ],
+            [
+              0.022271181081095107,
+              -0.001123728885077253
+            ],
+            [
+              0.024594196250585537,
+              -0.0017802850277745476
+            ]
+          ],
+          "ensemble_mean_real_imag": [
+            [
+              0.03520629250050904,
+              -0.0005930780174124854
+            ],
+            [
+              0.05214925712391753,
+              -0.0001389760034682048
+            ],
+            [
+              0.02201212685005691,
+              -0.0009765894333551785
+            ],
+            [
+              0.02456400638565242,
+              -0.0017633265298965858
+            ]
+          ],
+          "mc_mean_standard_error": [
+            [
+              0.0006251504111492962,
+              0.00036780818319406963
+            ],
+            [
+              0.0007886659987363568,
+              0.00043062298443408847
+            ],
+            [
+              0.0004684376354046254,
+              0.0003121979161652582
+            ],
+            [
+              0.0004984208695168012,
+              0.0003313007556541839
+            ]
+          ],
+          "bias_from_marginal_true_bispectrum": [
+            [
+              0.015908988621998375,
+              1.3978328820654943e-06
+            ],
+            [
+              0.01966881977659539,
+              4.251571151065391e-07
+            ],
+            [
+              0.012818738646496047,
+              1.6647835334477213e-06
+            ],
+            [
+              0.01335231741975846,
+              2.6374593004067307e-06
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "maximum_absolute_normalized_mean_difference": 0.9528313752713832,
+          "known_bias_exceeds_six_mc_se": true
+        },
+        "distinct": {
+          "known_mean_real_imag": [
+            [
+              0.019816058936425435,
+              -0.0009449350282762565
+            ],
+            [
+              0.03242521628834115,
+              -0.00028740620981200277
+            ],
+            [
+              0.00945244243459906,
+              -0.0011253936686107008
+            ],
+            [
+              0.011241878830827078,
+              -0.0017829224870749543
+            ]
+          ],
+          "ensemble_mean_real_imag": [
+            [
+              0.019627206770137646,
+              -0.000563902694648339
+            ],
+            [
+              0.03233031228804308,
+              -0.00019297749704059953
+            ],
+            [
+              0.009159041136703993,
+              -0.0008918293168896334
+            ],
+            [
+              0.01145271275320887,
+              -0.0018126656657672347
+            ]
+          ],
+          "mc_mean_standard_error": [
+            [
+              0.0004895130899662796,
+              0.0003738875647193955
+            ],
+            [
+              0.0006221366916779467,
+              0.00043374249954926847
+            ],
+            [
+              0.0003741620259598788,
+              0.0003182271552033418
+            ],
+            [
+              0.0003970952077295461,
+              0.000338412754976016
+            ]
+          ],
+          "bias_from_marginal_true_bispectrum": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "maximum_absolute_normalized_mean_difference": 1.0191094023005949,
+          "known_bias_exceeds_six_mc_se": false
+        }
+      },
+      "all_mean_components_within_6se": true,
+      "gaussian_coefficients_generated_from_known_covariance": true,
+      "common_separable_space_time_covariance_assumed": true,
+      "physical_raw_filter_convolution_performed": false,
+      "actual_temporal_independence_verified": false
+    },
+    {
+      "source_model": "rank_one",
+      "time_model": "white",
+      "trials": 8192,
+      "seed": 92,
+      "nominal_time_outputs": 128,
+      "retained_outputs": 128,
+      "guard_step_outputs": 1,
+      "kernel_length": 1,
+      "raw_stride_samples": 1,
+      "known_temporal_covariance_is_identity": true,
+      "triangles": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          3
+        ],
+        [
+          0,
+          2,
+          3
+        ],
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "true_marginal_bispectrum_real_imag": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "temporal_diagonal_power": 1.0,
+      "off_diagonal_pair_sum": 0.0,
+      "distinct_time_cycle_sum": 0.0,
+      "distinct_pair_bias_real_imag": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "distinct_cycle_bias_real_imag": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "methods": {
+        "ordinary": {
+          "known_mean_real_imag": [
+            [
+              1.0235595703125,
+              0.0
+            ],
+            [
+              1.0235595703125,
+              0.0
+            ],
+            [
+              1.0235595703125,
+              0.0
+            ],
+            [
+              1.0235595703125,
+              0.0
+            ]
+          ],
+          "ensemble_mean_real_imag": [
+            [
+              1.0231067261542055,
+              -1.1069269083782384e-20
+            ],
+            [
+              1.0231067261542055,
+              -1.1069269083782384e-20
+            ],
+            [
+              1.0231067261542062,
+              -2.3143419446750637e-20
+            ],
+            [
+              1.0231067261542062,
+              -2.3143419446750637e-20
+            ]
+          ],
+          "mc_mean_standard_error": [
+            [
+              0.0029809636854933328,
+              4.2461853311190577e-20
+            ],
+            [
+              0.0029809636854933328,
+              4.2461853311190577e-20
+            ],
+            [
+              0.002980963685493335,
+              4.2931690374174825e-20
+            ],
+            [
+              0.002980963685493335,
+              4.2931690374174825e-20
+            ]
+          ],
+          "bias_from_marginal_true_bispectrum": [
+            [
+              0.0235595703125,
+              0.0
+            ],
+            [
+              0.0235595703125,
+              0.0
+            ],
+            [
+              0.0235595703125,
+              0.0
+            ],
+            [
+              0.0235595703125,
+              0.0
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "maximum_absolute_normalized_mean_difference": 0.15191200092196436,
+          "known_bias_exceeds_six_mc_se": true
+        },
+        "distinct": {
+          "known_mean_real_imag": [
+            [
+              1.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0
+            ]
+          ],
+          "ensemble_mean_real_imag": [
+            [
+              0.9995000994904877,
+              -1.2389532620900512e-20
+            ],
+            [
+              0.9995000994904877,
+              -1.2389532620900512e-20
+            ],
+            [
+              0.9995000994904883,
+              -2.3284245150111427e-20
+            ],
+            [
+              0.9995000994904883,
+              -2.3284245150111427e-20
+            ]
+          ],
+          "mc_mean_standard_error": [
+            [
+              0.0029131483899230617,
+              4.0845892127122913e-20
+            ],
+            [
+              0.0029131483899230617,
+              4.0845892127122913e-20
+            ],
+            [
+              0.0029131483899230643,
+              4.129268366369605e-20
+            ],
+            [
+              0.0029131483899230643,
+              4.129268366369605e-20
+            ]
+          ],
+          "bias_from_marginal_true_bispectrum": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "maximum_absolute_normalized_mean_difference": 0.17160145740255958,
+          "known_bias_exceeds_six_mc_se": false
+        }
+      },
+      "all_mean_components_within_6se": true,
+      "gaussian_coefficients_generated_from_known_covariance": true,
+      "common_separable_space_time_covariance_assumed": true,
+      "physical_raw_filter_convolution_performed": false,
+      "actual_temporal_independence_verified": false
+    },
+    {
+      "source_model": "rank_one",
+      "time_model": "long_average",
+      "trials": 8192,
+      "seed": 93,
+      "nominal_time_outputs": 128,
+      "retained_outputs": 128,
+      "guard_step_outputs": 1,
+      "kernel_length": 65,
+      "raw_stride_samples": 8,
+      "known_temporal_covariance_is_identity": false,
+      "triangles": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          3
+        ],
+        [
+          0,
+          2,
+          3
+        ],
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "true_marginal_bispectrum_real_imag": [
+        [
+          1.0000000000000007,
+          0.0
+        ],
+        [
+          1.0000000000000007,
+          0.0
+        ],
+        [
+          1.0000000000000007,
+          0.0
+        ],
+        [
+          1.0000000000000007,
+          0.0
+        ]
+      ],
+      "temporal_diagonal_power": 1.0000000000000002,
+      "off_diagonal_pair_sum": 559.6989349112428,
+      "distinct_time_cycle_sum": 2754.8476358670937,
+      "distinct_pair_bias_real_imag": [
+        [
+          0.10329089596049021,
+          0.0
+        ],
+        [
+          0.10329089596049021,
+          0.0
+        ],
+        [
+          0.10329089596049021,
+          0.0
+        ],
+        [
+          0.10329089596049021,
+          0.0
+        ]
+      ],
+      "distinct_cycle_bias_real_imag": [
+        [
+          0.0026899446513200436,
+          0.0
+        ],
+        [
+          0.0026899446513200436,
+          0.0
+        ],
+        [
+          0.0026899446513200436,
+          0.0
+        ],
+        [
+          0.0026899446513200436,
+          0.0
+        ]
+      ],
+      "methods": {
+        "ordinary": {
+          "known_mean_real_imag": [
+            [
+              1.130272045081673,
+              0.0
+            ],
+            [
+              1.130272045081673,
+              0.0
+            ],
+            [
+              1.130272045081673,
+              0.0
+            ],
+            [
+              1.130272045081673,
+              0.0
+            ]
+          ],
+          "ensemble_mean_real_imag": [
+            [
+              1.1250975462310011,
+              -7.287355887141333e-20
+            ],
+            [
+              1.1250975462310011,
+              -7.287355887141333e-20
+            ],
+            [
+              1.125097546231002,
+              -7.926795885546438e-20
+            ],
+            [
+              1.125097546231002,
+              -7.926795885546438e-20
+            ]
+          ],
+          "mc_mean_standard_error": [
+            [
+              0.008209060692281386,
+              5.450681753351657e-20
+            ],
+            [
+              0.008209060692281386,
+              5.450681753351657e-20
+            ],
+            [
+              0.008209060692281394,
+              5.453586099226967e-20
+            ],
+            [
+              0.008209060692281394,
+              5.453586099226967e-20
+            ]
+          ],
+          "bias_from_marginal_true_bispectrum": [
+            [
+              0.13027204508167234,
+              0.0
+            ],
+            [
+              0.13027204508167234,
+              0.0
+            ],
+            [
+              0.13027204508167234,
+              0.0
+            ],
+            [
+              0.13027204508167234,
+              0.0
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "maximum_absolute_normalized_mean_difference": 0.6303399431343941,
+          "known_bias_exceeds_six_mc_se": true
+        },
+        "distinct": {
+          "known_mean_real_imag": [
+            [
+              1.1059808406118108,
+              0.0
+            ],
+            [
+              1.1059808406118108,
+              0.0
+            ],
+            [
+              1.1059808406118108,
+              0.0
+            ],
+            [
+              1.1059808406118108,
+              0.0
+            ]
+          ],
+          "ensemble_mean_real_imag": [
+            [
+              1.1009331860824139,
+              -6.826669896475617e-20
+            ],
+            [
+              1.1009331860824139,
+              -6.826669896475617e-20
+            ],
+            [
+              1.1009331860824145,
+              -7.598184576850304e-20
+            ],
+            [
+              1.1009331860824145,
+              -7.598184576850304e-20
+            ]
+          ],
+          "mc_mean_standard_error": [
+            [
+              0.00803694086095423,
+              5.259998175944139e-20
+            ],
+            [
+              0.00803694086095423,
+              5.259998175944139e-20
+            ],
+            [
+              0.008036940860954234,
+              5.264259447212128e-20
+            ],
+            [
+              0.008036940860954234,
+              5.264259447212128e-20
+            ]
+          ],
+          "bias_from_marginal_true_bispectrum": [
+            [
+              0.10598084061181012,
+              0.0
+            ],
+            [
+              0.10598084061181012,
+              0.0
+            ],
+            [
+              0.10598084061181012,
+              0.0
+            ],
+            [
+              0.10598084061181012,
+              0.0
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "maximum_absolute_normalized_mean_difference": 0.6280566966997687,
+          "known_bias_exceeds_six_mc_se": true
+        }
+      },
+      "all_mean_components_within_6se": true,
+      "gaussian_coefficients_generated_from_known_covariance": true,
+      "common_separable_space_time_covariance_assumed": true,
+      "physical_raw_filter_convolution_performed": false,
+      "actual_temporal_independence_verified": false
+    },
+    {
+      "source_model": "rank_one",
+      "time_model": "reference_fft",
+      "trials": 8192,
+      "seed": 94,
+      "nominal_time_outputs": 128,
+      "retained_outputs": 128,
+      "guard_step_outputs": 1,
+      "kernel_length": 160,
+      "raw_stride_samples": 32,
+      "known_temporal_covariance_is_identity": false,
+      "triangles": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          3
+        ],
+        [
+          0,
+          2,
+          3
+        ],
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "true_marginal_bispectrum_real_imag": [
+        [
+          1.0000000000000007,
+          0.0
+        ],
+        [
+          1.0000000000000007,
+          0.0
+        ],
+        [
+          1.0000000000000007,
+          0.0
+        ],
+        [
+          1.0000000000000007,
+          0.0
+        ]
+      ],
+      "temporal_diagonal_power": 1.0000000000000002,
+      "off_diagonal_pair_sum": 0.0018727229177090104,
+      "distinct_time_cycle_sum": 1.0174282067070054e-08,
+      "distinct_pair_bias_real_imag": [
+        [
+          3.4560585341578695e-07,
+          0.0
+        ],
+        [
+          3.4560585341578695e-07,
+          0.0
+        ],
+        [
+          3.4560585341578695e-07,
+          0.0
+        ],
+        [
+          3.4560585341578695e-07,
+          0.0
+        ]
+      ],
+      "distinct_cycle_bias_real_imag": [
+        [
+          9.934580508559528e-15,
+          0.0
+        ],
+        [
+          9.934580508559528e-15,
+          0.0
+        ],
+        [
+          9.934580508559528e-15,
+          0.0
+        ],
+        [
+          9.934580508559528e-15,
+          0.0
+        ]
+      ],
+      "methods": {
+        "ordinary": {
+          "known_mean_real_imag": [
+            [
+              1.0235599185762214,
+              0.0
+            ],
+            [
+              1.0235599185762214,
+              0.0
+            ],
+            [
+              1.0235599185762214,
+              0.0
+            ],
+            [
+              1.0235599185762214,
+              0.0
+            ]
+          ],
+          "ensemble_mean_real_imag": [
+            [
+              1.0249650329726219,
+              -2.9479009163519516e-20
+            ],
+            [
+              1.0249650329726219,
+              -2.9479009163519516e-20
+            ],
+            [
+              1.024965032972623,
+              -3.696375731867515e-20
+            ],
+            [
+              1.024965032972623,
+              -3.696375731867515e-20
+            ]
+          ],
+          "mc_mean_standard_error": [
+            [
+              0.0030187428287964473,
+              4.2902796695655645e-20
+            ],
+            [
+              0.0030187428287964473,
+              4.2902796695655645e-20
+            ],
+            [
+              0.0030187428287964503,
+              4.262853476396128e-20
+            ],
+            [
+              0.0030187428287964503,
+              4.262853476396128e-20
+            ]
+          ],
+          "bias_from_marginal_true_bispectrum": [
+            [
+              0.02355991857622075,
+              0.0
+            ],
+            [
+              0.02355991857622075,
+              0.0
+            ],
+            [
+              0.02355991857622075,
+              0.0
+            ],
+            [
+              0.02355991857622075,
+              0.0
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "maximum_absolute_normalized_mean_difference": 0.46546343150580405,
+          "known_bias_exceeds_six_mc_se": true
+        },
+        "distinct": {
+          "known_mean_real_imag": [
+            [
+              1.0000003456058641,
+              0.0
+            ],
+            [
+              1.0000003456058641,
+              0.0
+            ],
+            [
+              1.0000003456058641,
+              0.0
+            ],
+            [
+              1.0000003456058641,
+              0.0
+            ]
+          ],
+          "ensemble_mean_real_imag": [
+            [
+              1.0014885590044007,
+              -2.7379205309161376e-20
+            ],
+            [
+              1.0014885590044007,
+              -2.7379205309161376e-20
+            ],
+            [
+              1.0014885590044023,
+              -3.3385412114666794e-20
+            ],
+            [
+              1.0014885590044023,
+              -3.3385412114666794e-20
+            ]
+          ],
+          "mc_mean_standard_error": [
+            [
+              0.0029503856235169883,
+              4.13057216476144e-20
+            ],
+            [
+              0.0029503856235169883,
+              4.13057216476144e-20
+            ],
+            [
+              0.0029503856235169918,
+              4.1025425806694386e-20
+            ],
+            [
+              0.0029503856235169918,
+              4.1025425806694386e-20
+            ]
+          ],
+          "bias_from_marginal_true_bispectrum": [
+            [
+              3.4560586348320044e-07,
+              0.0
+            ],
+            [
+              3.4560586348320044e-07,
+              0.0
+            ],
+            [
+              3.4560586348320044e-07,
+              0.0
+            ],
+            [
+              3.4560586348320044e-07,
+              0.0
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "maximum_absolute_normalized_mean_difference": 0.5044131811690693,
+          "known_bias_exceeds_six_mc_se": false
+        }
+      },
+      "all_mean_components_within_6se": true,
+      "gaussian_coefficients_generated_from_known_covariance": true,
+      "common_separable_space_time_covariance_assumed": true,
+      "physical_raw_filter_convolution_performed": false,
+      "actual_temporal_independence_verified": false
+    },
+    {
+      "source_model": "rank_one",
+      "time_model": "guarded_average",
+      "trials": 8192,
+      "seed": 95,
+      "nominal_time_outputs": 128,
+      "retained_outputs": 15,
+      "guard_step_outputs": 9,
+      "kernel_length": 65,
+      "raw_stride_samples": 8,
+      "known_temporal_covariance_is_identity": true,
+      "triangles": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          3
+        ],
+        [
+          0,
+          2,
+          3
+        ],
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "true_marginal_bispectrum_real_imag": [
+        [
+          1.0000000000000007,
+          0.0
+        ],
+        [
+          1.0000000000000007,
+          0.0
+        ],
+        [
+          1.0000000000000007,
+          0.0
+        ],
+        [
+          1.0000000000000007,
+          0.0
+        ]
+      ],
+      "temporal_diagonal_power": 1.0000000000000002,
+      "off_diagonal_pair_sum": 0.0,
+      "distinct_time_cycle_sum": 0.0,
+      "distinct_pair_bias_real_imag": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "distinct_cycle_bias_real_imag": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "methods": {
+        "ordinary": {
+          "known_mean_real_imag": [
+            [
+              1.2088888888888898,
+              0.0
+            ],
+            [
+              1.2088888888888898,
+              0.0
+            ],
+            [
+              1.2088888888888898,
+              0.0
+            ],
+            [
+              1.2088888888888898,
+              0.0
+            ]
+          ],
+          "ensemble_mean_real_imag": [
+            [
+              1.2193026742817479,
+              -1.1349050352782618e-19
+            ],
+            [
+              1.2193026742817479,
+              -1.1349050352782618e-19
+            ],
+            [
+              1.2193026742817492,
+              -2.788082329086325e-19
+            ],
+            [
+              1.2193026742817492,
+              -2.788082329086325e-19
+            ]
+          ],
+          "mc_mean_standard_error": [
+            [
+              0.011179684895319049,
+              1.7808523129807688e-19
+            ],
+            [
+              0.011179684895319049,
+              1.7808523129807688e-19
+            ],
+            [
+              0.011179684895319059,
+              1.8262361046526916e-19
+            ],
+            [
+              0.011179684895319059,
+              1.8262361046526916e-19
+            ]
+          ],
+          "bias_from_marginal_true_bispectrum": [
+            [
+              0.20888888888888912,
+              0.0
+            ],
+            [
+              0.20888888888888912,
+              0.0
+            ],
+            [
+              0.20888888888888912,
+              0.0
+            ],
+            [
+              0.20888888888888912,
+              0.0
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "maximum_absolute_normalized_mean_difference": 0.931491852341349,
+          "known_bias_exceeds_six_mc_se": true
+        },
+        "distinct": {
+          "known_mean_real_imag": [
+            [
+              1.0000000000000007,
+              0.0
+            ],
+            [
+              1.0000000000000007,
+              0.0
+            ],
+            [
+              1.0000000000000007,
+              0.0
+            ],
+            [
+              1.0000000000000007,
+              0.0
+            ]
+          ],
+          "ensemble_mean_real_imag": [
+            [
+              1.0066115533078057,
+              -8.744171791894232e-20
+            ],
+            [
+              1.0066115533078057,
+              -8.744171791894232e-20
+            ],
+            [
+              1.0066115533078064,
+              -1.9654174704575718e-19
+            ],
+            [
+              1.0066115533078064,
+              -1.9654174704575718e-19
+            ]
+          ],
+          "mc_mean_standard_error": [
+            [
+              0.009306478864651227,
+              1.3422397337730587e-19
+            ],
+            [
+              0.009306478864651227,
+              1.3422397337730587e-19
+            ],
+            [
+              0.009306478864651238,
+              1.3617776398622307e-19
+            ],
+            [
+              0.009306478864651238,
+              1.3617776398622307e-19
+            ]
+          ],
+          "bias_from_marginal_true_bispectrum": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "maximum_absolute_normalized_mean_difference": 0.7104247915081965,
+          "known_bias_exceeds_six_mc_se": false
+        }
+      },
+      "all_mean_components_within_6se": true,
+      "gaussian_coefficients_generated_from_known_covariance": true,
+      "common_separable_space_time_covariance_assumed": true,
+      "physical_raw_filter_convolution_performed": false,
+      "actual_temporal_independence_verified": false
+    },
+    {
+      "source_model": "rank_one",
+      "time_model": "guarded_reference",
+      "trials": 8192,
+      "seed": 96,
+      "nominal_time_outputs": 128,
+      "retained_outputs": 26,
+      "guard_step_outputs": 5,
+      "kernel_length": 160,
+      "raw_stride_samples": 32,
+      "known_temporal_covariance_is_identity": true,
+      "triangles": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          3
+        ],
+        [
+          0,
+          2,
+          3
+        ],
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "true_marginal_bispectrum_real_imag": [
+        [
+          1.0000000000000007,
+          0.0
+        ],
+        [
+          1.0000000000000007,
+          0.0
+        ],
+        [
+          1.0000000000000007,
+          0.0
+        ],
+        [
+          1.0000000000000007,
+          0.0
+        ]
+      ],
+      "temporal_diagonal_power": 1.0000000000000002,
+      "off_diagonal_pair_sum": 0.0,
+      "distinct_time_cycle_sum": 0.0,
+      "distinct_pair_bias_real_imag": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "distinct_cycle_bias_real_imag": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "methods": {
+        "ordinary": {
+          "known_mean_real_imag": [
+            [
+              1.1183431952662728,
+              0.0
+            ],
+            [
+              1.1183431952662728,
+              0.0
+            ],
+            [
+              1.1183431952662728,
+              0.0
+            ],
+            [
+              1.1183431952662728,
+              0.0
+            ]
+          ],
+          "ensemble_mean_real_imag": [
+            [
+              1.1175401750040797,
+              -9.450794395361267e-20
+            ],
+            [
+              1.1175401750040797,
+              -9.450794395361267e-20
+            ],
+            [
+              1.1175401750040812,
+              -2.3981239077463206e-19
+            ],
+            [
+              1.1175401750040812,
+              -2.3981239077463206e-19
+            ]
+          ],
+          "mc_mean_standard_error": [
+            [
+              0.007558486322832272,
+              1.15074744217321e-19
+            ],
+            [
+              0.007558486322832272,
+              1.15074744217321e-19
+            ],
+            [
+              0.007558486322832277,
+              1.1557833201935115e-19
+            ],
+            [
+              0.007558486322832277,
+              1.1557833201935115e-19
+            ]
+          ],
+          "bias_from_marginal_true_bispectrum": [
+            [
+              0.11834319526627213,
+              0.0
+            ],
+            [
+              0.11834319526627213,
+              0.0
+            ],
+            [
+              0.11834319526627213,
+              0.0
+            ],
+            [
+              0.11834319526627213,
+              0.0
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "maximum_absolute_normalized_mean_difference": 0.1062408831314028,
+          "known_bias_exceeds_six_mc_se": true
+        },
+        "distinct": {
+          "known_mean_real_imag": [
+            [
+              1.0000000000000007,
+              0.0
+            ],
+            [
+              1.0000000000000007,
+              0.0
+            ],
+            [
+              1.0000000000000007,
+              0.0
+            ],
+            [
+              1.0000000000000007,
+              0.0
+            ]
+          ],
+          "ensemble_mean_real_imag": [
+            [
+              0.9994567630945488,
+              -6.507315684301479e-20
+            ],
+            [
+              0.9994567630945488,
+              -6.507315684301479e-20
+            ],
+            [
+              0.9994567630945499,
+              -1.9672310590879286e-19
+            ],
+            [
+              0.9994567630945499,
+              -1.9672310590879286e-19
+            ]
+          ],
+          "mc_mean_standard_error": [
+            [
+              0.006773119582230428,
+              9.678490902709872e-20
+            ],
+            [
+              0.006773119582230428,
+              9.678490902709872e-20
+            ],
+            [
+              0.006773119582230434,
+              9.740537266121578e-20
+            ],
+            [
+              0.006773119582230434,
+              9.740537266121578e-20
+            ]
+          ],
+          "bias_from_marginal_true_bispectrum": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "all_mean_components_within_6se": true,
+          "maximum_absolute_normalized_mean_difference": 0.08020483010471029,
+          "known_bias_exceeds_six_mc_se": false
+        }
+      },
+      "all_mean_components_within_6se": true,
+      "gaussian_coefficients_generated_from_known_covariance": true,
+      "common_separable_space_time_covariance_assumed": true,
+      "physical_raw_filter_convolution_performed": false,
+      "actual_temporal_independence_verified": false
+    }
+  ],
+  "station_covariance_supplied": true,
+  "temporal_covariance_supplied": true,
+  "common_separable_space_time_covariance_assumed": true,
+  "station_specific_kernels_modelled": false,
+  "observed_bias_correction_performed": false,
+  "variance_or_likelihood_calculated": false,
+  "physical_raw_filter_convolution_performed": false,
+  "physical_adc_vdif_processed": false,
+  "actual_temporal_independence_verified": false,
+  "real_hardware_validation_performed": false,
+  "production_correlator_statistics_changed": false,
+  "production_rml_noise_model_changed": false,
+  "scope": "Known constant S times common stationary K proper-Gaussian voltage, with supplied signal/noise model. Means only: no observed covariance, independent hardware sample count, variable station clocks, actual raw FIR, ADC/VDIF, likelihood or image confidence."
+}

@@ -1,0 +1,14 @@
+{
+  "state": "complete",
+  "installed_imports": true,
+  "outside_checkout": true,
+  "pythonpath_removed": true,
+  "frozen_known_model_means_identical": 25,
+  "eight_station_triangles": 56,
+  "eight_station_finite_means": true,
+  "variance_or_likelihood_calculated": false,
+  "observed_bias_correction_performed": false,
+  "actual_hardware_data": false,
+  "production_rml_noise_model_changed": false,
+  "scope": "Known constant S times common constant-power K conditional means only; no physical filters or observation correction."
+}
