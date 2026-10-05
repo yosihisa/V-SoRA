@@ -1,0 +1,12 @@
+{
+  "state": "complete",
+  "installed_imports": true,
+  "outside_checkout": true,
+  "pythonpath_removed": true,
+  "frozen_known_model_cases_identical": 20,
+  "eight_station_covariance_dimension": 112,
+  "eight_station_finite_psd_checked": true,
+  "distribution_gaussian_assumed": false,
+  "production_rml_noise_model_changed": false,
+  "scope": "Installed known-S conditional averaging API; no hardware or image likelihood."
+}

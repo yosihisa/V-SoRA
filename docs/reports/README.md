@@ -126,4 +126,6 @@
 
 | 067 | [保存三次統計の日本語GUI](067-bispectrum-inspection-gui.md) | 最終source/wheel761件成功。実Chromiumの全値・履歴の二入力・M0/1/2・マスク・JSON・日本語/390px。初回touchの時刻が変わらないテストを修正、基準は維持 |
 
+| 068 | [短積分U₃を平均した分布の確認](068-bispectrum-window-averaging.md) | source/wheel799件成功。5既知モデル×Q4条件各8,192反復、全共分散1/Q・Gaussian対照一致。弱い源はQ64でも公称包含率と差が残り、Gaussian尤度を保証しない |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。
