@@ -58,3 +58,15 @@ python tools/run.py vsora_simulator.sensitivity --config configs/experiments/ide
 三基線積の平均の偏りを除いても、その散らばりが小さくなるとは限りません。天体ゼロ・独立な単位power Gaussian電圧という仮定で、異標本量U₃の複素分散は1/[M(M−1)(M−2)]です。Mは独立電圧標本数の仮定で、実機の帯域×積分秒を測定なしで採用できる値ではありません。
 
 三辺の既知相関係数を同じρとすると、三基線積の信号はρ³。標本数を間引くと、偏りを避ける条件を満たせる場合がある一方、三次統計の雑音が増えます。[式と条件付き比較](../../interfaces/bispectrum-sensitivity.md)、[段階057](../reports/057-bispectrum-sensitivity.md)で確認できます。点源の必要反復数は同じbispectrumと正規化を保つ仮定の計算で、実際のCas Aの観測時間・検出確率・画像化の保証ではありません。
+
+## 強い相関と形状の区別は別に確認する
+
+最大基線を小さくすると、Cas Aがほぼ点に見えるため相関fluxは大きくなります。同時に、母集団closureが点源の0から変わる量は小さくなります。信号の強さだけで最適配置を選べない理由です。
+
+[段階081の比較](../reports/081-array-scale-known-sky.md)では、8局・3形状・25〜600mの既知モデルで、相関flux比、母集団closureの点源との差、天体自己雑音を含むU₃のcomplex-rms尺度を並べます。母集団closureは雑音のない相関から計算した値です。全行のRMSには共有baselineと重複があり、独立画像情報量や低SNRの信頼度には変換していません。
+
+```bash
+python tools/run.py workflows.array_scale_validation --output outputs/array-scale-comparison
+```
+
+1.42GHz・1000Jy、64kHz、0.3/3秒、単一時刻、LO既知補正を仮定します。fringe周期は復元beamの測定ではなく、相関の角度的な周期です。配置の推奨、実観測の画像化成功、必要な観測時間はこの比較だけでは判定できません。

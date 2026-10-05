@@ -1,0 +1,51 @@
+{
+  "state": "complete",
+  "python": "3.12.3",
+  "numpy": "2.5.1",
+  "scipy": "1.18.0",
+  "pytest": "8.4.2",
+  "blas_threads": 1,
+  "omp_threads": 1,
+  "targeted_tests": {
+    "passed": 49,
+    "elapsed_s": 1.78
+  },
+  "full_regression": {
+    "source": {
+      "passed": 1190,
+      "warnings": 25596,
+      "elapsed_s": 570.64,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 1190,
+      "warnings": 25596,
+      "elapsed_s": 569.57,
+      "excluded_tests": 0
+    }
+  },
+  "experiment": {
+    "elapsed_s": 1.4249553270055912,
+    "maximum_rss_kib": 193280,
+    "preliminary_complete_json_identical": true,
+    "snapshots": 18,
+    "cases": 108
+  },
+  "wheel": {
+    "filename": "v_sora-0.1.0-py3-none-any.whl",
+    "bytes": 5522920,
+    "sha256": "79f5308e618a37ec55f18027ea917085e89edda0c9a9c2524e7e73f0a8d5321c",
+    "packaged_files_identical_to_source": 79
+  },
+  "pip_check_passed": true,
+  "source_experiment_complete_json_sha256": "6575b09234c55bcb07a64274230eb4630e6709859124703016b2b1beda0eeb02",
+  "new_monte_carlo_performed": false,
+  "gain_or_lo_estimation_performed": false,
+  "image_reconstructed": false,
+  "actual_hardware_data": false,
+  "initial_failure_recorded": {
+    "draft_three_station_amplitude_expected_zero_instead_of_no_rows": true,
+    "strict_relative_geometry_test_replaced_by_earth_position_64ulp_absolute_rounding_bound": true,
+    "source_runner_path_initially_incomplete": true
+  }
+}
