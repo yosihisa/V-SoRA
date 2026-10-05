@@ -1,0 +1,61 @@
+{
+  "state": "complete",
+  "python": "3.12.3",
+  "numpy": "2.5.1",
+  "scipy": "1.18.0",
+  "pytest": "8.4.2",
+  "chromium": "153.0.8010.12",
+  "blas_threads": 1,
+  "omp_threads": 1,
+  "failed_attempts": [
+    {
+      "operation": "wheel_install",
+      "reason": "wheel_filename_pattern_did_not_match",
+      "counted_as_pass": false
+    },
+    {
+      "operation": "installed_cli",
+      "reason": "old_installation_after_failed_wheel_install",
+      "counted_as_pass": false
+    }
+  ],
+  "successful_recovery": "installed_actual_v_sora_wheel_then_repeated_pip_check_and_outside_cli",
+  "targeted_tests": {
+    "configuration_passed": 2,
+    "configuration_elapsed_s": 0.01,
+    "gui_passed": 2,
+    "gui_elapsed_s": 2.9,
+    "gui_deselected": 113,
+    "gui_warnings": 1,
+    "total_passed": 4
+  },
+  "full_regression": {
+    "source": {
+      "passed": 1196,
+      "warnings": 25596,
+      "elapsed_s": 564.85,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 1196,
+      "warnings": 25596,
+      "elapsed_s": 572.54,
+      "excluded_tests": 0
+    }
+  },
+  "wheel": {
+    "filename": "v_sora-0.1.0-py3-none-any.whl",
+    "bytes": 5529379,
+    "sha256": "80b41a9b49320066e51ebe834f61c0e4177b659700cf4d8c9606a4c47a760bbc",
+    "packaged_files_identical_to_source": 80,
+    "packaged_config_matches_original_bytes": true
+  },
+  "pip_check_passed": true,
+  "source_and_installed_native_scientific_results_identical_to_stage081": true,
+  "workflow_owned_by_checkout": false,
+  "installed_scientific_worker_and_assets_verified": true,
+  "other_validations_still_require_checkout": true,
+  "production_rml_noise_model_changed": false,
+  "image_reconstructed": false,
+  "actual_hardware_data": false
+}

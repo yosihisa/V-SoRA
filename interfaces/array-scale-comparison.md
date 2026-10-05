@@ -12,3 +12,9 @@
 `workflows.array_scale_validation` は8局・3配置・6最大距離の単一時刻を比較する。天体電圧のGram行列とdirect visibilityを照合し、既存 `known_bispectrum_moment_scale` で3SEFD×2積分長を計算する。U3尺度は `|E U3| / sqrt(E |U3-E U3|²)`。全triangleを独立とは扱わない。
 
 最大投影基線から得る `206264.806... / |b_uv|` arcsecはfringe周期で、復元beamや画像の分解能の実測ではない。既知形状の点源との差、相関flux、U3尺度を並べても、画像復元成功や最適配置は判定できない。詳細条件と入力識別情報は出力JSONに保存する。
+
+## 配布済みの計算入口
+
+`vsora_simulator.array_scale.run(output)` と `python -m vsora_simulator.array_scale --output ...` で同梱設定・画像を使用する。既存の `workflows.array_scale_validation` は互換入口。科学JSONは従来と同一で、固定設定の識別SHAも維持する。
+
+GUIの配置比較はこのAPIを直接呼び、実行元の所属と同梱設定SHAを `validation/execution-origin.json` に保存する。ホスト上の実パスは公開記録に含めない。その他の動作検証のリポジトリ要件は継続する。

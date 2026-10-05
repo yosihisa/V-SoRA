@@ -186,11 +186,28 @@ def run(job):
             options=request.model_dump(exclude={'kind','inputs'})
             result=image_synthesis(paths,job/'synthesis',**options)
             write_json(job/'summary.json',result)
+        elif request.kind=='validation' and request.validation=='array_scale':
+            import hashlib
+            from vsora_simulator import array_scale,array_shape,sky,sky_covariance,bispectrum_scale
+            from vsora_observation import reference
+            from .jobs import source_root
+            phase('既知天空の配置比較を計算しています')
+            result=array_scale.run(job/'validation')
+            modules=(array_scale,array_shape,sky,sky_covariance,bispectrum_scale,reference)
+            prefix=Path(sys.prefix);checkout=source_root();asset=reference.reference_path('known-array-scale-config.json')
+            write_json(job/'validation/execution-origin.json',{
+                'native_scientific_module_used':True,'checkout_runner_used':False,
+                'scientific_modules_under_runtime_prefix':all(Path(m.__file__).is_relative_to(prefix) for m in modules),
+                'scientific_modules_under_gui_checkout':bool(checkout and all(Path(m.__file__).is_relative_to(checkout) for m in modules)),
+                'configuration_asset_under_runtime_prefix':asset.is_relative_to(prefix),
+                'sky_asset_under_runtime_prefix':reference.reference_path().is_relative_to(prefix),
+                'configuration_asset_sha256':hashlib.sha256(asset.read_bytes()).hexdigest()})
+            write_json(job/'summary.json',result)
         else:
             phase('検証を実行しています')
             runner=workspace/'tools/run.py'
             if not runner.is_file(): raise ValueError('validation requires project checkout')
-            modules={'array_scale':'workflows.array_scale_validation','joint_temporal_bispectrum':'workflows.bispectrum_joint_temporal_validation','known_sky_bispectrum':'workflows.bispectrum_known_sky_validation','bispectrum_pooling':'workflows.bispectrum_pooling_validation','signal_temporal_bispectrum':'workflows.bispectrum_signal_temporal_validation','bispectrum_gain':'workflows.bispectrum_gain_validation','bispectrum_average':'workflows.bispectrum_average_validation','bispectrum_moments':'workflows.bispectrum_moments_validation','bispectrum_sensitivity':'workflows.bispectrum_sensitivity_validation','temporal_bispectrum':'workflows.bispectrum_temporal_validation','bispectrum':'workflows.bispectrum_distinct_validation','filtered_noise':'workflows.filtered_noise_validation','closure_noise':'workflows.closure_noise_validation','covariance':'workflows.rate_covariance_validation','uncertainty':'workflows.rate_uncertainty_validation','phase':'workflows.periodic_phase_validation','rate':'workflows.closure_rate_validation','closure':'workflows.closure_validation','quality':'workflows.spectral_quality_validation','clock':'workflows.clock_validation','fringe':'workflows.iq_fringe'}
+            modules={'joint_temporal_bispectrum':'workflows.bispectrum_joint_temporal_validation','known_sky_bispectrum':'workflows.bispectrum_known_sky_validation','bispectrum_pooling':'workflows.bispectrum_pooling_validation','signal_temporal_bispectrum':'workflows.bispectrum_signal_temporal_validation','bispectrum_gain':'workflows.bispectrum_gain_validation','bispectrum_average':'workflows.bispectrum_average_validation','bispectrum_moments':'workflows.bispectrum_moments_validation','bispectrum_sensitivity':'workflows.bispectrum_sensitivity_validation','temporal_bispectrum':'workflows.bispectrum_temporal_validation','bispectrum':'workflows.bispectrum_distinct_validation','filtered_noise':'workflows.filtered_noise_validation','closure_noise':'workflows.closure_noise_validation','covariance':'workflows.rate_covariance_validation','uncertainty':'workflows.rate_uncertainty_validation','phase':'workflows.periodic_phase_validation','rate':'workflows.closure_rate_validation','closure':'workflows.closure_validation','quality':'workflows.spectral_quality_validation','clock':'workflows.clock_validation','fringe':'workflows.iq_fringe'}
             if request.validation=='basic':
                 subprocess.run([sys.executable,str(runner),'pytest','-q'],cwd=workspace,check=True)
                 write_json(job/'summary.json',{'type':'validation','validation':'basic','status':'passed',

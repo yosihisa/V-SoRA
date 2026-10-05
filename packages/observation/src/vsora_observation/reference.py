@@ -4,7 +4,7 @@ import sys
 
 
 def reference_path(name='casa-template-jy-pixel.fits'):
-    if name not in ('casa-template-jy-pixel.fits','casa-template-jy-pixel.json'):
+    if name not in ('casa-template-jy-pixel.fits','casa-template-jy-pixel.json','known-array-scale-config.json'):
         raise ValueError('unknown scientific reference asset')
     repo=Path(__file__).resolve().parents[4]
     candidates=[repo/'data/reference'/name,Path(sys.prefix)/'share/v-sora/reference'/name]

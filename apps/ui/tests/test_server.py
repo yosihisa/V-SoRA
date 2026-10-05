@@ -637,3 +637,26 @@ def test_array_scale_choice_and_label(tmp_path):
     with TestClient(create_app(tmp_path),base_url='http://127.0.0.1') as client:
         assert 'value="array_scale"' in client.get('/').text
     with pytest.raises(ValueError):ValidationRequest(validation='array_unknown')
+
+
+def test_native_array_scale_without_checkout_runner(tmp_path):
+    assert not (tmp_path/'tools/run.py').exists()
+    with TestClient(create_app(tmp_path),base_url='http://127.0.0.1') as client:
+        r=client.post('/api/jobs',json={'kind':'validation','validation':'array_scale'},headers=HEADERS)
+        assert r.status_code==202;job=wait(client,r.json()['id'],30);assert job['state']=='complete',job
+        q=job['summary'];assert q['type']=='array_scale_known_sky_comparison' and len(q['conditional_scale_cases'])==108
+        origin=client.get(f"/api/jobs/{job['id']}/artifacts/validation/execution-origin.json").json()
+        assert origin['native_scientific_module_used'] and not origin['checkout_runner_used']
+        assert origin['configuration_asset_sha256']==q['config_fixture_sha256']
+
+
+def test_native_validation_available_without_project_runner(tmp_path):
+    from vsora_ui.models import ValidationRequest
+    from typing import get_args
+    with TestClient(create_app(tmp_path),base_url='http://127.0.0.1') as client:
+        env=client.get('/api/environment').json()
+        assert env['validation_available'] and env['available_validations']==['array_scale']
+        assert env['checkout_validation_available'] is False
+        (tmp_path/'tools').mkdir();(tmp_path/'tools/run.py').symlink_to(Path(__file__).resolve().parents[3]/'tools/run.py')
+        env=client.get('/api/environment').json()
+        assert env['checkout_validation_available'] and env['available_validations']==list(get_args(ValidationRequest.model_fields['validation'].annotation))

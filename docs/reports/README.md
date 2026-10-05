@@ -156,4 +156,6 @@
 
 | 082 | [最大基線と既知Cas A形状の日本語比較画面](082-array-scale-gui.md) | source/wheel1192件成功。両実Chromiumの18概要・108条件・6048三角形、全JSON・フィルター・日本語/390px照合。母集団形状差とU3尺度の意味を区別 |
 
+| 083 | [同梱データだけで実行する配置比較](083-native-array-scale.md) | source/wheel1196件成功。runnerなしの両実Chromium・導入科学worker/asset所属・単独CLI・全JSON一致。その他の検証はcheckout要件を維持 |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。

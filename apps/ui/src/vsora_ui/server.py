@@ -7,7 +7,8 @@ from fastapi.responses import FileResponse,JSONResponse
 from fastapi.staticfiles import StaticFiles
 from starlette.middleware.trustedhost import TrustedHostMiddleware
 from .jobs import JobManager
-from .models import JobRequest,NoiseInputRequest,BispectrumInputRequest
+from typing import get_args
+from .models import ValidationRequest,JobRequest,NoiseInputRequest,BispectrumInputRequest
 
 
 def create_app(workspace):
@@ -36,7 +37,9 @@ def create_app(workspace):
 
     @app.get('/api/environment')
     def environment():
-        return {'project':manager.workspace.name,'validation_available':(manager.workspace/'tools/run.py').is_file(),
+        checkout=(manager.workspace/'tools/run.py').is_file()
+        choices=list(get_args(ValidationRequest.model_fields['validation'].annotation)) if checkout else ['array_scale']
+        return {'project':manager.workspace.name,'validation_available':bool(choices),'available_validations':choices,'checkout_validation_available':checkout,
                 'frequency_hz':1.42e9,'sample_rate_hz':2048000,'max_baseline_m':600,
                 'real_observation_verified':False}
 

@@ -1,0 +1,9 @@
+{
+  "native_scientific_module_used": true,
+  "checkout_runner_used": false,
+  "scientific_modules_under_runtime_prefix": false,
+  "scientific_modules_under_gui_checkout": true,
+  "configuration_asset_under_runtime_prefix": false,
+  "sky_asset_under_runtime_prefix": false,
+  "configuration_asset_sha256": "f3fec8598e43bf367d0fec7bfbe19a94805e8980f6efb3e947b19c25c2f1326d"
+}

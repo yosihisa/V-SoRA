@@ -40,7 +40,7 @@ package-dir = {vsora_observation = "packages/observation/src/vsora_observation",
 vsora_ui = ["static/*.html", "static/*.css", "static/*.js", "static/*.svg", "static/fonts/*"]
 
 [tool.setuptools.data-files]
-"share/v-sora/reference" = ["data/reference/casa-template-jy-pixel.fits", "data/reference/casa-template-jy-pixel.json"]
+"share/v-sora/reference" = ["data/reference/casa-template-jy-pixel.fits", "data/reference/casa-template-jy-pixel.json", "data/reference/known-array-scale-config.json"]
 
 [tool.pytest.ini_options]
 testpaths = ["apps", "packages", "tests/integration"]

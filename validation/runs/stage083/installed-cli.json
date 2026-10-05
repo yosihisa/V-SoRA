@@ -1,0 +1,13 @@
+{
+  "state": "complete",
+  "outside_checkout": true,
+  "pythonpath_removed": true,
+  "installed_scientific_modules_verified": true,
+  "packaged_configuration_and_sky_verified": true,
+  "native_cli_without_checkout_runner": true,
+  "all_scientific_results_identical_to_stage081": true,
+  "snapshots": 18,
+  "scale_cases": 108,
+  "actual_hardware_data": false,
+  "image_inference_performed": false
+}
