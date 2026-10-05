@@ -144,4 +144,6 @@
 
 | 076 | [既知Cas A形状と天体雑音を含む三次統計の尺度](076-bispectrum-known-sky-scale.md) | source/wheel975件成功。64対象試験、144条件と3既知モデル各8,192反復、導入API完全一致。複素rms尺度・天体由来分散を保存し、点源の見積もりをCas Aへ直接適用しない |
 
+| 077 | [天体形状と三次統計の条件比較を日本語GUIで確認](077-bispectrum-known-sky-gui.md) | source/wheel977件成功。両実Chromiumで概要144条件・詳細4,320行、絞り込み、状態文言、JSON、図説明、日本語/390pxを照合。全科学JSONは076と完全一致 |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。

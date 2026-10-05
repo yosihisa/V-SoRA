@@ -1,0 +1,45 @@
+{
+  "state": "complete",
+  "python": "3.12.3",
+  "numpy": "2.5.1",
+  "scipy": "1.18.0",
+  "pytest": "8.4.2",
+  "chromium": "153.0.8010.12",
+  "blas_threads": 1,
+  "omp_threads": 1,
+  "targeted_tests": {
+    "passed": 2,
+    "deselected": 49,
+    "warnings": 1,
+    "elapsed_s": 3.64
+  },
+  "full_regression": {
+    "source": {
+      "passed": 977,
+      "warnings": 25596,
+      "elapsed_s": 560.13,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 977,
+      "warnings": 25596,
+      "elapsed_s": 560.35,
+      "excluded_tests": 0
+    }
+  },
+  "pip_check_passed": true,
+  "wheel": {
+    "filename": "v_sora-0.1.0-py3-none-any.whl",
+    "bytes": 5517795,
+    "sha256": "69039a9beb10dc2b4600fffb9fe01e7f6b5cc57d5dbc2f46fa85f565ae919982",
+    "packaged_files_identical_to_source": 76
+  },
+  "source_and_installed_gui_real_workflow_identical_to_stage076": true,
+  "scientific_reference": "validation/runs/stage076/known-sky-scale.json",
+  "verification_order": "targeted real worker, source Chromium, source full, wheel install, installed Chromium, installed full",
+  "gaussian_detection_probability_calculated": false,
+  "image_reconstructed": false,
+  "production_rml_noise_model_changed": false,
+  "actual_hardware_data": false,
+  "private_logs": "outputs/stage077-source-final/ and outputs/stage077-installed-final/; ignored"
+}

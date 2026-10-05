@@ -27,6 +27,7 @@ LABELS={'simulation':'模擬観測と画像復元','quality':'雑音・電波妨
         'bispectrum_gain':'未知の局gainと三次統計の平均制約',
         'signal_temporal_bispectrum':'天体信号と共通時間相関・三次統計の平均',
         'bispectrum_pooling':'周波数群の三次統計・標本のまとめ方',
+        'known_sky_bispectrum':'天体形状と三次統計の条件比較',
         'rate':'skyモデルを使わない周波数差の推定','analysis':'VDIFからClosure＋RMLで解析',
         'sequence':'VDIFの短区間列と画像合成',
         'bispectrum_inspection':'保存した三次統計の確認','time_scatter':'pilotの時間散乱診断','noise':'相関ファイルの雑音診断','synthesis':'複数時刻のClosure＋RML合成','sensitivity':'短積分の感度計画'}

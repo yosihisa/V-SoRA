@@ -519,3 +519,28 @@ def test_bispectrum_pooling_choice_and_label(tmp_path):
     with TestClient(create_app(tmp_path),base_url='http://127.0.0.1') as client:
         assert 'value="bispectrum_pooling"' in client.get('/').text
     with pytest.raises(ValueError):ValidationRequest(validation='pooling_unknown')
+
+
+def test_known_sky_bispectrum_validation_real_subprocess(tmp_path):
+    (tmp_path/'tools').mkdir()
+    (tmp_path/'tools/run.py').symlink_to(Path(__file__).resolve().parents[3]/'tools/run.py')
+    with TestClient(create_app(tmp_path),base_url='http://127.0.0.1') as client:
+        r=client.post('/api/jobs',json={'kind':'validation','validation':'known_sky_bispectrum'},headers=HEADERS)
+        assert r.status_code==202;job=wait(client,r.json()['id'],30);assert job['state']=='complete',job
+        q=job['summary'];assert q['type']=='known_sky_bispectrum_scale_validation' and len(q['conditional_forecasts'])==144
+        assert len(q['monte_carlo_cases'])==3 and all(c['all_means_and_covariances_within_6se'] for c in q['monte_carlo_cases'])
+        assert q['source_self_noise_included_in_known_covariance'] and q['trials_per_mc_case']==8192
+        assert not q['triangles_statistically_independent_assumed'] and not q['production_rml_noise_model_changed']
+        assert not q['observed_power_normalization_performed'] and not q['gaussian_detection_probability_calculated']
+        assert client.get(f"/api/jobs/{job['id']}/artifacts/validation/known-sky-bispectrum.png").status_code==200
+        assert client.get(f"/api/jobs/{job['id']}/artifacts/validation/summary.json").json()==q
+
+
+def test_known_sky_bispectrum_choice_and_label(tmp_path):
+    from vsora_ui.models import ValidationRequest
+    from vsora_ui.jobs import LABELS
+    assert ValidationRequest(validation='known_sky_bispectrum').validation=='known_sky_bispectrum'
+    assert LABELS['known_sky_bispectrum']=='天体形状と三次統計の条件比較'
+    with TestClient(create_app(tmp_path),base_url='http://127.0.0.1') as client:
+        assert 'value="known_sky_bispectrum"' in client.get('/').text
+    with pytest.raises(ValueError):ValidationRequest(validation='unknown_sky')

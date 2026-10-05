@@ -92,6 +92,7 @@ function renderDetail(job){const box=byId("job-detail");box.replaceChildren();co
   if(summary&&summary.type==="population_bispectrum_gain_validation")renderBispectrumGain(box,summary);
   if(summary&&summary.type==="signal_temporal_bispectrum_validation")renderSignalTemporalBispectrum(box,summary);
   if(summary&&summary.type==="independent_group_bispectrum_pooling_validation")renderBispectrumPooling(box,summary);
+  if(summary&&summary.type==="known_sky_bispectrum_scale_validation")renderKnownSkyBispectrum(box,summary);
   if(summary&&summary.type==="temporal_bispectrum_validation")renderTemporalBispectrum(box,summary);
   if(summary&&summary.type==="distinct_sample_bispectrum_validation")renderDistinctBispectrum(box,summary);
   if(summary&&summary.type==="raw_bispectrum_inspection")renderBispectrumInspection(box,summary);
@@ -102,7 +103,7 @@ function renderDetail(job){const box=byId("job-detail");box.replaceChildren();co
   if(summary&&summary.metrics&&summary.metrics.comparison_version===2){box.append(node("p","形状誤差は、位置合わせで画面外へ出た成分も含めて比較しています。表示画像は元の画面範囲だけです。","muted"));if(summary.metrics.registration_boundary_reached)box.append(node("p","位置合わせが探索範囲の端に達しています。移動量と比較条件を確認してください。","muted"));}
   if(summary&&summary.rate_acquisition){const a=summary.rate_acquisition;box.append(node("p","pilot: "+(a.pilot_integration_s*1000).toFixed(3)+" ms / Nyquist: "+a.temporal_nyquist_hz.toFixed(1)+" Hz。初期の基線周波数差がこの範囲内であることは別途確認が必要です。","muted"));if(a.sk_eligible_fraction!==null&&a.sk_eligible_fraction<1)box.append(node("p","pilotでSK判定が可能だった局・時刻・channelの割合: "+(100*a.sk_eligible_fraction).toFixed(1)+"%。妨害波の確認を別途行ってください。","muted"));}
   if(summary&&summary.rml&&summary.rml.amplitude_constraints_available===false)box.append(node("p","有効なlog closure amplitudeがありません。画像のサイズや広がりは事前条件への依存が強くなります。","muted"));
-  const pictures=job.artifacts.filter(a=>a.path.endsWith(".png"));for(const file of pictures){const figure=node("figure",undefined,"plot"),img=node("img");img.src=artifactURL(job.id,file.path);img.alt=file.path.endsWith("bispectrum-pooling.png")?"既知独立群のU₃分散比と群別局位相による母平均の違い（実FFT・帯域補正・検出確率・画像の保証ではありません）":file.path.endsWith("bispectrum-signal-temporal.png")?"天体信号と既知共通時間相関の平均比較（Kから直接生成、実ADC・FIR・VDIF・画像の保証ではありません）":file.path.endsWith("bispectrum-gain.png")?"既知の母平均・未知局gainの制約数と冗長性（有限標本の雑音・実機・画像化の可否ではありません）":file.path.endsWith("averaged-bispectrum.png")?"既知Gaussian電圧・独立短積分の平均と包含率・分位点（誤差棒は反復標準誤差の2倍、実機・画像の信頼区間ではありません）":file.path.endsWith("bispectrum-moments.png")?"既知Gaussian電圧の三基線積の分散比・実成分間の相関・全共分散の反復比較（実機・画像の保証ではありません）":file.path.endsWith("bispectrum-sensitivity.png")?"ゼロ源モデルの分散比と有限試行誤差・同じ点源三角形の条件付き記録秒（実観測時間・検出確率は未計算）":file.path.endsWith("bispectrum-temporal.png")?"既知時間相関モデルの三基線積の平均と間引き後の保持数（実機の独立性・感度は未確認）":file.path.endsWith("bispectrum-distinct.png")?"既知Gaussian電圧の三基線積の偏りと異標本量の平均（角度・実機・画像の保証ではありません）":file.path.endsWith("filtered-noise.png")?"仮定した固定係数の分散倍率・MC差・基線間共分散の構造（実測独立数ではありません）":file.path.endsWith("closure-noise.png")?"既知の模擬モデルのClosure分散比（一次近似・独立雑音・有限標本を比較、実機保証ではありません）":file.path.endsWith("rate-covariance.png")?"仮定雑音のrate採用率・採用例の誤差距離・公称95%領域の割合（実機の信頼区間ではありません）":file.path.endsWith("rate-uncertainty.png")?"仮定Gaussian誤差による条件付き複素平均と乱数標本の比較（実機保持率ではありません）":file.path.endsWith("periodic-coherence.png")?"仮定した周期位相の相関減衰とClosure誤差（対照比較・実機測定ではありません）":file.path.endsWith("rate-parts.png")?"pilotを4分割した局周波数差（平均rateの整合は位相安定の保証ではありません）":file.path.endsWith("rates.png")?"区間ごとの局周波数差（丸：基準時刻、×：4分割、線：選択した線形モデル、区間間の補間なし）":file.path.includes("comparison")?"局配置・測った基線・正解と復元の比較":file.path.includes("quality")?"周波数別統計と妨害除外後の画像":"画像復元の比較";figure.append(img,node("figcaption",img.alt));box.append(figure);}
+  const pictures=job.artifacts.filter(a=>a.path.endsWith(".png"));for(const file of pictures){const figure=node("figure",undefined,"plot"),img=node("img");img.src=artifactURL(job.id,file.path);img.alt=file.path.endsWith("known-sky-bispectrum.png")?"Cas A形状の仮定・複素rms尺度・天体由来の分散（SEFDとfluxは仮定値、検出確率・画像品質・実観測時間ではありません）":file.path.endsWith("bispectrum-pooling.png")?"既知独立群のU₃分散比と群別局位相による母平均の違い（実FFT・帯域補正・検出確率・画像の保証ではありません）":file.path.endsWith("bispectrum-signal-temporal.png")?"天体信号と既知共通時間相関の平均比較（Kから直接生成、実ADC・FIR・VDIF・画像の保証ではありません）":file.path.endsWith("bispectrum-gain.png")?"既知の母平均・未知局gainの制約数と冗長性（有限標本の雑音・実機・画像化の可否ではありません）":file.path.endsWith("averaged-bispectrum.png")?"既知Gaussian電圧・独立短積分の平均と包含率・分位点（誤差棒は反復標準誤差の2倍、実機・画像の信頼区間ではありません）":file.path.endsWith("bispectrum-moments.png")?"既知Gaussian電圧の三基線積の分散比・実成分間の相関・全共分散の反復比較（実機・画像の保証ではありません）":file.path.endsWith("bispectrum-sensitivity.png")?"ゼロ源モデルの分散比と有限試行誤差・同じ点源三角形の条件付き記録秒（実観測時間・検出確率は未計算）":file.path.endsWith("bispectrum-temporal.png")?"既知時間相関モデルの三基線積の平均と間引き後の保持数（実機の独立性・感度は未確認）":file.path.endsWith("bispectrum-distinct.png")?"既知Gaussian電圧の三基線積の偏りと異標本量の平均（角度・実機・画像の保証ではありません）":file.path.endsWith("filtered-noise.png")?"仮定した固定係数の分散倍率・MC差・基線間共分散の構造（実測独立数ではありません）":file.path.endsWith("closure-noise.png")?"既知の模擬モデルのClosure分散比（一次近似・独立雑音・有限標本を比較、実機保証ではありません）":file.path.endsWith("rate-covariance.png")?"仮定雑音のrate採用率・採用例の誤差距離・公称95%領域の割合（実機の信頼区間ではありません）":file.path.endsWith("rate-uncertainty.png")?"仮定Gaussian誤差による条件付き複素平均と乱数標本の比較（実機保持率ではありません）":file.path.endsWith("periodic-coherence.png")?"仮定した周期位相の相関減衰とClosure誤差（対照比較・実機測定ではありません）":file.path.endsWith("rate-parts.png")?"pilotを4分割した局周波数差（平均rateの整合は位相安定の保証ではありません）":file.path.endsWith("rates.png")?"区間ごとの局周波数差（丸：基準時刻、×：4分割、線：選択した線形モデル、区間間の補間なし）":file.path.includes("comparison")?"局配置・測った基線・正解と復元の比較":file.path.includes("quality")?"周波数別統計と妨害除外後の画像":"画像復元の比較";figure.append(img,node("figcaption",img.alt));box.append(figure);}
   if(summary){const details=node("details");details.append(node("summary","詳しい条件と数値"),node("pre",JSON.stringify(summary,null,2)));box.append(details);}const downloads=node("details"),links=node("ul",undefined,"download-list");downloads.append(node("summary","条件・画像・相関ファイルを保存"));for(const file of job.artifacts.filter(a=>!a.path.endsWith(".png")&&!a.path.endsWith(".log")&&!a.path.endsWith("request.json")&&!a.path.endsWith("status.json"))){const li=node("li"),link=node("a",file.path);link.href=artifactURL(job.id,file.path);li.append(link);links.append(li);}downloads.append(links);box.append(downloads);const log=job.artifacts.find(a=>a.path==="execution.log");if(log){const details=node("details"),pre=node("pre","開くと読み込みます。");details.append(node("summary","詳細ログ"),pre);details.addEventListener("toggle",async()=>{if(details.open){const response=await fetch(artifactURL(job.id,"execution.log"));pre.textContent=(await response.text()).slice(-30000);}});box.append(details);}}
 async function refresh(){if(refreshing)return;refreshing=true;try{jobs=await api("/api/jobs");if(!selected&&jobs.length)selected=jobs[0].id;const listKey=JSON.stringify({jobs,selected});if(listKey!==listFingerprint){renderList();listFingerprint=listKey;}if(selected){const job=await api("/api/jobs/"+selected);const detailKey=JSON.stringify({...job,artifacts:job.artifacts.map(a=>a.path)});if(detailKey!==detailFingerprint){renderDetail(job);detailFingerprint=detailKey;}}byId("connection").textContent="ローカル処理に接続";}catch(error){byId("connection").textContent="接続を確認してください";message(error.message);}finally{refreshing=false;}}
 api("/api/environment").then(env=>{byId("connection").textContent="ローカル処理に接続";if(!env.validation_available){byId("validation-form").querySelector("button").disabled=true;}}).catch(()=>message("解析サーバーに接続できません。起動状態を確認してください。"));
@@ -477,4 +478,54 @@ function renderBispectrumPooling(box,s){
   for(let i=0;i<phase.triangles.length;i++)for(const name of ["average","pooled"]){const d=phase.methods[name],n=phase.triangles.length,row=node("tr");row.append(node("td",phase.triangles[i].join("-")+" / "+names[name]),node("td",complex(d.known_mean_real_imag[i])),node("td",complex(d.ensemble_mean_real_imag[i])),node("td",[d.mean_mc_standard_error_all_real_then_imag[i],d.mean_mc_standard_error_all_real_then_imag[i+n]].map(number).join(" / ")));pt.append(row);}
   box.append(pt,node("p","各群のU₃を位相変更前後で比較した最大差："+number(phase.maximum_per_group_u3_gain_invariance_difference),"muted"),
     node("p","反復標準誤差は有限回の模擬実験で平均が揺れる量です。実観測のU₃の雑音σではありません。全実共分散はJSONへ保存します。GaussianなU₃尤度、実機の独立性、画像品質を確認した結果ではありません。現行相関器とRMLの処理は変更していません。","muted"));
+}
+
+function renderKnownSkyBispectrum(box,s){
+  const number=v=>Number(v).toExponential(4),complex=v=>number(v[0])+(v[1]>=0?" + ":" − ")+number(Math.abs(v[1]))+" i";
+  const shapes={point:"点源",casa:"Cas A形状"},layouts={spread:"分散配置",line:"直線配置",ring:"円周配置"};
+  const median=a=>{const v=[...a].sort((x,y)=>x-y),i=Math.floor(v.length/2);return v.length%2?v[i]:(v[i-1]+v[i])/2;};
+  const range=a=>[Math.min(...a),median(a),Math.max(...a)].map(number).join(" / ");
+  const condition=c=>shapes[c.shape_model]+" / "+c.stations+"局 / "+layouts[c.layout]+" / "+c.window_seconds+"秒 / SEFD "+number(c.assumed_receiver_background_sefd_jy)+" Jy / M="+c.independent_samples_conditional_input;
+  box.append(node("h3","天体形状と三次統計の条件比較"),
+    node("p","1.42GHz・最大基線600m、総flux1000Jy、単一64kHzの既知モデル144条件を比較します。受信機・背景のSEFDへ対象天体のpowerを別に加え、天体自身の雑音を含む共分散から計算しました。SEFDとfluxは測定値ではありません。","muted"),
+    node("p","尺度は |母平均| / 複素rms誤差 です。一成分σのSNRとは定義が異なり、検出確率や画像SNRではありません。三角形は誤差を共有するので、中央値や行数を独立な画像情報量に換算しません。","muted"),
+    node("p","M=帯域×積分時間を独立標本数と仮定し、局gain一定・LO補正済みです。実FFTの独立性や短積分中のOCXOの安定性を確認した結果ではありません。","muted"));
+  const filters=node("div",undefined,"form-row");filters.id="known-sky-filters";const choices={};
+  const add=(name,title,items,value)=>{const label=node("label",title),select=node("select");select.id="known-sky-filter-"+name;
+    for(const [key,text] of items){const option=node("option",text);option.value=key;select.append(option);}select.value=value;label.append(select);filters.append(label);choices[name]=select;};
+  add("shape_model","天体形状",[["all","すべて"],["point",shapes.point],["casa",shapes.casa]],"casa");
+  add("stations","局数",[["all","すべて"],["4","4局"],["8","8局"]],"8");
+  add("layout","配置",[["all","すべて"],...Object.entries(layouts)],"spread");
+  add("window_seconds","短積分時間",[["all","すべて"],...[.1,.3,1,3].map(v=>[String(v),v+"秒"])],"0.3");
+  const sefds=[...new Set(s.conditional_forecasts.map(c=>c.assumed_receiver_background_sefd_jy))];
+  add("assumed_receiver_background_sefd_jy","受信機・背景SEFD",[["all","すべて"],...sefds.map(v=>[String(v),number(v)+" Jy"])],"all");
+  const count=node("p",undefined,"muted"),table=node("table",undefined,"window-table");count.id="known-sky-visible-count";table.id="known-sky-table";
+  const detail=node("details"),detailLabel=node("label","詳細を確認する条件"),detailSelect=node("select"),triTable=node("table",undefined,"window-table");
+  detail.id="known-sky-details";detailSelect.id="known-sky-detail-case";triTable.id="known-sky-triangle-table";detailLabel.append(detailSelect);
+  detail.append(node("summary","三角形ごとの平均・分散・条件付き反復数"),
+    node("p","反復数は同じS・uvを保つ独立窓を繰り返し、複素rms尺度5へ達する計算上の概数です。地球回転・uv変化を含まず、実観測時間の推奨値ではありません。詳しいJSONには整数の反復数と状態を保存します。","muted"),detailLabel,triTable);
+  const drawDetail=()=>{triTable.replaceChildren();const c=s.conditional_forecasts[Number(detailSelect.value)];if(!c)return;
+    const head=node("tr");for(const title of ["三角形・既知平均","複素分散 / 尺度","条件付き反復数（概数）"])head.append(node("th",title));triTable.append(head);
+    c.triangles.forEach((t,i)=>{const row=node("tr"),means=node("td"),values=node("td");
+      means.append(node("p",t.join("-")),node("p",complex(c.known_mean_real_imag[i])));values.append(node("p",number(c.known_complex_variance[i])),node("p",number(c.known_complex_rms_scale[i])));
+      const state=c.conditional_window_count_state[i],text=state==="finite"?number(c.required_identical_independent_windows[i]):state==="zero_numeric_mean"?"平均が数値0：反復数なし":"上限10¹⁸を超える：反復数なし";
+      row.append(means,values,node("td",text));triTable.append(row);
+    });};
+  const draw=()=>{const previous=detailSelect.value;table.replaceChildren();detailSelect.replaceChildren();const head=node("tr");
+    for(const title of ["仮定条件","複素rms尺度：最小 / 中央値 / 最大","天体含む ÷ 天体無しの分散：最小 / 中央値 / 最大"])head.append(node("th",title));table.append(head);
+    let n=0;s.conditional_forecasts.forEach((c,i)=>{if(!Object.entries(choices).every(([key,select])=>select.value==="all"||String(c[key])===select.value))return;n++;
+      const row=node("tr");row.dataset.forecast=String(i);row.append(node("td",condition(c)),node("td",range(c.known_complex_rms_scale)),node("td",range(c.complex_to_null_variance_ratio)));table.append(row);
+      const option=node("option",condition(c));option.value=String(i);detailSelect.append(option);});
+    count.textContent="表示条件："+n+" / "+s.conditional_forecasts.length;
+    if([...detailSelect.options].some(o=>o.value===previous))detailSelect.value=previous;drawDetail();};
+  for(const select of Object.values(choices))select.addEventListener("change",draw);detailSelect.addEventListener("change",drawDetail);
+  box.append(filters,count,table,detail,node("h4","既知共分散での反復実験"));
+  const mcTable=node("table",undefined,"window-table"),mcHead=node("tr");mcTable.id="known-sky-mc-table";
+  for(const title of ["生成条件","反復条件","全平均・全実共分散の照合"])mcHead.append(node("th",title));mcTable.append(mcHead);
+  for(const c of s.monte_carlo_cases){const row=node("tr");row.append(node("td",shapes[c.shape_model]+" / "+c.stations+"局"),node("td","M="+c.samples+" / "+c.trials.toLocaleString("ja-JP")+"反復 / seed="+c.seed),node("td",c.all_means_and_covariances_within_6se?"固定6反復標準誤差基準内":"既知式との整合を要確認"));mcTable.append(row);}
+  box.append(mcTable);
+  const provenance=node("details");provenance.id="known-sky-reference";provenance.append(node("summary","参照画像・仮想幾何・計算の条件"),
+    node("p","Cas A参照："+s.reference.observed_epoch+" / "+s.reference.observed_spectral_windows_mhz.join(" / ")+" MHz。1.42GHzでは形状proxyとして使い、総flux1000Jyは別の仮定です。"),node("p","参照SHA-256："+s.reference.derived_sha256),
+    node("p","仮想site35度/135度のsnapshotです。EOP status："+[...new Set(s.snapshots.flatMap(c=>Object.values(c.eop_status).flat()))].join(" / ")+"。2はIERS予測値です。実観測地点・実測EOPではありません。"),
+    node("p","反復標準誤差は模擬実験の平均・共分散を照合するための量です。実観測の雑音σではありません。全実共分散と入力条件はJSONへ保存します。実IQ/VDIF、未知SEFDやpowerの推定、実機の検出・画像化、RMLの雑音モデル変更はこの比較に含みません。"));box.append(provenance);draw();
 }
