@@ -442,3 +442,30 @@ def test_bispectrum_average_choice_and_label(tmp_path):
     with TestClient(create_app(tmp_path),base_url='http://127.0.0.1') as client:
         assert 'value="bispectrum_average"' in client.get('/').text
     with pytest.raises(ValueError):ValidationRequest(validation='bispectrum_average_unknown')
+
+def test_population_gain_validation_real_subprocess(tmp_path):
+    (tmp_path/'tools').mkdir()
+    (tmp_path/'tools/run.py').symlink_to(Path(__file__).resolve().parents[3]/'tools/run.py')
+    with TestClient(create_app(tmp_path),base_url='http://127.0.0.1') as client:
+        r=client.post('/api/jobs',json={'kind':'validation','validation':'bispectrum_gain'},headers=HEADERS)
+        assert r.status_code==202;job=wait(client,r.json()['id'],30);assert job['state']=='complete',job
+        q=job['summary'];assert q['type']=='population_bispectrum_gain_validation' and len(q['cases'])==6
+        example=q['four_station_example']
+        assert example['population_means_identical'] and example['all_covariances_positive_definite']
+        assert not example['station_powers_identical'] and not example['conditional_u3_covariances_identical']
+        assert q['cases'][1]['gain_invariant_amplitude_rank']==0 and q['cases'][1]['conventional_logamp_rank']==2
+        assert q['cases'][-1]['left_null_weight_rows']==48 and q['cases'][-1]['gain_invariant_amplitude_rank']==20
+        assert not q['observed_statistic_logarithms_taken'] and not q['noise_likelihood_implemented']
+        assert not q['real_hardware_validation_performed'] and not q['production_rml_noise_model_changed']
+        assert client.get(f"/api/jobs/{job['id']}/artifacts/validation/bispectrum-gain.png").status_code==200
+        assert client.get(f"/api/jobs/{job['id']}/artifacts/validation/summary.json").json()==q
+
+
+def test_population_gain_choice_and_label(tmp_path):
+    from vsora_ui.models import ValidationRequest
+    from vsora_ui.jobs import LABELS
+    assert ValidationRequest(validation='bispectrum_gain').validation=='bispectrum_gain'
+    assert LABELS['bispectrum_gain']=='未知の局gainと三次統計の平均制約'
+    with TestClient(create_app(tmp_path),base_url='http://127.0.0.1') as client:
+        assert 'value="bispectrum_gain"' in client.get('/').text
+    with pytest.raises(ValueError):ValidationRequest(validation='bispectrum_gain_unknown')
