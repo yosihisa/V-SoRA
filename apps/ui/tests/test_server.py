@@ -569,3 +569,47 @@ def test_joint_temporal_bispectrum_choice_and_label(tmp_path):
     with TestClient(create_app(tmp_path),base_url='http://127.0.0.1') as client:
         assert 'value="joint_temporal_bispectrum"' in client.get('/').text
     with pytest.raises(ValueError):ValidationRequest(validation='joint_time_unknown')
+
+
+@pytest.mark.parametrize('model',['SimulationRequest','RmlRequest','SensitivityRequest'])
+@pytest.mark.parametrize('maximum',[True,0,9,601,float('nan'),float('inf')])
+def test_maximum_baseline_request_limits(model,maximum):
+    from vsora_ui import models
+    with pytest.raises(ValueError):getattr(models,model)(maximum_baseline_m=maximum)
+
+
+@pytest.mark.parametrize('model',['SimulationRequest','RmlRequest'])
+@pytest.mark.parametrize('stations',[4,8])
+@pytest.mark.parametrize('layout',['spread','line','ring'])
+@pytest.mark.parametrize('maximum',[50.,100.,600.])
+def test_maximum_baseline_reaches_config(model,stations,layout,maximum):
+    import numpy as np
+    from vsora_ui import models
+    from vsora_ui.worker import simulation_config
+    request=getattr(models,model)(stations=stations,layout=layout,maximum_baseline_m=maximum)
+    c=simulation_config(request);positions=np.asarray([s['enu_m'] for s in c['stations']])
+    assert np.linalg.norm(positions[:,None]-positions[None,:],axis=-1).max()==pytest.approx(maximum,rel=1e-12)
+
+
+@pytest.mark.parametrize('specification,maximum',[
+    ({'kind':'simulation','model':'point','stations':4,'layout':'ring','maximum_baseline_m':50.,'duration_s':60,'integration_s':60,'noise':False},50.),
+    ({'kind':'rml','model':'casa','stations':8,'layout':'spread','maximum_baseline_m':100.,'duration_s':3600,'snapshots':8,'integration_s':.3,'sefd_jy':1000.,'noise':False,'starts':1,'max_iterations':100},100.),
+    ({'kind':'sensitivity','stations':8,'layout':'line','maximum_baseline_m':200.,'diameter_m':1.,'system_temperature_k':100.,'integration_s':.3,'bandwidth_hz':256000.},200.),
+])
+def test_maximum_baseline_real_workers(tmp_path,specification,maximum):
+    import numpy as np
+    with TestClient(create_app(tmp_path),base_url='http://127.0.0.1') as client:
+        r=client.post('/api/jobs',json=specification,headers=HEADERS);assert r.status_code==202
+        job=wait(client,r.json()['id'],60);assert job['state']=='complete',job
+        q=job['summary'];positions=np.asarray([s['enu_m'] for s in q['config']['stations']])
+        assert np.linalg.norm(positions[:,None]-positions[None,:],axis=-1).max()==pytest.approx(maximum,rel=1e-12)
+        assert client.get(f"/api/jobs/{job['id']}/artifacts/summary.json").json()==q
+        if specification['kind']=='rml':assert q['coherent_integration_s']==.3 and q['recorded_exposure_per_station_s']==2.4
+        if specification['kind']=='sensitivity':assert q['independent_closure_counts']=={'phase':0,'logamp':0}
+
+
+def test_maximum_baseline_default_fields(tmp_path):
+    from vsora_ui import models
+    for name in ('SimulationRequest','RmlRequest','SensitivityRequest'):assert getattr(models,name)().maximum_baseline_m==600.
+    with TestClient(create_app(tmp_path),base_url='http://127.0.0.1') as client:
+        assert client.get('/').text.count('name="maximum_baseline_m"')==3

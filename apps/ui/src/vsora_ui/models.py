@@ -11,6 +11,7 @@ class SimulationRequest(Request):
     model:Literal['point','double','shell','casa']='point'
     stations:Literal[4,8]=8
     layout:Literal['spread','line','ring']='spread'
+    maximum_baseline_m:float=Field(default=600.,ge=10.,le=600.)
     duration_s:int=Field(default=3600,ge=60,le=14400,strict=True)
     integration_s:int=Field(default=120,ge=5,le=600,strict=True)
     flux_jy:float=Field(default=1000,gt=0,le=1e7)
@@ -37,6 +38,7 @@ class RmlRequest(Request):
     model:Literal['double','shell','casa']='shell'
     stations:Literal[4,8]=8
     layout:Literal['spread','line','ring']='spread'
+    maximum_baseline_m:float=Field(default=600.,ge=10.,le=600.)
     duration_s:int=Field(default=14400,ge=60,le=14400,strict=True)
     integration_s:Literal[.1,.3,1.,3.]=.3
     snapshots:int=Field(default=16,ge=8,le=32,strict=True)
@@ -137,6 +139,7 @@ class SensitivityRequest(Request):
     bandwidth_hz:float=Field(default=256000.,gt=0,le=2048000.)
     stations:Literal[4,8]=8
     layout:Literal['spread','line','ring']='spread'
+    maximum_baseline_m:float=Field(default=600.,ge=10.,le=600.)
     flux_jy:float=Field(default=1000.,gt=0,le=1e7)
 
 

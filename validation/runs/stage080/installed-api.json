@@ -1,0 +1,11 @@
+{
+  "state": "complete",
+  "installed_modules_verified": true,
+  "outside_checkout": true,
+  "frozen_defaults_byte_identical": 6,
+  "layout_scale_cases_checked": 18,
+  "simulation_and_rml_config_checked": true,
+  "sensitivity_request_checked": true,
+  "actual_station_positions_modified": false,
+  "image_quality_validated": false
+}

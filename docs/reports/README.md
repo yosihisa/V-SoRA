@@ -150,4 +150,6 @@
 
 | 079 | [局別時間変化と三次統計の平均を日本語GUIで確認](079-bispectrum-joint-temporal-gui.md) | source/wheel1037件成功。両実Chromiumで12概要・816詳細行、全複素平均・標準誤差、JSON、日本語/390pxを照合。全科学JSONは078と完全一致し、真値補正を実LO推定と区別 |
 
+| 080 | [最大基線長を指定する模擬観測・RML・感度計画](080-maximum-baseline-gui.md) | source/wheel1141件成功。104対象試験、既定6配置バイト一致、両実Chromiumの3入口で50/100/200mの保存座標・距離表示・JSON・日本語/390pxを確認。RML停止と画像品質を区別 |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。

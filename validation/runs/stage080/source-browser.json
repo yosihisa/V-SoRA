@@ -1,0 +1,26 @@
+{
+  "state": "complete",
+  "source_checkout": true,
+  "installed_imports": false,
+  "outside_checkout_workspace": true,
+  "pythonpath_removed": true,
+  "real_simulation_rml_sensitivity_workers_executed": true,
+  "maximum_baselines_m": [
+    50.0,
+    100.0,
+    200.0
+  ],
+  "form_limits_and_defaults_checked": true,
+  "saved_coordinates_and_actual_distance_metrics_checked": true,
+  "json_downloads_identical": true,
+  "japanese_font_loaded": true,
+  "mobile_horizontal_overflow": false,
+  "javascript_errors": 0,
+  "external_requests": 0,
+  "low_sensitivity_zero_expected_counts_preserved": true,
+  "rml_optimizer_stops_recorded": true,
+  "image_quality_validated": false,
+  "actual_station_positions_modified": false,
+  "actual_hardware_data": false,
+  "browser_environment": "WSL headless Chromium; Windows/WSLg unverified"
+}

@@ -1,0 +1,48 @@
+{
+  "state": "complete",
+  "python": "3.12.3",
+  "numpy": "2.5.1",
+  "scipy": "1.18.0",
+  "pytest": "8.4.2",
+  "chromium": "153.0.8010.12",
+  "blas_threads": 1,
+  "omp_threads": 1,
+  "targeted_tests": {
+    "core_layout_passed": 46,
+    "core_elapsed_s": 0.06,
+    "gui_passed": 58,
+    "gui_deselected": 53,
+    "gui_warnings": 1,
+    "gui_elapsed_s": 4.58,
+    "total_passed": 104
+  },
+  "full_regression": {
+    "source": {
+      "passed": 1141,
+      "warnings": 25596,
+      "elapsed_s": 570.62,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 1141,
+      "warnings": 25596,
+      "elapsed_s": 570.57,
+      "excluded_tests": 0
+    }
+  },
+  "pip_check_passed": true,
+  "wheel": {
+    "filename": "v_sora-0.1.0-py3-none-any.whl",
+    "bytes": 5521472,
+    "sha256": "2717883ffbbcfd533db6247d77961ca3bfa6e9ea3cea892342d7bd55f3e924ff",
+    "packaged_files_identical_to_source": 78
+  },
+  "source_and_installed_scientific_numeric_results_identical": true,
+  "numeric_comparison_excludes_rml_wall_time_and_container_sha": true,
+  "frozen_default_reference_commit": "720490c",
+  "actual_station_positions_modified": false,
+  "image_quality_validated": false,
+  "production_rml_noise_model_changed": false,
+  "actual_hardware_data": false,
+  "private_logs": "outputs/stage080-source-final/ and outputs/stage080-installed-final/; ignored"
+}

@@ -50,15 +50,9 @@ def plot_rate_parts(diagnosis,path,model=None):
     ax.grid(alpha=.2);ax.legend(ncol=len(diagnosis['station_ids']));fig.tight_layout();fig.savefig(path,dpi=140);plt.close(fig)
 
 
-def layout(stations,kind):
-    import numpy as np
-    if kind=='line': return np.column_stack([np.linspace(-300,300,stations),np.zeros(stations),np.zeros(stations)]).tolist()
-    if kind=='ring':
-        a=np.arange(stations)*2*np.pi/stations
-        return np.column_stack([300*np.cos(a),300*np.sin(a),np.zeros(stations)]).tolist()
-    points=np.array([[-200,-130,0],[-180,-100,0],[160,-180,0],[220,170,0],
-                     [-240,160,0],[-40,40,0],[40,-80,0],[180,20,0]],float)[:stations]
-    return (points*600/np.linalg.norm(points[:,None]-points[None,:],axis=-1).max()).tolist()
+def layout(stations,kind,maximum_baseline_m=600.):
+    from vsora_observation.layouts import reference_layout
+    return reference_layout(stations,kind,maximum_baseline_m).tolist()
 
 
 def simulation_config(request):
@@ -72,7 +66,7 @@ def simulation_config(request):
                        'integration_s':request.integration_s,'frequency_hz':1.42e9,
                        'bandwidth_hz':2048000.,'elevation_min_deg':15.},
         'stations':[{'id':f'ST{i+1:02d}','enu_m':p,'sefd_jy':request.sefd_jy}
-                    for i,p in enumerate(layout(request.stations,request.layout))],
+                    for i,p in enumerate(layout(request.stations,request.layout,request.maximum_baseline_m))],
         'image':{'pixels':64,'pixel_arcsec':16.},'noise':{'enabled':request.noise,'efficiency':1.},'seed':request.seed})
 
 
@@ -178,7 +172,7 @@ def run(job):
             area=dish_area(request.diameter_m,request.aperture_efficiency) if request.antenna_mode=='dish' else request.effective_area_m2
             sefd=sefd_from_area(request.system_temperature_k,area)
             simulation=SimulationRequest(model='casa',stations=request.stations,layout=request.layout,
-                duration_s=14400,integration_s=120,flux_jy=request.flux_jy,sefd_jy=sefd)
+                duration_s=14400,integration_s=120,flux_jy=request.flux_jy,sefd_jy=sefd,maximum_baseline_m=request.maximum_baseline_m)
             result=write_plan(simulation_config(simulation),job/'sensitivity',integration_s=request.integration_s,bandwidth_hz=request.bandwidth_hz)
             result['antenna_assumptions']={'effective_area_m2':area,'system_temperature_k':request.system_temperature_k,
                 'mode':request.antenna_mode,'diameter_m':request.diameter_m if request.antenna_mode=='dish' else None,
