@@ -53,7 +53,7 @@ python tools/run.py vsora_imaging.rml --input outputs/casa-closure/uncalibrated.
 
 日本語GUIの「VDIF解析」で、WSL上のsession manifestとsample時計モデルを指定できます。既知fluxを要求せず、source.model=unknownの設定を使えます。原本→sample/幾何整列→短pilot rate→IQ再相関→Closure→相対RMLを5工程で実行します。
 
-現在は600m・3秒以内の短区間、一回の画像積分です。複数時刻のCas A合成は次の入口を使います。3秒整列は一定rate・gainの模擬条件で対応しています。連続長記録の処理と実機の安定時間測定は後続段階。pilotの有効時間内に画像積分が収まること、FIR/補間用の前後guardがあることが必要です。[入力・出力・失敗の規約](../../interfaces/closure-pipeline.md)を参照してください。
+現在は600m・3秒以内の短区間、一回の画像積分です。複数時刻のCas A合成は次の入口を使います。一定rate・gainの模擬条件に加え、検証した線形rate補正と有限window列の解析を追加しました。実観測全体の運用・速度と実機の安定時間は未検証です。pilotの有効時間内に画像積分が収まること、FIR/補間用の前後guardがあることが必要です。[入力・出力・失敗の規約](../../interfaces/closure-pipeline.md)を参照してください。
 
 ## 短い露光を集める「合成画像」
 
@@ -258,3 +258,8 @@ vsora-bispectrum-inspect --input outputs/run/correlation/raw-bispectrum.npz --so
 同じ時刻の母visibilityを三角形で掛けると、局ごとの位相は打ち消されます。U₃は異なる時刻の標本を掛けるので、局ごとに位相が変化すると同じ性質を保証しません。局と時刻を含む既知共分散 `C[t,i,u,j]` の有限モデルでは、母平均の絶対値だけでなく符号が変わる例も確認しています。
 
 既知の逆位相を掛けると元の標本統計へ戻せますが、実データから周波数差を推定できることは別の検証です。段階078の8標本・0.3秒のモデル時刻を実FFT数へ換算せず、母平均の比較を実機のcoherence・位相信頼区間・画像品質として使わないでください。誤差共分散と尤度はこの計算に含みません。
+
+
+## 開発全体と実観測までの残る確認
+
+[目標別全体レポート](../reports/overviews/goal-and-progress.md)で、現行RMLの誤差近似、独立した統計診断API、U₃保存機能、低SNR画像化へ残る接続を整理しています。開発した理由と順序は[時系列全体レポート](../reports/overviews/development-history.md)を参照してください。

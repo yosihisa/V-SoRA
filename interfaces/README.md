@@ -24,14 +24,44 @@
 
 独自NPZは開発用の形式です。VDIFやFITS-IDIとは役割が違い、他装置のファイルを無条件に読めるという意味ではありません。
 
-- [Closure pipeline](closure-pipeline.md)：VDIF・sample時計・モデル不要rate・相対RML・途中失敗の規約。
-- [既知のClosure雑音](joint-closure-noise.md)：模擬モデルの全実共分散からphase・log amplitudeの同時誤差へ伝播する診断API。
-- [標本からの雑音推定](sample-visibility-noise.md)：同一の独立Gaussian電圧標本から、有限標本の偏りを補正したvisibility雑音共分散を推定。
 
-- [相関ファイルの雑音診断](observation-noise-diagnostic.md)：局power・共通FFT数から一cellを条件付き推定し、情報不足は未判定として返すCLI。
+## 用途別の詳細規約
 
-- [固定フィルターのFFT雑音](filtered-visibility-noise.md)：既知のGaussian入力と局別係数から、FFT間の相関を含む全共分散を計算するforwardモデル。
+既知モデルの診断APIと、観測データを処理する入口は適用範囲が異なります。式や保存形式の実装があることと、実機の誤差校正・低SNR画像化が完成したことを分けて読んでください。[必要要素と進捗](../docs/reports/overviews/goal-and-progress.md)で接続範囲を整理しています。
 
-- [保存pilotの時間散乱診断](pilot-time-scatter.md)：短相関の雑音差引power、無制限の比、profile補正と未校正の範囲。
+### 観測入力・相関・画像化の接続
 
-- [実験用の異標本bispectrum](distinct-sample-bispectrum.md)：共通標本の偏りとU₃、独立標本・一定gainの条件。現行RMLには未適用。
+- [VDIF sessionの受渡し](session-manifest.md)
+- [clock mappingと短chunk整列](clock-model.md)
+- [周波数分解visibilityと較正](spectral-and-calibration.md)
+- [FITS-IDI出力の限定profile](fitsidi-profile.md)
+- [VDIFからClosure＋RMLへの短区間profile](closure-pipeline.md)
+
+### 配置・既知天体の条件比較
+
+- [仮想局配置と最大基線長](array-layouts.md)
+- [既知天空での配置尺度比較](array-scale-comparison.md)
+- [既知天体の局共分散と三次統計の複素rms尺度](bispectrum-known-sky-scale.md)
+
+### 誤差と保存pilotの診断
+
+- [既知の全visibility共分散からClosureへの誤差伝播](joint-closure-noise.md)
+- [局の標本共分散からvisibilityの雑音を推定する](sample-visibility-noise.md)
+- [相関ファイルから一つの時間・周波数の雑音を診断する](observation-noise-diagnostic.md)
+- [既知の線形係数からFFT間の雑音を計算する](filtered-visibility-noise.md)
+- [保存pilotの時間散乱診断](pilot-time-scatter.md)
+
+### 三次統計の実験・蓄積・再解析
+
+- [実験用：異なる標本のbispectrum](distinct-sample-bispectrum.md)
+- [時間相関と三基線積のモデル検証](temporal-bispectrum.md)
+- [三基線積U₃のゼロ源分散と短積分の条件付き感度](bispectrum-sensitivity.md)
+- [既知Gaussian電圧モデルの三基線積の全共分散](joint-bispectrum-moments.md)
+- [三次統計の追加の和を蓄積する実験API](streaming-bispectrum.md)
+- [raw bispectrum NPZ version1](raw-bispectrum-profile.md)
+- [保存した三次統計の確認](bispectrum-inspection.md)
+- [独立な短積分U₃の等重み平均](bispectrum-window-averaging.md)
+- [未知の局gainとbispectrum平均の振幅制約](bispectrum-gain-constraints.md)
+- [既知の共通時間相関と三次統計の平均](bispectrum-common-temporal.md)
+- [独立周波数群のU₃と電圧標本のまとめ方](bispectrum-independent-group-pooling.md)
+- [既知の局・時間共分散による三次統計の母平均](bispectrum-joint-temporal.md)

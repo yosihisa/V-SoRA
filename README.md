@@ -6,6 +6,9 @@
 
 ## 初めて読む方へ
 
+- [文書の入口](docs/README.md)：目的に応じた読み方と、現在の説明・過去の記録の区別
+- [開発全体の時系列](docs/reports/overviews/development-history.md)：何を目的に、なぜこの順で開発したか
+- [最終目標と要素別進捗](docs/reports/overviews/goal-and-progress.md)：必要な要素、その理由、確認済み範囲と残る完了条件
 - [使い方と考え方](docs/guide/README.md)：理工系の学部生を想定した入門ガイド
 - [最初の実行](docs/guide/02-first-run.md)：点源の模擬観測から画像を作る
 - [結果の読み方](docs/guide/03-results.md)：画像・誤差・検証の適用範囲
@@ -27,7 +30,7 @@
 | --- | --- |
 | `apps/simulator/` | 天体モデルから相関値・模擬IQを作る |
 | `apps/correlator/` | VDIFの読込み、時計補正、相関、較正 |
-| `apps/imaging/` | 較正済み相関値から画像を復元 |
+| `apps/imaging/` | CLEAN・Closure＋RMLによる画像復元、短露光の合成 |
 | `apps/ui/` | 日本語ブラウザ画面、実行状態・画像・結果の保存 |
 | `apps/recorder/` | Windows収録。現在は実装対象外 |
 | `packages/observation/`, `packages/formats/` | 共通条件・幾何計算・ファイル入出力 |
@@ -46,7 +49,7 @@
 .user-venv/bin/vsora-ui --workspace . --port 8765
 ```
 
-収録データの解析とClosure＋RMLは後続段階で追加します。
+短区間VDIF解析、Closure＋RML、有限区間列、短露光の合成、日本語の配置比較を実装しています。配置比較は同梱データだけでも実行できます。低SNRの実観測画像化と全夜の運用は未検証です。現在の検証範囲と次の開発は[現状整理](docs/guide/09-observation-readiness.md)で確認できます。
 
 ## 実観測の画像化方針
 

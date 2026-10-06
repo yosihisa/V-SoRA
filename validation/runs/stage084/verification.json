@@ -1,0 +1,571 @@
+{
+  "state": "complete",
+  "record_date": "2026-10-06",
+  "base_commit": "1a9afea408f5abf0a6768ee6aa779925f302247a",
+  "scope": "documentation, indexes and validation record only",
+  "numerical_tests_run": false,
+  "software_regression_rerun": false,
+  "checks": {
+    "local_markdown_links": 1031,
+    "missing_local_links": 0,
+    "history_stages_checked": 84,
+    "history_initial_commits_checked": 84,
+    "history_dates_converted_to_asia_tokyo": true,
+    "history_order_checked": true,
+    "stage_index_entries_checked": 85,
+    "requirement_status_rows_checked": 15,
+    "interface_documents_indexed": 25,
+    "main_document_entry_points_checked": 4,
+    "stale_current_statements_removed": true,
+    "source_configuration_and_tests_unchanged": true,
+    "public_audit_findings": 0,
+    "staged_whitespace_check_passed": true
+  },
+  "previous_regression_reference": {
+    "file": "validation/runs/stage083/verification.json",
+    "sha256": "41257f367c11b4311d754eae957abe2dce4c0506048d8555409ecdb41e2a79c8",
+    "run_date": "2026-10-05",
+    "results": {
+      "source": {
+        "passed": 1196,
+        "warnings": 25596,
+        "elapsed_s": 564.85,
+        "excluded_tests": 0
+      },
+      "installed": {
+        "passed": 1196,
+        "warnings": 25596,
+        "elapsed_s": 572.54,
+        "excluded_tests": 0
+      }
+    },
+    "reexecuted_in_this_stage": false
+  },
+  "changed_files": [
+    "README.md",
+    "docs/README.md",
+    "docs/design/README.md",
+    "docs/design/development-roadmap.md",
+    "docs/guide/04-observation.md",
+    "docs/guide/07-closure-rml.md",
+    "docs/guide/09-observation-readiness.md",
+    "docs/guide/README.md",
+    "docs/reports/084-observation-readiness.md",
+    "docs/reports/README.md",
+    "docs/reports/overviews/development-history.md",
+    "docs/reports/overviews/goal-and-progress.md",
+    "interfaces/README.md",
+    "validation/runs/stage084/verification.json"
+  ],
+  "initial_stage_commits": [
+    {
+      "stage": "000",
+      "report": "docs/reports/000-initial-plan.md",
+      "initial_commit": "1dbaf99",
+      "commit_date_jst": "2026-10-02"
+    },
+    {
+      "stage": "001",
+      "report": "docs/reports/001-foundation.md",
+      "initial_commit": "34dd009",
+      "commit_date_jst": "2026-10-02"
+    },
+    {
+      "stage": "002",
+      "report": "docs/reports/002-ideal-imaging.md",
+      "initial_commit": "dec0206",
+      "commit_date_jst": "2026-10-02"
+    },
+    {
+      "stage": "003",
+      "report": "docs/reports/003-casa-array-study.md",
+      "initial_commit": "34f21fe",
+      "commit_date_jst": "2026-10-02"
+    },
+    {
+      "stage": "004",
+      "report": "docs/reports/004-vdif-fx.md",
+      "initial_commit": "c3d4524",
+      "commit_date_jst": "2026-10-02"
+    },
+    {
+      "stage": "005",
+      "report": "docs/reports/005-iq-to-image.md",
+      "initial_commit": "dd1173a",
+      "commit_date_jst": "2026-10-02"
+    },
+    {
+      "stage": "006",
+      "report": "docs/reports/006-casa-compatibility.md",
+      "initial_commit": "488d3f2",
+      "commit_date_jst": "2026-10-02"
+    },
+    {
+      "stage": "007",
+      "report": "docs/reports/007-fringe-calibration.md",
+      "initial_commit": "4a1c4cf",
+      "commit_date_jst": "2026-10-02"
+    },
+    {
+      "stage": "008",
+      "report": "docs/reports/008-iq-fringe-tracking.md",
+      "initial_commit": "2c1ec2a",
+      "commit_date_jst": "2026-10-02"
+    },
+    {
+      "stage": "009",
+      "report": "docs/reports/009-adc-clock-alignment.md",
+      "initial_commit": "526ee03",
+      "commit_date_jst": "2026-10-02"
+    },
+    {
+      "stage": "010",
+      "report": "docs/reports/010-session-cli.md",
+      "initial_commit": "28a85d1",
+      "commit_date_jst": "2026-10-02"
+    },
+    {
+      "stage": "011",
+      "report": "docs/reports/011-reproducible-environment.md",
+      "initial_commit": "e0a64f6",
+      "commit_date_jst": "2026-10-02"
+    },
+    {
+      "stage": "012",
+      "report": "docs/reports/012-casa-model-calibration.md",
+      "initial_commit": "c0c27dd",
+      "commit_date_jst": "2026-10-02"
+    },
+    {
+      "stage": "013",
+      "report": "docs/reports/013-spectral-idi-exact-clean.md",
+      "initial_commit": "ef6baa4",
+      "commit_date_jst": "2026-10-02"
+    },
+    {
+      "stage": "014",
+      "report": "docs/reports/014-stream-clock-geometry.md",
+      "initial_commit": "77346b6",
+      "commit_date_jst": "2026-10-02"
+    },
+    {
+      "stage": "015",
+      "report": "docs/reports/015-short-pilot-input-validation.md",
+      "initial_commit": "d2e3656",
+      "commit_date_jst": "2026-10-02"
+    },
+    {
+      "stage": "016",
+      "report": "docs/reports/016-casa-production-adapter.md",
+      "initial_commit": "d6110c9",
+      "commit_date_jst": "2026-10-02"
+    },
+    {
+      "stage": "017",
+      "report": "docs/reports/017-spectral-quality-rfi.md",
+      "initial_commit": "8362341",
+      "commit_date_jst": "2026-10-02"
+    },
+    {
+      "stage": "018",
+      "report": "docs/reports/018-undergraduate-documentation.md",
+      "initial_commit": "5dd1d9e",
+      "commit_date_jst": "2026-10-02"
+    },
+    {
+      "stage": "019",
+      "report": "docs/reports/019-japanese-browser-gui.md",
+      "initial_commit": "0fb1504",
+      "commit_date_jst": "2026-10-02"
+    },
+    {
+      "stage": "020",
+      "report": "docs/reports/020-closure-short-integration.md",
+      "initial_commit": "2ec767b",
+      "commit_date_jst": "2026-10-02"
+    },
+    {
+      "stage": "021",
+      "report": "docs/reports/021-closure-rml-reference.md",
+      "initial_commit": "a12d103",
+      "commit_date_jst": "2026-10-02"
+    },
+    {
+      "stage": "022",
+      "report": "docs/reports/022-model-free-rate.md",
+      "initial_commit": "aab6bfc",
+      "commit_date_jst": "2026-10-02"
+    },
+    {
+      "stage": "023",
+      "report": "docs/reports/023-vdif-closure-pipeline.md",
+      "initial_commit": "2dc912c",
+      "commit_date_jst": "2026-10-02"
+    },
+    {
+      "stage": "024",
+      "report": "docs/reports/024-vdif-synthesis.md",
+      "initial_commit": "8c5d672",
+      "commit_date_jst": "2026-10-02"
+    },
+    {
+      "stage": "025",
+      "report": "docs/reports/025-sensitivity-planning.md",
+      "initial_commit": "c7d6dcd",
+      "commit_date_jst": "2026-10-02"
+    },
+    {
+      "stage": "026",
+      "report": "docs/reports/026-bounded-fx.md",
+      "initial_commit": "5a8adc0",
+      "commit_date_jst": "2026-10-02"
+    },
+    {
+      "stage": "027",
+      "report": "docs/reports/027-three-second-pilot.md",
+      "initial_commit": "c3297e2",
+      "commit_date_jst": "2026-10-02"
+    },
+    {
+      "stage": "028",
+      "report": "docs/reports/028-casa-three-second-sensitivity.md",
+      "initial_commit": "1f59510",
+      "commit_date_jst": "2026-10-02"
+    },
+    {
+      "stage": "029",
+      "report": "docs/reports/029-wide-rate-pilot.md",
+      "initial_commit": "edca267",
+      "commit_date_jst": "2026-10-03"
+    },
+    {
+      "stage": "030",
+      "report": "docs/reports/030-full-support-registration.md",
+      "initial_commit": "e944f7e",
+      "commit_date_jst": "2026-10-03"
+    },
+    {
+      "stage": "031",
+      "report": "docs/reports/031-guarded-vdif-seek.md",
+      "initial_commit": "1d1c03d",
+      "commit_date_jst": "2026-10-03"
+    },
+    {
+      "stage": "032",
+      "report": "docs/reports/032-short-window-sequence.md",
+      "initial_commit": "0c6733a",
+      "commit_date_jst": "2026-10-03"
+    },
+    {
+      "stage": "033",
+      "report": "docs/reports/033-sequence-gui.md",
+      "initial_commit": "6bfadef",
+      "commit_date_jst": "2026-10-03"
+    },
+    {
+      "stage": "034",
+      "report": "docs/reports/034-shared-input-identity.md",
+      "initial_commit": "3aabd73",
+      "commit_date_jst": "2026-10-03"
+    },
+    {
+      "stage": "035",
+      "report": "docs/reports/035-within-window-rate-drift.md",
+      "initial_commit": "c590c4f",
+      "commit_date_jst": "2026-10-03"
+    },
+    {
+      "stage": "036",
+      "report": "docs/reports/036-subpilot-rate-diagnostics.md",
+      "initial_commit": "162edfa",
+      "commit_date_jst": "2026-10-03"
+    },
+    {
+      "stage": "037",
+      "report": "docs/reports/037-measured-linear-rate-correction.md",
+      "initial_commit": "ed560cb",
+      "commit_date_jst": "2026-10-03"
+    },
+    {
+      "stage": "038",
+      "report": "docs/reports/038-linear-rate-gui-sequence.md",
+      "initial_commit": "0c35257",
+      "commit_date_jst": "2026-10-03"
+    },
+    {
+      "stage": "039",
+      "report": "docs/reports/039-periodic-phase-coherence.md",
+      "initial_commit": "bed8fa6",
+      "commit_date_jst": "2026-10-03"
+    },
+    {
+      "stage": "040",
+      "report": "docs/reports/040-linear-rate-uncertainty.md",
+      "initial_commit": "510a400",
+      "commit_date_jst": "2026-10-03"
+    },
+    {
+      "stage": "041",
+      "report": "docs/reports/041-rate-uncertainty-gui.md",
+      "initial_commit": "3c8409a",
+      "commit_date_jst": "2026-10-03"
+    },
+    {
+      "stage": "042",
+      "report": "docs/reports/042-rate-covariance-validation.md",
+      "initial_commit": "a97d83c",
+      "commit_date_jst": "2026-10-03"
+    },
+    {
+      "stage": "043",
+      "report": "docs/reports/043-rate-covariance-gui.md",
+      "initial_commit": "45a03ed",
+      "commit_date_jst": "2026-10-03"
+    },
+    {
+      "stage": "044",
+      "report": "docs/reports/044-joint-closure-noise.md",
+      "initial_commit": "460f240",
+      "commit_date_jst": "2026-10-03"
+    },
+    {
+      "stage": "045",
+      "report": "docs/reports/045-closure-noise-gui.md",
+      "initial_commit": "d4f0519",
+      "commit_date_jst": "2026-10-03"
+    },
+    {
+      "stage": "046",
+      "report": "docs/reports/046-sample-noise-estimator.md",
+      "initial_commit": "09db0aa",
+      "commit_date_jst": "2026-10-03"
+    },
+    {
+      "stage": "047",
+      "report": "docs/reports/047-observation-noise-diagnostic.md",
+      "initial_commit": "acfc4c6",
+      "commit_date_jst": "2026-10-03"
+    },
+    {
+      "stage": "048",
+      "report": "docs/reports/048-observation-noise-gui.md",
+      "initial_commit": "743d10e",
+      "commit_date_jst": "2026-10-04"
+    },
+    {
+      "stage": "049",
+      "report": "docs/reports/049-filtered-fft-noise.md",
+      "initial_commit": "3cf2f0f",
+      "commit_date_jst": "2026-10-04"
+    },
+    {
+      "stage": "050",
+      "report": "docs/reports/050-filtered-noise-gui.md",
+      "initial_commit": "e3ba4dd",
+      "commit_date_jst": "2026-10-04"
+    },
+    {
+      "stage": "051",
+      "report": "docs/reports/051-pilot-time-scatter.md",
+      "initial_commit": "aa1c535",
+      "commit_date_jst": "2026-10-04"
+    },
+    {
+      "stage": "052",
+      "report": "docs/reports/052-pilot-time-scatter-gui.md",
+      "initial_commit": "fb1d57e",
+      "commit_date_jst": "2026-10-04"
+    },
+    {
+      "stage": "053",
+      "report": "docs/reports/053-distinct-sample-bispectrum.md",
+      "initial_commit": "1122bec",
+      "commit_date_jst": "2026-10-04"
+    },
+    {
+      "stage": "054",
+      "report": "docs/reports/054-bispectrum-validation-gui.md",
+      "initial_commit": "a643c15",
+      "commit_date_jst": "2026-10-04"
+    },
+    {
+      "stage": "055",
+      "report": "docs/reports/055-temporal-bispectrum.md",
+      "initial_commit": "d479483",
+      "commit_date_jst": "2026-10-04"
+    },
+    {
+      "stage": "056",
+      "report": "docs/reports/056-temporal-bispectrum-gui.md",
+      "initial_commit": "cef187e",
+      "commit_date_jst": "2026-10-04"
+    },
+    {
+      "stage": "057",
+      "report": "docs/reports/057-bispectrum-sensitivity.md",
+      "initial_commit": "dfa588b",
+      "commit_date_jst": "2026-10-04"
+    },
+    {
+      "stage": "058",
+      "report": "docs/reports/058-bispectrum-sensitivity-gui.md",
+      "initial_commit": "9269b56",
+      "commit_date_jst": "2026-10-04"
+    },
+    {
+      "stage": "059",
+      "report": "docs/reports/059-joint-bispectrum-moments.md",
+      "initial_commit": "1bacde3",
+      "commit_date_jst": "2026-10-04"
+    },
+    {
+      "stage": "060",
+      "report": "docs/reports/060-joint-bispectrum-gui.md",
+      "initial_commit": "9384e3a",
+      "commit_date_jst": "2026-10-04"
+    },
+    {
+      "stage": "061",
+      "report": "docs/reports/061-streaming-bispectrum-sums.md",
+      "initial_commit": "956ab56",
+      "commit_date_jst": "2026-10-04"
+    },
+    {
+      "stage": "062",
+      "report": "docs/reports/062-bispectrum-sidecar-format.md",
+      "initial_commit": "edcd9ae",
+      "commit_date_jst": "2026-10-04"
+    },
+    {
+      "stage": "063",
+      "report": "docs/reports/063-fx-bispectrum-accumulation.md",
+      "initial_commit": "e2cd40c",
+      "commit_date_jst": "2026-10-04"
+    },
+    {
+      "stage": "064",
+      "report": "docs/reports/064-vdif-bispectrum-sidecar.md",
+      "initial_commit": "4e906fa",
+      "commit_date_jst": "2026-10-04"
+    },
+    {
+      "stage": "065",
+      "report": "docs/reports/065-bispectrum-storage-gui.md",
+      "initial_commit": "d0d4fe3",
+      "commit_date_jst": "2026-10-04"
+    },
+    {
+      "stage": "066",
+      "report": "docs/reports/066-bispectrum-inspection.md",
+      "initial_commit": "19fb653",
+      "commit_date_jst": "2026-10-05"
+    },
+    {
+      "stage": "067",
+      "report": "docs/reports/067-bispectrum-inspection-gui.md",
+      "initial_commit": "99006ef",
+      "commit_date_jst": "2026-10-05"
+    },
+    {
+      "stage": "068",
+      "report": "docs/reports/068-bispectrum-window-averaging.md",
+      "initial_commit": "02f7fb6",
+      "commit_date_jst": "2026-10-05"
+    },
+    {
+      "stage": "069",
+      "report": "docs/reports/069-bispectrum-averaging-gui.md",
+      "initial_commit": "c068c29",
+      "commit_date_jst": "2026-10-05"
+    },
+    {
+      "stage": "070",
+      "report": "docs/reports/070-bispectrum-gain-constraints.md",
+      "initial_commit": "4b702b9",
+      "commit_date_jst": "2026-10-05"
+    },
+    {
+      "stage": "071",
+      "report": "docs/reports/071-bispectrum-gain-gui.md",
+      "initial_commit": "9fb0ec1",
+      "commit_date_jst": "2026-10-05"
+    },
+    {
+      "stage": "072",
+      "report": "docs/reports/072-bispectrum-signal-temporal.md",
+      "initial_commit": "d5a319a",
+      "commit_date_jst": "2026-10-05"
+    },
+    {
+      "stage": "073",
+      "report": "docs/reports/073-bispectrum-signal-temporal-gui.md",
+      "initial_commit": "3cc9c07",
+      "commit_date_jst": "2026-10-05"
+    },
+    {
+      "stage": "074",
+      "report": "docs/reports/074-bispectrum-independent-group-pooling.md",
+      "initial_commit": "4c57f5d",
+      "commit_date_jst": "2026-10-05"
+    },
+    {
+      "stage": "075",
+      "report": "docs/reports/075-bispectrum-pooling-gui.md",
+      "initial_commit": "08b1e3d",
+      "commit_date_jst": "2026-10-05"
+    },
+    {
+      "stage": "076",
+      "report": "docs/reports/076-bispectrum-known-sky-scale.md",
+      "initial_commit": "9772fdc",
+      "commit_date_jst": "2026-10-05"
+    },
+    {
+      "stage": "077",
+      "report": "docs/reports/077-bispectrum-known-sky-gui.md",
+      "initial_commit": "9889e3a",
+      "commit_date_jst": "2026-10-05"
+    },
+    {
+      "stage": "078",
+      "report": "docs/reports/078-bispectrum-joint-temporal.md",
+      "initial_commit": "720490c",
+      "commit_date_jst": "2026-10-05"
+    },
+    {
+      "stage": "079",
+      "report": "docs/reports/079-bispectrum-joint-temporal-gui.md",
+      "initial_commit": "4720b7a",
+      "commit_date_jst": "2026-10-05"
+    },
+    {
+      "stage": "080",
+      "report": "docs/reports/080-maximum-baseline-gui.md",
+      "initial_commit": "13e15a2",
+      "commit_date_jst": "2026-10-05"
+    },
+    {
+      "stage": "081",
+      "report": "docs/reports/081-array-scale-known-sky.md",
+      "initial_commit": "80ca607",
+      "commit_date_jst": "2026-10-05"
+    },
+    {
+      "stage": "082",
+      "report": "docs/reports/082-array-scale-gui.md",
+      "initial_commit": "6a03165",
+      "commit_date_jst": "2026-10-05"
+    },
+    {
+      "stage": "083",
+      "report": "docs/reports/083-native-array-scale.md",
+      "initial_commit": "1a9afea",
+      "commit_date_jst": "2026-10-05"
+    }
+  ],
+  "public_commit_identity": {
+    "author": "V-SoRA contributors",
+    "committer": "V-SoRA contributors",
+    "email": "contributors@vsora.invalid"
+  }
+}
