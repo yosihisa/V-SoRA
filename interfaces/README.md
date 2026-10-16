@@ -65,3 +65,5 @@
 - [既知の共通時間相関と三次統計の平均](bispectrum-common-temporal.md)
 - [独立周波数群のU₃と電圧標本のまとめ方](bispectrum-independent-group-pooling.md)
 - [既知の局・時間共分散による三次統計の母平均](bispectrum-joint-temporal.md)
+
+- [同じ標本の観測powerで正規化した三次統計](observed-power-bispectrum.md)：有限gain相殺と観測powerによる平均の変化。rank-one限定式を一般の誤差モデルへ使わない。

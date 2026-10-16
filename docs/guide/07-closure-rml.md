@@ -263,3 +263,10 @@ vsora-bispectrum-inspect --input outputs/run/correlation/raw-bispectrum.npz --so
 ## 開発全体と実観測までの残る確認
 
 [目標別全体レポート](../reports/overviews/goal-and-progress.md)で、現行RMLの誤差近似、独立した統計診断API、U₃保存機能、低SNR画像化へ残る接続を整理しています。開発した理由と順序は[時系列全体レポート](../reports/overviews/development-history.md)を参照してください。
+
+
+## 観測powerによる正規化の注意
+
+powerは電圧の絶対値の二乗の平均です。区間内でgainが一定なら、U₃を同じ標本の三局powerの積で割った量は、有限データごとに局gainを相殺します。ただし割るpowerにも誤差があるので、既知powerの不偏性や共分散はそのまま使えません。段階085の完全共有Gaussian電圧という限定モデルでは、標本3個の比の平均は0.45で、母powerで正規化したU₃の平均1とは異なります。これは一般天体の補正係数ではありません。
+
+[観測power正規化の規約](../../interfaces/observed-power-bispectrum.md)に計算と限定式を示します。現行RMLや保存値の雑音診断へ自動適用する処理は追加していません。時間変化・実FFTの独立性・未知LO・低SNR画像の尤度は別に検証します。

@@ -1,0 +1,70 @@
+{
+  "state": "complete",
+  "targeted_tests": {
+    "passed": 62,
+    "elapsed_s": 0.58
+  },
+  "full_regression": {
+    "source": {
+      "passed": 1258,
+      "warnings": 25596,
+      "elapsed_s": 560.95,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 1258,
+      "warnings": 25596,
+      "elapsed_s": 545.23,
+      "excluded_tests": 0
+    }
+  },
+  "scientific_experiment": {
+    "execution": {
+      "first_run": {
+        "elapsed_s": 5.26,
+        "maximum_rss_kib": 81864
+      },
+      "formal_run": {
+        "elapsed_s": 4.97,
+        "maximum_rss_kib": 82024
+      }
+    },
+    "conditions": 9,
+    "trials_per_condition": 32768,
+    "entire_json_identical_to_first_run": true,
+    "station_gain_maximum_change_abs": 5.775257802031947e-15
+  },
+  "failed_attempts": [
+    {
+      "operation": "initial_targeted_tests",
+      "failed": 1,
+      "passed": 43,
+      "cause": "bit_equality_requested_for_batch_and_individual_float_reductions",
+      "maximum_abs_difference": 6.9388939e-18,
+      "repair": "documented_rtol2e-13_atol2e-14_for_this_comparison; source_unchanged"
+    },
+    {
+      "operation": "source_fixture_helper",
+      "cause": "package_directory_inserted_instead_of_parent; no_fixture_created",
+      "repair": "inserted_correct_source_import_parents"
+    }
+  ],
+  "wheel": {
+    "filename": "v_sora-0.1.0-py3-none-any.whl",
+    "bytes": 5531572,
+    "sha256": "25e168ca86b945503b1fb50a0449dff44bc5130bde2aaa04fc44800676f68272",
+    "packaged_files_identical_to_source": 81
+  },
+  "pip_check_passed": true,
+  "python": "3.12.3",
+  "numpy": "2.5.1",
+  "scipy": "1.18.0",
+  "pytest": "8.4.2",
+  "blas_threads": 1,
+  "omp_threads": 1,
+  "actual_hardware_data": false,
+  "classification_performed": false,
+  "production_rml_noise_model_changed": false,
+  "general_observed_power_moments_claimed": false,
+  "rank_one_correction_applied": false
+}

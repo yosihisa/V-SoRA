@@ -1,0 +1,12 @@
+{
+  "state": "complete",
+  "outside_checkout": true,
+  "pythonpath_removed": true,
+  "installed_core_modules_under_prefix": true,
+  "checkout_runner_used": false,
+  "all_source_fixture_values_exact": true,
+  "voltage_cases": 3,
+  "rank_one_moment_cases": 5,
+  "production_rml_noise_model_changed": false,
+  "actual_hardware_data": false
+}
