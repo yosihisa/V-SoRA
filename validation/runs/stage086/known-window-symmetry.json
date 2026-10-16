@@ -1,0 +1,470 @@
+{
+  "type": "whole_window_sign_flip_validation",
+  "state": "complete",
+  "trials_per_condition": 4096,
+  "cases": [
+    {
+      "model": "normal_full_rank",
+      "windows": 1,
+      "features": 4,
+      "trials": 4096,
+      "seed": 86,
+      "joint_null_invariance_satisfied_by_generation": true,
+      "window_marginal_symmetry_in_generation": true,
+      "whole_rows_flipped": true,
+      "features_assumed_independent": false,
+      "p_value_minimum": 1.0,
+      "p_value_median": 1.0,
+      "p_value_maximum": 1.0,
+      "minimum_possible_two_sided_p": 1.0,
+      "all_tail_counts_even_and_positive": true,
+      "levels": [
+        {
+          "nominal_level": 0.01,
+          "rejections": 0,
+          "fraction": 0.0,
+          "reference_binomial_mc_standard_error_at_nominal": 0.0015546678704790938,
+          "within_nominal_plus_6_reference_se": true
+        },
+        {
+          "nominal_level": 0.05,
+          "rejections": 0,
+          "fraction": 0.0,
+          "reference_binomial_mc_standard_error_at_nominal": 0.003405389799641151,
+          "within_nominal_plus_6_reference_se": true
+        }
+      ],
+      "all_counterexample_p_values_equal_minimum": null,
+      "gaussian_p_value_approximation_used": false,
+      "physical_voltage_generated": false
+    },
+    {
+      "model": "normal_full_rank",
+      "windows": 4,
+      "features": 4,
+      "trials": 4096,
+      "seed": 87,
+      "joint_null_invariance_satisfied_by_generation": true,
+      "window_marginal_symmetry_in_generation": true,
+      "whole_rows_flipped": true,
+      "features_assumed_independent": false,
+      "p_value_minimum": 0.125,
+      "p_value_median": 0.625,
+      "p_value_maximum": 1.0,
+      "minimum_possible_two_sided_p": 0.125,
+      "all_tail_counts_even_and_positive": true,
+      "levels": [
+        {
+          "nominal_level": 0.01,
+          "rejections": 0,
+          "fraction": 0.0,
+          "reference_binomial_mc_standard_error_at_nominal": 0.0015546678704790938,
+          "within_nominal_plus_6_reference_se": true
+        },
+        {
+          "nominal_level": 0.05,
+          "rejections": 0,
+          "fraction": 0.0,
+          "reference_binomial_mc_standard_error_at_nominal": 0.003405389799641151,
+          "within_nominal_plus_6_reference_se": true
+        }
+      ],
+      "all_counterexample_p_values_equal_minimum": null,
+      "gaussian_p_value_approximation_used": false,
+      "physical_voltage_generated": false
+    },
+    {
+      "model": "normal_full_rank",
+      "windows": 8,
+      "features": 4,
+      "trials": 4096,
+      "seed": 88,
+      "joint_null_invariance_satisfied_by_generation": true,
+      "window_marginal_symmetry_in_generation": true,
+      "whole_rows_flipped": true,
+      "features_assumed_independent": false,
+      "p_value_minimum": 0.0078125,
+      "p_value_median": 0.515625,
+      "p_value_maximum": 1.0,
+      "minimum_possible_two_sided_p": 0.0078125,
+      "all_tail_counts_even_and_positive": true,
+      "levels": [
+        {
+          "nominal_level": 0.01,
+          "rejections": 29,
+          "fraction": 0.007080078125,
+          "reference_binomial_mc_standard_error_at_nominal": 0.0015546678704790938,
+          "within_nominal_plus_6_reference_se": true
+        },
+        {
+          "nominal_level": 0.05,
+          "rejections": 186,
+          "fraction": 0.04541015625,
+          "reference_binomial_mc_standard_error_at_nominal": 0.003405389799641151,
+          "within_nominal_plus_6_reference_se": true
+        }
+      ],
+      "all_counterexample_p_values_equal_minimum": null,
+      "gaussian_p_value_approximation_used": false,
+      "physical_voltage_generated": false
+    },
+    {
+      "model": "normal_full_rank",
+      "windows": 12,
+      "features": 4,
+      "trials": 4096,
+      "seed": 89,
+      "joint_null_invariance_satisfied_by_generation": true,
+      "window_marginal_symmetry_in_generation": true,
+      "whole_rows_flipped": true,
+      "features_assumed_independent": false,
+      "p_value_minimum": 0.00048828125,
+      "p_value_median": 0.49853515625,
+      "p_value_maximum": 1.0,
+      "minimum_possible_two_sided_p": 0.00048828125,
+      "all_tail_counts_even_and_positive": true,
+      "levels": [
+        {
+          "nominal_level": 0.01,
+          "rejections": 36,
+          "fraction": 0.0087890625,
+          "reference_binomial_mc_standard_error_at_nominal": 0.0015546678704790938,
+          "within_nominal_plus_6_reference_se": true
+        },
+        {
+          "nominal_level": 0.05,
+          "rejections": 204,
+          "fraction": 0.0498046875,
+          "reference_binomial_mc_standard_error_at_nominal": 0.003405389799641151,
+          "within_nominal_plus_6_reference_se": true
+        }
+      ],
+      "all_counterexample_p_values_equal_minimum": null,
+      "gaussian_p_value_approximation_used": false,
+      "physical_voltage_generated": false
+    },
+    {
+      "model": "normal_shared_features",
+      "windows": 1,
+      "features": 4,
+      "trials": 4096,
+      "seed": 90,
+      "joint_null_invariance_satisfied_by_generation": true,
+      "window_marginal_symmetry_in_generation": true,
+      "whole_rows_flipped": true,
+      "features_assumed_independent": false,
+      "p_value_minimum": 1.0,
+      "p_value_median": 1.0,
+      "p_value_maximum": 1.0,
+      "minimum_possible_two_sided_p": 1.0,
+      "all_tail_counts_even_and_positive": true,
+      "levels": [
+        {
+          "nominal_level": 0.01,
+          "rejections": 0,
+          "fraction": 0.0,
+          "reference_binomial_mc_standard_error_at_nominal": 0.0015546678704790938,
+          "within_nominal_plus_6_reference_se": true
+        },
+        {
+          "nominal_level": 0.05,
+          "rejections": 0,
+          "fraction": 0.0,
+          "reference_binomial_mc_standard_error_at_nominal": 0.003405389799641151,
+          "within_nominal_plus_6_reference_se": true
+        }
+      ],
+      "all_counterexample_p_values_equal_minimum": null,
+      "gaussian_p_value_approximation_used": false,
+      "physical_voltage_generated": false
+    },
+    {
+      "model": "normal_shared_features",
+      "windows": 4,
+      "features": 4,
+      "trials": 4096,
+      "seed": 91,
+      "joint_null_invariance_satisfied_by_generation": true,
+      "window_marginal_symmetry_in_generation": true,
+      "whole_rows_flipped": true,
+      "features_assumed_independent": false,
+      "p_value_minimum": 0.125,
+      "p_value_median": 0.625,
+      "p_value_maximum": 1.0,
+      "minimum_possible_two_sided_p": 0.125,
+      "all_tail_counts_even_and_positive": true,
+      "levels": [
+        {
+          "nominal_level": 0.01,
+          "rejections": 0,
+          "fraction": 0.0,
+          "reference_binomial_mc_standard_error_at_nominal": 0.0015546678704790938,
+          "within_nominal_plus_6_reference_se": true
+        },
+        {
+          "nominal_level": 0.05,
+          "rejections": 0,
+          "fraction": 0.0,
+          "reference_binomial_mc_standard_error_at_nominal": 0.003405389799641151,
+          "within_nominal_plus_6_reference_se": true
+        }
+      ],
+      "all_counterexample_p_values_equal_minimum": null,
+      "gaussian_p_value_approximation_used": false,
+      "physical_voltage_generated": false
+    },
+    {
+      "model": "normal_shared_features",
+      "windows": 8,
+      "features": 4,
+      "trials": 4096,
+      "seed": 92,
+      "joint_null_invariance_satisfied_by_generation": true,
+      "window_marginal_symmetry_in_generation": true,
+      "whole_rows_flipped": true,
+      "features_assumed_independent": false,
+      "p_value_minimum": 0.0078125,
+      "p_value_median": 0.5,
+      "p_value_maximum": 1.0,
+      "minimum_possible_two_sided_p": 0.0078125,
+      "all_tail_counts_even_and_positive": true,
+      "levels": [
+        {
+          "nominal_level": 0.01,
+          "rejections": 31,
+          "fraction": 0.007568359375,
+          "reference_binomial_mc_standard_error_at_nominal": 0.0015546678704790938,
+          "within_nominal_plus_6_reference_se": true
+        },
+        {
+          "nominal_level": 0.05,
+          "rejections": 190,
+          "fraction": 0.04638671875,
+          "reference_binomial_mc_standard_error_at_nominal": 0.003405389799641151,
+          "within_nominal_plus_6_reference_se": true
+        }
+      ],
+      "all_counterexample_p_values_equal_minimum": null,
+      "gaussian_p_value_approximation_used": false,
+      "physical_voltage_generated": false
+    },
+    {
+      "model": "normal_shared_features",
+      "windows": 12,
+      "features": 4,
+      "trials": 4096,
+      "seed": 93,
+      "joint_null_invariance_satisfied_by_generation": true,
+      "window_marginal_symmetry_in_generation": true,
+      "whole_rows_flipped": true,
+      "features_assumed_independent": false,
+      "p_value_minimum": 0.00048828125,
+      "p_value_median": 0.505859375,
+      "p_value_maximum": 1.0,
+      "minimum_possible_two_sided_p": 0.00048828125,
+      "all_tail_counts_even_and_positive": true,
+      "levels": [
+        {
+          "nominal_level": 0.01,
+          "rejections": 45,
+          "fraction": 0.010986328125,
+          "reference_binomial_mc_standard_error_at_nominal": 0.0015546678704790938,
+          "within_nominal_plus_6_reference_se": true
+        },
+        {
+          "nominal_level": 0.05,
+          "rejections": 234,
+          "fraction": 0.05712890625,
+          "reference_binomial_mc_standard_error_at_nominal": 0.003405389799641151,
+          "within_nominal_plus_6_reference_se": true
+        }
+      ],
+      "all_counterexample_p_values_equal_minimum": null,
+      "gaussian_p_value_approximation_used": false,
+      "physical_voltage_generated": false
+    },
+    {
+      "model": "student_t3_shared_scale",
+      "windows": 1,
+      "features": 4,
+      "trials": 4096,
+      "seed": 94,
+      "joint_null_invariance_satisfied_by_generation": true,
+      "window_marginal_symmetry_in_generation": true,
+      "whole_rows_flipped": true,
+      "features_assumed_independent": false,
+      "p_value_minimum": 1.0,
+      "p_value_median": 1.0,
+      "p_value_maximum": 1.0,
+      "minimum_possible_two_sided_p": 1.0,
+      "all_tail_counts_even_and_positive": true,
+      "levels": [
+        {
+          "nominal_level": 0.01,
+          "rejections": 0,
+          "fraction": 0.0,
+          "reference_binomial_mc_standard_error_at_nominal": 0.0015546678704790938,
+          "within_nominal_plus_6_reference_se": true
+        },
+        {
+          "nominal_level": 0.05,
+          "rejections": 0,
+          "fraction": 0.0,
+          "reference_binomial_mc_standard_error_at_nominal": 0.003405389799641151,
+          "within_nominal_plus_6_reference_se": true
+        }
+      ],
+      "all_counterexample_p_values_equal_minimum": null,
+      "gaussian_p_value_approximation_used": false,
+      "physical_voltage_generated": false
+    },
+    {
+      "model": "student_t3_shared_scale",
+      "windows": 4,
+      "features": 4,
+      "trials": 4096,
+      "seed": 95,
+      "joint_null_invariance_satisfied_by_generation": true,
+      "window_marginal_symmetry_in_generation": true,
+      "whole_rows_flipped": true,
+      "features_assumed_independent": false,
+      "p_value_minimum": 0.125,
+      "p_value_median": 0.5,
+      "p_value_maximum": 1.0,
+      "minimum_possible_two_sided_p": 0.125,
+      "all_tail_counts_even_and_positive": true,
+      "levels": [
+        {
+          "nominal_level": 0.01,
+          "rejections": 0,
+          "fraction": 0.0,
+          "reference_binomial_mc_standard_error_at_nominal": 0.0015546678704790938,
+          "within_nominal_plus_6_reference_se": true
+        },
+        {
+          "nominal_level": 0.05,
+          "rejections": 0,
+          "fraction": 0.0,
+          "reference_binomial_mc_standard_error_at_nominal": 0.003405389799641151,
+          "within_nominal_plus_6_reference_se": true
+        }
+      ],
+      "all_counterexample_p_values_equal_minimum": null,
+      "gaussian_p_value_approximation_used": false,
+      "physical_voltage_generated": false
+    },
+    {
+      "model": "student_t3_shared_scale",
+      "windows": 8,
+      "features": 4,
+      "trials": 4096,
+      "seed": 96,
+      "joint_null_invariance_satisfied_by_generation": true,
+      "window_marginal_symmetry_in_generation": true,
+      "whole_rows_flipped": true,
+      "features_assumed_independent": false,
+      "p_value_minimum": 0.0078125,
+      "p_value_median": 0.5,
+      "p_value_maximum": 1.0,
+      "minimum_possible_two_sided_p": 0.0078125,
+      "all_tail_counts_even_and_positive": true,
+      "levels": [
+        {
+          "nominal_level": 0.01,
+          "rejections": 32,
+          "fraction": 0.0078125,
+          "reference_binomial_mc_standard_error_at_nominal": 0.0015546678704790938,
+          "within_nominal_plus_6_reference_se": true
+        },
+        {
+          "nominal_level": 0.05,
+          "rejections": 175,
+          "fraction": 0.042724609375,
+          "reference_binomial_mc_standard_error_at_nominal": 0.003405389799641151,
+          "within_nominal_plus_6_reference_se": true
+        }
+      ],
+      "all_counterexample_p_values_equal_minimum": null,
+      "gaussian_p_value_approximation_used": false,
+      "physical_voltage_generated": false
+    },
+    {
+      "model": "student_t3_shared_scale",
+      "windows": 12,
+      "features": 4,
+      "trials": 4096,
+      "seed": 97,
+      "joint_null_invariance_satisfied_by_generation": true,
+      "window_marginal_symmetry_in_generation": true,
+      "whole_rows_flipped": true,
+      "features_assumed_independent": false,
+      "p_value_minimum": 0.00048828125,
+      "p_value_median": 0.5087890625,
+      "p_value_maximum": 1.0,
+      "minimum_possible_two_sided_p": 0.00048828125,
+      "all_tail_counts_even_and_positive": true,
+      "levels": [
+        {
+          "nominal_level": 0.01,
+          "rejections": 37,
+          "fraction": 0.009033203125,
+          "reference_binomial_mc_standard_error_at_nominal": 0.0015546678704790938,
+          "within_nominal_plus_6_reference_se": true
+        },
+        {
+          "nominal_level": 0.05,
+          "rejections": 224,
+          "fraction": 0.0546875,
+          "reference_binomial_mc_standard_error_at_nominal": 0.003405389799641151,
+          "within_nominal_plus_6_reference_se": true
+        }
+      ],
+      "all_counterexample_p_values_equal_minimum": null,
+      "gaussian_p_value_approximation_used": false,
+      "physical_voltage_generated": false
+    },
+    {
+      "model": "shared_windows_counterexample",
+      "windows": 8,
+      "features": 4,
+      "trials": 4096,
+      "seed": 98,
+      "joint_null_invariance_satisfied_by_generation": false,
+      "window_marginal_symmetry_in_generation": true,
+      "whole_rows_flipped": true,
+      "features_assumed_independent": false,
+      "p_value_minimum": 0.0078125,
+      "p_value_median": 0.0078125,
+      "p_value_maximum": 0.0078125,
+      "minimum_possible_two_sided_p": 0.0078125,
+      "all_tail_counts_even_and_positive": true,
+      "levels": [
+        {
+          "nominal_level": 0.01,
+          "rejections": 4096,
+          "fraction": 1.0,
+          "reference_binomial_mc_standard_error_at_nominal": 0.0015546678704790938,
+          "within_nominal_plus_6_reference_se": null
+        },
+        {
+          "nominal_level": 0.05,
+          "rejections": 4096,
+          "fraction": 1.0,
+          "reference_binomial_mc_standard_error_at_nominal": 0.003405389799641151,
+          "within_nominal_plus_6_reference_se": null
+        }
+      ],
+      "all_counterexample_p_values_equal_minimum": true,
+      "gaussian_p_value_approximation_used": false,
+      "physical_voltage_generated": false
+    }
+  ],
+  "full_group_enumerated": true,
+  "float64_tie_epsilon_multiplier": 4096,
+  "physical_voltage_generated": false,
+  "adc_fft_vdif_processed": false,
+  "source_or_shape_detection_claimed": false,
+  "null_invariance_verified_for_observations": false,
+  "production_rml_noise_model_changed": false,
+  "scope": "Finite real-vector experiments and a deliberately dependent-window counterexample. Joint group invariance is a model assumption. Per-condition rejection fractions are not sky/image detection performance or a guarantee under empirical window selection."
+}

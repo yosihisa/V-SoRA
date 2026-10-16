@@ -1,0 +1,78 @@
+{
+  "state": "complete",
+  "targeted_tests": {
+    "passed": 51,
+    "elapsed_s": 0.74
+  },
+  "full_regression": {
+    "source": {
+      "passed": 1309,
+      "warnings": 25596,
+      "elapsed_s": 546.8,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 1309,
+      "warnings": 25596,
+      "elapsed_s": 547.31,
+      "excluded_tests": 0
+    }
+  },
+  "experiment": {
+    "conditions": 13,
+    "trials_per_condition": 4096,
+    "source_json_identical_to_preliminary_and_before_input_correction": true,
+    "execution": {
+      "preliminary": {
+        "elapsed_s": 1.58,
+        "maximum_rss_kib": 45376
+      },
+      "source_corrected": {
+        "elapsed_s": 1.98,
+        "maximum_rss_kib": 80248
+      }
+    }
+  },
+  "review_and_restart": {
+    "initial_source_regression_interrupted": true,
+    "interrupted_process_exit_code": 2,
+    "partial_passed_not_counted_as_completed": 1031,
+    "cause": "nonzero longdouble input became zero when cast to float64",
+    "repair": "reject overflow or erasure of nonzero components",
+    "targeted_tests_before_review": 49,
+    "targeted_tests_after_review": 51,
+    "source_and_tests_changed_only_after_interrupted_process_finished": true
+  },
+  "outside_api": {
+    "state": "complete",
+    "outside_checkout": true,
+    "pythonpath_removed": true,
+    "core_and_generator_under_installed_prefix": true,
+    "checkout_runner_used": false,
+    "native_cli_executed": true,
+    "all_api_fields_exact": true,
+    "api_cases": 7,
+    "extended_precision_range_rejections_checked": 2,
+    "all_scientific_results_identical_to_source": true,
+    "vector_conditions": 13,
+    "physical_voltage_processed": false,
+    "production_rml_noise_model_changed": false
+  },
+  "wheel": {
+    "filename": "v_sora-0.1.0-py3-none-any.whl",
+    "bytes": 5535727,
+    "sha256": "cc3b2e3019eec1b5d8e97fa95074e7cdb0ad278073464458f31bf08d43a666d7",
+    "packaged_files_identical_to_source": 83
+  },
+  "pip_check_passed": true,
+  "python": "3.12.3",
+  "numpy": "2.5.1",
+  "scipy": "1.18.0",
+  "pytest": "8.4.2",
+  "blas_threads": 1,
+  "omp_threads": 1,
+  "physical_voltage_processed": false,
+  "actual_hardware_data": false,
+  "production_rml_noise_model_changed": false,
+  "source_or_shape_detection_claimed": false
+}

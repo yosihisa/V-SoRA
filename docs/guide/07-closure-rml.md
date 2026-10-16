@@ -270,3 +270,10 @@ vsora-bispectrum-inspect --input outputs/run/correlation/raw-bispectrum.npz --so
 powerは電圧の絶対値の二乗の平均です。区間内でgainが一定なら、U₃を同じ標本の三局powerの積で割った量は、有限データごとに局gainを相殺します。ただし割るpowerにも誤差があるので、既知powerの不偏性や共分散はそのまま使えません。段階085の完全共有Gaussian電圧という限定モデルでは、標本3個の比の平均は0.45で、母powerで正規化したU₃の平均1とは異なります。これは一般天体の補正係数ではありません。
 
 [観測power正規化の規約](../../interfaces/observed-power-bispectrum.md)に計算と限定式を示します。現行RMLや保存値の雑音診断へ自動適用する処理は追加していません。時間変化・実FFTの独立性・未知LO・低SNR画像の尤度は別に検証します。
+
+
+## 短windowの虚部を調べるための条件付き検定
+
+段階086は実ベクトルを入力し、各windowの全成分を同じ符号で反転して、平均ベクトルの大きさを全組合せと比較する基礎APIです。三角形同士の誤差相関を保ち、Gaussianの誤差式や既知SEFDを使いません。ただし全体の分布がwindow別符号反転に不変という仮定が必要です。windowをコピーした例では周辺分布が対称でも前提が崩れ、小さいpが出ます。
+
+[規約](../../interfaces/window-sign-symmetry.md)に有限群・tie・最小分解能・解釈を示します。この段階で電圧・Cas Aを処理したり、RMLへ重みを渡したりしていません。観測power正規化U₃の虚部へ接続する場合も、LO変動とwindow間相関等を別に確認します。pは天体の存在確率ではありません。

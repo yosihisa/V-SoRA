@@ -173,4 +173,6 @@
 
 | 085 | [観測power正規化U₃と有限標本の平均](085-observed-power-bispectrum.md) | source/wheel1258件成功。62対象試験・9条件各32,768反復。一定gain不変性とrank-oneの偏りを確認。一般Sの補正・尤度・RML・実機へ適用しない |
 
+| 086 | [window符号反転による条件付き対称性検定](086-window-sign-symmetry.md) | source/wheel1309件成功。51対象試験、13条件各4096反復、native単独CLI一致。拡張精度の消失を拒否し回帰を再実行。区間相関の反例を保存、天体検出・画像化へ未適用 |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。

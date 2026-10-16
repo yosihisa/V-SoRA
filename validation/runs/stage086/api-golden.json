@@ -1,0 +1,493 @@
+{
+  "cases": [
+    {
+      "name": "zero",
+      "vectors": [
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "expected": {
+        "windows": 8,
+        "features": 4,
+        "input_global_scale": 0.0,
+        "observed_squared_mean_norm_scaled": 0.0,
+        "comparison_absolute_tolerance_scaled": 0.0,
+        "comparison_epsilon_multiplier": 4096,
+        "tail_count": 256,
+        "group_size": 256,
+        "upper_tail_p_value": 1.0,
+        "minimum_two_sided_resolution": 0.0078125,
+        "all_whole_window_signs_enumerated": true,
+        "joint_window_sign_invariance_assumed": true,
+        "null_invariance_verified_from_data": false,
+        "marginal_symmetry_alone_sufficient": false,
+        "triangles_flipped_independently": false,
+        "gaussian_distribution_assumed": false,
+        "physical_voltage_model_validated": false,
+        "source_detection_claimed": false,
+        "production_rml_noise_model_changed": false,
+        "scope": "Conditional finite-group p value for whole-window sign invariance only. Tie tolerance is conservative; zero or identical scores give p=1. No source detection, extent/asymmetry inference, image confidence or actual independence guarantee."
+      }
+    },
+    {
+      "name": "integer",
+      "vectors": [
+        [
+          1,
+          2
+        ],
+        [
+          -3,
+          4
+        ],
+        [
+          2,
+          -1
+        ]
+      ],
+      "expected": {
+        "windows": 3,
+        "features": 2,
+        "input_global_scale": 4.0,
+        "observed_squared_mean_norm_scaled": 0.17361111111111113,
+        "comparison_absolute_tolerance_scaled": 4.105358028836135e-13,
+        "comparison_epsilon_multiplier": 4096,
+        "tail_count": 6,
+        "group_size": 8,
+        "upper_tail_p_value": 0.75,
+        "minimum_two_sided_resolution": 0.25,
+        "all_whole_window_signs_enumerated": true,
+        "joint_window_sign_invariance_assumed": true,
+        "null_invariance_verified_from_data": false,
+        "marginal_symmetry_alone_sufficient": false,
+        "triangles_flipped_independently": false,
+        "gaussian_distribution_assumed": false,
+        "physical_voltage_model_validated": false,
+        "source_detection_claimed": false,
+        "production_rml_noise_model_changed": false,
+        "scope": "Conditional finite-group p value for whole-window sign invariance only. Tie tolerance is conservative; zero or identical scores give p=1. No source detection, extent/asymmetry inference, image confidence or actual independence guarantee."
+      }
+    },
+    {
+      "name": "orthogonal",
+      "vectors": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "expected": {
+        "windows": 8,
+        "features": 8,
+        "input_global_scale": 1.0,
+        "observed_squared_mean_norm_scaled": 0.125,
+        "comparison_absolute_tolerance_scaled": 1.1368683772161603e-13,
+        "comparison_epsilon_multiplier": 4096,
+        "tail_count": 256,
+        "group_size": 256,
+        "upper_tail_p_value": 1.0,
+        "minimum_two_sided_resolution": 0.0078125,
+        "all_whole_window_signs_enumerated": true,
+        "joint_window_sign_invariance_assumed": true,
+        "null_invariance_verified_from_data": false,
+        "marginal_symmetry_alone_sufficient": false,
+        "triangles_flipped_independently": false,
+        "gaussian_distribution_assumed": false,
+        "physical_voltage_model_validated": false,
+        "source_detection_claimed": false,
+        "production_rml_noise_model_changed": false,
+        "scope": "Conditional finite-group p value for whole-window sign invariance only. Tie tolerance is conservative; zero or identical scores give p=1. No source detection, extent/asymmetry inference, image confidence or actual independence guarantee."
+      }
+    },
+    {
+      "name": "normal",
+      "vectors": [
+        [
+          -1.6479092978515948,
+          -0.25462015456590725,
+          0.670803813700693,
+          0.7228996425338464
+        ],
+        [
+          -0.8087396526328904,
+          0.5102209743207267,
+          0.39506540472348856,
+          0.11043055987168658
+        ],
+        [
+          0.22358986393522282,
+          -1.3446206294206282,
+          -0.13632324535118862,
+          -0.21830978441748702
+        ],
+        [
+          1.602185013790052,
+          0.09255191514578015,
+          -2.4510259509514576,
+          1.189778215825182
+        ],
+        [
+          1.6874333948420972,
+          -0.03543449588718617,
+          1.7319240761116246,
+          0.9110120627834992
+        ],
+        [
+          0.10659432777141664,
+          -1.6231907857284276,
+          -1.053727308749147,
+          0.021427276619400866
+        ],
+        [
+          0.2260848516241028,
+          0.03339467435251926,
+          -0.9551151405855026,
+          -1.0980407064174889
+        ],
+        [
+          0.4046548737085185,
+          1.425394109049906,
+          0.6009480091818321,
+          -0.5766686785163327
+        ]
+      ],
+      "expected": {
+        "windows": 8,
+        "features": 4,
+        "input_global_scale": 2.4510259509514576,
+        "observed_squared_mean_norm_scaled": 0.018757849810223,
+        "comparison_absolute_tolerance_scaled": 2.177251416502174e-13,
+        "comparison_epsilon_multiplier": 4096,
+        "tail_count": 250,
+        "group_size": 256,
+        "upper_tail_p_value": 0.9765625,
+        "minimum_two_sided_resolution": 0.0078125,
+        "all_whole_window_signs_enumerated": true,
+        "joint_window_sign_invariance_assumed": true,
+        "null_invariance_verified_from_data": false,
+        "marginal_symmetry_alone_sufficient": false,
+        "triangles_flipped_independently": false,
+        "gaussian_distribution_assumed": false,
+        "physical_voltage_model_validated": false,
+        "source_detection_claimed": false,
+        "production_rml_noise_model_changed": false,
+        "scope": "Conditional finite-group p value for whole-window sign invariance only. Tie tolerance is conservative; zero or identical scores give p=1. No source detection, extent/asymmetry inference, image confidence or actual independence guarantee."
+      }
+    },
+    {
+      "name": "tiny",
+      "vectors": [
+        [
+          -1.6479092978515947e-300,
+          -2.5462015456590726e-301,
+          6.70803813700693e-301,
+          7.228996425338464e-301
+        ],
+        [
+          -8.087396526328905e-301,
+          5.102209743207267e-301,
+          3.950654047234886e-301,
+          1.104305598716866e-301
+        ],
+        [
+          2.2358986393522283e-301,
+          -1.3446206294206283e-300,
+          -1.363232453511886e-301,
+          -2.1830978441748704e-301
+        ],
+        [
+          1.602185013790052e-300,
+          9.255191514578015e-302,
+          -2.4510259509514575e-300,
+          1.189778215825182e-300
+        ],
+        [
+          1.6874333948420972e-300,
+          -3.5434495887186167e-302,
+          1.7319240761116245e-300,
+          9.110120627834992e-301
+        ],
+        [
+          1.0659432777141664e-301,
+          -1.6231907857284276e-300,
+          -1.053727308749147e-300,
+          2.1427276619400867e-302
+        ],
+        [
+          2.260848516241028e-301,
+          3.3394674352519264e-302,
+          -9.551151405855026e-301,
+          -1.0980407064174889e-300
+        ],
+        [
+          4.046548737085185e-301,
+          1.4253941090499061e-300,
+          6.009480091818321e-301,
+          -5.7666867851633275e-301
+        ]
+      ],
+      "expected": {
+        "windows": 8,
+        "features": 4,
+        "input_global_scale": 2.4510259509514575e-300,
+        "observed_squared_mean_norm_scaled": 0.018757849810223007,
+        "comparison_absolute_tolerance_scaled": 2.177251416502175e-13,
+        "comparison_epsilon_multiplier": 4096,
+        "tail_count": 250,
+        "group_size": 256,
+        "upper_tail_p_value": 0.9765625,
+        "minimum_two_sided_resolution": 0.0078125,
+        "all_whole_window_signs_enumerated": true,
+        "joint_window_sign_invariance_assumed": true,
+        "null_invariance_verified_from_data": false,
+        "marginal_symmetry_alone_sufficient": false,
+        "triangles_flipped_independently": false,
+        "gaussian_distribution_assumed": false,
+        "physical_voltage_model_validated": false,
+        "source_detection_claimed": false,
+        "production_rml_noise_model_changed": false,
+        "scope": "Conditional finite-group p value for whole-window sign invariance only. Tie tolerance is conservative; zero or identical scores give p=1. No source detection, extent/asymmetry inference, image confidence or actual independence guarantee."
+      }
+    },
+    {
+      "name": "large",
+      "vectors": [
+        [
+          -1.647909297851595e+300,
+          -2.5462015456590727e+299,
+          6.708038137006931e+299,
+          7.228996425338465e+299
+        ],
+        [
+          -8.087396526328904e+299,
+          5.102209743207267e+299,
+          3.950654047234886e+299,
+          1.1043055987168658e+299
+        ],
+        [
+          2.235898639352228e+299,
+          -1.344620629420628e+300,
+          -1.3632324535118861e+299,
+          -2.1830978441748703e+299
+        ],
+        [
+          1.602185013790052e+300,
+          9.255191514578016e+298,
+          -2.4510259509514578e+300,
+          1.189778215825182e+300
+        ],
+        [
+          1.6874333948420973e+300,
+          -3.543449588718617e+298,
+          1.7319240761116247e+300,
+          9.110120627834993e+299
+        ],
+        [
+          1.0659432777141665e+299,
+          -1.6231907857284276e+300,
+          -1.053727308749147e+300,
+          2.142727661940087e+298
+        ],
+        [
+          2.260848516241028e+299,
+          3.3394674352519264e+298,
+          -9.551151405855027e+299,
+          -1.0980407064174889e+300
+        ],
+        [
+          4.046548737085185e+299,
+          1.425394109049906e+300,
+          6.009480091818321e+299,
+          -5.7666867851633275e+299
+        ]
+      ],
+      "expected": {
+        "windows": 8,
+        "features": 4,
+        "input_global_scale": 2.4510259509514578e+300,
+        "observed_squared_mean_norm_scaled": 0.018757849810222996,
+        "comparison_absolute_tolerance_scaled": 2.177251416502174e-13,
+        "comparison_epsilon_multiplier": 4096,
+        "tail_count": 250,
+        "group_size": 256,
+        "upper_tail_p_value": 0.9765625,
+        "minimum_two_sided_resolution": 0.0078125,
+        "all_whole_window_signs_enumerated": true,
+        "joint_window_sign_invariance_assumed": true,
+        "null_invariance_verified_from_data": false,
+        "marginal_symmetry_alone_sufficient": false,
+        "triangles_flipped_independently": false,
+        "gaussian_distribution_assumed": false,
+        "physical_voltage_model_validated": false,
+        "source_detection_claimed": false,
+        "production_rml_noise_model_changed": false,
+        "scope": "Conditional finite-group p value for whole-window sign invariance only. Tie tolerance is conservative; zero or identical scores give p=1. No source detection, extent/asymmetry inference, image confidence or actual independence guarantee."
+      }
+    },
+    {
+      "name": "near_ties",
+      "vectors": [
+        [
+          1.0,
+          2e-16
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          1e-16,
+          -0.5
+        ],
+        [
+          -0.5,
+          1e-16
+        ]
+      ],
+      "expected": {
+        "windows": 4,
+        "features": 2,
+        "input_global_scale": 1.0,
+        "observed_squared_mean_norm_scaled": 0.03125000000000002,
+        "comparison_absolute_tolerance_scaled": 2.557953848736361e-13,
+        "comparison_epsilon_multiplier": 4096,
+        "tail_count": 16,
+        "group_size": 16,
+        "upper_tail_p_value": 1.0,
+        "minimum_two_sided_resolution": 0.125,
+        "all_whole_window_signs_enumerated": true,
+        "joint_window_sign_invariance_assumed": true,
+        "null_invariance_verified_from_data": false,
+        "marginal_symmetry_alone_sufficient": false,
+        "triangles_flipped_independently": false,
+        "gaussian_distribution_assumed": false,
+        "physical_voltage_model_validated": false,
+        "source_detection_claimed": false,
+        "production_rml_noise_model_changed": false,
+        "scope": "Conditional finite-group p value for whole-window sign invariance only. Tie tolerance is conservative; zero or identical scores give p=1. No source detection, extent/asymmetry inference, image confidence or actual independence guarantee."
+      }
+    }
+  ]
+}
