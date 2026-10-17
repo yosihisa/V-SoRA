@@ -74,7 +74,7 @@ class FXAccumulator:
 
         if self.bispectrum is not None:
             raw=self.bispectrum.finish()
-            for key in ('edge_sums','paired_edge_sums','triple_edge_sum','ordinary_common_sample_product','distinct_sample_bispectrum'):
+            for key in ('common_station_power_sums','edge_sums','paired_edge_sums','triple_edge_sum','ordinary_common_sample_product','distinct_sample_bispectrum'):
                 raw[key]=raw[key][order]
             pair_index={tuple(pair):n for n,pair in enumerate(self.pairs)}
             usable=np.broadcast_to(raw['distinct_sample_available'],(self.nf,len(raw['triangles']))).copy()

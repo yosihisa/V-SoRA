@@ -22,6 +22,7 @@ class BispectrumAccumulator:
             raise ValueError('unique canonical integer triangles i<j<k required')
         self.stations=int(stations);self.channels=int(channels);self._triangles=t.copy()
         shape=(self.channels,len(t),3)
+        self._p=np.zeros(shape,float)
         self._a=np.zeros(shape,complex);self._h=np.zeros(shape,complex);self._j=np.zeros(shape[:2],complex)
         self._counts=np.zeros(len(t),np.int64);self._nominal=0;self._maximum_chunk=0
         self._finished=False;self._mask_supplied=False
@@ -35,22 +36,25 @@ class BispectrumAccumulator:
             raise ValueError('finite complex [block,channel,station] chunk, at most8million values required')
         ok=np.ones((len(x),self.stations),bool) if valid is None else np.asarray(valid)
         if ok.dtype!=np.bool_ or ok.shape!=(len(x),self.stations):raise ValueError('boolean [block,station] valid mask required')
+        p=np.zeros_like(self._p)
         a=np.zeros_like(self._a);h=np.zeros_like(self._h);j=np.zeros_like(self._j);count=np.zeros_like(self._counts)
         with np.errstate(over='ignore',invalid='ignore'):
             for n,(i,k,l) in enumerate(self._triangles):
                 good=ok[:,i]&ok[:,k]&ok[:,l];count[n]=good.sum()
                 y=x[good].astype(np.complex128,copy=False)
+                p[:,n,:]=(abs(y[:,:,[i,k,l]])**2).sum(axis=0)
                 z1=y[:,:,i]*y[:,:,k].conj();z2=y[:,:,k]*y[:,:,l].conj();z3=y[:,:,l]*y[:,:,i].conj()
                 a[:,n,:]=np.stack((z1.sum(axis=0),z2.sum(axis=0),z3.sum(axis=0)),axis=-1)
                 h[:,n,:]=np.stack(((z1*z2).sum(axis=0),(z1*z3).sum(axis=0),(z2*z3).sum(axis=0)),axis=-1)
                 j[:,n]=(z1*z2*z3).sum(axis=0)
+            next_p=self._p+p
             next_a=self._a+a;next_h=self._h+h;next_j=self._j+j
         next_count=self._counts+count
         if np.any(next_count>1000000) or self._nominal+len(x)>1000000000:
             raise ValueError('common sample count or nominal block count outside supported range')
-        if not all(np.isfinite(v).all() for v in (next_a,next_h,next_j)):
+        if not all(np.isfinite(v).all() for v in (next_p,next_a,next_h,next_j)):
             raise ValueError('bispectrum sums outside supported numerical range')
-        self._a=next_a;self._h=next_h;self._j=next_j;self._counts=next_count
+        self._p=next_p;self._a=next_a;self._h=next_h;self._j=next_j;self._counts=next_count
         self._nominal+=len(x);self._maximum_chunk=max(self._maximum_chunk,len(x));self._mask_supplied|=valid is not None
 
     def finish(self):
@@ -65,6 +69,9 @@ class BispectrumAccumulator:
         if not np.isfinite(ordinary).all() or not np.isfinite(u).all():raise ValueError('bispectrum output outside supported numerical range')
         self._finished=True
         return {'triangles':self._triangles.copy(),'common_sample_count':self._counts.copy(),
+            'common_station_power_sums':self._p.copy(),
+            'common_station_power_order':'i, j, k',
+            'power_uses_triangle_common_samples':True,
             'edge_sums':self._a.copy(),'paired_edge_sums':self._h.copy(),'triple_edge_sum':self._j.copy(),
             'paired_edge_order':'ab, ac, bc','ordinary_common_sample_product':ordinary,
             'distinct_sample_bispectrum':u,'distinct_sample_available':eligible.copy(),

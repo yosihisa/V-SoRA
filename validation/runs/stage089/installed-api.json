@@ -1,0 +1,28 @@
+{
+  "state": "complete",
+  "outside_checkout": true,
+  "pythonpath_removed": true,
+  "checkout_runner_used": false,
+  "api_cases_all_raw_and_normalized_fields_identical": 5,
+  "all_imported_project_modules_under_runtime_prefix": true,
+  "project_module_count": 10,
+  "project_module_names": [
+    "vsora_correlator",
+    "vsora_correlator.bispectrum_accumulator",
+    "vsora_correlator.bispectrum_power",
+    "vsora_correlator.quality",
+    "vsora_correlator.stream_fx",
+    "vsora_simulator",
+    "vsora_simulator.bispectrum_distinct",
+    "vsora_simulator.bispectrum_observed_power",
+    "vsora_simulator.common_power_validation",
+    "vsora_simulator.visibility_moments"
+  ],
+  "native_cli_executed": true,
+  "all_scientific_fields_identical_to_source": true,
+  "synthetic_fft_conditions": 9,
+  "short_window_iq_duration_s": 0.3,
+  "raw_profile_v1_format_changed": false,
+  "production_rml_noise_model_changed": false,
+  "real_hardware_validation_performed": false
+}

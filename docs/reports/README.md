@@ -179,4 +179,6 @@
 
 | 088 | [既知天空の虚部対称性を日本語GUIへ接続](088-casa-window-symmetry-gui.md) | source/wheel1370件成功。両実Chromiumで53概要・2968詳細・全JSON一致。runner無し同梱実行、日本語390px、既存18/108/6048比較も確認 |
 
+| 089 | [streaming U₃と三角形共通標本power](089-common-bispectrum-power.md) | source/wheel1433件成功。新63＋既存55対象試験、0.3秒IQを含む9条件、checkout外5API全field/native全JSON一致。v1保存とRMLは変更せず |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。

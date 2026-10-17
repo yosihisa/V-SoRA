@@ -1,0 +1,84 @@
+{
+  "state": "complete",
+  "targeted_tests": {
+    "passed": 118,
+    "elapsed_s": 2.15,
+    "new_tests": 63,
+    "existing_related_tests": 55
+  },
+  "full_regression": {
+    "source": {
+      "passed": 1433,
+      "warnings": 25596,
+      "elapsed_s": 539.38,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 1433,
+      "warnings": 25596,
+      "elapsed_s": 539.61,
+      "excluded_tests": 0
+    }
+  },
+  "experiment": {
+    "fixed_conditions": 9,
+    "source_json_identical_to_latest_preliminary": true,
+    "elapsed_s": 1.34,
+    "maximum_rss_kib": 281032,
+    "short_window_iq_s": 0.3,
+    "short_window_blocks": 19200,
+    "short_window_fft_length": 32,
+    "short_window_chunk_blocks": 257,
+    "short_window_additional_power_storage_bytes": 3072
+  },
+  "outside_api": {
+    "state": "complete",
+    "outside_checkout": true,
+    "pythonpath_removed": true,
+    "checkout_runner_used": false,
+    "api_cases_all_raw_and_normalized_fields_identical": 5,
+    "all_imported_project_modules_under_runtime_prefix": true,
+    "project_module_count": 10,
+    "project_module_names": [
+      "vsora_correlator",
+      "vsora_correlator.bispectrum_accumulator",
+      "vsora_correlator.bispectrum_power",
+      "vsora_correlator.quality",
+      "vsora_correlator.stream_fx",
+      "vsora_simulator",
+      "vsora_simulator.bispectrum_distinct",
+      "vsora_simulator.bispectrum_observed_power",
+      "vsora_simulator.common_power_validation",
+      "vsora_simulator.visibility_moments"
+    ],
+    "native_cli_executed": true,
+    "all_scientific_fields_identical_to_source": true,
+    "synthetic_fft_conditions": 9,
+    "short_window_iq_duration_s": 0.3,
+    "raw_profile_v1_format_changed": false,
+    "production_rml_noise_model_changed": false,
+    "real_hardware_validation_performed": false
+  },
+  "wheel": {
+    "filename": "v_sora-0.1.0-py3-none-any.whl",
+    "bytes": 5554671,
+    "sha256": "8cefc77b64e890f2c744cc7ce4abfcf236482bedb31c126c8e5948eb5fb37355",
+    "packaged_files_identical_to_source": 86
+  },
+  "pip_check_passed": true,
+  "existing_raw_v1_format_module_unchanged": true,
+  "raw_v1_format_module_sha256": "746f79e383996a242998a0ab2011a18af33c9709341d1f1b9a61de8fe86c21d3",
+  "maximum_additional_common_power_storage_bytes": 5505024,
+  "python": "3.12.3",
+  "numpy": "2.5.1",
+  "scipy": "1.18.0",
+  "pytest": "8.4.2",
+  "blas_threads": 1,
+  "omp_threads": 1,
+  "raw_profile_v1_format_changed": false,
+  "power_persisted_in_existing_raw_profile_v1": false,
+  "physical_adc_quantization_vdif_processed": false,
+  "baseline_delay_and_lo_offsets_simulated": false,
+  "real_hardware_validation_performed": false,
+  "production_rml_noise_model_changed": false
+}
