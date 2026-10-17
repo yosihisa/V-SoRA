@@ -314,7 +314,7 @@ function renderBispectrumMoments(box,s){
     node("p","有限標本の平均と共分散が分かっても、U₃の分布がGaussianであるとは判断できません。実FFTの独立性・量子化・同じ記録からのLO補正・局power正規化・角度の信頼区間・画像の正しさは未確認です。現行RMLの雑音モデルは変更していません。","muted"));
 }
 
-function renderRawBispectrum(box,s){const records=s.windows?s.windows.map(w=>({label:"区間 "+(w.window_index+1),raw:w.correlation&&w.correlation.raw_bispectrum})):[{label:"短積分",raw:s.correlation&&s.correlation.raw_bispectrum}];const saved=records.filter(r=>r.raw);if(!saved.length)return;box.append(node("h3","再解析用の三次統計"),node("p","三局共通の有効FFTから追加の和を保存しました。実FFT・品質選別の独立性とU₃の尤度は未確認です。今回の画像は従来のClosureから復元しています。","muted"));const table=node("table",undefined,"window-table"),head=node("tr");head.append(node("th","対象"),node("th","保存量と利用可否"));table.append(head);for(const row of saved){const r=row.raw,tr=node("tr"),info=node("td"),counts=r.common_fft_count.flat();tr.append(node("td",row.label));info.append(node("p","三局共通FFT数："+Math.min(...counts)+"〜"+Math.max(...counts)),node("p","利用可channel・三角形："+r.usable_channel_triangles+" / "+r.total_channel_triangles),node("p","追加ファイル："+(r.bytes/1024).toFixed(1)+" KiB / 元相関の照合："+(r.source_visibility_verified?"一致":"未確認")));tr.append(info);table.append(tr);}box.append(table,node("p","raw-bispectrum.npz は下の保存ファイル一覧から取得できます。元のshard-00000.npzも一緒に保持してください。","muted"));}
+function renderRawBispectrum(box,s){const records=s.windows?s.windows.map(w=>({label:"区間 "+(w.window_index+1),raw:w.correlation&&w.correlation.raw_bispectrum})):[{label:"短積分",raw:s.correlation&&s.correlation.raw_bispectrum}];const saved=records.filter(r=>r.raw);if(!saved.length)return;box.append(node("h3","再解析用の三次統計"),node("p","三局共通の有効FFTから追加の和を保存しました。実FFT・品質選別の独立性とU₃の尤度は未確認です。今回の画像は従来のClosureから復元しています。","muted"));const table=node("table",undefined,"window-table"),head=node("tr");head.append(node("th","対象"),node("th","保存量と利用可否"));table.append(head);for(const row of saved){const r=row.raw,tr=node("tr"),info=node("td"),counts=r.common_fft_count.flat();tr.append(node("td",row.label));info.append(node("p","三局共通FFT数："+Math.min(...counts)+"〜"+Math.max(...counts)),node("p","利用可channel・三角形："+r.usable_channel_triangles+" / "+r.total_channel_triangles),node("p","追加ファイル："+(r.bytes/1024).toFixed(1)+" KiB / 元相関の照合："+(r.source_visibility_verified?"一致":"未確認")));if(r.schema_version>=2)info.append(node("p","保存形式：version "+r.schema_version+" / 三局共通の電力和も保持（"+r.common_power_sum_unit+"）"));tr.append(info);table.append(tr);}box.append(table,node("p","raw-bispectrum.npz は下の保存ファイル一覧から取得できます。元のshard-00000.npzも一緒に保持してください。","muted"));}
 
 let rawSelection=null,rawReadGeneration=0;
 function invalidateRawInput(){
@@ -388,6 +388,34 @@ function renderBispectrumInspection(box,s){
   }
   box.append(table,node("p","未計算は測定したゼロではありません。品質マスクでは保存値が残っていても解析には使えません。通常の積は三局共通集合での辺平均の積です。二局ごとの元相関の積と異なる場合があり、U₃との差を実機の偏りの推定値とは扱いません。","muted"),
     node("p","全桁の値と入力SHAは、保存ファイルの bispectrum-inspection.json から確認できます。","muted"));
+  renderBispectrumNormalization(box,s);
+}
+
+function renderBispectrumNormalization(box,s){
+  const version=s.raw_schema_version??1;
+  box.append(node("h3","共通電力で割った三次統計（無次元）"),node("p","保存形式：version "+version+"。三局で同じFFT標本を使った電力で割る比です。"));
+  if(version!==2){
+    box.append(node("p","この保存形式には三局共通の電力がありません。無次元の比は情報不足のため未計算です。局単独の診断電力では補完せず、0にも置き換えません。","muted"));
+    return;
+  }
+  box.append(node("p","有限標本の比の不偏性、位相の信頼区間、低SNRの画像尤度は未確認です。数値を計算できることと、既存の品質マスクを通ることを分けて表示します。","muted"));
+  const labels={insufficient_samples:"未計算（共通FFT数が3未満）",zero_common_power:"未計算（三局のいずれかの電力が0）",usable_normalized_value:"数値は計算可・既存品質を通過",masked_normalized_value:"数値は計算可・既存品質で利用不可",missing_common_power_v1:"情報不足（共通電力が保存されていない）"};
+  const number=value=>value===null||value===undefined?"未計算":value.toExponential(6);
+  const wrap=node("div",undefined,"raw-normalization-scroll"),table=node("table",undefined,"window-table");table.id="raw-normalized-table";
+  const head=node("tr");head.append(node("th","三角形・状態"),node("th","無次元比の実部・虚部"),node("th","共通標本の電力和"));table.append(head);
+  for(const row of s.triangles){
+    const tr=node("tr"),label=node("td"),values=node("td"),power=node("td");
+    label.append(node("p",row.station_ids.join(" / ")),node("p",labels[row.observed_power_normalization_state]||row.observed_power_normalization_state),
+      node("p","U₃比の数値："+(row.observed_power_normalized_u3_available?"計算可":"未計算")),
+      node("p","U₃比の既存品質："+(row.observed_power_normalized_u3_quality_usable?"通過":"利用不可")));
+    values.append(node("p","U₃比 実部："+number(row.observed_power_normalized_u3_real)),node("p","U₃比 虚部："+number(row.observed_power_normalized_u3_imag)),
+      node("p","通常積比 実部："+number(row.observed_power_normalized_ordinary_product_real)),node("p","通常積比 虚部："+number(row.observed_power_normalized_ordinary_product_imag)));
+    if(row.common_station_power_sums)row.common_station_power_sums.forEach((v,i)=>power.append(node("p",row.station_ids[i]+"："+number(v))));
+    else power.append(node("p","情報なし"));
+    power.append(node("p","単位："+s.common_power_sum_unit));tr.append(label,values,power);table.append(tr);
+  }
+  box.append(node("p","表は横にスクロールすると、三局それぞれの電力和も確認できます。","muted"));
+  wrap.append(table);box.append(wrap,node("p","未計算の値は測定したゼロではありません。共通FFT数が1〜2なら通常積比だけ計算できる場合があります。品質マスクで除外した数値は保存値の確認に使い、現在のRMLには投入しません。","muted"));
 }
 
 function renderBispectrumAverage(box,s){

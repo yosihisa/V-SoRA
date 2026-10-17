@@ -30,6 +30,6 @@ inspectionは時間・周波数セルを選択し、raw U3（ADC^6またはJy^3�
 
 ## この段階の運用範囲
 
-単独保存・再読込とPython/既存console CLIのinspectionを追加する。段階090は単独保存を対象とし、段階091で既存aligned producerの追加保存をversion2へ接続する。共通電力と比を追加する日本語表示は段階092の対象である。LO補正、量子化、実機較正、低SNR画像尤度はこの形式追加だけでは解決しない。再解析のため元IQ/VDIFと時計・LO・品質処理の来歴も保持する。
+段階090で単独保存・再読込とPython/既存console CLIのinspectionを追加した。段階091から既存aligned producerの追加保存はversion2を生成し、段階092から共通電力と比を日本語GUIに表示する。LO補正、量子化、実機較正、低SNR画像尤度はこの形式追加だけでは解決しない。再解析のため元IQ/VDIFと時計・LO・品質処理の来歴も保持する。
 
 inspection JSONは、版・共通電力・正規化可否のfieldを追加し、従来のraw値・単位・状態fieldを保持する。既存の全JSONを厳密に比較する処理では、このfield追加を差分として記録する。

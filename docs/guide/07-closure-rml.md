@@ -292,3 +292,6 @@ raw NPZ version2は三角形で共通する標本の三局電力和を保持し�
 ### VDIFからの共通電力保存（段階091）
 
 既存VDIF相関の追加保存オプションをversion2へ接続する。元visibilityとrawを一緒に保持し、既存inspection CLIで共通電力を使う比をJSONにできる。[操作と制約](../../interfaces/vdif-common-power.md)を参照。日本語の追加表示は段階092の対象である。
+
+
+段階092では、保存三次統計画面からversion2の共通電力と無次元比を確認できる。これは保存値を調べる操作であり、低SNRの画像尤度への適用ではない。数値の計算可否と既存品質maskの利用可否を別に表示する。[操作](06-gui.md)、[段階レポート](../reports/092-bispectrum-power-gui.md)。

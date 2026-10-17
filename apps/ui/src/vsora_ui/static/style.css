@@ -20,3 +20,6 @@ textarea{display:block;width:100%;max-width:100%;min-width:0;margin-top:7px;padd
 #casa-symmetry-table{min-width:1400px}
 #casa-symmetry-table th:first-child{width:130px}
 #casa-symmetry-components{min-width:650px}
+
+.raw-normalization-scroll { max-width: 100%; overflow-x: auto; }
+.raw-normalization-scroll table { min-width: 820px; }

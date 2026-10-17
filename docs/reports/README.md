@@ -185,4 +185,6 @@
 
 | 091 | [VDIF相関から共通FFT電力を保存](091-vdif-common-power.md) | source/wheel1483件。0.3秒欠測あり/なしの直接FFT照合、064全既存値保持、checkout外再相関の全raw/P/比一致。GUI追加表示は092へ |
 
+| 092 | [共通電力と無次元比を日本語GUIで確認](092-bispectrum-power-gui.md) | source/wheel1497件。新14対象、両実Chromium7条件の全raw/比/電力/状態/JSON一致。v1情報不足・M0/1/2・0電力・品質mask・日本語390pxを確認 |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。
