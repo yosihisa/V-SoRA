@@ -79,3 +79,5 @@
 - [VDIF相関から共通電力を保存](vdif-common-power.md)：version2、元visibilityと来歴、CLI/日本語GUIでの比の確認。
 
 - [保存window列の条件付き対称性](bispectrum-window-symmetry.md)：version2・原本照合・全区間・検定前提と分解能。
+
+- [既知二モデルの独立評価](known-template-holdout.md)：独立training/test、固定score、個別二項区間と未確認事項。

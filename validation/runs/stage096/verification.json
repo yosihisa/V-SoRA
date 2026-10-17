@@ -1,0 +1,107 @@
+{
+  "state": "complete",
+  "targeted_tests": {
+    "passed": 66,
+    "elapsed_s": 0.82
+  },
+  "full_regression": {
+    "source": {
+      "passed": 1623,
+      "warnings": 27396,
+      "elapsed_s": 540.01,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 1623,
+      "warnings": 27396,
+      "elapsed_s": 571.41,
+      "excluded_tests": 0
+    }
+  },
+  "full_source_scientific_json_identical_to_final_preliminary": true,
+  "native_cases": 9,
+  "training_windows": 2304,
+  "holdout_windows": 9216,
+  "voltage_windows_generated": 11520,
+  "maximum_voltage_values_in_batch": 921600,
+  "experiment": {
+    "source_elapsed_s": 215.41,
+    "maximum_rss_kib": 197748
+  },
+  "outside_api": {
+    "state": "complete",
+    "api_checks": 9,
+    "fixed_plan_identical": true,
+    "full_native_cli_all_scientific_json_identical": true,
+    "native_cases": 9,
+    "all_project_modules_under_runtime_prefix": true,
+    "project_module_count": 17,
+    "project_modules": [
+      "vsora_imaging",
+      "vsora_imaging.window_symmetry",
+      "vsora_observation",
+      "vsora_observation.config",
+      "vsora_observation.geometry",
+      "vsora_observation.reference",
+      "vsora_simulator",
+      "vsora_simulator.bispectrum_distinct",
+      "vsora_simulator.bispectrum_observed_power",
+      "vsora_simulator.casa_window_symmetry",
+      "vsora_simulator.known_template_validation",
+      "vsora_simulator.sensitivity",
+      "vsora_simulator.sky",
+      "vsora_simulator.sky_covariance",
+      "vsora_simulator.template_score",
+      "vsora_simulator.visibility",
+      "vsora_simulator.visibility_moments"
+    ],
+    "all_configuration_and_sky_assets_under_runtime_prefix": true,
+    "pythonpath_removed": true,
+    "cli_cwd_outside_checkout": true,
+    "workspace_has_checkout_runner": false,
+    "existing_results_not_overwritten": true
+  },
+  "previous_python_frontend_and_project_files_unchanged": 305,
+  "frozen_python_frontend_and_project_files_unchanged": 311,
+  "wheel": {
+    "bytes": 5570187,
+    "sha256": "266ba80272d6e3b717f7bfabf0186b871cbbed1b3b4022ac9edc506c8056bb7e",
+    "packaged_files_identical_to_source": 90
+  },
+  "pip_check_passed": true,
+  "metadata_review": {
+    "all_preexisting_scientific_values_identical": true,
+    "added_global_fields": [
+      "zero_sky_control_source_flux_jy"
+    ],
+    "added_case_fields": [
+      "training_sky_models",
+      "test_sky_models",
+      "assumed_source_total_flux_jy_by_label"
+    ],
+    "case_count": 9,
+    "first_full_elapsed_s": 234.27
+  },
+  "approval_review": {
+    "initial_launch": "automatic_review_timeout_before_CreateProcess",
+    "scientific_test_started_in_initial_attempt": false,
+    "retry_count": 1,
+    "retry_succeeded": true
+  },
+  "new_browser_validation_performed": false,
+  "actual_hardware_validation_performed": false,
+  "production_rml_noise_model_changed": false,
+  "metrics_conditional_on_fixed_known_training": true,
+  "classification_is_not_image_likelihood": true,
+  "publication_review": {
+    "public_audit_findings": 0,
+    "local_markdown_links": 1199,
+    "missing_local_links": 0,
+    "png_metadata_fields_reviewed": [
+      "Software",
+      "dpi"
+    ]
+  },
+  "installed_regression_shared_host_with_native_cli_validation": true,
+  "elapsed_times_are_not_a_software_speed_comparison": true
+}
