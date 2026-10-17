@@ -1,0 +1,96 @@
+{
+  "state": "complete",
+  "targeted_tests": {
+    "passed": 42,
+    "elapsed_s": 0.76
+  },
+  "full_regression": {
+    "source": {
+      "passed": 1351,
+      "warnings": 25596,
+      "elapsed_s": 646.9,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 1351,
+      "warnings": 25596,
+      "elapsed_s": 643.83,
+      "excluded_tests": 0
+    }
+  },
+  "experiment": {
+    "conditions": 53,
+    "total_trial_evaluations_across_conditions": 46592,
+    "short_and_controls_trials_each": 1024,
+    "long_trials_each": 256,
+    "all_case_files_identical_to_summary": true,
+    "elapsed_s": 981.82,
+    "maximum_rss_kib": 246464,
+    "source_science_concurrent_with_source_regression": true,
+    "performance_benchmark_claimed": false
+  },
+  "outside_api": {
+    "state": "complete",
+    "outside_checkout": true,
+    "pythonpath_removed": true,
+    "all_science_modules_and_assets_under_installed_prefix": true,
+    "checkout_runner_used": false,
+    "native_cli_full_profile_executed": true,
+    "api_cases_all_fields_exact": 9,
+    "full_plan_identical": true,
+    "scientific_conditions_all_fields_exact": 53,
+    "case_files_all_fields_exact": 53,
+    "configuration_sha256": "514a85d32712b2bd03b06b39593620d96769fa9ffc58c52bb07d87a96be0afe6",
+    "actual_hardware_data": false,
+    "production_rml_noise_model_changed": false
+  },
+  "all_imported_project_origins": {
+    "state": "complete",
+    "all_imported_project_modules_under_runtime_prefix": true,
+    "project_module_count": 15,
+    "project_module_names": [
+      "vsora_imaging",
+      "vsora_imaging.window_symmetry",
+      "vsora_observation",
+      "vsora_observation.config",
+      "vsora_observation.geometry",
+      "vsora_observation.reference",
+      "vsora_simulator",
+      "vsora_simulator.bispectrum_distinct",
+      "vsora_simulator.bispectrum_observed_power",
+      "vsora_simulator.casa_window_symmetry",
+      "vsora_simulator.sensitivity",
+      "vsora_simulator.sky",
+      "vsora_simulator.sky_covariance",
+      "vsora_simulator.visibility",
+      "vsora_simulator.visibility_moments"
+    ],
+    "outside_checkout": true,
+    "pythonpath_removed": true
+  },
+  "wheel": {
+    "filename": "v_sora-0.1.0-py3-none-any.whl",
+    "bytes": 5545875,
+    "sha256": "cafdc688721f53ebdc0967b5d03b281049e8eeeecca63175deeefeaed1703b40",
+    "packaged_files_identical_to_source": 84,
+    "reference_assets_identical_to_source": 4
+  },
+  "pip_check_passed": true,
+  "configuration_sha256": "514a85d32712b2bd03b06b39593620d96769fa9ffc58c52bb07d87a96be0afe6",
+  "source_stage081_result_sha256": "6575b09234c55bcb07a64274230eb4630e6709859124703016b2b1beda0eeb02",
+  "python": "3.12.3",
+  "numpy": "2.5.1",
+  "scipy": "1.18.0",
+  "pytest": "8.4.2",
+  "blas_threads": 1,
+  "omp_threads": 1,
+  "actual_hardware_data": false,
+  "adc_fft_fir_quantization_vdif_processed": false,
+  "production_rml_noise_model_changed": false,
+  "source_or_shape_detection_claimed": false,
+  "public_audit": {
+    "findings": 0,
+    "local_markdown_links_checked": 1061,
+    "missing_links": 0
+  }
+}

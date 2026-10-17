@@ -69,3 +69,5 @@
 - [同じ標本の観測powerで正規化した三次統計](observed-power-bispectrum.md)：有限gain相殺と観測powerによる平均の変化。rank-one限定式を一般の誤差モデルへ使わない。
 
 - [window全体の符号反転](window-sign-symmetry.md)：同時分布の不変性を仮定する有限群p値。周辺対称性だけでは不十分で、天体検出・画像信頼度ではない。
+
+- [既知Cas A・点源の有限電圧とwindow虚部](casa-window-symmetry.md)：固定53条件、共役対称性、等輝度二点・位相・複製の対照。実機検出や画像品質とは区別する。

@@ -1,0 +1,15 @@
+{
+  "state": "complete",
+  "outside_checkout": true,
+  "pythonpath_removed": true,
+  "all_science_modules_and_assets_under_installed_prefix": true,
+  "checkout_runner_used": false,
+  "native_cli_full_profile_executed": true,
+  "api_cases_all_fields_exact": 9,
+  "full_plan_identical": true,
+  "scientific_conditions_all_fields_exact": 53,
+  "case_files_all_fields_exact": 53,
+  "configuration_sha256": "514a85d32712b2bd03b06b39593620d96769fa9ffc58c52bb07d87a96be0afe6",
+  "actual_hardware_data": false,
+  "production_rml_noise_model_changed": false
+}
