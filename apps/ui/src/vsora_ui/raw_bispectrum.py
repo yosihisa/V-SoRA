@@ -39,6 +39,7 @@ def input_axes(workspace, input, source_visibility):
         'time_origin_utc': data['metadata']['time_origin_utc'],
         'station_ids': data['metadata']['station_ids'],
         'bispectrum_unit': data['metadata']['bispectrum_unit'],
+        'raw_schema_version': int(data['schema_version']),
         'source_visibility_verified': True,
         'raw_bispectrum_sha256': raw_sha,
         'source_visibility_sha256': source_sha,
@@ -58,4 +59,16 @@ def inspect_selected_file(workspace, request, output):
     text = json.dumps(result, indent=2, allow_nan=False) + '\n'
     with Path(output).open('x', encoding='utf-8') as stream:
         stream.write(text)
+    return result
+
+def inspect_window_selected_file(workspace, request, output):
+    from vsora_correlator.bispectrum_window_symmetry import window_symmetry_from_bispectrum
+    data, raw_sha, source_sha = _read_pair(workspace, request.input, request.source_visibility)
+    if (raw_sha, source_sha) != (request.raw_bispectrum_sha256, request.source_visibility_sha256):
+        raise ValueError('selected raw/source identity changed; read input axes again')
+    result = window_symmetry_from_bispectrum(data, request.channel_index)
+    result.update(source_visibility_verified=True, raw_bispectrum_sha256=raw_sha,
+                  source_visibility_sha256=source_sha)
+    with Path(output).open('x', encoding='utf-8') as stream:
+        stream.write(json.dumps(result, indent=2, allow_nan=False) + chr(10))
     return result

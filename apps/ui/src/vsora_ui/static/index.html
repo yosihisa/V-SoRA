@@ -233,10 +233,14 @@
             <p id="raw-input-note" class="field-help" role="status">二つの保存済みファイルを指定し、時刻・周波数を読み込んでください。</p>
             <div class="form-row"><label>確認する時刻<select name="time_index" disabled required></select></label><label>確認するRF周波数<select name="channel_index" disabled required></select></label></div>
             <button type="submit" class="primary full" disabled>選んだ三次統計の値を確認</button>
+            <h3>選んだRFの全保存区間を調べる</h3>
+            <p class="field-help">全時刻・全三角形のU₃比虚部を使います。区間の独立性と結合符号反転対称性は、原本照合だけでは確認できません。</p>
+            <p id="raw-window-note" class="field-help" role="status">二つの入力を照合すると、形式と区間数を確認できます。</p>
+            <button type="button" id="raw-window-test" class="secondary full" disabled>全区間の条件付き対称性を確認</button>
           </form>
           <div class="explanation-stack">
             <div class="card"><h2>三つの状態を区別する</h2><p>三局に共通するFFTが3個未満ならU₃は未計算です。品質マスクで除外された値は利用不可として表示します。形式上利用可でも、実FFTが独立であることや十分な感度があることは保証しません。</p><p>複素数は実部・虚部の組で読みます。未計算は、測定したゼロとは異なります。</p></div>
-            <div class="note-card"><h3>観測の成功を判定する機能ではありません</h3><p>元相関との照合は、対応する保存ファイルかを確認します。雑音の大きさ、位相の信頼度、検出確率、未知gainの正規化、画像品質は推定しません。現在のRMLへの適用はありません。</p><p>ファイルを変更した場合は時刻・周波数を読み直してください。</p></div>
+            <div class="note-card"><h3>観測の成功を判定する機能ではありません</h3><p>元相関との照合は、対応する保存ファイルかを確認します。雑音の大きさ、位相の信頼度、検出確率、局gain自体、画像品質は推定しません。共通電力による比を確認できても、画像の誤差が分かったことにはなりません。現在のRMLへの適用はありません。</p><p>ファイルを変更した場合は時刻・周波数を読み直してください。</p></div>
           </div>
         </div>
       </section>

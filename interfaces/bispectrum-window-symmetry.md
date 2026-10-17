@@ -12,7 +12,7 @@ vsora-window-symmetry \
   --output window-symmetry.json
 ~~~
 
-Python APIはvsora_correlator.bispectrum_window_symmetryのwindow_symmetry_from_bispectrum（配列・原本未照合）とinspect_bispectrum_window_file（原本照合付きファイル入出力）。JSONは新規作成し、既存結果を上書きしない。GUIへの追加はこの段階では行わない。
+Python APIはvsora_correlator.bispectrum_window_symmetryのwindow_symmetry_from_bispectrum（配列・原本未照合）とinspect_bispectrum_window_file（原本照合付きファイル入出力）。JSONは新規作成し、既存結果を上書きしない。段階093はAPI/CLIを対象とした。段階094から日本語GUIの「保存三次統計」で同じ検定を実行できる。時刻を絞らず全保存区間を使い、version1・13区間以上では実行ボタンを無効にする。計算不能・品質除外はworkerで停止し、自動で間引かない。
 
 ## 判定量と成立条件
 

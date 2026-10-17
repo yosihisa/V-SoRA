@@ -189,4 +189,6 @@
 
 | 093 | [保存window列の条件付き対称性検定](093-stored-window-symmetry.md) | source/wheel1537件。新40対象・8条件、直接電圧feature/checkout外API/独立CLIの全JSON一致。複製反例・分解能・未確認の成立条件を記録 |
 
+| 094 | [保存区間列の条件付き対称性を日本語GUIへ接続](094-stored-window-symmetry-gui.md) | source/wheel1557件。新20対象、両実Chromium4成功76行/全JSONと無効化/停止/原本SHAを照合。既存092の7条件も両実ブラウザで回帰 |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。

@@ -99,6 +99,7 @@ function renderDetail(job){const box=byId("job-detail");box.replaceChildren();co
   if(summary&&summary.type==="temporal_bispectrum_validation")renderTemporalBispectrum(box,summary);
   if(summary&&summary.type==="distinct_sample_bispectrum_validation")renderDistinctBispectrum(box,summary);
   if(summary&&summary.type==="raw_bispectrum_inspection")renderBispectrumInspection(box,summary);
+  if(summary&&summary.type==="stored_bispectrum_window_symmetry")renderStoredWindowSymmetry(box,summary);
   if(summary&&summary.type==="spectral_noise_diagnostic")renderObservationNoise(box,summary);
   if(summary&&summary.type==="pilot_time_scatter")renderTimeScatter(box,summary);
   if(summary&&summary.windows){const details=node("details"),table=node("table",undefined,"window-table"),head=node("tr");head.append(node("th","区間・開始時刻"),node("th","pilotと局周波数差"));table.append(head);for(const w of summary.windows){const row=node("tr"),a=w.rate_acquisition,r=w.rate_estimate,info=node("td"),sk=a.sk_eligible_fraction===null?"未記録":(100*a.sk_eligible_fraction).toFixed(1)+"%";row.append(node("td",(w.window_index+1)+" / "+w.start_offset_s.toFixed(3)+" 秒"));if(w.rate_consistency)info.append(node("p",rateConsistencyLabels[w.rate_consistency.state]||w.rate_consistency.state));info.append(node("p",(a.pilot_integration_s*1000).toFixed(3)+"ms × "+a.pilot_integrations+" / Nyquist "+a.temporal_nyquist_hz.toFixed(1)+"Hz / SK判定可能 "+sk));for(let i=0;i<r.station_ids.length;i++)info.append(node("span",r.station_ids[i]+": "+r.station_rates_hz[i].toFixed(4)+" Hz","station-rate"));renderLinearRate(info,r);row.append(info);table.append(row);}details.append(node("summary","区間ごとの周波数差とpilot条件"),table);box.append(details,node("p","周波数差は基準局との差です。選択した一定または滑らかな線形モデルを各pilot内で使い、区間の間は補間していません。初期の基線差が各pilotのNyquist内にあることは別途確認が必要です。SK判定可能な割合が低い区間は、電波妨害の確認を別途行ってください。","muted"));if(summary.windows.some(w=>w.correlation.station_read_start_samples.some(x=>x>0)))box.append(node("p","必要な区間とguardを部分読取しました。飛ばした前方区間のheaderは検査していません。原本のSHA確認と、読んだ区間の時刻検査は別です。","muted"));}
@@ -316,9 +317,11 @@ function renderBispectrumMoments(box,s){
 
 function renderRawBispectrum(box,s){const records=s.windows?s.windows.map(w=>({label:"区間 "+(w.window_index+1),raw:w.correlation&&w.correlation.raw_bispectrum})):[{label:"短積分",raw:s.correlation&&s.correlation.raw_bispectrum}];const saved=records.filter(r=>r.raw);if(!saved.length)return;box.append(node("h3","再解析用の三次統計"),node("p","三局共通の有効FFTから追加の和を保存しました。実FFT・品質選別の独立性とU₃の尤度は未確認です。今回の画像は従来のClosureから復元しています。","muted"));const table=node("table",undefined,"window-table"),head=node("tr");head.append(node("th","対象"),node("th","保存量と利用可否"));table.append(head);for(const row of saved){const r=row.raw,tr=node("tr"),info=node("td"),counts=r.common_fft_count.flat();tr.append(node("td",row.label));info.append(node("p","三局共通FFT数："+Math.min(...counts)+"〜"+Math.max(...counts)),node("p","利用可channel・三角形："+r.usable_channel_triangles+" / "+r.total_channel_triangles),node("p","追加ファイル："+(r.bytes/1024).toFixed(1)+" KiB / 元相関の照合："+(r.source_visibility_verified?"一致":"未確認")));if(r.schema_version>=2)info.append(node("p","保存形式：version "+r.schema_version+" / 三局共通の電力和も保持（"+r.common_power_sum_unit+"）"));tr.append(info);table.append(tr);}box.append(table,node("p","raw-bispectrum.npz は下の保存ファイル一覧から取得できます。元のshard-00000.npzも一緒に保持してください。","muted"));}
 
-let rawSelection=null,rawReadGeneration=0;
+let rawSelection=null,rawReadGeneration=0,rawWindowReady=false;
 function invalidateRawInput(){
-  rawSelection=null;rawReadGeneration++;
+  rawSelection=null;rawReadGeneration++;rawWindowReady=false;
+  byId("raw-window-test").disabled=true;
+  byId("raw-window-note").textContent="二つの入力を照合すると、形式と区間数を確認できます。";
   const form=byId("raw-form");
   for(const name of ["time_index","channel_index"]){form.elements[name].replaceChildren();form.elements[name].disabled=true;}
   form.querySelector("button[type=submit]").disabled=true;
@@ -339,6 +342,11 @@ byId("read-raw-input").addEventListener("click",async()=>{
     for(const name of ["time_index","channel_index"])form.elements[name].disabled=false;
     rawSelection={...paths,raw_bispectrum_sha256:axes.raw_bispectrum_sha256,source_visibility_sha256:axes.source_visibility_sha256};
     form.querySelector("button[type=submit]").disabled=false;
+    rawWindowReady=axes.raw_schema_version===2&&axes.times_s.length>=1&&axes.times_s.length<=12;
+    byId("raw-window-test").disabled=!rawWindowReady;
+    byId("raw-window-note").textContent=axes.raw_schema_version!==2?"共通電力がない旧形式では、この検定を計算できません。":
+      axes.times_s.length>12?"全保存区間が12を超えています。自動抽出せず、この画面では実行できません。":
+      "全"+axes.times_s.length+"区間・全三角形を使用します。区間の独立性・結合対称性と、上流の選別の影響は未確認です。";
     byId("raw-input-note").textContent=axes.times_s.length+"時刻 / "+axes.frequencies_hz.length+"channel。UTC原点："+axes.time_origin_utc+"。元相関：照合一致。単位："+axes.bispectrum_unit+"。実FFTの独立性や信頼区間は未確認です。";
   }catch(error){if(generation===rawReadGeneration)message(error.message);}finally{button.disabled=false;}
 });
@@ -661,4 +669,30 @@ function renderCasaWindowSymmetry(box,s){
   }
   for(const select of [models,modes,baseline,receiver])select.addEventListener("change",draw);draw();box.append(form,count,node("p","表は横にスクロールして確認できます。","muted"),tableScroll,details,
     node("p","固定MC基準は帰無条件を支持するモデルだけに適用します。多数条件の最小pを一つの有意水準として使わないでください。位相変動とwindow複製の対照は前提を確認する人工例であり、実機の故障率・検出率ではありません。真値逆位相は未知LO推定の成功ではありません。","muted"));
+}
+
+byId("raw-window-test").addEventListener("click",()=>{
+  if(!rawSelection||!rawWindowReady)return;
+  const form=byId("raw-form"),button=byId("raw-window-test");button.disabled=true;
+  submit(form,{kind:"bispectrum_window_symmetry",...rawSelection,channel_index:Number(form.elements.channel_index.value)})
+    .finally(()=>{button.disabled=!rawWindowReady;form.querySelector("button[type=submit]").disabled=!rawSelection;});
+});
+function renderStoredWindowSymmetry(box,s){
+  const t=s.conditional_test,n=value=>value.toExponential(6);
+  box.append(node("h3","保存区間列の条件付き対称性"),
+    node("p","結合符号反転対称性を仮定した条件付きp値："+n(t.upper_tail_p_value)),
+    node("p","全"+t.windows+"区間 / "+t.features+"三角形 / 符号群："+t.group_size.toLocaleString("ja-JP")+"通り / 最小分解能："+n(t.minimum_two_sided_resolution)),
+    node("p","選んだRF："+(s.frequency_hz/1e6).toFixed(6)+" MHz / UTC原点："+s.time_origin_utc),
+    node("p","元相関との原本照合："+(s.source_visibility_verified?"一致":"未確認")+"。区間の独立性・結合対称性・上流選別の妥当性：未確認。","muted"));
+  if(!s.nominal_five_percent_resolution_available)box.append(node("p","区間数が少なく、5%の判定に必要な分解能がありません。","muted"));
+  box.append(node("p","p値はCas Aの検出率や画像信頼度ではありません。複製区間、時間変動LO、品質選別が検定の前提を崩す場合があります。channelを結果から選ぶ多重比較は扱いません。現在のRMLへの適用はありません。","muted"));
+  const wrap=node("div",undefined,"raw-normalization-scroll"),table=node("table",undefined,"window-table");table.id="stored-window-feature-table";
+  const head=node("tr");for(const label of ["区間・原点からの時刻","三角形","共通FFT数","無次元U₃の虚部"])head.append(node("th",label));table.append(head);
+  for(let wi=0;wi<s.times_s.length;wi++)for(let ki=0;ki<s.triangles.length;ki++){
+    const row=node("tr");row.append(node("td",wi+" / "+s.times_s[wi].toFixed(6)+" 秒"),
+      node("td",s.triangle_station_ids[ki].join(" / ")),node("td",s.common_fft_count[wi][ki].toLocaleString("ja-JP")),
+      node("td",n(s.imaginary_normalized_u3[wi][ki])));table.append(row);
+  }
+  box.append(node("p","表は横にスクロールできます。全桁の値と入力SHAはwindow-symmetry.jsonへ保存します。","muted"));
+  wrap.append(table);box.append(wrap);
 }
