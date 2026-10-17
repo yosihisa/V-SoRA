@@ -1,0 +1,56 @@
+{
+  "state": "complete",
+  "installed_imports": true,
+  "outside_checkout": true,
+  "scientific_cli_cwd_in_temporary_workspace": true,
+  "pythonpath_removed": true,
+  "installed_cli_save_bispectrum": true,
+  "raw_schema_version": 2,
+  "all_common_power_and_raw_arrays_identical": true,
+  "all_normalized_fields_identical": true,
+  "all_project_modules_under_runtime_prefix": true,
+  "project_module_count": 19,
+  "project_module_names": [
+    "vsora_correlator",
+    "vsora_correlator.aligned",
+    "vsora_correlator.bispectrum_accumulator",
+    "vsora_correlator.bispectrum_power",
+    "vsora_correlator.clock",
+    "vsora_correlator.fringe",
+    "vsora_correlator.fx",
+    "vsora_correlator.quality",
+    "vsora_correlator.rate",
+    "vsora_correlator.session",
+    "vsora_correlator.stream_fx",
+    "vsora_formats",
+    "vsora_formats.bispectrum",
+    "vsora_formats.fitsidi",
+    "vsora_formats.spectral",
+    "vsora_formats.vdif",
+    "vsora_observation",
+    "vsora_observation.config",
+    "vsora_observation.geometry"
+  ],
+  "frozen_vdif_recorrelated": true,
+  "ordinary_numeric_arrays_compared": 13,
+  "ordinary_arrays_bit_identical": true,
+  "ordinary_metadata_identical": true,
+  "source_visibility_verified": true,
+  "common_fft_count": [
+    [
+      2935,
+      2935,
+      3068,
+      3067
+    ],
+    [
+      3200,
+      3200,
+      3200,
+      3200
+    ]
+  ],
+  "no_overwrite_checked": true,
+  "actual_temporal_independence_verified": false,
+  "production_rml_noise_model_changed": false
+}

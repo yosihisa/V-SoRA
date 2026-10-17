@@ -1,0 +1,152 @@
+{
+  "state": "complete",
+  "targeted_tests": {
+    "passed": 18,
+    "warnings": 2364,
+    "elapsed_s": 15.66,
+    "new_tests": 2,
+    "existing_related_tests": 16
+  },
+  "full_regression": {
+    "source": {
+      "passed": 1483,
+      "warnings": 27396,
+      "elapsed_s": 550.44,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 1483,
+      "warnings": 27396,
+      "elapsed_s": 548.48,
+      "excluded_tests": 0
+    }
+  },
+  "experiment": {
+    "source_vdif_study_elapsed_s": 3.15,
+    "maximum_rss_kib": 286744,
+    "raw_schema_version": 2,
+    "common_power_shape": [
+      2,
+      32,
+      4,
+      3
+    ],
+    "common_power_numeric_bytes": 6144,
+    "power_sum_unit": "ADC^2",
+    "existing_raw_arrays_identical_to_stage064": true,
+    "spectral_arrays_and_metadata_identical_to_stage064": true
+  },
+  "point_three_second_direct_fft_tests": {
+    "conditions": [
+      "complete",
+      "station_missing_frames"
+    ],
+    "stations": 4,
+    "fft_length": 32,
+    "nominal_blocks": 19200,
+    "sample_rate_hz": 2048000,
+    "nominal_integration_s": 0.3,
+    "source_frames_per_station": 180,
+    "supplied_clock_and_rate_profile": true,
+    "all_channel_triangle_common_powers_and_normalized_u3_checked": true,
+    "power_rtol": 2e-12,
+    "power_atol": 2e-08,
+    "dimensionless_ratio_rtol": 2e-10,
+    "dimensionless_ratio_atol": 2e-12
+  },
+  "outside_api": {
+    "state": "complete",
+    "installed_imports": true,
+    "outside_checkout": true,
+    "scientific_cli_cwd_in_temporary_workspace": true,
+    "pythonpath_removed": true,
+    "installed_cli_save_bispectrum": true,
+    "raw_schema_version": 2,
+    "all_common_power_and_raw_arrays_identical": true,
+    "all_normalized_fields_identical": true,
+    "all_project_modules_under_runtime_prefix": true,
+    "project_module_count": 19,
+    "project_module_names": [
+      "vsora_correlator",
+      "vsora_correlator.aligned",
+      "vsora_correlator.bispectrum_accumulator",
+      "vsora_correlator.bispectrum_power",
+      "vsora_correlator.clock",
+      "vsora_correlator.fringe",
+      "vsora_correlator.fx",
+      "vsora_correlator.quality",
+      "vsora_correlator.rate",
+      "vsora_correlator.session",
+      "vsora_correlator.stream_fx",
+      "vsora_formats",
+      "vsora_formats.bispectrum",
+      "vsora_formats.fitsidi",
+      "vsora_formats.spectral",
+      "vsora_formats.vdif",
+      "vsora_observation",
+      "vsora_observation.config",
+      "vsora_observation.geometry"
+    ],
+    "frozen_vdif_recorrelated": true,
+    "ordinary_numeric_arrays_compared": 13,
+    "ordinary_arrays_bit_identical": true,
+    "ordinary_metadata_identical": true,
+    "source_visibility_verified": true,
+    "common_fft_count": [
+      [
+        2935,
+        2935,
+        3068,
+        3067
+      ],
+      [
+        3200,
+        3200,
+        3200,
+        3200
+      ]
+    ],
+    "no_overwrite_checked": true,
+    "actual_temporal_independence_verified": false,
+    "production_rml_noise_model_changed": false
+  },
+  "wheel": {
+    "filename": "v_sora-0.1.0-py3-none-any.whl",
+    "bytes": 5559252,
+    "sha256": "bc353fc56b88d4c38b7604b58d83faec915a85e768584e50e516e48c9e911094",
+    "packaged_files_identical_to_source": 87
+  },
+  "pip_check_passed": true,
+  "python": "3.12.3",
+  "numpy": "2.5.1",
+  "scipy": "1.18.0",
+  "pytest": "8.4.2",
+  "blas_threads": 1,
+  "omp_threads": 1,
+  "cli_cwd_review": {
+    "state": "verifier_review_complete",
+    "scientific_module_hashes_unchanged": true,
+    "scientific_module_sha256": {
+      "apps/correlator/src/vsora_correlator/aligned.py": "f0d8f5abbdaadc9162ac8823c7e6f7120943d2e8115f5c1d319a3af577121f48",
+      "apps/correlator/src/vsora_correlator/stream_fx.py": "14e0562e22fc96590614ce70b1264b8ca768564698b62db820d2814b7a9de946",
+      "apps/correlator/src/vsora_correlator/bispectrum_accumulator.py": "79c5aee3df4800cd68abf0f885394ef64090d7b509937cbe0c182e43764dee40",
+      "apps/correlator/src/vsora_correlator/bispectrum_power.py": "c2e973cf55a42d5a1559fa846a6e2b8abf9e5f8ea00fef544cec4efdbcd95c29",
+      "packages/formats/src/vsora_formats/bispectrum.py": "f7563f19bbf9d6e050d09fd39941e736d28bfdcc0b303c7a859377d737c5d0f7",
+      "apps/correlator/src/vsora_correlator/bispectrum_inspect.py": "18eb6807621702a1cde6525669cde1a5620868be6f8513a8ea43d049b578e799"
+    },
+    "first_source_regression": {
+      "passed": 1483,
+      "warnings": 27396,
+      "elapsed_s": 548.16
+    },
+    "first_regression_finished_before_verifier_edit": true,
+    "scientific_cli_cwd_changed_from_result_directory_to_temporary_workspace": true,
+    "source_full_regression_repeated_after_edit": true
+  },
+  "japanese_gui_renderer_changed": false,
+  "real_browser_verified_in_this_stage": false,
+  "input_sample_independence_verified": false,
+  "input_mask_independence_verified": false,
+  "real_hardware_validation_performed": false,
+  "production_rml_noise_model_changed": false
+}

@@ -183,4 +183,6 @@
 
 | 090 | [共通FFT電力を保存するraw version2](090-bispectrum-power-archive.md) | source/wheel1481件。v1互換・8条件64セル/256行、checkout外API/CLI/全16archive一致。既存VDIF producerはv1のまま |
 
+| 091 | [VDIF相関から共通FFT電力を保存](091-vdif-common-power.md) | source/wheel1483件。0.3秒欠測あり/なしの直接FFT照合、064全既存値保持、checkout外再相関の全raw/P/比一致。GUI追加表示は092へ |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。

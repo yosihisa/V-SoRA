@@ -288,3 +288,7 @@ powerは電圧の絶対値の二乗の平均です。区間内でgainが一定�
 ### 共通電力を残す保存形式（段階090）
 
 raw NPZ version2は三角形で共通する標本の三局電力和を保持し、保存後に無次元の比を再計算できる。Pythonのsave_bispectrumでschema_version=2を明示する。version1も読み込めるが、必要な共通電力が無いため比はnullとなる。inspectionは数値を定義できるかと品質マスクを通るかを分けて示す。この段階では既存VDIF相関ジョブはversion1のままである。[保存規約と状態の説明](../../interfaces/bispectrum-power-v2.md)を参照。
+
+### VDIFからの共通電力保存（段階091）
+
+既存VDIF相関の追加保存オプションをversion2へ接続する。元visibilityとrawを一緒に保持し、既存inspection CLIで共通電力を使う比をJSONにできる。[操作と制約](../../interfaces/vdif-common-power.md)を参照。日本語の追加表示は段階092の対象である。

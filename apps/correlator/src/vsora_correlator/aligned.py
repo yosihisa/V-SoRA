@@ -200,6 +200,7 @@ def correlate_aligned(manifest,clock_model,output,integrations,start_offset_s=.0
                   'edge_sums':np.array([q['edge_sums'] for q in states]),
                   'paired_edge_sums':np.array([q['paired_edge_sums'] for q in states]),
                   'triple_edge_sum':np.array([q['triple_edge_sum'] for q in states]),
+                  'common_station_power_sums':np.array([q['common_station_power_sums'] for q in states]),
                   'channel_triangle_usable':np.array([q['channel_triangle_usable'] for q in states])}
             source=partial/'shard-00000.npz'
             with source.open('rb') as stream:digest=hashlib.file_digest(stream,'sha256').hexdigest()
@@ -213,10 +214,12 @@ def correlate_aligned(manifest,clock_model,output,integrations,start_offset_s=.0
                           'clock_model_sha256='+hashlib.sha256(clock_bytes).hexdigest(),
                           'rate_profile_sha256='+str(rate_sha),
                           'Actual FFT/mask independence, raw U3 likelihood and real receiver behavior unverified.']}
-            destination=partial/'raw-bispectrum.npz';save_bispectrum(destination,data,raw_meta)
+            destination=partial/'raw-bispectrum.npz';save_bispectrum(destination,data,raw_meta,schema_version=2)
             checked=load_bispectrum(destination,source)
-            raw_summary={'filename':destination.name,'schema_version':1,'bytes':destination.stat().st_size,
+            raw_summary={'filename':destination.name,'schema_version':2,'bytes':destination.stat().st_size,
                          'visibility_sha256':digest,'source_visibility_verified':checked['source_visibility_verified'],
+                         'common_station_power_saved':True,'common_power_sum_unit':checked['metadata']['common_power_sum_unit'],
+                         'observed_power_ratio_unbiased_guarantee':False,
                          'common_fft_count':data['common_fft_count'].tolist(),
                          'usable_channel_triangles':int(data['channel_triangle_usable'].sum()),
                          'total_channel_triangles':int(data['channel_triangle_usable'].size),

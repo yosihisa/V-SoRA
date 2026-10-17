@@ -1,0 +1,20 @@
+{
+  "state": "verifier_review_complete",
+  "scientific_module_hashes_unchanged": true,
+  "scientific_module_sha256": {
+    "apps/correlator/src/vsora_correlator/aligned.py": "f0d8f5abbdaadc9162ac8823c7e6f7120943d2e8115f5c1d319a3af577121f48",
+    "apps/correlator/src/vsora_correlator/stream_fx.py": "14e0562e22fc96590614ce70b1264b8ca768564698b62db820d2814b7a9de946",
+    "apps/correlator/src/vsora_correlator/bispectrum_accumulator.py": "79c5aee3df4800cd68abf0f885394ef64090d7b509937cbe0c182e43764dee40",
+    "apps/correlator/src/vsora_correlator/bispectrum_power.py": "c2e973cf55a42d5a1559fa846a6e2b8abf9e5f8ea00fef544cec4efdbcd95c29",
+    "packages/formats/src/vsora_formats/bispectrum.py": "f7563f19bbf9d6e050d09fd39941e736d28bfdcc0b303c7a859377d737c5d0f7",
+    "apps/correlator/src/vsora_correlator/bispectrum_inspect.py": "18eb6807621702a1cde6525669cde1a5620868be6f8513a8ea43d049b578e799"
+  },
+  "first_source_regression": {
+    "passed": 1483,
+    "warnings": 27396,
+    "elapsed_s": 548.16
+  },
+  "first_regression_finished_before_verifier_edit": true,
+  "scientific_cli_cwd_changed_from_result_directory_to_temporary_workspace": true,
+  "source_full_regression_repeated_after_edit": true
+}

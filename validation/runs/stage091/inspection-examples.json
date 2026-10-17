@@ -1,0 +1,322 @@
+{
+  "samples": [
+    {
+      "type": "raw_bispectrum_inspection",
+      "raw_schema_version": 2,
+      "observed_power_ratio_supported": true,
+      "normalized_bispectrum_unit": "dimensionless",
+      "common_power_sum_unit": "ADC^2",
+      "state": "complete",
+      "time_index": 0,
+      "channel_index": 10,
+      "time_s": 0.027000000000000003,
+      "time_origin_utc": "2026-10-02T08:00:00.000Z",
+      "frequency_hz": 1419616000.0,
+      "bispectrum_unit": "ADC^6",
+      "nominal_fft_count": 3200,
+      "triangles": [
+        {
+          "triangle": [
+            0,
+            1,
+            2
+          ],
+          "station_ids": [
+            "ST01",
+            "ST02",
+            "ST03"
+          ],
+          "common_fft_count": 2935,
+          "common_station_power_sums": [
+            9781915.003360573,
+            567936754.0988262,
+            139022635.5533258
+          ],
+          "observed_power_normalized_u3_available": true,
+          "observed_power_normalized_ordinary_product_available": true,
+          "observed_power_normalized_u3_quality_usable": true,
+          "observed_power_normalization_state": "usable_normalized_value",
+          "observed_power_normalized_u3_real": 0.00056854228087855,
+          "observed_power_normalized_u3_imag": 1.459633372007152e-05,
+          "observed_power_normalized_ordinary_product_real": 0.000574852964357462,
+          "observed_power_normalized_ordinary_product_imag": 1.4871647261566404e-05,
+          "distinct_sample_available": true,
+          "channel_triangle_usable": true,
+          "state": "usable_raw_value",
+          "ordinary_common_sample_product_real": 17560700492.942436,
+          "ordinary_common_sample_product_imag": 454301464.18216896,
+          "distinct_sample_bispectrum_real": 17367920722.548798,
+          "distinct_sample_bispectrum_imag": 445891141.98917675
+        },
+        {
+          "triangle": [
+            0,
+            1,
+            3
+          ],
+          "station_ids": [
+            "ST01",
+            "ST02",
+            "ST04"
+          ],
+          "common_fft_count": 2935,
+          "common_station_power_sums": [
+            9781915.003360573,
+            567936754.0988262,
+            35860155.2859215
+          ],
+          "observed_power_normalized_u3_available": true,
+          "observed_power_normalized_ordinary_product_available": true,
+          "observed_power_normalized_u3_quality_usable": true,
+          "observed_power_normalization_state": "usable_normalized_value",
+          "observed_power_normalized_u3_real": 0.0005802873699555594,
+          "observed_power_normalized_u3_imag": -6.309211335160759e-05,
+          "observed_power_normalized_ordinary_product_real": 0.0005873943288714786,
+          "observed_power_normalized_ordinary_product_imag": -6.40727113650449e-05,
+          "distinct_sample_available": true,
+          "channel_triangle_usable": true,
+          "state": "usable_raw_value",
+          "ordinary_common_sample_product_real": 4628512683.788453,
+          "ordinary_common_sample_product_imag": -504876098.8339646,
+          "distinct_sample_bispectrum_real": 4572511718.391504,
+          "distinct_sample_bispectrum_imag": -497149244.6240979
+        },
+        {
+          "triangle": [
+            0,
+            2,
+            3
+          ],
+          "station_ids": [
+            "ST01",
+            "ST03",
+            "ST04"
+          ],
+          "common_fft_count": 3068,
+          "common_station_power_sums": [
+            10217385.790577564,
+            144883174.36281285,
+            37337876.78278913
+          ],
+          "observed_power_normalized_u3_available": true,
+          "observed_power_normalized_ordinary_product_available": true,
+          "observed_power_normalized_u3_quality_usable": true,
+          "observed_power_normalization_state": "usable_normalized_value",
+          "observed_power_normalized_u3_real": 0.0005442642571762769,
+          "observed_power_normalized_u3_imag": -8.208818950617104e-05,
+          "observed_power_normalized_ordinary_product_real": 0.0005513382409445968,
+          "observed_power_normalized_ordinary_product_imag": -8.266310774503843e-05,
+          "distinct_sample_available": true,
+          "channel_triangle_usable": true,
+          "state": "usable_raw_value",
+          "ordinary_common_sample_product_real": 1055259846.6071622,
+          "ordinary_common_sample_product_imag": -158216956.3454357,
+          "distinct_sample_bispectrum_real": 1041720261.5178542,
+          "distinct_sample_bispectrum_imag": -157116564.44894865
+        },
+        {
+          "triangle": [
+            1,
+            2,
+            3
+          ],
+          "station_ids": [
+            "ST02",
+            "ST03",
+            "ST04"
+          ],
+          "common_fft_count": 3067,
+          "common_station_power_sums": [
+            596211215.1759053,
+            145246790.25512815,
+            37575989.09280404
+          ],
+          "observed_power_normalized_u3_available": true,
+          "observed_power_normalized_ordinary_product_available": true,
+          "observed_power_normalized_u3_quality_usable": true,
+          "observed_power_normalization_state": "usable_normalized_value",
+          "observed_power_normalized_u3_real": 0.0008478041005534664,
+          "observed_power_normalized_u3_imag": -2.4364835832360212e-06,
+          "observed_power_normalized_ordinary_product_real": 0.0008564351111245354,
+          "observed_power_normalized_ordinary_product_imag": -2.4065720876034445e-06,
+          "distinct_sample_available": true,
+          "channel_triangle_usable": true,
+          "state": "usable_raw_value",
+          "ordinary_common_sample_product_real": 96598468693.6111,
+          "ordinary_common_sample_product_imag": -271440504.2993102,
+          "distinct_sample_bispectrum_real": 95624965396.49745,
+          "distinct_sample_bispectrum_imag": -274814262.1437879
+        }
+      ],
+      "source_visibility_verified": true,
+      "noise_covariance_estimated": false,
+      "input_sample_independence_verified": false,
+      "input_mask_independence_verified": false,
+      "closure_phase_unbiased_guarantee": false,
+      "production_rml_noise_model_changed": false,
+      "real_hardware_validation_performed": false,
+      "scope": "Stored common-FFT raw sums and complex U3 values only. M<3 is unavailable, not zero; masks retain raw values but do not qualify them for inference. Version2 ratios use the same triangle-common power sums; version1 values remain null. No uncertainty, phase confidence, normalized source flux, detection probability or image likelihood.",
+      "raw_bispectrum_sha256": "01627dec1c3ed5f30c60136f30ec51cf8e172be826ac08049cbe0e514b50b63d",
+      "source_visibility_sha256": "b28deb4c8c4eee02906dec716c44bf2f42a7208158bb0ee03bf075ee608b44e9"
+    },
+    {
+      "type": "raw_bispectrum_inspection",
+      "raw_schema_version": 2,
+      "observed_power_ratio_supported": true,
+      "normalized_bispectrum_unit": "dimensionless",
+      "common_power_sum_unit": "ADC^2",
+      "state": "complete",
+      "time_index": 1,
+      "channel_index": 16,
+      "time_s": 0.077,
+      "time_origin_utc": "2026-10-02T08:00:00.000Z",
+      "frequency_hz": 1420000000.0,
+      "bispectrum_unit": "ADC^6",
+      "nominal_fft_count": 3200,
+      "triangles": [
+        {
+          "triangle": [
+            0,
+            1,
+            2
+          ],
+          "station_ids": [
+            "ST01",
+            "ST02",
+            "ST03"
+          ],
+          "common_fft_count": 3200,
+          "common_station_power_sums": [
+            11225783.646810204,
+            594894730.6677352,
+            159233963.58901635
+          ],
+          "observed_power_normalized_u3_available": true,
+          "observed_power_normalized_ordinary_product_available": true,
+          "observed_power_normalized_u3_quality_usable": false,
+          "observed_power_normalization_state": "masked_normalized_value",
+          "observed_power_normalized_u3_real": 0.0007893754020435843,
+          "observed_power_normalized_u3_imag": -1.7820189154525192e-05,
+          "observed_power_normalized_ordinary_product_real": 0.0007976558605061647,
+          "observed_power_normalized_ordinary_product_imag": -1.7970176191398052e-05,
+          "distinct_sample_available": true,
+          "channel_triangle_usable": false,
+          "state": "masked_raw_value",
+          "ordinary_common_sample_product_real": 25885593147.438015,
+          "ordinary_common_sample_product_imag": -583169625.78715,
+          "distinct_sample_bispectrum_real": 25616875032.961178,
+          "distinct_sample_bispectrum_imag": -578302234.2137753
+        },
+        {
+          "triangle": [
+            0,
+            1,
+            3
+          ],
+          "station_ids": [
+            "ST01",
+            "ST02",
+            "ST04"
+          ],
+          "common_fft_count": 3200,
+          "common_station_power_sums": [
+            11225783.646810204,
+            594894730.6677352,
+            39227574.09866512
+          ],
+          "observed_power_normalized_u3_available": true,
+          "observed_power_normalized_ordinary_product_available": true,
+          "observed_power_normalized_u3_quality_usable": false,
+          "observed_power_normalization_state": "masked_normalized_value",
+          "observed_power_normalized_u3_real": 0.0009325730238169314,
+          "observed_power_normalized_u3_imag": -0.00011662337098900964,
+          "observed_power_normalized_ordinary_product_real": 0.0009420956733498428,
+          "observed_power_normalized_ordinary_product_imag": -0.00011680725990935665,
+          "distinct_sample_available": true,
+          "channel_triangle_usable": false,
+          "state": "masked_raw_value",
+          "ordinary_common_sample_product_real": 7531705249.797828,
+          "ordinary_common_sample_product_imag": -933830689.9824885,
+          "distinct_sample_bispectrum_real": 7455575201.111807,
+          "distinct_sample_bispectrum_imag": -932360566.3146528
+        },
+        {
+          "triangle": [
+            0,
+            2,
+            3
+          ],
+          "station_ids": [
+            "ST01",
+            "ST03",
+            "ST04"
+          ],
+          "common_fft_count": 3200,
+          "common_station_power_sums": [
+            11225783.646810204,
+            159233963.58901635,
+            39227574.09866512
+          ],
+          "observed_power_normalized_u3_available": true,
+          "observed_power_normalized_ordinary_product_available": true,
+          "observed_power_normalized_u3_quality_usable": false,
+          "observed_power_normalization_state": "masked_normalized_value",
+          "observed_power_normalized_u3_real": 0.0008176266676175334,
+          "observed_power_normalized_u3_imag": -4.3613537972341775e-05,
+          "observed_power_normalized_ordinary_product_real": 0.0008268959314141095,
+          "observed_power_normalized_ordinary_product_imag": -4.256197541458557e-05,
+          "distinct_sample_available": true,
+          "channel_triangle_usable": false,
+          "state": "masked_raw_value",
+          "ordinary_common_sample_product_real": 1769476278.6817508,
+          "ordinary_common_sample_product_imag": -91078457.40775399,
+          "distinct_sample_bispectrum_real": 1749640962.306647,
+          "distinct_sample_bispectrum_imag": -93328698.2552539
+        },
+        {
+          "triangle": [
+            1,
+            2,
+            3
+          ],
+          "station_ids": [
+            "ST02",
+            "ST03",
+            "ST04"
+          ],
+          "common_fft_count": 3200,
+          "common_station_power_sums": [
+            594894730.6677352,
+            159233963.58901635,
+            39227574.09866512
+          ],
+          "observed_power_normalized_u3_available": true,
+          "observed_power_normalized_ordinary_product_available": true,
+          "observed_power_normalized_u3_quality_usable": false,
+          "observed_power_normalization_state": "masked_normalized_value",
+          "observed_power_normalized_u3_real": 0.0010116941042845693,
+          "observed_power_normalized_u3_imag": 5.019185191056283e-05,
+          "observed_power_normalized_ordinary_product_real": 0.0010207282664386988,
+          "observed_power_normalized_ordinary_product_imag": 5.0470720977051575e-05,
+          "distinct_sample_available": true,
+          "channel_triangle_usable": false,
+          "state": "masked_raw_value",
+          "ordinary_common_sample_product_real": 115751728703.65938,
+          "ordinary_common_sample_product_imag": 5723436289.656839,
+          "distinct_sample_bispectrum_real": 114727244596.46584,
+          "distinct_sample_bispectrum_imag": 5691812225.163485
+        }
+      ],
+      "source_visibility_verified": true,
+      "noise_covariance_estimated": false,
+      "input_sample_independence_verified": false,
+      "input_mask_independence_verified": false,
+      "closure_phase_unbiased_guarantee": false,
+      "production_rml_noise_model_changed": false,
+      "real_hardware_validation_performed": false,
+      "scope": "Stored common-FFT raw sums and complex U3 values only. M<3 is unavailable, not zero; masks retain raw values but do not qualify them for inference. Version2 ratios use the same triangle-common power sums; version1 values remain null. No uncertainty, phase confidence, normalized source flux, detection probability or image likelihood.",
+      "raw_bispectrum_sha256": "01627dec1c3ed5f30c60136f30ec51cf8e172be826ac08049cbe0e514b50b63d",
+      "source_visibility_sha256": "b28deb4c8c4eee02906dec716c44bf2f42a7208158bb0ee03bf075ee608b44e9"
+    }
+  ]
+}

@@ -75,3 +75,5 @@
 - [三角形共通FFT標本のpower蓄積と正規化](common-bispectrum-power.md)：同じ標本の比、欠損・品質flag・数値範囲。version1には新powerを保存しない。
 
 - [raw bispectrum version2と共通電力](bispectrum-power-v2.md)：保存・単位・利用可能性・version1互換。
+
+- [VDIF相関から共通電力を保存](vdif-common-power.md)：version2、元visibilityと来歴、CLIでの比の確認。
