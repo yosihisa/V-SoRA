@@ -295,3 +295,6 @@ raw NPZ version2は三角形で共通する標本の三局電力和を保持し�
 
 
 段階092では、保存三次統計画面からversion2の共通電力と無次元比を確認できる。これは保存値を調べる操作であり、低SNRの画像尤度への適用ではない。数値の計算可否と既存品質maskの利用可否を別に表示する。[操作](06-gui.md)、[段階レポート](../reports/092-bispectrum-power-gui.md)。
+
+
+段階093はversion2保存原本の全windowを、条件付きwhole-window対称性検定へ接続する。これは区間の独立性やCas Aの検出を証明する操作ではない。[入力・CLI・成立条件](../../interfaces/bispectrum-window-symmetry.md)、[段階レポート](../reports/093-stored-window-symmetry.md)。

@@ -77,3 +77,5 @@
 - [raw bispectrum version2と共通電力](bispectrum-power-v2.md)：保存・単位・利用可能性・version1互換。
 
 - [VDIF相関から共通電力を保存](vdif-common-power.md)：version2、元visibilityと来歴、CLI/日本語GUIでの比の確認。
+
+- [保存window列の条件付き対称性](bispectrum-window-symmetry.md)：version2・原本照合・全区間・検定前提と分解能。

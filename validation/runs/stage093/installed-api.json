@@ -1,0 +1,72 @@
+{
+  "state": "complete",
+  "cases": [
+    {
+      "case_id": "vdif",
+      "api_matches_source": true,
+      "independent_console_matches_source": true,
+      "success": true
+    },
+    {
+      "case_id": "independent",
+      "api_matches_source": true,
+      "independent_console_matches_source": true,
+      "success": true
+    },
+    {
+      "case_id": "copied",
+      "api_matches_source": true,
+      "independent_console_matches_source": true,
+      "success": true
+    },
+    {
+      "case_id": "single",
+      "api_matches_source": true,
+      "independent_console_matches_source": true,
+      "success": true
+    },
+    {
+      "case_id": "legacy",
+      "api_matches_source": true,
+      "independent_console_matches_source": true,
+      "success": false
+    },
+    {
+      "case_id": "m2",
+      "api_matches_source": true,
+      "independent_console_matches_source": true,
+      "success": false
+    },
+    {
+      "case_id": "masked",
+      "api_matches_source": true,
+      "independent_console_matches_source": true,
+      "success": false
+    },
+    {
+      "case_id": "zero",
+      "api_matches_source": true,
+      "independent_console_matches_source": true,
+      "success": false
+    }
+  ],
+  "all_api_and_cli_results_identical": true,
+  "all_project_modules_under_runtime_prefix": true,
+  "project_module_count": 9,
+  "project_modules": [
+    "vsora_correlator",
+    "vsora_correlator.bispectrum_inspect",
+    "vsora_correlator.bispectrum_power",
+    "vsora_correlator.bispectrum_window_symmetry",
+    "vsora_formats",
+    "vsora_formats.bispectrum",
+    "vsora_formats.spectral",
+    "vsora_imaging",
+    "vsora_imaging.window_symmetry"
+  ],
+  "cli_cwd_outside_checkout": true,
+  "pythonpath_removed_for_cli": true,
+  "workspace_has_checkout_runner": false,
+  "existing_results_not_overwritten": true,
+  "unavailable_cases_not_partially_written": true
+}

@@ -1,0 +1,748 @@
+{
+  "state": "complete",
+  "cases": [
+    {
+      "case_id": "vdif",
+      "expected_success": true,
+      "channel_index": 10,
+      "result": {
+        "type": "stored_bispectrum_window_symmetry",
+        "state": "complete",
+        "raw_schema_version": 2,
+        "channel_index": 10,
+        "frequency_hz": 1419616000.0,
+        "time_origin_utc": "2026-10-02T08:00:00.000Z",
+        "times_s": [
+          0.027000000000000003,
+          0.077
+        ],
+        "station_ids": [
+          "ST01",
+          "ST02",
+          "ST03",
+          "ST04"
+        ],
+        "triangles": [
+          [
+            0,
+            1,
+            2
+          ],
+          [
+            0,
+            1,
+            3
+          ],
+          [
+            0,
+            2,
+            3
+          ],
+          [
+            1,
+            2,
+            3
+          ]
+        ],
+        "triangle_station_ids": [
+          [
+            "ST01",
+            "ST02",
+            "ST03"
+          ],
+          [
+            "ST01",
+            "ST02",
+            "ST04"
+          ],
+          [
+            "ST01",
+            "ST03",
+            "ST04"
+          ],
+          [
+            "ST02",
+            "ST03",
+            "ST04"
+          ]
+        ],
+        "common_fft_count": [
+          [
+            2935,
+            2935,
+            3068,
+            3067
+          ],
+          [
+            3200,
+            3200,
+            3200,
+            3200
+          ]
+        ],
+        "imaginary_normalized_u3": [
+          [
+            1.459633372007152e-05,
+            -6.309211335160759e-05,
+            -8.208818950617104e-05,
+            -2.4364835832360212e-06
+          ],
+          [
+            -7.716393889742732e-06,
+            -7.688356959525551e-05,
+            -4.187072130061451e-05,
+            -1.9217366989844766e-05
+          ]
+        ],
+        "conditional_test": {
+          "windows": 2,
+          "features": 4,
+          "input_global_scale": 8.208818950617104e-05,
+          "observed_squared_mean_norm_scaled": 1.3161452708464552,
+          "comparison_absolute_tolerance_scaled": 1.1970271505983466e-12,
+          "comparison_epsilon_multiplier": 4096,
+          "tail_count": 2,
+          "group_size": 4,
+          "upper_tail_p_value": 0.5,
+          "minimum_two_sided_resolution": 0.5,
+          "all_whole_window_signs_enumerated": true,
+          "joint_window_sign_invariance_assumed": true,
+          "null_invariance_verified_from_data": false,
+          "marginal_symmetry_alone_sufficient": false,
+          "triangles_flipped_independently": false,
+          "gaussian_distribution_assumed": false,
+          "physical_voltage_model_validated": false,
+          "source_detection_claimed": false,
+          "production_rml_noise_model_changed": false,
+          "scope": "Conditional finite-group p value for whole-window sign invariance only. Tie tolerance is conservative; zero or identical scores give p=1. No source detection, extent/asymmetry inference, image confidence or actual independence guarantee."
+        },
+        "nominal_five_percent_resolution_available": false,
+        "all_saved_windows_and_triangles_used": true,
+        "automatic_selection_performed": false,
+        "source_visibility_verified": true,
+        "joint_window_sign_invariance_verified": false,
+        "window_independence_verified": false,
+        "upstream_selection_invariance_verified": false,
+        "constant_within_window_station_gains_verified": false,
+        "source_detection_claimed": false,
+        "source_extent_claimed": false,
+        "image_confidence_claimed": false,
+        "unknown_lo_estimated": false,
+        "production_rml_noise_model_changed": false,
+        "real_hardware_validation_performed": false,
+        "scope": "Conditional whole-window sign-flip p value on every saved usable normalized imaginary feature. Joint invariance, including upstream selection, is assumed and not established by archive identity. No source detection, extent, LO estimate, image likelihood or confidence.",
+        "raw_bispectrum_sha256": "01627dec1c3ed5f30c60136f30ec51cf8e172be826ac08049cbe0e514b50b63d",
+        "source_visibility_sha256": "b28deb4c8c4eee02906dec716c44bf2f42a7208158bb0ee03bf075ee608b44e9"
+      },
+      "maximum_difference_from_voltage_api": null,
+      "maximum_fixed_window_gain_difference": null,
+      "synthetic_modes_independent_by_generation": false,
+      "copied_windows_dependent_control": false
+    },
+    {
+      "case_id": "independent",
+      "expected_success": true,
+      "channel_index": 1,
+      "result": {
+        "type": "stored_bispectrum_window_symmetry",
+        "state": "complete",
+        "raw_schema_version": 2,
+        "channel_index": 1,
+        "frequency_hz": 1419999488.0,
+        "time_origin_utc": "2026-10-17T00:00:00Z",
+        "times_s": [
+          0.125,
+          0.375,
+          0.625,
+          0.875,
+          1.125,
+          1.375,
+          1.625,
+          1.875
+        ],
+        "station_ids": [
+          "A0",
+          "A1",
+          "A2",
+          "A3"
+        ],
+        "triangles": [
+          [
+            0,
+            1,
+            2
+          ],
+          [
+            0,
+            1,
+            3
+          ],
+          [
+            0,
+            2,
+            3
+          ],
+          [
+            1,
+            2,
+            3
+          ]
+        ],
+        "triangle_station_ids": [
+          [
+            "A0",
+            "A1",
+            "A2"
+          ],
+          [
+            "A0",
+            "A1",
+            "A3"
+          ],
+          [
+            "A0",
+            "A2",
+            "A3"
+          ],
+          [
+            "A1",
+            "A2",
+            "A3"
+          ]
+        ],
+        "common_fft_count": [
+          [
+            128,
+            128,
+            128,
+            128
+          ],
+          [
+            128,
+            128,
+            128,
+            128
+          ],
+          [
+            128,
+            128,
+            128,
+            128
+          ],
+          [
+            128,
+            128,
+            128,
+            128
+          ],
+          [
+            128,
+            128,
+            128,
+            128
+          ],
+          [
+            128,
+            128,
+            128,
+            128
+          ],
+          [
+            128,
+            128,
+            128,
+            128
+          ],
+          [
+            128,
+            128,
+            128,
+            128
+          ]
+        ],
+        "imaginary_normalized_u3": [
+          [
+            -0.015817940862534494,
+            -0.009265442248171963,
+            0.00011161062014987588,
+            -0.006982240445236223
+          ],
+          [
+            0.001271952491083727,
+            -0.010245178225815737,
+            0.0073884238692880555,
+            0.010941526478067962
+          ],
+          [
+            0.008930936602713262,
+            0.00637901915061016,
+            0.0024376019270675505,
+            0.002235556637628469
+          ],
+          [
+            -0.004222657343776835,
+            -0.010044373248125571,
+            0.002383699601971082,
+            0.00627065894358975
+          ],
+          [
+            -0.028982413040470254,
+            -0.0008147049091930184,
+            0.01807203478960511,
+            -0.005083696988802448
+          ],
+          [
+            -0.011740498159682738,
+            -0.010892480573217855,
+            0.011715079363695943,
+            0.011058020995656835
+          ],
+          [
+            0.010513822914612735,
+            0.006883372750490858,
+            -0.012248541430142822,
+            -0.008712200046418537
+          ],
+          [
+            0.001970620283257458,
+            0.004914448179228744,
+            0.01001811545398847,
+            0.0088840584346683
+          ]
+        ],
+        "conditional_test": {
+          "windows": 8,
+          "features": 4,
+          "input_global_scale": 0.028982413040470254,
+          "observed_squared_mean_norm_scaled": 0.07290684194181309,
+          "comparison_absolute_tolerance_scaled": 2.1860645982704311e-13,
+          "comparison_epsilon_multiplier": 4096,
+          "tail_count": 80,
+          "group_size": 256,
+          "upper_tail_p_value": 0.3125,
+          "minimum_two_sided_resolution": 0.0078125,
+          "all_whole_window_signs_enumerated": true,
+          "joint_window_sign_invariance_assumed": true,
+          "null_invariance_verified_from_data": false,
+          "marginal_symmetry_alone_sufficient": false,
+          "triangles_flipped_independently": false,
+          "gaussian_distribution_assumed": false,
+          "physical_voltage_model_validated": false,
+          "source_detection_claimed": false,
+          "production_rml_noise_model_changed": false,
+          "scope": "Conditional finite-group p value for whole-window sign invariance only. Tie tolerance is conservative; zero or identical scores give p=1. No source detection, extent/asymmetry inference, image confidence or actual independence guarantee."
+        },
+        "nominal_five_percent_resolution_available": true,
+        "all_saved_windows_and_triangles_used": true,
+        "automatic_selection_performed": false,
+        "source_visibility_verified": true,
+        "joint_window_sign_invariance_verified": false,
+        "window_independence_verified": false,
+        "upstream_selection_invariance_verified": false,
+        "constant_within_window_station_gains_verified": false,
+        "source_detection_claimed": false,
+        "source_extent_claimed": false,
+        "image_confidence_claimed": false,
+        "unknown_lo_estimated": false,
+        "production_rml_noise_model_changed": false,
+        "real_hardware_validation_performed": false,
+        "scope": "Conditional whole-window sign-flip p value on every saved usable normalized imaginary feature. Joint invariance, including upstream selection, is assumed and not established by archive identity. No source detection, extent, LO estimate, image likelihood or confidence.",
+        "raw_bispectrum_sha256": "958f4cfa2f14b9ef279062c2ac4c71f9904232ad3a61ad51cfe16fd7c3e8658b",
+        "source_visibility_sha256": "be49f693b9234fe136f1e4c315699de44b55eeb2f14b44621850a76d11ffa6d5"
+      },
+      "maximum_difference_from_voltage_api": 5.128276275856436e-17,
+      "maximum_fixed_window_gain_difference": 6.591949208711867e-17,
+      "synthetic_modes_independent_by_generation": true,
+      "copied_windows_dependent_control": false
+    },
+    {
+      "case_id": "copied",
+      "expected_success": true,
+      "channel_index": 1,
+      "result": {
+        "type": "stored_bispectrum_window_symmetry",
+        "state": "complete",
+        "raw_schema_version": 2,
+        "channel_index": 1,
+        "frequency_hz": 1419999488.0,
+        "time_origin_utc": "2026-10-17T00:00:00Z",
+        "times_s": [
+          0.125,
+          0.375,
+          0.625,
+          0.875,
+          1.125,
+          1.375,
+          1.625,
+          1.875
+        ],
+        "station_ids": [
+          "A0",
+          "A1",
+          "A2",
+          "A3"
+        ],
+        "triangles": [
+          [
+            0,
+            1,
+            2
+          ],
+          [
+            0,
+            1,
+            3
+          ],
+          [
+            0,
+            2,
+            3
+          ],
+          [
+            1,
+            2,
+            3
+          ]
+        ],
+        "triangle_station_ids": [
+          [
+            "A0",
+            "A1",
+            "A2"
+          ],
+          [
+            "A0",
+            "A1",
+            "A3"
+          ],
+          [
+            "A0",
+            "A2",
+            "A3"
+          ],
+          [
+            "A1",
+            "A2",
+            "A3"
+          ]
+        ],
+        "common_fft_count": [
+          [
+            128,
+            128,
+            128,
+            128
+          ],
+          [
+            128,
+            128,
+            128,
+            128
+          ],
+          [
+            128,
+            128,
+            128,
+            128
+          ],
+          [
+            128,
+            128,
+            128,
+            128
+          ],
+          [
+            128,
+            128,
+            128,
+            128
+          ],
+          [
+            128,
+            128,
+            128,
+            128
+          ],
+          [
+            128,
+            128,
+            128,
+            128
+          ],
+          [
+            128,
+            128,
+            128,
+            128
+          ]
+        ],
+        "imaginary_normalized_u3": [
+          [
+            -0.005039187200250502,
+            -0.009806851446280957,
+            0.0014787712865454142,
+            0.0006208691787542213
+          ],
+          [
+            -0.005039187200250498,
+            -0.009806851446280969,
+            0.001478771286545439,
+            0.0006208691787542389
+          ],
+          [
+            -0.005039187200250521,
+            -0.009806851446280962,
+            0.0014787712865454346,
+            0.0006208691787542074
+          ],
+          [
+            -0.00503918720025051,
+            -0.009806851446281016,
+            0.0014787712865453834,
+            0.0006208691787541989
+          ],
+          [
+            -0.005039187200250505,
+            -0.009806851446280948,
+            0.0014787712865454547,
+            0.000620869178754238
+          ],
+          [
+            -0.005039187200250505,
+            -0.009806851446280953,
+            0.001478771286545466,
+            0.0006208691787542367
+          ],
+          [
+            -0.005039187200250511,
+            -0.009806851446280967,
+            0.0014787712865454385,
+            0.0006208691787542199
+          ],
+          [
+            -0.00503918720025052,
+            -0.009806851446280964,
+            0.0014787712865454532,
+            0.0006208691787542256
+          ]
+        ],
+        "conditional_test": {
+          "windows": 8,
+          "features": 4,
+          "input_global_scale": 0.009806851446281016,
+          "observed_squared_mean_norm_scaled": 1.290780805607305,
+          "comparison_absolute_tolerance_scaled": 1.1739583038500358e-12,
+          "comparison_epsilon_multiplier": 4096,
+          "tail_count": 2,
+          "group_size": 256,
+          "upper_tail_p_value": 0.0078125,
+          "minimum_two_sided_resolution": 0.0078125,
+          "all_whole_window_signs_enumerated": true,
+          "joint_window_sign_invariance_assumed": true,
+          "null_invariance_verified_from_data": false,
+          "marginal_symmetry_alone_sufficient": false,
+          "triangles_flipped_independently": false,
+          "gaussian_distribution_assumed": false,
+          "physical_voltage_model_validated": false,
+          "source_detection_claimed": false,
+          "production_rml_noise_model_changed": false,
+          "scope": "Conditional finite-group p value for whole-window sign invariance only. Tie tolerance is conservative; zero or identical scores give p=1. No source detection, extent/asymmetry inference, image confidence or actual independence guarantee."
+        },
+        "nominal_five_percent_resolution_available": true,
+        "all_saved_windows_and_triangles_used": true,
+        "automatic_selection_performed": false,
+        "source_visibility_verified": true,
+        "joint_window_sign_invariance_verified": false,
+        "window_independence_verified": false,
+        "upstream_selection_invariance_verified": false,
+        "constant_within_window_station_gains_verified": false,
+        "source_detection_claimed": false,
+        "source_extent_claimed": false,
+        "image_confidence_claimed": false,
+        "unknown_lo_estimated": false,
+        "production_rml_noise_model_changed": false,
+        "real_hardware_validation_performed": false,
+        "scope": "Conditional whole-window sign-flip p value on every saved usable normalized imaginary feature. Joint invariance, including upstream selection, is assumed and not established by archive identity. No source detection, extent, LO estimate, image likelihood or confidence.",
+        "raw_bispectrum_sha256": "dab0ef81ab73cd7b02fd6fde8583f7110ec758f712e67b5c2832dc1ec4093e67",
+        "source_visibility_sha256": "555c1ab0dabe2cc730495f87ed7cb7cde4f8dde3974da17b4791a23ff6d877c6"
+      },
+      "maximum_difference_from_voltage_api": 6.765421556309548e-17,
+      "maximum_fixed_window_gain_difference": 4.683753385137379e-17,
+      "synthetic_modes_independent_by_generation": false,
+      "copied_windows_dependent_control": true
+    },
+    {
+      "case_id": "single",
+      "expected_success": true,
+      "channel_index": 1,
+      "result": {
+        "type": "stored_bispectrum_window_symmetry",
+        "state": "complete",
+        "raw_schema_version": 2,
+        "channel_index": 1,
+        "frequency_hz": 1419999488.0,
+        "time_origin_utc": "2026-10-17T00:00:00Z",
+        "times_s": [
+          0.125
+        ],
+        "station_ids": [
+          "A0",
+          "A1",
+          "A2",
+          "A3"
+        ],
+        "triangles": [
+          [
+            0,
+            1,
+            2
+          ],
+          [
+            0,
+            1,
+            3
+          ],
+          [
+            0,
+            2,
+            3
+          ],
+          [
+            1,
+            2,
+            3
+          ]
+        ],
+        "triangle_station_ids": [
+          [
+            "A0",
+            "A1",
+            "A2"
+          ],
+          [
+            "A0",
+            "A1",
+            "A3"
+          ],
+          [
+            "A0",
+            "A2",
+            "A3"
+          ],
+          [
+            "A1",
+            "A2",
+            "A3"
+          ]
+        ],
+        "common_fft_count": [
+          [
+            128,
+            128,
+            128,
+            128
+          ]
+        ],
+        "imaginary_normalized_u3": [
+          [
+            -0.005039187200250514,
+            -0.009806851446280948,
+            0.0014787712865454302,
+            0.0006208691787542113
+          ]
+        ],
+        "conditional_test": {
+          "windows": 1,
+          "features": 4,
+          "input_global_scale": 0.009806851446280948,
+          "observed_squared_mean_norm_scaled": 1.2907808056073191,
+          "comparison_absolute_tolerance_scaled": 1.1739583038500488e-12,
+          "comparison_epsilon_multiplier": 4096,
+          "tail_count": 2,
+          "group_size": 2,
+          "upper_tail_p_value": 1.0,
+          "minimum_two_sided_resolution": 1.0,
+          "all_whole_window_signs_enumerated": true,
+          "joint_window_sign_invariance_assumed": true,
+          "null_invariance_verified_from_data": false,
+          "marginal_symmetry_alone_sufficient": false,
+          "triangles_flipped_independently": false,
+          "gaussian_distribution_assumed": false,
+          "physical_voltage_model_validated": false,
+          "source_detection_claimed": false,
+          "production_rml_noise_model_changed": false,
+          "scope": "Conditional finite-group p value for whole-window sign invariance only. Tie tolerance is conservative; zero or identical scores give p=1. No source detection, extent/asymmetry inference, image confidence or actual independence guarantee."
+        },
+        "nominal_five_percent_resolution_available": false,
+        "all_saved_windows_and_triangles_used": true,
+        "automatic_selection_performed": false,
+        "source_visibility_verified": true,
+        "joint_window_sign_invariance_verified": false,
+        "window_independence_verified": false,
+        "upstream_selection_invariance_verified": false,
+        "constant_within_window_station_gains_verified": false,
+        "source_detection_claimed": false,
+        "source_extent_claimed": false,
+        "image_confidence_claimed": false,
+        "unknown_lo_estimated": false,
+        "production_rml_noise_model_changed": false,
+        "real_hardware_validation_performed": false,
+        "scope": "Conditional whole-window sign-flip p value on every saved usable normalized imaginary feature. Joint invariance, including upstream selection, is assumed and not established by archive identity. No source detection, extent, LO estimate, image likelihood or confidence.",
+        "raw_bispectrum_sha256": "c659ac0063d730ce7d3ef6862f6a3ae31af9d8ed758b423b12440454b723da34",
+        "source_visibility_sha256": "8eeae8ae3280a281a0ef0a30f31df1e430bac71876ce92c1ca7267159c17eaad"
+      },
+      "maximum_difference_from_voltage_api": 2.2551405187698492e-17,
+      "maximum_fixed_window_gain_difference": 2.0816681711721685e-17,
+      "synthetic_modes_independent_by_generation": false,
+      "copied_windows_dependent_control": false
+    },
+    {
+      "case_id": "legacy",
+      "expected_success": false,
+      "channel_index": 1,
+      "result": null,
+      "maximum_difference_from_voltage_api": null,
+      "maximum_fixed_window_gain_difference": 6.591949208711867e-17,
+      "synthetic_modes_independent_by_generation": false,
+      "copied_windows_dependent_control": false
+    },
+    {
+      "case_id": "m2",
+      "expected_success": false,
+      "channel_index": 1,
+      "result": null,
+      "maximum_difference_from_voltage_api": null,
+      "maximum_fixed_window_gain_difference": null,
+      "synthetic_modes_independent_by_generation": false,
+      "copied_windows_dependent_control": false
+    },
+    {
+      "case_id": "masked",
+      "expected_success": false,
+      "channel_index": 1,
+      "result": null,
+      "maximum_difference_from_voltage_api": null,
+      "maximum_fixed_window_gain_difference": 6.591949208711867e-17,
+      "synthetic_modes_independent_by_generation": false,
+      "copied_windows_dependent_control": false
+    },
+    {
+      "case_id": "zero",
+      "expected_success": false,
+      "channel_index": 1,
+      "result": null,
+      "maximum_difference_from_voltage_api": null,
+      "maximum_fixed_window_gain_difference": null,
+      "synthetic_modes_independent_by_generation": false,
+      "copied_windows_dependent_control": false
+    }
+  ],
+  "case_count": 8,
+  "array_feature_transport_checked": true,
+  "new_monte_carlo_performed": false,
+  "actual_iq_fft_processed_in_this_stage": false,
+  "frozen_vdif_result_from_stage091": true,
+  "null_invariance_verified_from_saved_data": false,
+  "production_rml_noise_model_changed": false,
+  "real_hardware_validation_performed": false
+}

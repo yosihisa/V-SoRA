@@ -187,4 +187,6 @@
 
 | 092 | [共通電力と無次元比を日本語GUIで確認](092-bispectrum-power-gui.md) | source/wheel1497件。新14対象、両実Chromium7条件の全raw/比/電力/状態/JSON一致。v1情報不足・M0/1/2・0電力・品質mask・日本語390pxを確認 |
 
+| 093 | [保存window列の条件付き対称性検定](093-stored-window-symmetry.md) | source/wheel1537件。新40対象・8条件、直接電圧feature/checkout外API/独立CLIの全JSON一致。複製反例・分解能・未確認の成立条件を記録 |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。

@@ -1,0 +1,127 @@
+{
+  "state": "complete",
+  "targeted_tests": {
+    "passed": 40,
+    "elapsed_s": 0.26
+  },
+  "full_regression": {
+    "source": {
+      "passed": 1537,
+      "warnings": 27396,
+      "elapsed_s": 544.03,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 1537,
+      "warnings": 27396,
+      "elapsed_s": 541.73,
+      "excluded_tests": 0
+    }
+  },
+  "source_all_scientific_json_identical_to_preliminary": true,
+  "apply_review": {
+    "initial_failure": "nonexistent tools/workflows directory",
+    "existing_files_checked_byte_identical": 3,
+    "resumed_only_remaining_operations": true,
+    "correct_location": "workflows/bispectrum_window_validation.py",
+    "formal_tests_started_after_correction": true
+  },
+  "fixture_conditions": 8,
+  "successful_cases": 4,
+  "rejected_cases": 4,
+  "outside_api": {
+    "state": "complete",
+    "cases": [
+      {
+        "case_id": "vdif",
+        "api_matches_source": true,
+        "independent_console_matches_source": true,
+        "success": true
+      },
+      {
+        "case_id": "independent",
+        "api_matches_source": true,
+        "independent_console_matches_source": true,
+        "success": true
+      },
+      {
+        "case_id": "copied",
+        "api_matches_source": true,
+        "independent_console_matches_source": true,
+        "success": true
+      },
+      {
+        "case_id": "single",
+        "api_matches_source": true,
+        "independent_console_matches_source": true,
+        "success": true
+      },
+      {
+        "case_id": "legacy",
+        "api_matches_source": true,
+        "independent_console_matches_source": true,
+        "success": false
+      },
+      {
+        "case_id": "m2",
+        "api_matches_source": true,
+        "independent_console_matches_source": true,
+        "success": false
+      },
+      {
+        "case_id": "masked",
+        "api_matches_source": true,
+        "independent_console_matches_source": true,
+        "success": false
+      },
+      {
+        "case_id": "zero",
+        "api_matches_source": true,
+        "independent_console_matches_source": true,
+        "success": false
+      }
+    ],
+    "all_api_and_cli_results_identical": true,
+    "all_project_modules_under_runtime_prefix": true,
+    "project_module_count": 9,
+    "project_modules": [
+      "vsora_correlator",
+      "vsora_correlator.bispectrum_inspect",
+      "vsora_correlator.bispectrum_power",
+      "vsora_correlator.bispectrum_window_symmetry",
+      "vsora_formats",
+      "vsora_formats.bispectrum",
+      "vsora_formats.spectral",
+      "vsora_imaging",
+      "vsora_imaging.window_symmetry"
+    ],
+    "cli_cwd_outside_checkout": true,
+    "pythonpath_removed_for_cli": true,
+    "workspace_has_checkout_runner": false,
+    "existing_results_not_overwritten": true,
+    "unavailable_cases_not_partially_written": true
+  },
+  "maximum_voltage_feature_abs_difference": 6.765421556309548e-17,
+  "maximum_constant_window_gain_feature_abs_difference": 6.591949208711867e-17,
+  "frozen_python_frontend_and_project_files_unchanged": 303,
+  "previous_scientific_files_unchanged": 84,
+  "wheel": {
+    "bytes": 5562250,
+    "sha256": "f5c6cf2dd64782b9794a957ed02a0662d130cbba965576bcf06494695b5724a9",
+    "packaged_files_identical_to_source": 88
+  },
+  "pip_check_passed": true,
+  "new_monte_carlo_performed": false,
+  "new_browser_verification_performed": false,
+  "actual_hardware_validation_performed": false,
+  "production_rml_noise_model_changed": false,
+  "publication_review": {
+    "public_audit_findings": 0,
+    "local_markdown_links": 1149,
+    "missing_local_links": 0,
+    "png_metadata_fields_reviewed": [
+      "Software",
+      "dpi"
+    ]
+  }
+}
