@@ -1,0 +1,32 @@
+{
+  "fraction_rounding_differences": [
+    {
+      "id": "c000-point",
+      "field": "fraction",
+      "value": 0.0390625,
+      "javascript": "3.9063e-2",
+      "python": "3.9062e-2"
+    },
+    {
+      "id": "c040-point",
+      "field": "fraction",
+      "value": 0.00390625,
+      "javascript": "3.9063e-3",
+      "python": "3.9062e-3"
+    },
+    {
+      "id": "c044-point",
+      "field": "fraction",
+      "value": 0.00390625,
+      "javascript": "3.9063e-3",
+      "python": "3.9062e-3"
+    },
+    {
+      "id": "c044-point",
+      "field": "fraction",
+      "value": 0.0390625,
+      "javascript": "3.9063e-2",
+      "python": "3.9062e-2"
+    }
+  ]
+}

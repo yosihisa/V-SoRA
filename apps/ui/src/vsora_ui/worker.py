@@ -186,6 +186,26 @@ def run(job):
             options=request.model_dump(exclude={'kind','inputs'})
             result=image_synthesis(paths,job/'synthesis',**options)
             write_json(job/'summary.json',result)
+        elif request.kind=='validation' and request.validation=='casa_window_symmetry':
+            import hashlib
+            from vsora_simulator import casa_window_symmetry,bispectrum_observed_power,sky,sky_covariance
+            from vsora_imaging import window_symmetry
+            from vsora_observation import reference
+            from .jobs import source_root
+            def progress(index,total,label):
+                phase(f'既知天空の有限電圧を比較しています（条件 {index+1}/{total}）')
+            result=casa_window_symmetry.run(job/'validation',profile='full',progress=progress)
+            modules=(casa_window_symmetry,bispectrum_observed_power,window_symmetry,sky,sky_covariance,reference)
+            prefix=Path(sys.prefix);checkout=source_root();asset=reference.reference_path('known-casa-window-symmetry.json')
+            write_json(job/'validation/execution-origin.json',{
+                'native_scientific_module_used':True,'checkout_runner_used':False,
+                'scientific_modules_under_runtime_prefix':all(Path(m.__file__).is_relative_to(prefix) for m in modules),
+                'scientific_modules_under_gui_checkout':bool(checkout and all(Path(m.__file__).is_relative_to(checkout) for m in modules)),
+                'configuration_asset_under_runtime_prefix':asset.is_relative_to(prefix),
+                'sky_asset_under_runtime_prefix':reference.reference_path().is_relative_to(prefix),
+                'configuration_asset_sha256':hashlib.sha256(asset.read_bytes()).hexdigest(),
+                'formal_profile_executed':True,'scientific_module_count':len(modules)})
+            write_json(job/'summary.json',result)
         elif request.kind=='validation' and request.validation=='array_scale':
             import hashlib
             from vsora_simulator import array_scale,array_shape,sky,sky_covariance,bispectrum_scale

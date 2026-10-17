@@ -1,0 +1,7 @@
+{
+  "state": "complete",
+  "scientific_json_numeric_fields_checked": 26724,
+  "decimal_expected_matches_real_chromium": true,
+  "exact_binary_float_then_half_up": true,
+  "production_scientific_values_changed": false
+}

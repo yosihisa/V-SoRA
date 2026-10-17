@@ -177,4 +177,6 @@
 
 | 087 | [既知Cas A・点源の有限電圧とwindow虚部の対称性](087-casa-window-symmetry.md) | source/wheel1351件成功。42対象試験、固定53条件・計46592反復、同梱CLI全JSON一致。等輝度二点・位相変動・window複製の制約を記録。実機・画像尤度へ未適用 |
 
+| 088 | [既知天空の虚部対称性を日本語GUIへ接続](088-casa-window-symmetry-gui.md) | source/wheel1370件成功。両実Chromiumで53概要・2968詳細・全JSON一致。runner無し同梱実行、日本語390px、既存18/108/6048比較も確認 |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。

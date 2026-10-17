@@ -1,0 +1,11 @@
+{
+  "native_scientific_module_used": true,
+  "checkout_runner_used": false,
+  "scientific_modules_under_runtime_prefix": true,
+  "scientific_modules_under_gui_checkout": false,
+  "configuration_asset_under_runtime_prefix": true,
+  "sky_asset_under_runtime_prefix": true,
+  "configuration_asset_sha256": "514a85d32712b2bd03b06b39593620d96769fa9ffc58c52bb07d87a96be0afe6",
+  "formal_profile_executed": true,
+  "scientific_module_count": 6
+}
