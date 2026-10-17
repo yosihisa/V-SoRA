@@ -1,0 +1,29 @@
+{
+  "state": "complete",
+  "documentation_only": true,
+  "first_report_commits_checked": 95,
+  "existing_files_outside_updated_docs_unchanged": 986,
+  "prior_stage094_commit": "603b0892fa4252568385ea5d98f30da016681068",
+  "prior_stage094_verification_sha256": "fca161f2599f6e661c821d6fac04f0f6f3aaf17f42b848b242982a8ff3a7efad",
+  "prior_regression_reference_only": {
+    "source": {
+      "passed": 1557,
+      "warnings": 27396,
+      "elapsed_s": 540.84,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 1557,
+      "warnings": 27396,
+      "elapsed_s": 604.09,
+      "excluded_tests": 0
+    }
+  },
+  "new_pytest_monte_carlo_or_browser_run": false,
+  "new_hardware_or_image_validation": false,
+  "publication_review": {
+    "public_audit_findings": 0,
+    "local_markdown_links": 1187,
+    "missing_local_links": 0
+  }
+}
