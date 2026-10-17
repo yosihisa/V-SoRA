@@ -6,11 +6,12 @@ from pathlib import Path
 import numpy as np
 
 from vsora_formats.bispectrum import (
-    ARRAYS,
+    ARRAYS, arrays_for_version,
     load_bispectrum,
     reconstruct_bispectrum,
     validate_bispectrum,
 )
+from .bispectrum_power import normalize_common_power_bispectrum
 
 
 def inspect_bispectrum_cell(data, time_index, channel_index):
@@ -21,7 +22,11 @@ def inspect_bispectrum_cell(data, time_index, channel_index):
     """
     if not isinstance(data, dict) or not ARRAYS <= set(data) or "metadata" not in data:
         raise ValueError("validated raw arrays and metadata required")
-    d, meta = validate_bispectrum({k: data[k] for k in ARRAYS}, data["metadata"])
+    version=data.get('schema_version',1)
+    required=arrays_for_version(version)
+    if not required<=set(data) or (version==1 and 'common_station_power_sums' in data):
+        raise ValueError('explicit matching raw schema and common power arrays required')
+    d, meta = validate_bispectrum({k:data[k] for k in required},data['metadata'],schema_version=version)
     nt, nf = d["edge_sums"].shape[:2]
     for value, size in ((time_index, nt), (channel_index, nf)):
         if (
@@ -32,6 +37,19 @@ def inspect_bispectrum_cell(data, time_index, channel_index):
             raise ValueError("integer time/channel indices must select an existing raw cell")
     ti, fi = int(time_index), int(channel_index)
     u = reconstruct_bispectrum(d)[ti, fi]
+    normalized=None
+    if version==2:
+        counts=d['common_fft_count'][ti]
+        with np.errstate(over='ignore',invalid='ignore'):
+            ordinary_selected=np.divide(np.prod(d['edge_sums'][ti,fi:fi+1],axis=-1),
+                                        counts[None,:].astype(float)**3,
+                                        out=np.zeros((1,len(counts)),complex),where=counts[None,:]>0)
+        normalized=normalize_common_power_bispectrum({
+            'triangles':d['triangles'],'common_sample_count':counts,
+            'common_station_power_sums':d['common_station_power_sums'][ti,fi:fi+1],
+            'distinct_sample_bispectrum':u[None,:],
+            'ordinary_common_sample_product':ordinary_selected,
+            'channel_triangle_usable':d['channel_triangle_usable'][ti,fi:fi+1]})
     rows = []
     for index, tri in enumerate(d["triangles"]):
         m = int(d["common_fft_count"][ti, index])
@@ -47,10 +65,25 @@ def inspect_bispectrum_cell(data, time_index, channel_index):
             else "usable_raw_value" if usable
             else "masked_raw_value"
         )
+        normalized_available=bool(normalized is not None and normalized['u3_available'][0,index])
+        ordinary_available=bool(normalized is not None and normalized['ordinary_available'][0,index])
+        normalization_state=('missing_common_power_v1' if normalized is None else
+                             'insufficient_samples' if m<3 else
+                             'zero_common_power' if not normalized['triangle_common_power_positive'][0,index] else
+                             'usable_normalized_value' if usable else 'masked_normalized_value')
         rows.append({
             "triangle": tri.tolist(),
             "station_ids": [meta["station_ids"][i] for i in tri],
             "common_fft_count": m,
+            "common_station_power_sums":None if normalized is None else d['common_station_power_sums'][ti,fi,index].tolist(),
+            "observed_power_normalized_u3_available":normalized_available,
+            "observed_power_normalized_ordinary_product_available":ordinary_available,
+            "observed_power_normalized_u3_quality_usable":bool(normalized_available and usable),
+            "observed_power_normalization_state":normalization_state,
+            "observed_power_normalized_u3_real":float(normalized['observed_power_normalized_u3'][0,index].real) if normalized_available else None,
+            "observed_power_normalized_u3_imag":float(normalized['observed_power_normalized_u3'][0,index].imag) if normalized_available else None,
+            "observed_power_normalized_ordinary_product_real":float(normalized['observed_power_normalized_ordinary_product'][0,index].real) if ordinary_available else None,
+            "observed_power_normalized_ordinary_product_imag":float(normalized['observed_power_normalized_ordinary_product'][0,index].imag) if ordinary_available else None,
             "distinct_sample_available": available,
             "channel_triangle_usable": usable,
             "state": state,
@@ -61,6 +94,10 @@ def inspect_bispectrum_cell(data, time_index, channel_index):
         })
     return {
         "type": "raw_bispectrum_inspection",
+        "raw_schema_version":int(version),
+        "observed_power_ratio_supported":version==2,
+        "normalized_bispectrum_unit":'dimensionless' if version==2 else None,
+        "common_power_sum_unit":meta.get('common_power_sum_unit'),
         "state": "complete",
         "time_index": ti,
         "channel_index": fi,
@@ -77,12 +114,7 @@ def inspect_bispectrum_cell(data, time_index, channel_index):
         "closure_phase_unbiased_guarantee": False,
         "production_rml_noise_model_changed": False,
         "real_hardware_validation_performed": False,
-        "scope": (
-            "Stored common-FFT raw sums and complex U3 values only. M<3 is unavailable, "
-            "not zero; masks retain raw values but do not qualify them for inference. "
-            "No uncertainty, phase confidence, normalized flux, detection probability "
-            "or image likelihood."
-        ),
+        "scope": 'Stored common-FFT raw sums and complex U3 values only. M<3 is unavailable, not zero; masks retain raw values but do not qualify them for inference. No uncertainty, phase confidence, normalized flux, detection probability or image likelihood.' if version==1 else 'Stored common-FFT raw sums and complex U3 values only. M<3 is unavailable, not zero; masks retain raw values but do not qualify them for inference. Version2 ratios use the same triangle-common power sums; version1 values remain null. No uncertainty, phase confidence, normalized source flux, detection probability or image likelihood.',
     }
 
 

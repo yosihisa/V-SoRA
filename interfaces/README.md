@@ -73,3 +73,5 @@
 - [既知Cas A・点源の有限電圧とwindow虚部](casa-window-symmetry.md)：固定53条件、共役対称性、等輝度二点・位相・複製の対照。実機検出や画像品質とは区別する。
 
 - [三角形共通FFT標本のpower蓄積と正規化](common-bispectrum-power.md)：同じ標本の比、欠損・品質flag・数値範囲。version1には新powerを保存しない。
+
+- [raw bispectrum version2と共通電力](bispectrum-power-v2.md)：保存・単位・利用可能性・version1互換。

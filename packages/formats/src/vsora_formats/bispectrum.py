@@ -18,12 +18,26 @@ FIXED={'edge_order':'ij, jk, ki','paired_edge_order':'ab, ac, bc',
        'input_sample_independence_verified':False,'input_mask_independence_verified':False,
        'gaussian_bispectrum_likelihood_assumed':False,'closure_phase_unbiased_guarantee':False,
        'production_rml_noise_model_changed':False,'real_hardware_validation_performed':False}
+POWER_ARRAYS=ARRAYS|{'common_station_power_sums'}
+POWER_FIXED={'common_power_station_order':'i, j, k',
+             'common_power_sample_set':'triangle-common valid FFT blocks',
+             'observed_power_ratio_unbiased_guarantee':False}
 MAX_CELLS=262144
 MAX_BYTES=40*1024**2
 
 
-def _metadata(metadata):
-    if not isinstance(metadata,dict) or not BASE<=set(metadata) or set(metadata)-BASE-set(FIXED)-{'bispectrum_unit'}:
+def arrays_for_version(schema_version):
+    if (isinstance(schema_version,(bool,np.bool_)) or not isinstance(schema_version,(int,np.integer))
+            or int(schema_version) not in (1,2)):
+        raise ValueError('raw bispectrum schema_version must be1 or2')
+    return ARRAYS.copy() if int(schema_version)==1 else POWER_ARRAYS.copy()
+
+
+def _metadata(metadata,schema_version=1):
+    arrays_for_version(schema_version)
+    optional=set(FIXED)|{'bispectrum_unit'}
+    if schema_version==2:optional|=set(POWER_FIXED)|{'common_power_sum_unit'}
+    if not isinstance(metadata,dict) or not BASE<=set(metadata) or set(metadata)-BASE-optional:
         raise ValueError('exact raw bispectrum metadata fields required')
     q=dict(metadata);ids=q['station_ids']
     if (not isinstance(ids,list) or not 3<=len(ids)<=8 or not all(isinstance(s,str) and re.fullmatch(r'[A-Za-z][A-Za-z0-9_-]{0,31}',s) for s in ids)
@@ -44,6 +58,8 @@ def _metadata(metadata):
     notes=q['processing_notes']
     if not isinstance(notes,list) or not notes or not all(isinstance(v,str) and v for v in notes):raise ValueError('processing notes required')
     fixed={**FIXED,'bispectrum_unit':'ADC^6' if q['voltage_unit']=='ADC' else 'Jy^3'}
+    if schema_version==2:
+        fixed.update(POWER_FIXED,common_power_sum_unit='ADC^2' if q['voltage_unit']=='ADC' else 'Jy')
     for k,v in fixed.items():
         if k in q and (type(q[k]) is not type(v) or q[k]!=v):raise ValueError('unsupported bispectrum unit or verified assumption claim')
     q.update(fixed)
@@ -51,9 +67,10 @@ def _metadata(metadata):
     return q
 
 
-def validate_bispectrum(data,metadata):
-    q=_metadata(metadata)
-    if not isinstance(data,dict) or set(data)!=ARRAYS or any(np.ma.isMaskedArray(v) for v in data.values()):
+def validate_bispectrum(data,metadata,*,schema_version=1):
+    required=arrays_for_version(schema_version)
+    q=_metadata(metadata,schema_version)
+    if not isinstance(data,dict) or set(data)!=required or any(np.ma.isMaskedArray(v) for v in data.values()):
         raise ValueError('exact unmasked raw bispectrum arrays required')
     d={k:np.asarray(v) for k,v in data.items()};a=d['edge_sums'];h=d['paired_edge_sums'];j=d['triple_edge_sum']
     if a.ndim!=4 or a.shape[-1]!=3 or h.shape!=a.shape or j.shape!=a.shape[:3]:raise ValueError('raw sum shapes [time,channel,triangle,3] required')
@@ -78,7 +95,21 @@ def validate_bispectrum(data,metadata):
         raise ValueError('zero-count raw sums must be zero')
     tolerance=1e-12*np.maximum(abs(j.real),np.finfo(float).tiny)
     if np.any(j.real<0) or np.any(abs(j.imag)>tolerance):raise ValueError('triple edge sum must be nonnegative real within rounding tolerance')
-    reconstruct_bispectrum(d)
+    reconstructed=reconstruct_bispectrum(d)
+    if schema_version==2:
+        power=d['common_station_power_sums']
+        if (power.shape!=a.shape or power.dtype.kind!='f' or power.dtype.itemsize!=8
+                or not np.isfinite(power).all() or np.any(power<0)):
+            raise ValueError('finite nonnegative float64 common station power sums [time,channel,triangle,3] required')
+        if np.any(np.where(zero[...,None],power,0)!=0):
+            raise ValueError('zero-count common power sums must be zero')
+        with np.errstate(over='ignore',invalid='ignore'):
+            ordinary=np.divide(np.prod(a,axis=-1),m[:,None,:].astype(float)**3,
+                               out=np.zeros_like(j),where=m[:,None,:]>0)
+        if not np.isfinite(ordinary).all():raise ValueError('ordinary raw product outside finite numerical range')
+        no_power=np.any(power==0,axis=-1)
+        if np.any(no_power&((reconstructed!=0)|(ordinary!=0))):
+            raise ValueError('zero empirical common power inconsistent with nonzero raw products')
     return d,q
 
 
@@ -93,8 +124,8 @@ def reconstruct_bispectrum(data):
     return u
 
 
-def save_bispectrum(path,data,metadata):
-    d,q=validate_bispectrum(data,metadata);p=Path(path)
+def save_bispectrum(path,data,metadata,*,schema_version=1):
+    d,q=validate_bispectrum(data,metadata,schema_version=schema_version);p=Path(path)
     if p.suffix!='.npz':raise ValueError('NPZ suffix required')
     if p.exists():raise FileExistsError(p.name)
     p.parent.mkdir(parents=True,exist_ok=True)
@@ -102,18 +133,21 @@ def save_bispectrum(path,data,metadata):
     try:
         with tempfile.NamedTemporaryFile(dir=p.parent,prefix='.bispectrum-',suffix='.partial',delete=False) as stream:
             temp=Path(stream.name)
-            np.savez_compressed(stream,schema_version=np.array(1),metadata_json=np.array(json.dumps(q,allow_nan=False)),**d)
+            np.savez_compressed(stream,schema_version=np.array(int(schema_version)),metadata_json=np.array(json.dumps(q,allow_nan=False)),**d)
             stream.flush();os.fsync(stream.fileno())
+        with zipfile.ZipFile(temp) as archive:
+            if sum(info.file_size for info in archive.infolist())>MAX_BYTES:
+                raise ValueError('raw bispectrum archive exceeds supported decoded size')
         os.link(temp,p)
     finally:
         if temp is not None:temp.unlink(missing_ok=True)
 
 
 def load_bispectrum(path,source_visibility=None):
-    p=Path(path);expected=ARRAYS|{'schema_version','metadata_json'}
+    p=Path(path);expected_sets=(ARRAYS|{'schema_version','metadata_json'},POWER_ARRAYS|{'schema_version','metadata_json'})
     with zipfile.ZipFile(p) as archive:
         infos=archive.infolist()
-        if (len(infos)!=len(expected) or {i.filename for i in infos}!={k+'.npy' for k in expected}
+        if (not any(len(infos)==len(expected) and {i.filename for i in infos}=={k+'.npy' for k in expected} for expected in expected_sets)
                 or sum(i.file_size for i in infos)>MAX_BYTES):raise ValueError('unsupported or oversized raw bispectrum archive')
         for info in infos:
             with archive.open(info) as stream:
@@ -125,9 +159,9 @@ def load_bispectrum(path,source_visibility=None):
                     raise ValueError('unsupported raw bispectrum array payload')
     with np.load(p,allow_pickle=False) as file:d={k:file[k] for k in file.files}
     version=d.pop('schema_version');meta=d.pop('metadata_json')
-    if version.shape!=() or not np.issubdtype(version.dtype,np.integer) or int(version)!=1:raise ValueError('unsupported raw bispectrum version')
+    if version.shape!=() or not np.issubdtype(version.dtype,np.integer) or int(version) not in (1,2):raise ValueError('unsupported raw bispectrum version')
     if meta.shape!=() or meta.dtype.kind!='U':raise ValueError('scalar JSON metadata required')
-    d,q=validate_bispectrum(d,json.loads(str(meta)))
+    d,q=validate_bispectrum(d,json.loads(str(meta)),schema_version=int(version))
     if source_visibility is not None:
         with open(source_visibility,'rb') as stream:digest=hashlib.file_digest(stream,'sha256').hexdigest()
         if digest!=q['visibility_sha256']:raise ValueError('source visibility SHA256 differs')
@@ -159,5 +193,5 @@ def load_bispectrum(path,source_visibility=None):
                     scale=max(float(np.max(abs(mean))),float(np.max(abs(expected))),np.finfo(float).tiny)
                     if not np.allclose(mean,expected,rtol=1e-11,atol=1e-12*scale):
                         raise ValueError('same-count raw edge sum differs from source visibility')
-    return {**d,'metadata':q,'distinct_sample_bispectrum':reconstruct_bispectrum(d),
+    return {**d,'schema_version':int(version),'metadata':q,'distinct_sample_bispectrum':reconstruct_bispectrum(d),
             'distinct_sample_available':d['common_fft_count']>=3,'source_visibility_verified':source_visibility is not None}

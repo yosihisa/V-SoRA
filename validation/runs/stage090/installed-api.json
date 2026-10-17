@@ -1,0 +1,28 @@
+{
+  "state": "complete",
+  "outside_checkout": true,
+  "pythonpath_removed": true,
+  "checkout_runner_used": false,
+  "archive_conditions": 8,
+  "all_stored_arrays_identical": 78,
+  "all_inspection_api_json_identical": 64,
+  "independent_console_cli_json_identical": 8,
+  "native_cli_all_scientific_json_identical": true,
+  "all_sixteen_native_archives_byte_identical": true,
+  "all_imported_project_modules_under_runtime_prefix": true,
+  "project_module_count": 9,
+  "project_module_names": [
+    "vsora_correlator",
+    "vsora_correlator.bispectrum_accumulator",
+    "vsora_correlator.bispectrum_inspect",
+    "vsora_correlator.bispectrum_power",
+    "vsora_formats",
+    "vsora_formats.bispectrum",
+    "vsora_formats.spectral",
+    "vsora_simulator",
+    "vsora_simulator.bispectrum_archive_validation"
+  ],
+  "legacy_missing_power_not_inferred": true,
+  "production_rml_noise_model_changed": false,
+  "actual_hardware_data": false
+}
