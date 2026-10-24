@@ -1,0 +1,42 @@
+{
+  "state": "complete",
+  "documentation_only": true,
+  "technical_reference_stage": 105,
+  "technical_reference_commit": "5261903bc8d2088dec91e48824ce987a4b92141c",
+  "chronology_stage_count": 106,
+  "all_chronology_rows_match_first_git_addition": true,
+  "previous95_chronology_rows_rechecked": true,
+  "untouched_tracked_file_count": 1119,
+  "all_non_target_tracked_file_bytes_unchanged": true,
+  "source_tests_tools_changed": false,
+  "new_scientific_tests_executed": false,
+  "new_browser_tests_executed": false,
+  "referenced_stage105_regressions": {
+    "source": {
+      "passed": 1899,
+      "warnings": 27396,
+      "elapsed_s": 580.46,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 1899,
+      "warnings": 27396,
+      "elapsed_s": 580.59,
+      "excluded_tests": 0
+    }
+  },
+  "current_qualifications_checked": [
+    "fixed_two_skies_are_not_free_images",
+    "amplitudes_and_sefd_still_supplied",
+    "phase_profile_local_not_global",
+    "fixed_zero_threshold_not_proved_optimal",
+    "no_real_CasA_imaging_claim",
+    "global_common_moment_producer_conditional_only",
+    "no_GPU_or_full_night_claim"
+  ],
+  "documentation_links": {
+    "checked": 1365,
+    "missing": 0
+  },
+  "public_audit_findings": 0
+}
