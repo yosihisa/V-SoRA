@@ -191,6 +191,28 @@ def run(job):
             options=request.model_dump(exclude={'kind','inputs'})
             result=image_synthesis(paths,job/'synthesis',**options)
             write_json(job/'summary.json',result)
+        elif request.kind=='validation' and request.validation=='independent_training':
+            import hashlib
+            from vsora_simulator import independent_training_validation,known_template_validation,template_score,casa_window_symmetry,bispectrum_observed_power,sky,sky_covariance
+            from vsora_imaging import window_symmetry
+            from vsora_observation import reference
+            from .jobs import source_root
+            def progress(index,total,label):
+                phase(f'学習と評価を独立に作り直しています（条件 {index+1}/{total}）')
+            result=independent_training_validation.run(job/'validation',profile='full',progress=progress)
+            if not isinstance(result,dict) or result.get('state')!='complete':
+                raise ValueError('independent-training scientific validation did not complete')
+            modules=(independent_training_validation,known_template_validation,template_score,casa_window_symmetry,bispectrum_observed_power,window_symmetry,sky,sky_covariance,reference)
+            prefix=Path(sys.prefix);checkout=source_root();asset=reference.reference_path('known-casa-window-symmetry.json')
+            write_json(job/'validation/execution-origin.json',{
+                'native_scientific_module_used':True,'checkout_runner_used':False,
+                'scientific_modules_under_runtime_prefix':all(Path(m.__file__).is_relative_to(prefix) for m in modules),
+                'scientific_modules_under_gui_checkout':bool(checkout and all(Path(m.__file__).is_relative_to(checkout) for m in modules)),
+                'configuration_asset_under_runtime_prefix':asset.is_relative_to(prefix),
+                'sky_asset_under_runtime_prefix':reference.reference_path().is_relative_to(prefix),
+                'configuration_asset_sha256':hashlib.sha256(asset.read_bytes()).hexdigest(),
+                'formal_profile_executed':True,'scientific_module_count':len(modules)})
+            write_json(job/'summary.json',result)
         elif request.kind=='validation' and request.validation=='known_template':
             import hashlib
             from vsora_simulator import known_template_validation,template_score,casa_window_symmetry,bispectrum_observed_power,sky,sky_covariance

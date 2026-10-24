@@ -32,6 +32,7 @@ LABELS={'simulation':'模擬観測と画像復元','quality':'雑音・電波妨
         'array_scale':'最大基線と既知Cas A形状の比較',
         'casa_window_symmetry':'既知天空と短区間の虚部対称性',
         'known_template':'既知二モデルの独立評価',
+        'independent_training':'学習・評価を作り直したときの揺らぎ',
         'rate':'skyモデルを使わない周波数差の推定','analysis':'VDIFからClosure＋RMLで解析',
         'sequence':'VDIFの短区間列と画像合成',
         'bispectrum_window_symmetry':'保存区間列の条件付き対称性','bispectrum_inspection':'保存した三次統計の確認','time_scatter':'pilotの時間散乱診断','noise':'相関ファイルの雑音診断','synthesis':'複数時刻のClosure＋RML合成','sensitivity':'短積分の感度計画'}

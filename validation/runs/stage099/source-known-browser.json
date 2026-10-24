@@ -1,0 +1,81 @@
+{
+  "state": "complete",
+  "source_checkout": true,
+  "installed_module_imports": false,
+  "case_rows": [
+    {
+      "case_id": "d00",
+      "all_display_numbers_checked": true,
+      "state": "\u53d7\u4fe1\u6a5f\u30e2\u30c7\u30eb\u4e00\u81f4"
+    },
+    {
+      "case_id": "d01",
+      "all_display_numbers_checked": true,
+      "state": "\u53d7\u4fe1\u6a5f\u30e2\u30c7\u30eb\u4e00\u81f4"
+    },
+    {
+      "case_id": "d02",
+      "all_display_numbers_checked": true,
+      "state": "\u53d7\u4fe1\u6a5f\u30e2\u30c7\u30eb\u4e00\u81f4"
+    },
+    {
+      "case_id": "d03",
+      "all_display_numbers_checked": true,
+      "state": "\u53d7\u4fe1\u6a5f\u30e2\u30c7\u30eb\u4e00\u81f4"
+    },
+    {
+      "case_id": "d04",
+      "all_display_numbers_checked": true,
+      "state": "\u53d7\u4fe1\u6a5f\u30e2\u30c7\u30eb\u4e00\u81f4"
+    },
+    {
+      "case_id": "d05",
+      "all_display_numbers_checked": true,
+      "state": "\u53d7\u4fe1\u6a5f\u30e2\u30c7\u30eb\u4e00\u81f4"
+    },
+    {
+      "case_id": "d06",
+      "all_display_numbers_checked": true,
+      "state": "\u53d7\u4fe1\u6a5f\u30e2\u30c7\u30eb\u4e0d\u4e00\u81f4"
+    },
+    {
+      "case_id": "d07",
+      "all_display_numbers_checked": true,
+      "state": "\u53d7\u4fe1\u6a5f\u30e2\u30c7\u30eb\u4e0d\u4e00\u81f4"
+    },
+    {
+      "case_id": "d08",
+      "all_display_numbers_checked": true,
+      "state": "\u96f6\u5929\u7a7a\u30fb\u540c\u4e00\u5206\u5e03\u306e\u8ca0\u5bfe\u7167"
+    }
+  ],
+  "case_count": 9,
+  "full_scientific_json_identical_to_stage096": true,
+  "artifact_json_identical": true,
+  "native_origin": {
+    "native_scientific_module_used": true,
+    "checkout_runner_used": false,
+    "scientific_modules_under_runtime_prefix": false,
+    "scientific_modules_under_gui_checkout": true,
+    "configuration_asset_under_runtime_prefix": false,
+    "sky_asset_under_runtime_prefix": false,
+    "configuration_asset_sha256": "514a85d32712b2bd03b06b39593620d96769fa9ffc58c52bb07d87a96be0afe6",
+    "formal_profile_executed": true,
+    "scientific_module_count": 8
+  },
+  "scientific_module_count": 8,
+  "workspace_has_checkout_runner": false,
+  "outside_checkout_workspace": true,
+  "pythonpath_removed": false,
+  "all_metric_and_confidence_interval_numbers_checked": true,
+  "japanese_qualification_labels_checked": true,
+  "caption_and_alt_checked": true,
+  "japanese_font_loaded": true,
+  "mobile_root_horizontal_overflow": false,
+  "actual_table_scroll_performed": true,
+  "javascript_errors": [],
+  "external_requests": 0,
+  "browser": "153.0.8010.12",
+  "production_rml_noise_model_changed": false,
+  "actual_hardware_data": false
+}

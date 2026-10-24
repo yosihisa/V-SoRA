@@ -52,9 +52,9 @@ def run(output,port=8792,source_checkout=False):
     errors=[];requests=[];page.on('pageerror',lambda e:errors.append(str(e)));page.on('request',lambda r:requests.append(r.url))
     page.goto(url);page.get_by_role('button',name='動作検証',exact=True).click()
     capability=httpx.get(url+'/api/environment').json()
-    assert capability['available_validations']==['array_scale','casa_window_symmetry','known_template'] and not capability['checkout_validation_available']
+    assert capability['available_validations']==['array_scale','casa_window_symmetry','known_template','independent_training'] and not capability['checkout_validation_available']
     page.wait_for_function('() => document.querySelector("#validation-form select").value === "array_scale"')
-    assert page.locator('#validation-form select option:enabled').count()==3
+    assert page.locator('#validation-form select option:enabled').count()==len(capability['available_validations'])
     page.locator('#validation-form select[name=validation]').select_option('casa_window_symmetry')
     assert '十数分以上' in page.locator('#validation-form').inner_text() and '存在確率や画像の信頼度ではありません' in page.locator('#validation-form').inner_text()
     page.screenshot(path=str(out/'input.png'),full_page=True)

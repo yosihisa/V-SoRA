@@ -39,6 +39,6 @@ summaryのtypeは`known_template_independent_training_repeats`。fullでは112�
 
 ## 適用範囲
 
-Gaussian電圧、独立mode、既知形状・仮定受信機モデル、一window内の一定局gainという参照条件である。M19200を64kHz×0.3秒とみなす解釈は実FFTの測定ではない。実SEFD・未知LO・量子化・RFI・実Cas A画像化・低SNR画像尤度・全夜/GPU性能は未検証。GUIへの接続は別段階とする。
+Gaussian電圧、独立mode、既知形状・仮定受信機モデル、一window内の一定局gainという参照条件である。M19200を64kHz×0.3秒とみなす解釈は実FFTの測定ではない。実SEFD・未知LO・量子化・RFI・実Cas A画像化・低SNR画像尤度・全夜/GPU性能は未検証。段階099より同梱日本語GUIの「動作検証」から同じ固定計画を実行できる。全model/scoreはnative summary downloadで取得する。
 
 公開metricsのtypeは`known_template_independent_training_metrics`で、native summaryとは別形式である。共通の生成共分散等はcaseの`shared_generation_metadata`へまとめ、各反復のgenerationには差分を持つ。共通dictへ差分dictを重ねると元の生成metadataを復元できる。

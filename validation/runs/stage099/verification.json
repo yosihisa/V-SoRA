@@ -1,0 +1,366 @@
+{
+  "state": "complete",
+  "targeted_tests": {
+    "passed": 15,
+    "new_tests": 12,
+    "existing_capability_tests": 3,
+    "warnings": 1,
+    "elapsed_s": 1.56
+  },
+  "full_regression": {
+    "source": {
+      "passed": 1686,
+      "warnings": 27396,
+      "elapsed_s": 663.29,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 1686,
+      "warnings": 27396,
+      "elapsed_s": 700.78,
+      "excluded_tests": 0
+    }
+  },
+  "browsers": {
+    "source": {
+      "state": "complete",
+      "source_checkout": true,
+      "summary_rows": 7,
+      "detail_rows": 112,
+      "case_filters": 7,
+      "all_display_numbers_checked": true,
+      "full_scientific_json_identical_to_stage098": true,
+      "all_seven_case_json_files_identical": true,
+      "summary_download_identical": true,
+      "native_origin": {
+        "native_scientific_module_used": true,
+        "checkout_runner_used": false,
+        "scientific_modules_under_runtime_prefix": false,
+        "scientific_modules_under_gui_checkout": true,
+        "configuration_asset_under_runtime_prefix": false,
+        "sky_asset_under_runtime_prefix": false,
+        "configuration_asset_sha256": "514a85d32712b2bd03b06b39593620d96769fa9ffc58c52bb07d87a96be0afe6",
+        "formal_profile_executed": true,
+        "scientific_module_count": 9
+      },
+      "scientific_module_count": 9,
+      "workspace_has_checkout_runner": false,
+      "outside_checkout_workspace": true,
+      "japanese_qualification_labels_checked": true,
+      "caption_and_alt_checked": true,
+      "japanese_font_loaded": true,
+      "mobile_root_horizontal_overflow": false,
+      "actual_both_table_scrolls_performed": [
+        true,
+        true
+      ],
+      "javascript_errors": [],
+      "external_requests": 0,
+      "browser": "153.0.8010.12",
+      "production_rml_noise_model_changed": false,
+      "actual_hardware_data": false
+    },
+    "installed": {
+      "state": "complete",
+      "source_checkout": false,
+      "summary_rows": 7,
+      "detail_rows": 112,
+      "case_filters": 7,
+      "all_display_numbers_checked": true,
+      "full_scientific_json_identical_to_stage098": true,
+      "all_seven_case_json_files_identical": true,
+      "summary_download_identical": true,
+      "native_origin": {
+        "native_scientific_module_used": true,
+        "checkout_runner_used": false,
+        "scientific_modules_under_runtime_prefix": true,
+        "scientific_modules_under_gui_checkout": false,
+        "configuration_asset_under_runtime_prefix": true,
+        "sky_asset_under_runtime_prefix": true,
+        "configuration_asset_sha256": "514a85d32712b2bd03b06b39593620d96769fa9ffc58c52bb07d87a96be0afe6",
+        "formal_profile_executed": true,
+        "scientific_module_count": 9
+      },
+      "scientific_module_count": 9,
+      "workspace_has_checkout_runner": false,
+      "outside_checkout_workspace": true,
+      "japanese_qualification_labels_checked": true,
+      "caption_and_alt_checked": true,
+      "japanese_font_loaded": true,
+      "mobile_root_horizontal_overflow": false,
+      "actual_both_table_scrolls_performed": [
+        true,
+        true
+      ],
+      "javascript_errors": [],
+      "external_requests": 0,
+      "browser": "153.0.8010.12",
+      "production_rml_noise_model_changed": false,
+      "actual_hardware_data": false
+    }
+  },
+  "legacy_known_template_browsers": {
+    "source": {
+      "state": "complete",
+      "source_checkout": true,
+      "installed_module_imports": false,
+      "case_rows": [
+        {
+          "case_id": "d00",
+          "all_display_numbers_checked": true,
+          "state": "\u53d7\u4fe1\u6a5f\u30e2\u30c7\u30eb\u4e00\u81f4"
+        },
+        {
+          "case_id": "d01",
+          "all_display_numbers_checked": true,
+          "state": "\u53d7\u4fe1\u6a5f\u30e2\u30c7\u30eb\u4e00\u81f4"
+        },
+        {
+          "case_id": "d02",
+          "all_display_numbers_checked": true,
+          "state": "\u53d7\u4fe1\u6a5f\u30e2\u30c7\u30eb\u4e00\u81f4"
+        },
+        {
+          "case_id": "d03",
+          "all_display_numbers_checked": true,
+          "state": "\u53d7\u4fe1\u6a5f\u30e2\u30c7\u30eb\u4e00\u81f4"
+        },
+        {
+          "case_id": "d04",
+          "all_display_numbers_checked": true,
+          "state": "\u53d7\u4fe1\u6a5f\u30e2\u30c7\u30eb\u4e00\u81f4"
+        },
+        {
+          "case_id": "d05",
+          "all_display_numbers_checked": true,
+          "state": "\u53d7\u4fe1\u6a5f\u30e2\u30c7\u30eb\u4e00\u81f4"
+        },
+        {
+          "case_id": "d06",
+          "all_display_numbers_checked": true,
+          "state": "\u53d7\u4fe1\u6a5f\u30e2\u30c7\u30eb\u4e0d\u4e00\u81f4"
+        },
+        {
+          "case_id": "d07",
+          "all_display_numbers_checked": true,
+          "state": "\u53d7\u4fe1\u6a5f\u30e2\u30c7\u30eb\u4e0d\u4e00\u81f4"
+        },
+        {
+          "case_id": "d08",
+          "all_display_numbers_checked": true,
+          "state": "\u96f6\u5929\u7a7a\u30fb\u540c\u4e00\u5206\u5e03\u306e\u8ca0\u5bfe\u7167"
+        }
+      ],
+      "case_count": 9,
+      "full_scientific_json_identical_to_stage096": true,
+      "artifact_json_identical": true,
+      "native_origin": {
+        "native_scientific_module_used": true,
+        "checkout_runner_used": false,
+        "scientific_modules_under_runtime_prefix": false,
+        "scientific_modules_under_gui_checkout": true,
+        "configuration_asset_under_runtime_prefix": false,
+        "sky_asset_under_runtime_prefix": false,
+        "configuration_asset_sha256": "514a85d32712b2bd03b06b39593620d96769fa9ffc58c52bb07d87a96be0afe6",
+        "formal_profile_executed": true,
+        "scientific_module_count": 8
+      },
+      "scientific_module_count": 8,
+      "workspace_has_checkout_runner": false,
+      "outside_checkout_workspace": true,
+      "pythonpath_removed": false,
+      "all_metric_and_confidence_interval_numbers_checked": true,
+      "japanese_qualification_labels_checked": true,
+      "caption_and_alt_checked": true,
+      "japanese_font_loaded": true,
+      "mobile_root_horizontal_overflow": false,
+      "actual_table_scroll_performed": true,
+      "javascript_errors": [],
+      "external_requests": 0,
+      "browser": "153.0.8010.12",
+      "production_rml_noise_model_changed": false,
+      "actual_hardware_data": false
+    },
+    "installed": {
+      "state": "complete",
+      "source_checkout": false,
+      "installed_module_imports": true,
+      "case_rows": [
+        {
+          "case_id": "d00",
+          "all_display_numbers_checked": true,
+          "state": "\u53d7\u4fe1\u6a5f\u30e2\u30c7\u30eb\u4e00\u81f4"
+        },
+        {
+          "case_id": "d01",
+          "all_display_numbers_checked": true,
+          "state": "\u53d7\u4fe1\u6a5f\u30e2\u30c7\u30eb\u4e00\u81f4"
+        },
+        {
+          "case_id": "d02",
+          "all_display_numbers_checked": true,
+          "state": "\u53d7\u4fe1\u6a5f\u30e2\u30c7\u30eb\u4e00\u81f4"
+        },
+        {
+          "case_id": "d03",
+          "all_display_numbers_checked": true,
+          "state": "\u53d7\u4fe1\u6a5f\u30e2\u30c7\u30eb\u4e00\u81f4"
+        },
+        {
+          "case_id": "d04",
+          "all_display_numbers_checked": true,
+          "state": "\u53d7\u4fe1\u6a5f\u30e2\u30c7\u30eb\u4e00\u81f4"
+        },
+        {
+          "case_id": "d05",
+          "all_display_numbers_checked": true,
+          "state": "\u53d7\u4fe1\u6a5f\u30e2\u30c7\u30eb\u4e00\u81f4"
+        },
+        {
+          "case_id": "d06",
+          "all_display_numbers_checked": true,
+          "state": "\u53d7\u4fe1\u6a5f\u30e2\u30c7\u30eb\u4e0d\u4e00\u81f4"
+        },
+        {
+          "case_id": "d07",
+          "all_display_numbers_checked": true,
+          "state": "\u53d7\u4fe1\u6a5f\u30e2\u30c7\u30eb\u4e0d\u4e00\u81f4"
+        },
+        {
+          "case_id": "d08",
+          "all_display_numbers_checked": true,
+          "state": "\u96f6\u5929\u7a7a\u30fb\u540c\u4e00\u5206\u5e03\u306e\u8ca0\u5bfe\u7167"
+        }
+      ],
+      "case_count": 9,
+      "full_scientific_json_identical_to_stage096": true,
+      "artifact_json_identical": true,
+      "native_origin": {
+        "native_scientific_module_used": true,
+        "checkout_runner_used": false,
+        "scientific_modules_under_runtime_prefix": true,
+        "scientific_modules_under_gui_checkout": false,
+        "configuration_asset_under_runtime_prefix": true,
+        "sky_asset_under_runtime_prefix": true,
+        "configuration_asset_sha256": "514a85d32712b2bd03b06b39593620d96769fa9ffc58c52bb07d87a96be0afe6",
+        "formal_profile_executed": true,
+        "scientific_module_count": 8
+      },
+      "scientific_module_count": 8,
+      "workspace_has_checkout_runner": false,
+      "outside_checkout_workspace": true,
+      "pythonpath_removed": true,
+      "all_metric_and_confidence_interval_numbers_checked": true,
+      "japanese_qualification_labels_checked": true,
+      "caption_and_alt_checked": true,
+      "japanese_font_loaded": true,
+      "mobile_root_horizontal_overflow": false,
+      "actual_table_scroll_performed": true,
+      "javascript_errors": [],
+      "external_requests": 0,
+      "browser": "153.0.8010.12",
+      "production_rml_noise_model_changed": false,
+      "actual_hardware_data": false
+    }
+  },
+  "legacy_array_browsers": {
+    "source": {
+      "state": "complete",
+      "source_checkout": true,
+      "installed_imports": false,
+      "outside_checkout_workspace": true,
+      "pythonpath_removed": true,
+      "workflow_owned_by_checkout": false,
+      "native_scientific_worker": true,
+      "workspace_has_checkout_runner": false,
+      "scientific_modules_under_runtime_prefix": false,
+      "packaged_configuration_and_sky_used": false,
+      "real_worker_workflow_executed": true,
+      "population_rows_checked": 18,
+      "scale_conditions_checked": 108,
+      "triangle_rows_checked": 6048,
+      "all_display_numbers_checked": true,
+      "filters_checked": true,
+      "entire_scientific_result_identical_to_stage081": true,
+      "json_download_identical": true,
+      "caption_checked": true,
+      "population_and_complex_rms_limits_visible": true,
+      "japanese_font_loaded": true,
+      "mobile_horizontal_overflow": false,
+      "javascript_errors": 0,
+      "external_requests": 0,
+      "actual_hardware_data": false,
+      "optimal_array_selected": false,
+      "image_reconstructed": false,
+      "production_rml_noise_model_changed": false,
+      "browser_environment": "WSL headless Chromium; Windows/WSLg unverified"
+    },
+    "installed": {
+      "state": "complete",
+      "source_checkout": false,
+      "installed_imports": true,
+      "outside_checkout_workspace": true,
+      "pythonpath_removed": true,
+      "workflow_owned_by_checkout": false,
+      "native_scientific_worker": true,
+      "workspace_has_checkout_runner": false,
+      "scientific_modules_under_runtime_prefix": true,
+      "packaged_configuration_and_sky_used": true,
+      "real_worker_workflow_executed": true,
+      "population_rows_checked": 18,
+      "scale_conditions_checked": 108,
+      "triangle_rows_checked": 6048,
+      "all_display_numbers_checked": true,
+      "filters_checked": true,
+      "entire_scientific_result_identical_to_stage081": true,
+      "json_download_identical": true,
+      "caption_checked": true,
+      "population_and_complex_rms_limits_visible": true,
+      "japanese_font_loaded": true,
+      "mobile_horizontal_overflow": false,
+      "javascript_errors": 0,
+      "external_requests": 0,
+      "actual_hardware_data": false,
+      "optimal_array_selected": false,
+      "image_reconstructed": false,
+      "production_rml_noise_model_changed": false,
+      "browser_environment": "WSL headless Chromium; Windows/WSLg unverified"
+    }
+  },
+  "scientific_python_files_unchanged": 88,
+  "frozen_source_files_unchanged": 319,
+  "wheel": {
+    "bytes": 5576564,
+    "sha256": "011b6ead25c320672b71c7818664ab939006d1d577c4b6dd2d5cc3844c93dc48",
+    "packaged_files_identical_to_source": 91
+  },
+  "pip_check_passed": true,
+  "old_53_case_gui_reexecuted": false,
+  "old_53_case_dispatch_and_capability_tests_in_full_regression": true,
+  "actual_hardware_validation_performed": false,
+  "production_rml_noise_model_changed": false,
+  "initial_download_check_repair": {
+    "initial_full_regression_passed": 1686,
+    "initial_browser_failed_in_hidden_download_accordion": true,
+    "production_or_test_files_changed": false,
+    "fix": "open existing save accordion before real download",
+    "source_full_regression_will_be_repeated": true,
+    "scientific_experiment_repetitions_not_pooled": true
+  },
+  "environment": {
+    "python": "3.12.3",
+    "numpy": "2.5.1",
+    "scipy": "1.18.0",
+    "pytest": "8.4.2",
+    "playwright": "1.63.0",
+    "blas_threads": 1,
+    "openmp_threads": 1
+  },
+  "browser_environment": "WSL headless Chromium; Windows/WSLg unverified",
+  "publication_review": {
+    "local_markdown_links": 1238,
+    "missing_local_links": 0,
+    "public_audit_findings": 0,
+    "png_metadata_reviewed": true
+  }
+}
