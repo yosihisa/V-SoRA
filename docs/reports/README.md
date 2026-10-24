@@ -195,4 +195,7 @@
 
 | 096 | [既知点源・Cas Aの独立学習/評価](096-known-template-holdout.md) | source/wheel1623件。新66対象、固定9条件・11520生成window、checkout外9API/全native JSON一致。SEFD不一致と零天空対照を含み、画像尤度・実機へ未適用 |
 
+
+| 097 | [既知二モデルの独立評価を日本語GUIへ接続](097-known-template-gui.md) | source/wheel1640件。新17+旧2対象、両実Chromium9条件の全科学JSON/全数値/個別区間/日本語390px一致。既存配置18/108/6048と53条件/2968詳細も両実確認。実機・画像尤度へ未適用 |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。

@@ -191,6 +191,28 @@ def run(job):
             options=request.model_dump(exclude={'kind','inputs'})
             result=image_synthesis(paths,job/'synthesis',**options)
             write_json(job/'summary.json',result)
+        elif request.kind=='validation' and request.validation=='known_template':
+            import hashlib
+            from vsora_simulator import known_template_validation,template_score,casa_window_symmetry,bispectrum_observed_power,sky,sky_covariance
+            from vsora_imaging import window_symmetry
+            from vsora_observation import reference
+            from .jobs import source_root
+            def progress(index,total,label):
+                phase(f'既知二モデルを独立データで評価しています（条件 {index+1}/{total}）')
+            result=known_template_validation.run(job/'validation',profile='full',progress=progress)
+            if not isinstance(result,dict) or result.get('state')!='complete':
+                raise ValueError('known-template scientific validation did not complete')
+            modules=(known_template_validation,template_score,casa_window_symmetry,bispectrum_observed_power,window_symmetry,sky,sky_covariance,reference)
+            prefix=Path(sys.prefix);checkout=source_root();asset=reference.reference_path('known-casa-window-symmetry.json')
+            write_json(job/'validation/execution-origin.json',{
+                'native_scientific_module_used':True,'checkout_runner_used':False,
+                'scientific_modules_under_runtime_prefix':all(Path(m.__file__).is_relative_to(prefix) for m in modules),
+                'scientific_modules_under_gui_checkout':bool(checkout and all(Path(m.__file__).is_relative_to(checkout) for m in modules)),
+                'configuration_asset_under_runtime_prefix':asset.is_relative_to(prefix),
+                'sky_asset_under_runtime_prefix':reference.reference_path().is_relative_to(prefix),
+                'configuration_asset_sha256':hashlib.sha256(asset.read_bytes()).hexdigest(),
+                'formal_profile_executed':True,'scientific_module_count':len(modules)})
+            write_json(job/'summary.json',result)
         elif request.kind=='validation' and request.validation=='casa_window_symmetry':
             import hashlib
             from vsora_simulator import casa_window_symmetry,bispectrum_observed_power,sky,sky_covariance
@@ -200,6 +222,8 @@ def run(job):
             def progress(index,total,label):
                 phase(f'既知天空の有限電圧を比較しています（条件 {index+1}/{total}）')
             result=casa_window_symmetry.run(job/'validation',profile='full',progress=progress)
+            if not isinstance(result,dict) or result.get('state')!='complete':
+                raise ValueError('known-sky scientific validation did not complete')
             modules=(casa_window_symmetry,bispectrum_observed_power,window_symmetry,sky,sky_covariance,reference)
             prefix=Path(sys.prefix);checkout=source_root();asset=reference.reference_path('known-casa-window-symmetry.json')
             write_json(job/'validation/execution-origin.json',{
@@ -261,6 +285,7 @@ def run(job):
                 try:plot_rate_parts(failure['rate_consistency'],job/'rate-parts.png')
                 except Exception:status['diagnostic_plot_unavailable']=True
         translations={
+            'scientific validation did not complete':'数値検証が成功しなかったため、結果を成功として表示しません。詳細ログと保存された検証結果を確認してください。',
             'raw bispectrum requires':'追加統計の保存には3〜8局、対応するchannel数とFFT保持数が必要です。観測設定を確認してください。',
             'raw bispectrum exceeds':'追加統計の容量上限を超えました。保存する時刻数かchannel数を減らしてください。','integer channel index':'周波数の番号が入力の範囲外です。入力情報を読み直して選んでください。',
             'double-correct':'保存相関はrate補正済みです。追加profileを空欄にするか、補正前のpilotを選んでください。',

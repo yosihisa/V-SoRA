@@ -16,7 +16,7 @@ def test_choice_label_and_native_capability(tmp_path):
  assert ValidationRequest(validation='casa_window_symmetry').validation=='casa_window_symmetry'
  assert LABELS['casa_window_symmetry']=='既知天空と短区間の虚部対称性'
  with TestClient(create_app(tmp_path),base_url='http://127.0.0.1') as c:
-  env=c.get('/api/environment').json();assert env['available_validations']==['array_scale','casa_window_symmetry']
+  env=c.get('/api/environment').json();assert env['available_validations']==['array_scale','casa_window_symmetry','known_template']
   assert not env['checkout_validation_available']
   assert '53条件・十数分程度' in c.get('/').text
 
@@ -68,3 +68,14 @@ def test_browser_expected_decimal_rounding(value,expected):
 def test_nonfinite_expected_display_rejected(value):
  from tools.verify_casa_window_symmetry_ui import javascript_exponential
  with pytest.raises(ValueError):javascript_exponential(value)
+
+
+@pytest.mark.parametrize('result',[{'state':'failed_validation'},{'state':'failed'},{'state':'cancelled'},{},None])
+def test_scientific_failure_result_not_reported_complete(tmp_path,monkeypatch,result):
+ from vsora_simulator import casa_window_symmetry
+ p=job(tmp_path)
+ monkeypatch.setattr(casa_window_symmetry,'run',lambda *a,**k:result)
+ with pytest.raises(ValueError,match='scientific validation did not complete'):worker.run(p)
+ status=json.loads((p/'status.json').read_text())
+ assert status['state']=='failed' and '数値検証が成功しなかった' in status['error_message']
+ assert not (p/'summary.json').exists()

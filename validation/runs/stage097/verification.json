@@ -1,0 +1,373 @@
+{
+  "state": "complete",
+  "environment": {
+    "python": "3.12.3",
+    "numpy": "2.5.1",
+    "scipy": "1.18.0",
+    "pytest": "8.4.2",
+    "playwright": "1.63.0",
+    "matplotlib": "3.11.1",
+    "fastapi": "0.142.2",
+    "blas_threads": 1,
+    "openmp_threads": 1
+  },
+  "targeted_tests": {
+    "passed": 19,
+    "new_tests": 17,
+    "existing_capability_tests": 2,
+    "warnings": 1,
+    "elapsed_s": 0.94
+  },
+  "full_regression": {
+    "source": {
+      "passed": 1640,
+      "warnings": 27396,
+      "elapsed_s": 644.21,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 1640,
+      "warnings": 27396,
+      "elapsed_s": 636.43,
+      "excluded_tests": 0
+    }
+  },
+  "browsers": {
+    "source": {
+      "state": "complete",
+      "source_checkout": true,
+      "installed_module_imports": false,
+      "case_rows": [
+        {
+          "case_id": "d00",
+          "all_display_numbers_checked": true,
+          "state": "\u53d7\u4fe1\u6a5f\u30e2\u30c7\u30eb\u4e00\u81f4"
+        },
+        {
+          "case_id": "d01",
+          "all_display_numbers_checked": true,
+          "state": "\u53d7\u4fe1\u6a5f\u30e2\u30c7\u30eb\u4e00\u81f4"
+        },
+        {
+          "case_id": "d02",
+          "all_display_numbers_checked": true,
+          "state": "\u53d7\u4fe1\u6a5f\u30e2\u30c7\u30eb\u4e00\u81f4"
+        },
+        {
+          "case_id": "d03",
+          "all_display_numbers_checked": true,
+          "state": "\u53d7\u4fe1\u6a5f\u30e2\u30c7\u30eb\u4e00\u81f4"
+        },
+        {
+          "case_id": "d04",
+          "all_display_numbers_checked": true,
+          "state": "\u53d7\u4fe1\u6a5f\u30e2\u30c7\u30eb\u4e00\u81f4"
+        },
+        {
+          "case_id": "d05",
+          "all_display_numbers_checked": true,
+          "state": "\u53d7\u4fe1\u6a5f\u30e2\u30c7\u30eb\u4e00\u81f4"
+        },
+        {
+          "case_id": "d06",
+          "all_display_numbers_checked": true,
+          "state": "\u53d7\u4fe1\u6a5f\u30e2\u30c7\u30eb\u4e0d\u4e00\u81f4"
+        },
+        {
+          "case_id": "d07",
+          "all_display_numbers_checked": true,
+          "state": "\u53d7\u4fe1\u6a5f\u30e2\u30c7\u30eb\u4e0d\u4e00\u81f4"
+        },
+        {
+          "case_id": "d08",
+          "all_display_numbers_checked": true,
+          "state": "\u96f6\u5929\u7a7a\u30fb\u540c\u4e00\u5206\u5e03\u306e\u8ca0\u5bfe\u7167"
+        }
+      ],
+      "case_count": 9,
+      "full_scientific_json_identical_to_stage096": true,
+      "artifact_json_identical": true,
+      "native_origin": {
+        "native_scientific_module_used": true,
+        "checkout_runner_used": false,
+        "scientific_modules_under_runtime_prefix": false,
+        "scientific_modules_under_gui_checkout": true,
+        "configuration_asset_under_runtime_prefix": false,
+        "sky_asset_under_runtime_prefix": false,
+        "configuration_asset_sha256": "514a85d32712b2bd03b06b39593620d96769fa9ffc58c52bb07d87a96be0afe6",
+        "formal_profile_executed": true,
+        "scientific_module_count": 8
+      },
+      "scientific_module_count": 8,
+      "workspace_has_checkout_runner": false,
+      "outside_checkout_workspace": true,
+      "pythonpath_removed": false,
+      "all_metric_and_confidence_interval_numbers_checked": true,
+      "japanese_qualification_labels_checked": true,
+      "caption_and_alt_checked": true,
+      "japanese_font_loaded": true,
+      "mobile_root_horizontal_overflow": false,
+      "actual_table_scroll_performed": true,
+      "javascript_errors": [],
+      "external_requests": 0,
+      "browser": "153.0.8010.12",
+      "production_rml_noise_model_changed": false,
+      "actual_hardware_data": false
+    },
+    "installed": {
+      "state": "complete",
+      "source_checkout": false,
+      "installed_module_imports": true,
+      "case_rows": [
+        {
+          "case_id": "d00",
+          "all_display_numbers_checked": true,
+          "state": "\u53d7\u4fe1\u6a5f\u30e2\u30c7\u30eb\u4e00\u81f4"
+        },
+        {
+          "case_id": "d01",
+          "all_display_numbers_checked": true,
+          "state": "\u53d7\u4fe1\u6a5f\u30e2\u30c7\u30eb\u4e00\u81f4"
+        },
+        {
+          "case_id": "d02",
+          "all_display_numbers_checked": true,
+          "state": "\u53d7\u4fe1\u6a5f\u30e2\u30c7\u30eb\u4e00\u81f4"
+        },
+        {
+          "case_id": "d03",
+          "all_display_numbers_checked": true,
+          "state": "\u53d7\u4fe1\u6a5f\u30e2\u30c7\u30eb\u4e00\u81f4"
+        },
+        {
+          "case_id": "d04",
+          "all_display_numbers_checked": true,
+          "state": "\u53d7\u4fe1\u6a5f\u30e2\u30c7\u30eb\u4e00\u81f4"
+        },
+        {
+          "case_id": "d05",
+          "all_display_numbers_checked": true,
+          "state": "\u53d7\u4fe1\u6a5f\u30e2\u30c7\u30eb\u4e00\u81f4"
+        },
+        {
+          "case_id": "d06",
+          "all_display_numbers_checked": true,
+          "state": "\u53d7\u4fe1\u6a5f\u30e2\u30c7\u30eb\u4e0d\u4e00\u81f4"
+        },
+        {
+          "case_id": "d07",
+          "all_display_numbers_checked": true,
+          "state": "\u53d7\u4fe1\u6a5f\u30e2\u30c7\u30eb\u4e0d\u4e00\u81f4"
+        },
+        {
+          "case_id": "d08",
+          "all_display_numbers_checked": true,
+          "state": "\u96f6\u5929\u7a7a\u30fb\u540c\u4e00\u5206\u5e03\u306e\u8ca0\u5bfe\u7167"
+        }
+      ],
+      "case_count": 9,
+      "full_scientific_json_identical_to_stage096": true,
+      "artifact_json_identical": true,
+      "native_origin": {
+        "native_scientific_module_used": true,
+        "checkout_runner_used": false,
+        "scientific_modules_under_runtime_prefix": true,
+        "scientific_modules_under_gui_checkout": false,
+        "configuration_asset_under_runtime_prefix": true,
+        "sky_asset_under_runtime_prefix": true,
+        "configuration_asset_sha256": "514a85d32712b2bd03b06b39593620d96769fa9ffc58c52bb07d87a96be0afe6",
+        "formal_profile_executed": true,
+        "scientific_module_count": 8
+      },
+      "scientific_module_count": 8,
+      "workspace_has_checkout_runner": false,
+      "outside_checkout_workspace": true,
+      "pythonpath_removed": true,
+      "all_metric_and_confidence_interval_numbers_checked": true,
+      "japanese_qualification_labels_checked": true,
+      "caption_and_alt_checked": true,
+      "japanese_font_loaded": true,
+      "mobile_root_horizontal_overflow": false,
+      "actual_table_scroll_performed": true,
+      "javascript_errors": [],
+      "external_requests": 0,
+      "browser": "153.0.8010.12",
+      "production_rml_noise_model_changed": false,
+      "actual_hardware_data": false
+    }
+  },
+  "legacy_array_browsers": {
+    "source": {
+      "state": "complete",
+      "source_checkout": true,
+      "installed_imports": false,
+      "outside_checkout_workspace": true,
+      "pythonpath_removed": true,
+      "workflow_owned_by_checkout": false,
+      "native_scientific_worker": true,
+      "workspace_has_checkout_runner": false,
+      "scientific_modules_under_runtime_prefix": false,
+      "packaged_configuration_and_sky_used": false,
+      "real_worker_workflow_executed": true,
+      "population_rows_checked": 18,
+      "scale_conditions_checked": 108,
+      "triangle_rows_checked": 6048,
+      "all_display_numbers_checked": true,
+      "filters_checked": true,
+      "entire_scientific_result_identical_to_stage081": true,
+      "json_download_identical": true,
+      "caption_checked": true,
+      "population_and_complex_rms_limits_visible": true,
+      "japanese_font_loaded": true,
+      "mobile_horizontal_overflow": false,
+      "javascript_errors": 0,
+      "external_requests": 0,
+      "actual_hardware_data": false,
+      "optimal_array_selected": false,
+      "image_reconstructed": false,
+      "production_rml_noise_model_changed": false,
+      "browser_environment": "WSL headless Chromium; Windows/WSLg unverified"
+    },
+    "installed": {
+      "state": "complete",
+      "source_checkout": false,
+      "installed_imports": true,
+      "outside_checkout_workspace": true,
+      "pythonpath_removed": true,
+      "workflow_owned_by_checkout": false,
+      "native_scientific_worker": true,
+      "workspace_has_checkout_runner": false,
+      "scientific_modules_under_runtime_prefix": true,
+      "packaged_configuration_and_sky_used": true,
+      "real_worker_workflow_executed": true,
+      "population_rows_checked": 18,
+      "scale_conditions_checked": 108,
+      "triangle_rows_checked": 6048,
+      "all_display_numbers_checked": true,
+      "filters_checked": true,
+      "entire_scientific_result_identical_to_stage081": true,
+      "json_download_identical": true,
+      "caption_checked": true,
+      "population_and_complex_rms_limits_visible": true,
+      "japanese_font_loaded": true,
+      "mobile_horizontal_overflow": false,
+      "javascript_errors": 0,
+      "external_requests": 0,
+      "actual_hardware_data": false,
+      "optimal_array_selected": false,
+      "image_reconstructed": false,
+      "production_rml_noise_model_changed": false,
+      "browser_environment": "WSL headless Chromium; Windows/WSLg unverified"
+    }
+  },
+  "all_source_and_installed_case_records_identical": true,
+  "scientific_python_files_unchanged": 87,
+  "wheel": {
+    "bytes": 5571444,
+    "sha256": "de33f73896b7cdb1db757de5dae2764cef71ac53b8ec54939c7549f13b18583b",
+    "packaged_files_identical_to_source": 90
+  },
+  "pip_check_passed": true,
+  "initial_recording_attempt": {
+    "pip_check_returned_success_with_cache_warning": true,
+    "overstrict_whole_output_match_corrected": true,
+    "manual_recovery_first_launch_used_resolved_system_interpreter": true,
+    "venv_interpreter_path_preserved_in_successful_retry": true,
+    "scientific_tests_failed": false
+  },
+  "initial_browser_attempt": {
+    "result": "missing_matching_browser_executable_before_page_open",
+    "scientific_experiment_started": false,
+    "matching_browser_installed_in_ignored_temporary_directory": true,
+    "retry_success": true
+  },
+  "new_scientific_case_design": false,
+  "real_hardware_validation_performed": false,
+  "production_rml_noise_model_changed": false,
+  "old_53_case_gui_rerun": true,
+  "old_53_case_dispatch_tests_in_full_regression": true,
+  "browser_environment": "WSL headless Chromium; Windows/WSLg unverified",
+  "remote_connection_recovery": {
+    "initial_remote_read_failed_missing_known_hosts": true,
+    "official_github_host_key_verified": true,
+    "github_host_key_fingerprint": "SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU",
+    "strict_host_key_checking": true,
+    "project_local_known_hosts_git_ignored": true,
+    "reference": "https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints",
+    "remote_development_matches_comparison_commit": true
+  },
+  "legacy_symmetry_browsers": {
+    "source": {
+      "state": "complete",
+      "source_checkout": true,
+      "outside_checkout_workspace": true,
+      "pythonpath_removed": true,
+      "native_full_worker_executed": true,
+      "workspace_has_checkout_runner": false,
+      "entire_scientific_result_identical_to_stage087": true,
+      "conditions_all_numbers_checked": 53,
+      "component_rows_all_numbers_checked": 2968,
+      "case_json_files_identical": 53,
+      "summary_download_identical": true,
+      "all_four_filters_checked": true,
+      "caption_and_limitations_checked": true,
+      "japanese_font_loaded": true,
+      "mobile_horizontal_overflow": false,
+      "local_table_horizontal_scroll_checked": true,
+      "javascript_errors": 0,
+      "external_requests": 0,
+      "science_modules_and_assets_under_runtime_prefix": false,
+      "actual_hardware_data": false,
+      "image_reconstructed": false,
+      "production_rml_noise_model_changed": false,
+      "browser_environment": "WSL headless Chromium; Windows/WSLg unverified"
+    },
+    "installed": {
+      "state": "complete",
+      "source_checkout": false,
+      "outside_checkout_workspace": true,
+      "pythonpath_removed": true,
+      "native_full_worker_executed": true,
+      "workspace_has_checkout_runner": false,
+      "entire_scientific_result_identical_to_stage087": true,
+      "conditions_all_numbers_checked": 53,
+      "component_rows_all_numbers_checked": 2968,
+      "case_json_files_identical": 53,
+      "summary_download_identical": true,
+      "all_four_filters_checked": true,
+      "caption_and_limitations_checked": true,
+      "japanese_font_loaded": true,
+      "mobile_horizontal_overflow": false,
+      "local_table_horizontal_scroll_checked": true,
+      "javascript_errors": 0,
+      "external_requests": 0,
+      "science_modules_and_assets_under_runtime_prefix": true,
+      "actual_hardware_data": false,
+      "image_reconstructed": false,
+      "production_rml_noise_model_changed": false,
+      "browser_environment": "WSL headless Chromium; Windows/WSLg unverified"
+    }
+  },
+  "verification_tool_only_update_after_full_regressions": {
+    "file": "tools/verify_casa_window_symmetry_ui.py",
+    "before_sha256": "9479590092178a0ba41c3cf13bb46c401f5e56cee0e0c6e0652cd4fd8ec290bc",
+    "after_sha256": "acf32b28a965063c1d0153bc9af730afa91069511d171d8a395fa8dfbb7b1dbb",
+    "changed_only_enabled_menu_count_from_2_to_3": true,
+    "formatter_function_ast_unchanged": true,
+    "changed_after_both_full_regressions_completed": true,
+    "production_and_test_files_changed_after_full_regressions": false
+  },
+  "all_other_frozen_source_files_unchanged_after_regressions": 313,
+  "final_verifier_formatter_target_tests": {
+    "source": 24,
+    "installed": 24,
+    "already_in_full_regressions": true
+  },
+  "frozen_source_files_verified_unchanged_before_post_regression_verifier_update": 314,
+  "publication_review": {
+    "public_audit_findings": 0,
+    "local_markdown_links": 1215,
+    "missing_local_links": 0,
+    "png_metadata_reviewed": true
+  }
+}
