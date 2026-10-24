@@ -1,0 +1,41 @@
+{
+  "state": "complete",
+  "source_checkout": true,
+  "summary_rows": 9,
+  "detail_rows": 9216,
+  "case_filters": 9,
+  "all_display_numbers_checked": true,
+  "all_window_labels_predictions_and_errors_checked": true,
+  "actual_detail_vertical_scroll_performed": true,
+  "full_scientific_json_identical_to_stage101": true,
+  "all_nine_case_json_files_identical": true,
+  "summary_download_identical": true,
+  "completed_view_survived_two_poll_responses": true,
+  "native_origin": {
+    "native_scientific_module_used": true,
+    "checkout_runner_used": false,
+    "scientific_modules_under_runtime_prefix": false,
+    "scientific_modules_under_gui_checkout": true,
+    "configuration_asset_under_runtime_prefix": false,
+    "sky_asset_under_runtime_prefix": false,
+    "configuration_asset_sha256": "514a85d32712b2bd03b06b39593620d96769fa9ffc58c52bb07d87a96be0afe6",
+    "formal_profile_executed": true,
+    "scientific_module_count": 10
+  },
+  "scientific_module_count": 10,
+  "workspace_has_checkout_runner": false,
+  "outside_checkout_workspace": true,
+  "japanese_qualification_labels_checked": true,
+  "caption_and_alt_checked": true,
+  "japanese_font_loaded": true,
+  "mobile_root_horizontal_overflow": false,
+  "actual_both_table_scrolls_performed": [
+    true,
+    true
+  ],
+  "javascript_errors": [],
+  "external_requests": 0,
+  "browser": "153.0.8010.12",
+  "production_rml_noise_model_changed": false,
+  "actual_hardware_data": false
+}

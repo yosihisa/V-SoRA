@@ -16,7 +16,7 @@ def test_choice_label_and_native_capability(tmp_path):
  assert ValidationRequest(validation='casa_window_symmetry').validation=='casa_window_symmetry'
  assert LABELS['casa_window_symmetry']=='既知天空と短区間の虚部対称性'
  with TestClient(create_app(tmp_path),base_url='http://127.0.0.1') as c:
-  env=c.get('/api/environment').json();assert env['available_validations']==['array_scale','casa_window_symmetry','known_template','independent_training','gaussian_template']
+  env=c.get('/api/environment').json();assert env['available_validations']==['array_scale','casa_window_symmetry','known_template','independent_training','gaussian_template','phase_template']
   assert not env['checkout_validation_available']
   assert '53条件・十数分程度' in c.get('/').text
 

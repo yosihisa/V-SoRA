@@ -16,7 +16,7 @@ def test_choice_label_and_native_capability(tmp_path):
  assert ValidationRequest(validation='gaussian_template').validation=='gaussian_template'
  assert LABELS['gaussian_template']=='既知共分散で点源とCas Aを比較'
  with TestClient(create_app(tmp_path),base_url='http://127.0.0.1') as c:
-  env=c.get('/api/environment').json();assert env['available_validations']==['array_scale','casa_window_symmetry','known_template','independent_training','gaussian_template']
+  env=c.get('/api/environment').json();assert env['available_validations']==['array_scale','casa_window_symmetry','known_template','independent_training','gaussian_template','phase_template']
   assert not env['checkout_validation_available']
   assert '9条件・数分程度' in c.get('/').text
 

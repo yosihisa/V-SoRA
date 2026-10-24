@@ -35,7 +35,7 @@ def run(reference,output,source_checkout=False,port=8795):
                 errors=[];requests=[];page.on('pageerror',lambda e:errors.append(str(e)));page.on('request',lambda r:requests.append(r.url))
                 page.goto(url);page.get_by_role('button',name='動作検証',exact=True).click()
                 cap=httpx.get(url+'/api/environment').json()
-                assert cap['available_validations']==['array_scale','casa_window_symmetry','known_template','independent_training','gaussian_template']
+                assert cap['available_validations']==['array_scale','casa_window_symmetry','known_template','independent_training','gaussian_template','phase_template']
                 assert not cap['checkout_validation_available']
                 page.wait_for_function('()=>!document.querySelector("#validation-form option[value=gaussian_template]").disabled')
                 assert page.locator('#validation-form option:enabled').count()==len(cap['available_validations'])

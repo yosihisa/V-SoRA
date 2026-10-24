@@ -33,6 +33,7 @@ LABELS={'simulation':'模擬観測と画像復元','quality':'雑音・電波妨
         'casa_window_symmetry':'既知天空と短区間の虚部対称性',
         'known_template':'既知二モデルの独立評価',
         'independent_training':'学習・評価を作り直したときの揺らぎ',
+        'phase_template':'同じ電圧で局位相の既知・未知を比較',
         'gaussian_template':'既知共分散で点源とCas Aを比較',
         'rate':'skyモデルを使わない周波数差の推定','analysis':'VDIFからClosure＋RMLで解析',
         'sequence':'VDIFの短区間列と画像合成',

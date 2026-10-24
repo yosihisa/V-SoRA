@@ -98,6 +98,7 @@ function renderDetail(job){const box=byId("job-detail");box.replaceChildren();co
   if(summary&&summary.type==="known_casa_window_symmetry")renderCasaWindowSymmetry(box,summary);
   if(summary&&summary.type==="known_template_holdout_discrimination")renderKnownTemplate(box,summary);
   if(summary&&summary.type==="known_template_independent_training_repeats")renderIndependentTraining(box,summary);
+  if(summary&&summary.type==="paired_known_phase_and_phase_profile")renderPhaseTemplate(box,summary);
   if(summary&&summary.type==="known_covariance_template_discrimination")renderKnownCovariance(box,summary);
   if(summary&&summary.type==="temporal_bispectrum_validation")renderTemporalBispectrum(box,summary);
   if(summary&&summary.type==="distinct_sample_bispectrum_validation")renderDistinctBispectrum(box,summary);

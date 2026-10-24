@@ -1,0 +1,603 @@
+{
+  "state": "complete",
+  "targeted_tests": {
+    "passed": 74,
+    "new_tests": 12,
+    "existing_native_gui_tests": 62,
+    "warnings": 1,
+    "elapsed_s": 3.12
+  },
+  "full_regression": {
+    "source": {
+      "passed": 1899,
+      "warnings": 27396,
+      "elapsed_s": 580.46,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 1899,
+      "warnings": 27396,
+      "elapsed_s": 580.59,
+      "excluded_tests": 0
+    }
+  },
+  "browsers": {
+    "source": {
+      "state": "complete",
+      "source_checkout": true,
+      "summary_rows": 7,
+      "detail_rows": 896,
+      "case_filters": 7,
+      "all_display_numbers_checked": true,
+      "all_paired_scores_predictions_labels_and_states_checked": true,
+      "actual_detail_vertical_scroll_performed": true,
+      "full_scientific_json_identical_to_stage104": true,
+      "all_seven_case_json_files_identical": true,
+      "summary_download_identical": true,
+      "completed_view_survived_two_poll_responses": true,
+      "native_origin": {
+        "native_scientific_module_used": true,
+        "checkout_runner_used": false,
+        "scientific_modules_under_runtime_prefix": false,
+        "scientific_modules_under_gui_checkout": true,
+        "configuration_asset_under_runtime_prefix": false,
+        "sky_asset_under_runtime_prefix": false,
+        "configuration_asset_sha256": "514a85d32712b2bd03b06b39593620d96769fa9ffc58c52bb07d87a96be0afe6",
+        "formal_profile_executed": true,
+        "scientific_module_count": 12
+      },
+      "scientific_module_count": 12,
+      "workspace_has_checkout_runner": false,
+      "outside_checkout_workspace": true,
+      "japanese_qualification_labels_checked": true,
+      "explicit_unresolved_renderer_fixture_checked": true,
+      "japanese_font_loaded": true,
+      "mobile_root_horizontal_overflow": false,
+      "actual_both_table_scrolls_performed": [
+        true,
+        true
+      ],
+      "javascript_errors": [],
+      "external_requests": 0,
+      "browser": "153.0.8010.12",
+      "production_rml_noise_model_changed": false,
+      "actual_hardware_data": false
+    },
+    "installed": {
+      "state": "complete",
+      "source_checkout": false,
+      "summary_rows": 7,
+      "detail_rows": 896,
+      "case_filters": 7,
+      "all_display_numbers_checked": true,
+      "all_paired_scores_predictions_labels_and_states_checked": true,
+      "actual_detail_vertical_scroll_performed": true,
+      "full_scientific_json_identical_to_stage104": true,
+      "all_seven_case_json_files_identical": true,
+      "summary_download_identical": true,
+      "completed_view_survived_two_poll_responses": true,
+      "native_origin": {
+        "native_scientific_module_used": true,
+        "checkout_runner_used": false,
+        "scientific_modules_under_runtime_prefix": true,
+        "scientific_modules_under_gui_checkout": false,
+        "configuration_asset_under_runtime_prefix": true,
+        "sky_asset_under_runtime_prefix": true,
+        "configuration_asset_sha256": "514a85d32712b2bd03b06b39593620d96769fa9ffc58c52bb07d87a96be0afe6",
+        "formal_profile_executed": true,
+        "scientific_module_count": 12
+      },
+      "scientific_module_count": 12,
+      "workspace_has_checkout_runner": false,
+      "outside_checkout_workspace": true,
+      "japanese_qualification_labels_checked": true,
+      "explicit_unresolved_renderer_fixture_checked": true,
+      "japanese_font_loaded": true,
+      "mobile_root_horizontal_overflow": false,
+      "actual_both_table_scrolls_performed": [
+        true,
+        true
+      ],
+      "javascript_errors": [],
+      "external_requests": 0,
+      "browser": "153.0.8010.12",
+      "production_rml_noise_model_changed": false,
+      "actual_hardware_data": false
+    }
+  },
+  "legacy_native_browsers": {
+    "source": {
+      "array": {
+        "state": "complete",
+        "source_checkout": true,
+        "installed_imports": false,
+        "outside_checkout_workspace": true,
+        "pythonpath_removed": true,
+        "workflow_owned_by_checkout": false,
+        "native_scientific_worker": true,
+        "workspace_has_checkout_runner": false,
+        "scientific_modules_under_runtime_prefix": false,
+        "packaged_configuration_and_sky_used": false,
+        "real_worker_workflow_executed": true,
+        "population_rows_checked": 18,
+        "scale_conditions_checked": 108,
+        "triangle_rows_checked": 6048,
+        "all_display_numbers_checked": true,
+        "filters_checked": true,
+        "entire_scientific_result_identical_to_stage081": true,
+        "json_download_identical": true,
+        "caption_checked": true,
+        "population_and_complex_rms_limits_visible": true,
+        "japanese_font_loaded": true,
+        "mobile_horizontal_overflow": false,
+        "javascript_errors": 0,
+        "external_requests": 0,
+        "actual_hardware_data": false,
+        "optimal_array_selected": false,
+        "image_reconstructed": false,
+        "production_rml_noise_model_changed": false,
+        "browser_environment": "WSL headless Chromium; Windows/WSLg unverified"
+      },
+      "casa": {
+        "state": "complete",
+        "source_checkout": true,
+        "outside_checkout_workspace": true,
+        "pythonpath_removed": true,
+        "native_full_worker_executed": true,
+        "workspace_has_checkout_runner": false,
+        "entire_scientific_result_identical_to_stage087": true,
+        "conditions_all_numbers_checked": 53,
+        "component_rows_all_numbers_checked": 2968,
+        "case_json_files_identical": 53,
+        "summary_download_identical": true,
+        "all_four_filters_checked": true,
+        "caption_and_limitations_checked": true,
+        "japanese_font_loaded": true,
+        "mobile_horizontal_overflow": false,
+        "local_table_horizontal_scroll_checked": true,
+        "javascript_errors": 0,
+        "external_requests": 0,
+        "science_modules_and_assets_under_runtime_prefix": false,
+        "actual_hardware_data": false,
+        "image_reconstructed": false,
+        "production_rml_noise_model_changed": false,
+        "browser_environment": "WSL headless Chromium; Windows/WSLg unverified"
+      },
+      "known": {
+        "state": "complete",
+        "source_checkout": true,
+        "installed_module_imports": false,
+        "case_rows": [
+          {
+            "case_id": "d00",
+            "all_display_numbers_checked": true,
+            "state": "\u53d7\u4fe1\u6a5f\u30e2\u30c7\u30eb\u4e00\u81f4"
+          },
+          {
+            "case_id": "d01",
+            "all_display_numbers_checked": true,
+            "state": "\u53d7\u4fe1\u6a5f\u30e2\u30c7\u30eb\u4e00\u81f4"
+          },
+          {
+            "case_id": "d02",
+            "all_display_numbers_checked": true,
+            "state": "\u53d7\u4fe1\u6a5f\u30e2\u30c7\u30eb\u4e00\u81f4"
+          },
+          {
+            "case_id": "d03",
+            "all_display_numbers_checked": true,
+            "state": "\u53d7\u4fe1\u6a5f\u30e2\u30c7\u30eb\u4e00\u81f4"
+          },
+          {
+            "case_id": "d04",
+            "all_display_numbers_checked": true,
+            "state": "\u53d7\u4fe1\u6a5f\u30e2\u30c7\u30eb\u4e00\u81f4"
+          },
+          {
+            "case_id": "d05",
+            "all_display_numbers_checked": true,
+            "state": "\u53d7\u4fe1\u6a5f\u30e2\u30c7\u30eb\u4e00\u81f4"
+          },
+          {
+            "case_id": "d06",
+            "all_display_numbers_checked": true,
+            "state": "\u53d7\u4fe1\u6a5f\u30e2\u30c7\u30eb\u4e0d\u4e00\u81f4"
+          },
+          {
+            "case_id": "d07",
+            "all_display_numbers_checked": true,
+            "state": "\u53d7\u4fe1\u6a5f\u30e2\u30c7\u30eb\u4e0d\u4e00\u81f4"
+          },
+          {
+            "case_id": "d08",
+            "all_display_numbers_checked": true,
+            "state": "\u96f6\u5929\u7a7a\u30fb\u540c\u4e00\u5206\u5e03\u306e\u8ca0\u5bfe\u7167"
+          }
+        ],
+        "case_count": 9,
+        "full_scientific_json_identical_to_stage096": true,
+        "artifact_json_identical": true,
+        "native_origin": {
+          "native_scientific_module_used": true,
+          "checkout_runner_used": false,
+          "scientific_modules_under_runtime_prefix": false,
+          "scientific_modules_under_gui_checkout": true,
+          "configuration_asset_under_runtime_prefix": false,
+          "sky_asset_under_runtime_prefix": false,
+          "configuration_asset_sha256": "514a85d32712b2bd03b06b39593620d96769fa9ffc58c52bb07d87a96be0afe6",
+          "formal_profile_executed": true,
+          "scientific_module_count": 8
+        },
+        "scientific_module_count": 8,
+        "workspace_has_checkout_runner": false,
+        "outside_checkout_workspace": true,
+        "pythonpath_removed": false,
+        "all_metric_and_confidence_interval_numbers_checked": true,
+        "japanese_qualification_labels_checked": true,
+        "caption_and_alt_checked": true,
+        "japanese_font_loaded": true,
+        "mobile_root_horizontal_overflow": false,
+        "actual_table_scroll_performed": true,
+        "javascript_errors": [],
+        "external_requests": 0,
+        "browser": "153.0.8010.12",
+        "production_rml_noise_model_changed": false,
+        "actual_hardware_data": false
+      },
+      "independent": {
+        "state": "complete",
+        "source_checkout": true,
+        "summary_rows": 7,
+        "detail_rows": 112,
+        "case_filters": 7,
+        "all_display_numbers_checked": true,
+        "full_scientific_json_identical_to_stage098": true,
+        "all_seven_case_json_files_identical": true,
+        "summary_download_identical": true,
+        "native_origin": {
+          "native_scientific_module_used": true,
+          "checkout_runner_used": false,
+          "scientific_modules_under_runtime_prefix": false,
+          "scientific_modules_under_gui_checkout": true,
+          "configuration_asset_under_runtime_prefix": false,
+          "sky_asset_under_runtime_prefix": false,
+          "configuration_asset_sha256": "514a85d32712b2bd03b06b39593620d96769fa9ffc58c52bb07d87a96be0afe6",
+          "formal_profile_executed": true,
+          "scientific_module_count": 9
+        },
+        "scientific_module_count": 9,
+        "workspace_has_checkout_runner": false,
+        "outside_checkout_workspace": true,
+        "japanese_qualification_labels_checked": true,
+        "caption_and_alt_checked": true,
+        "japanese_font_loaded": true,
+        "mobile_root_horizontal_overflow": false,
+        "actual_both_table_scrolls_performed": [
+          true,
+          true
+        ],
+        "javascript_errors": [],
+        "external_requests": 0,
+        "browser": "153.0.8010.12",
+        "production_rml_noise_model_changed": false,
+        "actual_hardware_data": false
+      },
+      "gaussian": {
+        "state": "complete",
+        "source_checkout": true,
+        "summary_rows": 9,
+        "detail_rows": 9216,
+        "case_filters": 9,
+        "all_display_numbers_checked": true,
+        "all_window_labels_predictions_and_errors_checked": true,
+        "actual_detail_vertical_scroll_performed": true,
+        "full_scientific_json_identical_to_stage101": true,
+        "all_nine_case_json_files_identical": true,
+        "summary_download_identical": true,
+        "completed_view_survived_two_poll_responses": true,
+        "native_origin": {
+          "native_scientific_module_used": true,
+          "checkout_runner_used": false,
+          "scientific_modules_under_runtime_prefix": false,
+          "scientific_modules_under_gui_checkout": true,
+          "configuration_asset_under_runtime_prefix": false,
+          "sky_asset_under_runtime_prefix": false,
+          "configuration_asset_sha256": "514a85d32712b2bd03b06b39593620d96769fa9ffc58c52bb07d87a96be0afe6",
+          "formal_profile_executed": true,
+          "scientific_module_count": 10
+        },
+        "scientific_module_count": 10,
+        "workspace_has_checkout_runner": false,
+        "outside_checkout_workspace": true,
+        "japanese_qualification_labels_checked": true,
+        "caption_and_alt_checked": true,
+        "japanese_font_loaded": true,
+        "mobile_root_horizontal_overflow": false,
+        "actual_both_table_scrolls_performed": [
+          true,
+          true
+        ],
+        "javascript_errors": [],
+        "external_requests": 0,
+        "browser": "153.0.8010.12",
+        "production_rml_noise_model_changed": false,
+        "actual_hardware_data": false
+      }
+    },
+    "installed": {
+      "array": {
+        "state": "complete",
+        "source_checkout": false,
+        "installed_imports": true,
+        "outside_checkout_workspace": true,
+        "pythonpath_removed": true,
+        "workflow_owned_by_checkout": false,
+        "native_scientific_worker": true,
+        "workspace_has_checkout_runner": false,
+        "scientific_modules_under_runtime_prefix": true,
+        "packaged_configuration_and_sky_used": true,
+        "real_worker_workflow_executed": true,
+        "population_rows_checked": 18,
+        "scale_conditions_checked": 108,
+        "triangle_rows_checked": 6048,
+        "all_display_numbers_checked": true,
+        "filters_checked": true,
+        "entire_scientific_result_identical_to_stage081": true,
+        "json_download_identical": true,
+        "caption_checked": true,
+        "population_and_complex_rms_limits_visible": true,
+        "japanese_font_loaded": true,
+        "mobile_horizontal_overflow": false,
+        "javascript_errors": 0,
+        "external_requests": 0,
+        "actual_hardware_data": false,
+        "optimal_array_selected": false,
+        "image_reconstructed": false,
+        "production_rml_noise_model_changed": false,
+        "browser_environment": "WSL headless Chromium; Windows/WSLg unverified"
+      },
+      "casa": {
+        "state": "complete",
+        "source_checkout": false,
+        "outside_checkout_workspace": true,
+        "pythonpath_removed": true,
+        "native_full_worker_executed": true,
+        "workspace_has_checkout_runner": false,
+        "entire_scientific_result_identical_to_stage087": true,
+        "conditions_all_numbers_checked": 53,
+        "component_rows_all_numbers_checked": 2968,
+        "case_json_files_identical": 53,
+        "summary_download_identical": true,
+        "all_four_filters_checked": true,
+        "caption_and_limitations_checked": true,
+        "japanese_font_loaded": true,
+        "mobile_horizontal_overflow": false,
+        "local_table_horizontal_scroll_checked": true,
+        "javascript_errors": 0,
+        "external_requests": 0,
+        "science_modules_and_assets_under_runtime_prefix": true,
+        "actual_hardware_data": false,
+        "image_reconstructed": false,
+        "production_rml_noise_model_changed": false,
+        "browser_environment": "WSL headless Chromium; Windows/WSLg unverified"
+      },
+      "known": {
+        "state": "complete",
+        "source_checkout": false,
+        "installed_module_imports": true,
+        "case_rows": [
+          {
+            "case_id": "d00",
+            "all_display_numbers_checked": true,
+            "state": "\u53d7\u4fe1\u6a5f\u30e2\u30c7\u30eb\u4e00\u81f4"
+          },
+          {
+            "case_id": "d01",
+            "all_display_numbers_checked": true,
+            "state": "\u53d7\u4fe1\u6a5f\u30e2\u30c7\u30eb\u4e00\u81f4"
+          },
+          {
+            "case_id": "d02",
+            "all_display_numbers_checked": true,
+            "state": "\u53d7\u4fe1\u6a5f\u30e2\u30c7\u30eb\u4e00\u81f4"
+          },
+          {
+            "case_id": "d03",
+            "all_display_numbers_checked": true,
+            "state": "\u53d7\u4fe1\u6a5f\u30e2\u30c7\u30eb\u4e00\u81f4"
+          },
+          {
+            "case_id": "d04",
+            "all_display_numbers_checked": true,
+            "state": "\u53d7\u4fe1\u6a5f\u30e2\u30c7\u30eb\u4e00\u81f4"
+          },
+          {
+            "case_id": "d05",
+            "all_display_numbers_checked": true,
+            "state": "\u53d7\u4fe1\u6a5f\u30e2\u30c7\u30eb\u4e00\u81f4"
+          },
+          {
+            "case_id": "d06",
+            "all_display_numbers_checked": true,
+            "state": "\u53d7\u4fe1\u6a5f\u30e2\u30c7\u30eb\u4e0d\u4e00\u81f4"
+          },
+          {
+            "case_id": "d07",
+            "all_display_numbers_checked": true,
+            "state": "\u53d7\u4fe1\u6a5f\u30e2\u30c7\u30eb\u4e0d\u4e00\u81f4"
+          },
+          {
+            "case_id": "d08",
+            "all_display_numbers_checked": true,
+            "state": "\u96f6\u5929\u7a7a\u30fb\u540c\u4e00\u5206\u5e03\u306e\u8ca0\u5bfe\u7167"
+          }
+        ],
+        "case_count": 9,
+        "full_scientific_json_identical_to_stage096": true,
+        "artifact_json_identical": true,
+        "native_origin": {
+          "native_scientific_module_used": true,
+          "checkout_runner_used": false,
+          "scientific_modules_under_runtime_prefix": true,
+          "scientific_modules_under_gui_checkout": false,
+          "configuration_asset_under_runtime_prefix": true,
+          "sky_asset_under_runtime_prefix": true,
+          "configuration_asset_sha256": "514a85d32712b2bd03b06b39593620d96769fa9ffc58c52bb07d87a96be0afe6",
+          "formal_profile_executed": true,
+          "scientific_module_count": 8
+        },
+        "scientific_module_count": 8,
+        "workspace_has_checkout_runner": false,
+        "outside_checkout_workspace": true,
+        "pythonpath_removed": true,
+        "all_metric_and_confidence_interval_numbers_checked": true,
+        "japanese_qualification_labels_checked": true,
+        "caption_and_alt_checked": true,
+        "japanese_font_loaded": true,
+        "mobile_root_horizontal_overflow": false,
+        "actual_table_scroll_performed": true,
+        "javascript_errors": [],
+        "external_requests": 0,
+        "browser": "153.0.8010.12",
+        "production_rml_noise_model_changed": false,
+        "actual_hardware_data": false
+      },
+      "independent": {
+        "state": "complete",
+        "source_checkout": false,
+        "summary_rows": 7,
+        "detail_rows": 112,
+        "case_filters": 7,
+        "all_display_numbers_checked": true,
+        "full_scientific_json_identical_to_stage098": true,
+        "all_seven_case_json_files_identical": true,
+        "summary_download_identical": true,
+        "native_origin": {
+          "native_scientific_module_used": true,
+          "checkout_runner_used": false,
+          "scientific_modules_under_runtime_prefix": true,
+          "scientific_modules_under_gui_checkout": false,
+          "configuration_asset_under_runtime_prefix": true,
+          "sky_asset_under_runtime_prefix": true,
+          "configuration_asset_sha256": "514a85d32712b2bd03b06b39593620d96769fa9ffc58c52bb07d87a96be0afe6",
+          "formal_profile_executed": true,
+          "scientific_module_count": 9
+        },
+        "scientific_module_count": 9,
+        "workspace_has_checkout_runner": false,
+        "outside_checkout_workspace": true,
+        "japanese_qualification_labels_checked": true,
+        "caption_and_alt_checked": true,
+        "japanese_font_loaded": true,
+        "mobile_root_horizontal_overflow": false,
+        "actual_both_table_scrolls_performed": [
+          true,
+          true
+        ],
+        "javascript_errors": [],
+        "external_requests": 0,
+        "browser": "153.0.8010.12",
+        "production_rml_noise_model_changed": false,
+        "actual_hardware_data": false
+      },
+      "gaussian": {
+        "state": "complete",
+        "source_checkout": false,
+        "summary_rows": 9,
+        "detail_rows": 9216,
+        "case_filters": 9,
+        "all_display_numbers_checked": true,
+        "all_window_labels_predictions_and_errors_checked": true,
+        "actual_detail_vertical_scroll_performed": true,
+        "full_scientific_json_identical_to_stage101": true,
+        "all_nine_case_json_files_identical": true,
+        "summary_download_identical": true,
+        "completed_view_survived_two_poll_responses": true,
+        "native_origin": {
+          "native_scientific_module_used": true,
+          "checkout_runner_used": false,
+          "scientific_modules_under_runtime_prefix": true,
+          "scientific_modules_under_gui_checkout": false,
+          "configuration_asset_under_runtime_prefix": true,
+          "sky_asset_under_runtime_prefix": true,
+          "configuration_asset_sha256": "514a85d32712b2bd03b06b39593620d96769fa9ffc58c52bb07d87a96be0afe6",
+          "formal_profile_executed": true,
+          "scientific_module_count": 10
+        },
+        "scientific_module_count": 10,
+        "workspace_has_checkout_runner": false,
+        "outside_checkout_workspace": true,
+        "japanese_qualification_labels_checked": true,
+        "caption_and_alt_checked": true,
+        "japanese_font_loaded": true,
+        "mobile_root_horizontal_overflow": false,
+        "actual_both_table_scrolls_performed": [
+          true,
+          true
+        ],
+        "javascript_errors": [],
+        "external_requests": 0,
+        "browser": "153.0.8010.12",
+        "production_rml_noise_model_changed": false,
+        "actual_hardware_data": false
+      }
+    }
+  },
+  "existing_scientific_python_files_unchanged": 80,
+  "frozen_source_files_unchanged": 298,
+  "wheel": {
+    "sha256": "18fa84ee48a8b3b18f6ce72e87b7f6b9370dca86ceee1ce29aeaedc6f8cc0b8b",
+    "bytes": 5596358,
+    "packaged_files_identical_to_source": 97
+  },
+  "pip_check_passed": true,
+  "png_metadata_review": {
+    "source-result.png": {
+      "metadata_keys": [],
+      "rgb_pixels_preserved": true,
+      "sha256": "e1535aac316790ce6b73956f80583d4aff4d492dc0b212e6f066071b329bfc99"
+    },
+    "source-mobile-result.png": {
+      "metadata_keys": [],
+      "rgb_pixels_preserved": true,
+      "sha256": "a09c60cf033bee5e685a92b0ab66ea733cad1118a3fb35e4d6e94fa2aa04cd8a"
+    },
+    "installed-result.png": {
+      "metadata_keys": [],
+      "rgb_pixels_preserved": true,
+      "sha256": "941800b892aacfbc112a45fccdffa4e0d3ceb5b09d424276ff476be4cc3a1579"
+    },
+    "installed-mobile-result.png": {
+      "metadata_keys": [],
+      "rgb_pixels_preserved": true,
+      "sha256": "4e08ebf54350339a00ba34c78534a082062621cd52220dfd2a33183dc6d54c3c"
+    }
+  },
+  "preflight_records": {
+    "initial_target_collection_stopped_for_wrong_path": true,
+    "initial_target_tests_counted": 0,
+    "draft_inline_injection_blocked_by_existing_csp": true,
+    "csp_bypass_used_only_in_draft_context": true,
+    "formal_browser_csp_bypass_used": false,
+    "application_csp_rules_changed": false
+  },
+  "environment": {
+    "python": "3.12.3",
+    "numpy": "2.5.1",
+    "scipy": "1.18.0",
+    "pytest": "8.4.2",
+    "playwright": "1.63.0",
+    "blas_threads": 1,
+    "openmp_threads": 1
+  },
+  "browser_environment": "WSL headless Chromium; Windows/WSLg unverified",
+  "image_likelihood_defined": false,
+  "unknown_amplitude_sefd_lo_estimated": false,
+  "production_rml_noise_model_changed": false,
+  "real_hardware_validation_performed": false,
+  "public_audit_findings": 0,
+  "documentation_links": {
+    "checked": 1325,
+    "missing": 0
+  }
+}
