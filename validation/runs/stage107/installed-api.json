@@ -1,0 +1,43 @@
+{
+  "state": "complete",
+  "native_cli_all3_condition_and_summary_json_identical": true,
+  "direct_api_conditions_identical": [
+    0,
+    2
+  ],
+  "fixed_plans_checked": 2,
+  "outside_checkout": true,
+  "pythonpath_absent": true,
+  "runner_absent": true,
+  "project_modules": [
+    "vsora_correlator",
+    "vsora_correlator.gaussian_likelihood",
+    "vsora_correlator.gaussian_phase_profile",
+    "vsora_imaging",
+    "vsora_imaging.window_symmetry",
+    "vsora_observation",
+    "vsora_observation.config",
+    "vsora_observation.geometry",
+    "vsora_observation.reference",
+    "vsora_simulator",
+    "vsora_simulator.bispectrum_distinct",
+    "vsora_simulator.bispectrum_observed_power",
+    "vsora_simulator.casa_window_symmetry",
+    "vsora_simulator.gaussian_phase_template",
+    "vsora_simulator.gaussian_template_validation",
+    "vsora_simulator.known_template_validation",
+    "vsora_simulator.phase_threshold_validation",
+    "vsora_simulator.sensitivity",
+    "vsora_simulator.sky",
+    "vsora_simulator.sky_covariance",
+    "vsora_simulator.template_score",
+    "vsora_simulator.visibility",
+    "vsora_simulator.visibility_moments"
+  ],
+  "project_module_count": 23,
+  "all_project_modules_in_prefix": true,
+  "reference_asset_count": 2,
+  "all_reference_assets_in_prefix": true,
+  "output_non_overwrite_verified": true,
+  "all_native_output_bytes_unchanged_on_refusal": true
+}

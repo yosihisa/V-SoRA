@@ -1,0 +1,103 @@
+{
+  "state": "complete",
+  "targeted_tests": {
+    "passed": 32,
+    "elapsed_s": 3.97
+  },
+  "full_regression": {
+    "source": {
+      "passed": 1931,
+      "warnings": 27396,
+      "elapsed_s": 586.51,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 1931,
+      "warnings": 27396,
+      "elapsed_s": 587.09,
+      "excluded_tests": 0
+    }
+  },
+  "fixed_conditions": 3,
+  "independent_voltage_windows": 768,
+  "independent_test_predictions_checked": 384,
+  "full_training_thresholds_independently_brute_force_checked": 3,
+  "all_case_json_identical_to_preliminary": true,
+  "all_source_installed_scientific_json_identical": true,
+  "installed_api": {
+    "state": "complete",
+    "native_cli_all3_condition_and_summary_json_identical": true,
+    "direct_api_conditions_identical": [
+      0,
+      2
+    ],
+    "fixed_plans_checked": 2,
+    "outside_checkout": true,
+    "pythonpath_absent": true,
+    "runner_absent": true,
+    "project_modules": [
+      "vsora_correlator",
+      "vsora_correlator.gaussian_likelihood",
+      "vsora_correlator.gaussian_phase_profile",
+      "vsora_imaging",
+      "vsora_imaging.window_symmetry",
+      "vsora_observation",
+      "vsora_observation.config",
+      "vsora_observation.geometry",
+      "vsora_observation.reference",
+      "vsora_simulator",
+      "vsora_simulator.bispectrum_distinct",
+      "vsora_simulator.bispectrum_observed_power",
+      "vsora_simulator.casa_window_symmetry",
+      "vsora_simulator.gaussian_phase_template",
+      "vsora_simulator.gaussian_template_validation",
+      "vsora_simulator.known_template_validation",
+      "vsora_simulator.phase_threshold_validation",
+      "vsora_simulator.sensitivity",
+      "vsora_simulator.sky",
+      "vsora_simulator.sky_covariance",
+      "vsora_simulator.template_score",
+      "vsora_simulator.visibility",
+      "vsora_simulator.visibility_moments"
+    ],
+    "project_module_count": 23,
+    "all_project_modules_in_prefix": true,
+    "reference_asset_count": 2,
+    "all_reference_assets_in_prefix": true,
+    "output_non_overwrite_verified": true,
+    "all_native_output_bytes_unchanged_on_refusal": true
+  },
+  "source_native_execution": {
+    "exit_code": 0,
+    "elapsed_s": 20.954083382996032,
+    "peak_child_rss_kib": 158304
+  },
+  "frozen_source_files_unchanged": 301,
+  "existing_source_python_files_unchanged": 88,
+  "wheel": {
+    "sha256": "866984ae30300c94864c1f3ef419612e00c220c04ceff16332c7fd60b3cca999",
+    "bytes": 5599462,
+    "packaged_files_identical_to_source": 98
+  },
+  "pip_check_passed": true,
+  "environment": {
+    "python": "3.12.3",
+    "numpy": "2.5.1",
+    "scipy": "1.18.0",
+    "pytest": "8.4.2",
+    "blas_threads": 1,
+    "openmp_threads": 1
+  },
+  "gui_changed": false,
+  "gui_browser_reexecuted": false,
+  "training_variability_included": false,
+  "unknown_amplitude_sefd_lo_estimated": false,
+  "image_likelihood_defined": false,
+  "production_rml_noise_model_changed": false,
+  "real_hardware_validation_performed": false,
+  "public_audit_findings": 0,
+  "documentation_links": {
+    "checked": 1378,
+    "missing": 0
+  }
+}

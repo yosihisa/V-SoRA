@@ -91,3 +91,5 @@
 - [既知振幅・雑音で局位相を合わせるGaussian参照](gaussian-phase-profile.md)：位相だけ未知の局所探索、非収束、解析解と保証範囲。
 
 - [同じ電圧での既知位相・位相探索の比較](paired-phase-template.md)：固定7条件、対のscore、未収束と個別区間、画像化への適用範囲。
+
+- [位相探索scoreの閾値を独立学習・評価](phase-threshold-validation.md)：固定方向・同率規則、評価データの非使用、未解決と条件付き区間。
