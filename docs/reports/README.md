@@ -206,4 +206,6 @@
 
 | 101 | [既知点源／Cas AのGaussian共分散による比較](101-known-covariance-template.md) | source/wheel1797件。新31対象、9条件9216区間、直接電圧36/gain変換36、導入CLI全JSON一致。既知条件と雑音誤指定の結果を分け、未知較正・画像化へ未適用 |
 
+| 102 | [既知共分散による比較を日本語GUIへ接続](102-known-covariance-gui.md) | source/wheel1809件。新12+旧48対象、両実Chromium9概要/9216詳細/全数値/全JSON/実download/日本語390px、旧4操作も両版回帰。完了画面の待機を修正し最終全回帰を再実行 |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。

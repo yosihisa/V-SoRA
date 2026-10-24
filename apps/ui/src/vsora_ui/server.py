@@ -38,7 +38,7 @@ def create_app(workspace):
     @app.get('/api/environment')
     def environment():
         checkout=(manager.workspace/'tools/run.py').is_file()
-        choices=list(get_args(ValidationRequest.model_fields['validation'].annotation)) if checkout else ['array_scale','casa_window_symmetry','known_template','independent_training']
+        choices=list(get_args(ValidationRequest.model_fields['validation'].annotation)) if checkout else ['array_scale','casa_window_symmetry','known_template','independent_training','gaussian_template']
         return {'project':manager.workspace.name,'validation_available':bool(choices),'available_validations':choices,'checkout_validation_available':checkout,
                 'frequency_hz':1.42e9,'sample_rate_hz':2048000,'max_baseline_m':600,
                 'real_observation_verified':False}

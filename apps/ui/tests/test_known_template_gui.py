@@ -16,7 +16,7 @@ def test_choice_label_and_native_capability(tmp_path):
  assert ValidationRequest(validation='known_template').validation=='known_template'
  assert LABELS['known_template']=='既知二モデルの独立評価'
  with TestClient(create_app(tmp_path),base_url='http://127.0.0.1') as c:
-  env=c.get('/api/environment').json();assert env['available_validations']==['array_scale','casa_window_symmetry','known_template','independent_training']
+  env=c.get('/api/environment').json();assert env['available_validations']==['array_scale','casa_window_symmetry','known_template','independent_training','gaussian_template']
   assert not env['checkout_validation_available']
   assert '9条件・数分' in c.get('/').text
 

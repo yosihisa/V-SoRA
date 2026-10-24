@@ -655,7 +655,7 @@ def test_native_validation_available_without_project_runner(tmp_path):
     from typing import get_args
     with TestClient(create_app(tmp_path),base_url='http://127.0.0.1') as client:
         env=client.get('/api/environment').json()
-        assert env['validation_available'] and env['available_validations']==['array_scale','casa_window_symmetry','known_template','independent_training']
+        assert env['validation_available'] and env['available_validations']==['array_scale','casa_window_symmetry','known_template','independent_training','gaussian_template']
         assert env['checkout_validation_available'] is False
         (tmp_path/'tools').mkdir();(tmp_path/'tools/run.py').symlink_to(Path(__file__).resolve().parents[3]/'tools/run.py')
         env=client.get('/api/environment').json()

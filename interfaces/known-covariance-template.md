@@ -56,6 +56,10 @@ balanced accuracyは二labelの正答率の等重み平均、AUROCは点源score
 
 この尤度は局位相基準と電力も利用する。天空位置・位相基準まで与えた二候補の識別で、未知位相で位置の自由度も残るClosureの画像復元とは条件が異なる。既存U3識別器と数値を比べるときは、学習の有無、入力情報、受信機の既知性、異なる乱数実現値を区別し、対応のある比較やClosureの限界と解釈しない。
 
-未知gain/SEFD/LOの推定、量子化、実効M、実機データ、低SNRのClosure画像尤度、現在のRML、全夜/GPU性能は今回の対象外。日本語GUIは後続段階へ分ける。
+未知gain/SEFD/LOの推定、量子化、実効M、実機データ、低SNRのClosure画像尤度、現在のRML、全夜/GPU性能は今回の対象外。段階101では日本語GUIを分け、後続の段階102で同じfull条件をGUIへ接続した。
 
 正式結果は [段階101レポート](../docs/reports/101-known-covariance-template.md) を参照。
+
+## 日本語GUI（段階102）
+
+「動作検証」→「既知共分散で点源/Cas Aを比較」で固定9条件を実行する。概要9行と、選んだ条件の1024区間を表示する。runnerのないworkspaceからも同梱API/assetsを使う。全scoreと共分散は実downloadのsummary/case JSONに残す。詳しくは [操作ガイド](../docs/guide/06-gui.md) と [段階102](../docs/reports/102-known-covariance-gui.md)。科学条件・固定閾値・未知較正の未対応という範囲は段階101と同じである。

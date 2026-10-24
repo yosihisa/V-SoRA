@@ -16,7 +16,7 @@ def test_choice_label_and_native_capability(tmp_path):
  assert ValidationRequest(validation='independent_training').validation=='independent_training'
  assert LABELS['independent_training']=='学習・評価を作り直したときの揺らぎ'
  with TestClient(create_app(tmp_path),base_url='http://127.0.0.1') as c:
-  env=c.get('/api/environment').json();assert env['available_validations']==['array_scale','casa_window_symmetry','known_template','independent_training']
+  env=c.get('/api/environment').json();assert env['available_validations']==['array_scale','casa_window_symmetry','known_template','independent_training','gaussian_template']
   assert not env['checkout_validation_available']
   assert '7条件・112反復・数分以上' in c.get('/').text
 

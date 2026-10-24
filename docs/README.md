@@ -2,6 +2,8 @@
 
 このリポジトリは、実RTL-SDR/OCXOの記録からCas Aの画像を復元するための開発と、その根拠を保存している。二つの全体レポートは、段階095で094までの実装・検証を整理した。後続の[段階096](reports/096-known-template-holdout.md)では既知二モデルの独立学習/評価を追加した。[段階097](reports/097-known-template-gui.md)では、その固定9条件を同梱日本語GUIから再実行・確認できるようにした。以降の根拠は段階レポート索引で確認できる。
 
+その後の[段階098](reports/098-independent-training-repeats.md)・[099](reports/099-independent-training-gui.md)で独立した学習・評価の反復を、[段階100](reports/100-known-covariance-gaussian.md)・[101](reports/101-known-covariance-template.md)で既知共分散Gaussian尤度の参照計算を追加した。[段階102](reports/102-known-covariance-gui.md)では、その固定9条件・各区間の尤度比と判定を日本語GUIで確認できる。これらは既知モデルの参照であり、未知較正や実機の画像化を完了した結果ではない。
+
 ## 目的に合わせて読む
 
 | 知りたいこと | 最初に読む文書 |
