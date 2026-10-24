@@ -89,3 +89,5 @@
 - [既知点源／Cas AのGaussian比較](known-covariance-template.md)：既知位相・電力・SEFDでの9条件、固定閾値と誤指定対照。未知較正や画像化へ拡張しない。
 
 - [既知振幅・雑音で局位相を合わせるGaussian参照](gaussian-phase-profile.md)：位相だけ未知の局所探索、非収束、解析解と保証範囲。
+
+- [同じ電圧での既知位相・位相探索の比較](paired-phase-template.md)：固定7条件、対のscore、未収束と個別区間、画像化への適用範囲。

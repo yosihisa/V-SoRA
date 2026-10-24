@@ -1,0 +1,133 @@
+{
+  "state": "complete",
+  "targeted_tests": {
+    "passed": 27,
+    "elapsed_s": 1.97
+  },
+  "full_regression": {
+    "source": {
+      "passed": 1887,
+      "warnings": 27396,
+      "elapsed_s": 598.92,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 1887,
+      "warnings": 27396,
+      "elapsed_s": 596.01,
+      "excluded_tests": 0
+    }
+  },
+  "fixed_conditions": 7,
+  "independent_voltage_windows": 896,
+  "unresolved_profile_windows": 0,
+  "independent_real_gaussian_test_conditions": 3,
+  "direct_and_phase_reference": {
+    "direct_voltage_oracle_abs_difference": {
+      "checks": 14,
+      "maximum": 3.4283242911214984e-10
+    },
+    "direct_voltage_profile_abs_difference": {
+      "checks": 14,
+      "maximum": 2.837623469531536e-10
+    },
+    "profile_data_phase_transport_abs_difference": {
+      "checks": 14,
+      "maximum": 4.3655745685100555e-11
+    },
+    "known_phase_transport_abs_difference": {
+      "checks": 896,
+      "maximum": 1.382431946694851e-10
+    }
+  },
+  "source_native_execution": {
+    "exit_code": 0,
+    "elapsed_s": 32.13000257599924,
+    "peak_child_rss_kib": 156520
+  },
+  "installed_api_and_cli_execution": {
+    "exit_code": 0,
+    "elapsed_s": 38.54888198100525,
+    "peak_child_rss_kib": 156788
+  },
+  "installed_api": {
+    "state": "complete",
+    "native_cli_all7_condition_and_summary_json_identical": true,
+    "direct_api_conditions_identical": [
+      0,
+      6
+    ],
+    "fixed_plans_checked": 2,
+    "outside_checkout": true,
+    "pythonpath_absent": true,
+    "runner_absent": true,
+    "project_modules": [
+      "vsora_correlator",
+      "vsora_correlator.gaussian_likelihood",
+      "vsora_correlator.gaussian_phase_profile",
+      "vsora_imaging",
+      "vsora_imaging.window_symmetry",
+      "vsora_observation",
+      "vsora_observation.config",
+      "vsora_observation.geometry",
+      "vsora_observation.reference",
+      "vsora_simulator",
+      "vsora_simulator.bispectrum_distinct",
+      "vsora_simulator.bispectrum_observed_power",
+      "vsora_simulator.casa_window_symmetry",
+      "vsora_simulator.gaussian_phase_template",
+      "vsora_simulator.gaussian_template_validation",
+      "vsora_simulator.known_template_validation",
+      "vsora_simulator.sensitivity",
+      "vsora_simulator.sky",
+      "vsora_simulator.sky_covariance",
+      "vsora_simulator.template_score",
+      "vsora_simulator.visibility",
+      "vsora_simulator.visibility_moments"
+    ],
+    "project_module_count": 22,
+    "all_project_modules_in_prefix": true,
+    "reference_asset_count": 2,
+    "all_reference_assets_in_prefix": true,
+    "output_non_overwrite_verified": true,
+    "all_native_output_bytes_unchanged_on_refusal": true
+  },
+  "all_source_installed_scientific_json_identical": true,
+  "frozen_source_files_unchanged": 295,
+  "existing_source_python_files_unchanged": 87,
+  "wheel": {
+    "sha256": "e5baaaa1386294fa9d2215074da596e9d4082bab70b5d4b817089168c4ab92cf",
+    "bytes": 5593312,
+    "packaged_files_identical_to_source": 96
+  },
+  "pip_check_passed": true,
+  "plot_metadata_review": {
+    "source_metadata_keys": [
+      "Software",
+      "dpi"
+    ],
+    "public_metadata_keys": [],
+    "public_rgb_pixels_identical": true,
+    "final_source_plot_visually_reviewed": true
+  },
+  "environment": {
+    "python": "3.12.3",
+    "numpy": "2.5.1",
+    "scipy": "1.18.0",
+    "pytest": "8.4.2",
+    "matplotlib": "3.11.1",
+    "blas_threads": 1,
+    "openmp_threads": 1
+  },
+  "gui_changed": false,
+  "gui_browser_reexecuted": false,
+  "unknown_amplitude_sefd_lo_estimated": false,
+  "image_likelihood_defined": false,
+  "production_rml_noise_model_changed": false,
+  "real_hardware_validation_performed": false,
+  "public_audit_findings": 0,
+  "documentation_links": {
+    "checked": 1310,
+    "missing": 0
+  }
+}
