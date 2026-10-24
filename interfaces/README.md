@@ -81,3 +81,5 @@
 - [保存window列の条件付き対称性](bispectrum-window-symmetry.md)：version2・原本照合・全区間・検定前提と分解能。
 
 - [既知二モデルの独立評価](known-template-holdout.md)：独立training/test、固定score、個別二項区間と未確認事項。
+
+- [独立した学習・評価の反復](independent-training-repeats.md)：外側反復を統計単位にした標本SDと平均MC標準誤差。学習と評価の両方の揺らぎを含み、画像の信頼区間へ読み替えない。

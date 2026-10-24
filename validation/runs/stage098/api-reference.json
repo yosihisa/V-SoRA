@@ -1,0 +1,324 @@
+{
+  "replicate_cases": [
+    {
+      "values": [
+        0.0,
+        0.5,
+        1.0
+      ],
+      "result": {
+        "independent_replicates": 3,
+        "mean": 0.5,
+        "sample_standard_deviation_ddof1": 0.5,
+        "monte_carlo_standard_error_of_mean": 0.2886751345948129,
+        "minimum": 0.0,
+        "maximum": 1.0,
+        "statistical_unit": "independent training-and-test replicate",
+        "replicate_independence_is_an_assumption_for_summary": true,
+        "training_and_test_variation_both_included": true,
+        "training_only_variation_isolated": false,
+        "pooled_binomial_confidence_interval_defined": false,
+        "image_confidence_interval_defined": false
+      }
+    },
+    {
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "result": {
+        "independent_replicates": 16,
+        "mean": 0.0,
+        "sample_standard_deviation_ddof1": 0.0,
+        "monte_carlo_standard_error_of_mean": 0.0,
+        "minimum": 0.0,
+        "maximum": 0.0,
+        "statistical_unit": "independent training-and-test replicate",
+        "replicate_independence_is_an_assumption_for_summary": true,
+        "training_and_test_variation_both_included": true,
+        "training_only_variation_isolated": false,
+        "pooled_binomial_confidence_interval_defined": false,
+        "image_confidence_interval_defined": false
+      }
+    },
+    {
+      "values": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "result": {
+        "independent_replicates": 16,
+        "mean": 1.0,
+        "sample_standard_deviation_ddof1": 0.0,
+        "monte_carlo_standard_error_of_mean": 0.0,
+        "minimum": 1.0,
+        "maximum": 1.0,
+        "statistical_unit": "independent training-and-test replicate",
+        "replicate_independence_is_an_assumption_for_summary": true,
+        "training_and_test_variation_both_included": true,
+        "training_only_variation_isolated": false,
+        "pooled_binomial_confidence_interval_defined": false,
+        "image_confidence_interval_defined": false
+      }
+    },
+    {
+      "values": [
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "result": {
+        "independent_replicates": 16,
+        "mean": 0.25,
+        "sample_standard_deviation_ddof1": 0.0,
+        "monte_carlo_standard_error_of_mean": 0.0,
+        "minimum": 0.25,
+        "maximum": 0.25,
+        "statistical_unit": "independent training-and-test replicate",
+        "replicate_independence_is_an_assumption_for_summary": true,
+        "training_and_test_variation_both_included": true,
+        "training_only_variation_isolated": false,
+        "pooled_binomial_confidence_interval_defined": false,
+        "image_confidence_interval_defined": false
+      }
+    },
+    {
+      "values": [
+        0.0,
+        1.0
+      ],
+      "result": {
+        "independent_replicates": 2,
+        "mean": 0.5,
+        "sample_standard_deviation_ddof1": 0.7071067811865476,
+        "monte_carlo_standard_error_of_mean": 0.5,
+        "minimum": 0.0,
+        "maximum": 1.0,
+        "statistical_unit": "independent training-and-test replicate",
+        "replicate_independence_is_an_assumption_for_summary": true,
+        "training_and_test_variation_both_included": true,
+        "training_only_variation_isolated": false,
+        "pooled_binomial_confidence_interval_defined": false,
+        "image_confidence_interval_defined": false
+      }
+    },
+    {
+      "values": [
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ],
+      "result": {
+        "independent_replicates": 4,
+        "mean": 0.5,
+        "sample_standard_deviation_ddof1": 0.5773502691896257,
+        "monte_carlo_standard_error_of_mean": 0.28867513459481287,
+        "minimum": 0.0,
+        "maximum": 1.0,
+        "statistical_unit": "independent training-and-test replicate",
+        "replicate_independence_is_an_assumption_for_summary": true,
+        "training_and_test_variation_both_included": true,
+        "training_only_variation_isolated": false,
+        "pooled_binomial_confidence_interval_defined": false,
+        "image_confidence_interval_defined": false
+      }
+    },
+    {
+      "values": [
+        0.0078125,
+        0.015625,
+        0.0234375
+      ],
+      "result": {
+        "independent_replicates": 3,
+        "mean": 0.015625,
+        "sample_standard_deviation_ddof1": 0.0078125,
+        "monte_carlo_standard_error_of_mean": 0.004510548978043952,
+        "minimum": 0.0078125,
+        "maximum": 0.0234375,
+        "statistical_unit": "independent training-and-test replicate",
+        "replicate_independence_is_an_assumption_for_summary": true,
+        "training_and_test_variation_both_included": true,
+        "training_only_variation_isolated": false,
+        "pooled_binomial_confidence_interval_defined": false,
+        "image_confidence_interval_defined": false
+      }
+    },
+    {
+      "values": [
+        1e-300,
+        2e-300
+      ],
+      "result": {
+        "independent_replicates": 2,
+        "mean": 1.5e-300,
+        "sample_standard_deviation_ddof1": 7.071067811865476e-301,
+        "monte_carlo_standard_error_of_mean": 5e-301,
+        "minimum": 1e-300,
+        "maximum": 2e-300,
+        "statistical_unit": "independent training-and-test replicate",
+        "replicate_independence_is_an_assumption_for_summary": true,
+        "training_and_test_variation_both_included": true,
+        "training_only_variation_isolated": false,
+        "pooled_binomial_confidence_interval_defined": false,
+        "image_confidence_interval_defined": false
+      }
+    }
+  ],
+  "case_plan": [
+    {
+      "case_id": "r00",
+      "profile": "full",
+      "modes": 512,
+      "training_sefd_jy": 1000.0,
+      "point_test_sefd_jy": 1000.0,
+      "casa_test_sefd_jy": 1000.0,
+      "zero_sky_control": false,
+      "receiver_model_matches_training": true,
+      "outer_replicates": 16,
+      "training_per_label": 32,
+      "test_per_label": 128,
+      "seed_base": 980000,
+      "maximum_baseline_m": 600.0,
+      "formal_mc_precision": true
+    },
+    {
+      "case_id": "r01",
+      "profile": "full",
+      "modes": 512,
+      "training_sefd_jy": 10000.0,
+      "point_test_sefd_jy": 10000.0,
+      "casa_test_sefd_jy": 10000.0,
+      "zero_sky_control": false,
+      "receiver_model_matches_training": true,
+      "outer_replicates": 16,
+      "training_per_label": 32,
+      "test_per_label": 128,
+      "seed_base": 980100,
+      "maximum_baseline_m": 600.0,
+      "formal_mc_precision": true
+    },
+    {
+      "case_id": "r02",
+      "profile": "full",
+      "modes": 512,
+      "training_sefd_jy": 585965.6347330192,
+      "point_test_sefd_jy": 585965.6347330192,
+      "casa_test_sefd_jy": 585965.6347330192,
+      "zero_sky_control": false,
+      "receiver_model_matches_training": true,
+      "outer_replicates": 16,
+      "training_per_label": 32,
+      "test_per_label": 128,
+      "seed_base": 980200,
+      "maximum_baseline_m": 600.0,
+      "formal_mc_precision": true
+    },
+    {
+      "case_id": "r03",
+      "profile": "full",
+      "modes": 19200,
+      "training_sefd_jy": 10000.0,
+      "point_test_sefd_jy": 10000.0,
+      "casa_test_sefd_jy": 10000.0,
+      "zero_sky_control": false,
+      "receiver_model_matches_training": true,
+      "outer_replicates": 16,
+      "training_per_label": 32,
+      "test_per_label": 128,
+      "seed_base": 980300,
+      "maximum_baseline_m": 600.0,
+      "formal_mc_precision": true
+    },
+    {
+      "case_id": "r04",
+      "profile": "full",
+      "modes": 19200,
+      "training_sefd_jy": 585965.6347330192,
+      "point_test_sefd_jy": 585965.6347330192,
+      "casa_test_sefd_jy": 585965.6347330192,
+      "zero_sky_control": false,
+      "receiver_model_matches_training": true,
+      "outer_replicates": 16,
+      "training_per_label": 32,
+      "test_per_label": 128,
+      "seed_base": 980400,
+      "maximum_baseline_m": 600.0,
+      "formal_mc_precision": true
+    },
+    {
+      "case_id": "r05",
+      "profile": "full",
+      "modes": 19200,
+      "training_sefd_jy": 1000.0,
+      "point_test_sefd_jy": 10000.0,
+      "casa_test_sefd_jy": 1000.0,
+      "zero_sky_control": false,
+      "receiver_model_matches_training": false,
+      "outer_replicates": 16,
+      "training_per_label": 32,
+      "test_per_label": 128,
+      "seed_base": 980500,
+      "maximum_baseline_m": 600.0,
+      "formal_mc_precision": true
+    },
+    {
+      "case_id": "r06",
+      "profile": "full",
+      "modes": 512,
+      "training_sefd_jy": 1000.0,
+      "point_test_sefd_jy": 1000.0,
+      "casa_test_sefd_jy": 1000.0,
+      "zero_sky_control": true,
+      "receiver_model_matches_training": true,
+      "outer_replicates": 16,
+      "training_per_label": 32,
+      "test_per_label": 128,
+      "seed_base": 980600,
+      "maximum_baseline_m": 600.0,
+      "formal_mc_precision": true
+    }
+  ]
+}

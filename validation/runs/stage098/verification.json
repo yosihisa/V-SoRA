@@ -1,0 +1,110 @@
+{
+  "state": "complete",
+  "environment": {
+    "python": "3.12.3",
+    "numpy": "2.5.1",
+    "scipy": "1.18.0",
+    "pytest": "8.4.2",
+    "matplotlib": "3.11.1",
+    "blas_threads": 1,
+    "openmp_threads": 1
+  },
+  "targeted_tests": {
+    "passed": 34,
+    "warnings": 0,
+    "elapsed_s": 1.08
+  },
+  "full_regression": {
+    "source": {
+      "passed": 1674,
+      "warnings": 27396,
+      "elapsed_s": 656.71,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 1674,
+      "warnings": 27396,
+      "elapsed_s": 656.71,
+      "excluded_tests": 0
+    }
+  },
+  "formal_source_all_scientific_json_identical_to_preliminary": true,
+  "native_cases": 7,
+  "independent_outer_replicates": 112,
+  "generated_voltage_windows": 35840,
+  "training_windows": 7168,
+  "test_windows": 28672,
+  "installed_api": {
+    "state": "complete",
+    "api_checks": 8,
+    "fixed_plan_identical": true,
+    "full_native_cli_all_scientific_json_identical": true,
+    "native_cases": 7,
+    "outer_replicates": 112,
+    "all_project_modules_under_runtime_prefix": true,
+    "project_module_count": 18,
+    "project_modules": [
+      "vsora_imaging",
+      "vsora_imaging.window_symmetry",
+      "vsora_observation",
+      "vsora_observation.config",
+      "vsora_observation.geometry",
+      "vsora_observation.reference",
+      "vsora_simulator",
+      "vsora_simulator.bispectrum_distinct",
+      "vsora_simulator.bispectrum_observed_power",
+      "vsora_simulator.casa_window_symmetry",
+      "vsora_simulator.independent_training_validation",
+      "vsora_simulator.known_template_validation",
+      "vsora_simulator.sensitivity",
+      "vsora_simulator.sky",
+      "vsora_simulator.sky_covariance",
+      "vsora_simulator.template_score",
+      "vsora_simulator.visibility",
+      "vsora_simulator.visibility_moments"
+    ],
+    "all_configuration_and_sky_assets_under_runtime_prefix": true,
+    "pythonpath_removed": true,
+    "api_and_cli_cwd_outside_checkout": true,
+    "workspace_has_checkout_runner": false,
+    "existing_results_not_overwritten": true
+  },
+  "experiment": {
+    "source_elapsed_s": 571.4,
+    "maximum_rss_kib": 200884,
+    "maximum_voltage_values_in_batch": 921600
+  },
+  "old_scientific_python_files_unchanged": 87,
+  "frozen_source_files_unchanged": 317,
+  "wheel": {
+    "bytes": 5575401,
+    "sha256": "9acd293f2af63db5d9b5bbb268c91f408407b777b437edb79bbdf383261f1ad9",
+    "packaged_files_identical_to_source": 91
+  },
+  "pip_check_passed": true,
+  "full_native_summary_sha256": "e54322f4d9b65960f444abd362822c1facedc7e60b8b3c027b8ab92e5f4bc499",
+  "public_metrics_record_bytes": 392400,
+  "full_vector_record_bytes": 4579283,
+  "public_all_replicate_metrics_preserved": true,
+  "full_model_and_score_hashes_preserved": true,
+  "generation_metadata_losslessly_deduplicated": true,
+  "formal_browser_validation_performed": false,
+  "actual_hardware_validation_performed": false,
+  "production_rml_noise_model_changed": false,
+  "training_and_test_variation_both_included": true,
+  "training_only_variation_isolated": false,
+  "pooled_binomial_interval_used": false,
+  "image_likelihood_defined": false,
+  "formal_plot_bytes_identical_to_visually_reviewed_preliminary": true,
+  "orchestration_note": {
+    "session_id_store_warning_after_successful_wheel_install": true,
+    "wheel_install_and_pip_check_exit_status": 0,
+    "scientific_validation_affected": false
+  },
+  "publication_review": {
+    "public_audit_findings": 0,
+    "local_markdown_links": 1225,
+    "missing_local_links": 0,
+    "png_metadata_reviewed": true
+  }
+}
