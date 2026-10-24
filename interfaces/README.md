@@ -87,3 +87,5 @@
 - [既知共分散Gaussian尤度](known-covariance-gaussian.md)：全局共通Sと既知Cでの参照API。未知gain/SEFD/LOやClosure画像尤度は未接続。
 
 - [既知点源／Cas AのGaussian比較](known-covariance-template.md)：既知位相・電力・SEFDでの9条件、固定閾値と誤指定対照。未知較正や画像化へ拡張しない。
+
+- [既知振幅・雑音で局位相を合わせるGaussian参照](gaussian-phase-profile.md)：位相だけ未知の局所探索、非収束、解析解と保証範囲。

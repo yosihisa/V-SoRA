@@ -1,0 +1,4524 @@
+{
+  "state": "complete",
+  "type": "known_covariance_phase_profile_reference",
+  "matrix_cases": [
+    {
+      "stations": 2,
+      "seed": 103,
+      "modes": 37,
+      "state": "complete",
+      "fitted_comparison": {
+        "state": "fitted_reference_score",
+        "log_likelihood1_minus0": -3.9185097209881703,
+        "fit0": {
+          "type": "known_covariance_station_phase_profile",
+          "state": "analytic_two_station",
+          "station_count": 2,
+          "modes": 37,
+          "reference_station_index": 0,
+          "candidate_phase_rad": [
+            0.0,
+            -1.7781323634092214
+          ],
+          "fitted_covariance_real_imag": [
+            [
+              [
+                7.425339635686207,
+                0.0
+              ],
+              [
+                -3.014674017152732,
+                1.8518821532618608
+              ]
+            ],
+            [
+              [
+                -3.014674017152732,
+                -1.8518821532618606
+              ],
+              [
+                3.7319864842205592,
+                -1.3625149128787069e-17
+              ]
+            ]
+          ],
+          "nll_without_constant": 166.64164472814483,
+          "phase_dependent_trace_per_mode": -1.480581284999971,
+          "gradient_inf_norm_normalized": 3.682012946791751e-16,
+          "chosen_start_index": null,
+          "optimizer_runs": [],
+          "global_minimum_for_this_phase_objective_proved": true,
+          "true_phases_supplied_for_initialization": false,
+          "physical_phase_identification_verified": false,
+          "amplitudes_and_sefd_supplied": true,
+          "unknown_amplitude_sefd_or_lo_estimated": false,
+          "constant_phase_within_window_assumed": true,
+          "image_likelihood_defined": false
+        },
+        "fit1": {
+          "type": "known_covariance_station_phase_profile",
+          "state": "analytic_two_station",
+          "station_count": 2,
+          "modes": 37,
+          "reference_station_index": 0,
+          "candidate_phase_rad": [
+            0.0,
+            -1.7781323634092214
+          ],
+          "fitted_covariance_real_imag": [
+            [
+              [
+                7.625339635686207,
+                0.0
+              ],
+              [
+                -3.0146740171527315,
+                1.8518821532618608
+              ]
+            ],
+            [
+              [
+                -3.0146740171527315,
+                -1.8518821532618608
+              ],
+              [
+                4.731986484220559,
+                -7.440551074004895e-17
+              ]
+            ]
+          ],
+          "nll_without_constant": 170.560154449133,
+          "phase_dependent_trace_per_mode": -0.954593962888767,
+          "gradient_inf_norm_normalized": 3.682012946791751e-16,
+          "chosen_start_index": null,
+          "optimizer_runs": [],
+          "global_minimum_for_this_phase_objective_proved": true,
+          "true_phases_supplied_for_initialization": false,
+          "physical_phase_identification_verified": false,
+          "amplitudes_and_sefd_supplied": true,
+          "unknown_amplitude_sefd_or_lo_estimated": false,
+          "constant_phase_within_window_assumed": true,
+          "image_likelihood_defined": false
+        },
+        "global_profile_optimum_proved": true,
+        "calibrated_hypothesis_test_defined": false,
+        "image_probability_defined": false,
+        "unknown_amplitude_sefd_or_lo_estimated": false
+      },
+      "independent_real_gaussian_score": -3.9185097209881974,
+      "real_gaussian_abs_difference": 2.708944180085382e-14,
+      "known_data_phase_transport_abs_difference": 2.220446049250313e-15,
+      "dense_grid_check": null
+    },
+    {
+      "stations": 2,
+      "seed": 104,
+      "modes": 37,
+      "state": "complete",
+      "fitted_comparison": {
+        "state": "fitted_reference_score",
+        "log_likelihood1_minus0": -1.0287331088120149,
+        "fit0": {
+          "type": "known_covariance_station_phase_profile",
+          "state": "analytic_two_station",
+          "station_count": 2,
+          "modes": 37,
+          "reference_station_index": 0,
+          "candidate_phase_rad": [
+            0.0,
+            1.3112041759537247
+          ],
+          "fitted_covariance_real_imag": [
+            [
+              [
+                1.6330979551911726,
+                0.0
+              ],
+              [
+                -1.12813458285278,
+                0.08374728515224392
+              ]
+            ],
+            [
+              [
+                -1.12813458285278,
+                -0.08374728515224393
+              ],
+              [
+                6.23245104894766,
+                -5.2472723942534534e-17
+              ]
+            ]
+          ],
+          "nll_without_constant": 151.09943183293245,
+          "phase_dependent_trace_per_mode": -0.2277834672249891,
+          "gradient_inf_norm_normalized": 5.241363174912383e-17,
+          "chosen_start_index": null,
+          "optimizer_runs": [],
+          "global_minimum_for_this_phase_objective_proved": true,
+          "true_phases_supplied_for_initialization": false,
+          "physical_phase_identification_verified": false,
+          "amplitudes_and_sefd_supplied": true,
+          "unknown_amplitude_sefd_or_lo_estimated": false,
+          "constant_phase_within_window_assumed": true,
+          "image_likelihood_defined": false
+        },
+        "fit1": {
+          "type": "known_covariance_station_phase_profile",
+          "state": "analytic_two_station",
+          "station_count": 2,
+          "modes": 37,
+          "reference_station_index": 0,
+          "candidate_phase_rad": [
+            0.0,
+            1.3112041759537247
+          ],
+          "fitted_covariance_real_imag": [
+            [
+              [
+                1.8330979551911724,
+                0.0
+              ],
+              [
+                -1.1281345828527802,
+                0.08374728515224393
+              ]
+            ],
+            [
+              [
+                -1.1281345828527802,
+                -0.08374728515224392
+              ],
+              [
+                7.23245104894766,
+                -6.089199968660869e-17
+              ]
+            ]
+          ],
+          "nll_without_constant": 152.12816494174447,
+          "phase_dependent_trace_per_mode": -0.1692199340758321,
+          "gradient_inf_norm_normalized": 5.241363174912383e-17,
+          "chosen_start_index": null,
+          "optimizer_runs": [],
+          "global_minimum_for_this_phase_objective_proved": true,
+          "true_phases_supplied_for_initialization": false,
+          "physical_phase_identification_verified": false,
+          "amplitudes_and_sefd_supplied": true,
+          "unknown_amplitude_sefd_or_lo_estimated": false,
+          "constant_phase_within_window_assumed": true,
+          "image_likelihood_defined": false
+        },
+        "global_profile_optimum_proved": true,
+        "calibrated_hypothesis_test_defined": false,
+        "image_probability_defined": false,
+        "unknown_amplitude_sefd_or_lo_estimated": false
+      },
+      "independent_real_gaussian_score": -1.0287331088120197,
+      "real_gaussian_abs_difference": 4.884981308350689e-15,
+      "known_data_phase_transport_abs_difference": 2.220446049250313e-16,
+      "dense_grid_check": null
+    },
+    {
+      "stations": 2,
+      "seed": 105,
+      "modes": 37,
+      "state": "complete",
+      "fitted_comparison": {
+        "state": "fitted_reference_score",
+        "log_likelihood1_minus0": -1.4099876594664553,
+        "fit0": {
+          "type": "known_covariance_station_phase_profile",
+          "state": "analytic_two_station",
+          "station_count": 2,
+          "modes": 37,
+          "reference_station_index": 0,
+          "candidate_phase_rad": [
+            0.0,
+            -1.864490295866797
+          ],
+          "fitted_covariance_real_imag": [
+            [
+              [
+                3.749663136981162,
+                0.0
+              ],
+              [
+                1.2881863896540715,
+                1.076035924852619
+              ]
+            ],
+            [
+              [
+                1.2881863896540715,
+                -1.076035924852619
+              ],
+              [
+                5.620069434747515,
+                5.4479820954937654e-17
+              ]
+            ]
+          ],
+          "nll_without_constant": 187.2314076036125,
+          "phase_dependent_trace_per_mode": -0.45151644899409343,
+          "gradient_inf_norm_normalized": 9.376836070105363e-17,
+          "chosen_start_index": null,
+          "optimizer_runs": [],
+          "global_minimum_for_this_phase_objective_proved": true,
+          "true_phases_supplied_for_initialization": false,
+          "physical_phase_identification_verified": false,
+          "amplitudes_and_sefd_supplied": true,
+          "unknown_amplitude_sefd_or_lo_estimated": false,
+          "constant_phase_within_window_assumed": true,
+          "image_likelihood_defined": false
+        },
+        "fit1": {
+          "type": "known_covariance_station_phase_profile",
+          "state": "analytic_two_station",
+          "station_count": 2,
+          "modes": 37,
+          "reference_station_index": 0,
+          "candidate_phase_rad": [
+            0.0,
+            -1.864490295866797
+          ],
+          "fitted_covariance_real_imag": [
+            [
+              [
+                3.9496631369811617,
+                0.0
+              ],
+              [
+                1.2881863896540713,
+                1.0760359248526192
+              ]
+            ],
+            [
+              [
+                1.2881863896540713,
+                -1.076035924852619
+              ],
+              [
+                6.620069434747515,
+                6.417361950804845e-17
+              ]
+            ]
+          ],
+          "nll_without_constant": 188.64139526307895,
+          "phase_dependent_trace_per_mode": -0.3533222124108751,
+          "gradient_inf_norm_normalized": 1.187685254856086e-16,
+          "chosen_start_index": null,
+          "optimizer_runs": [],
+          "global_minimum_for_this_phase_objective_proved": true,
+          "true_phases_supplied_for_initialization": false,
+          "physical_phase_identification_verified": false,
+          "amplitudes_and_sefd_supplied": true,
+          "unknown_amplitude_sefd_or_lo_estimated": false,
+          "constant_phase_within_window_assumed": true,
+          "image_likelihood_defined": false
+        },
+        "global_profile_optimum_proved": true,
+        "calibrated_hypothesis_test_defined": false,
+        "image_probability_defined": false,
+        "unknown_amplitude_sefd_or_lo_estimated": false
+      },
+      "independent_real_gaussian_score": -1.4099876594664806,
+      "real_gaussian_abs_difference": 2.531308496145357e-14,
+      "known_data_phase_transport_abs_difference": 2.220446049250313e-16,
+      "dense_grid_check": null
+    },
+    {
+      "stations": 3,
+      "seed": 103,
+      "modes": 37,
+      "state": "complete",
+      "fitted_comparison": {
+        "state": "fitted_reference_score",
+        "log_likelihood1_minus0": -1.410997578252518,
+        "fit0": {
+          "type": "known_covariance_station_phase_profile",
+          "state": "stationary_candidate",
+          "station_count": 3,
+          "modes": 37,
+          "reference_station_index": 0,
+          "candidate_phase_rad": [
+            0.0,
+            -1.4622039508221636,
+            2.0080689321776917
+          ],
+          "fitted_covariance_real_imag": [
+            [
+              [
+                9.11828119895455,
+                0.0
+              ],
+              [
+                -1.9060940584090205,
+                -4.094236590786876
+              ],
+              [
+                0.6363788562850399,
+                -1.1147661851901978
+              ]
+            ],
+            [
+              [
+                -1.9060940584090205,
+                4.094236590786876
+              ],
+              [
+                7.543413656390814,
+                6.406230432786996e-18
+              ],
+              [
+                -3.6040192482653963,
+                -2.6005893937554947
+              ]
+            ],
+            [
+              [
+                0.6363788562850399,
+                1.1147661851901975
+              ],
+              [
+                -3.6040192482653963,
+                2.600589393755495
+              ],
+              [
+                10.3447065316422,
+                1.0576105604686299e-16
+              ]
+            ]
+          ],
+          "nll_without_constant": 310.37858208910194,
+          "phase_dependent_trace_per_mode": -3.048173335420631,
+          "gradient_inf_norm_normalized": 1.0226267367630104e-08,
+          "chosen_start_index": 1,
+          "optimizer_runs": [
+            {
+              "start_index": 0,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 4,
+              "objective_normalized": -3.631351783189697,
+              "gradient_inf_norm_normalized": 1.4509851653521366e-11,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 1,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 11,
+              "objective_normalized": -3.6313517831896975,
+              "gradient_inf_norm_normalized": 1.0226267659063648e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 2,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 9,
+              "objective_normalized": -3.6313517831896966,
+              "gradient_inf_norm_normalized": 7.203285112486468e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 3,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 13,
+              "objective_normalized": -3.6313517831896975,
+              "gradient_inf_norm_normalized": 3.2530506066663634e-11,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 4,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 7,
+              "objective_normalized": -3.6313517831896966,
+              "gradient_inf_norm_normalized": 4.16345325472689e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 5,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 11,
+              "objective_normalized": -3.6313517831896975,
+              "gradient_inf_norm_normalized": 9.827795448974497e-09,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            }
+          ],
+          "global_minimum_for_this_phase_objective_proved": false,
+          "true_phases_supplied_for_initialization": false,
+          "physical_phase_identification_verified": false,
+          "amplitudes_and_sefd_supplied": true,
+          "unknown_amplitude_sefd_or_lo_estimated": false,
+          "constant_phase_within_window_assumed": true,
+          "image_likelihood_defined": false
+        },
+        "fit1": {
+          "type": "known_covariance_station_phase_profile",
+          "state": "stationary_candidate",
+          "station_count": 3,
+          "modes": 37,
+          "reference_station_index": 0,
+          "candidate_phase_rad": [
+            0.0,
+            -1.4633367459279645,
+            2.0076691301165557
+          ],
+          "fitted_covariance_real_imag": [
+            [
+              [
+                9.31828119895455,
+                0.0
+              ],
+              [
+                -1.9014549052554979,
+                -4.09639317743306
+              ],
+              [
+                0.6368244912317557,
+                -1.1145116705255163
+              ]
+            ],
+            [
+              [
+                -1.9014549052554979,
+                4.09639317743306
+              ],
+              [
+                8.143413656390814,
+                -7.29703061135689e-18
+              ],
+              [
+                -3.6059244938508224,
+                -2.597946974329487
+              ]
+            ],
+            [
+              [
+                0.6368244912317557,
+                1.1145116705255163
+              ],
+              [
+                -3.6059244938508224,
+                2.5979469743294876
+              ],
+              [
+                11.344706531642203,
+                9.719045161673083e-17
+              ]
+            ]
+          ],
+          "nll_without_constant": 311.7895796673545,
+          "phase_dependent_trace_per_mode": -2.1800782632475237,
+          "gradient_inf_norm_normalized": 3.023882005903644e-09,
+          "chosen_start_index": 3,
+          "optimizer_runs": [
+            {
+              "start_index": 0,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 4,
+              "objective_normalized": -3.5322599831739656,
+              "gradient_inf_norm_normalized": 7.327023709979841e-11,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 1,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 10,
+              "objective_normalized": -3.5322599831739656,
+              "gradient_inf_norm_normalized": 6.028790501544368e-09,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 2,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 9,
+              "objective_normalized": -3.5322599831739656,
+              "gradient_inf_norm_normalized": 1.3915713206746894e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 3,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 13,
+              "objective_normalized": -3.532259983173966,
+              "gradient_inf_norm_normalized": 3.0238819781480686e-09,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 4,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 8,
+              "objective_normalized": -3.5322599831739634,
+              "gradient_inf_norm_normalized": 8.26211623942974e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 5,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 13,
+              "objective_normalized": -3.532259983173965,
+              "gradient_inf_norm_normalized": 8.104814527842841e-10,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            }
+          ],
+          "global_minimum_for_this_phase_objective_proved": false,
+          "true_phases_supplied_for_initialization": false,
+          "physical_phase_identification_verified": false,
+          "amplitudes_and_sefd_supplied": true,
+          "unknown_amplitude_sefd_or_lo_estimated": false,
+          "constant_phase_within_window_assumed": true,
+          "image_likelihood_defined": false
+        },
+        "global_profile_optimum_proved": false,
+        "calibrated_hypothesis_test_defined": false,
+        "image_probability_defined": false,
+        "unknown_amplitude_sefd_or_lo_estimated": false
+      },
+      "independent_real_gaussian_score": -1.410997578252534,
+      "real_gaussian_abs_difference": 1.5987211554602254e-14,
+      "known_data_phase_transport_abs_difference": 1.1102230246251565e-15,
+      "dense_grid_check": {
+        "points_per_axis": 181,
+        "grid_points": 32761,
+        "discrete_grid_minimum_per_mode": -3.0480061757409347,
+        "candidate_at_or_below_discrete_grid_minimum": true,
+        "global_optimum_certified": false
+      }
+    },
+    {
+      "stations": 3,
+      "seed": 104,
+      "modes": 37,
+      "state": "complete",
+      "fitted_comparison": {
+        "state": "fitted_reference_score",
+        "log_likelihood1_minus0": -2.962319968915956,
+        "fit0": {
+          "type": "known_covariance_station_phase_profile",
+          "state": "stationary_candidate",
+          "station_count": 3,
+          "modes": 37,
+          "reference_station_index": 0,
+          "candidate_phase_rad": [
+            0.0,
+            -1.6737966782000004,
+            -1.543801390703134
+          ],
+          "fitted_covariance_real_imag": [
+            [
+              [
+                3.470858550437953,
+                0.0
+              ],
+              [
+                -0.07295265945522542,
+                0.5930261906780486
+              ],
+              [
+                1.5625812327498658,
+                3.4208298989466988
+              ]
+            ],
+            [
+              [
+                -0.07295265945522542,
+                -0.5930261906780486
+              ],
+              [
+                2.3663170236743567,
+                -1.7728319318678562e-17
+              ],
+              [
+                1.7518237925198958,
+                -0.9261350197575283
+              ]
+            ],
+            [
+              [
+                1.5625812327498658,
+                -3.4208298989466988
+              ],
+              [
+                1.7518237925198954,
+                0.9261350197575283
+              ],
+              [
+                10.250786331074625,
+                -1.395797947819189e-17
+              ]
+            ]
+          ],
+          "nll_without_constant": 246.23491813071055,
+          "phase_dependent_trace_per_mode": -1.9772407651687383,
+          "gradient_inf_norm_normalized": 3.4180785852264747e-09,
+          "chosen_start_index": 0,
+          "optimizer_runs": [
+            {
+              "start_index": 0,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 5,
+              "objective_normalized": -2.468606793598623,
+              "gradient_inf_norm_normalized": 3.4180785852264747e-09,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 1,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 8,
+              "objective_normalized": -2.4686067935986227,
+              "gradient_inf_norm_normalized": 8.521306799774437e-09,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 2,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 6,
+              "objective_normalized": -2.46860679359862,
+              "gradient_inf_norm_normalized": 4.567711144531309e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 3,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 9,
+              "objective_normalized": -2.4686067935986213,
+              "gradient_inf_norm_normalized": 2.710047236861618e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 4,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 10,
+              "objective_normalized": -2.4686067935986227,
+              "gradient_inf_norm_normalized": 1.8927881734214684e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 5,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 8,
+              "objective_normalized": -2.4686067935986227,
+              "gradient_inf_norm_normalized": 1.1241793739934398e-09,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            }
+          ],
+          "global_minimum_for_this_phase_objective_proved": false,
+          "true_phases_supplied_for_initialization": false,
+          "physical_phase_identification_verified": false,
+          "amplitudes_and_sefd_supplied": true,
+          "unknown_amplitude_sefd_or_lo_estimated": false,
+          "constant_phase_within_window_assumed": true,
+          "image_likelihood_defined": false
+        },
+        "fit1": {
+          "type": "known_covariance_station_phase_profile",
+          "state": "stationary_candidate",
+          "station_count": 3,
+          "modes": 37,
+          "reference_station_index": 0,
+          "candidate_phase_rad": [
+            0.0,
+            -1.6529767747427988,
+            -1.5387114742726609
+          ],
+          "fitted_covariance_real_imag": [
+            [
+              [
+                3.670858550437954,
+                0.0
+              ],
+              [
+                -0.06059099262144286,
+                0.5944164238687013
+              ],
+              [
+                1.5799726548297075,
+                3.412832213347169
+              ]
+            ],
+            [
+              [
+                -0.06059099262144286,
+                -0.5944164238687014
+              ],
+              [
+                2.966317023674356,
+                -1.460162220127893e-17
+              ],
+              [
+                1.7661745590088733,
+                -0.8984654150104379
+              ]
+            ],
+            [
+              [
+                1.5799726548297075,
+                -3.412832213347169
+              ],
+              [
+                1.7661745590088735,
+                0.898465415010438
+              ],
+              [
+                11.250786331074625,
+                -5.814250366956179e-18
+              ]
+            ]
+          ],
+          "nll_without_constant": 249.19723809962656,
+          "phase_dependent_trace_per_mode": -1.4877230191765758,
+          "gradient_inf_norm_normalized": 2.6883433057803274e-09,
+          "chosen_start_index": 5,
+          "optimizer_runs": [
+            {
+              "start_index": 0,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 6,
+              "objective_normalized": -2.4117083627080684,
+              "gradient_inf_norm_normalized": 3.426400556512388e-09,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 1,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 10,
+              "objective_normalized": -2.411708362708068,
+              "gradient_inf_norm_normalized": 2.0118933140127193e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 2,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 5,
+              "objective_normalized": -2.4117083627080684,
+              "gradient_inf_norm_normalized": 3.2780190679926324e-09,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 3,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 8,
+              "objective_normalized": -2.4117083627080684,
+              "gradient_inf_norm_normalized": 1.7413791623954733e-09,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 4,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 17,
+              "objective_normalized": -2.4117083627080684,
+              "gradient_inf_norm_normalized": 4.71140210265425e-09,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 5,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 8,
+              "objective_normalized": -2.411708362708069,
+              "gradient_inf_norm_normalized": 2.6883433196581152e-09,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            }
+          ],
+          "global_minimum_for_this_phase_objective_proved": false,
+          "true_phases_supplied_for_initialization": false,
+          "physical_phase_identification_verified": false,
+          "amplitudes_and_sefd_supplied": true,
+          "unknown_amplitude_sefd_or_lo_estimated": false,
+          "constant_phase_within_window_assumed": true,
+          "image_likelihood_defined": false
+        },
+        "global_profile_optimum_proved": false,
+        "calibrated_hypothesis_test_defined": false,
+        "image_probability_defined": false,
+        "unknown_amplitude_sefd_or_lo_estimated": false
+      },
+      "independent_real_gaussian_score": -2.962319968915949,
+      "real_gaussian_abs_difference": 6.661338147750939e-15,
+      "known_data_phase_transport_abs_difference": 3.9968028886505635e-15,
+      "dense_grid_check": {
+        "points_per_axis": 181,
+        "grid_points": 32761,
+        "discrete_grid_minimum_per_mode": -1.97722565823662,
+        "candidate_at_or_below_discrete_grid_minimum": true,
+        "global_optimum_certified": false
+      }
+    },
+    {
+      "stations": 3,
+      "seed": 105,
+      "modes": 37,
+      "state": "complete",
+      "fitted_comparison": {
+        "state": "fitted_reference_score",
+        "log_likelihood1_minus0": -1.2962882751228755,
+        "fit0": {
+          "type": "known_covariance_station_phase_profile",
+          "state": "stationary_candidate",
+          "station_count": 3,
+          "modes": 37,
+          "reference_station_index": 0,
+          "candidate_phase_rad": [
+            0.0,
+            1.2732208551706405,
+            1.0269265377196866
+          ],
+          "fitted_covariance_real_imag": [
+            [
+              [
+                13.44595152205089,
+                0.0
+              ],
+              [
+                0.6796613154167562,
+                -4.405172555617895
+              ],
+              [
+                3.7147428609722137,
+                -4.243763477907144
+              ]
+            ],
+            [
+              [
+                0.6796613154167562,
+                4.405172555617894
+              ],
+              [
+                4.189645025613131,
+                1.146881489106534e-16
+              ],
+              [
+                2.7026132256434137,
+                0.047597719337694834
+              ]
+            ],
+            [
+              [
+                3.7147428609722137,
+                4.2437634779071445
+              ],
+              [
+                2.702613225643414,
+                -0.04759771933769515
+              ],
+              [
+                7.022729236793158,
+                -1.4188379257993114e-16
+              ]
+            ]
+          ],
+          "nll_without_constant": 305.67814167638505,
+          "phase_dependent_trace_per_mode": -3.575008547240119,
+          "gradient_inf_norm_normalized": 7.964627513068478e-09,
+          "chosen_start_index": 0,
+          "optimizer_runs": [
+            {
+              "start_index": 0,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 6,
+              "objective_normalized": -3.9870971952030945,
+              "gradient_inf_norm_normalized": 7.964627513068478e-09,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 1,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 8,
+              "objective_normalized": -3.987097195203094,
+              "gradient_inf_norm_normalized": 2.1620363166441336e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 2,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 10,
+              "objective_normalized": -3.987097195203094,
+              "gradient_inf_norm_normalized": 1.977708108391596e-09,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 3,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 8,
+              "objective_normalized": -3.987097195203094,
+              "gradient_inf_norm_normalized": 1.9586520960679366e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 4,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 11,
+              "objective_normalized": -3.9870971952030945,
+              "gradient_inf_norm_normalized": 1.262912119326387e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 5,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 10,
+              "objective_normalized": -3.987097195203094,
+              "gradient_inf_norm_normalized": 2.3118174041769635e-12,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            }
+          ],
+          "global_minimum_for_this_phase_objective_proved": false,
+          "true_phases_supplied_for_initialization": false,
+          "physical_phase_identification_verified": false,
+          "amplitudes_and_sefd_supplied": true,
+          "unknown_amplitude_sefd_or_lo_estimated": false,
+          "constant_phase_within_window_assumed": true,
+          "image_likelihood_defined": false
+        },
+        "fit1": {
+          "type": "known_covariance_station_phase_profile",
+          "state": "stationary_candidate",
+          "station_count": 3,
+          "modes": 37,
+          "reference_station_index": 0,
+          "candidate_phase_rad": [
+            0.0,
+            1.2473939347421925,
+            1.024342373484749
+          ],
+          "fitted_covariance_real_imag": [
+            [
+              [
+                13.64595152205089,
+                0.0
+              ],
+              [
+                0.7931940440998397,
+                -4.386151839237633
+              ],
+              [
+                3.725697027225052,
+                -4.234149813231574
+              ]
+            ],
+            [
+              [
+                0.7931940440998397,
+                4.386151839237633
+              ],
+              [
+                4.7896450256131295,
+                1.0895272424468262e-16
+              ],
+              [
+                2.702989450505106,
+                -0.015225661461944064
+              ]
+            ],
+            [
+              [
+                3.725697027225052,
+                4.234149813231574
+              ],
+              [
+                2.702989450505106,
+                0.015225661461944066
+              ],
+              [
+                8.02272923679316,
+                -4.361260779210178e-16
+              ]
+            ]
+          ],
+          "nll_without_constant": 306.974429951508,
+          "phase_dependent_trace_per_mode": -2.6660644253587678,
+          "gradient_inf_norm_normalized": 7.659088141487302e-09,
+          "chosen_start_index": 0,
+          "optimizer_runs": [
+            {
+              "start_index": 0,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 6,
+              "objective_normalized": -4.030667912188141,
+              "gradient_inf_norm_normalized": 7.659088141487302e-09,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 1,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 8,
+              "objective_normalized": -4.030667912188141,
+              "gradient_inf_norm_normalized": 3.1470839267910833e-09,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 2,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 10,
+              "objective_normalized": -4.030667912188141,
+              "gradient_inf_norm_normalized": 3.3939086874212876e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 3,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 10,
+              "objective_normalized": -4.030667912188141,
+              "gradient_inf_norm_normalized": 6.163983767848435e-10,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 4,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 10,
+              "objective_normalized": -4.030667912188141,
+              "gradient_inf_norm_normalized": 4.3737539145993765e-09,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 5,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 9,
+              "objective_normalized": -4.030667912188141,
+              "gradient_inf_norm_normalized": 4.184977653309829e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            }
+          ],
+          "global_minimum_for_this_phase_objective_proved": false,
+          "true_phases_supplied_for_initialization": false,
+          "physical_phase_identification_verified": false,
+          "amplitudes_and_sefd_supplied": true,
+          "unknown_amplitude_sefd_or_lo_estimated": false,
+          "constant_phase_within_window_assumed": true,
+          "image_likelihood_defined": false
+        },
+        "global_profile_optimum_proved": false,
+        "calibrated_hypothesis_test_defined": false,
+        "image_probability_defined": false,
+        "unknown_amplitude_sefd_or_lo_estimated": false
+      },
+      "independent_real_gaussian_score": -1.2962882751228904,
+      "real_gaussian_abs_difference": 1.4876988529977098e-14,
+      "known_data_phase_transport_abs_difference": 4.884981308350689e-15,
+      "dense_grid_check": {
+        "points_per_axis": 181,
+        "grid_points": 32761,
+        "discrete_grid_minimum_per_mode": -3.57497463796271,
+        "candidate_at_or_below_discrete_grid_minimum": true,
+        "global_optimum_certified": false
+      }
+    },
+    {
+      "stations": 8,
+      "seed": 103,
+      "modes": 37,
+      "state": "complete",
+      "fitted_comparison": {
+        "state": "fitted_reference_score",
+        "log_likelihood1_minus0": -3.655717642770148,
+        "fit0": {
+          "type": "known_covariance_station_phase_profile",
+          "state": "stationary_candidate",
+          "station_count": 8,
+          "modes": 37,
+          "reference_station_index": 0,
+          "candidate_phase_rad": [
+            0.0,
+            -1.0793985423612273,
+            -2.8470407357424854,
+            -2.0314954985852878,
+            -2.3454600123253155,
+            -1.14177435052482,
+            1.480555511261578,
+            1.0008592560361222
+          ],
+          "fitted_covariance_real_imag": [
+            [
+              [
+                21.191224704917595,
+                0.0
+              ],
+              [
+                -8.323988074756175,
+                -3.9208499927144
+              ],
+              [
+                0.48531137415747466,
+                -6.678100737147652
+              ],
+              [
+                2.2622304404880373,
+                -5.799235202308882
+              ],
+              [
+                0.4077590721663342,
+                -1.0397905147711546
+              ],
+              [
+                -2.949413728001159,
+                -1.5361557996209023
+              ],
+              [
+                0.41095914543970163,
+                -5.506342492398814
+              ],
+              [
+                9.176605942708235,
+                -0.668527251806203
+              ]
+            ],
+            [
+              [
+                -8.323988074756175,
+                3.9208499927143996
+              ],
+              [
+                20.536546818039415,
+                6.153366223830566e-16
+              ],
+              [
+                -5.1514367616393,
+                2.3797741290143994
+              ],
+              [
+                -1.9635404635845464,
+                4.769564669507359
+              ],
+              [
+                3.5192540211475904,
+                -3.4274491936755465
+              ],
+              [
+                -0.8381601983321924,
+                4.036862349971327
+              ],
+              [
+                0.7187124365528444,
+                -8.359828240125593
+              ],
+              [
+                2.4961961318693597,
+                0.6185836205595336
+              ]
+            ],
+            [
+              [
+                0.48531137415747466,
+                6.678100737147652
+              ],
+              [
+                -5.1514367616393,
+                -2.3797741290143994
+              ],
+              [
+                10.735568693695114,
+                5.071645156709094e-16
+              ],
+              [
+                -1.153435662287108,
+                -0.6431981349730269
+              ],
+              [
+                0.3435401123589316,
+                -1.300891460270556
+              ],
+              [
+                -0.27319194226443355,
+                -2.3870273497597303
+              ],
+              [
+                0.2024526008579157,
+                6.280303480639654
+              ],
+              [
+                -4.0980066323577145,
+                5.445682689185943
+              ]
+            ],
+            [
+              [
+                2.2622304404880373,
+                5.799235202308882
+              ],
+              [
+                -1.9635404635845464,
+                -4.769564669507359
+              ],
+              [
+                -1.153435662287108,
+                0.6431981349730269
+              ],
+              [
+                16.894406715275792,
+                -1.3851101040974246e-16
+              ],
+              [
+                0.5974901765930979,
+                -0.1304694992827425
+              ],
+              [
+                -0.028711530254668105,
+                -1.857109651994699
+              ],
+              [
+                2.5205117203742904,
+                -1.4221980428171213
+              ],
+              [
+                4.619851319170197,
+                1.605792168988045
+              ]
+            ],
+            [
+              [
+                0.4077590721663342,
+                1.0397905147711546
+              ],
+              [
+                3.519254021147591,
+                3.4274491936755465
+              ],
+              [
+                0.34354011235893167,
+                1.300891460270556
+              ],
+              [
+                0.5974901765930979,
+                0.13046949928274246
+              ],
+              [
+                10.791353403264049,
+                1.4869189924974524e-16
+              ],
+              [
+                0.5375537039717834,
+                -0.8828622246580019
+              ],
+              [
+                1.1320475111739212,
+                -3.1006719344746063
+              ],
+              [
+                2.6091814349179914,
+                3.8233721980640327
+              ]
+            ],
+            [
+              [
+                -2.949413728001159,
+                1.5361557996209023
+              ],
+              [
+                -0.8381601983321921,
+                -4.036862349971327
+              ],
+              [
+                -0.2731919422644336,
+                2.3870273497597303
+              ],
+              [
+                -0.02871153025466799,
+                1.857109651994699
+              ],
+              [
+                0.5375537039717835,
+                0.8828622246580019
+              ],
+              [
+                15.426789395524764,
+                -1.3828003654935057e-16
+              ],
+              [
+                -0.06347735222425566,
+                2.830730090327191
+              ],
+              [
+                -0.4805460551399273,
+                -4.651954580007726
+              ]
+            ],
+            [
+              [
+                0.41095914543970163,
+                5.506342492398814
+              ],
+              [
+                0.7187124365528444,
+                8.359828240125593
+              ],
+              [
+                0.20245260085791578,
+                -6.280303480639654
+              ],
+              [
+                2.520511720374291,
+                1.4221980428171213
+              ],
+              [
+                1.1320475111739212,
+                3.1006719344746068
+              ],
+              [
+                -0.06347735222425574,
+                -2.830730090327191
+              ],
+              [
+                15.515140496571405,
+                1.2203743730518032e-16
+              ],
+              [
+                5.449117991415136,
+                7.337985405395968
+              ]
+            ],
+            [
+              [
+                9.176605942708235,
+                0.6685272518062029
+              ],
+              [
+                2.4961961318693597,
+                -0.6185836205595336
+              ],
+              [
+                -4.098006632357715,
+                -5.4456826891859444
+              ],
+              [
+                4.619851319170196,
+                -1.6057921689880454
+              ],
+              [
+                2.6091814349179914,
+                -3.8233721980640327
+              ],
+              [
+                -0.4805460551399281,
+                4.651954580007727
+              ],
+              [
+                5.449117991415136,
+                -7.337985405395966
+              ],
+              [
+                21.726079675416436,
+                5.001289956362796e-16
+              ]
+            ]
+          ],
+          "nll_without_constant": 973.0036067117336,
+          "phase_dependent_trace_per_mode": -17.06887320564327,
+          "gradient_inf_norm_normalized": 8.748933910673884e-09,
+          "chosen_start_index": 3,
+          "optimizer_runs": [
+            {
+              "start_index": 0,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 12,
+              "objective_normalized": -15.535613640255171,
+              "gradient_inf_norm_normalized": 1.4761998567980328e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 1,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 18,
+              "objective_normalized": -15.535613640255171,
+              "gradient_inf_norm_normalized": 6.339099867247455e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 2,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 17,
+              "objective_normalized": -15.535613640255171,
+              "gradient_inf_norm_normalized": 9.259457522947656e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 3,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 23,
+              "objective_normalized": -15.535613640255173,
+              "gradient_inf_norm_normalized": 8.748933688629279e-09,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 4,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 21,
+              "objective_normalized": -15.535613640255173,
+              "gradient_inf_norm_normalized": 1.019442996685882e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 5,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 21,
+              "objective_normalized": -15.535613640255171,
+              "gradient_inf_norm_normalized": 4.591141966603374e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 6,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 20,
+              "objective_normalized": -15.535613640255159,
+              "gradient_inf_norm_normalized": 2.095874895857719e-07,
+              "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH"
+            },
+            {
+              "start_index": 7,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 21,
+              "objective_normalized": -15.535613640255171,
+              "gradient_inf_norm_normalized": 8.358408776221182e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 8,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 27,
+              "objective_normalized": -15.535613640255171,
+              "gradient_inf_norm_normalized": 2.6524385687842766e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 9,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 23,
+              "objective_normalized": -15.535613640255173,
+              "gradient_inf_norm_normalized": 8.179779631412032e-09,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 10,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 24,
+              "objective_normalized": -15.53561364025517,
+              "gradient_inf_norm_normalized": 7.636652199494165e-09,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 11,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 20,
+              "objective_normalized": -15.53561364025517,
+              "gradient_inf_norm_normalized": 8.61195583734542e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 12,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 19,
+              "objective_normalized": -15.535613640255164,
+              "gradient_inf_norm_normalized": 1.7498764870449435e-07,
+              "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH"
+            },
+            {
+              "start_index": 13,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 22,
+              "objective_normalized": -15.535613640255173,
+              "gradient_inf_norm_normalized": 1.090204981846199e-09,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 14,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 21,
+              "objective_normalized": -15.535613640255171,
+              "gradient_inf_norm_normalized": 8.362839405695599e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 15,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 25,
+              "objective_normalized": -15.535613640255173,
+              "gradient_inf_norm_normalized": 3.2820580697645596e-09,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            }
+          ],
+          "global_minimum_for_this_phase_objective_proved": false,
+          "true_phases_supplied_for_initialization": false,
+          "physical_phase_identification_verified": false,
+          "amplitudes_and_sefd_supplied": true,
+          "unknown_amplitude_sefd_or_lo_estimated": false,
+          "constant_phase_within_window_assumed": true,
+          "image_likelihood_defined": false
+        },
+        "fit1": {
+          "type": "known_covariance_station_phase_profile",
+          "state": "stationary_candidate",
+          "station_count": 8,
+          "modes": 37,
+          "reference_station_index": 0,
+          "candidate_phase_rad": [
+            0.0,
+            -1.08100957288773,
+            -2.850720484713075,
+            -2.045311529676947,
+            -2.3532354735910452,
+            -1.1567818412071524,
+            1.479878961690236,
+            1.0061861154996496
+          ],
+          "fitted_covariance_real_imag": [
+            [
+              [
+                21.391224704917594,
+                0.0
+              ],
+              [
+                -8.317660666342894,
+                -3.9342550976803454
+              ],
+              [
+                0.5098817673251753,
+                -6.676269704612599
+              ],
+              [
+                2.3421343984680747,
+                -5.767427672462122
+              ],
+              [
+                0.4158315155275899,
+                -1.0365886002826965
+              ],
+              [
+                -2.9260286152346406,
+                -1.5802444502223951
+              ],
+              [
+                0.41468436475643844,
+                -5.506063198006709
+              ],
+              [
+                9.17291461406191,
+                -0.717400025986273
+              ]
+            ],
+            [
+              [
+                -8.317660666342894,
+                3.9342550976803454
+              ],
+              [
+                20.85083253232513,
+                -9.037134234794057e-16
+              ],
+              [
+                -5.156348817731136,
+                2.3691121721391255
+              ],
+              [
+                -2.0216053131591702,
+                4.745245014385797
+              ],
+              [
+                3.5403152945236167,
+                -3.4056900117234394
+              ],
+              [
+                -0.8921630372576524,
+                4.025272073492111
+              ],
+              [
+                0.7109000236015586,
+                -8.36049621298284
+              ],
+              [
+                2.500427686441507,
+                0.6012505378466334
+              ]
+            ],
+            [
+              [
+                0.5098817673251753,
+                6.676269704612599
+              ],
+              [
+                -5.156348817731136,
+                -2.369112172139126
+              ],
+              [
+                11.164140122266543,
+                -1.735827343465886e-16
+              ],
+              [
+                -1.1468568822595742,
+                -0.65485644188809
+              ],
+              [
+                0.34886529319664644,
+                -1.2994735116220202
+              ],
+              [
+                -0.24613536376326722,
+                -2.389968784006247
+              ],
+              [
+                0.22131266316596224,
+                6.279667154368221
+              ],
+              [
+                -4.048793951858915,
+                5.482370458618965
+              ]
+            ],
+            [
+              [
+                2.3421343984680747,
+                5.767427672462122
+              ],
+              [
+                -2.0216053131591702,
+                -4.745245014385797
+              ],
+              [
+                -1.146856882259574,
+                0.65485644188809
+              ],
+              [
+                17.437263858132937,
+                6.728317386997278e-16
+              ],
+              [
+                0.5966911705431663,
+                -0.13407627815600653
+              ],
+              [
+                -0.026498839293279508,
+                -1.8571425424607408
+              ],
+              [
+                2.5016077382011823,
+                -1.4551925404251427
+              ],
+              [
+                4.649742498526478,
+                1.5170660495241093
+              ]
+            ],
+            [
+              [
+                0.4158315155275899,
+                1.0365886002826965
+              ],
+              [
+                3.540315294523617,
+                3.405690011723439
+              ],
+              [
+                0.34886529319664644,
+                1.2994735116220202
+              ],
+              [
+                0.5966911705431663,
+                0.1340762781560065
+              ],
+              [
+                11.448496260406905,
+                -4.716189049131338e-16
+              ],
+              [
+                0.5439244763214527,
+                -0.8789515666066552
+              ],
+              [
+                1.110007775401976,
+                -3.1086300441417474
+              ],
+              [
+                2.6590510934877813,
+                3.7888586681837495
+              ]
+            ],
+            [
+              [
+                -2.9260286152346406,
+                1.5802444502223951
+              ],
+              [
+                -0.8921630372576526,
+                -4.025272073492111
+              ],
+              [
+                -0.24613536376326708,
+                2.389968784006247
+              ],
+              [
+                -0.02649883929327958,
+                1.8571425424607408
+              ],
+              [
+                0.5439244763214526,
+                0.8789515666066551
+              ],
+              [
+                16.198217966953337,
+                -6.908175049232788e-16
+              ],
+              [
+                -0.022905196319054615,
+                2.8313490725289903
+              ],
+              [
+                -0.5750346635945944,
+                -4.641221936217882
+              ]
+            ],
+            [
+              [
+                0.41468436475643844,
+                5.506063198006709
+              ],
+              [
+                0.7109000236015571,
+                8.360496212982838
+              ],
+              [
+                0.22131266316596176,
+                -6.279667154368222
+              ],
+              [
+                2.501607738201183,
+                1.4551925404251427
+              ],
+              [
+                1.110007775401976,
+                3.108630044141747
+              ],
+              [
+                -0.022905196319054594,
+                -2.8313490725289903
+              ],
+              [
+                16.40085478228569,
+                5.713752930933037e-17
+              ],
+              [
+                5.4930724593601115,
+                7.305140084241219
+              ]
+            ],
+            [
+              [
+                9.17291461406191,
+                0.7174000259862733
+              ],
+              [
+                2.5004276864415074,
+                -0.6012505378466335
+              ],
+              [
+                -4.048793951858915,
+                -5.482370458618966
+              ],
+              [
+                4.649742498526477,
+                -1.5170660495241093
+              ],
+              [
+                2.659051093487781,
+                -3.7888586681837495
+              ],
+              [
+                -0.5750346635945939,
+                4.641221936217882
+              ],
+              [
+                5.4930724593601115,
+                -7.305140084241219
+              ],
+              [
+                22.726079675416436,
+                2.5470185274759394e-16
+              ]
+            ]
+          ],
+          "nll_without_constant": 976.6593243545038,
+          "phase_dependent_trace_per_mode": -13.181380365933455,
+          "gradient_inf_norm_normalized": 2.3484189058675664e-08,
+          "chosen_start_index": 14,
+          "optimizer_runs": [
+            {
+              "start_index": 0,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 12,
+              "objective_normalized": -15.057818122252716,
+              "gradient_inf_norm_normalized": 1.6325336194000784e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 1,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 21,
+              "objective_normalized": -15.057818122252712,
+              "gradient_inf_norm_normalized": 9.188746409594106e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 2,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 19,
+              "objective_normalized": -15.057818122252701,
+              "gradient_inf_norm_normalized": 3.081668275006777e-07,
+              "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH"
+            },
+            {
+              "start_index": 3,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 22,
+              "objective_normalized": -15.05781812225271,
+              "gradient_inf_norm_normalized": 9.912953069513009e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 4,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 23,
+              "objective_normalized": -15.057818122252716,
+              "gradient_inf_norm_normalized": 6.648418926502586e-09,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 5,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 21,
+              "objective_normalized": -15.057818122252714,
+              "gradient_inf_norm_normalized": 1.536959180065134e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 6,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 19,
+              "objective_normalized": -15.057818122252705,
+              "gradient_inf_norm_normalized": 2.025622498416646e-07,
+              "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH"
+            },
+            {
+              "start_index": 7,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 23,
+              "objective_normalized": -15.05781812225271,
+              "gradient_inf_norm_normalized": 1.1159784324421551e-07,
+              "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH"
+            },
+            {
+              "start_index": 8,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 25,
+              "objective_normalized": -15.057818122252712,
+              "gradient_inf_norm_normalized": 5.1326701125398166e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 9,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 21,
+              "objective_normalized": -15.057818122252689,
+              "gradient_inf_norm_normalized": 2.889262436522877e-07,
+              "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH"
+            },
+            {
+              "start_index": 10,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 19,
+              "objective_normalized": -15.057818122252716,
+              "gradient_inf_norm_normalized": 6.884244586197186e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 11,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 20,
+              "objective_normalized": -15.057818122252714,
+              "gradient_inf_norm_normalized": 4.5385714186885195e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 12,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 18,
+              "objective_normalized": -15.05781812225271,
+              "gradient_inf_norm_normalized": 1.1297680765909313e-07,
+              "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH"
+            },
+            {
+              "start_index": 13,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 22,
+              "objective_normalized": -15.057818122252714,
+              "gradient_inf_norm_normalized": 7.450049310797624e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 14,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 22,
+              "objective_normalized": -15.057818122252717,
+              "gradient_inf_norm_normalized": 2.3484189058675664e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 15,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 20,
+              "objective_normalized": -15.05781812225271,
+              "gradient_inf_norm_normalized": 9.91711420067487e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            }
+          ],
+          "global_minimum_for_this_phase_objective_proved": false,
+          "true_phases_supplied_for_initialization": false,
+          "physical_phase_identification_verified": false,
+          "amplitudes_and_sefd_supplied": true,
+          "unknown_amplitude_sefd_or_lo_estimated": false,
+          "constant_phase_within_window_assumed": true,
+          "image_likelihood_defined": false
+        },
+        "global_profile_optimum_proved": false,
+        "calibrated_hypothesis_test_defined": false,
+        "image_probability_defined": false,
+        "unknown_amplitude_sefd_or_lo_estimated": false
+      },
+      "independent_real_gaussian_score": -3.655717642770469,
+      "real_gaussian_abs_difference": 3.2107649872159527e-13,
+      "known_data_phase_transport_abs_difference": 4.884981308350689e-15,
+      "dense_grid_check": null
+    },
+    {
+      "stations": 8,
+      "seed": 104,
+      "modes": 37,
+      "state": "complete",
+      "fitted_comparison": {
+        "state": "fitted_reference_score",
+        "log_likelihood1_minus0": -1.6497978551057126,
+        "fit0": {
+          "type": "known_covariance_station_phase_profile",
+          "state": "stationary_candidate",
+          "station_count": 8,
+          "modes": 37,
+          "reference_station_index": 0,
+          "candidate_phase_rad": [
+            0.0,
+            -2.5516522659727676,
+            1.2763229402915834,
+            -1.0631023740909884,
+            2.6578586157631605,
+            3.0679589944908865,
+            -2.9197168700630565,
+            -1.7169578633887324
+          ],
+          "fitted_covariance_real_imag": [
+            [
+              [
+                12.897174282945334,
+                0.0
+              ],
+              [
+                -2.53403963776479,
+                1.4519320520340595
+              ],
+              [
+                0.13130442505819578,
+                1.6923671769466175
+              ],
+              [
+                1.7262364672881545,
+                5.98369438196433
+              ],
+              [
+                4.20338931517747,
+                -1.4136957316207317
+              ],
+              [
+                -1.0523830475525817,
+                4.726378391544719
+              ],
+              [
+                -2.6774805222022846,
+                2.509690495881912
+              ],
+              [
+                2.8470335825104427,
+                -4.9417193682786085
+              ]
+            ],
+            [
+              [
+                -2.53403963776479,
+                -1.4519320520340593
+              ],
+              [
+                13.155659048252362,
+                2.2759832867327884e-16
+              ],
+              [
+                -1.3792834336583315,
+                -1.4791432840450363
+              ],
+              [
+                2.185904984754658,
+                -4.584782593229095
+              ],
+              [
+                0.6677513837538299,
+                -4.021577063784509
+              ],
+              [
+                1.8476239471509752,
+                -3.2491348112043847
+              ],
+              [
+                -0.7485317930695553,
+                0.6190160693908757
+              ],
+              [
+                2.48766239759834,
+                5.822170711348055
+              ]
+            ],
+            [
+              [
+                0.13130442505819578,
+                -1.6923671769466173
+              ],
+              [
+                -1.3792834336583313,
+                1.479143284045036
+              ],
+              [
+                16.31351349836991,
+                2.7060662302469993e-18
+              ],
+              [
+                -2.6262776459746715,
+                1.7228423743628216
+              ],
+              [
+                -1.1271073954638706,
+                -3.2686111698378824
+              ],
+              [
+                1.1998735309947064,
+                2.589888425751058
+              ],
+              [
+                2.2304266043082985,
+                -0.8755650207714089
+              ],
+              [
+                -1.999221593914072,
+                1.9599989005933136
+              ]
+            ],
+            [
+              [
+                1.7262364672881545,
+                -5.98369438196433
+              ],
+              [
+                2.1859049847546586,
+                4.584782593229095
+              ],
+              [
+                -2.626277645974672,
+                -1.7228423743628216
+              ],
+              [
+                16.820635365629006,
+                -5.55749864691733e-16
+              ],
+              [
+                -2.1208538616015944,
+                -3.792046557408692
+              ],
+              [
+                -0.4838601408465543,
+                3.238409160753372
+              ],
+              [
+                0.7161319865071405,
+                0.7868344221976659
+              ],
+              [
+                3.43471223255952,
+                -3.464260629964369
+              ]
+            ],
+            [
+              [
+                4.20338931517747,
+                1.4136957316207317
+              ],
+              [
+                0.66775138375383,
+                4.021577063784509
+              ],
+              [
+                -1.1271073954638708,
+                3.268611169837882
+              ],
+              [
+                -2.1208538616015944,
+                3.792046557408692
+              ],
+              [
+                13.98037645328572,
+                6.808998503880937e-16
+              ],
+              [
+                0.43720573874856694,
+                0.17389124584089533
+              ],
+              [
+                -6.81023659578069,
+                -8.988445631339667
+              ],
+              [
+                -0.17122439558975536,
+                -0.7722430868306829
+              ]
+            ],
+            [
+              [
+                -1.0523830475525817,
+                -4.72637839154472
+              ],
+              [
+                1.8476239471509748,
+                3.2491348112043843
+              ],
+              [
+                1.1998735309947064,
+                -2.589888425751058
+              ],
+              [
+                -0.4838601408465542,
+                -3.2384091607533723
+              ],
+              [
+                0.43720573874856694,
+                -0.17389124584089533
+              ],
+              [
+                6.72492376808537,
+                2.1903513653487316e-17
+              ],
+              [
+                -1.1234947279147904,
+                -1.225686789938423
+              ],
+              [
+                -5.213061373659963,
+                -0.13653439637210874
+              ]
+            ],
+            [
+              [
+                -2.6774805222022846,
+                -2.509690495881912
+              ],
+              [
+                -0.7485317930695554,
+                -0.6190160693908757
+              ],
+              [
+                2.230426604308298,
+                0.8755650207714089
+              ],
+              [
+                0.7161319865071404,
+                -0.7868344221976659
+              ],
+              [
+                -6.81023659578069,
+                8.988445631339667
+              ],
+              [
+                -1.1234947279147904,
+                1.225686789938423
+              ],
+              [
+                29.03469678487777,
+                -6.099312945146685e-17
+              ],
+              [
+                4.833379483149058,
+                2.4864016903247195
+              ]
+            ],
+            [
+              [
+                2.8470335825104427,
+                4.9417193682786085
+              ],
+              [
+                2.4876623975983403,
+                -5.822170711348055
+              ],
+              [
+                -1.9992215939140725,
+                -1.9599989005933136
+              ],
+              [
+                3.4347122325595203,
+                3.4642606299643695
+              ],
+              [
+                -0.17122439558975538,
+                0.7722430868306829
+              ],
+              [
+                -5.213061373659962,
+                0.13653439637210874
+              ],
+              [
+                4.833379483149059,
+                -2.4864016903247195
+              ],
+              [
+                15.206849350716224,
+                2.1193232318688742e-16
+              ]
+            ]
+          ],
+          "nll_without_constant": 951.7592305376726,
+          "phase_dependent_trace_per_mode": -20.98098846834215,
+          "gradient_inf_norm_normalized": 8.317709410121665e-09,
+          "chosen_start_index": 7,
+          "optimizer_runs": [
+            {
+              "start_index": 0,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 16,
+              "objective_normalized": -16.482570107544557,
+              "gradient_inf_norm_normalized": 6.336006258544913e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 1,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 25,
+              "objective_normalized": -16.482570107544554,
+              "gradient_inf_norm_normalized": 2.167990925672214e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 2,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 24,
+              "objective_normalized": -16.482570107544554,
+              "gradient_inf_norm_normalized": 1.2731671131249733e-07,
+              "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH"
+            },
+            {
+              "start_index": 3,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 22,
+              "objective_normalized": -16.482570107544557,
+              "gradient_inf_norm_normalized": 2.6576263134625577e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 4,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 22,
+              "objective_normalized": -16.482570107544557,
+              "gradient_inf_norm_normalized": 7.799682039122402e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 5,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 21,
+              "objective_normalized": -16.482570107544557,
+              "gradient_inf_norm_normalized": 1.9779501550520884e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 6,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 31,
+              "objective_normalized": -16.482570107544547,
+              "gradient_inf_norm_normalized": 1.7441913191529324e-07,
+              "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH"
+            },
+            {
+              "start_index": 7,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 21,
+              "objective_normalized": -16.48257010754456,
+              "gradient_inf_norm_normalized": 8.31770963216627e-09,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 8,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 23,
+              "objective_normalized": -16.48257010754456,
+              "gradient_inf_norm_normalized": 1.588913223216082e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 9,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 22,
+              "objective_normalized": -16.482570107544557,
+              "gradient_inf_norm_normalized": 5.30905723758468e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 10,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 22,
+              "objective_normalized": -16.482570107544557,
+              "gradient_inf_norm_normalized": 9.686555091370508e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 11,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 19,
+              "objective_normalized": -16.48257010754456,
+              "gradient_inf_norm_normalized": 1.3737523563150944e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 12,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 19,
+              "objective_normalized": -16.48257010754456,
+              "gradient_inf_norm_normalized": 7.360189485661195e-09,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 13,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 22,
+              "objective_normalized": -16.48257010754455,
+              "gradient_inf_norm_normalized": 1.635136344935173e-07,
+              "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH"
+            },
+            {
+              "start_index": 14,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 20,
+              "objective_normalized": -16.482570107544557,
+              "gradient_inf_norm_normalized": 2.421580935774159e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 15,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 21,
+              "objective_normalized": -16.482570107544554,
+              "gradient_inf_norm_normalized": 1.936637586408274e-07,
+              "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH"
+            }
+          ],
+          "global_minimum_for_this_phase_objective_proved": false,
+          "true_phases_supplied_for_initialization": false,
+          "physical_phase_identification_verified": false,
+          "amplitudes_and_sefd_supplied": true,
+          "unknown_amplitude_sefd_or_lo_estimated": false,
+          "constant_phase_within_window_assumed": true,
+          "image_likelihood_defined": false
+        },
+        "fit1": {
+          "type": "known_covariance_station_phase_profile",
+          "state": "stationary_candidate",
+          "station_count": 8,
+          "modes": 37,
+          "reference_station_index": 0,
+          "candidate_phase_rad": [
+            0.0,
+            -2.537715792698193,
+            1.2811911987481774,
+            -1.0502087324930367,
+            2.678922111910047,
+            3.074971656583877,
+            -2.9233686778349743,
+            -1.7010221968501178
+          ],
+          "fitted_covariance_real_imag": [
+            [
+              [
+                13.097174282945334,
+                0.0
+              ],
+              [
+                -2.513559397232088,
+                1.4871054858594284
+              ],
+              [
+                0.13954171738511825,
+                1.691707901132858
+              ],
+              [
+                1.8032424524470954,
+                5.960940148620817
+              ],
+              [
+                4.172681716202945,
+                -1.5019136632364867
+              ],
+              [
+                -1.019212947987986,
+                4.733642122667338
+              ],
+              [
+                -2.686627556071529,
+                2.4998961392125354
+              ],
+              [
+                2.767925835516967,
+                -4.986459375532892
+              ]
+            ],
+            [
+              [
+                -2.513559397232088,
+                -1.4871054858594281
+              ],
+              [
+                13.469944762538075,
+                1.058613189003806e-15
+              ],
+              [
+                -1.3658137178570324,
+                -1.4915899346715247
+              ],
+              [
+                2.1906849518232856,
+                -4.58250056971156
+              ],
+              [
+                0.6390727957188538,
+                -4.026233966405191
+              ],
+              [
+                1.870075876750369,
+                -3.2362644339828353
+              ],
+              [
+                -0.7593028850620738,
+                0.6057556175030192
+              ],
+              [
+                2.4992970630028792,
+                5.8171857618069085
+              ]
+            ],
+            [
+              [
+                0.13954171738511825,
+                -1.691707901132858
+              ],
+              [
+                -1.3658137178570324,
+                1.4915899346715247
+              ],
+              [
+                16.742084926941338,
+                7.735600186552342e-19
+              ],
+              [
+                -2.612366749665277,
+                1.7438635513966287
+              ],
+              [
+                -1.179893207391411,
+                -3.2499295499518026
+              ],
+              [
+                1.2054245341079466,
+                2.587309459804072
+              ],
+              [
+                2.2378054314705187,
+                -0.8565300891887744
+              ],
+              [
+                -1.9774074904742371,
+                1.982004613646422
+              ]
+            ],
+            [
+              [
+                1.8032424524470954,
+                -5.960940148620817
+              ],
+              [
+                2.190684951823286,
+                4.58250056971156
+              ],
+              [
+                -2.6123667496652776,
+                -1.743863551396629
+              ],
+              [
+                17.36349250848615,
+                3.9751533432915604e-16
+              ],
+              [
+                -2.1517632063625918,
+                -3.774593130334672
+              ],
+              [
+                -0.5028966816183051,
+                3.235507604065969
+              ],
+              [
+                0.7030160323705396,
+                0.7985749108779852
+              ],
+              [
+                3.4241579893191925,
+                -3.474693065149306
+              ]
+            ],
+            [
+              [
+                4.172681716202945,
+                1.5019136632364867
+              ],
+              [
+                0.6390727957188538,
+                4.026233966405191
+              ],
+              [
+                -1.179893207391411,
+                3.2499295499518026
+              ],
+              [
+                -2.1517632063625913,
+                3.774593130334672
+              ],
+              [
+                14.637519310428575,
+                3.7337630148638364e-16
+              ],
+              [
+                0.4347193449383158,
+                0.1800169839520163
+              ],
+              [
+                -6.586027148498987,
+                -9.154000423710608
+              ],
+              [
+                -0.16726223084176886,
+                -0.7731109396048497
+              ]
+            ],
+            [
+              [
+                -1.019212947987986,
+                -4.733642122667339
+              ],
+              [
+                1.8700758767503687,
+                3.2362644339828357
+              ],
+              [
+                1.2054245341079466,
+                -2.587309459804072
+              ],
+              [
+                -0.5028966816183051,
+                -3.235507604065969
+              ],
+              [
+                0.4347193449383158,
+                -0.18001698395201632
+              ],
+              [
+                7.496352339513944,
+                -1.394449620142027e-17
+              ],
+              [
+                -1.1103597884091494,
+                -1.2375983399172255
+              ],
+              [
+                -5.21407212390099,
+                -0.0900134084279869
+              ]
+            ],
+            [
+              [
+                -2.686627556071529,
+                -2.4998961392125354
+              ],
+              [
+                -0.7593028850620738,
+                -0.6057556175030192
+              ],
+              [
+                2.2378054314705187,
+                0.8565300891887744
+              ],
+              [
+                0.7030160323705394,
+                -0.7985749108779853
+              ],
+              [
+                -6.586027148498988,
+                9.154000423710608
+              ],
+              [
+                -1.1103597884091496,
+                1.2375983399172257
+              ],
+              [
+                29.920411070592056,
+                1.5283872702471324e-16
+              ],
+              [
+                4.881151518526273,
+                2.391257085084024
+              ]
+            ],
+            [
+              [
+                2.767925835516967,
+                4.986459375532892
+              ],
+              [
+                2.4992970630028792,
+                -5.8171857618069085
+              ],
+              [
+                -1.9774074904742371,
+                -1.982004613646422
+              ],
+              [
+                3.4241579893191925,
+                3.4746930651493058
+              ],
+              [
+                -0.16726223084176886,
+                0.7731109396048497
+              ],
+              [
+                -5.21407212390099,
+                0.09001340842798684
+              ],
+              [
+                4.881151518526273,
+                -2.3912570850840233
+              ],
+              [
+                16.206849350716226,
+                5.976704989373839e-17
+              ]
+            ]
+          ],
+          "nll_without_constant": 953.409028392778,
+          "phase_dependent_trace_per_mode": -14.391090326575812,
+          "gradient_inf_norm_normalized": 3.640674840765801e-08,
+          "chosen_start_index": 3,
+          "optimizer_runs": [
+            {
+              "start_index": 0,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 15,
+              "objective_normalized": -18.17569842828913,
+              "gradient_inf_norm_normalized": 6.688284356903829e-09,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 1,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 27,
+              "objective_normalized": -18.17569842828913,
+              "gradient_inf_norm_normalized": 1.7881352731841105e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 2,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 26,
+              "objective_normalized": -18.17569842828913,
+              "gradient_inf_norm_normalized": 5.2306670980661885e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 3,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 21,
+              "objective_normalized": -18.175698428289138,
+              "gradient_inf_norm_normalized": 3.640674729743498e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 4,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 22,
+              "objective_normalized": -18.175698428289127,
+              "gradient_inf_norm_normalized": 6.174045177886889e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 5,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 25,
+              "objective_normalized": -18.175698428289092,
+              "gradient_inf_norm_normalized": 6.182484221795015e-07,
+              "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH"
+            },
+            {
+              "start_index": 6,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 22,
+              "objective_normalized": -18.175698428289138,
+              "gradient_inf_norm_normalized": 4.8312231944180883e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 7,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 25,
+              "objective_normalized": -18.175698428289135,
+              "gradient_inf_norm_normalized": 1.4576677233313351e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 8,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 24,
+              "objective_normalized": -18.17569842828913,
+              "gradient_inf_norm_normalized": 1.0634975011747372e-07,
+              "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH"
+            },
+            {
+              "start_index": 9,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 20,
+              "objective_normalized": -18.175698428289135,
+              "gradient_inf_norm_normalized": 2.9633793502403805e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 10,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 22,
+              "objective_normalized": -18.175698428289135,
+              "gradient_inf_norm_normalized": 1.6537407887540212e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 11,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 23,
+              "objective_normalized": -18.175698428289135,
+              "gradient_inf_norm_normalized": 5.1808348638937574e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 12,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 22,
+              "objective_normalized": -18.175698428289135,
+              "gradient_inf_norm_normalized": 4.671071714146269e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 13,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 21,
+              "objective_normalized": -18.175698428289138,
+              "gradient_inf_norm_normalized": 6.082702491694292e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 14,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 21,
+              "objective_normalized": -18.17569842828913,
+              "gradient_inf_norm_normalized": 8.905928328140078e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 15,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 21,
+              "objective_normalized": -18.175698428289138,
+              "gradient_inf_norm_normalized": 2.912787189224275e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            }
+          ],
+          "global_minimum_for_this_phase_objective_proved": false,
+          "true_phases_supplied_for_initialization": false,
+          "physical_phase_identification_verified": false,
+          "amplitudes_and_sefd_supplied": true,
+          "unknown_amplitude_sefd_or_lo_estimated": false,
+          "constant_phase_within_window_assumed": true,
+          "image_likelihood_defined": false
+        },
+        "global_profile_optimum_proved": false,
+        "calibrated_hypothesis_test_defined": false,
+        "image_probability_defined": false,
+        "unknown_amplitude_sefd_or_lo_estimated": false
+      },
+      "independent_real_gaussian_score": -1.6497978551055894,
+      "real_gaussian_abs_difference": 1.2323475573339238e-13,
+      "known_data_phase_transport_abs_difference": 2.6645352591003757e-15,
+      "dense_grid_check": null
+    },
+    {
+      "stations": 8,
+      "seed": 105,
+      "modes": 37,
+      "state": "complete",
+      "fitted_comparison": {
+        "state": "fitted_reference_score",
+        "log_likelihood1_minus0": -12.255743252094067,
+        "fit0": {
+          "type": "known_covariance_station_phase_profile",
+          "state": "stationary_candidate",
+          "station_count": 8,
+          "modes": 37,
+          "reference_station_index": 0,
+          "candidate_phase_rad": [
+            0.0,
+            -1.1863789109703036,
+            -0.10175377543689672,
+            -2.6857341908340975,
+            2.470604100565373,
+            3.0685547891938008,
+            1.8047033307401315,
+            -1.9069360751059212
+          ],
+          "fitted_covariance_real_imag": [
+            [
+              [
+                15.017366370725789,
+                0.0
+              ],
+              [
+                8.735399805537346,
+                -1.5928862686940952
+              ],
+              [
+                0.5301104584322172,
+                2.612339202153403
+              ],
+              [
+                -6.027718408636262,
+                -8.550821522583066
+              ],
+              [
+                -2.6287808734692666,
+                7.516224102148569
+              ],
+              [
+                4.950482411501073,
+                -0.3243918730534882
+              ],
+              [
+                2.23167015632096,
+                0.7948553653764111
+              ],
+              [
+                7.632109006627687,
+                -1.4722383763046696
+              ]
+            ],
+            [
+              [
+                8.735399805537346,
+                1.5928862686940952
+              ],
+              [
+                19.111938634492837,
+                -5.750602754723556e-16
+              ],
+              [
+                -2.5723819173704654,
+                7.509396430697055
+              ],
+              [
+                -4.203986005490269,
+                -6.287370353355303
+              ],
+              [
+                -7.512995288662313,
+                7.160963395901171
+              ],
+              [
+                -2.7212457789442404,
+                9.463660247757128
+              ],
+              [
+                4.193854155255238,
+                2.4856445586727367
+              ],
+              [
+                10.785278343872594,
+                5.305289572158007
+              ]
+            ],
+            [
+              [
+                0.5301104584322172,
+                -2.612339202153403
+              ],
+              [
+                -2.5723819173704654,
+                -7.509396430697054
+              ],
+              [
+                25.45492728399193,
+                1.0557264476720929e-16
+              ],
+              [
+                1.8411519884167848,
+                3.8186445648972396
+              ],
+              [
+                6.815197674291747,
+                1.8816463353900994
+              ],
+              [
+                4.918713142762106,
+                4.48343505730705
+              ],
+              [
+                1.0446075095695493,
+                -9.173998738890909
+              ],
+              [
+                -7.090309898009942,
+                -1.738833971472768
+              ]
+            ],
+            [
+              [
+                -6.027718408636262,
+                8.550821522583066
+              ],
+              [
+                -4.203986005490268,
+                6.2873703533553025
+              ],
+              [
+                1.8411519884167848,
+                -3.8186445648972396
+              ],
+              [
+                20.40279087929255,
+                -8.048881156748555e-17
+              ],
+              [
+                0.1348601631000111,
+                -4.61657215243193
+              ],
+              [
+                -3.5510862953032087,
+                3.0299417850912747
+              ],
+              [
+                0.8541493653104406,
+                -4.801871194415402
+              ],
+              [
+                -5.450786277825354,
+                6.228164911588682
+              ]
+            ],
+            [
+              [
+                -2.6287808734692666,
+                -7.516224102148568
+              ],
+              [
+                -7.512995288662313,
+                -7.160963395901171
+              ],
+              [
+                6.815197674291749,
+                -1.8816463353901005
+              ],
+              [
+                0.1348601631000113,
+                4.616572152431929
+              ],
+              [
+                16.964868117897222,
+                4.488758696745558e-16
+              ],
+              [
+                0.8873072808048253,
+                -1.6696840416173482
+              ],
+              [
+                1.935057959937898,
+                -11.286248765822254
+              ],
+              [
+                -5.419718930148684,
+                -8.055259247551742
+              ]
+            ],
+            [
+              [
+                4.950482411501073,
+                0.32439187305348816
+              ],
+              [
+                -2.721245778944241,
+                -9.463660247757126
+              ],
+              [
+                4.918713142762106,
+                -4.48343505730705
+              ],
+              [
+                -3.5510862953032087,
+                -3.0299417850912747
+              ],
+              [
+                0.8873072808048253,
+                1.6696840416173482
+              ],
+              [
+                18.657913390924318,
+                1.4048317558785418e-16
+              ],
+              [
+                -4.350000080574188,
+                -1.1534102562133601
+              ],
+              [
+                5.224013561428329,
+                -4.115825358078424
+              ]
+            ],
+            [
+              [
+                2.23167015632096,
+                -0.7948553653764111
+              ],
+              [
+                4.193854155255238,
+                -2.485644558672737
+              ],
+              [
+                1.0446075095695497,
+                9.173998738890909
+              ],
+              [
+                0.8541493653104409,
+                4.801871194415403
+              ],
+              [
+                1.935057959937898,
+                11.286248765822252
+              ],
+              [
+                -4.350000080574188,
+                1.1534102562133601
+              ],
+              [
+                14.035398841588826,
+                -2.975198362959571e-16
+              ],
+              [
+                2.544468118425894,
+                -4.436616442808422
+              ]
+            ],
+            [
+              [
+                7.632109006627687,
+                1.4722383763046698
+              ],
+              [
+                10.785278343872596,
+                -5.305289572158007
+              ],
+              [
+                -7.090309898009943,
+                1.738833971472768
+              ],
+              [
+                -5.450786277825355,
+                -6.228164911588682
+              ],
+              [
+                -5.419718930148686,
+                8.05525924755174
+              ],
+              [
+                5.224013561428329,
+                4.115825358078424
+              ],
+              [
+                2.544468118425894,
+                4.436616442808422
+              ],
+              [
+                15.94734601869138,
+                -4.247209670873716e-16
+              ]
+            ]
+          ],
+          "nll_without_constant": 917.3585393158542,
+          "phase_dependent_trace_per_mode": -28.967811833764202,
+          "gradient_inf_norm_normalized": 1.9468164989822068e-08,
+          "chosen_start_index": 13,
+          "optimizer_runs": [
+            {
+              "start_index": 0,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 15,
+              "objective_normalized": -8.500632160363448,
+              "gradient_inf_norm_normalized": 9.703840324337687e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 1,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 20,
+              "objective_normalized": -8.500632160363438,
+              "gradient_inf_norm_normalized": 1.4813019266757266e-07,
+              "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH"
+            },
+            {
+              "start_index": 2,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 35,
+              "objective_normalized": -8.500632160363455,
+              "gradient_inf_norm_normalized": 1.08606335730288e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 3,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 24,
+              "objective_normalized": -8.500632160363452,
+              "gradient_inf_norm_normalized": 7.667911083863999e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 4,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 29,
+              "objective_normalized": -8.500632160363454,
+              "gradient_inf_norm_normalized": 7.060201193120896e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 5,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 23,
+              "objective_normalized": -8.500632160363454,
+              "gradient_inf_norm_normalized": 8.377246811692995e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 6,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 23,
+              "objective_normalized": -8.500632160363455,
+              "gradient_inf_norm_normalized": 3.812802391173209e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 7,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 23,
+              "objective_normalized": -8.500632160363454,
+              "gradient_inf_norm_normalized": 1.920559877799377e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 8,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 28,
+              "objective_normalized": -8.500632160363454,
+              "gradient_inf_norm_normalized": 9.179237780987393e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 9,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 35,
+              "objective_normalized": -8.500632160363288,
+              "gradient_inf_norm_normalized": 5.630965307784619e-07,
+              "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH"
+            },
+            {
+              "start_index": 10,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 20,
+              "objective_normalized": -8.500632160363455,
+              "gradient_inf_norm_normalized": 3.319133452805989e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 11,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 23,
+              "objective_normalized": -8.500632160363455,
+              "gradient_inf_norm_normalized": 6.424961590534295e-09,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 12,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 22,
+              "objective_normalized": -8.500632160363454,
+              "gradient_inf_norm_normalized": 5.7980760831410905e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 13,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 23,
+              "objective_normalized": -8.500632160363457,
+              "gradient_inf_norm_normalized": 1.9468164989822068e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 14,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 23,
+              "objective_normalized": -8.500632160363443,
+              "gradient_inf_norm_normalized": 2.032644521587912e-07,
+              "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH"
+            },
+            {
+              "start_index": 15,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 22,
+              "objective_normalized": -8.500632160363454,
+              "gradient_inf_norm_normalized": 1.975492913697252e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            }
+          ],
+          "global_minimum_for_this_phase_objective_proved": false,
+          "true_phases_supplied_for_initialization": false,
+          "physical_phase_identification_verified": false,
+          "amplitudes_and_sefd_supplied": true,
+          "unknown_amplitude_sefd_or_lo_estimated": false,
+          "constant_phase_within_window_assumed": true,
+          "image_likelihood_defined": false
+        },
+        "fit1": {
+          "type": "known_covariance_station_phase_profile",
+          "state": "stationary_candidate",
+          "station_count": 8,
+          "modes": 37,
+          "reference_station_index": 0,
+          "candidate_phase_rad": [
+            0.0,
+            -1.1745143787918835,
+            -0.10777030366546957,
+            -2.691358289910004,
+            2.48633951846733,
+            3.0771752428367836,
+            1.8137613578459058,
+            -1.8933642174208902
+          ],
+          "fitted_covariance_real_imag": [
+            [
+              [
+                15.217366370725788,
+                0.0
+              ],
+              [
+                8.715886577191489,
+                -1.696413157550165
+              ],
+              [
+                0.51438374610079,
+                2.615481326064862
+              ],
+              [
+                -5.979532665140959,
+                -8.584586596417704
+              ],
+              [
+                -2.5101893860351296,
+                7.5566568587354475
+              ],
+              [
+                4.947502101499185,
+                -0.36705469557788023
+              ],
+              [
+                2.238778328062346,
+                0.7746085051686782
+              ],
+              [
+                7.611425721706692,
+                -1.5756815060961429
+              ]
+            ],
+            [
+              [
+                8.715886577191489,
+                1.6964131575501653
+              ],
+              [
+                19.426224348778547,
+                5.079207857253097e-16
+              ],
+              [
+                -2.706239507423743,
+                7.4622014989303995
+              ],
+              [
+                -4.093391226012636,
+                -6.359927088057848
+              ],
+              [
+                -7.485219800534527,
+                7.189991620480819
+              ],
+              [
+                -2.751932262926454,
+                9.454782530268204
+              ],
+              [
+                4.186861673976306,
+                2.4974048271354263
+              ],
+              [
+                10.79432047635281,
+                5.28686786793903
+              ]
+            ],
+            [
+              [
+                0.51438374610079,
+                -2.6154813260648617
+              ],
+              [
+                -2.7062395074237435,
+                -7.4622014989303995
+              ],
+              [
+                25.883498712563355,
+                4.2547388042116866e-17
+              ],
+              [
+                1.842650394059968,
+                3.8179217491641912
+              ],
+              [
+                6.854511684338112,
+                1.7329690823644057
+              ],
+              [
+                4.983807871026517,
+                4.410962253133059
+              ],
+              [
+                0.9062001083710635,
+                -9.188702796032164
+              ],
+              [
+                -7.123008421001624,
+                -1.5996215378974785
+              ]
+            ],
+            [
+              [
+                -5.979532665140959,
+                8.584586596417704
+              ],
+              [
+                -4.093391226012636,
+                6.359927088057847
+              ],
+              [
+                1.842650394059968,
+                -3.8179217491641912
+              ],
+              [
+                20.945648022149694,
+                -6.637933689815721e-16
+              ],
+              [
+                0.03622914722486501,
+                -4.618399414417586
+              ],
+              [
+                -3.5075673248381185,
+                3.080216316991444
+              ],
+              [
+                0.7835581588183542,
+                -4.813893924648301
+              ],
+              [
+                -5.33023380076092,
+                6.331644086783421
+              ]
+            ],
+            [
+              [
+                -2.5101893860351296,
+                -7.5566568587354475
+              ],
+              [
+                -7.485219800534527,
+                -7.18999162048082
+              ],
+              [
+                6.854511684338112,
+                -1.7329690823644057
+              ],
+              [
+                0.03622914722486533,
+                4.618399414417586
+              ],
+              [
+                17.62201097504008,
+                1.3026136236208833e-16
+              ],
+              [
+                0.8991644639964851,
+                -1.6633286734998611
+              ],
+              [
+                2.010376953947462,
+                -11.273076111487063
+              ],
+              [
+                -5.402278220472679,
+                -8.066966273369834
+              ]
+            ],
+            [
+              [
+                4.947502101499185,
+                0.3670546955778802
+              ],
+              [
+                -2.751932262926454,
+                -9.454782530268204
+              ],
+              [
+                4.983807871026517,
+                -4.410962253133059
+              ],
+              [
+                -3.507567324838118,
+                -3.080216316991444
+              ],
+              [
+                0.8991644639964851,
+                1.6633286734998616
+              ],
+              [
+                19.42934196235289,
+                1.8432082475081402e-17
+              ],
+              [
+                -4.350504365829496,
+                -1.1515067012536642
+              ],
+              [
+                5.203570493506899,
+                -4.141641001739872
+              ]
+            ],
+            [
+              [
+                2.238778328062346,
+                -0.7746085051686782
+              ],
+              [
+                4.186861673976307,
+                -2.497404827135426
+              ],
+              [
+                0.9062001083710635,
+                9.188702796032164
+              ],
+              [
+                0.7835581588183539,
+                4.813893924648301
+              ],
+              [
+                2.010376953947462,
+                11.273076111487063
+              ],
+              [
+                -4.350504365829496,
+                1.1515067012536642
+              ],
+              [
+                14.921113127303112,
+                -6.879355982756485e-17
+              ],
+              [
+                2.5244161301614945,
+                -4.448056504594375
+              ]
+            ],
+            [
+              [
+                7.611425721706692,
+                1.5756815060961433
+              ],
+              [
+                10.794320476352809,
+                -5.28686786793903
+              ],
+              [
+                -7.123008421001624,
+                1.5996215378974785
+              ],
+              [
+                -5.33023380076092,
+                -6.331644086783422
+              ],
+              [
+                -5.402278220472679,
+                8.066966273369834
+              ],
+              [
+                5.203570493506899,
+                4.141641001739871
+              ],
+              [
+                2.5244161301614945,
+                4.4480565045943745
+              ],
+              [
+                16.947346018691384,
+                -2.731540704296766e-16
+              ]
+            ]
+          ],
+          "nll_without_constant": 929.6142825679484,
+          "phase_dependent_trace_per_mode": -20.679196017905873,
+          "gradient_inf_norm_normalized": 1.7725334533480464e-08,
+          "chosen_start_index": 0,
+          "optimizer_runs": [
+            {
+              "start_index": 0,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 12,
+              "objective_normalized": -9.70033469726543,
+              "gradient_inf_norm_normalized": 1.7725334533480464e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 1,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 18,
+              "objective_normalized": -9.700334697265427,
+              "gradient_inf_norm_normalized": 3.5022565780633286e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 2,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 30,
+              "objective_normalized": -9.700334697265422,
+              "gradient_inf_norm_normalized": 6.443242039910757e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 3,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 18,
+              "objective_normalized": -9.700334697265426,
+              "gradient_inf_norm_normalized": 9.018694888639212e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 4,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 24,
+              "objective_normalized": -9.700334697265408,
+              "gradient_inf_norm_normalized": 1.4861795465809235e-07,
+              "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH"
+            },
+            {
+              "start_index": 5,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 22,
+              "objective_normalized": -9.70033469726543,
+              "gradient_inf_norm_normalized": 2.619175686058295e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 6,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 31,
+              "objective_normalized": -9.70033469726543,
+              "gradient_inf_norm_normalized": 1.4292061173426518e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 7,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 22,
+              "objective_normalized": -9.700334697265424,
+              "gradient_inf_norm_normalized": 6.207050946838155e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 8,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 26,
+              "objective_normalized": -9.70033469726543,
+              "gradient_inf_norm_normalized": 2.0280367635239216e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 9,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 23,
+              "objective_normalized": -9.70033469726543,
+              "gradient_inf_norm_normalized": 2.2456726533892635e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 10,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 20,
+              "objective_normalized": -9.700334697265427,
+              "gradient_inf_norm_normalized": 7.056369077940161e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 11,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 24,
+              "objective_normalized": -9.70033469726543,
+              "gradient_inf_norm_normalized": 1.9569851572587282e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 12,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 22,
+              "objective_normalized": -9.700334697265422,
+              "gradient_inf_norm_normalized": 1.1342618041684793e-07,
+              "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH"
+            },
+            {
+              "start_index": 13,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 21,
+              "objective_normalized": -9.70033469726542,
+              "gradient_inf_norm_normalized": 2.1505981405434138e-07,
+              "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH"
+            },
+            {
+              "start_index": 14,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 20,
+              "objective_normalized": -9.70033469726543,
+              "gradient_inf_norm_normalized": 5.2244547618651715e-08,
+              "optimizer_message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+            },
+            {
+              "start_index": 15,
+              "optimizer_success": true,
+              "stationarity_verified": true,
+              "iterations": 22,
+              "objective_normalized": -9.700334697265419,
+              "gradient_inf_norm_normalized": 1.5859273367474502e-07,
+              "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH"
+            }
+          ],
+          "global_minimum_for_this_phase_objective_proved": false,
+          "true_phases_supplied_for_initialization": false,
+          "physical_phase_identification_verified": false,
+          "amplitudes_and_sefd_supplied": true,
+          "unknown_amplitude_sefd_or_lo_estimated": false,
+          "constant_phase_within_window_assumed": true,
+          "image_likelihood_defined": false
+        },
+        "global_profile_optimum_proved": false,
+        "calibrated_hypothesis_test_defined": false,
+        "image_probability_defined": false,
+        "unknown_amplitude_sefd_or_lo_estimated": false
+      },
+      "independent_real_gaussian_score": -12.25574325209368,
+      "real_gaussian_abs_difference": 3.872457909892546e-13,
+      "known_data_phase_transport_abs_difference": 6.572520305780927e-14,
+      "dense_grid_check": null
+    }
+  ],
+  "matrix_case_count": 9,
+  "phase_independent_cases": [
+    {
+      "type": "known_covariance_station_phase_profile",
+      "state": "phase_independent",
+      "station_count": 1,
+      "modes": 37,
+      "reference_station_index": 0,
+      "candidate_phase_rad": [
+        0.0
+      ],
+      "fitted_covariance_real_imag": [
+        [
+          [
+            1.0,
+            0.0
+          ]
+        ]
+      ],
+      "nll_without_constant": 37.0,
+      "phase_dependent_trace_per_mode": 0.0,
+      "gradient_inf_norm_normalized": 0.0,
+      "chosen_start_index": null,
+      "optimizer_runs": [],
+      "global_minimum_for_this_phase_objective_proved": true,
+      "true_phases_supplied_for_initialization": false,
+      "physical_phase_identification_verified": false,
+      "amplitudes_and_sefd_supplied": true,
+      "unknown_amplitude_sefd_or_lo_estimated": false,
+      "constant_phase_within_window_assumed": true,
+      "image_likelihood_defined": false
+    },
+    {
+      "type": "known_covariance_station_phase_profile",
+      "state": "phase_independent",
+      "station_count": 3,
+      "modes": 37,
+      "reference_station_index": 0,
+      "candidate_phase_rad": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "fitted_covariance_real_imag": [
+        [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            2.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            3.0,
+            0.0
+          ]
+        ]
+      ],
+      "nll_without_constant": 134.12843369477136,
+      "phase_dependent_trace_per_mode": 0.0,
+      "gradient_inf_norm_normalized": 0.0,
+      "chosen_start_index": null,
+      "optimizer_runs": [],
+      "global_minimum_for_this_phase_objective_proved": true,
+      "true_phases_supplied_for_initialization": false,
+      "physical_phase_identification_verified": false,
+      "amplitudes_and_sefd_supplied": true,
+      "unknown_amplitude_sefd_or_lo_estimated": false,
+      "constant_phase_within_window_assumed": true,
+      "image_likelihood_defined": false
+    },
+    {
+      "type": "known_covariance_station_phase_profile",
+      "state": "phase_independent",
+      "station_count": 8,
+      "modes": 37,
+      "reference_station_index": 0,
+      "candidate_phase_rad": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "fitted_covariance_real_imag": [
+        [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            2.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            3.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            4.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            5.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            6.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            7.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            8.0,
+            0.0
+          ]
+        ]
+      ],
+      "nll_without_constant": 492.9310216872885,
+      "phase_dependent_trace_per_mode": 0.0,
+      "gradient_inf_norm_normalized": 0.0,
+      "chosen_start_index": null,
+      "optimizer_runs": [],
+      "global_minimum_for_this_phase_objective_proved": true,
+      "true_phases_supplied_for_initialization": false,
+      "physical_phase_identification_verified": false,
+      "amplitudes_and_sefd_supplied": true,
+      "unknown_amplitude_sefd_or_lo_estimated": false,
+      "constant_phase_within_window_assumed": true,
+      "image_likelihood_defined": false
+    }
+  ],
+  "phase_independent_case_count": 3,
+  "actual_iteration_limited_case": {
+    "type": "known_covariance_station_phase_profile",
+    "state": "not_converged",
+    "station_count": 5,
+    "modes": 37,
+    "reference_station_index": 0,
+    "candidate_phase_rad": [
+      0.0,
+      3.0582313896955395,
+      -2.369825184830319,
+      2.150416375290025,
+      -1.454826605405192
+    ],
+    "fitted_covariance_real_imag": [
+      [
+        [
+          15.264896342249529,
+          0.0
+        ],
+        [
+          -1.1916639624182037,
+          -1.4264420004380376
+        ],
+        [
+          0.42921429383168624,
+          -2.1068589968962423
+        ],
+        [
+          -0.34339808102103314,
+          -1.1830960154377543
+        ],
+        [
+          0.1775220426866849,
+          -2.7016784938461225
+        ]
+      ],
+      [
+        [
+          -1.1916639624182037,
+          1.4264420004380376
+        ],
+        [
+          12.825704698839786,
+          1.3108430175433228e-16
+        ],
+        [
+          0.4781106785578658,
+          -1.8049386596959498
+        ],
+        [
+          -5.33781861850998,
+          2.924655094566105
+        ],
+        [
+          -0.12990737207657677,
+          -0.3668628863721353
+        ]
+      ],
+      [
+        [
+          0.42921429383168624,
+          2.1068589968962423
+        ],
+        [
+          0.4781106785578658,
+          1.8049386596959498
+        ],
+        [
+          7.40236967057114,
+          1.9458767405471424e-16
+        ],
+        [
+          1.371258827265053,
+          -1.2545880405967398
+        ],
+        [
+          5.757079888002825,
+          0.18222232586519316
+        ]
+      ],
+      [
+        [
+          -0.34339808102103314,
+          1.1830960154377543
+        ],
+        [
+          -5.33781861850998,
+          -2.9246550945661047
+        ],
+        [
+          1.371258827265053,
+          1.25458804059674
+        ],
+        [
+          11.197916562733674,
+          2.821392949588818e-16
+        ],
+        [
+          1.8049452246075826,
+          2.406797489209976
+        ]
+      ],
+      [
+        [
+          0.1775220426866849,
+          2.7016784938461225
+        ],
+        [
+          -0.1299073720765768,
+          0.3668628863721354
+        ],
+        [
+          5.757079888002825,
+          -0.18222232586519296
+        ],
+        [
+          1.8049452246075826,
+          -2.4067974892099766
+        ],
+        [
+          9.248541610167214,
+          2.2030370799329402e-16
+        ]
+      ]
+    ],
+    "nll_without_constant": 575.3659331015838,
+    "phase_dependent_trace_per_mode": -4.187371780613002,
+    "gradient_inf_norm_normalized": 0.06841692785922572,
+    "chosen_start_index": 0,
+    "optimizer_runs": [
+      {
+        "start_index": 0,
+        "optimizer_success": false,
+        "stationarity_verified": false,
+        "iterations": 1,
+        "objective_normalized": -4.388896943977365,
+        "gradient_inf_norm_normalized": 0.06841692785922568,
+        "optimizer_message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT"
+      },
+      {
+        "start_index": 1,
+        "optimizer_success": false,
+        "stationarity_verified": false,
+        "iterations": 1,
+        "objective_normalized": -3.445360170837033,
+        "gradient_inf_norm_normalized": 0.054419510608100546,
+        "optimizer_message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT"
+      },
+      {
+        "start_index": 2,
+        "optimizer_success": false,
+        "stationarity_verified": false,
+        "iterations": 1,
+        "objective_normalized": -2.9392243011950985,
+        "gradient_inf_norm_normalized": 1.5919888001087843,
+        "optimizer_message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT"
+      },
+      {
+        "start_index": 3,
+        "optimizer_success": false,
+        "stationarity_verified": false,
+        "iterations": 1,
+        "objective_normalized": -1.5978883434337015,
+        "gradient_inf_norm_normalized": 0.7717065228106154,
+        "optimizer_message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT"
+      },
+      {
+        "start_index": 4,
+        "optimizer_success": false,
+        "stationarity_verified": false,
+        "iterations": 1,
+        "objective_normalized": -1.259839093162513,
+        "gradient_inf_norm_normalized": 1.2637922429425195,
+        "optimizer_message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT"
+      },
+      {
+        "start_index": 5,
+        "optimizer_success": false,
+        "stationarity_verified": false,
+        "iterations": 1,
+        "objective_normalized": -3.7786040221901342,
+        "gradient_inf_norm_normalized": 0.06810439025872761,
+        "optimizer_message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT"
+      },
+      {
+        "start_index": 6,
+        "optimizer_success": false,
+        "stationarity_verified": false,
+        "iterations": 1,
+        "objective_normalized": -3.2298525276510475,
+        "gradient_inf_norm_normalized": 1.9787791271915598,
+        "optimizer_message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT"
+      },
+      {
+        "start_index": 7,
+        "optimizer_success": false,
+        "stationarity_verified": false,
+        "iterations": 1,
+        "objective_normalized": 1.4044312439870559,
+        "gradient_inf_norm_normalized": 0.19499267602149767,
+        "optimizer_message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT"
+      },
+      {
+        "start_index": 8,
+        "optimizer_success": false,
+        "stationarity_verified": false,
+        "iterations": 1,
+        "objective_normalized": -1.9295659327979855,
+        "gradient_inf_norm_normalized": 0.22722809953893774,
+        "optimizer_message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT"
+      },
+      {
+        "start_index": 9,
+        "optimizer_success": false,
+        "stationarity_verified": false,
+        "iterations": 1,
+        "objective_normalized": 1.2273165693943329,
+        "gradient_inf_norm_normalized": 0.5157212105253302,
+        "optimizer_message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT"
+      }
+    ],
+    "global_minimum_for_this_phase_objective_proved": false,
+    "true_phases_supplied_for_initialization": false,
+    "physical_phase_identification_verified": false,
+    "amplitudes_and_sefd_supplied": true,
+    "unknown_amplitude_sefd_or_lo_estimated": false,
+    "constant_phase_within_window_assumed": true,
+    "image_likelihood_defined": false
+  },
+  "unfinished_profile_comparison_refused": true,
+  "true_instrument_phases_supplied_to_fit": false,
+  "amplitudes_and_sefd_held_fixed": true,
+  "general_sky_image_reconstructed": false,
+  "unknown_amplitude_sefd_lo_estimated": false,
+  "image_likelihood_defined": false,
+  "real_hardware_validation_performed": false,
+  "production_rml_noise_model_changed": false
+}

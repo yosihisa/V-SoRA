@@ -1,0 +1,33 @@
+{
+  "initial_extended_target_failures": 3,
+  "initial_extended_target_successes": 43,
+  "reason": "reverse hypothesis order asserted bit-for-bit antisymmetry despite different Cholesky reference rounding",
+  "observed_difference_order": 1e-15,
+  "corrected_absolute_test_tolerance": 2e-11,
+  "science_code_changed_for_test_correction": false,
+  "final_targeted_tests": 51,
+  "reference_station_perturbation_refinement_before_full_regression": {
+    "changed": "include every station, including reference, in fixed pi perturbations",
+    "reason": "avoid privileging one station ordering",
+    "new_station_reordering_tests": 2,
+    "initial50_case_api_was_not_yet_published": true,
+    "all_full_regressions_started_after_refinement": true
+  },
+  "reference_reanchoring_review": {
+    "problem": "pi perturbation of reference was discarded when removing its coordinate",
+    "repair": "subtract reference phase before selecting free coordinates",
+    "new_regression_test": true,
+    "before_any_full_regression": true
+  },
+  "public_audit_spacing": {
+    "automatic_findings": 2,
+    "cause": "Python matrix product unspaced matrix product misclassified as an email",
+    "manual_personal_information_findings": 0,
+    "repair": "spaces around the matrix multiplication operator",
+    "python_ast_identical": true,
+    "both_initial_full_regressions_completed_before_change": true,
+    "initial_source_full_s": 607.65,
+    "initial_installed_full_s": 606.21,
+    "both_full_regressions_repeated": true
+  }
+}

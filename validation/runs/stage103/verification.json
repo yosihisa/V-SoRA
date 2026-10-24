@@ -1,0 +1,91 @@
+{
+  "state": "complete",
+  "targeted_tests": {
+    "passed": 51,
+    "elapsed_s": 0.78
+  },
+  "full_regression": {
+    "source": {
+      "passed": 1860,
+      "warnings": 27396,
+      "elapsed_s": 614.78,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 1860,
+      "warnings": 27396,
+      "elapsed_s": 612.84,
+      "excluded_tests": 0
+    }
+  },
+  "fixed_conditions": 13,
+  "matrix_cases": 9,
+  "phase_independent_cases": 3,
+  "iteration_limited_cases": 1,
+  "independent_real_gaussian_max_abs_difference": 3.872457909892546e-13,
+  "data_phase_transport_max_abs_difference": 6.572520305780927e-14,
+  "dense_grid_cases": 3,
+  "points_per_grid": 32761,
+  "global_optimum_from_grid_certified": false,
+  "all_source_installed_scientific_json_identical": true,
+  "installed_api": {
+    "state": "complete",
+    "all13_condition_json_identical": true,
+    "outside_checkout": true,
+    "pythonpath_absent": true,
+    "no_runner_in_working_directory": true,
+    "non_overwrite_verified": true,
+    "all_output_bytes_preserved_on_refusal": true,
+    "plot_pixels_identical": true,
+    "installation": {
+      "state": "complete",
+      "installed_prefix_checked": true,
+      "project_modules": [
+        "vsora_correlator",
+        "vsora_correlator.gaussian_likelihood",
+        "vsora_correlator.gaussian_phase_profile"
+      ],
+      "project_module_count": 3,
+      "all_reference_json_identical": true,
+      "api_source_sha256": "3d9c6ed1e458890d65950024c53de8413edbf419c3cadf2e68e8fc7f8b99898f"
+    }
+  },
+  "frozen_source_files_unchanged": 292,
+  "existing_source_python_files_unchanged": 86,
+  "wheel": {
+    "sha256": "fe2c343af3da7e8c8a065e74cd0e702c547a75a84794814c84a51e8b1a222ff2",
+    "bytes": 5589504,
+    "packaged_files_identical_to_source": 95
+  },
+  "pip_check_passed": true,
+  "plot_metadata_review": {
+    "source_png_metadata_keys": [
+      "Software",
+      "dpi"
+    ],
+    "public_png_metadata_keys": [],
+    "pixels_identical_to_source_rgb": true,
+    "final_source_plot_visually_reviewed": true,
+    "public_plot_sha256": "b24f3298356d312bf6da16161bde84c4f9bf0e5773cbaf206b179f57bfbca505"
+  },
+  "environment": {
+    "python": "3.12.3",
+    "numpy": "2.5.1",
+    "scipy": "1.18.0",
+    "pytest": "8.4.2",
+    "matplotlib": "3.11.1",
+    "blas_threads": 1,
+    "openmp_threads": 1
+  },
+  "gui_changed": false,
+  "gui_browser_reexecuted": false,
+  "unknown_amplitude_sefd_lo_estimated": false,
+  "image_likelihood_defined": false,
+  "production_rml_noise_model_changed": false,
+  "real_hardware_validation_performed": false,
+  "public_audit_findings": 0,
+  "documentation_links": {
+    "checked": 1295,
+    "missing": 0
+  }
+}
