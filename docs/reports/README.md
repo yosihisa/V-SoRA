@@ -202,4 +202,6 @@
 
 | 099 | [独立した学習・評価の反復を日本語GUIへ接続](099-independent-training-gui.md) | source/wheel1686件。新12+旧3対象、両実Chromium7概要/112詳細/全数値/全JSON/7filter/日本語390pxを確認。既存9条件と配置比較も両環境で回帰 |
 
+| 100 | [既知共分散Gaussian尤度の参照API](100-known-covariance-gaussian.md) | source/wheel1766件。新80対象、実Gaussian27条件と90桁の対角6/多局5条件、導入CLI全JSON一致。微小差の丸め誤差を修正し両全回帰を再実行。未知局特性・画像尤度へ未接続 |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。

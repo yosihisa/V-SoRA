@@ -1,0 +1,130 @@
+{
+  "state": "complete",
+  "targeted_tests": {
+    "passed": 80,
+    "elapsed_s": 0.4
+  },
+  "full_regression": {
+    "source": {
+      "passed": 1766,
+      "warnings": 27396,
+      "elapsed_s": 600.87,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 1766,
+      "warnings": 27396,
+      "elapsed_s": 601.47,
+      "excluded_tests": 0
+    }
+  },
+  "initial_regression_not_counted_as_final": {
+    "source": {
+      "passed": 1758,
+      "warnings": 27396,
+      "elapsed_s": 596.49,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 1758,
+      "warnings": 27396,
+      "elapsed_s": 596.95,
+      "excluded_tests": 0
+    }
+  },
+  "independent_reference_matrix_cases": 27,
+  "independent_decimal_scalar_cases": 6,
+  "independent_decimal_matrix_cases": 5,
+  "all_source_installed_scientific_json_identical": true,
+  "installed_api": {
+    "state": "complete",
+    "installed_checked": true,
+    "all_project_modules_under_runtime_prefix": true,
+    "project_modules": [
+      "vsora_correlator",
+      "vsora_correlator.gaussian_likelihood"
+    ],
+    "reference_json_identical": true,
+    "api_module_sha256": "7266a84b1f631dddfc2779723114a4be27a11e93d2f9c84b46c301632f0f2227"
+  },
+  "non_overwrite": {
+    "outside_checkout": true,
+    "pythonpath_removed": true,
+    "second_invocation_failed": true,
+    "all_output_bytes_unchanged": true
+  },
+  "frozen_source_files_unchanged": 283,
+  "existing_scientific_python_files_unchanged": 84,
+  "wheel": {
+    "sha256": "5bc21a32de25b9fe7a73d3ea777f0725a1028c488340c489d0625245ce971804",
+    "bytes": 5579477,
+    "packaged_files_identical_to_source": 92
+  },
+  "pip_check_passed": true,
+  "initial_numerical_review": {
+    "state": "repaired_and_formally_retested",
+    "initial_targeted_tests": 72,
+    "source_full_session": 83138,
+    "installed_full_session": 6995,
+    "matrix_probe": {
+      "seed": 100,
+      "stations": 8,
+      "covariance0": "identity",
+      "delta": "1e-12 * (A + A^H), complex normal A",
+      "second_moment": "covariance0",
+      "modes": 1,
+      "initial_llr": -1.2058605836448048e-22,
+      "stable_series_reference": -1.2057827436752076e-22,
+      "relative_difference": 6.45555511600514e-05
+    },
+    "unrepresentable_second_order_probe": {
+      "covariance0": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "covariance1": [
+        [
+          1,
+          1e-200
+        ],
+        [
+          1e-200,
+          1
+        ]
+      ],
+      "second_moment": "covariance0",
+      "initial_result": 0.0,
+      "desired_behavior": "ValueError because the nonzero leading quadratic term underflows float64"
+    },
+    "planned_change": "whiten S-C0 directly and rotate this residual instead of computing diagonal(U^H T U)-1; detect vanishing nonzero second-order term; add explicit tests and repeat full source/installed verification",
+    "source_frozen_during_initial_regressions": true,
+    "initial_results_not_counted_as_final_after_repair": true,
+    "repair": "whiten S-C0 directly before rotation; preserve Hermitian subnormals; reject nonzero leading quadratic underflow"
+  },
+  "environment": {
+    "python": "3.12.3",
+    "numpy": "2.5.1",
+    "scipy": "1.18.0",
+    "pytest": "8.4.2",
+    "blas_threads": 1,
+    "openmp_threads": 1
+  },
+  "gui_browser_reexecuted": false,
+  "gui_changed": false,
+  "image_likelihood_defined": false,
+  "unknown_gain_sefd_lo_estimated": false,
+  "production_rml_noise_model_changed": false,
+  "real_hardware_validation_performed": false,
+  "publication_checks": {
+    "public_audit_findings": 0,
+    "local_markdown_links": 1244,
+    "missing_local_markdown_links": 0,
+    "manual_review_of_all_nine_publication_files": true
+  }
+}

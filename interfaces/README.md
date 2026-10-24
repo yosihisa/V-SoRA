@@ -83,3 +83,5 @@
 - [既知二モデルの独立評価](known-template-holdout.md)：独立training/test、固定score、個別二項区間と未確認事項。
 
 - [独立した学習・評価の反復](independent-training-repeats.md)：外側反復を統計単位にした標本SDと平均MC標準誤差。学習と評価の両方の揺らぎを含み、画像の信頼区間へ読み替えない。
+
+- [既知共分散Gaussian尤度](known-covariance-gaussian.md)：全局共通Sと既知Cでの参照API。未知gain/SEFD/LOやClosure画像尤度は未接続。
