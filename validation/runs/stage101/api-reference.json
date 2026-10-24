@@ -1,0 +1,248 @@
+{
+  "full_plan": [
+    {
+      "case_id": "g00",
+      "profile": "full",
+      "modes": 512,
+      "assumed_receiver_sefd_jy": 1000.0,
+      "point_generated_sefd_jy": 1000.0,
+      "casa_generated_sefd_jy": 1000.0,
+      "zero_sky_control": false,
+      "receiver_model_matches_generation": true,
+      "test_per_label": 512,
+      "seed": 101000,
+      "maximum_baseline_m": 600.0,
+      "formal_mc_precision": true
+    },
+    {
+      "case_id": "g01",
+      "profile": "full",
+      "modes": 512,
+      "assumed_receiver_sefd_jy": 10000.0,
+      "point_generated_sefd_jy": 10000.0,
+      "casa_generated_sefd_jy": 10000.0,
+      "zero_sky_control": false,
+      "receiver_model_matches_generation": true,
+      "test_per_label": 512,
+      "seed": 101001,
+      "maximum_baseline_m": 600.0,
+      "formal_mc_precision": true
+    },
+    {
+      "case_id": "g02",
+      "profile": "full",
+      "modes": 512,
+      "assumed_receiver_sefd_jy": 585965.6347330192,
+      "point_generated_sefd_jy": 585965.6347330192,
+      "casa_generated_sefd_jy": 585965.6347330192,
+      "zero_sky_control": false,
+      "receiver_model_matches_generation": true,
+      "test_per_label": 512,
+      "seed": 101002,
+      "maximum_baseline_m": 600.0,
+      "formal_mc_precision": true
+    },
+    {
+      "case_id": "g03",
+      "profile": "full",
+      "modes": 19200,
+      "assumed_receiver_sefd_jy": 1000.0,
+      "point_generated_sefd_jy": 1000.0,
+      "casa_generated_sefd_jy": 1000.0,
+      "zero_sky_control": false,
+      "receiver_model_matches_generation": true,
+      "test_per_label": 512,
+      "seed": 101003,
+      "maximum_baseline_m": 600.0,
+      "formal_mc_precision": true
+    },
+    {
+      "case_id": "g04",
+      "profile": "full",
+      "modes": 19200,
+      "assumed_receiver_sefd_jy": 10000.0,
+      "point_generated_sefd_jy": 10000.0,
+      "casa_generated_sefd_jy": 10000.0,
+      "zero_sky_control": false,
+      "receiver_model_matches_generation": true,
+      "test_per_label": 512,
+      "seed": 101004,
+      "maximum_baseline_m": 600.0,
+      "formal_mc_precision": true
+    },
+    {
+      "case_id": "g05",
+      "profile": "full",
+      "modes": 19200,
+      "assumed_receiver_sefd_jy": 585965.6347330192,
+      "point_generated_sefd_jy": 585965.6347330192,
+      "casa_generated_sefd_jy": 585965.6347330192,
+      "zero_sky_control": false,
+      "receiver_model_matches_generation": true,
+      "test_per_label": 512,
+      "seed": 101005,
+      "maximum_baseline_m": 600.0,
+      "formal_mc_precision": true
+    },
+    {
+      "case_id": "g06",
+      "profile": "full",
+      "modes": 19200,
+      "assumed_receiver_sefd_jy": 1000.0,
+      "point_generated_sefd_jy": 10000.0,
+      "casa_generated_sefd_jy": 1000.0,
+      "zero_sky_control": false,
+      "receiver_model_matches_generation": false,
+      "test_per_label": 512,
+      "seed": 101006,
+      "maximum_baseline_m": 600.0,
+      "formal_mc_precision": true
+    },
+    {
+      "case_id": "g07",
+      "profile": "full",
+      "modes": 19200,
+      "assumed_receiver_sefd_jy": 10000.0,
+      "point_generated_sefd_jy": 1000.0,
+      "casa_generated_sefd_jy": 10000.0,
+      "zero_sky_control": false,
+      "receiver_model_matches_generation": false,
+      "test_per_label": 512,
+      "seed": 101007,
+      "maximum_baseline_m": 600.0,
+      "formal_mc_precision": true
+    },
+    {
+      "case_id": "g08",
+      "profile": "full",
+      "modes": 512,
+      "assumed_receiver_sefd_jy": 1000.0,
+      "point_generated_sefd_jy": 1000.0,
+      "casa_generated_sefd_jy": 1000.0,
+      "zero_sky_control": true,
+      "receiver_model_matches_generation": true,
+      "test_per_label": 512,
+      "seed": 101008,
+      "maximum_baseline_m": 600.0,
+      "formal_mc_precision": true
+    }
+  ],
+  "smoke_plan": [
+    {
+      "case_id": "smoke-0",
+      "profile": "smoke",
+      "modes": 16,
+      "assumed_receiver_sefd_jy": 1000.0,
+      "point_generated_sefd_jy": 1000.0,
+      "casa_generated_sefd_jy": 1000.0,
+      "zero_sky_control": false,
+      "receiver_model_matches_generation": true,
+      "test_per_label": 16,
+      "seed": 111000,
+      "maximum_baseline_m": 600.0,
+      "formal_mc_precision": false
+    },
+    {
+      "case_id": "smoke-6",
+      "profile": "smoke",
+      "modes": 16,
+      "assumed_receiver_sefd_jy": 1000.0,
+      "point_generated_sefd_jy": 10000.0,
+      "casa_generated_sefd_jy": 1000.0,
+      "zero_sky_control": false,
+      "receiver_model_matches_generation": false,
+      "test_per_label": 16,
+      "seed": 111006,
+      "maximum_baseline_m": 600.0,
+      "formal_mc_precision": false
+    },
+    {
+      "case_id": "smoke-8",
+      "profile": "smoke",
+      "modes": 16,
+      "assumed_receiver_sefd_jy": 1000.0,
+      "point_generated_sefd_jy": 1000.0,
+      "casa_generated_sefd_jy": 1000.0,
+      "zero_sky_control": true,
+      "receiver_model_matches_generation": true,
+      "test_per_label": 16,
+      "seed": 111008,
+      "maximum_baseline_m": 600.0,
+      "formal_mc_precision": false
+    }
+  ],
+  "error_cases": [
+    {
+      "errors": 0,
+      "trials": 512,
+      "result": {
+        "errors": 0,
+        "trials": 512,
+        "fraction": 0.0,
+        "plug_in_mc_standard_error": 0.0,
+        "clopper_pearson_interval": [
+          0.0,
+          0.007178950026259453
+        ],
+        "training_variability_included": false,
+        "actual_observation_confidence_interval": false,
+        "conditional_fixed_models_binomial_confidence_level": 0.95,
+        "training_used": false
+      }
+    },
+    {
+      "errors": 1,
+      "trials": 512,
+      "result": {
+        "errors": 1,
+        "trials": 512,
+        "fraction": 0.001953125,
+        "plug_in_mc_standard_error": 0.0019512167191340064,
+        "clopper_pearson_interval": [
+          4.944762114539532e-05,
+          0.010833656944754522
+        ],
+        "training_variability_included": false,
+        "actual_observation_confidence_interval": false,
+        "conditional_fixed_models_binomial_confidence_level": 0.95,
+        "training_used": false
+      }
+    },
+    {
+      "errors": 256,
+      "trials": 512,
+      "result": {
+        "errors": 256,
+        "trials": 512,
+        "fraction": 0.5,
+        "plug_in_mc_standard_error": 0.02209708691207961,
+        "clopper_pearson_interval": [
+          0.4558216741196199,
+          0.5441783258803801
+        ],
+        "training_variability_included": false,
+        "actual_observation_confidence_interval": false,
+        "conditional_fixed_models_binomial_confidence_level": 0.95,
+        "training_used": false
+      }
+    },
+    {
+      "errors": 512,
+      "trials": 512,
+      "result": {
+        "errors": 512,
+        "trials": 512,
+        "fraction": 1.0,
+        "plug_in_mc_standard_error": 0.0,
+        "clopper_pearson_interval": [
+          0.9928210499737408,
+          1.0
+        ],
+        "training_variability_included": false,
+        "actual_observation_confidence_interval": false,
+        "conditional_fixed_models_binomial_confidence_level": 0.95,
+        "training_used": false
+      }
+    }
+  ]
+}

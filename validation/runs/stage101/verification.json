@@ -1,0 +1,119 @@
+{
+  "state": "complete",
+  "targeted_tests": {
+    "passed": 31,
+    "elapsed_s": 1.68
+  },
+  "full_regression": {
+    "source": {
+      "passed": 1797,
+      "warnings": 27396,
+      "elapsed_s": 603.88,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 1797,
+      "warnings": 27396,
+      "elapsed_s": 601.62,
+      "excluded_tests": 0
+    }
+  },
+  "source_experiment": {
+    "exit_code": 0,
+    "elapsed_s": 36.810504509001476,
+    "peak_child_rss_kib": 201484,
+    "other_full_regression_running_concurrently": true
+  },
+  "installed_api_execution": {
+    "exit_code": 0,
+    "elapsed_s": 39.430807049997384,
+    "peak_child_rss_kib": 209012
+  },
+  "native_cases": 9,
+  "independent_voltage_windows": 9216,
+  "direct_raw_voltage_checks": 36,
+  "known_gain_transport_checks": 36,
+  "maximum_direct_raw_voltage_abs_difference": 4.0745362639427185e-10,
+  "maximum_known_gain_transport_abs_difference": 1.0477378964424133e-09,
+  "maximum_generated_array_complex_values": 921600,
+  "all_source_installed_scientific_json_identical": true,
+  "installed_api": {
+    "state": "complete",
+    "error_summary_api_cases": 4,
+    "both_fixed_plans_identical": true,
+    "full_native_cli_all_scientific_json_identical": true,
+    "all_nine_case_json_files_identical": true,
+    "native_cases": 9,
+    "independent_voltage_windows": 9216,
+    "plot_pixels_identical": true,
+    "all_output_bytes_unchanged_on_second_run": true,
+    "all_project_modules_under_runtime_prefix": true,
+    "project_module_count": 20,
+    "project_modules": [
+      "vsora_correlator",
+      "vsora_correlator.gaussian_likelihood",
+      "vsora_imaging",
+      "vsora_imaging.window_symmetry",
+      "vsora_observation",
+      "vsora_observation.config",
+      "vsora_observation.geometry",
+      "vsora_observation.reference",
+      "vsora_simulator",
+      "vsora_simulator.bispectrum_distinct",
+      "vsora_simulator.bispectrum_observed_power",
+      "vsora_simulator.casa_window_symmetry",
+      "vsora_simulator.gaussian_template_validation",
+      "vsora_simulator.known_template_validation",
+      "vsora_simulator.sensitivity",
+      "vsora_simulator.sky",
+      "vsora_simulator.sky_covariance",
+      "vsora_simulator.template_score",
+      "vsora_simulator.visibility",
+      "vsora_simulator.visibility_moments"
+    ],
+    "all_configuration_and_sky_assets_under_runtime_prefix": true,
+    "asset_count": 3,
+    "api_and_cli_cwd_outside_checkout": true,
+    "pythonpath_removed": true,
+    "workspace_has_checkout_runner": false
+  },
+  "frozen_source_files_unchanged": 286,
+  "existing_source_python_files_unchanged": 85,
+  "wheel": {
+    "sha256": "7f19040f56918c4276c3b21e643deaee42f006637861f3954030282b6bbf534b",
+    "bytes": 5583728,
+    "packaged_files_identical_to_source": 93
+  },
+  "pip_check_passed": true,
+  "plot_metadata_review": {
+    "source_png_metadata_keys": [
+      "Software",
+      "dpi"
+    ],
+    "public_png_metadata_keys": [],
+    "public_png_pixels_identical_to_source_rgb": true,
+    "source_plot_visually_reviewed": true,
+    "public_plot_sha256": "efd695e4ce855431b806996518cf1ff8f07ccd1579d6cd140eed338adbb5ef3f"
+  },
+  "environment": {
+    "python": "3.12.3",
+    "numpy": "2.5.1",
+    "scipy": "1.18.0",
+    "pytest": "8.4.2",
+    "matplotlib": "3.11.1",
+    "blas_threads": 1,
+    "openmp_threads": 1
+  },
+  "gui_changed": false,
+  "gui_browser_reexecuted": false,
+  "unknown_gain_sefd_lo_estimated": false,
+  "image_likelihood_defined": false,
+  "production_rml_noise_model_changed": false,
+  "real_hardware_validation_performed": false,
+  "publication_checks": {
+    "public_audit_findings": 0,
+    "local_markdown_links": 1255,
+    "missing_local_markdown_links": 0,
+    "manual_review_of_all_thirteen_publication_files": true
+  }
+}

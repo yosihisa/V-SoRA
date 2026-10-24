@@ -204,4 +204,6 @@
 
 | 100 | [既知共分散Gaussian尤度の参照API](100-known-covariance-gaussian.md) | source/wheel1766件。新80対象、実Gaussian27条件と90桁の対角6/多局5条件、導入CLI全JSON一致。微小差の丸め誤差を修正し両全回帰を再実行。未知局特性・画像尤度へ未接続 |
 
+| 101 | [既知点源／Cas AのGaussian共分散による比較](101-known-covariance-template.md) | source/wheel1797件。新31対象、9条件9216区間、直接電圧36/gain変換36、導入CLI全JSON一致。既知条件と雑音誤指定の結果を分け、未知較正・画像化へ未適用 |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。
