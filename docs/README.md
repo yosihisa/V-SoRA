@@ -1,8 +1,8 @@
 # 文書の入口
 
-このリポジトリは、実RTL-SDR/OCXOの記録からCas Aの画像を復元するための開発と、その根拠を保存している。二つの全体レポートは、段階095で094までの実装・検証を整理した。後続の[段階096](reports/096-known-template-holdout.md)では既知二モデルの独立学習/評価を追加した。[段階097](reports/097-known-template-gui.md)では、その固定9条件を同梱日本語GUIから再実行・確認できるようにした。以降の根拠は段階レポート索引で確認できる。
+このリポジトリは、実RTL-SDR/OCXOの記録からCas Aの画像を復元する開発と、その根拠を保存している。二つの学部生向け全体レポートは、2026-10-26の段階110で109までの実装・検証へ更新した。
 
-その後の[段階098](reports/098-independent-training-repeats.md)・[099](reports/099-independent-training-gui.md)で独立した学習・評価の反復を、[段階100](reports/100-known-covariance-gaussian.md)・[101](reports/101-known-covariance-template.md)で既知共分散Gaussian尤度の参照計算を追加した。[段階102](reports/102-known-covariance-gui.md)では、その固定9条件・各区間の尤度比と判定を日本語GUIで確認できる。これらは既知モデルの参照であり、未知較正や実機の画像化を完了した結果ではない。
+既知二候補の統計参照と、未知画像を復元する主経路を分けて読む。[108の基準見直し](reports/108-goal-review-and-cadence.md)から主経路の律速を優先し、[109](reports/109-image-path-acceptance.md)では同じ模擬VDIFで処理完了・数値収束・参照画像差を分離した。弱い条件はLO推定で停止し、高感度の画像も未収束だった。実機での成功や画像化不可能性の証明ではない。
 
 ## 目的に合わせて読む
 

@@ -1,0 +1,23 @@
+{
+  "stage": 110,
+  "state": "complete",
+  "base_commit": "c852971ed6fbb0c449b76dea9692941756d63b49",
+  "technical_baseline_stage": 109,
+  "chronology_entries": 110,
+  "existing_000_to_105_rows_verified_unchanged": 106,
+  "all_first_commits_and_jst_dates_verified": true,
+  "non_stage_tracked_files": 1143,
+  "all_non_stage_tracked_sha256_unchanged": true,
+  "source_tests_tools_config_assets_unchanged": true,
+  "scientific_tests_rerun": false,
+  "browser_rerun": false,
+  "wheel_built": false,
+  "next_documentation_checkpoint": 120,
+  "next_fundamental_review": 150,
+  "next_main_path_priority": "Weak-input unknown-LO acquisition controls; truth correction is a diagnostic control only",
+  "public_audit_findings": 0,
+  "documentation_links": {
+    "checked": 1430,
+    "missing": 0
+  }
+}
