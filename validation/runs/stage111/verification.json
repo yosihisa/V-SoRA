@@ -1,0 +1,56 @@
+{
+  "stage": 111,
+  "state": "complete",
+  "base_commit": "63cd1016e39bcef2239b562223f45a0f46c6e424",
+  "targeted_tests": 44,
+  "new_tests": 36,
+  "targeted_elapsed_s": 0.67,
+  "initial_target_fixture_failure": {
+    "failed": 1,
+    "passed": 43,
+    "cause": "CLI fixture omitted required visibility_unit; corrected to ADC^2 before freezing; numerical implementation unchanged"
+  },
+  "regressions": {
+    "source": {
+      "passed": 2021,
+      "warnings": 27396,
+      "elapsed_s": 602.3,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 2021,
+      "warnings": 27396,
+      "elapsed_s": 601.86,
+      "excluded_tests": 0
+    }
+  },
+  "signal_prefix_cases": 6,
+  "fixed_independent_baseline_gaussian_noise_controls": 96,
+  "all102_previous_estimator_results_and_exceptions_identical": true,
+  "shared_baseline_scan_ast_identical_to_previous_statements": true,
+  "public_noise_full_json_digests_verified": 96,
+  "frozen_files": 373,
+  "all_frozen_sha_unchanged": true,
+  "non_stage_tracked_files": 1150,
+  "all_non_stage_tracked_sha_unchanged": true,
+  "wheel_package_files": 100,
+  "all_wheel_package_and_reference_bytes_match_source": true,
+  "wheel_sha256": "0832c1240c2230bc0cca09363019197516244cf7cb19b2df1e5e6e0ea066cdfa",
+  "pip_check_success": true,
+  "python": "3.12.3",
+  "dependencies": {
+    "numpy": "2.5.1",
+    "scipy": "1.18.0",
+    "astropy": "7.2.2",
+    "matplotlib": "3.11.1",
+    "pytest": "8.4.2",
+    "baseband": "4.3.0"
+  },
+  "corrected_correlations_or_images_rerun": false,
+  "browser_rerun": false,
+  "public_audit_findings": 0,
+  "documentation_links": {
+    "checked": 1444,
+    "missing": 0
+  }
+}

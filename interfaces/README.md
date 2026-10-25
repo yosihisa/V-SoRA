@@ -46,6 +46,8 @@
 
 ### 誤差と保存pilotの診断
 
+- [検出基線graphと孤立局](rate-graph.md)
+
 - [既知の全visibility共分散からClosureへの誤差伝播](joint-closure-noise.md)
 - [局の標本共分散からvisibilityの雑音を推定する](sample-visibility-noise.md)
 - [相関ファイルから一つの時間・周波数の雑音を診断する](observation-noise-diagnostic.md)

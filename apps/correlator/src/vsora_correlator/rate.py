@@ -26,13 +26,8 @@ def validate_pilot_arrays(data):
     return v,w,t,pairs,dt
 
 
-def estimate_station_rates(data, reference_station=0, max_rate_hz=100., min_snr=8., min_peak_z=8., max_reduced_chisq=3.):
-    v,w,t,pairs,dt=validate_pilot_arrays(data)
-    if (not np.isfinite(max_rate_hz) or not 0 < max_rate_hz < .5/dt[0]
-            or any(not np.isfinite(x) or x <= 0 for x in (min_snr,min_peak_z,max_reduced_chisq))):
-        raise ValueError('rate search must be below the temporal Nyquist limit')
-    stations = sorted(set(pairs.ravel().tolist()))
-    if reference_station not in stations: raise ValueError('reference station not present')
+def _baseline_rate_records(v, w, t, pairs, dt, max_rate_hz, min_snr, min_peak_z):
+    """検出・棄却の基線記録を失敗診断と推定で共通に使う。入力は検証済み。"""
     reference_time = float((t[0]+t[-1])/2); tau = t-reference_time
     nfft = 4*len(t); frequency = np.fft.fftfreq(nfft,dt[0]); step = 1/(nfft*dt[0])
     records = []
@@ -78,6 +73,17 @@ def estimate_station_rates(data, reference_station=0, max_rate_hz=100., min_snr=
         information = np.sum(wb*abs(amplitude)[None,:]**2*(2*np.pi*(tau[:,None]-center))**2)
         sigma = max(float(1/np.sqrt(information)),1e-6)
         record.update(accepted=True,rate_sigma_hz=sigma); records.append(record)
+    return reference_time, records
+
+
+def estimate_station_rates(data, reference_station=0, max_rate_hz=100., min_snr=8., min_peak_z=8., max_reduced_chisq=3.):
+    v,w,t,pairs,dt=validate_pilot_arrays(data)
+    if (not np.isfinite(max_rate_hz) or not 0 < max_rate_hz < .5/dt[0]
+            or any(not np.isfinite(x) or x <= 0 for x in (min_snr,min_peak_z,max_reduced_chisq))):
+        raise ValueError('rate search must be below the temporal Nyquist limit')
+    stations = sorted(set(pairs.ravel().tolist()))
+    if reference_station not in stations: raise ValueError('reference station not present')
+    reference_time, records = _baseline_rate_records(v, w, t, pairs, dt, max_rate_hz, min_snr, min_peak_z)
     accepted = [r for r in records if r['accepted']]
     unknown = [s for s in stations if s != reference_station]
     matrix = np.zeros((len(accepted),len(unknown)))

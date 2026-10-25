@@ -1,0 +1,20 @@
+{
+  "state": "complete",
+  "source_installed_whole_graph_json_identical_cases": 6,
+  "all_noise_control_graph_json_identical": 96,
+  "all_estimator_results_and_exceptions_identical": true,
+  "native_cli_cases": 6,
+  "all_cli_json_identical": true,
+  "non_overwrite_and_bytes_preserved": true,
+  "outside_checkout": true,
+  "pythonpath_absent": true,
+  "runner_absent": true,
+  "project_modules": [
+    "vsora_correlator",
+    "vsora_correlator.rate",
+    "vsora_correlator.rate_graph",
+    "vsora_formats",
+    "vsora_formats.spectral"
+  ],
+  "all_project_modules_in_prefix": true
+}
