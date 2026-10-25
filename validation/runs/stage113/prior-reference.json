@@ -1,0 +1,37 @@
+{
+  "type": "fixed_no_data_gaussian_prior_reference",
+  "prior_fwhm_arcsec": 240.0,
+  "pixels": 32,
+  "pixel_arcsec": 16.0,
+  "data_fitted": false,
+  "metrics": {
+    "raw_nrmse": 0.29262642279929957,
+    "registered_nrmse": 0.21887272354019244,
+    "registered_correlation": 0.9815009823856239,
+    "registration_shift_yx_arcsec": [
+      19.978835470944595,
+      -25.08627796594093
+    ],
+    "common_beam_arcsec": 110.0,
+    "comparison_version": 2,
+    "registration_method": "All bounded integer cells, bilinear subpixels, 9 deterministic coordinate starts per cell",
+    "registration_max_shift_pixels": 31,
+    "registration_boundary_reached": false,
+    "registration_diagnostics": {
+      "shift_yx_pixels": [
+        1.2486772169340372,
+        -1.5678923728713081
+      ],
+      "boundary_reached": false,
+      "grid_cells": 3844,
+      "multistarts_per_cell": 9,
+      "selected_coordinate_converged": true,
+      "selected_coordinate_iterations": 6,
+      "objective_identity_error": 4.607859233063394e-19
+    },
+    "comparison_padding_pixels": 45,
+    "registered_flux_retained_fraction": 1.0,
+    "comparison": "Unit-flux gauge, Gaussian common beam, translation only over complete zero-extended support. No post-shift flux rescaling, cropped-error masking, rotation, Jy calibration or astrometry."
+  },
+  "prior_npy_sha256": "5e455a946b98afb407f4ca172089894f23e8efebf2e479f60789b9c36c8f66d8"
+}

@@ -1,0 +1,2467 @@
+{
+  "type": "same_rate_final_integration_imaging",
+  "fixed_seeds": [
+    109,
+    110,
+    111
+  ],
+  "integrations_s": [
+    0.3,
+    1.0,
+    3.0
+  ],
+  "rml_settings": {
+    "pixels": 32,
+    "pixel_arcsec": 16.0,
+    "min_snr": 10.0,
+    "prior_fwhm_arcsec": 240.0,
+    "entropy": 0.01,
+    "tsv": 0.0001,
+    "centroid": 0.1,
+    "starts": 1,
+    "max_iterations": 2000,
+    "seed": 21
+  },
+  "cases": [
+    {
+      "case": "seed109_t0.3",
+      "seed": 109,
+      "integration_s": 0.3,
+      "raw_directory": "outputs/stage112-source-study/seed-109/input",
+      "profile": "outputs/stage112-source-study/seed-109/pilot-750/pipeline/rate-only.json",
+      "input_sha256": {
+        "clock.json": "b4b914971335dd6e7962b9863313016bc7768d2c4bd4250fa0711cf9b7d23250",
+        "manifest.json": "3c580f878673d900ef18695ab1d679953d5f20e947e8d7a375cdda0704f9e330",
+        "observation.json": "1f679866af9b526498141ec5a61867a97e5950f5f47c8d1609639c62ca75ca25",
+        "station-1.json": "965ade463bf16159ec43343c442543ef140a2aa50425b357ba198e01caadd712",
+        "station-1.vdif": "f4d475a59e1a67482ba6e975f972d348fb09db146bbc09d9840085cfb6d5aa58",
+        "station-2.json": "a107b5066c2b1c693860aa3a667f14aa53027bc8eb3bf99a32c55f624eb2a03b",
+        "station-2.vdif": "d6402ebbf6bc48c4234b2f11aa4958d7e951fec76ab82a02447908e999762fc5",
+        "station-3.json": "12687de5d37f4b060828ed5c9019cd91690cdd51322272d7276c1b4c43ffa944",
+        "station-3.vdif": "43e31fca4dfe428c86f190708fa926255d9b5f5264261a5e9749ca32c45fe1fb",
+        "station-4.json": "8a0953841417417fc641935970e1a5e9648e4c2bfb2154653619bc670136cc4f",
+        "station-4.vdif": "d5b210d191e26a8e3b3f3999a26dd3223b8d036911b27a4c80aed06e21cad266",
+        "station-5.json": "a2bdb650ecc73852be1714dced3b59e6ac85864b0e408df3c7133cdd1c46bcc8",
+        "station-5.vdif": "ef3e4e61844775e77d783e19f759d51821121cb4f0f603705dd5ed7f60d2aaad",
+        "station-6.json": "a987bc746adb1bde7f7d2568f1c6bb19f82d9e12b4155a1a1096ef9386300e7a",
+        "station-6.vdif": "9e1d1be1cff11ec4cf8c31d9ea2f135563065ec034159617e11890ca8fb2241b",
+        "station-7.json": "a2f454c4e66ec618b079819a7878d0b98d59e4f0c556110801d802dff4d3aecc",
+        "station-7.vdif": "ef190b97babf8cccf27a2cf945e03fd62110b66405a5b08f5c5bc269d7338bcb",
+        "station-8.json": "e06c3f8c271e283aee810a9ff46a6a71dc71040401701e480e12290c5c952d0b",
+        "station-8.vdif": "4f7d4974765000be62ef0282c60a389921e579cc92742e3e00a4bd0d7b973469"
+      },
+      "profile_sha256": "8194a82999956c8653e73b0d0282ff0d208c8d66a77f2a4e583af93beff2d4c3",
+      "manifest": "outputs/stage113-source-study/seed109_t0.3/manifest.json",
+      "case_directory": "seed109_t0.3",
+      "generating": {
+        "model": "casa",
+        "assumed_flux_jy": 1000.0,
+        "assumed_sefd_jy": 10000.0,
+        "input_span_s": 3.04,
+        "station_rates_hz": [
+          0.0,
+          17.28079772050818,
+          -11.742376693627982,
+          26.06432998527464,
+          8.32531897622535,
+          -0.3836599966777766,
+          1.7475523136722335,
+          -3.0817835529034214
+        ],
+        "seed": 109,
+        "fft_length": 8,
+        "useful_rf_channel_centers": 3,
+        "narrowband_phase_bound_rad": 0.0062428836257420696,
+        "sky_temporal_phase_bound_rad": 0.0019191137615900767,
+        "limits": "Continuous periodic colored Gaussian with midpoint sky covariance at center RF; supplied exact nominal clocks; fixed broadband station delay, piecewise RF geometry and constant LO rate; no real antenna or RFI"
+      },
+      "truth_used_by_estimator": false,
+      "science": {
+        "correlation_arrays": {
+          "visibilities": {
+            "dtype": "<c16",
+            "shape": [
+              1,
+              8,
+              28
+            ],
+            "sha256": "642e909aab270338952501805b4945f0173ca41579bed8771eb99103bf472acc"
+          },
+          "weights": {
+            "dtype": "<f8",
+            "shape": [
+              1,
+              8,
+              28
+            ],
+            "sha256": "5aee2f326a26c6f5461ddb10f0085adc6079bb0e50e2db40a1325f243e842442"
+          },
+          "pairs": {
+            "dtype": "<i8",
+            "shape": [
+              28,
+              2
+            ],
+            "sha256": "77dd18378e5847909c18331ae810f09a80aea526095837fcbd06d04e0e91f707"
+          },
+          "times_s": {
+            "dtype": "<f8",
+            "shape": [
+              1
+            ],
+            "sha256": "d0b63b604c8f2bce6140ffccf388edf96169b9ef54f93e9647a49cb090569511"
+          },
+          "frequencies_hz": {
+            "dtype": "<f8",
+            "shape": [
+              8
+            ],
+            "sha256": "d8fe4c24c5afc70fdab4102c5c2fb67d874b0964045bf92f5f2b1f3c44b45034"
+          },
+          "uvw_lambda": {
+            "dtype": "<f8",
+            "shape": [
+              1,
+              8,
+              28,
+              3
+            ],
+            "sha256": "24a453d4aae28b9d45fd0352e691325d1f82e5cbecc683ea24ebc0abd66e91a5"
+          },
+          "integration_s": {
+            "dtype": "<f8",
+            "shape": [
+              1,
+              28
+            ],
+            "sha256": "501144d54360440e7e8139ab495d088ff9866852b2968e82db1ca136c4ae2903"
+          },
+          "valid_fft_count": {
+            "dtype": "<i8",
+            "shape": [
+              1,
+              28
+            ],
+            "sha256": "bc783ddc05d9e1a8f68bda8e4f3433af859c69db59cb42ac36a137b9d54e2b46"
+          },
+          "diagnostic_station_power": {
+            "dtype": "<f8",
+            "shape": [
+              1,
+              8,
+              8
+            ],
+            "sha256": "267a44ef0bab2fc97e67eb0060fc7676368310c160a9c3e2616ac0dff4006fa3"
+          },
+          "diagnostic_station_sk": {
+            "dtype": "<f8",
+            "shape": [
+              1,
+              8,
+              8
+            ],
+            "sha256": "1f1e5c258f5949d3b3fa0de06990d573ef6307fbb3c1a5631e11115ed11f0192"
+          },
+          "diagnostic_station_sk_eligible": {
+            "dtype": "|b1",
+            "shape": [
+              1,
+              8,
+              8
+            ],
+            "sha256": "7c8975e1e60a5c8337f28edf8c33c3b180360b7279644a9bc1af3c51e6220bf5"
+          },
+          "diagnostic_station_flags": {
+            "dtype": "|u1",
+            "shape": [
+              1,
+              8,
+              8
+            ],
+            "sha256": "a3d22d329d380e838ca4de9793830936350f5bf0ae74025d51bdfa4e3edcdf42"
+          },
+          "diagnostic_station_valid_fft_count": {
+            "dtype": "<i8",
+            "shape": [
+              1,
+              8
+            ],
+            "sha256": "c271d600c87521120b6cd63a74afa2fa291d3ec35b4490ca1ca86228b2122d53"
+          }
+        },
+        "closures": {
+          "phase_valid": 0,
+          "logamp_valid": 0,
+          "input_unit": "ADC^2",
+          "absolute_flux_available": false,
+          "absolute_centroid_available": false
+        },
+        "rml_failure_code": "no_high_snr_independent_closures",
+        "rml_summary": null,
+        "assessment": {
+          "schema_version": 1,
+          "type": "image_path_assessment",
+          "processing_state": "incomplete",
+          "image_computed": false,
+          "numerical": {
+            "state": "not_run",
+            "selected_start": null,
+            "optimizer_success": null
+          },
+          "independent_constraints": {
+            "phase": null,
+            "logamp": null,
+            "total": null
+          },
+          "reference_fidelity": {
+            "state": "not_evaluated",
+            "registered_nrmse": null,
+            "declared_max_registered_nrmse": null,
+            "within_declared_limit": null
+          },
+          "recorded_issues": [
+            "processing_not_complete",
+            "image_not_run"
+          ],
+          "actual_observation_success_certified": false,
+          "low_snr_likelihood_validated": false,
+          "interpretation": "Diagnostic record only. Optimizer convergence and reference-image similarity are separate; missing amplitude constraints do not prove imaging impossible. No absolute flux or astrometry certified."
+        },
+        "reference_metrics": null,
+        "recovered_npy_sha256": null
+      }
+    },
+    {
+      "case": "seed109_t1",
+      "seed": 109,
+      "integration_s": 1.0,
+      "raw_directory": "outputs/stage112-source-study/seed-109/input",
+      "profile": "outputs/stage112-source-study/seed-109/pilot-750/pipeline/rate-only.json",
+      "input_sha256": {
+        "clock.json": "b4b914971335dd6e7962b9863313016bc7768d2c4bd4250fa0711cf9b7d23250",
+        "manifest.json": "3c580f878673d900ef18695ab1d679953d5f20e947e8d7a375cdda0704f9e330",
+        "observation.json": "1f679866af9b526498141ec5a61867a97e5950f5f47c8d1609639c62ca75ca25",
+        "station-1.json": "965ade463bf16159ec43343c442543ef140a2aa50425b357ba198e01caadd712",
+        "station-1.vdif": "f4d475a59e1a67482ba6e975f972d348fb09db146bbc09d9840085cfb6d5aa58",
+        "station-2.json": "a107b5066c2b1c693860aa3a667f14aa53027bc8eb3bf99a32c55f624eb2a03b",
+        "station-2.vdif": "d6402ebbf6bc48c4234b2f11aa4958d7e951fec76ab82a02447908e999762fc5",
+        "station-3.json": "12687de5d37f4b060828ed5c9019cd91690cdd51322272d7276c1b4c43ffa944",
+        "station-3.vdif": "43e31fca4dfe428c86f190708fa926255d9b5f5264261a5e9749ca32c45fe1fb",
+        "station-4.json": "8a0953841417417fc641935970e1a5e9648e4c2bfb2154653619bc670136cc4f",
+        "station-4.vdif": "d5b210d191e26a8e3b3f3999a26dd3223b8d036911b27a4c80aed06e21cad266",
+        "station-5.json": "a2bdb650ecc73852be1714dced3b59e6ac85864b0e408df3c7133cdd1c46bcc8",
+        "station-5.vdif": "ef3e4e61844775e77d783e19f759d51821121cb4f0f603705dd5ed7f60d2aaad",
+        "station-6.json": "a987bc746adb1bde7f7d2568f1c6bb19f82d9e12b4155a1a1096ef9386300e7a",
+        "station-6.vdif": "9e1d1be1cff11ec4cf8c31d9ea2f135563065ec034159617e11890ca8fb2241b",
+        "station-7.json": "a2f454c4e66ec618b079819a7878d0b98d59e4f0c556110801d802dff4d3aecc",
+        "station-7.vdif": "ef190b97babf8cccf27a2cf945e03fd62110b66405a5b08f5c5bc269d7338bcb",
+        "station-8.json": "e06c3f8c271e283aee810a9ff46a6a71dc71040401701e480e12290c5c952d0b",
+        "station-8.vdif": "4f7d4974765000be62ef0282c60a389921e579cc92742e3e00a4bd0d7b973469"
+      },
+      "profile_sha256": "8194a82999956c8653e73b0d0282ff0d208c8d66a77f2a4e583af93beff2d4c3",
+      "manifest": "outputs/stage113-source-study/seed109_t1/manifest.json",
+      "case_directory": "seed109_t1",
+      "generating": {
+        "model": "casa",
+        "assumed_flux_jy": 1000.0,
+        "assumed_sefd_jy": 10000.0,
+        "input_span_s": 3.04,
+        "station_rates_hz": [
+          0.0,
+          17.28079772050818,
+          -11.742376693627982,
+          26.06432998527464,
+          8.32531897622535,
+          -0.3836599966777766,
+          1.7475523136722335,
+          -3.0817835529034214
+        ],
+        "seed": 109,
+        "fft_length": 8,
+        "useful_rf_channel_centers": 3,
+        "narrowband_phase_bound_rad": 0.0062428836257420696,
+        "sky_temporal_phase_bound_rad": 0.0019191137615900767,
+        "limits": "Continuous periodic colored Gaussian with midpoint sky covariance at center RF; supplied exact nominal clocks; fixed broadband station delay, piecewise RF geometry and constant LO rate; no real antenna or RFI"
+      },
+      "truth_used_by_estimator": false,
+      "science": {
+        "correlation_arrays": {
+          "visibilities": {
+            "dtype": "<c16",
+            "shape": [
+              1,
+              8,
+              28
+            ],
+            "sha256": "8f87820939c94d5dbccdeb6b76a024772f2fa7aa8558f0f75a22c0612ac316da"
+          },
+          "weights": {
+            "dtype": "<f8",
+            "shape": [
+              1,
+              8,
+              28
+            ],
+            "sha256": "07452d344e73b8a23acd43d1e44996e93cbb2e8c95e56f08bec20ffdf15bd86a"
+          },
+          "pairs": {
+            "dtype": "<i8",
+            "shape": [
+              28,
+              2
+            ],
+            "sha256": "77dd18378e5847909c18331ae810f09a80aea526095837fcbd06d04e0e91f707"
+          },
+          "times_s": {
+            "dtype": "<f8",
+            "shape": [
+              1
+            ],
+            "sha256": "a896d6e1626e211b79bcbaafdaa910873f3224893950e3a6bb87f2c331ff3926"
+          },
+          "frequencies_hz": {
+            "dtype": "<f8",
+            "shape": [
+              8
+            ],
+            "sha256": "d8fe4c24c5afc70fdab4102c5c2fb67d874b0964045bf92f5f2b1f3c44b45034"
+          },
+          "uvw_lambda": {
+            "dtype": "<f8",
+            "shape": [
+              1,
+              8,
+              28,
+              3
+            ],
+            "sha256": "b8dab2b536a56d691fc442f532cba4981a867c11191b26aa9e5b932a20369a1b"
+          },
+          "integration_s": {
+            "dtype": "<f8",
+            "shape": [
+              1,
+              28
+            ],
+            "sha256": "d453d79d97d74088b2ff1846059ab2462f98d27e9838812a542352eec3338521"
+          },
+          "valid_fft_count": {
+            "dtype": "<i8",
+            "shape": [
+              1,
+              28
+            ],
+            "sha256": "b18a15923f1667606f7a32840a92b7c2ee348bf633cdc587036baa6bf4bfebca"
+          },
+          "diagnostic_station_power": {
+            "dtype": "<f8",
+            "shape": [
+              1,
+              8,
+              8
+            ],
+            "sha256": "4f3aa7328f97e80a03f47b974744be894dd65004ae396b389dc04c1f1090f845"
+          },
+          "diagnostic_station_sk": {
+            "dtype": "<f8",
+            "shape": [
+              1,
+              8,
+              8
+            ],
+            "sha256": "3dc49ee62634a728fe4efdbb5f7de7ded89d70d7466eb59bc3ce1cd34c7d15ac"
+          },
+          "diagnostic_station_sk_eligible": {
+            "dtype": "|b1",
+            "shape": [
+              1,
+              8,
+              8
+            ],
+            "sha256": "7c8975e1e60a5c8337f28edf8c33c3b180360b7279644a9bc1af3c51e6220bf5"
+          },
+          "diagnostic_station_flags": {
+            "dtype": "|u1",
+            "shape": [
+              1,
+              8,
+              8
+            ],
+            "sha256": "a3d22d329d380e838ca4de9793830936350f5bf0ae74025d51bdfa4e3edcdf42"
+          },
+          "diagnostic_station_valid_fft_count": {
+            "dtype": "<i8",
+            "shape": [
+              1,
+              8
+            ],
+            "sha256": "50965f12f5fb7c57bf5cf324cf01a01b31c1b7df29642f99585ba755a563c1e7"
+          }
+        },
+        "closures": {
+          "phase_valid": 6,
+          "logamp_valid": 0,
+          "input_unit": "ADC^2",
+          "absolute_flux_available": false,
+          "absolute_centroid_available": false
+        },
+        "rml_failure_code": null,
+        "rml_summary": {
+          "objective": 0.31209586554157237,
+          "closure_chisq_per_measurement": 0.6235593702327747,
+          "data_loss": 0.3117796851163874,
+          "entropy_loss": 9.36797743989428e-05,
+          "tsv_loss": 5.2872211164378626e-06,
+          "centroid_loss": 3.529507823157521e-06,
+          "independent_closure_count": 6,
+          "independent_closure_counts": {
+            "phase": 6,
+            "logamp": 0
+          },
+          "centroid_arcsec": [
+            0.3131614946988926,
+            -1.488297055437008
+          ],
+          "parameter_sum_penalty": 0.00021368392184646136,
+          "selected_start": 0,
+          "runs": [
+            {
+              "objective": 0.31209586554157237,
+              "closure_chisq_per_measurement": 0.6235593702327747,
+              "data_loss": 0.3117796851163874,
+              "entropy_loss": 9.36797743989428e-05,
+              "tsv_loss": 5.2872211164378626e-06,
+              "centroid_loss": 3.529507823157521e-06,
+              "independent_closure_count": 6,
+              "independent_closure_counts": {
+                "phase": 6,
+                "logamp": 0
+              },
+              "centroid_arcsec": [
+                0.3131614946988926,
+                -1.488297055437008
+              ],
+              "parameter_sum_penalty": 0.00021368392184646136,
+              "start": 0,
+              "circular_warmup_iterations": 167,
+              "iterations": 5,
+              "optimizer_success": true,
+              "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH"
+            }
+          ],
+          "image_sum": 1.0,
+          "output_unit": "relative flux/pixel",
+          "absolute_flux_measured": false,
+          "absolute_position_measured": false,
+          "amplitude_constraints_available": false,
+          "centroid_constraint": "Weak penalty around display center; actual centroid reported; not measured astrometry",
+          "settings": {
+            "pixels": 32,
+            "pixel_arcsec": 16.0,
+            "min_snr": 10.0,
+            "prior_fwhm_arcsec": 240.0,
+            "entropy": 0.01,
+            "tsv": 0.0001,
+            "centroid": 0.1,
+            "starts": 1,
+            "max_iterations": 2000,
+            "seed": 21
+          },
+          "noise_model": "Fixed observed high SNR independent-baseline covariance, full within each closure cell",
+          "likelihood_limit": "Wrapped local Gaussian phase residual; low SNR and phase branch boundaries excluded",
+          "input_unit": "ADC^2"
+        },
+        "assessment": {
+          "schema_version": 1,
+          "type": "image_path_assessment",
+          "processing_state": "complete",
+          "image_computed": true,
+          "numerical": {
+            "state": "converged",
+            "selected_start": 0,
+            "optimizer_success": true
+          },
+          "independent_constraints": {
+            "phase": 6,
+            "logamp": 0,
+            "total": 6
+          },
+          "reference_fidelity": {
+            "state": "evaluated",
+            "registered_nrmse": 0.22077126509271108,
+            "comparison_version": 2,
+            "common_beam_arcsec": 110.0,
+            "registered_flux_retained_fraction": 0.9999999999999998,
+            "registration_boundary_reached": false,
+            "declared_max_registered_nrmse": null,
+            "within_declared_limit": null
+          },
+          "recorded_issues": [
+            "no_logamp_constraints"
+          ],
+          "actual_observation_success_certified": false,
+          "low_snr_likelihood_validated": false,
+          "interpretation": "Diagnostic record only. Optimizer convergence and reference-image similarity are separate; missing amplitude constraints do not prove imaging impossible. No absolute flux or astrometry certified."
+        },
+        "reference_metrics": {
+          "raw_nrmse": 0.29343267380348276,
+          "registered_nrmse": 0.22077126509271108,
+          "registered_correlation": 0.9813535325947902,
+          "registration_shift_yx_arcsec": [
+            19.951161947545696,
+            -24.96071454652579
+          ],
+          "common_beam_arcsec": 110.0,
+          "comparison_version": 2,
+          "registration_method": "All bounded integer cells, bilinear subpixels, 9 deterministic coordinate starts per cell",
+          "registration_max_shift_pixels": 31,
+          "registration_boundary_reached": false,
+          "registration_diagnostics": {
+            "shift_yx_pixels": [
+              1.246947621721606,
+              -1.5600446591578618
+            ],
+            "boundary_reached": false,
+            "grid_cells": 3844,
+            "multistarts_per_cell": 9,
+            "selected_coordinate_converged": true,
+            "selected_coordinate_iterations": 6,
+            "objective_identity_error": 5.149960319306146e-19
+          },
+          "comparison_padding_pixels": 45,
+          "registered_flux_retained_fraction": 0.9999999999999998,
+          "comparison": "Unit-flux gauge, Gaussian common beam, translation only over complete zero-extended support. No post-shift flux rescaling, cropped-error masking, rotation, Jy calibration or astrometry."
+        },
+        "recovered_npy_sha256": "347d059aa322791af5c519064085e2b8e26881bf7a1103b0c01b1928bae08202"
+      }
+    },
+    {
+      "case": "seed109_t3",
+      "seed": 109,
+      "integration_s": 3.0,
+      "raw_directory": "outputs/stage112-source-study/seed-109/input",
+      "profile": "outputs/stage112-source-study/seed-109/pilot-750/pipeline/rate-only.json",
+      "input_sha256": {
+        "clock.json": "b4b914971335dd6e7962b9863313016bc7768d2c4bd4250fa0711cf9b7d23250",
+        "manifest.json": "3c580f878673d900ef18695ab1d679953d5f20e947e8d7a375cdda0704f9e330",
+        "observation.json": "1f679866af9b526498141ec5a61867a97e5950f5f47c8d1609639c62ca75ca25",
+        "station-1.json": "965ade463bf16159ec43343c442543ef140a2aa50425b357ba198e01caadd712",
+        "station-1.vdif": "f4d475a59e1a67482ba6e975f972d348fb09db146bbc09d9840085cfb6d5aa58",
+        "station-2.json": "a107b5066c2b1c693860aa3a667f14aa53027bc8eb3bf99a32c55f624eb2a03b",
+        "station-2.vdif": "d6402ebbf6bc48c4234b2f11aa4958d7e951fec76ab82a02447908e999762fc5",
+        "station-3.json": "12687de5d37f4b060828ed5c9019cd91690cdd51322272d7276c1b4c43ffa944",
+        "station-3.vdif": "43e31fca4dfe428c86f190708fa926255d9b5f5264261a5e9749ca32c45fe1fb",
+        "station-4.json": "8a0953841417417fc641935970e1a5e9648e4c2bfb2154653619bc670136cc4f",
+        "station-4.vdif": "d5b210d191e26a8e3b3f3999a26dd3223b8d036911b27a4c80aed06e21cad266",
+        "station-5.json": "a2bdb650ecc73852be1714dced3b59e6ac85864b0e408df3c7133cdd1c46bcc8",
+        "station-5.vdif": "ef3e4e61844775e77d783e19f759d51821121cb4f0f603705dd5ed7f60d2aaad",
+        "station-6.json": "a987bc746adb1bde7f7d2568f1c6bb19f82d9e12b4155a1a1096ef9386300e7a",
+        "station-6.vdif": "9e1d1be1cff11ec4cf8c31d9ea2f135563065ec034159617e11890ca8fb2241b",
+        "station-7.json": "a2f454c4e66ec618b079819a7878d0b98d59e4f0c556110801d802dff4d3aecc",
+        "station-7.vdif": "ef190b97babf8cccf27a2cf945e03fd62110b66405a5b08f5c5bc269d7338bcb",
+        "station-8.json": "e06c3f8c271e283aee810a9ff46a6a71dc71040401701e480e12290c5c952d0b",
+        "station-8.vdif": "4f7d4974765000be62ef0282c60a389921e579cc92742e3e00a4bd0d7b973469"
+      },
+      "profile_sha256": "8194a82999956c8653e73b0d0282ff0d208c8d66a77f2a4e583af93beff2d4c3",
+      "manifest": "outputs/stage113-source-study/seed109_t3/manifest.json",
+      "case_directory": "seed109_t3",
+      "generating": {
+        "model": "casa",
+        "assumed_flux_jy": 1000.0,
+        "assumed_sefd_jy": 10000.0,
+        "input_span_s": 3.04,
+        "station_rates_hz": [
+          0.0,
+          17.28079772050818,
+          -11.742376693627982,
+          26.06432998527464,
+          8.32531897622535,
+          -0.3836599966777766,
+          1.7475523136722335,
+          -3.0817835529034214
+        ],
+        "seed": 109,
+        "fft_length": 8,
+        "useful_rf_channel_centers": 3,
+        "narrowband_phase_bound_rad": 0.0062428836257420696,
+        "sky_temporal_phase_bound_rad": 0.0019191137615900767,
+        "limits": "Continuous periodic colored Gaussian with midpoint sky covariance at center RF; supplied exact nominal clocks; fixed broadband station delay, piecewise RF geometry and constant LO rate; no real antenna or RFI"
+      },
+      "truth_used_by_estimator": false,
+      "science": {
+        "correlation_arrays": {
+          "visibilities": {
+            "dtype": "<c16",
+            "shape": [
+              1,
+              8,
+              28
+            ],
+            "sha256": "d916a663f4c67da7497dbc9b05f9fc0959167613f08cfd028929ade189e57305"
+          },
+          "weights": {
+            "dtype": "<f8",
+            "shape": [
+              1,
+              8,
+              28
+            ],
+            "sha256": "e24666ed763e483488f751a76df88a2cb2b726317d602895fdd2b8328ca63051"
+          },
+          "pairs": {
+            "dtype": "<i8",
+            "shape": [
+              28,
+              2
+            ],
+            "sha256": "77dd18378e5847909c18331ae810f09a80aea526095837fcbd06d04e0e91f707"
+          },
+          "times_s": {
+            "dtype": "<f8",
+            "shape": [
+              1
+            ],
+            "sha256": "4bb09284ad68b26990418df53377a27ee94cff69f831b42d86090ec5dd4f5f17"
+          },
+          "frequencies_hz": {
+            "dtype": "<f8",
+            "shape": [
+              8
+            ],
+            "sha256": "d8fe4c24c5afc70fdab4102c5c2fb67d874b0964045bf92f5f2b1f3c44b45034"
+          },
+          "uvw_lambda": {
+            "dtype": "<f8",
+            "shape": [
+              1,
+              8,
+              28,
+              3
+            ],
+            "sha256": "9d9d2db30c0361a1bc4b52d302726cdfbcd8fb5bde1d3b940d1c6b5ddb611718"
+          },
+          "integration_s": {
+            "dtype": "<f8",
+            "shape": [
+              1,
+              28
+            ],
+            "sha256": "b471685b865078f591aee9dedebfa5fcec4aa8ac68c15fd3bb23e010ddf25b3e"
+          },
+          "valid_fft_count": {
+            "dtype": "<i8",
+            "shape": [
+              1,
+              28
+            ],
+            "sha256": "6ded9f4ef74a6aa1611d0e43b981cd6dfbef4caa3154ef3e17468e676798fa4b"
+          },
+          "diagnostic_station_power": {
+            "dtype": "<f8",
+            "shape": [
+              1,
+              8,
+              8
+            ],
+            "sha256": "fadcd8aa287b1e426f4c69c89ae8c58098db470c53259a3a4366eee4963e335c"
+          },
+          "diagnostic_station_sk": {
+            "dtype": "<f8",
+            "shape": [
+              1,
+              8,
+              8
+            ],
+            "sha256": "d5c1df57870f0b7dc5de2647c03612edfcf2f0a561817a00a08206116292c260"
+          },
+          "diagnostic_station_sk_eligible": {
+            "dtype": "|b1",
+            "shape": [
+              1,
+              8,
+              8
+            ],
+            "sha256": "7c8975e1e60a5c8337f28edf8c33c3b180360b7279644a9bc1af3c51e6220bf5"
+          },
+          "diagnostic_station_flags": {
+            "dtype": "|u1",
+            "shape": [
+              1,
+              8,
+              8
+            ],
+            "sha256": "a3d22d329d380e838ca4de9793830936350f5bf0ae74025d51bdfa4e3edcdf42"
+          },
+          "diagnostic_station_valid_fft_count": {
+            "dtype": "<i8",
+            "shape": [
+              1,
+              8
+            ],
+            "sha256": "09b6e99c2580a83e67fdfd564d18d2c44a3f6c485436b9ce2de5cfb16f04ec51"
+          }
+        },
+        "closures": {
+          "phase_valid": 20,
+          "logamp_valid": 17,
+          "input_unit": "ADC^2",
+          "absolute_flux_available": false,
+          "absolute_centroid_available": false
+        },
+        "rml_failure_code": null,
+        "rml_summary": {
+          "objective": 0.2747576538550399,
+          "closure_chisq_per_measurement": 0.541838403602784,
+          "data_loss": 0.270919201801392,
+          "entropy_loss": 0.0034602411312327163,
+          "tsv_loss": 2.8459239611680523e-05,
+          "centroid_loss": 0.00012440011485257058,
+          "independent_closure_count": 31,
+          "independent_closure_counts": {
+            "phase": 17,
+            "logamp": 14
+          },
+          "centroid_arcsec": [
+            3.0188609800736406,
+            8.509602673025896
+          ],
+          "parameter_sum_penalty": 0.00022535156795086745,
+          "selected_start": 0,
+          "runs": [
+            {
+              "objective": 0.2747576538550399,
+              "closure_chisq_per_measurement": 0.541838403602784,
+              "data_loss": 0.270919201801392,
+              "entropy_loss": 0.0034602411312327163,
+              "tsv_loss": 2.8459239611680523e-05,
+              "centroid_loss": 0.00012440011485257058,
+              "independent_closure_count": 31,
+              "independent_closure_counts": {
+                "phase": 17,
+                "logamp": 14
+              },
+              "centroid_arcsec": [
+                3.0188609800736406,
+                8.509602673025896
+              ],
+              "parameter_sum_penalty": 0.00022535156795086745,
+              "start": 0,
+              "circular_warmup_iterations": 300,
+              "iterations": 603,
+              "optimizer_success": true,
+              "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH"
+            }
+          ],
+          "image_sum": 1.0,
+          "output_unit": "relative flux/pixel",
+          "absolute_flux_measured": false,
+          "absolute_position_measured": false,
+          "amplitude_constraints_available": true,
+          "centroid_constraint": "Weak penalty around display center; actual centroid reported; not measured astrometry",
+          "settings": {
+            "pixels": 32,
+            "pixel_arcsec": 16.0,
+            "min_snr": 10.0,
+            "prior_fwhm_arcsec": 240.0,
+            "entropy": 0.01,
+            "tsv": 0.0001,
+            "centroid": 0.1,
+            "starts": 1,
+            "max_iterations": 2000,
+            "seed": 21
+          },
+          "noise_model": "Fixed observed high SNR independent-baseline covariance, full within each closure cell",
+          "likelihood_limit": "Wrapped local Gaussian phase residual; low SNR and phase branch boundaries excluded",
+          "input_unit": "ADC^2"
+        },
+        "assessment": {
+          "schema_version": 1,
+          "type": "image_path_assessment",
+          "processing_state": "complete",
+          "image_computed": true,
+          "numerical": {
+            "state": "converged",
+            "selected_start": 0,
+            "optimizer_success": true
+          },
+          "independent_constraints": {
+            "phase": 17,
+            "logamp": 14,
+            "total": 31
+          },
+          "reference_fidelity": {
+            "state": "evaluated",
+            "registered_nrmse": 0.44486525161719026,
+            "comparison_version": 2,
+            "common_beam_arcsec": 110.0,
+            "registered_flux_retained_fraction": 1.0,
+            "registration_boundary_reached": false,
+            "declared_max_registered_nrmse": null,
+            "within_declared_limit": null
+          },
+          "recorded_issues": [],
+          "actual_observation_success_certified": false,
+          "low_snr_likelihood_validated": false,
+          "interpretation": "Diagnostic record only. Optimizer convergence and reference-image similarity are separate; missing amplitude constraints do not prove imaging impossible. No absolute flux or astrometry certified."
+        },
+        "reference_metrics": {
+          "raw_nrmse": 0.46177647211097306,
+          "registered_nrmse": 0.44486525161719026,
+          "registered_correlation": 0.914680153533003,
+          "registration_shift_yx_arcsec": [
+            0.0,
+            -27.3369997883283
+          ],
+          "common_beam_arcsec": 110.0,
+          "comparison_version": 2,
+          "registration_method": "All bounded integer cells, bilinear subpixels, 9 deterministic coordinate starts per cell",
+          "registration_max_shift_pixels": 31,
+          "registration_boundary_reached": false,
+          "registration_diagnostics": {
+            "shift_yx_pixels": [
+              0.0,
+              -1.7085624867705187
+            ],
+            "boundary_reached": false,
+            "grid_cells": 3844,
+            "multistarts_per_cell": 9,
+            "selected_coordinate_converged": true,
+            "selected_coordinate_iterations": 6,
+            "objective_identity_error": 3.2526065174565133e-19
+          },
+          "comparison_padding_pixels": 45,
+          "registered_flux_retained_fraction": 1.0,
+          "comparison": "Unit-flux gauge, Gaussian common beam, translation only over complete zero-extended support. No post-shift flux rescaling, cropped-error masking, rotation, Jy calibration or astrometry."
+        },
+        "recovered_npy_sha256": "99469484cfc290a8a76396cd4775e6cf8c8627214138f9975e2d85f99eafc0b6"
+      }
+    },
+    {
+      "case": "seed110_t0.3",
+      "seed": 110,
+      "integration_s": 0.3,
+      "raw_directory": "outputs/stage112-source-study/seed-110/input",
+      "profile": "outputs/stage112-source-study/seed-110/pilot-750/pipeline/rate-only.json",
+      "input_sha256": {
+        "clock.json": "b4b914971335dd6e7962b9863313016bc7768d2c4bd4250fa0711cf9b7d23250",
+        "manifest.json": "4e644f94178126e7033195bb656e054a2fa2a53d2817a324ba15d0998a62ad16",
+        "observation.json": "1f679866af9b526498141ec5a61867a97e5950f5f47c8d1609639c62ca75ca25",
+        "station-1.json": "f9e15d11bd9f3937b9cb2c867e5adbba877809b8b47866148ce3f78ae7c59639",
+        "station-1.vdif": "44d1b0a75839bb457c265213b55c75dd49c82bedeca05b912250f593d199beb5",
+        "station-2.json": "43061ef4b94637702bea7df2a0183c40db22f416971599eecdf02902a24e92d8",
+        "station-2.vdif": "87037aaf44d9a89afea82cfa3d4acf09a1e33a49461d1acb6415770340aab96b",
+        "station-3.json": "01cf5b4fa04de74090894ae51a93967e8bf37df703f3cc7d857db19a10db4744",
+        "station-3.vdif": "5227fd525001ae795a054c4f5e6100cfa763f2a7d5078f5f89958e0c7ffd1eec",
+        "station-4.json": "8e440c0f04680db296a49915bf56c62f09ffd129928a2dd52b82029c20d14afa",
+        "station-4.vdif": "ab1b918c94a2e51bcf9a97faa136ee69f202f85310745f49746af78c3f11e824",
+        "station-5.json": "e2ac70ce6a677a81c54d5c37502d338229b2302dc9c3e62f1a9205a5d1cc3297",
+        "station-5.vdif": "4d2bdbdc035c61d82aabfaa948bcabb0ed0fbbcec27cce43cc5d4fe7be16ef42",
+        "station-6.json": "a28b89c074326851c3f4ed59da399a83d7fe11d07e82c62d703cf55eab94b713",
+        "station-6.vdif": "5a666202493971a61cbef95dfa284ae42914e90189691b787acb7523c30dfad3",
+        "station-7.json": "f3c7bb2411272ee187a00fa00f7dbf4fdc3c04196feff0c5ee5767f0ff43a6ce",
+        "station-7.vdif": "de9ca52fee2541b398aa5e3f4723aafb3106b68c8295bda4eb8d67e2b0f6133e",
+        "station-8.json": "2599c4eff8e6607e9fae068a0849fe6b56508efd0a55898dc1b1cbf78d10b7dd",
+        "station-8.vdif": "ad33ef6b60bedb6bad10073c1c13723b82d5bc7689355514e3e49c79a08ba36b"
+      },
+      "profile_sha256": "c041e7fc4a71602fe73c601e50d6bafdca104c2e3dfc7fd379b753bfd1990e59",
+      "manifest": "outputs/stage113-source-study/seed110_t0.3/manifest.json",
+      "case_directory": "seed110_t0.3",
+      "generating": {
+        "model": "casa",
+        "assumed_flux_jy": 1000.0,
+        "assumed_sefd_jy": 10000.0,
+        "input_span_s": 3.04,
+        "station_rates_hz": [
+          0.0,
+          17.320626802645595,
+          -11.64925748855967,
+          26.19494226474453,
+          8.176428326993072,
+          -0.35176050635903644,
+          1.7460851338696204,
+          -2.984194404911251
+        ],
+        "seed": 110,
+        "fft_length": 8,
+        "useful_rf_channel_centers": 3,
+        "narrowband_phase_bound_rad": 0.0062428836257420696,
+        "sky_temporal_phase_bound_rad": 0.0019191137615900767,
+        "limits": "Continuous periodic colored Gaussian with midpoint sky covariance at center RF; supplied exact nominal clocks; fixed broadband station delay, piecewise RF geometry and constant LO rate; no real antenna or RFI"
+      },
+      "truth_used_by_estimator": false,
+      "science": {
+        "correlation_arrays": {
+          "visibilities": {
+            "dtype": "<c16",
+            "shape": [
+              1,
+              8,
+              28
+            ],
+            "sha256": "998aa7ea05f54d96824985c35a7521e4f6c48abbdd657f8e7203e607e5c0ccb1"
+          },
+          "weights": {
+            "dtype": "<f8",
+            "shape": [
+              1,
+              8,
+              28
+            ],
+            "sha256": "2b23b2beb77f352ebfc811dae458b304806c503e49ca9f451ac28aa571eb17c2"
+          },
+          "pairs": {
+            "dtype": "<i8",
+            "shape": [
+              28,
+              2
+            ],
+            "sha256": "77dd18378e5847909c18331ae810f09a80aea526095837fcbd06d04e0e91f707"
+          },
+          "times_s": {
+            "dtype": "<f8",
+            "shape": [
+              1
+            ],
+            "sha256": "d0b63b604c8f2bce6140ffccf388edf96169b9ef54f93e9647a49cb090569511"
+          },
+          "frequencies_hz": {
+            "dtype": "<f8",
+            "shape": [
+              8
+            ],
+            "sha256": "d8fe4c24c5afc70fdab4102c5c2fb67d874b0964045bf92f5f2b1f3c44b45034"
+          },
+          "uvw_lambda": {
+            "dtype": "<f8",
+            "shape": [
+              1,
+              8,
+              28,
+              3
+            ],
+            "sha256": "24a453d4aae28b9d45fd0352e691325d1f82e5cbecc683ea24ebc0abd66e91a5"
+          },
+          "integration_s": {
+            "dtype": "<f8",
+            "shape": [
+              1,
+              28
+            ],
+            "sha256": "501144d54360440e7e8139ab495d088ff9866852b2968e82db1ca136c4ae2903"
+          },
+          "valid_fft_count": {
+            "dtype": "<i8",
+            "shape": [
+              1,
+              28
+            ],
+            "sha256": "bc783ddc05d9e1a8f68bda8e4f3433af859c69db59cb42ac36a137b9d54e2b46"
+          },
+          "diagnostic_station_power": {
+            "dtype": "<f8",
+            "shape": [
+              1,
+              8,
+              8
+            ],
+            "sha256": "f21c2f9214565b7cb5dbf714cd33642b9213bb384624291db35c15aef0415e43"
+          },
+          "diagnostic_station_sk": {
+            "dtype": "<f8",
+            "shape": [
+              1,
+              8,
+              8
+            ],
+            "sha256": "5e38b5988b4d3513faf813564bdac09024ca3b3bbe96cd96ea7afa39fc91d9fa"
+          },
+          "diagnostic_station_sk_eligible": {
+            "dtype": "|b1",
+            "shape": [
+              1,
+              8,
+              8
+            ],
+            "sha256": "7c8975e1e60a5c8337f28edf8c33c3b180360b7279644a9bc1af3c51e6220bf5"
+          },
+          "diagnostic_station_flags": {
+            "dtype": "|u1",
+            "shape": [
+              1,
+              8,
+              8
+            ],
+            "sha256": "a3d22d329d380e838ca4de9793830936350f5bf0ae74025d51bdfa4e3edcdf42"
+          },
+          "diagnostic_station_valid_fft_count": {
+            "dtype": "<i8",
+            "shape": [
+              1,
+              8
+            ],
+            "sha256": "c271d600c87521120b6cd63a74afa2fa291d3ec35b4490ca1ca86228b2122d53"
+          }
+        },
+        "closures": {
+          "phase_valid": 0,
+          "logamp_valid": 0,
+          "input_unit": "ADC^2",
+          "absolute_flux_available": false,
+          "absolute_centroid_available": false
+        },
+        "rml_failure_code": "no_high_snr_independent_closures",
+        "rml_summary": null,
+        "assessment": {
+          "schema_version": 1,
+          "type": "image_path_assessment",
+          "processing_state": "incomplete",
+          "image_computed": false,
+          "numerical": {
+            "state": "not_run",
+            "selected_start": null,
+            "optimizer_success": null
+          },
+          "independent_constraints": {
+            "phase": null,
+            "logamp": null,
+            "total": null
+          },
+          "reference_fidelity": {
+            "state": "not_evaluated",
+            "registered_nrmse": null,
+            "declared_max_registered_nrmse": null,
+            "within_declared_limit": null
+          },
+          "recorded_issues": [
+            "processing_not_complete",
+            "image_not_run"
+          ],
+          "actual_observation_success_certified": false,
+          "low_snr_likelihood_validated": false,
+          "interpretation": "Diagnostic record only. Optimizer convergence and reference-image similarity are separate; missing amplitude constraints do not prove imaging impossible. No absolute flux or astrometry certified."
+        },
+        "reference_metrics": null,
+        "recovered_npy_sha256": null
+      }
+    },
+    {
+      "case": "seed110_t1",
+      "seed": 110,
+      "integration_s": 1.0,
+      "raw_directory": "outputs/stage112-source-study/seed-110/input",
+      "profile": "outputs/stage112-source-study/seed-110/pilot-750/pipeline/rate-only.json",
+      "input_sha256": {
+        "clock.json": "b4b914971335dd6e7962b9863313016bc7768d2c4bd4250fa0711cf9b7d23250",
+        "manifest.json": "4e644f94178126e7033195bb656e054a2fa2a53d2817a324ba15d0998a62ad16",
+        "observation.json": "1f679866af9b526498141ec5a61867a97e5950f5f47c8d1609639c62ca75ca25",
+        "station-1.json": "f9e15d11bd9f3937b9cb2c867e5adbba877809b8b47866148ce3f78ae7c59639",
+        "station-1.vdif": "44d1b0a75839bb457c265213b55c75dd49c82bedeca05b912250f593d199beb5",
+        "station-2.json": "43061ef4b94637702bea7df2a0183c40db22f416971599eecdf02902a24e92d8",
+        "station-2.vdif": "87037aaf44d9a89afea82cfa3d4acf09a1e33a49461d1acb6415770340aab96b",
+        "station-3.json": "01cf5b4fa04de74090894ae51a93967e8bf37df703f3cc7d857db19a10db4744",
+        "station-3.vdif": "5227fd525001ae795a054c4f5e6100cfa763f2a7d5078f5f89958e0c7ffd1eec",
+        "station-4.json": "8e440c0f04680db296a49915bf56c62f09ffd129928a2dd52b82029c20d14afa",
+        "station-4.vdif": "ab1b918c94a2e51bcf9a97faa136ee69f202f85310745f49746af78c3f11e824",
+        "station-5.json": "e2ac70ce6a677a81c54d5c37502d338229b2302dc9c3e62f1a9205a5d1cc3297",
+        "station-5.vdif": "4d2bdbdc035c61d82aabfaa948bcabb0ed0fbbcec27cce43cc5d4fe7be16ef42",
+        "station-6.json": "a28b89c074326851c3f4ed59da399a83d7fe11d07e82c62d703cf55eab94b713",
+        "station-6.vdif": "5a666202493971a61cbef95dfa284ae42914e90189691b787acb7523c30dfad3",
+        "station-7.json": "f3c7bb2411272ee187a00fa00f7dbf4fdc3c04196feff0c5ee5767f0ff43a6ce",
+        "station-7.vdif": "de9ca52fee2541b398aa5e3f4723aafb3106b68c8295bda4eb8d67e2b0f6133e",
+        "station-8.json": "2599c4eff8e6607e9fae068a0849fe6b56508efd0a55898dc1b1cbf78d10b7dd",
+        "station-8.vdif": "ad33ef6b60bedb6bad10073c1c13723b82d5bc7689355514e3e49c79a08ba36b"
+      },
+      "profile_sha256": "c041e7fc4a71602fe73c601e50d6bafdca104c2e3dfc7fd379b753bfd1990e59",
+      "manifest": "outputs/stage113-source-study/seed110_t1/manifest.json",
+      "case_directory": "seed110_t1",
+      "generating": {
+        "model": "casa",
+        "assumed_flux_jy": 1000.0,
+        "assumed_sefd_jy": 10000.0,
+        "input_span_s": 3.04,
+        "station_rates_hz": [
+          0.0,
+          17.320626802645595,
+          -11.64925748855967,
+          26.19494226474453,
+          8.176428326993072,
+          -0.35176050635903644,
+          1.7460851338696204,
+          -2.984194404911251
+        ],
+        "seed": 110,
+        "fft_length": 8,
+        "useful_rf_channel_centers": 3,
+        "narrowband_phase_bound_rad": 0.0062428836257420696,
+        "sky_temporal_phase_bound_rad": 0.0019191137615900767,
+        "limits": "Continuous periodic colored Gaussian with midpoint sky covariance at center RF; supplied exact nominal clocks; fixed broadband station delay, piecewise RF geometry and constant LO rate; no real antenna or RFI"
+      },
+      "truth_used_by_estimator": false,
+      "science": {
+        "correlation_arrays": {
+          "visibilities": {
+            "dtype": "<c16",
+            "shape": [
+              1,
+              8,
+              28
+            ],
+            "sha256": "b75e65895d81674fa660d1b9feaf90307b6967bd318867bcba9595494ff74636"
+          },
+          "weights": {
+            "dtype": "<f8",
+            "shape": [
+              1,
+              8,
+              28
+            ],
+            "sha256": "c38c3c33002c423b7e9e38696f5522ea63b1b5d7860261ea9b1c3fac6d24a33e"
+          },
+          "pairs": {
+            "dtype": "<i8",
+            "shape": [
+              28,
+              2
+            ],
+            "sha256": "77dd18378e5847909c18331ae810f09a80aea526095837fcbd06d04e0e91f707"
+          },
+          "times_s": {
+            "dtype": "<f8",
+            "shape": [
+              1
+            ],
+            "sha256": "a896d6e1626e211b79bcbaafdaa910873f3224893950e3a6bb87f2c331ff3926"
+          },
+          "frequencies_hz": {
+            "dtype": "<f8",
+            "shape": [
+              8
+            ],
+            "sha256": "d8fe4c24c5afc70fdab4102c5c2fb67d874b0964045bf92f5f2b1f3c44b45034"
+          },
+          "uvw_lambda": {
+            "dtype": "<f8",
+            "shape": [
+              1,
+              8,
+              28,
+              3
+            ],
+            "sha256": "b8dab2b536a56d691fc442f532cba4981a867c11191b26aa9e5b932a20369a1b"
+          },
+          "integration_s": {
+            "dtype": "<f8",
+            "shape": [
+              1,
+              28
+            ],
+            "sha256": "d453d79d97d74088b2ff1846059ab2462f98d27e9838812a542352eec3338521"
+          },
+          "valid_fft_count": {
+            "dtype": "<i8",
+            "shape": [
+              1,
+              28
+            ],
+            "sha256": "b18a15923f1667606f7a32840a92b7c2ee348bf633cdc587036baa6bf4bfebca"
+          },
+          "diagnostic_station_power": {
+            "dtype": "<f8",
+            "shape": [
+              1,
+              8,
+              8
+            ],
+            "sha256": "0df13d794ffeff38ae40901564a1829f39a008dd5822b79ca238644803fd7081"
+          },
+          "diagnostic_station_sk": {
+            "dtype": "<f8",
+            "shape": [
+              1,
+              8,
+              8
+            ],
+            "sha256": "1de3670659fc7177b7e63b5058610cd9daaf52469f2212a8e1269997538373e7"
+          },
+          "diagnostic_station_sk_eligible": {
+            "dtype": "|b1",
+            "shape": [
+              1,
+              8,
+              8
+            ],
+            "sha256": "7c8975e1e60a5c8337f28edf8c33c3b180360b7279644a9bc1af3c51e6220bf5"
+          },
+          "diagnostic_station_flags": {
+            "dtype": "|u1",
+            "shape": [
+              1,
+              8,
+              8
+            ],
+            "sha256": "a3d22d329d380e838ca4de9793830936350f5bf0ae74025d51bdfa4e3edcdf42"
+          },
+          "diagnostic_station_valid_fft_count": {
+            "dtype": "<i8",
+            "shape": [
+              1,
+              8
+            ],
+            "sha256": "50965f12f5fb7c57bf5cf324cf01a01b31c1b7df29642f99585ba755a563c1e7"
+          }
+        },
+        "closures": {
+          "phase_valid": 5,
+          "logamp_valid": 2,
+          "input_unit": "ADC^2",
+          "absolute_flux_available": false,
+          "absolute_centroid_available": false
+        },
+        "rml_failure_code": null,
+        "rml_summary": {
+          "objective": 0.04269011388720668,
+          "closure_chisq_per_measurement": 0.08390449945480254,
+          "data_loss": 0.04195224972740127,
+          "entropy_loss": 0.000714168616834395,
+          "tsv_loss": 2.1146676227227623e-05,
+          "centroid_loss": 4.816361963240609e-07,
+          "independent_closure_count": 7,
+          "independent_closure_counts": {
+            "phase": 5,
+            "logamp": 2
+          },
+          "centroid_arcsec": [
+            -0.1394658538515945,
+            0.5442374235867856
+          ],
+          "parameter_sum_penalty": 2.0672305474662123e-06,
+          "selected_start": 0,
+          "runs": [
+            {
+              "objective": 0.04269011388720668,
+              "closure_chisq_per_measurement": 0.08390449945480254,
+              "data_loss": 0.04195224972740127,
+              "entropy_loss": 0.000714168616834395,
+              "tsv_loss": 2.1146676227227623e-05,
+              "centroid_loss": 4.816361963240609e-07,
+              "independent_closure_count": 7,
+              "independent_closure_counts": {
+                "phase": 5,
+                "logamp": 2
+              },
+              "centroid_arcsec": [
+                -0.1394658538515945,
+                0.5442374235867856
+              ],
+              "parameter_sum_penalty": 2.0672305474662123e-06,
+              "start": 0,
+              "circular_warmup_iterations": 300,
+              "iterations": 26,
+              "optimizer_success": true,
+              "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH"
+            }
+          ],
+          "image_sum": 1.0,
+          "output_unit": "relative flux/pixel",
+          "absolute_flux_measured": false,
+          "absolute_position_measured": false,
+          "amplitude_constraints_available": true,
+          "centroid_constraint": "Weak penalty around display center; actual centroid reported; not measured astrometry",
+          "settings": {
+            "pixels": 32,
+            "pixel_arcsec": 16.0,
+            "min_snr": 10.0,
+            "prior_fwhm_arcsec": 240.0,
+            "entropy": 0.01,
+            "tsv": 0.0001,
+            "centroid": 0.1,
+            "starts": 1,
+            "max_iterations": 2000,
+            "seed": 21
+          },
+          "noise_model": "Fixed observed high SNR independent-baseline covariance, full within each closure cell",
+          "likelihood_limit": "Wrapped local Gaussian phase residual; low SNR and phase branch boundaries excluded",
+          "input_unit": "ADC^2"
+        },
+        "assessment": {
+          "schema_version": 1,
+          "type": "image_path_assessment",
+          "processing_state": "complete",
+          "image_computed": true,
+          "numerical": {
+            "state": "converged",
+            "selected_start": 0,
+            "optimizer_success": true
+          },
+          "independent_constraints": {
+            "phase": 5,
+            "logamp": 2,
+            "total": 7
+          },
+          "reference_fidelity": {
+            "state": "evaluated",
+            "registered_nrmse": 0.3141767037667886,
+            "comparison_version": 2,
+            "common_beam_arcsec": 110.0,
+            "registered_flux_retained_fraction": 1.0,
+            "registration_boundary_reached": false,
+            "declared_max_registered_nrmse": null,
+            "within_declared_limit": null
+          },
+          "recorded_issues": [],
+          "actual_observation_success_certified": false,
+          "low_snr_likelihood_validated": false,
+          "interpretation": "Diagnostic record only. Optimizer convergence and reference-image similarity are separate; missing amplitude constraints do not prove imaging impossible. No absolute flux or astrometry certified."
+        },
+        "reference_metrics": {
+          "raw_nrmse": 0.36479676293175295,
+          "registered_nrmse": 0.3141767037667886,
+          "registered_correlation": 0.9610668112001234,
+          "registration_shift_yx_arcsec": [
+            16.02934105273945,
+            -32.0
+          ],
+          "common_beam_arcsec": 110.0,
+          "comparison_version": 2,
+          "registration_method": "All bounded integer cells, bilinear subpixels, 9 deterministic coordinate starts per cell",
+          "registration_max_shift_pixels": 31,
+          "registration_boundary_reached": false,
+          "registration_diagnostics": {
+            "shift_yx_pixels": [
+              1.0018338157962157,
+              -2.0
+            ],
+            "boundary_reached": false,
+            "grid_cells": 3844,
+            "multistarts_per_cell": 9,
+            "selected_coordinate_converged": true,
+            "selected_coordinate_iterations": 6,
+            "objective_identity_error": 7.318364664277155e-19
+          },
+          "comparison_padding_pixels": 45,
+          "registered_flux_retained_fraction": 1.0,
+          "comparison": "Unit-flux gauge, Gaussian common beam, translation only over complete zero-extended support. No post-shift flux rescaling, cropped-error masking, rotation, Jy calibration or astrometry."
+        },
+        "recovered_npy_sha256": "fd190e61cead15a4d82d09c6dfcc9160a30fce807ce5886358aec71df0acef1a"
+      }
+    },
+    {
+      "case": "seed110_t3",
+      "seed": 110,
+      "integration_s": 3.0,
+      "raw_directory": "outputs/stage112-source-study/seed-110/input",
+      "profile": "outputs/stage112-source-study/seed-110/pilot-750/pipeline/rate-only.json",
+      "input_sha256": {
+        "clock.json": "b4b914971335dd6e7962b9863313016bc7768d2c4bd4250fa0711cf9b7d23250",
+        "manifest.json": "4e644f94178126e7033195bb656e054a2fa2a53d2817a324ba15d0998a62ad16",
+        "observation.json": "1f679866af9b526498141ec5a61867a97e5950f5f47c8d1609639c62ca75ca25",
+        "station-1.json": "f9e15d11bd9f3937b9cb2c867e5adbba877809b8b47866148ce3f78ae7c59639",
+        "station-1.vdif": "44d1b0a75839bb457c265213b55c75dd49c82bedeca05b912250f593d199beb5",
+        "station-2.json": "43061ef4b94637702bea7df2a0183c40db22f416971599eecdf02902a24e92d8",
+        "station-2.vdif": "87037aaf44d9a89afea82cfa3d4acf09a1e33a49461d1acb6415770340aab96b",
+        "station-3.json": "01cf5b4fa04de74090894ae51a93967e8bf37df703f3cc7d857db19a10db4744",
+        "station-3.vdif": "5227fd525001ae795a054c4f5e6100cfa763f2a7d5078f5f89958e0c7ffd1eec",
+        "station-4.json": "8e440c0f04680db296a49915bf56c62f09ffd129928a2dd52b82029c20d14afa",
+        "station-4.vdif": "ab1b918c94a2e51bcf9a97faa136ee69f202f85310745f49746af78c3f11e824",
+        "station-5.json": "e2ac70ce6a677a81c54d5c37502d338229b2302dc9c3e62f1a9205a5d1cc3297",
+        "station-5.vdif": "4d2bdbdc035c61d82aabfaa948bcabb0ed0fbbcec27cce43cc5d4fe7be16ef42",
+        "station-6.json": "a28b89c074326851c3f4ed59da399a83d7fe11d07e82c62d703cf55eab94b713",
+        "station-6.vdif": "5a666202493971a61cbef95dfa284ae42914e90189691b787acb7523c30dfad3",
+        "station-7.json": "f3c7bb2411272ee187a00fa00f7dbf4fdc3c04196feff0c5ee5767f0ff43a6ce",
+        "station-7.vdif": "de9ca52fee2541b398aa5e3f4723aafb3106b68c8295bda4eb8d67e2b0f6133e",
+        "station-8.json": "2599c4eff8e6607e9fae068a0849fe6b56508efd0a55898dc1b1cbf78d10b7dd",
+        "station-8.vdif": "ad33ef6b60bedb6bad10073c1c13723b82d5bc7689355514e3e49c79a08ba36b"
+      },
+      "profile_sha256": "c041e7fc4a71602fe73c601e50d6bafdca104c2e3dfc7fd379b753bfd1990e59",
+      "manifest": "outputs/stage113-source-study/seed110_t3/manifest.json",
+      "case_directory": "seed110_t3",
+      "generating": {
+        "model": "casa",
+        "assumed_flux_jy": 1000.0,
+        "assumed_sefd_jy": 10000.0,
+        "input_span_s": 3.04,
+        "station_rates_hz": [
+          0.0,
+          17.320626802645595,
+          -11.64925748855967,
+          26.19494226474453,
+          8.176428326993072,
+          -0.35176050635903644,
+          1.7460851338696204,
+          -2.984194404911251
+        ],
+        "seed": 110,
+        "fft_length": 8,
+        "useful_rf_channel_centers": 3,
+        "narrowband_phase_bound_rad": 0.0062428836257420696,
+        "sky_temporal_phase_bound_rad": 0.0019191137615900767,
+        "limits": "Continuous periodic colored Gaussian with midpoint sky covariance at center RF; supplied exact nominal clocks; fixed broadband station delay, piecewise RF geometry and constant LO rate; no real antenna or RFI"
+      },
+      "truth_used_by_estimator": false,
+      "science": {
+        "correlation_arrays": {
+          "visibilities": {
+            "dtype": "<c16",
+            "shape": [
+              1,
+              8,
+              28
+            ],
+            "sha256": "5e543809fe8671b52890f5c6169866611fc0d266eafdd55c4fe9c712bc6711b1"
+          },
+          "weights": {
+            "dtype": "<f8",
+            "shape": [
+              1,
+              8,
+              28
+            ],
+            "sha256": "7b7b91528897ad707569570baffabf43a692a50fae79cd99d7be350b7646d203"
+          },
+          "pairs": {
+            "dtype": "<i8",
+            "shape": [
+              28,
+              2
+            ],
+            "sha256": "77dd18378e5847909c18331ae810f09a80aea526095837fcbd06d04e0e91f707"
+          },
+          "times_s": {
+            "dtype": "<f8",
+            "shape": [
+              1
+            ],
+            "sha256": "4bb09284ad68b26990418df53377a27ee94cff69f831b42d86090ec5dd4f5f17"
+          },
+          "frequencies_hz": {
+            "dtype": "<f8",
+            "shape": [
+              8
+            ],
+            "sha256": "d8fe4c24c5afc70fdab4102c5c2fb67d874b0964045bf92f5f2b1f3c44b45034"
+          },
+          "uvw_lambda": {
+            "dtype": "<f8",
+            "shape": [
+              1,
+              8,
+              28,
+              3
+            ],
+            "sha256": "9d9d2db30c0361a1bc4b52d302726cdfbcd8fb5bde1d3b940d1c6b5ddb611718"
+          },
+          "integration_s": {
+            "dtype": "<f8",
+            "shape": [
+              1,
+              28
+            ],
+            "sha256": "b471685b865078f591aee9dedebfa5fcec4aa8ac68c15fd3bb23e010ddf25b3e"
+          },
+          "valid_fft_count": {
+            "dtype": "<i8",
+            "shape": [
+              1,
+              28
+            ],
+            "sha256": "6ded9f4ef74a6aa1611d0e43b981cd6dfbef4caa3154ef3e17468e676798fa4b"
+          },
+          "diagnostic_station_power": {
+            "dtype": "<f8",
+            "shape": [
+              1,
+              8,
+              8
+            ],
+            "sha256": "6ced335bf84e57cc76b5c1065290a44fed71a8b91537a78e660afd39bf846815"
+          },
+          "diagnostic_station_sk": {
+            "dtype": "<f8",
+            "shape": [
+              1,
+              8,
+              8
+            ],
+            "sha256": "4b67a961aeeec9a0731ae09503e22151135c1b930fb8e45d2562f35d3736041f"
+          },
+          "diagnostic_station_sk_eligible": {
+            "dtype": "|b1",
+            "shape": [
+              1,
+              8,
+              8
+            ],
+            "sha256": "7c8975e1e60a5c8337f28edf8c33c3b180360b7279644a9bc1af3c51e6220bf5"
+          },
+          "diagnostic_station_flags": {
+            "dtype": "|u1",
+            "shape": [
+              1,
+              8,
+              8
+            ],
+            "sha256": "a3d22d329d380e838ca4de9793830936350f5bf0ae74025d51bdfa4e3edcdf42"
+          },
+          "diagnostic_station_valid_fft_count": {
+            "dtype": "<i8",
+            "shape": [
+              1,
+              8
+            ],
+            "sha256": "09b6e99c2580a83e67fdfd564d18d2c44a3f6c485436b9ce2de5cfb16f04ec51"
+          }
+        },
+        "closures": {
+          "phase_valid": 18,
+          "logamp_valid": 15,
+          "input_unit": "ADC^2",
+          "absolute_flux_available": false,
+          "absolute_centroid_available": false
+        },
+        "rml_failure_code": null,
+        "rml_summary": {
+          "objective": 0.26751828023711893,
+          "closure_chisq_per_measurement": 0.5258705466355313,
+          "data_loss": 0.26293527331776567,
+          "entropy_loss": 0.0043479848462620865,
+          "tsv_loss": 6.559045397268025e-05,
+          "centroid_loss": 1.4273231601061185e-05,
+          "independent_closure_count": 29,
+          "independent_closure_counts": {
+            "phase": 16,
+            "logamp": 13
+          },
+          "centroid_arcsec": [
+            3.055636867721691,
+            -0.13110451819609584
+          ],
+          "parameter_sum_penalty": 0.00015515838751740783,
+          "selected_start": 0,
+          "runs": [
+            {
+              "objective": 0.26751828023711893,
+              "closure_chisq_per_measurement": 0.5258705466355313,
+              "data_loss": 0.26293527331776567,
+              "entropy_loss": 0.0043479848462620865,
+              "tsv_loss": 6.559045397268025e-05,
+              "centroid_loss": 1.4273231601061185e-05,
+              "independent_closure_count": 29,
+              "independent_closure_counts": {
+                "phase": 16,
+                "logamp": 13
+              },
+              "centroid_arcsec": [
+                3.055636867721691,
+                -0.13110451819609584
+              ],
+              "parameter_sum_penalty": 0.00015515838751740783,
+              "start": 0,
+              "circular_warmup_iterations": 300,
+              "iterations": 483,
+              "optimizer_success": true,
+              "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH"
+            }
+          ],
+          "image_sum": 1.0,
+          "output_unit": "relative flux/pixel",
+          "absolute_flux_measured": false,
+          "absolute_position_measured": false,
+          "amplitude_constraints_available": true,
+          "centroid_constraint": "Weak penalty around display center; actual centroid reported; not measured astrometry",
+          "settings": {
+            "pixels": 32,
+            "pixel_arcsec": 16.0,
+            "min_snr": 10.0,
+            "prior_fwhm_arcsec": 240.0,
+            "entropy": 0.01,
+            "tsv": 0.0001,
+            "centroid": 0.1,
+            "starts": 1,
+            "max_iterations": 2000,
+            "seed": 21
+          },
+          "noise_model": "Fixed observed high SNR independent-baseline covariance, full within each closure cell",
+          "likelihood_limit": "Wrapped local Gaussian phase residual; low SNR and phase branch boundaries excluded",
+          "input_unit": "ADC^2"
+        },
+        "assessment": {
+          "schema_version": 1,
+          "type": "image_path_assessment",
+          "processing_state": "complete",
+          "image_computed": true,
+          "numerical": {
+            "state": "converged",
+            "selected_start": 0,
+            "optimizer_success": true
+          },
+          "independent_constraints": {
+            "phase": 16,
+            "logamp": 13,
+            "total": 29
+          },
+          "reference_fidelity": {
+            "state": "evaluated",
+            "registered_nrmse": 0.4708763429732922,
+            "comparison_version": 2,
+            "common_beam_arcsec": 110.0,
+            "registered_flux_retained_fraction": 0.9999999999999997,
+            "registration_boundary_reached": false,
+            "declared_max_registered_nrmse": null,
+            "within_declared_limit": null
+          },
+          "recorded_issues": [],
+          "actual_observation_success_certified": false,
+          "low_snr_likelihood_validated": false,
+          "interpretation": "Diagnostic record only. Optimizer convergence and reference-image similarity are separate; missing amplitude constraints do not prove imaging impossible. No absolute flux or astrometry certified."
+        },
+        "reference_metrics": {
+          "raw_nrmse": 0.5043761561325925,
+          "registered_nrmse": 0.4708763429732922,
+          "registered_correlation": 0.9021999015232036,
+          "registration_shift_yx_arcsec": [
+            10.608563662050406,
+            -44.4388451081543
+          ],
+          "common_beam_arcsec": 110.0,
+          "comparison_version": 2,
+          "registration_method": "All bounded integer cells, bilinear subpixels, 9 deterministic coordinate starts per cell",
+          "registration_max_shift_pixels": 31,
+          "registration_boundary_reached": false,
+          "registration_diagnostics": {
+            "shift_yx_pixels": [
+              0.6630352288781504,
+              -2.7774278192596435
+            ],
+            "boundary_reached": false,
+            "grid_cells": 3844,
+            "multistarts_per_cell": 9,
+            "selected_coordinate_converged": true,
+            "selected_coordinate_iterations": 6,
+            "objective_identity_error": 0.0
+          },
+          "comparison_padding_pixels": 45,
+          "registered_flux_retained_fraction": 0.9999999999999997,
+          "comparison": "Unit-flux gauge, Gaussian common beam, translation only over complete zero-extended support. No post-shift flux rescaling, cropped-error masking, rotation, Jy calibration or astrometry."
+        },
+        "recovered_npy_sha256": "ec51a176aa24900e235b56ecb489cf5097c22996258c5fe724f08b1f44b41641"
+      }
+    },
+    {
+      "case": "seed111_t0.3",
+      "seed": 111,
+      "integration_s": 0.3,
+      "raw_directory": "outputs/stage112-source-study/seed-111/input",
+      "profile": "outputs/stage112-source-study/seed-111/pilot-750/pipeline/rate-only.json",
+      "input_sha256": {
+        "clock.json": "b4b914971335dd6e7962b9863313016bc7768d2c4bd4250fa0711cf9b7d23250",
+        "manifest.json": "b212a25663aa11c27659a652a0510e37a6242ca4221c5b5f839708128373c6e5",
+        "observation.json": "1f679866af9b526498141ec5a61867a97e5950f5f47c8d1609639c62ca75ca25",
+        "station-1.json": "8b147563b1ebbca2089ad37c928442ec6644c38c82b0d1bd959f61500fcb514c",
+        "station-1.vdif": "f911eca938d35a0fc31728efcf3a7b3bc1c2102f950eb92aaf0b9b46bb9b02db",
+        "station-2.json": "8ab50b10dac3f673ef51fe29c01deab2fb2e801925147159d85dc05d0c4097f4",
+        "station-2.vdif": "62f29dedb273e1f3bd3eedbc05887ad9e36c79214c7ccccbae11b38351bf924d",
+        "station-3.json": "c6783261ab3ae7799db21f847d682bc7c2c1e278344d191730263a990cb1556c",
+        "station-3.vdif": "26fad2432a36e040602a4c00f8e1e1623066225ea6b4e17372492e26215afb10",
+        "station-4.json": "c14a8eccaa23ce35ca3da9cbf5cf780f69be854840508cc9d686c206f4cc23cc",
+        "station-4.vdif": "64b594e7abdeb79b6a25427bd4d4fc9d61e770abdd2737cfcf6ef15fdc1b016c",
+        "station-5.json": "c607e993c3fd3d9ebc5cc0b2828fbf59b21a85876de1b28bb04fc7c9e3dd8d85",
+        "station-5.vdif": "b9a7cf6561f1fa5585c4206d28884e93c869072f222e071a264eaa48858d699b",
+        "station-6.json": "5775836fe2a48a12cb1b581507f3dab1e11380a755e1878bc0e819fb4d30c39b",
+        "station-6.vdif": "588adb8b738ffe23df0abb4a87e0aab2f0e5dfac3ecc3e5f3353021c01b85d2d",
+        "station-7.json": "b9697df59c2a51854c2e45d0e3ff0ee247035351c59c2c0e88c5fe3c26d682c3",
+        "station-7.vdif": "4d475e1fec540f3697b8ed5eb2fac089438fb48325e0f4c96c3924ea4a5da7da",
+        "station-8.json": "c599f7b0a5f8e246993e62d12da95f71a81aab215c742fdd580b473e54413209",
+        "station-8.vdif": "cfc66734755f25ad561b9197e23ec9f4b45c078056489ee09584c3910381caad"
+      },
+      "profile_sha256": "61e75e27d8c3159c65b6c8ab1483d573f8a63d25640c8eb11be9e441cff1b239",
+      "manifest": "outputs/stage113-source-study/seed111_t0.3/manifest.json",
+      "case_directory": "seed111_t0.3",
+      "generating": {
+        "model": "casa",
+        "assumed_flux_jy": 1000.0,
+        "assumed_sefd_jy": 10000.0,
+        "input_span_s": 3.04,
+        "station_rates_hz": [
+          0.0,
+          17.238461249075286,
+          -11.6209070489527,
+          26.11175840573129,
+          8.08474223123241,
+          -0.39558536117242193,
+          1.7327351088210015,
+          -3.0537668282099264
+        ],
+        "seed": 111,
+        "fft_length": 8,
+        "useful_rf_channel_centers": 3,
+        "narrowband_phase_bound_rad": 0.0062428836257420696,
+        "sky_temporal_phase_bound_rad": 0.0019191137615900767,
+        "limits": "Continuous periodic colored Gaussian with midpoint sky covariance at center RF; supplied exact nominal clocks; fixed broadband station delay, piecewise RF geometry and constant LO rate; no real antenna or RFI"
+      },
+      "truth_used_by_estimator": false,
+      "science": {
+        "correlation_arrays": {
+          "visibilities": {
+            "dtype": "<c16",
+            "shape": [
+              1,
+              8,
+              28
+            ],
+            "sha256": "c07781fcb4bb9465fe1bb0fff89e38591787ef8df4b5d81104255b201f0f8def"
+          },
+          "weights": {
+            "dtype": "<f8",
+            "shape": [
+              1,
+              8,
+              28
+            ],
+            "sha256": "58e0e6d2498f6476cc035bf05574ee19b17433081d9da37d05f8804ea404c056"
+          },
+          "pairs": {
+            "dtype": "<i8",
+            "shape": [
+              28,
+              2
+            ],
+            "sha256": "77dd18378e5847909c18331ae810f09a80aea526095837fcbd06d04e0e91f707"
+          },
+          "times_s": {
+            "dtype": "<f8",
+            "shape": [
+              1
+            ],
+            "sha256": "d0b63b604c8f2bce6140ffccf388edf96169b9ef54f93e9647a49cb090569511"
+          },
+          "frequencies_hz": {
+            "dtype": "<f8",
+            "shape": [
+              8
+            ],
+            "sha256": "d8fe4c24c5afc70fdab4102c5c2fb67d874b0964045bf92f5f2b1f3c44b45034"
+          },
+          "uvw_lambda": {
+            "dtype": "<f8",
+            "shape": [
+              1,
+              8,
+              28,
+              3
+            ],
+            "sha256": "24a453d4aae28b9d45fd0352e691325d1f82e5cbecc683ea24ebc0abd66e91a5"
+          },
+          "integration_s": {
+            "dtype": "<f8",
+            "shape": [
+              1,
+              28
+            ],
+            "sha256": "501144d54360440e7e8139ab495d088ff9866852b2968e82db1ca136c4ae2903"
+          },
+          "valid_fft_count": {
+            "dtype": "<i8",
+            "shape": [
+              1,
+              28
+            ],
+            "sha256": "bc783ddc05d9e1a8f68bda8e4f3433af859c69db59cb42ac36a137b9d54e2b46"
+          },
+          "diagnostic_station_power": {
+            "dtype": "<f8",
+            "shape": [
+              1,
+              8,
+              8
+            ],
+            "sha256": "1c5483633eae1143bcfa799d37e26ec9d985bc13dfc580bf4f6a7b5f011b607b"
+          },
+          "diagnostic_station_sk": {
+            "dtype": "<f8",
+            "shape": [
+              1,
+              8,
+              8
+            ],
+            "sha256": "87155e2d91f5af9c9b11743fb49cdc799ea42d78d8de97eb316ee6b550ef07f9"
+          },
+          "diagnostic_station_sk_eligible": {
+            "dtype": "|b1",
+            "shape": [
+              1,
+              8,
+              8
+            ],
+            "sha256": "7c8975e1e60a5c8337f28edf8c33c3b180360b7279644a9bc1af3c51e6220bf5"
+          },
+          "diagnostic_station_flags": {
+            "dtype": "|u1",
+            "shape": [
+              1,
+              8,
+              8
+            ],
+            "sha256": "a3d22d329d380e838ca4de9793830936350f5bf0ae74025d51bdfa4e3edcdf42"
+          },
+          "diagnostic_station_valid_fft_count": {
+            "dtype": "<i8",
+            "shape": [
+              1,
+              8
+            ],
+            "sha256": "c271d600c87521120b6cd63a74afa2fa291d3ec35b4490ca1ca86228b2122d53"
+          }
+        },
+        "closures": {
+          "phase_valid": 0,
+          "logamp_valid": 0,
+          "input_unit": "ADC^2",
+          "absolute_flux_available": false,
+          "absolute_centroid_available": false
+        },
+        "rml_failure_code": "no_high_snr_independent_closures",
+        "rml_summary": null,
+        "assessment": {
+          "schema_version": 1,
+          "type": "image_path_assessment",
+          "processing_state": "incomplete",
+          "image_computed": false,
+          "numerical": {
+            "state": "not_run",
+            "selected_start": null,
+            "optimizer_success": null
+          },
+          "independent_constraints": {
+            "phase": null,
+            "logamp": null,
+            "total": null
+          },
+          "reference_fidelity": {
+            "state": "not_evaluated",
+            "registered_nrmse": null,
+            "declared_max_registered_nrmse": null,
+            "within_declared_limit": null
+          },
+          "recorded_issues": [
+            "processing_not_complete",
+            "image_not_run"
+          ],
+          "actual_observation_success_certified": false,
+          "low_snr_likelihood_validated": false,
+          "interpretation": "Diagnostic record only. Optimizer convergence and reference-image similarity are separate; missing amplitude constraints do not prove imaging impossible. No absolute flux or astrometry certified."
+        },
+        "reference_metrics": null,
+        "recovered_npy_sha256": null
+      }
+    },
+    {
+      "case": "seed111_t1",
+      "seed": 111,
+      "integration_s": 1.0,
+      "raw_directory": "outputs/stage112-source-study/seed-111/input",
+      "profile": "outputs/stage112-source-study/seed-111/pilot-750/pipeline/rate-only.json",
+      "input_sha256": {
+        "clock.json": "b4b914971335dd6e7962b9863313016bc7768d2c4bd4250fa0711cf9b7d23250",
+        "manifest.json": "b212a25663aa11c27659a652a0510e37a6242ca4221c5b5f839708128373c6e5",
+        "observation.json": "1f679866af9b526498141ec5a61867a97e5950f5f47c8d1609639c62ca75ca25",
+        "station-1.json": "8b147563b1ebbca2089ad37c928442ec6644c38c82b0d1bd959f61500fcb514c",
+        "station-1.vdif": "f911eca938d35a0fc31728efcf3a7b3bc1c2102f950eb92aaf0b9b46bb9b02db",
+        "station-2.json": "8ab50b10dac3f673ef51fe29c01deab2fb2e801925147159d85dc05d0c4097f4",
+        "station-2.vdif": "62f29dedb273e1f3bd3eedbc05887ad9e36c79214c7ccccbae11b38351bf924d",
+        "station-3.json": "c6783261ab3ae7799db21f847d682bc7c2c1e278344d191730263a990cb1556c",
+        "station-3.vdif": "26fad2432a36e040602a4c00f8e1e1623066225ea6b4e17372492e26215afb10",
+        "station-4.json": "c14a8eccaa23ce35ca3da9cbf5cf780f69be854840508cc9d686c206f4cc23cc",
+        "station-4.vdif": "64b594e7abdeb79b6a25427bd4d4fc9d61e770abdd2737cfcf6ef15fdc1b016c",
+        "station-5.json": "c607e993c3fd3d9ebc5cc0b2828fbf59b21a85876de1b28bb04fc7c9e3dd8d85",
+        "station-5.vdif": "b9a7cf6561f1fa5585c4206d28884e93c869072f222e071a264eaa48858d699b",
+        "station-6.json": "5775836fe2a48a12cb1b581507f3dab1e11380a755e1878bc0e819fb4d30c39b",
+        "station-6.vdif": "588adb8b738ffe23df0abb4a87e0aab2f0e5dfac3ecc3e5f3353021c01b85d2d",
+        "station-7.json": "b9697df59c2a51854c2e45d0e3ff0ee247035351c59c2c0e88c5fe3c26d682c3",
+        "station-7.vdif": "4d475e1fec540f3697b8ed5eb2fac089438fb48325e0f4c96c3924ea4a5da7da",
+        "station-8.json": "c599f7b0a5f8e246993e62d12da95f71a81aab215c742fdd580b473e54413209",
+        "station-8.vdif": "cfc66734755f25ad561b9197e23ec9f4b45c078056489ee09584c3910381caad"
+      },
+      "profile_sha256": "61e75e27d8c3159c65b6c8ab1483d573f8a63d25640c8eb11be9e441cff1b239",
+      "manifest": "outputs/stage113-source-study/seed111_t1/manifest.json",
+      "case_directory": "seed111_t1",
+      "generating": {
+        "model": "casa",
+        "assumed_flux_jy": 1000.0,
+        "assumed_sefd_jy": 10000.0,
+        "input_span_s": 3.04,
+        "station_rates_hz": [
+          0.0,
+          17.238461249075286,
+          -11.6209070489527,
+          26.11175840573129,
+          8.08474223123241,
+          -0.39558536117242193,
+          1.7327351088210015,
+          -3.0537668282099264
+        ],
+        "seed": 111,
+        "fft_length": 8,
+        "useful_rf_channel_centers": 3,
+        "narrowband_phase_bound_rad": 0.0062428836257420696,
+        "sky_temporal_phase_bound_rad": 0.0019191137615900767,
+        "limits": "Continuous periodic colored Gaussian with midpoint sky covariance at center RF; supplied exact nominal clocks; fixed broadband station delay, piecewise RF geometry and constant LO rate; no real antenna or RFI"
+      },
+      "truth_used_by_estimator": false,
+      "science": {
+        "correlation_arrays": {
+          "visibilities": {
+            "dtype": "<c16",
+            "shape": [
+              1,
+              8,
+              28
+            ],
+            "sha256": "2d487ee5f15f81c0b4f8416505bda1d9b84332f1e0465c414c18f4160e204c0c"
+          },
+          "weights": {
+            "dtype": "<f8",
+            "shape": [
+              1,
+              8,
+              28
+            ],
+            "sha256": "3780f3e611870ae809d3a8b8a7e087cc09bb2a06975e5e6143e762a3cfa49e25"
+          },
+          "pairs": {
+            "dtype": "<i8",
+            "shape": [
+              28,
+              2
+            ],
+            "sha256": "77dd18378e5847909c18331ae810f09a80aea526095837fcbd06d04e0e91f707"
+          },
+          "times_s": {
+            "dtype": "<f8",
+            "shape": [
+              1
+            ],
+            "sha256": "a896d6e1626e211b79bcbaafdaa910873f3224893950e3a6bb87f2c331ff3926"
+          },
+          "frequencies_hz": {
+            "dtype": "<f8",
+            "shape": [
+              8
+            ],
+            "sha256": "d8fe4c24c5afc70fdab4102c5c2fb67d874b0964045bf92f5f2b1f3c44b45034"
+          },
+          "uvw_lambda": {
+            "dtype": "<f8",
+            "shape": [
+              1,
+              8,
+              28,
+              3
+            ],
+            "sha256": "b8dab2b536a56d691fc442f532cba4981a867c11191b26aa9e5b932a20369a1b"
+          },
+          "integration_s": {
+            "dtype": "<f8",
+            "shape": [
+              1,
+              28
+            ],
+            "sha256": "d453d79d97d74088b2ff1846059ab2462f98d27e9838812a542352eec3338521"
+          },
+          "valid_fft_count": {
+            "dtype": "<i8",
+            "shape": [
+              1,
+              28
+            ],
+            "sha256": "b18a15923f1667606f7a32840a92b7c2ee348bf633cdc587036baa6bf4bfebca"
+          },
+          "diagnostic_station_power": {
+            "dtype": "<f8",
+            "shape": [
+              1,
+              8,
+              8
+            ],
+            "sha256": "efe40f8a47550f9e1708458b545d03a73a49a9f63227a8900c94a2d44904bdcf"
+          },
+          "diagnostic_station_sk": {
+            "dtype": "<f8",
+            "shape": [
+              1,
+              8,
+              8
+            ],
+            "sha256": "74eab7da281332ebec2d56ef111d5e43a5d0657cdefb11af2c997aab319eecca"
+          },
+          "diagnostic_station_sk_eligible": {
+            "dtype": "|b1",
+            "shape": [
+              1,
+              8,
+              8
+            ],
+            "sha256": "7c8975e1e60a5c8337f28edf8c33c3b180360b7279644a9bc1af3c51e6220bf5"
+          },
+          "diagnostic_station_flags": {
+            "dtype": "|u1",
+            "shape": [
+              1,
+              8,
+              8
+            ],
+            "sha256": "a3d22d329d380e838ca4de9793830936350f5bf0ae74025d51bdfa4e3edcdf42"
+          },
+          "diagnostic_station_valid_fft_count": {
+            "dtype": "<i8",
+            "shape": [
+              1,
+              8
+            ],
+            "sha256": "50965f12f5fb7c57bf5cf324cf01a01b31c1b7df29642f99585ba755a563c1e7"
+          }
+        },
+        "closures": {
+          "phase_valid": 4,
+          "logamp_valid": 0,
+          "input_unit": "ADC^2",
+          "absolute_flux_available": false,
+          "absolute_centroid_available": false
+        },
+        "rml_failure_code": null,
+        "rml_summary": {
+          "objective": 5.530840009688053e-05,
+          "closure_chisq_per_measurement": 9.966184042970276e-10,
+          "data_loss": 4.983092021485138e-10,
+          "entropy_loss": 3.206921929700499e-05,
+          "tsv_loss": 5.240018260381821e-06,
+          "centroid_loss": 2.1603885531688535e-06,
+          "independent_closure_count": 4,
+          "independent_closure_counts": {
+            "phase": 4,
+            "logamp": 0
+          },
+          "centroid_arcsec": [
+            -0.2024571850463785,
+            -1.1725371339227753
+          ],
+          "parameter_sum_penalty": 1.5838275677122724e-05,
+          "selected_start": 0,
+          "runs": [
+            {
+              "objective": 5.530840009688053e-05,
+              "closure_chisq_per_measurement": 9.966184042970276e-10,
+              "data_loss": 4.983092021485138e-10,
+              "entropy_loss": 3.206921929700499e-05,
+              "tsv_loss": 5.240018260381821e-06,
+              "centroid_loss": 2.1603885531688535e-06,
+              "independent_closure_count": 4,
+              "independent_closure_counts": {
+                "phase": 4,
+                "logamp": 0
+              },
+              "centroid_arcsec": [
+                -0.2024571850463785,
+                -1.1725371339227753
+              ],
+              "parameter_sum_penalty": 1.5838275677122724e-05,
+              "start": 0,
+              "circular_warmup_iterations": 72,
+              "iterations": 55,
+              "optimizer_success": true,
+              "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH"
+            }
+          ],
+          "image_sum": 1.0000000000000002,
+          "output_unit": "relative flux/pixel",
+          "absolute_flux_measured": false,
+          "absolute_position_measured": false,
+          "amplitude_constraints_available": false,
+          "centroid_constraint": "Weak penalty around display center; actual centroid reported; not measured astrometry",
+          "settings": {
+            "pixels": 32,
+            "pixel_arcsec": 16.0,
+            "min_snr": 10.0,
+            "prior_fwhm_arcsec": 240.0,
+            "entropy": 0.01,
+            "tsv": 0.0001,
+            "centroid": 0.1,
+            "starts": 1,
+            "max_iterations": 2000,
+            "seed": 21
+          },
+          "noise_model": "Fixed observed high SNR independent-baseline covariance, full within each closure cell",
+          "likelihood_limit": "Wrapped local Gaussian phase residual; low SNR and phase branch boundaries excluded",
+          "input_unit": "ADC^2"
+        },
+        "assessment": {
+          "schema_version": 1,
+          "type": "image_path_assessment",
+          "processing_state": "complete",
+          "image_computed": true,
+          "numerical": {
+            "state": "converged",
+            "selected_start": 0,
+            "optimizer_success": true
+          },
+          "independent_constraints": {
+            "phase": 4,
+            "logamp": 0,
+            "total": 4
+          },
+          "reference_fidelity": {
+            "state": "evaluated",
+            "registered_nrmse": 0.21948282751204104,
+            "comparison_version": 2,
+            "common_beam_arcsec": 110.0,
+            "registered_flux_retained_fraction": 1.0000000000000004,
+            "registration_boundary_reached": false,
+            "declared_max_registered_nrmse": null,
+            "within_declared_limit": null
+          },
+          "recorded_issues": [
+            "no_logamp_constraints"
+          ],
+          "actual_observation_success_certified": false,
+          "low_snr_likelihood_validated": false,
+          "interpretation": "Diagnostic record only. Optimizer convergence and reference-image similarity are separate; missing amplitude constraints do not prove imaging impossible. No absolute flux or astrometry certified."
+        },
+        "reference_metrics": {
+          "raw_nrmse": 0.29245139665231895,
+          "registered_nrmse": 0.21948282751204104,
+          "registered_correlation": 0.9813687329666201,
+          "registration_shift_yx_arcsec": [
+            19.911748378146637,
+            -24.93961696811494
+          ],
+          "common_beam_arcsec": 110.0,
+          "comparison_version": 2,
+          "registration_method": "All bounded integer cells, bilinear subpixels, 9 deterministic coordinate starts per cell",
+          "registration_max_shift_pixels": 31,
+          "registration_boundary_reached": false,
+          "registration_diagnostics": {
+            "shift_yx_pixels": [
+              1.2444842736341648,
+              -1.5587260605071838
+            ],
+            "boundary_reached": false,
+            "grid_cells": 3844,
+            "multistarts_per_cell": 9,
+            "selected_coordinate_converged": true,
+            "selected_coordinate_iterations": 6,
+            "objective_identity_error": 5.285485590866834e-19
+          },
+          "comparison_padding_pixels": 45,
+          "registered_flux_retained_fraction": 1.0000000000000004,
+          "comparison": "Unit-flux gauge, Gaussian common beam, translation only over complete zero-extended support. No post-shift flux rescaling, cropped-error masking, rotation, Jy calibration or astrometry."
+        },
+        "recovered_npy_sha256": "30b8d64c0025894bd88da9de670f7c89c972ed235c743ae168f0cacde398323e"
+      }
+    },
+    {
+      "case": "seed111_t3",
+      "seed": 111,
+      "integration_s": 3.0,
+      "raw_directory": "outputs/stage112-source-study/seed-111/input",
+      "profile": "outputs/stage112-source-study/seed-111/pilot-750/pipeline/rate-only.json",
+      "input_sha256": {
+        "clock.json": "b4b914971335dd6e7962b9863313016bc7768d2c4bd4250fa0711cf9b7d23250",
+        "manifest.json": "b212a25663aa11c27659a652a0510e37a6242ca4221c5b5f839708128373c6e5",
+        "observation.json": "1f679866af9b526498141ec5a61867a97e5950f5f47c8d1609639c62ca75ca25",
+        "station-1.json": "8b147563b1ebbca2089ad37c928442ec6644c38c82b0d1bd959f61500fcb514c",
+        "station-1.vdif": "f911eca938d35a0fc31728efcf3a7b3bc1c2102f950eb92aaf0b9b46bb9b02db",
+        "station-2.json": "8ab50b10dac3f673ef51fe29c01deab2fb2e801925147159d85dc05d0c4097f4",
+        "station-2.vdif": "62f29dedb273e1f3bd3eedbc05887ad9e36c79214c7ccccbae11b38351bf924d",
+        "station-3.json": "c6783261ab3ae7799db21f847d682bc7c2c1e278344d191730263a990cb1556c",
+        "station-3.vdif": "26fad2432a36e040602a4c00f8e1e1623066225ea6b4e17372492e26215afb10",
+        "station-4.json": "c14a8eccaa23ce35ca3da9cbf5cf780f69be854840508cc9d686c206f4cc23cc",
+        "station-4.vdif": "64b594e7abdeb79b6a25427bd4d4fc9d61e770abdd2737cfcf6ef15fdc1b016c",
+        "station-5.json": "c607e993c3fd3d9ebc5cc0b2828fbf59b21a85876de1b28bb04fc7c9e3dd8d85",
+        "station-5.vdif": "b9a7cf6561f1fa5585c4206d28884e93c869072f222e071a264eaa48858d699b",
+        "station-6.json": "5775836fe2a48a12cb1b581507f3dab1e11380a755e1878bc0e819fb4d30c39b",
+        "station-6.vdif": "588adb8b738ffe23df0abb4a87e0aab2f0e5dfac3ecc3e5f3353021c01b85d2d",
+        "station-7.json": "b9697df59c2a51854c2e45d0e3ff0ee247035351c59c2c0e88c5fe3c26d682c3",
+        "station-7.vdif": "4d475e1fec540f3697b8ed5eb2fac089438fb48325e0f4c96c3924ea4a5da7da",
+        "station-8.json": "c599f7b0a5f8e246993e62d12da95f71a81aab215c742fdd580b473e54413209",
+        "station-8.vdif": "cfc66734755f25ad561b9197e23ec9f4b45c078056489ee09584c3910381caad"
+      },
+      "profile_sha256": "61e75e27d8c3159c65b6c8ab1483d573f8a63d25640c8eb11be9e441cff1b239",
+      "manifest": "outputs/stage113-source-study/seed111_t3/manifest.json",
+      "case_directory": "seed111_t3",
+      "generating": {
+        "model": "casa",
+        "assumed_flux_jy": 1000.0,
+        "assumed_sefd_jy": 10000.0,
+        "input_span_s": 3.04,
+        "station_rates_hz": [
+          0.0,
+          17.238461249075286,
+          -11.6209070489527,
+          26.11175840573129,
+          8.08474223123241,
+          -0.39558536117242193,
+          1.7327351088210015,
+          -3.0537668282099264
+        ],
+        "seed": 111,
+        "fft_length": 8,
+        "useful_rf_channel_centers": 3,
+        "narrowband_phase_bound_rad": 0.0062428836257420696,
+        "sky_temporal_phase_bound_rad": 0.0019191137615900767,
+        "limits": "Continuous periodic colored Gaussian with midpoint sky covariance at center RF; supplied exact nominal clocks; fixed broadband station delay, piecewise RF geometry and constant LO rate; no real antenna or RFI"
+      },
+      "truth_used_by_estimator": false,
+      "science": {
+        "correlation_arrays": {
+          "visibilities": {
+            "dtype": "<c16",
+            "shape": [
+              1,
+              8,
+              28
+            ],
+            "sha256": "46d857b1edace33c9296ae80acc1a819ab19550d7f11d44ff5291ca27487de6f"
+          },
+          "weights": {
+            "dtype": "<f8",
+            "shape": [
+              1,
+              8,
+              28
+            ],
+            "sha256": "394833a278049513b1d71d6890be56d01c0818da36fd497b7313f031bde4a13e"
+          },
+          "pairs": {
+            "dtype": "<i8",
+            "shape": [
+              28,
+              2
+            ],
+            "sha256": "77dd18378e5847909c18331ae810f09a80aea526095837fcbd06d04e0e91f707"
+          },
+          "times_s": {
+            "dtype": "<f8",
+            "shape": [
+              1
+            ],
+            "sha256": "4bb09284ad68b26990418df53377a27ee94cff69f831b42d86090ec5dd4f5f17"
+          },
+          "frequencies_hz": {
+            "dtype": "<f8",
+            "shape": [
+              8
+            ],
+            "sha256": "d8fe4c24c5afc70fdab4102c5c2fb67d874b0964045bf92f5f2b1f3c44b45034"
+          },
+          "uvw_lambda": {
+            "dtype": "<f8",
+            "shape": [
+              1,
+              8,
+              28,
+              3
+            ],
+            "sha256": "9d9d2db30c0361a1bc4b52d302726cdfbcd8fb5bde1d3b940d1c6b5ddb611718"
+          },
+          "integration_s": {
+            "dtype": "<f8",
+            "shape": [
+              1,
+              28
+            ],
+            "sha256": "b471685b865078f591aee9dedebfa5fcec4aa8ac68c15fd3bb23e010ddf25b3e"
+          },
+          "valid_fft_count": {
+            "dtype": "<i8",
+            "shape": [
+              1,
+              28
+            ],
+            "sha256": "6ded9f4ef74a6aa1611d0e43b981cd6dfbef4caa3154ef3e17468e676798fa4b"
+          },
+          "diagnostic_station_power": {
+            "dtype": "<f8",
+            "shape": [
+              1,
+              8,
+              8
+            ],
+            "sha256": "90160b5b329d89b4bec3bc97fd240b41849b76ce46da74bf9417ee42fc909a1e"
+          },
+          "diagnostic_station_sk": {
+            "dtype": "<f8",
+            "shape": [
+              1,
+              8,
+              8
+            ],
+            "sha256": "9f2f363f8e50555979cdabeea087b0c70f9f07dcab22ea93a98fe87972087227"
+          },
+          "diagnostic_station_sk_eligible": {
+            "dtype": "|b1",
+            "shape": [
+              1,
+              8,
+              8
+            ],
+            "sha256": "7c8975e1e60a5c8337f28edf8c33c3b180360b7279644a9bc1af3c51e6220bf5"
+          },
+          "diagnostic_station_flags": {
+            "dtype": "|u1",
+            "shape": [
+              1,
+              8,
+              8
+            ],
+            "sha256": "a3d22d329d380e838ca4de9793830936350f5bf0ae74025d51bdfa4e3edcdf42"
+          },
+          "diagnostic_station_valid_fft_count": {
+            "dtype": "<i8",
+            "shape": [
+              1,
+              8
+            ],
+            "sha256": "09b6e99c2580a83e67fdfd564d18d2c44a3f6c485436b9ce2de5cfb16f04ec51"
+          }
+        },
+        "closures": {
+          "phase_valid": 23,
+          "logamp_valid": 21,
+          "input_unit": "ADC^2",
+          "absolute_flux_available": false,
+          "absolute_centroid_available": false
+        },
+        "rml_failure_code": null,
+        "rml_summary": {
+          "objective": 0.16678329333422395,
+          "closure_chisq_per_measurement": 0.32445087145773044,
+          "data_loss": 0.16222543572886522,
+          "entropy_loss": 0.003584037708074519,
+          "tsv_loss": 8.38703107762254e-05,
+          "centroid_loss": 1.968195790338456e-05,
+          "independent_closure_count": 36,
+          "independent_closure_counts": {
+            "phase": 20,
+            "logamp": 16
+          },
+          "centroid_arcsec": [
+            1.9470157877880248,
+            -3.0179293321193392
+          ],
+          "parameter_sum_penalty": 0.0008702676286046055,
+          "selected_start": 0,
+          "runs": [
+            {
+              "objective": 0.16678329333422395,
+              "closure_chisq_per_measurement": 0.32445087145773044,
+              "data_loss": 0.16222543572886522,
+              "entropy_loss": 0.003584037708074519,
+              "tsv_loss": 8.38703107762254e-05,
+              "centroid_loss": 1.968195790338456e-05,
+              "independent_closure_count": 36,
+              "independent_closure_counts": {
+                "phase": 20,
+                "logamp": 16
+              },
+              "centroid_arcsec": [
+                1.9470157877880248,
+                -3.0179293321193392
+              ],
+              "parameter_sum_penalty": 0.0008702676286046055,
+              "start": 0,
+              "circular_warmup_iterations": 300,
+              "iterations": 2000,
+              "optimizer_success": false,
+              "optimizer_message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT"
+            }
+          ],
+          "image_sum": 1.0,
+          "output_unit": "relative flux/pixel",
+          "absolute_flux_measured": false,
+          "absolute_position_measured": false,
+          "amplitude_constraints_available": true,
+          "centroid_constraint": "Weak penalty around display center; actual centroid reported; not measured astrometry",
+          "settings": {
+            "pixels": 32,
+            "pixel_arcsec": 16.0,
+            "min_snr": 10.0,
+            "prior_fwhm_arcsec": 240.0,
+            "entropy": 0.01,
+            "tsv": 0.0001,
+            "centroid": 0.1,
+            "starts": 1,
+            "max_iterations": 2000,
+            "seed": 21
+          },
+          "noise_model": "Fixed observed high SNR independent-baseline covariance, full within each closure cell",
+          "likelihood_limit": "Wrapped local Gaussian phase residual; low SNR and phase branch boundaries excluded",
+          "input_unit": "ADC^2"
+        },
+        "assessment": {
+          "schema_version": 1,
+          "type": "image_path_assessment",
+          "processing_state": "complete",
+          "image_computed": true,
+          "numerical": {
+            "state": "not_converged",
+            "selected_start": 0,
+            "optimizer_success": false
+          },
+          "independent_constraints": {
+            "phase": 20,
+            "logamp": 16,
+            "total": 36
+          },
+          "reference_fidelity": {
+            "state": "evaluated",
+            "registered_nrmse": 0.3578047753236841,
+            "comparison_version": 2,
+            "common_beam_arcsec": 110.0,
+            "registered_flux_retained_fraction": 1.0,
+            "registration_boundary_reached": false,
+            "declared_max_registered_nrmse": null,
+            "within_declared_limit": null
+          },
+          "recorded_issues": [
+            "optimizer_not_converged"
+          ],
+          "actual_observation_success_certified": false,
+          "low_snr_likelihood_validated": false,
+          "interpretation": "Diagnostic record only. Optimizer convergence and reference-image similarity are separate; missing amplitude constraints do not prove imaging impossible. No absolute flux or astrometry certified."
+        },
+        "reference_metrics": {
+          "raw_nrmse": 0.38018523864647863,
+          "registered_nrmse": 0.3578047753236841,
+          "registered_correlation": 0.9515093074092699,
+          "registration_shift_yx_arcsec": [
+            16.0,
+            -16.0
+          ],
+          "common_beam_arcsec": 110.0,
+          "comparison_version": 2,
+          "registration_method": "All bounded integer cells, bilinear subpixels, 9 deterministic coordinate starts per cell",
+          "registration_max_shift_pixels": 31,
+          "registration_boundary_reached": false,
+          "registration_diagnostics": {
+            "shift_yx_pixels": [
+              1.0,
+              -1.0
+            ],
+            "boundary_reached": false,
+            "grid_cells": 3844,
+            "multistarts_per_cell": 9,
+            "selected_coordinate_converged": true,
+            "selected_coordinate_iterations": 6,
+            "objective_identity_error": 7.589415207398531e-19
+          },
+          "comparison_padding_pixels": 45,
+          "registered_flux_retained_fraction": 1.0,
+          "comparison": "Unit-flux gauge, Gaussian common beam, translation only over complete zero-extended support. No post-shift flux rescaling, cropped-error masking, rotation, Jy calibration or astrometry."
+        },
+        "recovered_npy_sha256": "2fae4f81a251826e90eb3e6510e035abdc0b375efc9346e5a5029cfc3afd2cdc"
+      }
+    }
+  ],
+  "truth_npy_sha256": "9189445bdd1552a2ca885a019662b5d5158f44a1cf2101a1a6b626716c2e07f8",
+  "all_generated_truth_arrays_identical_to_seed109_saved_array": true,
+  "limits": "Fixed simulated 3.04s inputs, same three-second acquired rate profile per seed. Final durations overlap, not independent replicates. Exact supplied sample clocks/scales, constant gains and LO, snapshot uv only, high-SNR likelihood unchanged. Truth only used after estimation. No real observation, low-SNR likelihood, absolute flux/astrometry or global optimizer guarantee.",
+  "public_paths_generalized": true
+}

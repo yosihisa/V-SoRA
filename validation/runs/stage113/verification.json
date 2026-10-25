@@ -1,0 +1,51 @@
+{
+  "stage": 113,
+  "state": "complete",
+  "base_commit": "3f281d81afbef754c80dabf8e9cddb7bec3cc5d4",
+  "fixed_seeds": [
+    109,
+    110,
+    111
+  ],
+  "integrations_s": [
+    0.3,
+    1.0,
+    3.0
+  ],
+  "source_actual_correlations": 9,
+  "installed_actual_native_correlations": 9,
+  "source_and_installed_rml_attempts_each": 9,
+  "rml_images_each": 6,
+  "no_high_snr_closure_cases_each": 3,
+  "converged_images": 5,
+  "non_converged_images": 1,
+  "all_six_image_errors_larger_than_fixed_prior": true,
+  "fixed_prior_registered_nrmse": 0.21887272354019244,
+  "correlation_arrays_identical": 117,
+  "image_arrays_identical": 6,
+  "all_scientific_json_and_full_metrics_identical": true,
+  "all_input_and_profile_sha_unchanged": true,
+  "recomputed_t03_arrays_identical_to_stage112": true,
+  "targeted_tests": 57,
+  "targeted_warnings": 2280,
+  "targeted_elapsed_s": 27.38,
+  "new_tests": 0,
+  "full_regressions_rerun": false,
+  "full_regression_reference_stage": 111,
+  "wheel_rebuilt_or_reinstalled": false,
+  "installed_wheel_reference_stage": 111,
+  "installed_source_wheel_identical_package_files": 100,
+  "pip_check_success": true,
+  "frozen_files": 377,
+  "all_frozen_sha_unchanged": true,
+  "non_stage_tracked_files": 1168,
+  "all_non_stage_tracked_sha_unchanged": true,
+  "public_absolute_paths_generalized": true,
+  "figure_metadata_removed": true,
+  "new_gui_browser_or_real_observation_validation": false,
+  "public_audit_findings": 0,
+  "documentation_links": {
+    "checked": 1468,
+    "missing": 0
+  }
+}

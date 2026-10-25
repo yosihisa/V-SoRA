@@ -1,0 +1,83 @@
+{
+  "state": "complete",
+  "cases": [
+    {
+      "case": "seed109_t0.3",
+      "all_scientific_json_identical": true,
+      "rml_failure_code": "no_high_snr_independent_closures"
+    },
+    {
+      "case": "seed109_t1",
+      "all_scientific_json_identical": true,
+      "rml_failure_code": null
+    },
+    {
+      "case": "seed109_t3",
+      "all_scientific_json_identical": true,
+      "rml_failure_code": null
+    },
+    {
+      "case": "seed110_t0.3",
+      "all_scientific_json_identical": true,
+      "rml_failure_code": "no_high_snr_independent_closures"
+    },
+    {
+      "case": "seed110_t1",
+      "all_scientific_json_identical": true,
+      "rml_failure_code": null
+    },
+    {
+      "case": "seed110_t3",
+      "all_scientific_json_identical": true,
+      "rml_failure_code": null
+    },
+    {
+      "case": "seed111_t0.3",
+      "all_scientific_json_identical": true,
+      "rml_failure_code": "no_high_snr_independent_closures"
+    },
+    {
+      "case": "seed111_t1",
+      "all_scientific_json_identical": true,
+      "rml_failure_code": null
+    },
+    {
+      "case": "seed111_t3",
+      "all_scientific_json_identical": true,
+      "rml_failure_code": null
+    }
+  ],
+  "actual_native_correlation_runs": 9,
+  "actual_native_rml_attempts": 9,
+  "correlation_arrays_compared": 117,
+  "recovered_image_arrays_identical": 6,
+  "all_scientific_json_and_reference_metrics_identical": true,
+  "fixed_prior_array_and_metrics_verified": true,
+  "all_input_and_profile_sha_unchanged": true,
+  "non_overwrite_and_bytes_preserved": true,
+  "outside_checkout": true,
+  "runner_absent": true,
+  "pythonpath_absent": true,
+  "project_modules": [
+    "vsora_formats",
+    "vsora_formats.fitsidi",
+    "vsora_formats.spectral",
+    "vsora_formats.visibility",
+    "vsora_imaging",
+    "vsora_imaging.assessment",
+    "vsora_imaging.closure",
+    "vsora_imaging.experiment",
+    "vsora_imaging.registration",
+    "vsora_imaging.rml",
+    "vsora_observation",
+    "vsora_observation.config",
+    "vsora_observation.geometry",
+    "vsora_observation.reference",
+    "vsora_simulator",
+    "vsora_simulator.sky",
+    "vsora_simulator.visibility"
+  ],
+  "all_project_modules_in_prefix": true,
+  "reference_asset_in_prefix": true,
+  "comparison_scope": "All correlation and image arrays, settings/counts/objective/convergence and full reference metrics; RML elapsed seconds and input archive digests excluded from science equality. Native branches retain their own provenance."
+}
