@@ -1,0 +1,69 @@
+{
+  "state": "complete",
+  "kind": "baseline_goal_review_and_policy",
+  "date_jst": "2026-10-26",
+  "base_commit": "a91ff24ac47e47d2eab66b9af11552f410d967b1",
+  "deadline_jst": "2026-11-06T15:00:00+09:00",
+  "stage_number_basis": true,
+  "documentation_interval": 10,
+  "fundamental_review_interval": 50,
+  "baseline_review_stage": 108,
+  "next_documentation_stage": 110,
+  "next_fundamental_review_stage": 150,
+  "schedule_active_verified": true,
+  "scheduled_occurrences": 272,
+  "schedule_last_jst": "2026-11-06T15:00:00+09:00",
+  "reviewed_evidence_sha256": {
+    "apps/imaging/src/vsora_imaging/rml.py": "3a160002c7709df3934d58edd8349eb98a6800161c080f970e91af5756d82936",
+    "apps/correlator/src/vsora_correlator/closure_pipeline.py": "9bf6d6878d9cfe46ff3cabb0f23478de768a1edc7e3749b5d7580e30dcb1e385",
+    "workflows/vdif_synthesis_validation.py": "3c2433a90b2079a1fee426ea5a0aa361d6ddfbba541c609017a7fd206111a65e",
+    "validation/runs/stage024/summary.json": "e07908d7837d484dfb5193d89d9e7b5c2d6cac046231da2dad4dba7bc585cb23",
+    "validation/runs/stage028/summary.json": "3d996137e13bd9e69a1689d20eebb2173e326bc8f20cdb3e0cf648385ec0f564",
+    "validation/runs/stage030/summary.json": "b5a535bc4f514d1121c58b53c3b84d89832f03648a5704696a170b014e04a03b",
+    "validation/runs/stage107/verification.json": "0828f1bdf2539a6070c3ae25347cce3af7555fd64c43a729dc31b641c5d5f763"
+  },
+  "untouched_tracked_file_count": 1133,
+  "all_non_target_tracked_file_bytes_unchanged": true,
+  "source_tests_tools_changed": false,
+  "new_scientific_tests_executed": false,
+  "new_browser_tests_executed": false,
+  "regression_reference_stage": 107,
+  "regression_reference_as_of": "2026-10-24",
+  "regression_reference": {
+    "source": {
+      "passed": 1931,
+      "warnings": 27396,
+      "elapsed_s": 586.51,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 1931,
+      "warnings": 27396,
+      "elapsed_s": 587.09,
+      "excluded_tests": 0
+    }
+  },
+  "decisions": {
+    "next_priority": "main_image_path_acceptance_and_bottleneck_benchmark",
+    "threshold_gui_draft": "preserved_and_deferred_not_formally_applied",
+    "statistics_extensions": "require_named_main_path_requirement",
+    "real_CasA_image_reconstructed": false,
+    "low_snr_image_likelihood_completed": false,
+    "windows_capture_in_scope": false
+  },
+  "next_stage_candidates": [
+    109,
+    110,
+    111,
+    112,
+    113,
+    114,
+    115
+  ],
+  "candidate_order_updated_after109": true,
+  "public_audit_findings": 0,
+  "documentation_links": {
+    "checked": 1393,
+    "missing": 0
+  }
+}
