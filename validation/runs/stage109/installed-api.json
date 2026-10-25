@@ -1,0 +1,20 @@
+{
+  "state": "complete",
+  "pipeline_api_and_cli_whole_json_identical": [
+    "sefd1000_t0.3",
+    "sefd1000_t1",
+    "sefd10000_t0.3",
+    "sefd10000_t1"
+  ],
+  "direct_rml_api_conditions": 2,
+  "project_modules": [
+    "vsora_imaging",
+    "vsora_imaging.assessment"
+  ],
+  "all_project_modules_in_prefix": true,
+  "outside_checkout": true,
+  "runner_absent": true,
+  "pythonpath_absent": true,
+  "non_overwrite_verified_for_every_case": true,
+  "scope": "Re-assessment of frozen source-generated pipeline outputs. VDIF correlation/RML not re-executed by this verifier; both full regressions cover existing algorithms."
+}

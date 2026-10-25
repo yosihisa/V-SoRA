@@ -1,0 +1,50 @@
+{
+  "stage": 109,
+  "state": "complete",
+  "base_commit": "2ea5c9dffa31ca8c778b7ed8a6999a5c980dc829",
+  "targeted_tests": 54,
+  "targeted_elapsed_s": 0.93,
+  "regressions": {
+    "source": {
+      "passed": 1985,
+      "warnings": 27396,
+      "elapsed_s": 601.03,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 1985,
+      "warnings": 27396,
+      "elapsed_s": 601.03,
+      "excluded_tests": 0
+    }
+  },
+  "fixed_vdif_cases": 4,
+  "high_sensitivity_not_converged": 2,
+  "weak_rate_graph_disconnected": 2,
+  "input_reuse_sha_verified": true,
+  "known_truth_not_supplied_to_inference": true,
+  "frozen_files": 369,
+  "all_frozen_sha_unchanged": true,
+  "all_non_stage_tracked_sha_unchanged": true,
+  "non_stage_tracked_files": 1137,
+  "wheel_package_files": 99,
+  "all_wheel_package_and_reference_bytes_match_source": true,
+  "wheel_sha256": "448134b67c05fb6e56dc76a783de6fa305cdfc212209a241271e332715ee5e0a",
+  "pip_check_success": true,
+  "python": "3.12.3",
+  "dependencies": {
+    "numpy": "2.5.1",
+    "scipy": "1.18.0",
+    "astropy": "7.2.2",
+    "matplotlib": "3.11.1",
+    "pytest": "8.4.2",
+    "baseband": "4.3.0"
+  },
+  "public_audit_findings": 0,
+  "documentation_links": {
+    "checked": 1408,
+    "missing": 0
+  },
+  "browser_rerun": false,
+  "gpu_or_real_observation_validated": false
+}

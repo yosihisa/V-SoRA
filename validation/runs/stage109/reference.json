@@ -1,0 +1,442 @@
+{
+  "type": "fixed_vdif_image_path_acceptance",
+  "seed": 109,
+  "rows": [
+    {
+      "case": "sefd1000_t0.3",
+      "assumed_sefd_jy": 1000.0,
+      "integration_s": 0.3,
+      "generating": {
+        "model": "casa",
+        "assumed_flux_jy": 1000.0,
+        "assumed_sefd_jy": 1000.0,
+        "input_span_s": 1.04,
+        "station_rates_hz": [
+          0.0,
+          17.273925448779842,
+          -11.667944604255585,
+          26.159785438351012,
+          8.221161887276025,
+          -0.2790577553106474,
+          1.836395247243327,
+          -3.1099447251631838
+        ],
+        "seed": 109,
+        "fft_length": 8,
+        "useful_rf_channel_centers": 3,
+        "narrowband_phase_bound_rad": 0.0062428836257413306,
+        "sky_temporal_phase_bound_rad": 0.0006565389184386327,
+        "limits": "Continuous periodic colored Gaussian with midpoint sky covariance at center RF; supplied exact nominal clocks; fixed broadband station delay, piecewise RF geometry and constant LO rate; no real antenna or RFI",
+        "truth_used_by_estimator": false
+      },
+      "input_sha256": {
+        "clock.json": "b4b914971335dd6e7962b9863313016bc7768d2c4bd4250fa0711cf9b7d23250",
+        "manifest.json": "5049c0dedcacfd2d836feed33610f4cbd4c488b46c57ba83e813110c8dd40970",
+        "observation.json": "55404f031ad41dafabb71abd485abba9914b368c1d0ff58dc012a849c4071b74",
+        "station-1.json": "abc4d422f09b590bef834f8ee7e2878e483558a837c5553424cbe4b135ec70bc",
+        "station-1.vdif": "aae851861f978a218604509e3b727077e7d8f5045f66c9e1b21abbe7dc1d4f7c",
+        "station-2.json": "a02b7d278776b1aa14f3f60b4c517b308f5bb685807168c7c20616b3f8209af7",
+        "station-2.vdif": "0447b00eccb5d45c855224988d9ebb8c966efccf353c14fdbfd9176bd34aca43",
+        "station-3.json": "fb3bcd428e00af717fb5552562e29bc836b93f7f29814190ee4caaafc81159d1",
+        "station-3.vdif": "f1adea57bdc708ebebdee205f2a85180b7a4d724b7c87cb65301d1fe30449fd1",
+        "station-4.json": "383bd892cc85beefaa04866b2ca5e3b29a87289d82d808fa838c3e2be40d827f",
+        "station-4.vdif": "36d2da2f034daacf7e59485c1f15a77a26358d9d7538278591e9150f05de5127",
+        "station-5.json": "60da1f3fb616c6e445b8e55cb639ab7d9060797b134b7f15d5417f2a698f11bb",
+        "station-5.vdif": "6bd9f1dd53b385a53234da8a2d93b656be2701423ec3580b12b2c7112a2b2c94",
+        "station-6.json": "f4ef70a9e8b9f783215d6b9147af7e1fa9ee6872bd9cccd62e53614f256845f8",
+        "station-6.vdif": "52d338943ab3d59ab356fd3f6421a03df5d45c4eb36a204055f67b8f5dc5b791",
+        "station-7.json": "fa1fcdfb49d0e38d7665a5d1c1508623a599a2c3943cf415cbe7545d79c702f9",
+        "station-7.vdif": "deb46cbdf6e22c147f9c4e6f9c108386677bf39d8af95621c2d7016b6e2fe623",
+        "station-8.json": "c6afb6375e6cf3ead35c86b54cb21f26151e714822a295dd2552e089f3b359b5",
+        "station-8.vdif": "a337e5c88543de35779916bc8f7dcb8d4d5e706f03ff9690a4b12b9f5c8c34df"
+      },
+      "truth_sha256": "9189445bdd1552a2ca885a019662b5d5158f44a1cf2101a1a6b626716c2e07f8",
+      "maximum_station_rate_error_hz": 0.008251777922804404,
+      "scientific_failure_code": null,
+      "assessment": {
+        "schema_version": 1,
+        "type": "image_path_assessment",
+        "processing_state": "complete",
+        "image_computed": true,
+        "numerical": {
+          "state": "not_converged",
+          "selected_start": 0,
+          "optimizer_success": false
+        },
+        "independent_constraints": {
+          "phase": 39,
+          "logamp": 36,
+          "total": 75
+        },
+        "reference_fidelity": {
+          "state": "evaluated",
+          "registered_nrmse": 0.3550396223623088,
+          "comparison_version": 2,
+          "common_beam_arcsec": 110.0,
+          "registered_flux_retained_fraction": 0.9999999999999998,
+          "registration_boundary_reached": false,
+          "declared_max_registered_nrmse": null,
+          "within_declared_limit": null
+        },
+        "recorded_issues": [
+          "optimizer_not_converged"
+        ],
+        "actual_observation_success_certified": false,
+        "low_snr_likelihood_validated": false,
+        "interpretation": "Diagnostic record only. Optimizer convergence and reference-image similarity are separate; missing amplitude constraints do not prove imaging impossible. No absolute flux or astrometry certified.",
+        "completed_steps": [
+          "aligned_pilot",
+          "model_free_rate",
+          "rate_corrected_short_correlation",
+          "closure_extraction",
+          "relative_rml"
+        ],
+        "extracted_closures": {
+          "phase_valid": 63,
+          "logamp_valid": 89
+        }
+      },
+      "reference_metrics": {
+        "raw_nrmse": 0.4132707045762827,
+        "registered_nrmse": 0.3550396223623088,
+        "registered_correlation": 0.9533580265153562,
+        "registration_shift_yx_arcsec": [
+          32.91649498421927,
+          -20.34563014159375
+        ],
+        "common_beam_arcsec": 110.0,
+        "comparison_version": 2,
+        "registration_method": "All bounded integer cells, bilinear subpixels, 9 deterministic coordinate starts per cell",
+        "registration_max_shift_pixels": 31,
+        "registration_boundary_reached": false,
+        "registration_diagnostics": {
+          "shift_yx_pixels": [
+            2.0572809365137044,
+            -1.2716018838496095
+          ],
+          "boundary_reached": false,
+          "grid_cells": 3844,
+          "multistarts_per_cell": 9,
+          "selected_coordinate_converged": true,
+          "selected_coordinate_iterations": 6,
+          "objective_identity_error": 3.7947076036992655e-19
+        },
+        "comparison_padding_pixels": 45,
+        "registered_flux_retained_fraction": 0.9999999999999998,
+        "comparison": "Unit-flux gauge, Gaussian common beam, translation only over complete zero-extended support. No post-shift flux rescaling, cropped-error masking, rotation, Jy calibration or astrometry."
+      },
+      "case_directory": "sefd-1000/integration-0.3",
+      "elapsed_s": 24.241911596000136
+    },
+    {
+      "case": "sefd1000_t1",
+      "assumed_sefd_jy": 1000.0,
+      "integration_s": 1.0,
+      "generating": {
+        "model": "casa",
+        "assumed_flux_jy": 1000.0,
+        "assumed_sefd_jy": 1000.0,
+        "input_span_s": 1.04,
+        "station_rates_hz": [
+          0.0,
+          17.273925448779842,
+          -11.667944604255585,
+          26.159785438351012,
+          8.221161887276025,
+          -0.2790577553106474,
+          1.836395247243327,
+          -3.1099447251631838
+        ],
+        "seed": 109,
+        "fft_length": 8,
+        "useful_rf_channel_centers": 3,
+        "narrowband_phase_bound_rad": 0.0062428836257413306,
+        "sky_temporal_phase_bound_rad": 0.0006565389184386327,
+        "limits": "Continuous periodic colored Gaussian with midpoint sky covariance at center RF; supplied exact nominal clocks; fixed broadband station delay, piecewise RF geometry and constant LO rate; no real antenna or RFI",
+        "truth_used_by_estimator": false
+      },
+      "input_sha256": {
+        "clock.json": "b4b914971335dd6e7962b9863313016bc7768d2c4bd4250fa0711cf9b7d23250",
+        "manifest.json": "5049c0dedcacfd2d836feed33610f4cbd4c488b46c57ba83e813110c8dd40970",
+        "observation.json": "55404f031ad41dafabb71abd485abba9914b368c1d0ff58dc012a849c4071b74",
+        "station-1.json": "abc4d422f09b590bef834f8ee7e2878e483558a837c5553424cbe4b135ec70bc",
+        "station-1.vdif": "aae851861f978a218604509e3b727077e7d8f5045f66c9e1b21abbe7dc1d4f7c",
+        "station-2.json": "a02b7d278776b1aa14f3f60b4c517b308f5bb685807168c7c20616b3f8209af7",
+        "station-2.vdif": "0447b00eccb5d45c855224988d9ebb8c966efccf353c14fdbfd9176bd34aca43",
+        "station-3.json": "fb3bcd428e00af717fb5552562e29bc836b93f7f29814190ee4caaafc81159d1",
+        "station-3.vdif": "f1adea57bdc708ebebdee205f2a85180b7a4d724b7c87cb65301d1fe30449fd1",
+        "station-4.json": "383bd892cc85beefaa04866b2ca5e3b29a87289d82d808fa838c3e2be40d827f",
+        "station-4.vdif": "36d2da2f034daacf7e59485c1f15a77a26358d9d7538278591e9150f05de5127",
+        "station-5.json": "60da1f3fb616c6e445b8e55cb639ab7d9060797b134b7f15d5417f2a698f11bb",
+        "station-5.vdif": "6bd9f1dd53b385a53234da8a2d93b656be2701423ec3580b12b2c7112a2b2c94",
+        "station-6.json": "f4ef70a9e8b9f783215d6b9147af7e1fa9ee6872bd9cccd62e53614f256845f8",
+        "station-6.vdif": "52d338943ab3d59ab356fd3f6421a03df5d45c4eb36a204055f67b8f5dc5b791",
+        "station-7.json": "fa1fcdfb49d0e38d7665a5d1c1508623a599a2c3943cf415cbe7545d79c702f9",
+        "station-7.vdif": "deb46cbdf6e22c147f9c4e6f9c108386677bf39d8af95621c2d7016b6e2fe623",
+        "station-8.json": "c6afb6375e6cf3ead35c86b54cb21f26151e714822a295dd2552e089f3b359b5",
+        "station-8.vdif": "a337e5c88543de35779916bc8f7dcb8d4d5e706f03ff9690a4b12b9f5c8c34df"
+      },
+      "truth_sha256": "9189445bdd1552a2ca885a019662b5d5158f44a1cf2101a1a6b626716c2e07f8",
+      "maximum_station_rate_error_hz": 0.008251777922804404,
+      "scientific_failure_code": null,
+      "assessment": {
+        "schema_version": 1,
+        "type": "image_path_assessment",
+        "processing_state": "complete",
+        "image_computed": true,
+        "numerical": {
+          "state": "not_converged",
+          "selected_start": 0,
+          "optimizer_success": false
+        },
+        "independent_constraints": {
+          "phase": 55,
+          "logamp": 52,
+          "total": 107
+        },
+        "reference_fidelity": {
+          "state": "evaluated",
+          "registered_nrmse": 0.31081474145101945,
+          "comparison_version": 2,
+          "common_beam_arcsec": 110.0,
+          "registered_flux_retained_fraction": 1.0,
+          "registration_boundary_reached": false,
+          "declared_max_registered_nrmse": null,
+          "within_declared_limit": null
+        },
+        "recorded_issues": [
+          "optimizer_not_converged"
+        ],
+        "actual_observation_success_certified": false,
+        "low_snr_likelihood_validated": false,
+        "interpretation": "Diagnostic record only. Optimizer convergence and reference-image similarity are separate; missing amplitude constraints do not prove imaging impossible. No absolute flux or astrometry certified.",
+        "completed_steps": [
+          "aligned_pilot",
+          "model_free_rate",
+          "rate_corrected_short_correlation",
+          "closure_extraction",
+          "relative_rml"
+        ],
+        "extracted_closures": {
+          "phase_valid": 123,
+          "logamp_valid": 266
+        }
+      },
+      "reference_metrics": {
+        "raw_nrmse": 0.3804486716020792,
+        "registered_nrmse": 0.31081474145101945,
+        "registered_correlation": 0.9652794000231791,
+        "registration_shift_yx_arcsec": [
+          33.968406250112395,
+          -19.740893310388607
+        ],
+        "common_beam_arcsec": 110.0,
+        "comparison_version": 2,
+        "registration_method": "All bounded integer cells, bilinear subpixels, 9 deterministic coordinate starts per cell",
+        "registration_max_shift_pixels": 31,
+        "registration_boundary_reached": false,
+        "registration_diagnostics": {
+          "shift_yx_pixels": [
+            2.1230253906320247,
+            -1.233805831899288
+          ],
+          "boundary_reached": false,
+          "grid_cells": 3844,
+          "multistarts_per_cell": 9,
+          "selected_coordinate_converged": true,
+          "selected_coordinate_iterations": 6,
+          "objective_identity_error": 9.486769009248164e-19
+        },
+        "comparison_padding_pixels": 45,
+        "registered_flux_retained_fraction": 1.0,
+        "comparison": "Unit-flux gauge, Gaussian common beam, translation only over complete zero-extended support. No post-shift flux rescaling, cropped-error masking, rotation, Jy calibration or astrometry."
+      },
+      "case_directory": "sefd-1000/integration-1",
+      "elapsed_s": 36.672100409999985
+    },
+    {
+      "case": "sefd10000_t0.3",
+      "assumed_sefd_jy": 10000.0,
+      "integration_s": 0.3,
+      "generating": {
+        "model": "casa",
+        "assumed_flux_jy": 1000.0,
+        "assumed_sefd_jy": 10000.0,
+        "input_span_s": 1.04,
+        "station_rates_hz": [
+          0.0,
+          17.273925448779842,
+          -11.667944604255585,
+          26.159785438351012,
+          8.221161887276025,
+          -0.2790577553106474,
+          1.836395247243327,
+          -3.1099447251631838
+        ],
+        "seed": 109,
+        "fft_length": 8,
+        "useful_rf_channel_centers": 3,
+        "narrowband_phase_bound_rad": 0.0062428836257413306,
+        "sky_temporal_phase_bound_rad": 0.0006565389184386327,
+        "limits": "Continuous periodic colored Gaussian with midpoint sky covariance at center RF; supplied exact nominal clocks; fixed broadband station delay, piecewise RF geometry and constant LO rate; no real antenna or RFI",
+        "truth_used_by_estimator": false
+      },
+      "input_sha256": {
+        "clock.json": "b4b914971335dd6e7962b9863313016bc7768d2c4bd4250fa0711cf9b7d23250",
+        "manifest.json": "a3d17398d8c87b60b84ad55bb37c940e9988ee5f09b8f1142550f6c1b270015b",
+        "observation.json": "98acc59dba2f7d79b6a1ac62812cf60de9e3f14a0615eb08cb66d8b06fe0e246",
+        "station-1.json": "cc0c00ed61a9e449144ff6d535cbb7871d76b73e2709b95bb3529ad65614a97c",
+        "station-1.vdif": "aae851861f978a218604509e3b727077e7d8f5045f66c9e1b21abbe7dc1d4f7c",
+        "station-2.json": "c072e55e93d63b56b29d19bb372e711bed67ceb1bbe42137610e60c582b85749",
+        "station-2.vdif": "d03789ca957e3677e45a7ffa68f210887cec3b2e9b0d3048a5d049953e10e19d",
+        "station-3.json": "22f55c33413158ed2a165c066ecd9331e693b3327526200ca6623de88cc05b0a",
+        "station-3.vdif": "459ebc0138a135057a107c5e686ea8620a9ec34e5b73d173b283815420b34cab",
+        "station-4.json": "e99a67e5a89c027ab3ed704b2361ffe876e70b74b96dffa694a1ee20169a25cd",
+        "station-4.vdif": "30c4fccd2ad38fef572686c30e3aa019f9e6edc3965eafaf040f214432789f7e",
+        "station-5.json": "64b6b2477faa3396693de13436c9f9d2186ab0ff5af064763931ff393f404e3a",
+        "station-5.vdif": "4928d470ee8c9909807b653e52a472cd999dfee5b94bacee10dcc84189ce613d",
+        "station-6.json": "42c7cc0673e1599d7bf5167341d576e2b77c01be3ce64b2bd2742d4cc1c0d203",
+        "station-6.vdif": "31bbe6c06a2a0ed15d1823e3194fb21e045dbfd580e631ef5bc54916b3a4dbbb",
+        "station-7.json": "01cca1e89092f6c6c31c5b3410d1e72daacad7ae4f5e3af86218872eadcb4207",
+        "station-7.vdif": "18d17bda2b2e685da3c6af1ef44592a752c37f47bc087688d5f7edf8aaba2207",
+        "station-8.json": "bbe09ff39ab8b27408b06997a32ce9a50b792e3fd5f016868f0f862fdff48099",
+        "station-8.vdif": "fbee6b572afc9304792c52428d8c876a3bf632cdb9f6e0ddda75eda62342a011"
+      },
+      "truth_sha256": "9189445bdd1552a2ca885a019662b5d5158f44a1cf2101a1a6b626716c2e07f8",
+      "maximum_station_rate_error_hz": null,
+      "scientific_failure_code": "rate_graph_disconnected",
+      "assessment": {
+        "schema_version": 1,
+        "type": "image_path_assessment",
+        "processing_state": "incomplete",
+        "image_computed": false,
+        "numerical": {
+          "state": "not_run",
+          "selected_start": null,
+          "optimizer_success": null
+        },
+        "independent_constraints": {
+          "phase": null,
+          "logamp": null,
+          "total": null
+        },
+        "reference_fidelity": {
+          "state": "not_evaluated",
+          "registered_nrmse": null,
+          "declared_max_registered_nrmse": null,
+          "within_declared_limit": null
+        },
+        "recorded_issues": [
+          "processing_not_complete",
+          "image_not_run"
+        ],
+        "actual_observation_success_certified": false,
+        "low_snr_likelihood_validated": false,
+        "interpretation": "Diagnostic record only. Optimizer convergence and reference-image similarity are separate; missing amplitude constraints do not prove imaging impossible. No absolute flux or astrometry certified.",
+        "completed_steps": [
+          "aligned_pilot"
+        ],
+        "extracted_closures": null
+      },
+      "reference_metrics": null,
+      "case_directory": "sefd-10000/integration-0.3",
+      "elapsed_s": 18.033935692999876
+    },
+    {
+      "case": "sefd10000_t1",
+      "assumed_sefd_jy": 10000.0,
+      "integration_s": 1.0,
+      "generating": {
+        "model": "casa",
+        "assumed_flux_jy": 1000.0,
+        "assumed_sefd_jy": 10000.0,
+        "input_span_s": 1.04,
+        "station_rates_hz": [
+          0.0,
+          17.273925448779842,
+          -11.667944604255585,
+          26.159785438351012,
+          8.221161887276025,
+          -0.2790577553106474,
+          1.836395247243327,
+          -3.1099447251631838
+        ],
+        "seed": 109,
+        "fft_length": 8,
+        "useful_rf_channel_centers": 3,
+        "narrowband_phase_bound_rad": 0.0062428836257413306,
+        "sky_temporal_phase_bound_rad": 0.0006565389184386327,
+        "limits": "Continuous periodic colored Gaussian with midpoint sky covariance at center RF; supplied exact nominal clocks; fixed broadband station delay, piecewise RF geometry and constant LO rate; no real antenna or RFI",
+        "truth_used_by_estimator": false
+      },
+      "input_sha256": {
+        "clock.json": "b4b914971335dd6e7962b9863313016bc7768d2c4bd4250fa0711cf9b7d23250",
+        "manifest.json": "a3d17398d8c87b60b84ad55bb37c940e9988ee5f09b8f1142550f6c1b270015b",
+        "observation.json": "98acc59dba2f7d79b6a1ac62812cf60de9e3f14a0615eb08cb66d8b06fe0e246",
+        "station-1.json": "cc0c00ed61a9e449144ff6d535cbb7871d76b73e2709b95bb3529ad65614a97c",
+        "station-1.vdif": "aae851861f978a218604509e3b727077e7d8f5045f66c9e1b21abbe7dc1d4f7c",
+        "station-2.json": "c072e55e93d63b56b29d19bb372e711bed67ceb1bbe42137610e60c582b85749",
+        "station-2.vdif": "d03789ca957e3677e45a7ffa68f210887cec3b2e9b0d3048a5d049953e10e19d",
+        "station-3.json": "22f55c33413158ed2a165c066ecd9331e693b3327526200ca6623de88cc05b0a",
+        "station-3.vdif": "459ebc0138a135057a107c5e686ea8620a9ec34e5b73d173b283815420b34cab",
+        "station-4.json": "e99a67e5a89c027ab3ed704b2361ffe876e70b74b96dffa694a1ee20169a25cd",
+        "station-4.vdif": "30c4fccd2ad38fef572686c30e3aa019f9e6edc3965eafaf040f214432789f7e",
+        "station-5.json": "64b6b2477faa3396693de13436c9f9d2186ab0ff5af064763931ff393f404e3a",
+        "station-5.vdif": "4928d470ee8c9909807b653e52a472cd999dfee5b94bacee10dcc84189ce613d",
+        "station-6.json": "42c7cc0673e1599d7bf5167341d576e2b77c01be3ce64b2bd2742d4cc1c0d203",
+        "station-6.vdif": "31bbe6c06a2a0ed15d1823e3194fb21e045dbfd580e631ef5bc54916b3a4dbbb",
+        "station-7.json": "01cca1e89092f6c6c31c5b3410d1e72daacad7ae4f5e3af86218872eadcb4207",
+        "station-7.vdif": "18d17bda2b2e685da3c6af1ef44592a752c37f47bc087688d5f7edf8aaba2207",
+        "station-8.json": "bbe09ff39ab8b27408b06997a32ce9a50b792e3fd5f016868f0f862fdff48099",
+        "station-8.vdif": "fbee6b572afc9304792c52428d8c876a3bf632cdb9f6e0ddda75eda62342a011"
+      },
+      "truth_sha256": "9189445bdd1552a2ca885a019662b5d5158f44a1cf2101a1a6b626716c2e07f8",
+      "maximum_station_rate_error_hz": null,
+      "scientific_failure_code": "rate_graph_disconnected",
+      "assessment": {
+        "schema_version": 1,
+        "type": "image_path_assessment",
+        "processing_state": "incomplete",
+        "image_computed": false,
+        "numerical": {
+          "state": "not_run",
+          "selected_start": null,
+          "optimizer_success": null
+        },
+        "independent_constraints": {
+          "phase": null,
+          "logamp": null,
+          "total": null
+        },
+        "reference_fidelity": {
+          "state": "not_evaluated",
+          "registered_nrmse": null,
+          "declared_max_registered_nrmse": null,
+          "within_declared_limit": null
+        },
+        "recorded_issues": [
+          "processing_not_complete",
+          "image_not_run"
+        ],
+        "actual_observation_success_certified": false,
+        "low_snr_likelihood_validated": false,
+        "interpretation": "Diagnostic record only. Optimizer convergence and reference-image similarity are separate; missing amplitude constraints do not prove imaging impossible. No absolute flux or astrometry certified.",
+        "completed_steps": [
+          "aligned_pilot"
+        ],
+        "extracted_closures": null
+      },
+      "reference_metrics": null,
+      "case_directory": "sefd-10000/integration-1",
+      "elapsed_s": 18.05251100600003
+    }
+  ],
+  "truth_used_by_estimator": false,
+  "same_input_reused_for_integrations": true,
+  "pilot_integrations": 250,
+  "pilot_integration_s": 0.004,
+  "starts": 1,
+  "max_iterations": 2000,
+  "nrms_error_limit_declared": false,
+  "limits": "Single 1.04s synthetic snapshot, midpoint covariance, supplied exact sample clocks and station voltage scales, fixed gains and LO rates, 8 stations and three useful RF channels. No full-night uv synthesis, hardware, actual SEFD, GPU benchmark or low-SNR image likelihood validation. Truth is used only after inference; no scientific overall-pass flag."
+}

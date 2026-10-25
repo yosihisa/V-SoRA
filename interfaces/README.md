@@ -36,6 +36,7 @@
 - [周波数分解visibilityと較正](spectral-and-calibration.md)
 - [FITS-IDI出力の限定profile](fitsidi-profile.md)
 - [VDIFからClosure＋RMLへの短区間profile](closure-pipeline.md)
+- [画像経路の完了・収束・参照画像差を分ける](image-assessment.md)
 
 ### 配置・既知天体の条件比較
 
