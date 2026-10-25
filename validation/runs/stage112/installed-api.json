@@ -1,0 +1,73 @@
+{
+  "state": "complete",
+  "cases": [
+    {
+      "case": "seed109_pilot250",
+      "state": "complete",
+      "all_science_json_identical": true
+    },
+    {
+      "case": "seed109_pilot500",
+      "state": "complete",
+      "all_science_json_identical": true
+    },
+    {
+      "case": "seed109_pilot750",
+      "state": "complete",
+      "all_science_json_identical": true
+    },
+    {
+      "case": "seed110_pilot250",
+      "state": "incomplete",
+      "all_science_json_identical": true
+    },
+    {
+      "case": "seed110_pilot500",
+      "state": "complete",
+      "all_science_json_identical": true
+    },
+    {
+      "case": "seed110_pilot750",
+      "state": "complete",
+      "all_science_json_identical": true
+    },
+    {
+      "case": "seed111_pilot250",
+      "state": "complete",
+      "all_science_json_identical": true
+    },
+    {
+      "case": "seed111_pilot500",
+      "state": "complete",
+      "all_science_json_identical": true
+    },
+    {
+      "case": "seed111_pilot750",
+      "state": "complete",
+      "all_science_json_identical": true
+    }
+  ],
+  "actual_native_cli_runs": 9,
+  "corrected_arrays_compared": 104,
+  "all_array_values_dtype_shape_and_sha_identical": true,
+  "all_scientific_json_identical": true,
+  "non_overwrite_verified_for_all_cases": true,
+  "all_input_sha_unchanged": true,
+  "outside_checkout": true,
+  "runner_absent": true,
+  "pythonpath_absent": true,
+  "project_modules": [
+    "vsora_correlator",
+    "vsora_correlator.rate",
+    "vsora_correlator.rate_graph",
+    "vsora_formats",
+    "vsora_formats.fitsidi",
+    "vsora_formats.spectral",
+    "vsora_formats.visibility",
+    "vsora_imaging",
+    "vsora_imaging.closure"
+  ],
+  "all_project_modules_in_prefix": true,
+  "archive_byte_equality_claimed": false,
+  "comparison_scope": "Every saved numerical correlation array and graph/rate/closure JSON; selected scientific metadata including config, applied rates and epochs. Operational absolute output paths and their archive/profile provenance digests differ and are excluded from science equality; each branch preserves its own hashes."
+}

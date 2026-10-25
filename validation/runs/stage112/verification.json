@@ -1,0 +1,38 @@
+{
+  "stage": 112,
+  "state": "complete",
+  "base_commit": "0e3021f549f61f303098b193c0c96ce32f32948e",
+  "fixed_seeds": [
+    109,
+    110,
+    111
+  ],
+  "source_actual_pipeline_cases": 9,
+  "installed_actual_native_pipeline_cases": 9,
+  "completed_corrected_correlations_each": 8,
+  "retained_incomplete_cases_each": 1,
+  "completed_cases_with_no_high_snr_closures": 8,
+  "all_scientific_json_and_numerical_arrays_identical": true,
+  "corrected_arrays_compared": 104,
+  "targeted_tests": 47,
+  "targeted_warnings": 2280,
+  "targeted_elapsed_s": 26.62,
+  "new_tests": 0,
+  "full_regressions_rerun": false,
+  "full_regression_reference_stage": 111,
+  "wheel_rebuilt_or_reinstalled": false,
+  "installed_wheel_reference_stage": 111,
+  "installed_and_source_package_files_identical_to_wheel": 100,
+  "pip_check_success": true,
+  "frozen_files": 375,
+  "all_frozen_sha_unchanged": true,
+  "non_stage_tracked_files": 1161,
+  "all_non_stage_tracked_sha_unchanged": true,
+  "production_modules_tests_configs_reference_assets_unchanged": true,
+  "new_rml_image_or_browser_test": false,
+  "public_audit_findings": 0,
+  "documentation_links": {
+    "checked": 1454,
+    "missing": 0
+  }
+}

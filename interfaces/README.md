@@ -47,6 +47,7 @@
 ### 誤差と保存pilotの診断
 
 - [検出基線graphと孤立局](rate-graph.md)
+- [同じ長いVDIFで1/2/3秒pilotを比較](rate-acquisition-validation.md)
 
 - [既知の全visibility共分散からClosureへの誤差伝播](joint-closure-noise.md)
 - [局の標本共分散からvisibilityの雑音を推定する](sample-visibility-noise.md)
