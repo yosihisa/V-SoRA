@@ -1,0 +1,56 @@
+{
+  "stage": 134,
+  "state": "complete",
+  "base_commit": "cb5c3c6ff35771ed494a5dee584c85ec47b18321",
+  "source_claims": 20,
+  "primary_code_files_reviewed": 17,
+  "source_frozen_files_checked": 435,
+  "code_unchanged": true,
+  "old_core_package_files_checked": 215,
+  "past_individual_reports_unchanged": 134,
+  "prior_validation_records_sha256": {
+    "validation/runs/stage042/verification.json": "88669f04a5ca8da93c2cd642f0c417c698be76c5b084bfd7f6e62c50ed056b18",
+    "validation/runs/stage044/verification.json": "0e56a34c9bc0ab02e5b2259654c6f0ae61ac3d3205873f3c264a7a05cdfec983",
+    "validation/runs/stage046/verification.json": "808a2ffb706dcdb888dabd69f6c0248924012ff409a457c21af999cebef95191",
+    "validation/runs/stage047/verification.json": "6703600f291e5cc0e89577adc95ec7129ce2c5f4f526c24c4e40abcd6038ca16",
+    "validation/runs/stage049/verification.json": "675a38a17507ad8ca944c445899d14f6942b28ed587a5e81eeb5ab40763520b1",
+    "validation/runs/stage100/verification.json": "abd18282310c9a1e330c1529bf837912b3462893189933c172c3ddfc498b6540",
+    "validation/runs/stage122/verification.json": "0d90449b3cee66c31251500ae5e1048e11a611963f171ef1c8ebdccd1517303c",
+    "validation/runs/stage131/verification.json": "48c7b98237f5b96edd10444b02e23b2c43ccc8c087ce586ebb7cdc69139ee11e",
+    "validation/runs/stage132/verification.json": "ff5da61c8ad0dca6b50909b8a23bf8e4c7c3c60456223a3fee58b9938af3894c",
+    "validation/runs/stage133/verification.json": "7165aa624701ef6895e9d510ac940412fc69ef24d896129ad6634794cea89ab8"
+  },
+  "existing_raw_files_sha_checked": 76,
+  "existing_correlation_files_sha_checked": 12,
+  "existing_truth_files_sha_checked": 4,
+  "existing_fitter_files_sha_checked": 12,
+  "saved_input_gate_cells": 36,
+  "new_numerical_validation": false,
+  "new_raw_correlation_fit_covariance_api": false,
+  "new_test_or_collection": false,
+  "new_wheel_install_browser": false,
+  "primary_literature_sources_reviewed": 4,
+  "cited_targeted_stage": 133,
+  "cited_targeted_each": 87,
+  "cited_targeted_elapsed_s": {
+    "source": 2.58,
+    "installed": 2.49
+  },
+  "cited_targeted_warnings_each": 0,
+  "cited_full_stage": 121,
+  "cited_full_tests_each": 2116,
+  "cited_full_elapsed_s": {
+    "source": 609.28,
+    "installed": 607.5
+  },
+  "cited_full_warnings_each": 27396,
+  "cited_full_excluded_each": 0,
+  "full2270_executed": false,
+  "public_audit_findings": 0,
+  "documentation_links": {
+    "checked": 1756,
+    "missing": 0
+  },
+  "nonstage_tracked_files_checked": 1356,
+  "all_nonstage_tracked_sha_unchanged": true
+}

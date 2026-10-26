@@ -149,6 +149,7 @@
 | 131 | [独立seedの短区間VDIF原本を4条件固定生成](131-independent-raw-matrix.md) | 両14対象、source/導入各4原本・48640header/64境界・全76入力byte/68配列一致。約0.8GB、相関/画像/零天空は未実施。全2252はcollectのみ |
 | 132 | [独立原本の未知LO取得と短積分相関](132-unknown-lo-short-integrations.md) | 両50対象、4原本×3積分の全12科学JSON/全配列一致。相関12・取得停止0、Closureと独立rankを記録。画像未評価、全2263はcollectのみ |
 | 133 | [短積分相関から既定格子の相対画像を評価](133-short-integration-images.md) | 両87対象、全12条件・10画像/2制約不足を導入CLI照合。選択2収束/8上限、全10形状差はpriorより大。数値126/文字列12、全2270はcollectのみ |
+| 134 | [画像主経路のモデル・誤差・保存量を監査](134-image-statistics-contract.md) | 文書・一次コード17file/20記述、435code/過去134レポート不変。w項あり・既存雑音APIを再利用、36セルは診断前ゲート。新数値/試験/wheel/browserなし |
 
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。
 

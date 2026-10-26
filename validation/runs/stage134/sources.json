@@ -1,0 +1,41 @@
+{
+  "reviewed_jst": "2026-10-27",
+  "sources": [
+    {
+      "id": "hankin2015",
+      "title": "The Complex Multivariate Gaussian Distribution",
+      "authors": "Robin K. S. Hankin",
+      "url": "https://journal.r-project.org/articles/RJ-2015-006/",
+      "reviewed_part": "Equation (2)",
+      "use": "proper complex Gaussian density underlying known-C reference100",
+      "not_used_as": "unknown receiver inference or iid proof"
+    },
+    {
+      "id": "leshem2000",
+      "title": "Radio astronomical imaging in the presence of strong radio interference",
+      "authors": "Amir Leshem and Alle-Jan van der Veen",
+      "url": "https://arxiv.org/pdf/astro-ph/0008239",
+      "reviewed_part": "Section VII.A, Equations (32)-(34)",
+      "use": "parametric covariance likelihood form and its receiver/temporal model assumptions",
+      "not_used_as": "implemented solver for unknown gain/SEFD/LO"
+    },
+    {
+      "id": "blackburn2020",
+      "title": "Closure statistics in interferometric data",
+      "authors": "Lindy Blackburn et al.",
+      "url": "https://arxiv.org/pdf/1910.02062",
+      "reviewed_part": "Sections 2.3-2.4 and 3.1",
+      "use": "gain-stable averaging, low-SNR non-Gaussianity, selection and shared-baseline covariance",
+      "not_used_as": "proof that all current FFT/noise assumptions hold"
+    },
+    {
+      "id": "gwinn2012",
+      "title": "Noise in the Cross-Power Spectrum of the Vela Pulsar",
+      "authors": "C. R. Gwinn et al.",
+      "url": "https://arxiv.org/pdf/1208.0039",
+      "reviewed_part": "Section 2.2 and abstract",
+      "use": "source self-noise and noncircular visibility noise",
+      "not_used_as": "Cas A or real RTL-SDR performance measurements"
+    }
+  ]
+}

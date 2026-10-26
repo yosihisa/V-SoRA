@@ -1,0 +1,206 @@
+{
+  "base_commit": "cb5c3c6ff35771ed494a5dee584c85ec47b18321",
+  "entries": [
+    {
+      "id": "generator",
+      "file": "workflows/vdif_synthesis_validation.py",
+      "line_start": 20,
+      "line_end": 67,
+      "file_sha256": "3c2433a90b2079a1fee426ea5a0aa361d6ddfbba541c609017a7fd206111a65e",
+      "basis": "manual primary-code inspection",
+      "claim": "中心RF/区間中点の3D sky visibilityで局共分散を作り、帯域制限Gaussianに一定gain/LOを加える。clock/decoder scaleは供給値。",
+      "does_not_establish": "実天空・受信機較正・ADC後の厳密Gaussian/IID。"
+    },
+    {
+      "id": "sky_proxy",
+      "file": "apps/simulator/src/vsora_simulator/sky.py",
+      "line_start": 39,
+      "line_end": 66,
+      "file_sha256": "a7535bc16bd0fff24b216bc0f3dfdade70683d48f9b5458bf82bdbba54655fb1",
+      "basis": "manual primary-code inspection",
+      "claim": "Cas A参照は200秒角内の正pixelを格子へ集約して仮定fluxへ正規化。",
+      "does_not_establish": "実1.42GHzのbrightnessや実SEFDの測定。"
+    },
+    {
+      "id": "forward_sim",
+      "file": "apps/simulator/src/vsora_simulator/visibility.py",
+      "line_start": 6,
+      "line_end": 17,
+      "file_sha256": "57ea050dfdad4549ca929fcf9928c0c1637eb2bb3a77cb54682a0d3b99abedc4",
+      "basis": "manual primary-code inspection",
+      "claim": "direct_visibilityはl,m,sqrt(1-l²-m²)-1の3成分を使う。",
+      "does_not_establish": "時変電圧生成/有限積分の完全なend-to-end同一性。"
+    },
+    {
+      "id": "forward_rml",
+      "file": "apps/imaging/src/vsora_imaging/rml.py",
+      "line_start": 49,
+      "line_end": 57,
+      "file_sha256": "3a160002c7709df3934d58edd8349eb98a6800161c080f970e91af5756d82936",
+      "basis": "manual primary-code inspection",
+      "claim": "RMLも同じ3成分のFourier kernelを使いw項を含む。",
+      "does_not_establish": "外部2D adapterと同じw省略を原因とする説明。"
+    },
+    {
+      "id": "external_2d",
+      "file": "workflows/ehtim_conventions_validation.py",
+      "line_start": 16,
+      "line_end": 44,
+      "file_sha256": "afb481e6a60cd0e31302e224209fbe7c015161dcc5642a6f80c5be0ab6af7587",
+      "basis": "manual primary-code inspection",
+      "claim": "122の外部2D接続はuvだけを渡す別経路でw省略差を評価。",
+      "does_not_establish": "現行native RMLが2D kernelという結論。"
+    },
+    {
+      "id": "stream_masks",
+      "file": "apps/correlator/src/vsora_correlator/stream_fx.py",
+      "line_start": 22,
+      "line_end": 41,
+      "file_sha256": "14e0562e22fc96590614ce70b1264b8ca768564698b62db820d2814b7a9de946",
+      "basis": "manual primary-code inspection",
+      "claim": "局powerは局有効集合、各crossは二局有効集合の共通部分で平均する。",
+      "does_not_establish": "各局countだけの一致による全局共通集合。"
+    },
+    {
+      "id": "stream_weights",
+      "file": "apps/correlator/src/vsora_correlator/stream_fx.py",
+      "line_start": 43,
+      "line_end": 73,
+      "file_sha256": "14e0562e22fc96590614ce70b1264b8ca768564698b62db820d2814b7a9de946",
+      "basis": "manual primary-code inspection",
+      "claim": "weight=2*paircount/(局power積)、SK/RF flagsで0重み化。局countとpaircountを保存。",
+      "does_not_establish": "全基線Re/Im共分散・実効独立標本数の検証。"
+    },
+    {
+      "id": "alignment",
+      "file": "apps/correlator/src/vsora_correlator/aligned.py",
+      "line_start": 50,
+      "line_end": 89,
+      "file_sha256": "f0d8f5abbdaadc9162ac8823c7e6f7120943d2e8115f5c1d319a3af577121f48",
+      "basis": "manual primary-code inspection",
+      "claim": "65tap FIRと補間で有効supportを伝播する。",
+      "does_not_establish": "filtered FFT標本の独立性。"
+    },
+    {
+      "id": "phase_correction",
+      "file": "apps/correlator/src/vsora_correlator/aligned.py",
+      "line_start": 130,
+      "line_end": 190,
+      "file_sha256": "f0d8f5abbdaadc9162ac8823c7e6f7120943d2e8115f5c1d319a3af577121f48",
+      "basis": "manual primary-code inspection",
+      "claim": "供給clock/幾何と推定rateで電圧を補正し、integration中央のuvwを保存。",
+      "does_not_establish": "未知clock/LO jitter/beam較正の解決。"
+    },
+    {
+      "id": "triangle_profile",
+      "file": "apps/correlator/src/vsora_correlator/bispectrum_accumulator.py",
+      "line_start": 30,
+      "line_end": 82,
+      "file_sha256": "79c5aee3df4800cd68abf0f885394ef64090d7b509937cbe0c182e43764dee40",
+      "basis": "manual primary-code inspection",
+      "claim": "raw v2 powerと積和は三角形ごと共通の標本。",
+      "does_not_establish": "別三角形を結合した全8局共通S。"
+    },
+    {
+      "id": "optional_profile",
+      "file": "apps/correlator/src/vsora_correlator/closure_pipeline.py",
+      "line_start": 99,
+      "line_end": 114,
+      "file_sha256": "9bf6d6878d9cfe46ff3cabb0f23478de768a1edc7e3749b5d7580e30dcb1e385",
+      "basis": "manual primary-code inspection",
+      "claim": "raw bispectrumは明示opt-in、通常RMLには使わない。",
+      "does_not_establish": "132がv2 raw profileを保存したという主張。"
+    },
+    {
+      "id": "closure_approx",
+      "file": "apps/imaging/src/vsora_imaging/closure.py",
+      "line_start": 49,
+      "line_end": 96,
+      "file_sha256": "670550a3aacd3e2ed0c1710219fdd5f3d61ec0fea741046b77dee238f0b40b3b",
+      "basis": "manual primary-code inspection",
+      "claim": "観測SNRで選別し独立円対称基線近似から同種Closureのfull covarianceを構成。",
+      "does_not_establish": "source selfnoise/phase-logamp交差/別cell相関の包含。"
+    },
+    {
+      "id": "production_loss",
+      "file": "apps/imaging/src/vsora_imaging/rml.py",
+      "line_start": 34,
+      "line_end": 47,
+      "file_sha256": "3a160002c7709df3934d58edd8349eb98a6800161c080f970e91af5756d82936",
+      "basis": "manual primary-code inspection",
+      "claim": "phase/logampの各cell covarianceを別々にfactor化する。",
+      "does_not_establish": "joint phase-amplitude covarianceのproduction適用。"
+    },
+    {
+      "id": "visibility_moments",
+      "file": "apps/simulator/src/vsora_simulator/visibility_moments.py",
+      "line_start": 9,
+      "line_end": 49,
+      "file_sha256": "edade659453fd4628e512bc6060b49f61e72767551966fe0b6cbae1686ebe808",
+      "basis": "manual primary-code inspection",
+      "claim": "既知Gaussian局共分散から複素/擬/全実visibility共分散を返す既存042。",
+      "does_not_establish": "未知C推定や実filtered IQの正確な雑音分布。"
+    },
+    {
+      "id": "sample_estimator",
+      "file": "apps/simulator/src/vsora_simulator/visibility_noise_estimate.py",
+      "line_start": 6,
+      "line_end": 37,
+      "file_sha256": "478ee2d578276d1f1550589f35298f75e9fabb8557d1c00b4906faa4420b3f05",
+      "basis": "manual primary-code inspection",
+      "claim": "既存046は共通IID Gaussian標本の有限標本補正推定器。",
+      "does_not_establish": "1観測の真の共分散・実機のconfidence calibration。"
+    },
+    {
+      "id": "joint_closure",
+      "file": "apps/imaging/src/vsora_imaging/closure_noise.py",
+      "line_start": 10,
+      "line_end": 67,
+      "file_sha256": "48227fcd3799177a42eca0f069c678b0625c0a0a6703139184995ff95c437c4c",
+      "basis": "manual primary-code inspection",
+      "claim": "既存044は全Re/Im共分散をphase/logampへ一次伝播し交差項を残す。",
+      "does_not_establish": "低SNRの厳密画像尤度・production RMLの自動変更。"
+    },
+    {
+      "id": "common_gate",
+      "file": "apps/correlator/src/vsora_correlator/noise_diagnostics.py",
+      "line_start": 29,
+      "line_end": 72,
+      "file_sha256": "18217c8c28daaaad0d7bebdd37d69d7eff03c8ebf018cf1e92d396e9cba4f0ac",
+      "basis": "manual primary-code inspection",
+      "claim": "既存047は完全基線、全局/全pair同数、flag/単位等を要求して条件付きSを再構成する。",
+      "does_not_establish": "名目FFT個数を実測独立Mとする根拠。"
+    },
+    {
+      "id": "filtered_reference",
+      "file": "apps/simulator/src/vsora_simulator/filtered_noise.py",
+      "line_start": 1,
+      "line_end": 86,
+      "file_sha256": "921c1eb2cfe52bd7621f91bc2fc4e4864702f9f9ad3864a6a7024d7775e5bd5e",
+      "basis": "manual primary-code inspection",
+      "claim": "既存049は既知白色Gaussian入力と固定局kernelの時刻差を含むモデル。",
+      "does_not_establish": "131の色付き入力・時変係数/量子化/RFIまでの検証。"
+    },
+    {
+      "id": "gaussian_api",
+      "file": "apps/correlator/src/vsora_correlator/gaussian_likelihood.py",
+      "line_start": 99,
+      "line_end": 142,
+      "file_sha256": "7266a84b1f631dddfc2779723114a4be27a11e93d2f9c84b46c301632f0f2227",
+      "basis": "manual primary-code inspection",
+      "claim": "既存100のSは全局共通標本、qは既知CとIID/平均0/properを前提。",
+      "does_not_establish": "未知gain/SEFD/LOを解く画像尤度。"
+    },
+    {
+      "id": "fitter_reduction",
+      "file": "workflows/short_integration_images.py",
+      "line_start": 35,
+      "line_end": 46,
+      "file_sha256": "de03292c42e4742832f6cef7672d5e0eab94786dd58687166f870c1ac1ac86db",
+      "basis": "manual primary-code inspection",
+      "claim": "133fitterは7科学配列と最小WCS metadataに限定。",
+      "does_not_establish": "fitter単体から局power/countを再取得できること。"
+    }
+  ],
+  "new_numerical_or_hardware_validation": false
+}

@@ -37,6 +37,7 @@
 - [FITS-IDI出力の限定profile](fitsidi-profile.md)
 - [VDIFからClosure＋RMLへの短区間profile](closure-pipeline.md)
 - [画像経路の完了・収束・参照画像差を分ける](image-assessment.md)
+- [画像主経路のモデル・誤差・保存量の契約](image-statistics-contract.md)
 - [同じrateで最終積分と画像を比較](integration-image-validation.md)
 - [真のrateと理想モデルを評価専用の画像対照にする](image-control-validation.md)
 - [候補画像のデータ損失と正則化を分解する](image-objective-evaluation.md)

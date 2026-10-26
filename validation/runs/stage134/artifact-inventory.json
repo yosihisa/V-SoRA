@@ -1,0 +1,1706 @@
+{
+  "stage": 134,
+  "base_commit": "cb5c3c6ff35771ed494a5dee584c85ec47b18321",
+  "inspection_only": true,
+  "cases": [
+    {
+      "case": "high_a_t0.3",
+      "source_archive_sha256": "41b5efff7eaed06aaef4a56e518d9e158b6efba3e2489687d5245c866c97ffc5",
+      "station_count": 8,
+      "baseline_count": 28,
+      "time_slots": 1,
+      "channels": 8,
+      "nominal_common_fft_blocks": 76800,
+      "complete_baseline_set": true,
+      "equal_station_and_intersection_counts": true,
+      "power_visibility_units_match": true,
+      "unit": "ADC^2",
+      "valid_station_identity": true,
+      "pre_api_eligible_channels": [
+        3,
+        4,
+        5
+      ],
+      "source_array_fields": {
+        "schema_version": {
+          "dtype": "<i8",
+          "shape": []
+        },
+        "metadata_json": {
+          "dtype": "<U2735",
+          "shape": []
+        },
+        "visibilities": {
+          "dtype": "<c16",
+          "shape": [
+            1,
+            8,
+            28
+          ]
+        },
+        "weights": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            8,
+            28
+          ]
+        },
+        "pairs": {
+          "dtype": "<i8",
+          "shape": [
+            28,
+            2
+          ]
+        },
+        "times_s": {
+          "dtype": "<f8",
+          "shape": [
+            1
+          ]
+        },
+        "frequencies_hz": {
+          "dtype": "<f8",
+          "shape": [
+            8
+          ]
+        },
+        "uvw_lambda": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            8,
+            28,
+            3
+          ]
+        },
+        "integration_s": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            28
+          ]
+        },
+        "valid_fft_count": {
+          "dtype": "<i8",
+          "shape": [
+            1,
+            28
+          ]
+        },
+        "diagnostic_station_power": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            8,
+            8
+          ]
+        },
+        "diagnostic_station_sk": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            8,
+            8
+          ]
+        },
+        "diagnostic_station_sk_eligible": {
+          "dtype": "|b1",
+          "shape": [
+            1,
+            8,
+            8
+          ]
+        },
+        "diagnostic_station_flags": {
+          "dtype": "|u1",
+          "shape": [
+            1,
+            8,
+            8
+          ]
+        },
+        "diagnostic_station_valid_fft_count": {
+          "dtype": "<i8",
+          "shape": [
+            1,
+            8
+          ]
+        }
+      },
+      "raw_bispectrum_present": false,
+      "covariance_api_executed_in_stage134": false,
+      "psd_and_numerical_range_result": null,
+      "iid_fft_independence_verified": false,
+      "fitter_fields": [
+        "frequencies_hz",
+        "integration_s",
+        "metadata_json",
+        "pairs",
+        "schema_version",
+        "times_s",
+        "uvw_lambda",
+        "visibilities",
+        "weights"
+      ]
+    },
+    {
+      "case": "high_a_t1",
+      "source_archive_sha256": "1a3e42e5f530b0406dec20a392da52ce03fcd47bdec3a0899ff6fb05bbad8917",
+      "station_count": 8,
+      "baseline_count": 28,
+      "time_slots": 1,
+      "channels": 8,
+      "nominal_common_fft_blocks": 256000,
+      "complete_baseline_set": true,
+      "equal_station_and_intersection_counts": true,
+      "power_visibility_units_match": true,
+      "unit": "ADC^2",
+      "valid_station_identity": true,
+      "pre_api_eligible_channels": [
+        3,
+        4,
+        5
+      ],
+      "source_array_fields": {
+        "schema_version": {
+          "dtype": "<i8",
+          "shape": []
+        },
+        "metadata_json": {
+          "dtype": "<U2735",
+          "shape": []
+        },
+        "visibilities": {
+          "dtype": "<c16",
+          "shape": [
+            1,
+            8,
+            28
+          ]
+        },
+        "weights": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            8,
+            28
+          ]
+        },
+        "pairs": {
+          "dtype": "<i8",
+          "shape": [
+            28,
+            2
+          ]
+        },
+        "times_s": {
+          "dtype": "<f8",
+          "shape": [
+            1
+          ]
+        },
+        "frequencies_hz": {
+          "dtype": "<f8",
+          "shape": [
+            8
+          ]
+        },
+        "uvw_lambda": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            8,
+            28,
+            3
+          ]
+        },
+        "integration_s": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            28
+          ]
+        },
+        "valid_fft_count": {
+          "dtype": "<i8",
+          "shape": [
+            1,
+            28
+          ]
+        },
+        "diagnostic_station_power": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            8,
+            8
+          ]
+        },
+        "diagnostic_station_sk": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            8,
+            8
+          ]
+        },
+        "diagnostic_station_sk_eligible": {
+          "dtype": "|b1",
+          "shape": [
+            1,
+            8,
+            8
+          ]
+        },
+        "diagnostic_station_flags": {
+          "dtype": "|u1",
+          "shape": [
+            1,
+            8,
+            8
+          ]
+        },
+        "diagnostic_station_valid_fft_count": {
+          "dtype": "<i8",
+          "shape": [
+            1,
+            8
+          ]
+        }
+      },
+      "raw_bispectrum_present": false,
+      "covariance_api_executed_in_stage134": false,
+      "psd_and_numerical_range_result": null,
+      "iid_fft_independence_verified": false,
+      "fitter_fields": [
+        "frequencies_hz",
+        "integration_s",
+        "metadata_json",
+        "pairs",
+        "schema_version",
+        "times_s",
+        "uvw_lambda",
+        "visibilities",
+        "weights"
+      ]
+    },
+    {
+      "case": "high_a_t3",
+      "source_archive_sha256": "ac5b1970ef111b5d0ada44019746bd5ec3f4854fba168f24ccdadb70032c20cc",
+      "station_count": 8,
+      "baseline_count": 28,
+      "time_slots": 1,
+      "channels": 8,
+      "nominal_common_fft_blocks": 768000,
+      "complete_baseline_set": true,
+      "equal_station_and_intersection_counts": true,
+      "power_visibility_units_match": true,
+      "unit": "ADC^2",
+      "valid_station_identity": true,
+      "pre_api_eligible_channels": [
+        3,
+        4,
+        5
+      ],
+      "source_array_fields": {
+        "schema_version": {
+          "dtype": "<i8",
+          "shape": []
+        },
+        "metadata_json": {
+          "dtype": "<U2735",
+          "shape": []
+        },
+        "visibilities": {
+          "dtype": "<c16",
+          "shape": [
+            1,
+            8,
+            28
+          ]
+        },
+        "weights": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            8,
+            28
+          ]
+        },
+        "pairs": {
+          "dtype": "<i8",
+          "shape": [
+            28,
+            2
+          ]
+        },
+        "times_s": {
+          "dtype": "<f8",
+          "shape": [
+            1
+          ]
+        },
+        "frequencies_hz": {
+          "dtype": "<f8",
+          "shape": [
+            8
+          ]
+        },
+        "uvw_lambda": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            8,
+            28,
+            3
+          ]
+        },
+        "integration_s": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            28
+          ]
+        },
+        "valid_fft_count": {
+          "dtype": "<i8",
+          "shape": [
+            1,
+            28
+          ]
+        },
+        "diagnostic_station_power": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            8,
+            8
+          ]
+        },
+        "diagnostic_station_sk": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            8,
+            8
+          ]
+        },
+        "diagnostic_station_sk_eligible": {
+          "dtype": "|b1",
+          "shape": [
+            1,
+            8,
+            8
+          ]
+        },
+        "diagnostic_station_flags": {
+          "dtype": "|u1",
+          "shape": [
+            1,
+            8,
+            8
+          ]
+        },
+        "diagnostic_station_valid_fft_count": {
+          "dtype": "<i8",
+          "shape": [
+            1,
+            8
+          ]
+        }
+      },
+      "raw_bispectrum_present": false,
+      "covariance_api_executed_in_stage134": false,
+      "psd_and_numerical_range_result": null,
+      "iid_fft_independence_verified": false,
+      "fitter_fields": [
+        "frequencies_hz",
+        "integration_s",
+        "metadata_json",
+        "pairs",
+        "schema_version",
+        "times_s",
+        "uvw_lambda",
+        "visibilities",
+        "weights"
+      ]
+    },
+    {
+      "case": "high_b_t0.3",
+      "source_archive_sha256": "87bff112ef45a0e9fe9619daa180566154a31e27cf2093ff6a05e121da50f270",
+      "station_count": 8,
+      "baseline_count": 28,
+      "time_slots": 1,
+      "channels": 8,
+      "nominal_common_fft_blocks": 76800,
+      "complete_baseline_set": true,
+      "equal_station_and_intersection_counts": true,
+      "power_visibility_units_match": true,
+      "unit": "ADC^2",
+      "valid_station_identity": true,
+      "pre_api_eligible_channels": [
+        3,
+        4,
+        5
+      ],
+      "source_array_fields": {
+        "schema_version": {
+          "dtype": "<i8",
+          "shape": []
+        },
+        "metadata_json": {
+          "dtype": "<U2736",
+          "shape": []
+        },
+        "visibilities": {
+          "dtype": "<c16",
+          "shape": [
+            1,
+            8,
+            28
+          ]
+        },
+        "weights": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            8,
+            28
+          ]
+        },
+        "pairs": {
+          "dtype": "<i8",
+          "shape": [
+            28,
+            2
+          ]
+        },
+        "times_s": {
+          "dtype": "<f8",
+          "shape": [
+            1
+          ]
+        },
+        "frequencies_hz": {
+          "dtype": "<f8",
+          "shape": [
+            8
+          ]
+        },
+        "uvw_lambda": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            8,
+            28,
+            3
+          ]
+        },
+        "integration_s": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            28
+          ]
+        },
+        "valid_fft_count": {
+          "dtype": "<i8",
+          "shape": [
+            1,
+            28
+          ]
+        },
+        "diagnostic_station_power": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            8,
+            8
+          ]
+        },
+        "diagnostic_station_sk": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            8,
+            8
+          ]
+        },
+        "diagnostic_station_sk_eligible": {
+          "dtype": "|b1",
+          "shape": [
+            1,
+            8,
+            8
+          ]
+        },
+        "diagnostic_station_flags": {
+          "dtype": "|u1",
+          "shape": [
+            1,
+            8,
+            8
+          ]
+        },
+        "diagnostic_station_valid_fft_count": {
+          "dtype": "<i8",
+          "shape": [
+            1,
+            8
+          ]
+        }
+      },
+      "raw_bispectrum_present": false,
+      "covariance_api_executed_in_stage134": false,
+      "psd_and_numerical_range_result": null,
+      "iid_fft_independence_verified": false,
+      "fitter_fields": [
+        "frequencies_hz",
+        "integration_s",
+        "metadata_json",
+        "pairs",
+        "schema_version",
+        "times_s",
+        "uvw_lambda",
+        "visibilities",
+        "weights"
+      ]
+    },
+    {
+      "case": "high_b_t1",
+      "source_archive_sha256": "47f95bb712ec23f9d4fc252f82f8dfa778da9bc2e91d9aee1139ee83d0c15b5c",
+      "station_count": 8,
+      "baseline_count": 28,
+      "time_slots": 1,
+      "channels": 8,
+      "nominal_common_fft_blocks": 256000,
+      "complete_baseline_set": true,
+      "equal_station_and_intersection_counts": true,
+      "power_visibility_units_match": true,
+      "unit": "ADC^2",
+      "valid_station_identity": true,
+      "pre_api_eligible_channels": [
+        3,
+        4,
+        5
+      ],
+      "source_array_fields": {
+        "schema_version": {
+          "dtype": "<i8",
+          "shape": []
+        },
+        "metadata_json": {
+          "dtype": "<U2736",
+          "shape": []
+        },
+        "visibilities": {
+          "dtype": "<c16",
+          "shape": [
+            1,
+            8,
+            28
+          ]
+        },
+        "weights": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            8,
+            28
+          ]
+        },
+        "pairs": {
+          "dtype": "<i8",
+          "shape": [
+            28,
+            2
+          ]
+        },
+        "times_s": {
+          "dtype": "<f8",
+          "shape": [
+            1
+          ]
+        },
+        "frequencies_hz": {
+          "dtype": "<f8",
+          "shape": [
+            8
+          ]
+        },
+        "uvw_lambda": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            8,
+            28,
+            3
+          ]
+        },
+        "integration_s": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            28
+          ]
+        },
+        "valid_fft_count": {
+          "dtype": "<i8",
+          "shape": [
+            1,
+            28
+          ]
+        },
+        "diagnostic_station_power": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            8,
+            8
+          ]
+        },
+        "diagnostic_station_sk": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            8,
+            8
+          ]
+        },
+        "diagnostic_station_sk_eligible": {
+          "dtype": "|b1",
+          "shape": [
+            1,
+            8,
+            8
+          ]
+        },
+        "diagnostic_station_flags": {
+          "dtype": "|u1",
+          "shape": [
+            1,
+            8,
+            8
+          ]
+        },
+        "diagnostic_station_valid_fft_count": {
+          "dtype": "<i8",
+          "shape": [
+            1,
+            8
+          ]
+        }
+      },
+      "raw_bispectrum_present": false,
+      "covariance_api_executed_in_stage134": false,
+      "psd_and_numerical_range_result": null,
+      "iid_fft_independence_verified": false,
+      "fitter_fields": [
+        "frequencies_hz",
+        "integration_s",
+        "metadata_json",
+        "pairs",
+        "schema_version",
+        "times_s",
+        "uvw_lambda",
+        "visibilities",
+        "weights"
+      ]
+    },
+    {
+      "case": "high_b_t3",
+      "source_archive_sha256": "e2e2c6456bb9ce8ba1408d9e13f9ed3d65e13deadb9a830ee70d7a8361a44066",
+      "station_count": 8,
+      "baseline_count": 28,
+      "time_slots": 1,
+      "channels": 8,
+      "nominal_common_fft_blocks": 768000,
+      "complete_baseline_set": true,
+      "equal_station_and_intersection_counts": true,
+      "power_visibility_units_match": true,
+      "unit": "ADC^2",
+      "valid_station_identity": true,
+      "pre_api_eligible_channels": [
+        3,
+        4,
+        5
+      ],
+      "source_array_fields": {
+        "schema_version": {
+          "dtype": "<i8",
+          "shape": []
+        },
+        "metadata_json": {
+          "dtype": "<U2736",
+          "shape": []
+        },
+        "visibilities": {
+          "dtype": "<c16",
+          "shape": [
+            1,
+            8,
+            28
+          ]
+        },
+        "weights": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            8,
+            28
+          ]
+        },
+        "pairs": {
+          "dtype": "<i8",
+          "shape": [
+            28,
+            2
+          ]
+        },
+        "times_s": {
+          "dtype": "<f8",
+          "shape": [
+            1
+          ]
+        },
+        "frequencies_hz": {
+          "dtype": "<f8",
+          "shape": [
+            8
+          ]
+        },
+        "uvw_lambda": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            8,
+            28,
+            3
+          ]
+        },
+        "integration_s": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            28
+          ]
+        },
+        "valid_fft_count": {
+          "dtype": "<i8",
+          "shape": [
+            1,
+            28
+          ]
+        },
+        "diagnostic_station_power": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            8,
+            8
+          ]
+        },
+        "diagnostic_station_sk": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            8,
+            8
+          ]
+        },
+        "diagnostic_station_sk_eligible": {
+          "dtype": "|b1",
+          "shape": [
+            1,
+            8,
+            8
+          ]
+        },
+        "diagnostic_station_flags": {
+          "dtype": "|u1",
+          "shape": [
+            1,
+            8,
+            8
+          ]
+        },
+        "diagnostic_station_valid_fft_count": {
+          "dtype": "<i8",
+          "shape": [
+            1,
+            8
+          ]
+        }
+      },
+      "raw_bispectrum_present": false,
+      "covariance_api_executed_in_stage134": false,
+      "psd_and_numerical_range_result": null,
+      "iid_fft_independence_verified": false,
+      "fitter_fields": [
+        "frequencies_hz",
+        "integration_s",
+        "metadata_json",
+        "pairs",
+        "schema_version",
+        "times_s",
+        "uvw_lambda",
+        "visibilities",
+        "weights"
+      ]
+    },
+    {
+      "case": "weak_a_t0.3",
+      "source_archive_sha256": "033d4257e677e6e743a97a7b4ee7e35a26651d4b8f50b70c4b165fd88dff2535",
+      "station_count": 8,
+      "baseline_count": 28,
+      "time_slots": 1,
+      "channels": 8,
+      "nominal_common_fft_blocks": 76800,
+      "complete_baseline_set": true,
+      "equal_station_and_intersection_counts": true,
+      "power_visibility_units_match": true,
+      "unit": "ADC^2",
+      "valid_station_identity": true,
+      "pre_api_eligible_channels": [
+        3,
+        4,
+        5
+      ],
+      "source_array_fields": {
+        "schema_version": {
+          "dtype": "<i8",
+          "shape": []
+        },
+        "metadata_json": {
+          "dtype": "<U2744",
+          "shape": []
+        },
+        "visibilities": {
+          "dtype": "<c16",
+          "shape": [
+            1,
+            8,
+            28
+          ]
+        },
+        "weights": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            8,
+            28
+          ]
+        },
+        "pairs": {
+          "dtype": "<i8",
+          "shape": [
+            28,
+            2
+          ]
+        },
+        "times_s": {
+          "dtype": "<f8",
+          "shape": [
+            1
+          ]
+        },
+        "frequencies_hz": {
+          "dtype": "<f8",
+          "shape": [
+            8
+          ]
+        },
+        "uvw_lambda": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            8,
+            28,
+            3
+          ]
+        },
+        "integration_s": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            28
+          ]
+        },
+        "valid_fft_count": {
+          "dtype": "<i8",
+          "shape": [
+            1,
+            28
+          ]
+        },
+        "diagnostic_station_power": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            8,
+            8
+          ]
+        },
+        "diagnostic_station_sk": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            8,
+            8
+          ]
+        },
+        "diagnostic_station_sk_eligible": {
+          "dtype": "|b1",
+          "shape": [
+            1,
+            8,
+            8
+          ]
+        },
+        "diagnostic_station_flags": {
+          "dtype": "|u1",
+          "shape": [
+            1,
+            8,
+            8
+          ]
+        },
+        "diagnostic_station_valid_fft_count": {
+          "dtype": "<i8",
+          "shape": [
+            1,
+            8
+          ]
+        }
+      },
+      "raw_bispectrum_present": false,
+      "covariance_api_executed_in_stage134": false,
+      "psd_and_numerical_range_result": null,
+      "iid_fft_independence_verified": false,
+      "fitter_fields": [
+        "frequencies_hz",
+        "integration_s",
+        "metadata_json",
+        "pairs",
+        "schema_version",
+        "times_s",
+        "uvw_lambda",
+        "visibilities",
+        "weights"
+      ]
+    },
+    {
+      "case": "weak_a_t1",
+      "source_archive_sha256": "775d248fdaea76b7f64e949a42cec126feac0add58e7cac83bf207eb3bf6e556",
+      "station_count": 8,
+      "baseline_count": 28,
+      "time_slots": 1,
+      "channels": 8,
+      "nominal_common_fft_blocks": 256000,
+      "complete_baseline_set": true,
+      "equal_station_and_intersection_counts": true,
+      "power_visibility_units_match": true,
+      "unit": "ADC^2",
+      "valid_station_identity": true,
+      "pre_api_eligible_channels": [
+        3,
+        4,
+        5
+      ],
+      "source_array_fields": {
+        "schema_version": {
+          "dtype": "<i8",
+          "shape": []
+        },
+        "metadata_json": {
+          "dtype": "<U2744",
+          "shape": []
+        },
+        "visibilities": {
+          "dtype": "<c16",
+          "shape": [
+            1,
+            8,
+            28
+          ]
+        },
+        "weights": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            8,
+            28
+          ]
+        },
+        "pairs": {
+          "dtype": "<i8",
+          "shape": [
+            28,
+            2
+          ]
+        },
+        "times_s": {
+          "dtype": "<f8",
+          "shape": [
+            1
+          ]
+        },
+        "frequencies_hz": {
+          "dtype": "<f8",
+          "shape": [
+            8
+          ]
+        },
+        "uvw_lambda": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            8,
+            28,
+            3
+          ]
+        },
+        "integration_s": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            28
+          ]
+        },
+        "valid_fft_count": {
+          "dtype": "<i8",
+          "shape": [
+            1,
+            28
+          ]
+        },
+        "diagnostic_station_power": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            8,
+            8
+          ]
+        },
+        "diagnostic_station_sk": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            8,
+            8
+          ]
+        },
+        "diagnostic_station_sk_eligible": {
+          "dtype": "|b1",
+          "shape": [
+            1,
+            8,
+            8
+          ]
+        },
+        "diagnostic_station_flags": {
+          "dtype": "|u1",
+          "shape": [
+            1,
+            8,
+            8
+          ]
+        },
+        "diagnostic_station_valid_fft_count": {
+          "dtype": "<i8",
+          "shape": [
+            1,
+            8
+          ]
+        }
+      },
+      "raw_bispectrum_present": false,
+      "covariance_api_executed_in_stage134": false,
+      "psd_and_numerical_range_result": null,
+      "iid_fft_independence_verified": false,
+      "fitter_fields": [
+        "frequencies_hz",
+        "integration_s",
+        "metadata_json",
+        "pairs",
+        "schema_version",
+        "times_s",
+        "uvw_lambda",
+        "visibilities",
+        "weights"
+      ]
+    },
+    {
+      "case": "weak_a_t3",
+      "source_archive_sha256": "dc7389ad57ac9fe0f29ab040ac417dd9553d05a58146fc1ec62058684ff8bc73",
+      "station_count": 8,
+      "baseline_count": 28,
+      "time_slots": 1,
+      "channels": 8,
+      "nominal_common_fft_blocks": 768000,
+      "complete_baseline_set": true,
+      "equal_station_and_intersection_counts": true,
+      "power_visibility_units_match": true,
+      "unit": "ADC^2",
+      "valid_station_identity": true,
+      "pre_api_eligible_channels": [
+        3,
+        4,
+        5
+      ],
+      "source_array_fields": {
+        "schema_version": {
+          "dtype": "<i8",
+          "shape": []
+        },
+        "metadata_json": {
+          "dtype": "<U2744",
+          "shape": []
+        },
+        "visibilities": {
+          "dtype": "<c16",
+          "shape": [
+            1,
+            8,
+            28
+          ]
+        },
+        "weights": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            8,
+            28
+          ]
+        },
+        "pairs": {
+          "dtype": "<i8",
+          "shape": [
+            28,
+            2
+          ]
+        },
+        "times_s": {
+          "dtype": "<f8",
+          "shape": [
+            1
+          ]
+        },
+        "frequencies_hz": {
+          "dtype": "<f8",
+          "shape": [
+            8
+          ]
+        },
+        "uvw_lambda": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            8,
+            28,
+            3
+          ]
+        },
+        "integration_s": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            28
+          ]
+        },
+        "valid_fft_count": {
+          "dtype": "<i8",
+          "shape": [
+            1,
+            28
+          ]
+        },
+        "diagnostic_station_power": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            8,
+            8
+          ]
+        },
+        "diagnostic_station_sk": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            8,
+            8
+          ]
+        },
+        "diagnostic_station_sk_eligible": {
+          "dtype": "|b1",
+          "shape": [
+            1,
+            8,
+            8
+          ]
+        },
+        "diagnostic_station_flags": {
+          "dtype": "|u1",
+          "shape": [
+            1,
+            8,
+            8
+          ]
+        },
+        "diagnostic_station_valid_fft_count": {
+          "dtype": "<i8",
+          "shape": [
+            1,
+            8
+          ]
+        }
+      },
+      "raw_bispectrum_present": false,
+      "covariance_api_executed_in_stage134": false,
+      "psd_and_numerical_range_result": null,
+      "iid_fft_independence_verified": false,
+      "fitter_fields": [
+        "frequencies_hz",
+        "integration_s",
+        "metadata_json",
+        "pairs",
+        "schema_version",
+        "times_s",
+        "uvw_lambda",
+        "visibilities",
+        "weights"
+      ]
+    },
+    {
+      "case": "weak_b_t0.3",
+      "source_archive_sha256": "c36cc89554046abfb7e05645912997fcdf7a52839d8863c0f32897b5b815d342",
+      "station_count": 8,
+      "baseline_count": 28,
+      "time_slots": 1,
+      "channels": 8,
+      "nominal_common_fft_blocks": 76800,
+      "complete_baseline_set": true,
+      "equal_station_and_intersection_counts": true,
+      "power_visibility_units_match": true,
+      "unit": "ADC^2",
+      "valid_station_identity": true,
+      "pre_api_eligible_channels": [
+        3,
+        4,
+        5
+      ],
+      "source_array_fields": {
+        "schema_version": {
+          "dtype": "<i8",
+          "shape": []
+        },
+        "metadata_json": {
+          "dtype": "<U2742",
+          "shape": []
+        },
+        "visibilities": {
+          "dtype": "<c16",
+          "shape": [
+            1,
+            8,
+            28
+          ]
+        },
+        "weights": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            8,
+            28
+          ]
+        },
+        "pairs": {
+          "dtype": "<i8",
+          "shape": [
+            28,
+            2
+          ]
+        },
+        "times_s": {
+          "dtype": "<f8",
+          "shape": [
+            1
+          ]
+        },
+        "frequencies_hz": {
+          "dtype": "<f8",
+          "shape": [
+            8
+          ]
+        },
+        "uvw_lambda": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            8,
+            28,
+            3
+          ]
+        },
+        "integration_s": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            28
+          ]
+        },
+        "valid_fft_count": {
+          "dtype": "<i8",
+          "shape": [
+            1,
+            28
+          ]
+        },
+        "diagnostic_station_power": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            8,
+            8
+          ]
+        },
+        "diagnostic_station_sk": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            8,
+            8
+          ]
+        },
+        "diagnostic_station_sk_eligible": {
+          "dtype": "|b1",
+          "shape": [
+            1,
+            8,
+            8
+          ]
+        },
+        "diagnostic_station_flags": {
+          "dtype": "|u1",
+          "shape": [
+            1,
+            8,
+            8
+          ]
+        },
+        "diagnostic_station_valid_fft_count": {
+          "dtype": "<i8",
+          "shape": [
+            1,
+            8
+          ]
+        }
+      },
+      "raw_bispectrum_present": false,
+      "covariance_api_executed_in_stage134": false,
+      "psd_and_numerical_range_result": null,
+      "iid_fft_independence_verified": false,
+      "fitter_fields": [
+        "frequencies_hz",
+        "integration_s",
+        "metadata_json",
+        "pairs",
+        "schema_version",
+        "times_s",
+        "uvw_lambda",
+        "visibilities",
+        "weights"
+      ]
+    },
+    {
+      "case": "weak_b_t1",
+      "source_archive_sha256": "38542bd4fdb8036a160d1ca1d28918fb72efc909f0f3edc69ce29e847cf6779c",
+      "station_count": 8,
+      "baseline_count": 28,
+      "time_slots": 1,
+      "channels": 8,
+      "nominal_common_fft_blocks": 256000,
+      "complete_baseline_set": true,
+      "equal_station_and_intersection_counts": true,
+      "power_visibility_units_match": true,
+      "unit": "ADC^2",
+      "valid_station_identity": true,
+      "pre_api_eligible_channels": [
+        3,
+        4,
+        5
+      ],
+      "source_array_fields": {
+        "schema_version": {
+          "dtype": "<i8",
+          "shape": []
+        },
+        "metadata_json": {
+          "dtype": "<U2742",
+          "shape": []
+        },
+        "visibilities": {
+          "dtype": "<c16",
+          "shape": [
+            1,
+            8,
+            28
+          ]
+        },
+        "weights": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            8,
+            28
+          ]
+        },
+        "pairs": {
+          "dtype": "<i8",
+          "shape": [
+            28,
+            2
+          ]
+        },
+        "times_s": {
+          "dtype": "<f8",
+          "shape": [
+            1
+          ]
+        },
+        "frequencies_hz": {
+          "dtype": "<f8",
+          "shape": [
+            8
+          ]
+        },
+        "uvw_lambda": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            8,
+            28,
+            3
+          ]
+        },
+        "integration_s": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            28
+          ]
+        },
+        "valid_fft_count": {
+          "dtype": "<i8",
+          "shape": [
+            1,
+            28
+          ]
+        },
+        "diagnostic_station_power": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            8,
+            8
+          ]
+        },
+        "diagnostic_station_sk": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            8,
+            8
+          ]
+        },
+        "diagnostic_station_sk_eligible": {
+          "dtype": "|b1",
+          "shape": [
+            1,
+            8,
+            8
+          ]
+        },
+        "diagnostic_station_flags": {
+          "dtype": "|u1",
+          "shape": [
+            1,
+            8,
+            8
+          ]
+        },
+        "diagnostic_station_valid_fft_count": {
+          "dtype": "<i8",
+          "shape": [
+            1,
+            8
+          ]
+        }
+      },
+      "raw_bispectrum_present": false,
+      "covariance_api_executed_in_stage134": false,
+      "psd_and_numerical_range_result": null,
+      "iid_fft_independence_verified": false,
+      "fitter_fields": [
+        "frequencies_hz",
+        "integration_s",
+        "metadata_json",
+        "pairs",
+        "schema_version",
+        "times_s",
+        "uvw_lambda",
+        "visibilities",
+        "weights"
+      ]
+    },
+    {
+      "case": "weak_b_t3",
+      "source_archive_sha256": "2dcc4d747fb44f6d9e1836088875c087e8fee912567010bfc66f42950bb458eb",
+      "station_count": 8,
+      "baseline_count": 28,
+      "time_slots": 1,
+      "channels": 8,
+      "nominal_common_fft_blocks": 768000,
+      "complete_baseline_set": true,
+      "equal_station_and_intersection_counts": true,
+      "power_visibility_units_match": true,
+      "unit": "ADC^2",
+      "valid_station_identity": true,
+      "pre_api_eligible_channels": [
+        3,
+        4,
+        5
+      ],
+      "source_array_fields": {
+        "schema_version": {
+          "dtype": "<i8",
+          "shape": []
+        },
+        "metadata_json": {
+          "dtype": "<U2742",
+          "shape": []
+        },
+        "visibilities": {
+          "dtype": "<c16",
+          "shape": [
+            1,
+            8,
+            28
+          ]
+        },
+        "weights": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            8,
+            28
+          ]
+        },
+        "pairs": {
+          "dtype": "<i8",
+          "shape": [
+            28,
+            2
+          ]
+        },
+        "times_s": {
+          "dtype": "<f8",
+          "shape": [
+            1
+          ]
+        },
+        "frequencies_hz": {
+          "dtype": "<f8",
+          "shape": [
+            8
+          ]
+        },
+        "uvw_lambda": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            8,
+            28,
+            3
+          ]
+        },
+        "integration_s": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            28
+          ]
+        },
+        "valid_fft_count": {
+          "dtype": "<i8",
+          "shape": [
+            1,
+            28
+          ]
+        },
+        "diagnostic_station_power": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            8,
+            8
+          ]
+        },
+        "diagnostic_station_sk": {
+          "dtype": "<f8",
+          "shape": [
+            1,
+            8,
+            8
+          ]
+        },
+        "diagnostic_station_sk_eligible": {
+          "dtype": "|b1",
+          "shape": [
+            1,
+            8,
+            8
+          ]
+        },
+        "diagnostic_station_flags": {
+          "dtype": "|u1",
+          "shape": [
+            1,
+            8,
+            8
+          ]
+        },
+        "diagnostic_station_valid_fft_count": {
+          "dtype": "<i8",
+          "shape": [
+            1,
+            8
+          ]
+        }
+      },
+      "raw_bispectrum_present": false,
+      "covariance_api_executed_in_stage134": false,
+      "psd_and_numerical_range_result": null,
+      "iid_fft_independence_verified": false,
+      "fitter_fields": [
+        "frequencies_hz",
+        "integration_s",
+        "metadata_json",
+        "pairs",
+        "schema_version",
+        "times_s",
+        "uvw_lambda",
+        "visibilities",
+        "weights"
+      ]
+    }
+  ],
+  "raw_files_sha_preserved": 76,
+  "correlation_files_sha_preserved": 12,
+  "truth_files_sha_preserved": 4,
+  "fitter_files_sha_preserved": 12,
+  "pre_api_eligible_cells": 36,
+  "new_covariance_estimation_or_fit_executed": false,
+  "scope": "Saved array fields/counts/flags/units and hashes only; eligible input gate is not an API/PSD result or iid validation."
+}
