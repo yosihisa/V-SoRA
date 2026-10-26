@@ -151,6 +151,7 @@
 | 133 | [短積分相関から既定格子の相対画像を評価](133-short-integration-images.md) | 両87対象、全12条件・10画像/2制約不足を導入CLI照合。選択2収束/8上限、全10形状差はpriorより大。数値126/文字列12、全2270はcollectのみ |
 | 134 | [画像主経路のモデル・誤差・保存量を監査](134-image-statistics-contract.md) | 文書・一次コード17file/20記述、435code/過去134レポート不変。w項あり・既存雑音APIを再利用、36セルは診断前ゲート。新数値/試験/wheel/browserなし |
 | 135 | [保存相関を条件付き全雑音診断へ接続](135-saved-noise-contract.md) | 両91対象、全96JSON/594配列一致。36条件付き・60inactive・6空制約。SNR10同じ基底の分散/交差を比較、RML変更なし、全2277はcollectのみ |
+| 136 | [保存pilotの時間powerを条件付きで診断](136-saved-pilot-time.md) | 両62既存対象、24系列/全JSON byte一致。672行中50比未判定、負174/1超148を保持。実coherenceではない。新test/collect/画像なし |
 
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。
 

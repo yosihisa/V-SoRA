@@ -1,0 +1,105 @@
+{
+  "stage": 136,
+  "state": "complete",
+  "actual_native_diagnostic_cli_calls": 24,
+  "native_output_refusal_calls": 24,
+  "all_24_diagnostic_json_bytes_exact": true,
+  "all_science_json_exact": true,
+  "whole_study_nonoverwrite": true,
+  "input_pilot_archives_sha_preserved": 12,
+  "input_rate_profiles_sha_preserved": 4,
+  "outside_checkout": true,
+  "runner_absent": true,
+  "pythonpath_absent": true,
+  "helper_requires_checkout": true,
+  "project_modules": [
+    "vsora_correlator",
+    "vsora_correlator.coherence",
+    "vsora_correlator.noise_diagnostics",
+    "vsora_correlator.rate",
+    "vsora_correlator.rate_linear",
+    "vsora_correlator.rate_variation",
+    "vsora_correlator.time_scatter",
+    "vsora_formats",
+    "vsora_formats.spectral",
+    "vsora_imaging",
+    "vsora_imaging.closure",
+    "vsora_imaging.closure_noise",
+    "vsora_simulator",
+    "vsora_simulator.visibility_moments",
+    "vsora_simulator.visibility_noise_estimate"
+  ],
+  "all_project_modules_in_prefix": true,
+  "hardware_coherence_measured": false,
+  "truth_numerical_values_used": false,
+  "production_rml_changed": false,
+  "targeted": {
+    "source": {
+      "passed": 62,
+      "new_tests": 0,
+      "elapsed_s": 4.4,
+      "warnings": 1280,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 62,
+      "new_tests": 0,
+      "elapsed_s": 3.25,
+      "warnings": 1280,
+      "excluded_tests": 0
+    }
+  },
+  "new_collection_performed": false,
+  "cited_collection_stage": 135,
+  "cited_collected_tests_each": 2277,
+  "full2277_executed": false,
+  "cited_full_stage": 121,
+  "cited_full_tests_each": 2116,
+  "cited_full_elapsed_s": {
+    "source": 609.28,
+    "installed": 607.5
+  },
+  "cited_full_warnings_each": 27396,
+  "cited_full_excluded": 0,
+  "frozen_files": 440,
+  "all_frozen_sha_unchanged": true,
+  "old_core_package_files_unchanged": 215,
+  "core_wheel_package_files_checked": 103,
+  "reference_assets_checked": 4,
+  "main_environment_freeze_unchanged": true,
+  "new_wheel_browser_full_regression": false,
+  "source_parent_module_count": 15,
+  "actual_output_bytes_each": {
+    "source": 1152547,
+    "installed": 1155167
+  },
+  "source_study_nonoverwrite_verified": {
+    "whole_study_nonoverwrite": true,
+    "all_source_files_sha_unchanged": true,
+    "files_checked": 28
+  },
+  "initial_preliminary_62_counted_as_formal": false,
+  "series_state_counts": {
+    "conditional_estimate": 24
+  },
+  "baseline_state_counts": {
+    "conditional_estimate": 622,
+    "unverified": 50
+  },
+  "baseline_ratio_null_count": 50,
+  "finite_ratio_count": 622,
+  "finite_ratio_range": [
+    -0.7481303052081791,
+    35.273736879019474
+  ],
+  "negative_ratio_count": 174,
+  "above_one_ratio_count": 148,
+  "raw_files_sha_preserved": 76,
+  "input_record_count": 16,
+  "ratios_are_measured_coherence": false,
+  "public_audit_findings": 0,
+  "documentation_links": {
+    "checked": 1774,
+    "missing": 0
+  }
+}
