@@ -1,0 +1,50 @@
+[
+  {
+    "split": "even_training",
+    "stage126_cited_not_new": true,
+    "different_generating_sky": true,
+    "old_truth32_fitter8": {
+      "training_loss": 0.0002411527851522437,
+      "unused_loss": 0.37942119964300375,
+      "selected_converged": false
+    },
+    "new_matched_truth8_fitter8": {
+      "training_loss": 0.00018598497158518588,
+      "unused_loss": 0.09505192541390889,
+      "selected_converged": true,
+      "reference_nrmse": 0.09434560316856455
+    }
+  },
+  {
+    "split": "odd_training",
+    "stage126_cited_not_new": true,
+    "different_generating_sky": true,
+    "old_truth32_fitter8": {
+      "training_loss": 0.00011722492781864742,
+      "unused_loss": 0.5251446149955278,
+      "selected_converged": true
+    },
+    "new_matched_truth8_fitter8": {
+      "training_loss": 0.0001549538244253183,
+      "unused_loss": 0.3669184182799399,
+      "selected_converged": true,
+      "reference_nrmse": 0.08712321129454628
+    }
+  },
+  {
+    "split": "all_training",
+    "stage126_cited_not_new": true,
+    "different_generating_sky": true,
+    "old_truth32_fitter8": {
+      "training_loss": 0.0013063513035187807,
+      "unused_loss": null,
+      "selected_converged": true
+    },
+    "new_matched_truth8_fitter8": {
+      "training_loss": 0.0004975763984004416,
+      "unused_loss": null,
+      "selected_converged": true,
+      "reference_nrmse": 0.04063404100800597
+    }
+  }
+]

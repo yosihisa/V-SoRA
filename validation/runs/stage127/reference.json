@@ -1,0 +1,3539 @@
+{
+  "stage": 127,
+  "state": "complete",
+  "generation": {
+    "input_files_sha256": {
+      "estimated_rate/visibility.npz": "aef38ab15ae4c08317004357d1143ff4a13cb40ddef894c05826ab36eac98087",
+      "truth_rate_control/visibility.npz": "7bb8712e402681c20e5dbdee401cbdfe57c31f1457b5de7a67d51b7d25009057",
+      "ideal_model_true_rate_snr_control/visibility.npz": "3580e0cdfdae92a01bfc754fc0491a4bcdd8f07aa2f639dcc16e047671e8dfe6",
+      "truth.npy": "9189445bdd1552a2ca885a019662b5d5158f44a1cf2101a1a6b626716c2e07f8"
+    },
+    "coarse_truth_sha256": "9e634d46500c730fed136a37ae283b27683682bae7abddda1daa0cfc22121def",
+    "embedded_truth_sha256": "d88687d42a963313bccef6ecb2a71dc018d302701f41907de57bcac43fc32e57",
+    "control_archive_sha256": "681cd692ac68f0de3a00bb1ecbbf7dde3b0ed6cbeeac484b64d16d2ca01f7200",
+    "transport_detail_sha256": "d27f0e460fd50136f76338af3b66f5bf334606aec9d680fa3a5e5a6944ccf897",
+    "common_mask_sha256": "379c9a77d63cc7955587d36f2b2e791486929c31665b5bf8591dab0ed7836d3e",
+    "transport": {
+      "baseline_masks_identical": true,
+      "all_closure_valid_masks_identical": true,
+      "valid_baseline_cells": 283,
+      "independent_counts": {
+        "phase": 117,
+        "logamp": 93
+      },
+      "maximum_relative_snr_difference": 4.440892098500626e-16,
+      "maximum_relative_variance_difference": 6.661338147750939e-16,
+      "basis_indices_all_identical": true,
+      "cells_and_components": [
+        {
+          "time_index": 0,
+          "frequency_index": 0,
+          "kind": "phase",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 0,
+          "frequency_index": 0,
+          "kind": "logamp",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 0,
+          "frequency_index": 1,
+          "kind": "phase",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 0,
+          "frequency_index": 1,
+          "kind": "logamp",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 0,
+          "frequency_index": 2,
+          "kind": "phase",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 0,
+          "frequency_index": 2,
+          "kind": "logamp",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 0,
+          "frequency_index": 3,
+          "kind": "phase",
+          "independent_count": 6,
+          "indices_identical": true
+        },
+        {
+          "time_index": 0,
+          "frequency_index": 3,
+          "kind": "logamp",
+          "independent_count": 5,
+          "indices_identical": true
+        },
+        {
+          "time_index": 0,
+          "frequency_index": 4,
+          "kind": "phase",
+          "independent_count": 6,
+          "indices_identical": true
+        },
+        {
+          "time_index": 0,
+          "frequency_index": 4,
+          "kind": "logamp",
+          "independent_count": 5,
+          "indices_identical": true
+        },
+        {
+          "time_index": 0,
+          "frequency_index": 5,
+          "kind": "phase",
+          "independent_count": 4,
+          "indices_identical": true
+        },
+        {
+          "time_index": 0,
+          "frequency_index": 5,
+          "kind": "logamp",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 0,
+          "frequency_index": 6,
+          "kind": "phase",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 0,
+          "frequency_index": 6,
+          "kind": "logamp",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 0,
+          "frequency_index": 7,
+          "kind": "phase",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 0,
+          "frequency_index": 7,
+          "kind": "logamp",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 1,
+          "frequency_index": 0,
+          "kind": "phase",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 1,
+          "frequency_index": 0,
+          "kind": "logamp",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 1,
+          "frequency_index": 1,
+          "kind": "phase",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 1,
+          "frequency_index": 1,
+          "kind": "logamp",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 1,
+          "frequency_index": 2,
+          "kind": "phase",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 1,
+          "frequency_index": 2,
+          "kind": "logamp",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 1,
+          "frequency_index": 3,
+          "kind": "phase",
+          "independent_count": 5,
+          "indices_identical": true
+        },
+        {
+          "time_index": 1,
+          "frequency_index": 3,
+          "kind": "logamp",
+          "independent_count": 3,
+          "indices_identical": true
+        },
+        {
+          "time_index": 1,
+          "frequency_index": 4,
+          "kind": "phase",
+          "independent_count": 4,
+          "indices_identical": true
+        },
+        {
+          "time_index": 1,
+          "frequency_index": 4,
+          "kind": "logamp",
+          "independent_count": 3,
+          "indices_identical": true
+        },
+        {
+          "time_index": 1,
+          "frequency_index": 5,
+          "kind": "phase",
+          "independent_count": 6,
+          "indices_identical": true
+        },
+        {
+          "time_index": 1,
+          "frequency_index": 5,
+          "kind": "logamp",
+          "independent_count": 5,
+          "indices_identical": true
+        },
+        {
+          "time_index": 1,
+          "frequency_index": 6,
+          "kind": "phase",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 1,
+          "frequency_index": 6,
+          "kind": "logamp",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 1,
+          "frequency_index": 7,
+          "kind": "phase",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 1,
+          "frequency_index": 7,
+          "kind": "logamp",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 2,
+          "frequency_index": 0,
+          "kind": "phase",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 2,
+          "frequency_index": 0,
+          "kind": "logamp",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 2,
+          "frequency_index": 1,
+          "kind": "phase",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 2,
+          "frequency_index": 1,
+          "kind": "logamp",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 2,
+          "frequency_index": 2,
+          "kind": "phase",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 2,
+          "frequency_index": 2,
+          "kind": "logamp",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 2,
+          "frequency_index": 3,
+          "kind": "phase",
+          "independent_count": 7,
+          "indices_identical": true
+        },
+        {
+          "time_index": 2,
+          "frequency_index": 3,
+          "kind": "logamp",
+          "independent_count": 6,
+          "indices_identical": true
+        },
+        {
+          "time_index": 2,
+          "frequency_index": 4,
+          "kind": "phase",
+          "independent_count": 6,
+          "indices_identical": true
+        },
+        {
+          "time_index": 2,
+          "frequency_index": 4,
+          "kind": "logamp",
+          "independent_count": 5,
+          "indices_identical": true
+        },
+        {
+          "time_index": 2,
+          "frequency_index": 5,
+          "kind": "phase",
+          "independent_count": 6,
+          "indices_identical": true
+        },
+        {
+          "time_index": 2,
+          "frequency_index": 5,
+          "kind": "logamp",
+          "independent_count": 5,
+          "indices_identical": true
+        },
+        {
+          "time_index": 2,
+          "frequency_index": 6,
+          "kind": "phase",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 2,
+          "frequency_index": 6,
+          "kind": "logamp",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 2,
+          "frequency_index": 7,
+          "kind": "phase",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 2,
+          "frequency_index": 7,
+          "kind": "logamp",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 3,
+          "frequency_index": 0,
+          "kind": "phase",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 3,
+          "frequency_index": 0,
+          "kind": "logamp",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 3,
+          "frequency_index": 1,
+          "kind": "phase",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 3,
+          "frequency_index": 1,
+          "kind": "logamp",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 3,
+          "frequency_index": 2,
+          "kind": "phase",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 3,
+          "frequency_index": 2,
+          "kind": "logamp",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 3,
+          "frequency_index": 3,
+          "kind": "phase",
+          "independent_count": 4,
+          "indices_identical": true
+        },
+        {
+          "time_index": 3,
+          "frequency_index": 3,
+          "kind": "logamp",
+          "independent_count": 3,
+          "indices_identical": true
+        },
+        {
+          "time_index": 3,
+          "frequency_index": 4,
+          "kind": "phase",
+          "independent_count": 6,
+          "indices_identical": true
+        },
+        {
+          "time_index": 3,
+          "frequency_index": 4,
+          "kind": "logamp",
+          "independent_count": 4,
+          "indices_identical": true
+        },
+        {
+          "time_index": 3,
+          "frequency_index": 5,
+          "kind": "phase",
+          "independent_count": 4,
+          "indices_identical": true
+        },
+        {
+          "time_index": 3,
+          "frequency_index": 5,
+          "kind": "logamp",
+          "independent_count": 3,
+          "indices_identical": true
+        },
+        {
+          "time_index": 3,
+          "frequency_index": 6,
+          "kind": "phase",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 3,
+          "frequency_index": 6,
+          "kind": "logamp",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 3,
+          "frequency_index": 7,
+          "kind": "phase",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 3,
+          "frequency_index": 7,
+          "kind": "logamp",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 4,
+          "frequency_index": 0,
+          "kind": "phase",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 4,
+          "frequency_index": 0,
+          "kind": "logamp",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 4,
+          "frequency_index": 1,
+          "kind": "phase",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 4,
+          "frequency_index": 1,
+          "kind": "logamp",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 4,
+          "frequency_index": 2,
+          "kind": "phase",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 4,
+          "frequency_index": 2,
+          "kind": "logamp",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 4,
+          "frequency_index": 3,
+          "kind": "phase",
+          "independent_count": 5,
+          "indices_identical": true
+        },
+        {
+          "time_index": 4,
+          "frequency_index": 3,
+          "kind": "logamp",
+          "independent_count": 4,
+          "indices_identical": true
+        },
+        {
+          "time_index": 4,
+          "frequency_index": 4,
+          "kind": "phase",
+          "independent_count": 6,
+          "indices_identical": true
+        },
+        {
+          "time_index": 4,
+          "frequency_index": 4,
+          "kind": "logamp",
+          "independent_count": 5,
+          "indices_identical": true
+        },
+        {
+          "time_index": 4,
+          "frequency_index": 5,
+          "kind": "phase",
+          "independent_count": 8,
+          "indices_identical": true
+        },
+        {
+          "time_index": 4,
+          "frequency_index": 5,
+          "kind": "logamp",
+          "independent_count": 7,
+          "indices_identical": true
+        },
+        {
+          "time_index": 4,
+          "frequency_index": 6,
+          "kind": "phase",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 4,
+          "frequency_index": 6,
+          "kind": "logamp",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 4,
+          "frequency_index": 7,
+          "kind": "phase",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 4,
+          "frequency_index": 7,
+          "kind": "logamp",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 5,
+          "frequency_index": 0,
+          "kind": "phase",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 5,
+          "frequency_index": 0,
+          "kind": "logamp",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 5,
+          "frequency_index": 1,
+          "kind": "phase",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 5,
+          "frequency_index": 1,
+          "kind": "logamp",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 5,
+          "frequency_index": 2,
+          "kind": "phase",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 5,
+          "frequency_index": 2,
+          "kind": "logamp",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 5,
+          "frequency_index": 3,
+          "kind": "phase",
+          "independent_count": 5,
+          "indices_identical": true
+        },
+        {
+          "time_index": 5,
+          "frequency_index": 3,
+          "kind": "logamp",
+          "independent_count": 4,
+          "indices_identical": true
+        },
+        {
+          "time_index": 5,
+          "frequency_index": 4,
+          "kind": "phase",
+          "independent_count": 4,
+          "indices_identical": true
+        },
+        {
+          "time_index": 5,
+          "frequency_index": 4,
+          "kind": "logamp",
+          "independent_count": 4,
+          "indices_identical": true
+        },
+        {
+          "time_index": 5,
+          "frequency_index": 5,
+          "kind": "phase",
+          "independent_count": 6,
+          "indices_identical": true
+        },
+        {
+          "time_index": 5,
+          "frequency_index": 5,
+          "kind": "logamp",
+          "independent_count": 4,
+          "indices_identical": true
+        },
+        {
+          "time_index": 5,
+          "frequency_index": 6,
+          "kind": "phase",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 5,
+          "frequency_index": 6,
+          "kind": "logamp",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 5,
+          "frequency_index": 7,
+          "kind": "phase",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 5,
+          "frequency_index": 7,
+          "kind": "logamp",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 6,
+          "frequency_index": 0,
+          "kind": "phase",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 6,
+          "frequency_index": 0,
+          "kind": "logamp",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 6,
+          "frequency_index": 1,
+          "kind": "phase",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 6,
+          "frequency_index": 1,
+          "kind": "logamp",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 6,
+          "frequency_index": 2,
+          "kind": "phase",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 6,
+          "frequency_index": 2,
+          "kind": "logamp",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 6,
+          "frequency_index": 3,
+          "kind": "phase",
+          "independent_count": 4,
+          "indices_identical": true
+        },
+        {
+          "time_index": 6,
+          "frequency_index": 3,
+          "kind": "logamp",
+          "independent_count": 4,
+          "indices_identical": true
+        },
+        {
+          "time_index": 6,
+          "frequency_index": 4,
+          "kind": "phase",
+          "independent_count": 2,
+          "indices_identical": true
+        },
+        {
+          "time_index": 6,
+          "frequency_index": 4,
+          "kind": "logamp",
+          "independent_count": 2,
+          "indices_identical": true
+        },
+        {
+          "time_index": 6,
+          "frequency_index": 5,
+          "kind": "phase",
+          "independent_count": 3,
+          "indices_identical": true
+        },
+        {
+          "time_index": 6,
+          "frequency_index": 5,
+          "kind": "logamp",
+          "independent_count": 3,
+          "indices_identical": true
+        },
+        {
+          "time_index": 6,
+          "frequency_index": 6,
+          "kind": "phase",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 6,
+          "frequency_index": 6,
+          "kind": "logamp",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 6,
+          "frequency_index": 7,
+          "kind": "phase",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 6,
+          "frequency_index": 7,
+          "kind": "logamp",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 7,
+          "frequency_index": 0,
+          "kind": "phase",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 7,
+          "frequency_index": 0,
+          "kind": "logamp",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 7,
+          "frequency_index": 1,
+          "kind": "phase",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 7,
+          "frequency_index": 1,
+          "kind": "logamp",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 7,
+          "frequency_index": 2,
+          "kind": "phase",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 7,
+          "frequency_index": 2,
+          "kind": "logamp",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 7,
+          "frequency_index": 3,
+          "kind": "phase",
+          "independent_count": 4,
+          "indices_identical": true
+        },
+        {
+          "time_index": 7,
+          "frequency_index": 3,
+          "kind": "logamp",
+          "independent_count": 4,
+          "indices_identical": true
+        },
+        {
+          "time_index": 7,
+          "frequency_index": 4,
+          "kind": "phase",
+          "independent_count": 4,
+          "indices_identical": true
+        },
+        {
+          "time_index": 7,
+          "frequency_index": 4,
+          "kind": "logamp",
+          "independent_count": 3,
+          "indices_identical": true
+        },
+        {
+          "time_index": 7,
+          "frequency_index": 5,
+          "kind": "phase",
+          "independent_count": 2,
+          "indices_identical": true
+        },
+        {
+          "time_index": 7,
+          "frequency_index": 5,
+          "kind": "logamp",
+          "independent_count": 2,
+          "indices_identical": true
+        },
+        {
+          "time_index": 7,
+          "frequency_index": 6,
+          "kind": "phase",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 7,
+          "frequency_index": 6,
+          "kind": "logamp",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 7,
+          "frequency_index": 7,
+          "kind": "phase",
+          "independent_count": 0,
+          "indices_identical": true
+        },
+        {
+          "time_index": 7,
+          "frequency_index": 7,
+          "kind": "logamp",
+          "independent_count": 0,
+          "indices_identical": true
+        }
+      ],
+      "basis_identity_required": false,
+      "rank_and_mask_identity_required": true,
+      "physical_noise_calibration_measured": false
+    },
+    "coarse_truth_flux": 999.9999999999999,
+    "coarse_positive_pixels": 45,
+    "maximum_independent_point_sum_difference": 4.548028586499771e-13,
+    "quantization": "nearest 64-arcsec point centers; ties toward positive coordinate; no clipping or dropped positive flux",
+    "same_physical_sky_as_original": false,
+    "actual_observation_validated": false
+  },
+  "cases": [
+    {
+      "split": "even_training",
+      "training_times": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "unused_times": [
+        1,
+        3,
+        5,
+        7
+      ],
+      "training_archive_sha256": "157881fdb2a448c3629195f8a486d5c5ed432261278ad9750f9486c6fa400400",
+      "training_numeric_arrays": {
+        "visibilities": {
+          "dtype": "<c16",
+          "shape": [
+            8,
+            8,
+            28
+          ],
+          "sha256": "46d8e74349cace4b270cba45c2dd5264c9ada8b0a482036079b0ba75e0d885d5"
+        },
+        "weights": {
+          "dtype": "<f8",
+          "shape": [
+            8,
+            8,
+            28
+          ],
+          "sha256": "c42f1d65864b2373dc08c2e49ad6d6c39fd2ee2b83bbf02b06a96795faa5e3ba"
+        },
+        "pairs": {
+          "dtype": "<i8",
+          "shape": [
+            28,
+            2
+          ],
+          "sha256": "77dd18378e5847909c18331ae810f09a80aea526095837fcbd06d04e0e91f707"
+        },
+        "uvw_lambda": {
+          "dtype": "<f8",
+          "shape": [
+            8,
+            8,
+            28,
+            3
+          ],
+          "sha256": "ca4437631352ee75b5238038257130855218137225ff6dab424db38e7af50831"
+        },
+        "times_s": {
+          "dtype": "<f8",
+          "shape": [
+            8
+          ],
+          "sha256": "edb2b9c034b19c1cfe8fbfb60d508ebd970db2de30c3e9a78a75fdd0d8d5fd39"
+        },
+        "frequencies_hz": {
+          "dtype": "<f8",
+          "shape": [
+            8
+          ],
+          "sha256": "d8fe4c24c5afc70fdab4102c5c2fb67d874b0964045bf92f5f2b1f3c44b45034"
+        },
+        "integration_s": {
+          "dtype": "<f8",
+          "shape": [
+            8,
+            28
+          ],
+          "sha256": "445b5bf7f45f494eabbcc4c09c3119278e8ee455ae621c5edb0978d9aaf24720"
+        }
+      },
+      "science": {
+        "rml_summary": {
+          "objective": 0.0018494637899854336,
+          "closure_chisq_per_measurement": 0.00037196994317242166,
+          "data_loss": 0.00018598497158621083,
+          "entropy_loss": 0.0013653980434895764,
+          "tsv_loss": 0.00020047010488557986,
+          "centroid_loss": 9.761059699240112e-05,
+          "independent_closure_count": 114,
+          "independent_closure_counts": {
+            "phase": 63,
+            "logamp": 51
+          },
+          "centroid_arcsec": [
+            -7.976943373055995,
+            -0.5817690847733634
+          ],
+          "parameter_sum_penalty": 7.303166513136117e-11,
+          "selected_start": 2,
+          "runs": [
+            {
+              "objective": 0.0032199541670373697,
+              "closure_chisq_per_measurement": 0.001550711594986023,
+              "data_loss": 0.0007753557974930115,
+              "entropy_loss": 0.002097905792999095,
+              "tsv_loss": 0.00020540365479112684,
+              "centroid_loss": 0.00014128883334797268,
+              "independent_closure_count": 114,
+              "independent_closure_counts": {
+                "phase": 63,
+                "logamp": 51
+              },
+              "centroid_arcsec": [
+                -5.345897261338397,
+                -8.001026952469415
+              ],
+              "parameter_sum_penalty": 8.840616406138716e-11,
+              "start": 0,
+              "circular_warmup_iterations": 300,
+              "iterations": 1674,
+              "optimizer_success": true,
+              "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH"
+            },
+            {
+              "objective": 0.0018529265769734794,
+              "closure_chisq_per_measurement": 0.00034737825460986565,
+              "data_loss": 0.00017368912730493283,
+              "entropy_loss": 0.001372208191057939,
+              "tsv_loss": 0.00020182403029864472,
+              "centroid_loss": 0.00010520514862468352,
+              "independent_closure_count": 114,
+              "independent_closure_counts": {
+                "phase": 63,
+                "logamp": 51
+              },
+              "centroid_arcsec": [
+                -8.303447849198138,
+                -0.00013534923568392365
+              ],
+              "parameter_sum_penalty": 7.968727948471087e-11,
+              "start": 1,
+              "circular_warmup_iterations": 300,
+              "iterations": 2000,
+              "optimizer_success": false,
+              "optimizer_message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT"
+            },
+            {
+              "objective": 0.0018494637899854336,
+              "closure_chisq_per_measurement": 0.00037196994317242166,
+              "data_loss": 0.00018598497158621083,
+              "entropy_loss": 0.0013653980434895764,
+              "tsv_loss": 0.00020047010488557986,
+              "centroid_loss": 9.761059699240112e-05,
+              "independent_closure_count": 114,
+              "independent_closure_counts": {
+                "phase": 63,
+                "logamp": 51
+              },
+              "centroid_arcsec": [
+                -7.976943373055995,
+                -0.5817690847733634
+              ],
+              "parameter_sum_penalty": 7.303166513136117e-11,
+              "start": 2,
+              "circular_warmup_iterations": 300,
+              "iterations": 1963,
+              "optimizer_success": true,
+              "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH"
+            }
+          ],
+          "image_sum": 1.0,
+          "output_unit": "relative flux/pixel",
+          "absolute_flux_measured": false,
+          "absolute_position_measured": false,
+          "amplitude_constraints_available": true,
+          "centroid_constraint": "Weak penalty around display center; actual centroid reported; not measured astrometry",
+          "settings": {
+            "pixels": 8,
+            "pixel_arcsec": 64.0,
+            "min_snr": 10.0,
+            "prior_fwhm_arcsec": 240.0,
+            "entropy": 0.01,
+            "tsv": 0.0001,
+            "centroid": 0.1,
+            "starts": 3,
+            "max_iterations": 2000,
+            "seed": 21
+          },
+          "noise_model": "Fixed observed high SNR independent-baseline covariance, full within each closure cell",
+          "likelihood_limit": "Wrapped local Gaussian phase residual; low SNR and phase branch boundaries excluded",
+          "input_unit": "Jy"
+        },
+        "selected_start": 2,
+        "selected_run_converged": true,
+        "all_runs_converged": false,
+        "evaluation": {
+          "training": {
+            "fit": {
+              "schema_version": 1,
+              "type": "fixed_image_closure_residual_diagnostic",
+              "state": "complete",
+              "independent_counts": {
+                "phase": 63,
+                "logamp": 51
+              },
+              "independent_count": 114,
+              "chi2_approx": 0.04240457352142238,
+              "data_loss": 0.00018598497158518588,
+              "component_chi2_approx": {
+                "phase": 0.023024556456028026,
+                "logamp": 0.019380017065394353
+              },
+              "baseline_valid_count": 147,
+              "independent_used_baseline_count": 133,
+              "all_cell_count": 64,
+              "cells_with_constraints": 12,
+              "basis_and_covariance_sha256": "72a132e662c07f2ad1a9ae6f688de7358db656cc293f97d5e008a02ef65e4450",
+              "basis_indices_sha256": "885c06fe7ee46b26ea7d686de78ae667fd659043e209f5c8bb72a6958742cb92",
+              "settings": {
+                "pixel_arcsec": 64.0,
+                "min_snr": 10.0,
+                "prior_fwhm_arcsec": 240.0,
+                "entropy": 0.01,
+                "tsv": 0.0001,
+                "centroid": 0.1
+              },
+              "optimizer_executed": false,
+              "p_value_computed": false,
+              "low_snr_likelihood_validated": false,
+              "actual_observation_validated": false,
+              "public_data_loss_absolute_difference": 1.0249505237591716e-15,
+              "public_api_metrics": {
+                "objective": 0.0018494637169537685,
+                "closure_chisq_per_measurement": 0.00037196994317242166,
+                "data_loss": 0.00018598497158621083,
+                "entropy_loss": 0.0013653980434895764,
+                "tsv_loss": 0.00020047010488557986,
+                "centroid_loss": 9.761059699240112e-05,
+                "independent_closure_count": 114,
+                "independent_closure_counts": {
+                  "phase": 63,
+                  "logamp": 51
+                },
+                "centroid_arcsec": [
+                  -7.976943373055995,
+                  -0.5817690847733634
+                ]
+              }
+            },
+            "prior": {
+              "schema_version": 1,
+              "type": "fixed_image_closure_residual_diagnostic",
+              "state": "complete",
+              "independent_counts": {
+                "phase": 63,
+                "logamp": 51
+              },
+              "independent_count": 114,
+              "chi2_approx": 78349.95347936955,
+              "data_loss": 343.6401468393401,
+              "component_chi2_approx": {
+                "phase": 9495.577996594704,
+                "logamp": 68854.37548277485
+              },
+              "baseline_valid_count": 147,
+              "independent_used_baseline_count": 133,
+              "all_cell_count": 64,
+              "cells_with_constraints": 12,
+              "basis_and_covariance_sha256": "72a132e662c07f2ad1a9ae6f688de7358db656cc293f97d5e008a02ef65e4450",
+              "basis_indices_sha256": "885c06fe7ee46b26ea7d686de78ae667fd659043e209f5c8bb72a6958742cb92",
+              "settings": {
+                "pixel_arcsec": 64.0,
+                "min_snr": 10.0,
+                "prior_fwhm_arcsec": 240.0,
+                "entropy": 0.01,
+                "tsv": 0.0001,
+                "centroid": 0.1
+              },
+              "optimizer_executed": false,
+              "p_value_computed": false,
+              "low_snr_likelihood_validated": false,
+              "actual_observation_validated": false,
+              "public_data_loss_absolute_difference": 3.54702933691442e-11,
+              "public_api_metrics": {
+                "objective": 343.6402475237731,
+                "closure_chisq_per_measurement": 687.2802936787511,
+                "data_loss": 343.6401468393756,
+                "entropy_loss": 0.0,
+                "tsv_loss": 7.71569179032074e-05,
+                "centroid_loss": 2.3527479634246545e-05,
+                "independent_closure_count": 114,
+                "independent_closure_counts": {
+                  "phase": 63,
+                  "logamp": 51
+                },
+                "centroid_arcsec": [
+                  -2.7765958522172305,
+                  -2.776595852217223
+                ]
+              }
+            },
+            "truth": {
+              "schema_version": 1,
+              "type": "fixed_image_closure_residual_diagnostic",
+              "state": "complete",
+              "independent_counts": {
+                "phase": 63,
+                "logamp": 51
+              },
+              "independent_count": 114,
+              "chi2_approx": 2.7348044713156227e-27,
+              "data_loss": 1.1994756453138695e-29,
+              "component_chi2_approx": {
+                "phase": 1.1912234799814869e-27,
+                "logamp": 1.543580991334136e-27
+              },
+              "baseline_valid_count": 147,
+              "independent_used_baseline_count": 133,
+              "all_cell_count": 64,
+              "cells_with_constraints": 12,
+              "basis_and_covariance_sha256": "72a132e662c07f2ad1a9ae6f688de7358db656cc293f97d5e008a02ef65e4450",
+              "basis_indices_sha256": "885c06fe7ee46b26ea7d686de78ae667fd659043e209f5c8bb72a6958742cb92",
+              "settings": {
+                "pixel_arcsec": 16.0,
+                "min_snr": 10.0,
+                "prior_fwhm_arcsec": 240.0,
+                "entropy": 0.01,
+                "tsv": 0.0001,
+                "centroid": 0.1
+              },
+              "optimizer_executed": false,
+              "p_value_computed": false,
+              "low_snr_likelihood_validated": false,
+              "actual_observation_validated": false,
+              "public_data_loss_absolute_difference": 3.485097728497398e-24,
+              "public_api_metrics": {
+                "objective": 0.051142102603462955,
+                "closure_chisq_per_measurement": 6.970219446507702e-24,
+                "data_loss": 3.485109723253851e-24,
+                "entropy_loss": 0.030249716356377805,
+                "tsv_loss": 0.01966781354280246,
+                "centroid_loss": 0.0012245727042826974,
+                "independent_closure_count": 114,
+                "independent_closure_counts": {
+                  "phase": 63,
+                  "logamp": 51
+                },
+                "centroid_arcsec": [
+                  -9.947080245541814,
+                  26.525300414273545
+                ]
+              }
+            }
+          },
+          "unused": {
+            "fit": {
+              "schema_version": 1,
+              "type": "fixed_image_closure_residual_diagnostic",
+              "state": "complete",
+              "independent_counts": {
+                "phase": 54,
+                "logamp": 42
+              },
+              "independent_count": 96,
+              "chi2_approx": 18.249969679470507,
+              "data_loss": 0.09505192541390889,
+              "component_chi2_approx": {
+                "phase": 3.817965590533839,
+                "logamp": 14.432004088936667
+              },
+              "baseline_valid_count": 136,
+              "independent_used_baseline_count": 121,
+              "all_cell_count": 64,
+              "cells_with_constraints": 12,
+              "basis_and_covariance_sha256": "bb483e7c174b97b047662f02ab28ea920633132ecce848f8e03aa04ab419c2e5",
+              "basis_indices_sha256": "7fed9ec76a4d2248754431e843f166682ed94699edd20eb35c1212628b4ea1ad",
+              "settings": {
+                "pixel_arcsec": 64.0,
+                "min_snr": 10.0,
+                "prior_fwhm_arcsec": 240.0,
+                "entropy": 0.01,
+                "tsv": 0.0001,
+                "centroid": 0.1
+              },
+              "optimizer_executed": false,
+              "p_value_computed": false,
+              "low_snr_likelihood_validated": false,
+              "actual_observation_validated": false,
+              "public_data_loss_absolute_difference": 1.5937251518494122e-13,
+              "public_api_metrics": {
+                "objective": 0.09671540415943582,
+                "closure_chisq_per_measurement": 0.19010385082813652,
+                "data_loss": 0.09505192541406826,
+                "entropy_loss": 0.0013653980434895764,
+                "tsv_loss": 0.00020047010488557986,
+                "centroid_loss": 9.761059699240112e-05,
+                "independent_closure_count": 96,
+                "independent_closure_counts": {
+                  "phase": 54,
+                  "logamp": 42
+                },
+                "centroid_arcsec": [
+                  -7.976943373055995,
+                  -0.5817690847733634
+                ]
+              }
+            },
+            "prior": {
+              "schema_version": 1,
+              "type": "fixed_image_closure_residual_diagnostic",
+              "state": "complete",
+              "independent_counts": {
+                "phase": 54,
+                "logamp": 42
+              },
+              "independent_count": 96,
+              "chi2_approx": 74280.86520164032,
+              "data_loss": 386.87950625854336,
+              "component_chi2_approx": {
+                "phase": 12962.201016795276,
+                "logamp": 61318.664184845045
+              },
+              "baseline_valid_count": 136,
+              "independent_used_baseline_count": 121,
+              "all_cell_count": 64,
+              "cells_with_constraints": 12,
+              "basis_and_covariance_sha256": "bb483e7c174b97b047662f02ab28ea920633132ecce848f8e03aa04ab419c2e5",
+              "basis_indices_sha256": "7fed9ec76a4d2248754431e843f166682ed94699edd20eb35c1212628b4ea1ad",
+              "settings": {
+                "pixel_arcsec": 64.0,
+                "min_snr": 10.0,
+                "prior_fwhm_arcsec": 240.0,
+                "entropy": 0.01,
+                "tsv": 0.0001,
+                "centroid": 0.1
+              },
+              "optimizer_executed": false,
+              "p_value_computed": false,
+              "low_snr_likelihood_validated": false,
+              "actual_observation_validated": false,
+              "public_data_loss_absolute_difference": 7.868266038713045e-10,
+              "public_api_metrics": {
+                "objective": 386.87960694215406,
+                "closure_chisq_per_measurement": 773.7590125155131,
+                "data_loss": 386.87950625775653,
+                "entropy_loss": 0.0,
+                "tsv_loss": 7.71569179032074e-05,
+                "centroid_loss": 2.3527479634246545e-05,
+                "independent_closure_count": 96,
+                "independent_closure_counts": {
+                  "phase": 54,
+                  "logamp": 42
+                },
+                "centroid_arcsec": [
+                  -2.7765958522172305,
+                  -2.776595852217223
+                ]
+              }
+            },
+            "truth": {
+              "schema_version": 1,
+              "type": "fixed_image_closure_residual_diagnostic",
+              "state": "complete",
+              "independent_counts": {
+                "phase": 54,
+                "logamp": 42
+              },
+              "independent_count": 96,
+              "chi2_approx": 3.0968436584275563e-27,
+              "data_loss": 1.6129394054310188e-29,
+              "component_chi2_approx": {
+                "phase": 1.0481976365120897e-27,
+                "logamp": 2.0486460219154664e-27
+              },
+              "baseline_valid_count": 136,
+              "independent_used_baseline_count": 121,
+              "all_cell_count": 64,
+              "cells_with_constraints": 12,
+              "basis_and_covariance_sha256": "bb483e7c174b97b047662f02ab28ea920633132ecce848f8e03aa04ab419c2e5",
+              "basis_indices_sha256": "7fed9ec76a4d2248754431e843f166682ed94699edd20eb35c1212628b4ea1ad",
+              "settings": {
+                "pixel_arcsec": 16.0,
+                "min_snr": 10.0,
+                "prior_fwhm_arcsec": 240.0,
+                "entropy": 0.01,
+                "tsv": 0.0001,
+                "centroid": 0.1
+              },
+              "optimizer_executed": false,
+              "p_value_computed": false,
+              "low_snr_likelihood_validated": false,
+              "actual_observation_validated": false,
+              "public_data_loss_absolute_difference": 3.440738707830105e-24,
+              "public_api_metrics": {
+                "objective": 0.051142102603462955,
+                "closure_chisq_per_measurement": 6.881509674448318e-24,
+                "data_loss": 3.440754837224159e-24,
+                "entropy_loss": 0.030249716356377805,
+                "tsv_loss": 0.01966781354280246,
+                "centroid_loss": 0.0012245727042826974,
+                "independent_closure_count": 96,
+                "independent_closure_counts": {
+                  "phase": 54,
+                  "logamp": 42
+                },
+                "centroid_arcsec": [
+                  -9.947080245541814,
+                  26.525300414273545
+                ]
+              }
+            }
+          },
+          "all": {
+            "fit": {
+              "schema_version": 1,
+              "type": "fixed_image_closure_residual_diagnostic",
+              "state": "complete",
+              "independent_counts": {
+                "phase": 117,
+                "logamp": 93
+              },
+              "independent_count": 210,
+              "chi2_approx": 18.292374252991927,
+              "data_loss": 0.043553272030933156,
+              "component_chi2_approx": {
+                "phase": 3.8409901469898675,
+                "logamp": 14.45138410600206
+              },
+              "baseline_valid_count": 283,
+              "independent_used_baseline_count": 254,
+              "all_cell_count": 64,
+              "cells_with_constraints": 24,
+              "basis_and_covariance_sha256": "6ec6bddf7a6ff05ab1ecf2289f9331ed288d3e444cc4066389620b9f70044ac4",
+              "basis_indices_sha256": "093ad22c729cff3d5071f4e9ea0f786e590f43fa4c367a1a4c87ca24e552eff2",
+              "settings": {
+                "pixel_arcsec": 64.0,
+                "min_snr": 10.0,
+                "prior_fwhm_arcsec": 240.0,
+                "entropy": 0.01,
+                "tsv": 0.0001,
+                "centroid": 0.1
+              },
+              "optimizer_executed": false,
+              "p_value_computed": false,
+              "low_snr_likelihood_validated": false,
+              "actual_observation_validated": false,
+              "public_data_loss_absolute_difference": 7.342043639724238e-14,
+              "public_api_metrics": {
+                "objective": 0.04521675077637413,
+                "closure_chisq_per_measurement": 0.08710654406201315,
+                "data_loss": 0.043553272031006576,
+                "entropy_loss": 0.0013653980434895764,
+                "tsv_loss": 0.00020047010488557986,
+                "centroid_loss": 9.761059699240112e-05,
+                "independent_closure_count": 210,
+                "independent_closure_counts": {
+                  "phase": 117,
+                  "logamp": 93
+                },
+                "centroid_arcsec": [
+                  -7.976943373055995,
+                  -0.5817690847733634
+                ]
+              }
+            },
+            "prior": {
+              "schema_version": 1,
+              "type": "fixed_image_closure_residual_diagnostic",
+              "state": "complete",
+              "independent_counts": {
+                "phase": 117,
+                "logamp": 93
+              },
+              "independent_count": 210,
+              "chi2_approx": 152630.81868100984,
+              "data_loss": 363.4067111452615,
+              "component_chi2_approx": {
+                "phase": 22457.779013389976,
+                "logamp": 130173.03966761987
+              },
+              "baseline_valid_count": 283,
+              "independent_used_baseline_count": 254,
+              "all_cell_count": 64,
+              "cells_with_constraints": 24,
+              "basis_and_covariance_sha256": "6ec6bddf7a6ff05ab1ecf2289f9331ed288d3e444cc4066389620b9f70044ac4",
+              "basis_indices_sha256": "093ad22c729cff3d5071f4e9ea0f786e590f43fa4c367a1a4c87ca24e552eff2",
+              "settings": {
+                "pixel_arcsec": 64.0,
+                "min_snr": 10.0,
+                "prior_fwhm_arcsec": 240.0,
+                "entropy": 0.01,
+                "tsv": 0.0001,
+                "centroid": 0.1
+              },
+              "optimizer_executed": false,
+              "p_value_computed": false,
+              "low_snr_likelihood_validated": false,
+              "actual_observation_validated": false,
+              "public_data_loss_absolute_difference": 3.4049207897624e-10,
+              "public_api_metrics": {
+                "objective": 363.40681182931854,
+                "closure_chisq_per_measurement": 726.813422289842,
+                "data_loss": 363.406711144921,
+                "entropy_loss": 0.0,
+                "tsv_loss": 7.71569179032074e-05,
+                "centroid_loss": 2.3527479634246545e-05,
+                "independent_closure_count": 210,
+                "independent_closure_counts": {
+                  "phase": 117,
+                  "logamp": 93
+                },
+                "centroid_arcsec": [
+                  -2.7765958522172305,
+                  -2.776595852217223
+                ]
+              }
+            },
+            "truth": {
+              "schema_version": 1,
+              "type": "fixed_image_closure_residual_diagnostic",
+              "state": "complete",
+              "independent_counts": {
+                "phase": 117,
+                "logamp": 93
+              },
+              "independent_count": 210,
+              "chi2_approx": 5.831648129743179e-27,
+              "data_loss": 1.388487649938852e-29,
+              "component_chi2_approx": {
+                "phase": 2.239421116493577e-27,
+                "logamp": 3.592227013249602e-27
+              },
+              "baseline_valid_count": 283,
+              "independent_used_baseline_count": 254,
+              "all_cell_count": 64,
+              "cells_with_constraints": 24,
+              "basis_and_covariance_sha256": "6ec6bddf7a6ff05ab1ecf2289f9331ed288d3e444cc4066389620b9f70044ac4",
+              "basis_indices_sha256": "093ad22c729cff3d5071f4e9ea0f786e590f43fa4c367a1a4c87ca24e552eff2",
+              "settings": {
+                "pixel_arcsec": 16.0,
+                "min_snr": 10.0,
+                "prior_fwhm_arcsec": 240.0,
+                "entropy": 0.01,
+                "tsv": 0.0001,
+                "centroid": 0.1
+              },
+              "optimizer_executed": false,
+              "p_value_computed": false,
+              "low_snr_likelihood_validated": false,
+              "actual_observation_validated": false,
+              "public_data_loss_absolute_difference": 3.464819319049493e-24,
+              "public_api_metrics": {
+                "objective": 0.051142102603462955,
+                "closure_chisq_per_measurement": 6.929666407851984e-24,
+                "data_loss": 3.464833203925992e-24,
+                "entropy_loss": 0.030249716356377805,
+                "tsv_loss": 0.01966781354280246,
+                "centroid_loss": 0.0012245727042826974,
+                "independent_closure_count": 210,
+                "independent_closure_counts": {
+                  "phase": 117,
+                  "logamp": 93
+                },
+                "centroid_arcsec": [
+                  -9.947080245541814,
+                  26.525300414273545
+                ]
+              }
+            }
+          }
+        },
+        "reference_metrics": {
+          "raw_nrmse": 0.18304933146072505,
+          "registered_nrmse": 0.09434560316856455,
+          "registered_correlation": 0.9972121305144681,
+          "registration_shift_yx_arcsec": [
+            22.554209615673546,
+            -3.1320916285384754
+          ],
+          "common_beam_arcsec": 110.0,
+          "comparison_version": 2,
+          "registration_method": "All bounded integer cells, bilinear subpixels, 9 deterministic coordinate starts per cell",
+          "registration_max_shift_pixels": 31,
+          "registration_boundary_reached": false,
+          "registration_diagnostics": {
+            "shift_yx_pixels": [
+              1.4096381009795966,
+              -0.19575572678365472
+            ],
+            "boundary_reached": false,
+            "grid_cells": 3844,
+            "multistarts_per_cell": 9,
+            "selected_coordinate_converged": true,
+            "selected_coordinate_iterations": 6,
+            "objective_identity_error": 6.844026213814747e-19
+          },
+          "comparison_padding_pixels": 45,
+          "registered_flux_retained_fraction": 0.9999999999999992,
+          "comparison": "Unit-flux gauge, Gaussian common beam, translation only over complete zero-extended support. No post-shift flux rescaling, cropped-error masking, rotation, Jy calibration or astrometry."
+        },
+        "maximum_embedding_model_difference": 0.0,
+        "truth_used_for_selection": false,
+        "independent_noise_trials_claimed": false,
+        "coarse_oracle_evaluation": {
+          "training": {
+            "schema_version": 1,
+            "type": "fixed_image_closure_residual_diagnostic",
+            "state": "complete",
+            "independent_counts": {
+              "phase": 63,
+              "logamp": 51
+            },
+            "independent_count": 114,
+            "chi2_approx": 2.7348044713156227e-27,
+            "data_loss": 1.1994756453138695e-29,
+            "component_chi2_approx": {
+              "phase": 1.1912234799814869e-27,
+              "logamp": 1.543580991334136e-27
+            },
+            "baseline_valid_count": 147,
+            "independent_used_baseline_count": 133,
+            "all_cell_count": 64,
+            "cells_with_constraints": 12,
+            "basis_and_covariance_sha256": "72a132e662c07f2ad1a9ae6f688de7358db656cc293f97d5e008a02ef65e4450",
+            "basis_indices_sha256": "885c06fe7ee46b26ea7d686de78ae667fd659043e209f5c8bb72a6958742cb92",
+            "settings": {
+              "pixel_arcsec": 64.0,
+              "min_snr": 10.0,
+              "prior_fwhm_arcsec": 240.0,
+              "entropy": 0.01,
+              "tsv": 0.0001,
+              "centroid": 0.1
+            },
+            "optimizer_executed": false,
+            "p_value_computed": false,
+            "low_snr_likelihood_validated": false,
+            "actual_observation_validated": false,
+            "public_data_loss_absolute_difference": 3.4859776126471115e-24,
+            "public_api_metrics": {
+              "objective": 0.003956890812054035,
+              "closure_chisq_per_measurement": 6.971979214807129e-24,
+              "data_loss": 3.4859896074035646e-24,
+              "entropy_loss": 0.002471699627449714,
+              "tsv_loss": 0.0002606184803216244,
+              "centroid_loss": 0.0012245727042826972,
+              "independent_closure_count": 114,
+              "independent_closure_counts": {
+                "phase": 63,
+                "logamp": 51
+              },
+              "centroid_arcsec": [
+                -9.947080245541816,
+                26.52530041427354
+              ]
+            }
+          },
+          "unused": {
+            "schema_version": 1,
+            "type": "fixed_image_closure_residual_diagnostic",
+            "state": "complete",
+            "independent_counts": {
+              "phase": 54,
+              "logamp": 42
+            },
+            "independent_count": 96,
+            "chi2_approx": 3.0968436584275563e-27,
+            "data_loss": 1.6129394054310188e-29,
+            "component_chi2_approx": {
+              "phase": 1.0481976365120897e-27,
+              "logamp": 2.0486460219154664e-27
+            },
+            "baseline_valid_count": 136,
+            "independent_used_baseline_count": 121,
+            "all_cell_count": 64,
+            "cells_with_constraints": 12,
+            "basis_and_covariance_sha256": "bb483e7c174b97b047662f02ab28ea920633132ecce848f8e03aa04ab419c2e5",
+            "basis_indices_sha256": "7fed9ec76a4d2248754431e843f166682ed94699edd20eb35c1212628b4ea1ad",
+            "settings": {
+              "pixel_arcsec": 64.0,
+              "min_snr": 10.0,
+              "prior_fwhm_arcsec": 240.0,
+              "entropy": 0.01,
+              "tsv": 0.0001,
+              "centroid": 0.1
+            },
+            "optimizer_executed": false,
+            "p_value_computed": false,
+            "low_snr_likelihood_validated": false,
+            "actual_observation_validated": false,
+            "public_data_loss_absolute_difference": 3.439341314682448e-24,
+            "public_api_metrics": {
+              "objective": 0.003956890812054035,
+              "closure_chisq_per_measurement": 6.878714888153005e-24,
+              "data_loss": 3.4393574440765025e-24,
+              "entropy_loss": 0.002471699627449714,
+              "tsv_loss": 0.0002606184803216244,
+              "centroid_loss": 0.0012245727042826972,
+              "independent_closure_count": 96,
+              "independent_closure_counts": {
+                "phase": 54,
+                "logamp": 42
+              },
+              "centroid_arcsec": [
+                -9.947080245541816,
+                26.52530041427354
+              ]
+            }
+          },
+          "all": {
+            "schema_version": 1,
+            "type": "fixed_image_closure_residual_diagnostic",
+            "state": "complete",
+            "independent_counts": {
+              "phase": 117,
+              "logamp": 93
+            },
+            "independent_count": 210,
+            "chi2_approx": 5.831648129743179e-27,
+            "data_loss": 1.388487649938852e-29,
+            "component_chi2_approx": {
+              "phase": 2.239421116493577e-27,
+              "logamp": 3.592227013249602e-27
+            },
+            "baseline_valid_count": 283,
+            "independent_used_baseline_count": 254,
+            "all_cell_count": 64,
+            "cells_with_constraints": 24,
+            "basis_and_covariance_sha256": "6ec6bddf7a6ff05ab1ecf2289f9331ed288d3e444cc4066389620b9f70044ac4",
+            "basis_indices_sha256": "093ad22c729cff3d5071f4e9ea0f786e590f43fa4c367a1a4c87ca24e552eff2",
+            "settings": {
+              "pixel_arcsec": 64.0,
+              "min_snr": 10.0,
+              "prior_fwhm_arcsec": 240.0,
+              "entropy": 0.01,
+              "tsv": 0.0001,
+              "centroid": 0.1
+            },
+            "optimizer_executed": false,
+            "p_value_computed": false,
+            "low_snr_likelihood_validated": false,
+            "actual_observation_validated": false,
+            "public_data_loss_absolute_difference": 3.46465816214898e-24,
+            "public_api_metrics": {
+              "objective": 0.003956890812054035,
+              "closure_chisq_per_measurement": 6.929344094050958e-24,
+              "data_loss": 3.464672047025479e-24,
+              "entropy_loss": 0.002471699627449714,
+              "tsv_loss": 0.0002606184803216244,
+              "centroid_loss": 0.0012245727042826972,
+              "independent_closure_count": 210,
+              "independent_closure_counts": {
+                "phase": 117,
+                "logamp": 93
+              },
+              "centroid_arcsec": [
+                -9.947080245541816,
+                26.52530041427354
+              ]
+            }
+          }
+        },
+        "same_grid_objective_comparison": {
+          "training": {
+            "oracle8_objective_minus_fitted_objective": 0.002107427095100267,
+            "oracle8_data_loss": 3.4859896074035646e-24,
+            "fitted_data_loss": 0.00018598497158621083,
+            "same_grid_regularizer_compared": true
+          },
+          "unused": {
+            "oracle8_objective_minus_fitted_objective": -0.09275851334738178,
+            "oracle8_data_loss": 3.4393574440765025e-24,
+            "fitted_data_loss": 0.09505192541406826,
+            "same_grid_regularizer_compared": true
+          },
+          "all": {
+            "oracle8_objective_minus_fitted_objective": -0.0412598599643201,
+            "oracle8_data_loss": 3.464672047025479e-24,
+            "fitted_data_loss": 0.043553272031006576,
+            "same_grid_regularizer_compared": true
+          }
+        },
+        "embedded_32_regularizer_used_for_fitted_oracle_comparison": false,
+        "image_npy_sha256": "17682e800c5a431b152fe05741eed6777ca7e74558c16460447a7bfdda9ca6d0",
+        "embedded_image_sha256": "0b46c5fd46e3c2ba584b34a79e8dc893a0e2eaa45e52f42133f74ff7622c60f3"
+      },
+      "cell_array_row": 0
+    },
+    {
+      "split": "odd_training",
+      "training_times": [
+        1,
+        3,
+        5,
+        7
+      ],
+      "unused_times": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "training_archive_sha256": "512188a2ae45833e40d31d38469bc6924d1d9a13e8cee83658bb4bd7afa2f87d",
+      "training_numeric_arrays": {
+        "visibilities": {
+          "dtype": "<c16",
+          "shape": [
+            8,
+            8,
+            28
+          ],
+          "sha256": "13fa871bd82f38b709270e87e3a5312924dcb57985534d997c441aea352251da"
+        },
+        "weights": {
+          "dtype": "<f8",
+          "shape": [
+            8,
+            8,
+            28
+          ],
+          "sha256": "85dcc1c334a58bbe2aa700625b2b549fa5325f5caa1acaac5b7f82b4dc1c00dc"
+        },
+        "pairs": {
+          "dtype": "<i8",
+          "shape": [
+            28,
+            2
+          ],
+          "sha256": "77dd18378e5847909c18331ae810f09a80aea526095837fcbd06d04e0e91f707"
+        },
+        "uvw_lambda": {
+          "dtype": "<f8",
+          "shape": [
+            8,
+            8,
+            28,
+            3
+          ],
+          "sha256": "ca4437631352ee75b5238038257130855218137225ff6dab424db38e7af50831"
+        },
+        "times_s": {
+          "dtype": "<f8",
+          "shape": [
+            8
+          ],
+          "sha256": "edb2b9c034b19c1cfe8fbfb60d508ebd970db2de30c3e9a78a75fdd0d8d5fd39"
+        },
+        "frequencies_hz": {
+          "dtype": "<f8",
+          "shape": [
+            8
+          ],
+          "sha256": "d8fe4c24c5afc70fdab4102c5c2fb67d874b0964045bf92f5f2b1f3c44b45034"
+        },
+        "integration_s": {
+          "dtype": "<f8",
+          "shape": [
+            8,
+            28
+          ],
+          "sha256": "445b5bf7f45f494eabbcc4c09c3119278e8ee455ae621c5edb0978d9aaf24720"
+        }
+      },
+      "science": {
+        "rml_summary": {
+          "objective": 0.0018623157750769545,
+          "closure_chisq_per_measurement": 0.0003099076488516997,
+          "data_loss": 0.00015495382442584985,
+          "entropy_loss": 0.0014000117854177413,
+          "tsv_loss": 0.00024294906390519923,
+          "centroid_loss": 6.44011013269485e-05,
+          "independent_closure_count": 96,
+          "independent_closure_counts": {
+            "phase": 54,
+            "logamp": 42
+          },
+          "centroid_arcsec": [
+            -4.939044473012379,
+            4.220396362811773
+          ],
+          "parameter_sum_penalty": 1.2156452300835629e-15,
+          "selected_start": 1,
+          "runs": [
+            {
+              "objective": 0.0035012201323720606,
+              "closure_chisq_per_measurement": 0.001471742141870522,
+              "data_loss": 0.000735871070935261,
+              "entropy_loss": 0.0018992609584841274,
+              "tsv_loss": 0.0002489805461637311,
+              "centroid_loss": 0.0006170698294899219,
+              "independent_closure_count": 96,
+              "independent_closure_counts": {
+                "phase": 54,
+                "logamp": 42
+              },
+              "centroid_arcsec": [
+                -7.155090789049403,
+                18.793817048566147
+              ],
+              "parameter_sum_penalty": 3.7727299019039173e-08,
+              "start": 0,
+              "circular_warmup_iterations": 300,
+              "iterations": 2000,
+              "optimizer_success": false,
+              "optimizer_message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT"
+            },
+            {
+              "objective": 0.0018623157750769545,
+              "closure_chisq_per_measurement": 0.0003099076488516997,
+              "data_loss": 0.00015495382442584985,
+              "entropy_loss": 0.0014000117854177413,
+              "tsv_loss": 0.00024294906390519923,
+              "centroid_loss": 6.44011013269485e-05,
+              "independent_closure_count": 96,
+              "independent_closure_counts": {
+                "phase": 54,
+                "logamp": 42
+              },
+              "centroid_arcsec": [
+                -4.939044473012379,
+                4.220396362811773
+              ],
+              "parameter_sum_penalty": 1.2156452300835629e-15,
+              "start": 1,
+              "circular_warmup_iterations": 300,
+              "iterations": 1620,
+              "optimizer_success": true,
+              "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH"
+            },
+            {
+              "objective": 0.004901963537322199,
+              "closure_chisq_per_measurement": 0.002209116013323529,
+              "data_loss": 0.0011045580066617645,
+              "entropy_loss": 0.0027216697310073947,
+              "tsv_loss": 0.0003750189824448708,
+              "centroid_loss": 0.0007002528732751135,
+              "independent_closure_count": 96,
+              "independent_closure_counts": {
+                "phase": 54,
+                "logamp": 42
+              },
+              "centroid_arcsec": [
+                -6.40232765950493,
+                -20.443285537552825
+              ],
+              "parameter_sum_penalty": 4.6394393305592226e-07,
+              "start": 2,
+              "circular_warmup_iterations": 300,
+              "iterations": 1272,
+              "optimizer_success": true,
+              "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH"
+            }
+          ],
+          "image_sum": 0.9999999999999999,
+          "output_unit": "relative flux/pixel",
+          "absolute_flux_measured": false,
+          "absolute_position_measured": false,
+          "amplitude_constraints_available": true,
+          "centroid_constraint": "Weak penalty around display center; actual centroid reported; not measured astrometry",
+          "settings": {
+            "pixels": 8,
+            "pixel_arcsec": 64.0,
+            "min_snr": 10.0,
+            "prior_fwhm_arcsec": 240.0,
+            "entropy": 0.01,
+            "tsv": 0.0001,
+            "centroid": 0.1,
+            "starts": 3,
+            "max_iterations": 2000,
+            "seed": 21
+          },
+          "noise_model": "Fixed observed high SNR independent-baseline covariance, full within each closure cell",
+          "likelihood_limit": "Wrapped local Gaussian phase residual; low SNR and phase branch boundaries excluded",
+          "input_unit": "Jy"
+        },
+        "selected_start": 1,
+        "selected_run_converged": true,
+        "all_runs_converged": false,
+        "evaluation": {
+          "training": {
+            "fit": {
+              "schema_version": 1,
+              "type": "fixed_image_closure_residual_diagnostic",
+              "state": "complete",
+              "independent_counts": {
+                "phase": 54,
+                "logamp": 42
+              },
+              "independent_count": 96,
+              "chi2_approx": 0.029751134289661113,
+              "data_loss": 0.0001549538244253183,
+              "component_chi2_approx": {
+                "phase": 0.014016865128070875,
+                "logamp": 0.015734269161590236
+              },
+              "baseline_valid_count": 136,
+              "independent_used_baseline_count": 121,
+              "all_cell_count": 64,
+              "cells_with_constraints": 12,
+              "basis_and_covariance_sha256": "bb483e7c174b97b047662f02ab28ea920633132ecce848f8e03aa04ab419c2e5",
+              "basis_indices_sha256": "7fed9ec76a4d2248754431e843f166682ed94699edd20eb35c1212628b4ea1ad",
+              "settings": {
+                "pixel_arcsec": 64.0,
+                "min_snr": 10.0,
+                "prior_fwhm_arcsec": 240.0,
+                "entropy": 0.01,
+                "tsv": 0.0001,
+                "centroid": 0.1
+              },
+              "optimizer_executed": false,
+              "p_value_computed": false,
+              "low_snr_likelihood_validated": false,
+              "actual_observation_validated": false,
+              "public_data_loss_absolute_difference": 5.301206522367874e-16,
+              "public_api_metrics": {
+                "objective": 0.0018623157750757393,
+                "closure_chisq_per_measurement": 0.0003099076488516968,
+                "data_loss": 0.0001549538244258484,
+                "entropy_loss": 0.001400011785417743,
+                "tsv_loss": 0.0002429490639051993,
+                "centroid_loss": 6.440110132694852e-05,
+                "independent_closure_count": 96,
+                "independent_closure_counts": {
+                  "phase": 54,
+                  "logamp": 42
+                },
+                "centroid_arcsec": [
+                  -4.939044473012381,
+                  4.220396362811772
+                ]
+              }
+            },
+            "prior": {
+              "schema_version": 1,
+              "type": "fixed_image_closure_residual_diagnostic",
+              "state": "complete",
+              "independent_counts": {
+                "phase": 54,
+                "logamp": 42
+              },
+              "independent_count": 96,
+              "chi2_approx": 74280.86520164032,
+              "data_loss": 386.87950625854336,
+              "component_chi2_approx": {
+                "phase": 12962.201016795276,
+                "logamp": 61318.664184845045
+              },
+              "baseline_valid_count": 136,
+              "independent_used_baseline_count": 121,
+              "all_cell_count": 64,
+              "cells_with_constraints": 12,
+              "basis_and_covariance_sha256": "bb483e7c174b97b047662f02ab28ea920633132ecce848f8e03aa04ab419c2e5",
+              "basis_indices_sha256": "7fed9ec76a4d2248754431e843f166682ed94699edd20eb35c1212628b4ea1ad",
+              "settings": {
+                "pixel_arcsec": 64.0,
+                "min_snr": 10.0,
+                "prior_fwhm_arcsec": 240.0,
+                "entropy": 0.01,
+                "tsv": 0.0001,
+                "centroid": 0.1
+              },
+              "optimizer_executed": false,
+              "p_value_computed": false,
+              "low_snr_likelihood_validated": false,
+              "actual_observation_validated": false,
+              "public_data_loss_absolute_difference": 7.868266038713045e-10,
+              "public_api_metrics": {
+                "objective": 386.87960694215406,
+                "closure_chisq_per_measurement": 773.7590125155131,
+                "data_loss": 386.87950625775653,
+                "entropy_loss": 0.0,
+                "tsv_loss": 7.71569179032074e-05,
+                "centroid_loss": 2.3527479634246545e-05,
+                "independent_closure_count": 96,
+                "independent_closure_counts": {
+                  "phase": 54,
+                  "logamp": 42
+                },
+                "centroid_arcsec": [
+                  -2.7765958522172305,
+                  -2.776595852217223
+                ]
+              }
+            },
+            "truth": {
+              "schema_version": 1,
+              "type": "fixed_image_closure_residual_diagnostic",
+              "state": "complete",
+              "independent_counts": {
+                "phase": 54,
+                "logamp": 42
+              },
+              "independent_count": 96,
+              "chi2_approx": 3.0968436584275563e-27,
+              "data_loss": 1.6129394054310188e-29,
+              "component_chi2_approx": {
+                "phase": 1.0481976365120897e-27,
+                "logamp": 2.0486460219154664e-27
+              },
+              "baseline_valid_count": 136,
+              "independent_used_baseline_count": 121,
+              "all_cell_count": 64,
+              "cells_with_constraints": 12,
+              "basis_and_covariance_sha256": "bb483e7c174b97b047662f02ab28ea920633132ecce848f8e03aa04ab419c2e5",
+              "basis_indices_sha256": "7fed9ec76a4d2248754431e843f166682ed94699edd20eb35c1212628b4ea1ad",
+              "settings": {
+                "pixel_arcsec": 16.0,
+                "min_snr": 10.0,
+                "prior_fwhm_arcsec": 240.0,
+                "entropy": 0.01,
+                "tsv": 0.0001,
+                "centroid": 0.1
+              },
+              "optimizer_executed": false,
+              "p_value_computed": false,
+              "low_snr_likelihood_validated": false,
+              "actual_observation_validated": false,
+              "public_data_loss_absolute_difference": 3.440738707830105e-24,
+              "public_api_metrics": {
+                "objective": 0.051142102603462955,
+                "closure_chisq_per_measurement": 6.881509674448318e-24,
+                "data_loss": 3.440754837224159e-24,
+                "entropy_loss": 0.030249716356377805,
+                "tsv_loss": 0.01966781354280246,
+                "centroid_loss": 0.0012245727042826974,
+                "independent_closure_count": 96,
+                "independent_closure_counts": {
+                  "phase": 54,
+                  "logamp": 42
+                },
+                "centroid_arcsec": [
+                  -9.947080245541814,
+                  26.525300414273545
+                ]
+              }
+            }
+          },
+          "unused": {
+            "fit": {
+              "schema_version": 1,
+              "type": "fixed_image_closure_residual_diagnostic",
+              "state": "complete",
+              "independent_counts": {
+                "phase": 63,
+                "logamp": 51
+              },
+              "independent_count": 114,
+              "chi2_approx": 83.65739936782629,
+              "data_loss": 0.3669184182799399,
+              "component_chi2_approx": {
+                "phase": 45.21497536009866,
+                "logamp": 38.44242400772763
+              },
+              "baseline_valid_count": 147,
+              "independent_used_baseline_count": 133,
+              "all_cell_count": 64,
+              "cells_with_constraints": 12,
+              "basis_and_covariance_sha256": "72a132e662c07f2ad1a9ae6f688de7358db656cc293f97d5e008a02ef65e4450",
+              "basis_indices_sha256": "885c06fe7ee46b26ea7d686de78ae667fd659043e209f5c8bb72a6958742cb92",
+              "settings": {
+                "pixel_arcsec": 64.0,
+                "min_snr": 10.0,
+                "prior_fwhm_arcsec": 240.0,
+                "entropy": 0.01,
+                "tsv": 0.0001,
+                "centroid": 0.1
+              },
+              "optimizer_executed": false,
+              "p_value_computed": false,
+              "low_snr_likelihood_validated": false,
+              "actual_observation_validated": false,
+              "public_data_loss_absolute_difference": 5.336842079373127e-13,
+              "public_api_metrics": {
+                "objective": 0.3686257802300561,
+                "closure_chisq_per_measurement": 0.7338368365588124,
+                "data_loss": 0.3669184182794062,
+                "entropy_loss": 0.001400011785417743,
+                "tsv_loss": 0.0002429490639051993,
+                "centroid_loss": 6.440110132694852e-05,
+                "independent_closure_count": 114,
+                "independent_closure_counts": {
+                  "phase": 63,
+                  "logamp": 51
+                },
+                "centroid_arcsec": [
+                  -4.939044473012381,
+                  4.220396362811772
+                ]
+              }
+            },
+            "prior": {
+              "schema_version": 1,
+              "type": "fixed_image_closure_residual_diagnostic",
+              "state": "complete",
+              "independent_counts": {
+                "phase": 63,
+                "logamp": 51
+              },
+              "independent_count": 114,
+              "chi2_approx": 78349.95347936955,
+              "data_loss": 343.6401468393401,
+              "component_chi2_approx": {
+                "phase": 9495.577996594704,
+                "logamp": 68854.37548277485
+              },
+              "baseline_valid_count": 147,
+              "independent_used_baseline_count": 133,
+              "all_cell_count": 64,
+              "cells_with_constraints": 12,
+              "basis_and_covariance_sha256": "72a132e662c07f2ad1a9ae6f688de7358db656cc293f97d5e008a02ef65e4450",
+              "basis_indices_sha256": "885c06fe7ee46b26ea7d686de78ae667fd659043e209f5c8bb72a6958742cb92",
+              "settings": {
+                "pixel_arcsec": 64.0,
+                "min_snr": 10.0,
+                "prior_fwhm_arcsec": 240.0,
+                "entropy": 0.01,
+                "tsv": 0.0001,
+                "centroid": 0.1
+              },
+              "optimizer_executed": false,
+              "p_value_computed": false,
+              "low_snr_likelihood_validated": false,
+              "actual_observation_validated": false,
+              "public_data_loss_absolute_difference": 3.54702933691442e-11,
+              "public_api_metrics": {
+                "objective": 343.6402475237731,
+                "closure_chisq_per_measurement": 687.2802936787511,
+                "data_loss": 343.6401468393756,
+                "entropy_loss": 0.0,
+                "tsv_loss": 7.71569179032074e-05,
+                "centroid_loss": 2.3527479634246545e-05,
+                "independent_closure_count": 114,
+                "independent_closure_counts": {
+                  "phase": 63,
+                  "logamp": 51
+                },
+                "centroid_arcsec": [
+                  -2.7765958522172305,
+                  -2.776595852217223
+                ]
+              }
+            },
+            "truth": {
+              "schema_version": 1,
+              "type": "fixed_image_closure_residual_diagnostic",
+              "state": "complete",
+              "independent_counts": {
+                "phase": 63,
+                "logamp": 51
+              },
+              "independent_count": 114,
+              "chi2_approx": 2.7348044713156227e-27,
+              "data_loss": 1.1994756453138695e-29,
+              "component_chi2_approx": {
+                "phase": 1.1912234799814869e-27,
+                "logamp": 1.543580991334136e-27
+              },
+              "baseline_valid_count": 147,
+              "independent_used_baseline_count": 133,
+              "all_cell_count": 64,
+              "cells_with_constraints": 12,
+              "basis_and_covariance_sha256": "72a132e662c07f2ad1a9ae6f688de7358db656cc293f97d5e008a02ef65e4450",
+              "basis_indices_sha256": "885c06fe7ee46b26ea7d686de78ae667fd659043e209f5c8bb72a6958742cb92",
+              "settings": {
+                "pixel_arcsec": 16.0,
+                "min_snr": 10.0,
+                "prior_fwhm_arcsec": 240.0,
+                "entropy": 0.01,
+                "tsv": 0.0001,
+                "centroid": 0.1
+              },
+              "optimizer_executed": false,
+              "p_value_computed": false,
+              "low_snr_likelihood_validated": false,
+              "actual_observation_validated": false,
+              "public_data_loss_absolute_difference": 3.485097728497398e-24,
+              "public_api_metrics": {
+                "objective": 0.051142102603462955,
+                "closure_chisq_per_measurement": 6.970219446507702e-24,
+                "data_loss": 3.485109723253851e-24,
+                "entropy_loss": 0.030249716356377805,
+                "tsv_loss": 0.01966781354280246,
+                "centroid_loss": 0.0012245727042826974,
+                "independent_closure_count": 114,
+                "independent_closure_counts": {
+                  "phase": 63,
+                  "logamp": 51
+                },
+                "centroid_arcsec": [
+                  -9.947080245541814,
+                  26.525300414273545
+                ]
+              }
+            }
+          },
+          "all": {
+            "fit": {
+              "schema_version": 1,
+              "type": "fixed_image_closure_residual_diagnostic",
+              "state": "complete",
+              "independent_counts": {
+                "phase": 117,
+                "logamp": 93
+              },
+              "independent_count": 210,
+              "chi2_approx": 83.68715050211594,
+              "data_loss": 0.1992551202431332,
+              "component_chi2_approx": {
+                "phase": 45.22899222522673,
+                "logamp": 38.458158276889215
+              },
+              "baseline_valid_count": 283,
+              "independent_used_baseline_count": 254,
+              "all_cell_count": 64,
+              "cells_with_constraints": 24,
+              "basis_and_covariance_sha256": "6ec6bddf7a6ff05ab1ecf2289f9331ed288d3e444cc4066389620b9f70044ac4",
+              "basis_indices_sha256": "093ad22c729cff3d5071f4e9ea0f786e590f43fa4c367a1a4c87ca24e552eff2",
+              "settings": {
+                "pixel_arcsec": 64.0,
+                "min_snr": 10.0,
+                "prior_fwhm_arcsec": 240.0,
+                "entropy": 0.01,
+                "tsv": 0.0001,
+                "centroid": 0.1
+              },
+              "optimizer_executed": false,
+              "p_value_computed": false,
+              "low_snr_likelihood_validated": false,
+              "actual_observation_validated": false,
+              "public_data_loss_absolute_difference": 2.8946289809539394e-13,
+              "public_api_metrics": {
+                "objective": 0.2009624821934936,
+                "closure_chisq_per_measurement": 0.39851024048568745,
+                "data_loss": 0.19925512024284373,
+                "entropy_loss": 0.001400011785417743,
+                "tsv_loss": 0.0002429490639051993,
+                "centroid_loss": 6.440110132694852e-05,
+                "independent_closure_count": 210,
+                "independent_closure_counts": {
+                  "phase": 117,
+                  "logamp": 93
+                },
+                "centroid_arcsec": [
+                  -4.939044473012381,
+                  4.220396362811772
+                ]
+              }
+            },
+            "prior": {
+              "schema_version": 1,
+              "type": "fixed_image_closure_residual_diagnostic",
+              "state": "complete",
+              "independent_counts": {
+                "phase": 117,
+                "logamp": 93
+              },
+              "independent_count": 210,
+              "chi2_approx": 152630.81868100984,
+              "data_loss": 363.4067111452615,
+              "component_chi2_approx": {
+                "phase": 22457.779013389976,
+                "logamp": 130173.03966761987
+              },
+              "baseline_valid_count": 283,
+              "independent_used_baseline_count": 254,
+              "all_cell_count": 64,
+              "cells_with_constraints": 24,
+              "basis_and_covariance_sha256": "6ec6bddf7a6ff05ab1ecf2289f9331ed288d3e444cc4066389620b9f70044ac4",
+              "basis_indices_sha256": "093ad22c729cff3d5071f4e9ea0f786e590f43fa4c367a1a4c87ca24e552eff2",
+              "settings": {
+                "pixel_arcsec": 64.0,
+                "min_snr": 10.0,
+                "prior_fwhm_arcsec": 240.0,
+                "entropy": 0.01,
+                "tsv": 0.0001,
+                "centroid": 0.1
+              },
+              "optimizer_executed": false,
+              "p_value_computed": false,
+              "low_snr_likelihood_validated": false,
+              "actual_observation_validated": false,
+              "public_data_loss_absolute_difference": 3.4049207897624e-10,
+              "public_api_metrics": {
+                "objective": 363.40681182931854,
+                "closure_chisq_per_measurement": 726.813422289842,
+                "data_loss": 363.406711144921,
+                "entropy_loss": 0.0,
+                "tsv_loss": 7.71569179032074e-05,
+                "centroid_loss": 2.3527479634246545e-05,
+                "independent_closure_count": 210,
+                "independent_closure_counts": {
+                  "phase": 117,
+                  "logamp": 93
+                },
+                "centroid_arcsec": [
+                  -2.7765958522172305,
+                  -2.776595852217223
+                ]
+              }
+            },
+            "truth": {
+              "schema_version": 1,
+              "type": "fixed_image_closure_residual_diagnostic",
+              "state": "complete",
+              "independent_counts": {
+                "phase": 117,
+                "logamp": 93
+              },
+              "independent_count": 210,
+              "chi2_approx": 5.831648129743179e-27,
+              "data_loss": 1.388487649938852e-29,
+              "component_chi2_approx": {
+                "phase": 2.239421116493577e-27,
+                "logamp": 3.592227013249602e-27
+              },
+              "baseline_valid_count": 283,
+              "independent_used_baseline_count": 254,
+              "all_cell_count": 64,
+              "cells_with_constraints": 24,
+              "basis_and_covariance_sha256": "6ec6bddf7a6ff05ab1ecf2289f9331ed288d3e444cc4066389620b9f70044ac4",
+              "basis_indices_sha256": "093ad22c729cff3d5071f4e9ea0f786e590f43fa4c367a1a4c87ca24e552eff2",
+              "settings": {
+                "pixel_arcsec": 16.0,
+                "min_snr": 10.0,
+                "prior_fwhm_arcsec": 240.0,
+                "entropy": 0.01,
+                "tsv": 0.0001,
+                "centroid": 0.1
+              },
+              "optimizer_executed": false,
+              "p_value_computed": false,
+              "low_snr_likelihood_validated": false,
+              "actual_observation_validated": false,
+              "public_data_loss_absolute_difference": 3.464819319049493e-24,
+              "public_api_metrics": {
+                "objective": 0.051142102603462955,
+                "closure_chisq_per_measurement": 6.929666407851984e-24,
+                "data_loss": 3.464833203925992e-24,
+                "entropy_loss": 0.030249716356377805,
+                "tsv_loss": 0.01966781354280246,
+                "centroid_loss": 0.0012245727042826974,
+                "independent_closure_count": 210,
+                "independent_closure_counts": {
+                  "phase": 117,
+                  "logamp": 93
+                },
+                "centroid_arcsec": [
+                  -9.947080245541814,
+                  26.525300414273545
+                ]
+              }
+            }
+          }
+        },
+        "reference_metrics": {
+          "raw_nrmse": 0.14564428417901085,
+          "registered_nrmse": 0.08712321129454628,
+          "registered_correlation": 0.9978200629533448,
+          "registration_shift_yx_arcsec": [
+            16.0,
+            -6.142127256814238
+          ],
+          "common_beam_arcsec": 110.0,
+          "comparison_version": 2,
+          "registration_method": "All bounded integer cells, bilinear subpixels, 9 deterministic coordinate starts per cell",
+          "registration_max_shift_pixels": 31,
+          "registration_boundary_reached": false,
+          "registration_diagnostics": {
+            "shift_yx_pixels": [
+              1.0,
+              -0.38388295355088986
+            ],
+            "boundary_reached": false,
+            "grid_cells": 3844,
+            "multistarts_per_cell": 9,
+            "selected_coordinate_converged": true,
+            "selected_coordinate_iterations": 6,
+            "objective_identity_error": 4.472333961502706e-19
+          },
+          "comparison_padding_pixels": 45,
+          "registered_flux_retained_fraction": 0.9999999999999997,
+          "comparison": "Unit-flux gauge, Gaussian common beam, translation only over complete zero-extended support. No post-shift flux rescaling, cropped-error masking, rotation, Jy calibration or astrometry."
+        },
+        "maximum_embedding_model_difference": 0.0,
+        "truth_used_for_selection": false,
+        "independent_noise_trials_claimed": false,
+        "coarse_oracle_evaluation": {
+          "training": {
+            "schema_version": 1,
+            "type": "fixed_image_closure_residual_diagnostic",
+            "state": "complete",
+            "independent_counts": {
+              "phase": 54,
+              "logamp": 42
+            },
+            "independent_count": 96,
+            "chi2_approx": 3.0968436584275563e-27,
+            "data_loss": 1.6129394054310188e-29,
+            "component_chi2_approx": {
+              "phase": 1.0481976365120897e-27,
+              "logamp": 2.0486460219154664e-27
+            },
+            "baseline_valid_count": 136,
+            "independent_used_baseline_count": 121,
+            "all_cell_count": 64,
+            "cells_with_constraints": 12,
+            "basis_and_covariance_sha256": "bb483e7c174b97b047662f02ab28ea920633132ecce848f8e03aa04ab419c2e5",
+            "basis_indices_sha256": "7fed9ec76a4d2248754431e843f166682ed94699edd20eb35c1212628b4ea1ad",
+            "settings": {
+              "pixel_arcsec": 64.0,
+              "min_snr": 10.0,
+              "prior_fwhm_arcsec": 240.0,
+              "entropy": 0.01,
+              "tsv": 0.0001,
+              "centroid": 0.1
+            },
+            "optimizer_executed": false,
+            "p_value_computed": false,
+            "low_snr_likelihood_validated": false,
+            "actual_observation_validated": false,
+            "public_data_loss_absolute_difference": 3.439341314682448e-24,
+            "public_api_metrics": {
+              "objective": 0.003956890812054035,
+              "closure_chisq_per_measurement": 6.878714888153005e-24,
+              "data_loss": 3.4393574440765025e-24,
+              "entropy_loss": 0.002471699627449714,
+              "tsv_loss": 0.0002606184803216244,
+              "centroid_loss": 0.0012245727042826972,
+              "independent_closure_count": 96,
+              "independent_closure_counts": {
+                "phase": 54,
+                "logamp": 42
+              },
+              "centroid_arcsec": [
+                -9.947080245541816,
+                26.52530041427354
+              ]
+            }
+          },
+          "unused": {
+            "schema_version": 1,
+            "type": "fixed_image_closure_residual_diagnostic",
+            "state": "complete",
+            "independent_counts": {
+              "phase": 63,
+              "logamp": 51
+            },
+            "independent_count": 114,
+            "chi2_approx": 2.7348044713156227e-27,
+            "data_loss": 1.1994756453138695e-29,
+            "component_chi2_approx": {
+              "phase": 1.1912234799814869e-27,
+              "logamp": 1.543580991334136e-27
+            },
+            "baseline_valid_count": 147,
+            "independent_used_baseline_count": 133,
+            "all_cell_count": 64,
+            "cells_with_constraints": 12,
+            "basis_and_covariance_sha256": "72a132e662c07f2ad1a9ae6f688de7358db656cc293f97d5e008a02ef65e4450",
+            "basis_indices_sha256": "885c06fe7ee46b26ea7d686de78ae667fd659043e209f5c8bb72a6958742cb92",
+            "settings": {
+              "pixel_arcsec": 64.0,
+              "min_snr": 10.0,
+              "prior_fwhm_arcsec": 240.0,
+              "entropy": 0.01,
+              "tsv": 0.0001,
+              "centroid": 0.1
+            },
+            "optimizer_executed": false,
+            "p_value_computed": false,
+            "low_snr_likelihood_validated": false,
+            "actual_observation_validated": false,
+            "public_data_loss_absolute_difference": 3.4859776126471115e-24,
+            "public_api_metrics": {
+              "objective": 0.003956890812054035,
+              "closure_chisq_per_measurement": 6.971979214807129e-24,
+              "data_loss": 3.4859896074035646e-24,
+              "entropy_loss": 0.002471699627449714,
+              "tsv_loss": 0.0002606184803216244,
+              "centroid_loss": 0.0012245727042826972,
+              "independent_closure_count": 114,
+              "independent_closure_counts": {
+                "phase": 63,
+                "logamp": 51
+              },
+              "centroid_arcsec": [
+                -9.947080245541816,
+                26.52530041427354
+              ]
+            }
+          },
+          "all": {
+            "schema_version": 1,
+            "type": "fixed_image_closure_residual_diagnostic",
+            "state": "complete",
+            "independent_counts": {
+              "phase": 117,
+              "logamp": 93
+            },
+            "independent_count": 210,
+            "chi2_approx": 5.831648129743179e-27,
+            "data_loss": 1.388487649938852e-29,
+            "component_chi2_approx": {
+              "phase": 2.239421116493577e-27,
+              "logamp": 3.592227013249602e-27
+            },
+            "baseline_valid_count": 283,
+            "independent_used_baseline_count": 254,
+            "all_cell_count": 64,
+            "cells_with_constraints": 24,
+            "basis_and_covariance_sha256": "6ec6bddf7a6ff05ab1ecf2289f9331ed288d3e444cc4066389620b9f70044ac4",
+            "basis_indices_sha256": "093ad22c729cff3d5071f4e9ea0f786e590f43fa4c367a1a4c87ca24e552eff2",
+            "settings": {
+              "pixel_arcsec": 64.0,
+              "min_snr": 10.0,
+              "prior_fwhm_arcsec": 240.0,
+              "entropy": 0.01,
+              "tsv": 0.0001,
+              "centroid": 0.1
+            },
+            "optimizer_executed": false,
+            "p_value_computed": false,
+            "low_snr_likelihood_validated": false,
+            "actual_observation_validated": false,
+            "public_data_loss_absolute_difference": 3.46465816214898e-24,
+            "public_api_metrics": {
+              "objective": 0.003956890812054035,
+              "closure_chisq_per_measurement": 6.929344094050958e-24,
+              "data_loss": 3.464672047025479e-24,
+              "entropy_loss": 0.002471699627449714,
+              "tsv_loss": 0.0002606184803216244,
+              "centroid_loss": 0.0012245727042826972,
+              "independent_closure_count": 210,
+              "independent_closure_counts": {
+                "phase": 117,
+                "logamp": 93
+              },
+              "centroid_arcsec": [
+                -9.947080245541816,
+                26.52530041427354
+              ]
+            }
+          }
+        },
+        "same_grid_objective_comparison": {
+          "training": {
+            "oracle8_objective_minus_fitted_objective": 0.002094575036978296,
+            "oracle8_data_loss": 3.4393574440765025e-24,
+            "fitted_data_loss": 0.0001549538244258484,
+            "same_grid_regularizer_compared": true
+          },
+          "unused": {
+            "oracle8_objective_minus_fitted_objective": -0.3646688894180021,
+            "oracle8_data_loss": 3.4859896074035646e-24,
+            "fitted_data_loss": 0.3669184182794062,
+            "same_grid_regularizer_compared": true
+          },
+          "all": {
+            "oracle8_objective_minus_fitted_objective": -0.19700559138143958,
+            "oracle8_data_loss": 3.464672047025479e-24,
+            "fitted_data_loss": 0.19925512024284373,
+            "same_grid_regularizer_compared": true
+          }
+        },
+        "embedded_32_regularizer_used_for_fitted_oracle_comparison": false,
+        "image_npy_sha256": "3849993d985ad0457ebf32d108962d8cffcc0b291500bb9ed4b96dda83ee12b3",
+        "embedded_image_sha256": "3f2275910e9e7cec99ed594853a9a89db70002a31c4fe0cb4a5e6b639b150cb0"
+      },
+      "cell_array_row": 1
+    },
+    {
+      "split": "all_training",
+      "training_times": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unused_times": [],
+      "training_archive_sha256": "5129ff5bd088a7f5fe2e79fba38a071bd3ff04db137f0279493863899d9756b7",
+      "training_numeric_arrays": {
+        "visibilities": {
+          "dtype": "<c16",
+          "shape": [
+            8,
+            8,
+            28
+          ],
+          "sha256": "6ca3d8d2a48de93510d168cc64fddc27bd8ce27570b0231b067e54727cf7d93d"
+        },
+        "weights": {
+          "dtype": "<f8",
+          "shape": [
+            8,
+            8,
+            28
+          ],
+          "sha256": "87817ca6ec990a4ae02e7b0e81d47325fd587a6bc37abc886e888f4d30b592dc"
+        },
+        "pairs": {
+          "dtype": "<i8",
+          "shape": [
+            28,
+            2
+          ],
+          "sha256": "77dd18378e5847909c18331ae810f09a80aea526095837fcbd06d04e0e91f707"
+        },
+        "uvw_lambda": {
+          "dtype": "<f8",
+          "shape": [
+            8,
+            8,
+            28,
+            3
+          ],
+          "sha256": "ca4437631352ee75b5238038257130855218137225ff6dab424db38e7af50831"
+        },
+        "times_s": {
+          "dtype": "<f8",
+          "shape": [
+            8
+          ],
+          "sha256": "edb2b9c034b19c1cfe8fbfb60d508ebd970db2de30c3e9a78a75fdd0d8d5fd39"
+        },
+        "frequencies_hz": {
+          "dtype": "<f8",
+          "shape": [
+            8
+          ],
+          "sha256": "d8fe4c24c5afc70fdab4102c5c2fb67d874b0964045bf92f5f2b1f3c44b45034"
+        },
+        "integration_s": {
+          "dtype": "<f8",
+          "shape": [
+            8,
+            28
+          ],
+          "sha256": "445b5bf7f45f494eabbcc4c09c3119278e8ee455ae621c5edb0978d9aaf24720"
+        }
+      },
+      "science": {
+        "rml_summary": {
+          "objective": 0.002896140437776274,
+          "closure_chisq_per_measurement": 0.00099515279680757,
+          "data_loss": 0.000497576398403785,
+          "entropy_loss": 0.0017313302126832659,
+          "tsv_loss": 0.00023649728936284584,
+          "centroid_loss": 0.00043073634854266774,
+          "independent_closure_count": 210,
+          "independent_closure_counts": {
+            "phase": 117,
+            "logamp": 93
+          },
+          "centroid_arcsec": [
+            -6.994398944092639,
+            15.276313586457908
+          ],
+          "parameter_sum_penalty": 1.887837094224915e-10,
+          "selected_start": 1,
+          "runs": [
+            {
+              "objective": 0.004451563805576148,
+              "closure_chisq_per_measurement": 0.0010872845725807144,
+              "data_loss": 0.0005436422862903572,
+              "entropy_loss": 0.0021730364908502694,
+              "tsv_loss": 0.0002511533764691877,
+              "centroid_loss": 0.0014837316281455077,
+              "independent_closure_count": 210,
+              "independent_closure_counts": {
+                "phase": 117,
+                "logamp": 93
+              },
+              "centroid_arcsec": [
+                -10.847756059452852,
+                -29.235330480363032
+              ],
+              "parameter_sum_penalty": 2.382082525186338e-11,
+              "start": 0,
+              "circular_warmup_iterations": 300,
+              "iterations": 792,
+              "optimizer_success": true,
+              "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH"
+            },
+            {
+              "objective": 0.002896140437776274,
+              "closure_chisq_per_measurement": 0.00099515279680757,
+              "data_loss": 0.000497576398403785,
+              "entropy_loss": 0.0017313302126832659,
+              "tsv_loss": 0.00023649728936284584,
+              "centroid_loss": 0.00043073634854266774,
+              "independent_closure_count": 210,
+              "independent_closure_counts": {
+                "phase": 117,
+                "logamp": 93
+              },
+              "centroid_arcsec": [
+                -6.994398944092639,
+                15.276313586457908
+              ],
+              "parameter_sum_penalty": 1.887837094224915e-10,
+              "start": 1,
+              "circular_warmup_iterations": 300,
+              "iterations": 599,
+              "optimizer_success": true,
+              "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH"
+            },
+            {
+              "objective": 0.02268889292692563,
+              "closure_chisq_per_measurement": 0.035449183378108304,
+              "data_loss": 0.017724591689054152,
+              "entropy_loss": 0.0022759899362370904,
+              "tsv_loss": 0.00023290039390460804,
+              "centroid_loss": 0.0024554107976041406,
+              "independent_closure_count": 210,
+              "independent_closure_counts": {
+                "phase": 117,
+                "logamp": 93
+              },
+              "centroid_arcsec": [
+                21.17248112024346,
+                -34.07204225653026
+              ],
+              "parameter_sum_penalty": 1.1012563661539615e-10,
+              "start": 2,
+              "circular_warmup_iterations": 300,
+              "iterations": 520,
+              "optimizer_success": true,
+              "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH"
+            }
+          ],
+          "image_sum": 1.0000000000000002,
+          "output_unit": "relative flux/pixel",
+          "absolute_flux_measured": false,
+          "absolute_position_measured": false,
+          "amplitude_constraints_available": true,
+          "centroid_constraint": "Weak penalty around display center; actual centroid reported; not measured astrometry",
+          "settings": {
+            "pixels": 8,
+            "pixel_arcsec": 64.0,
+            "min_snr": 10.0,
+            "prior_fwhm_arcsec": 240.0,
+            "entropy": 0.01,
+            "tsv": 0.0001,
+            "centroid": 0.1,
+            "starts": 3,
+            "max_iterations": 2000,
+            "seed": 21
+          },
+          "noise_model": "Fixed observed high SNR independent-baseline covariance, full within each closure cell",
+          "likelihood_limit": "Wrapped local Gaussian phase residual; low SNR and phase branch boundaries excluded",
+          "input_unit": "Jy"
+        },
+        "selected_start": 1,
+        "selected_run_converged": true,
+        "all_runs_converged": true,
+        "evaluation": {
+          "training": {
+            "fit": {
+              "schema_version": 1,
+              "type": "fixed_image_closure_residual_diagnostic",
+              "state": "complete",
+              "independent_counts": {
+                "phase": 117,
+                "logamp": 93
+              },
+              "independent_count": 210,
+              "chi2_approx": 0.20898208732818543,
+              "data_loss": 0.0004975763984004416,
+              "component_chi2_approx": {
+                "phase": 0.12900923314953658,
+                "logamp": 0.07997285417864886
+              },
+              "baseline_valid_count": 283,
+              "independent_used_baseline_count": 254,
+              "all_cell_count": 64,
+              "cells_with_constraints": 24,
+              "basis_and_covariance_sha256": "6ec6bddf7a6ff05ab1ecf2289f9331ed288d3e444cc4066389620b9f70044ac4",
+              "basis_indices_sha256": "093ad22c729cff3d5071f4e9ea0f786e590f43fa4c367a1a4c87ca24e552eff2",
+              "settings": {
+                "pixel_arcsec": 64.0,
+                "min_snr": 10.0,
+                "prior_fwhm_arcsec": 240.0,
+                "entropy": 0.01,
+                "tsv": 0.0001,
+                "centroid": 0.1
+              },
+              "optimizer_executed": false,
+              "p_value_computed": false,
+              "low_snr_likelihood_validated": false,
+              "actual_observation_validated": false,
+              "public_data_loss_absolute_difference": 3.3428121382073073e-15,
+              "public_api_metrics": {
+                "objective": 0.0028961402489925616,
+                "closure_chisq_per_measurement": 0.0009951527968075687,
+                "data_loss": 0.0004975763984037844,
+                "entropy_loss": 0.0017313302126832637,
+                "tsv_loss": 0.0002364972893628457,
+                "centroid_loss": 0.00043073634854266763,
+                "independent_closure_count": 210,
+                "independent_closure_counts": {
+                  "phase": 117,
+                  "logamp": 93
+                },
+                "centroid_arcsec": [
+                  -6.994398944092638,
+                  15.276313586457906
+                ]
+              }
+            },
+            "prior": {
+              "schema_version": 1,
+              "type": "fixed_image_closure_residual_diagnostic",
+              "state": "complete",
+              "independent_counts": {
+                "phase": 117,
+                "logamp": 93
+              },
+              "independent_count": 210,
+              "chi2_approx": 152630.81868100984,
+              "data_loss": 363.4067111452615,
+              "component_chi2_approx": {
+                "phase": 22457.779013389976,
+                "logamp": 130173.03966761987
+              },
+              "baseline_valid_count": 283,
+              "independent_used_baseline_count": 254,
+              "all_cell_count": 64,
+              "cells_with_constraints": 24,
+              "basis_and_covariance_sha256": "6ec6bddf7a6ff05ab1ecf2289f9331ed288d3e444cc4066389620b9f70044ac4",
+              "basis_indices_sha256": "093ad22c729cff3d5071f4e9ea0f786e590f43fa4c367a1a4c87ca24e552eff2",
+              "settings": {
+                "pixel_arcsec": 64.0,
+                "min_snr": 10.0,
+                "prior_fwhm_arcsec": 240.0,
+                "entropy": 0.01,
+                "tsv": 0.0001,
+                "centroid": 0.1
+              },
+              "optimizer_executed": false,
+              "p_value_computed": false,
+              "low_snr_likelihood_validated": false,
+              "actual_observation_validated": false,
+              "public_data_loss_absolute_difference": 3.4049207897624e-10,
+              "public_api_metrics": {
+                "objective": 363.40681182931854,
+                "closure_chisq_per_measurement": 726.813422289842,
+                "data_loss": 363.406711144921,
+                "entropy_loss": 0.0,
+                "tsv_loss": 7.71569179032074e-05,
+                "centroid_loss": 2.3527479634246545e-05,
+                "independent_closure_count": 210,
+                "independent_closure_counts": {
+                  "phase": 117,
+                  "logamp": 93
+                },
+                "centroid_arcsec": [
+                  -2.7765958522172305,
+                  -2.776595852217223
+                ]
+              }
+            },
+            "truth": {
+              "schema_version": 1,
+              "type": "fixed_image_closure_residual_diagnostic",
+              "state": "complete",
+              "independent_counts": {
+                "phase": 117,
+                "logamp": 93
+              },
+              "independent_count": 210,
+              "chi2_approx": 5.831648129743179e-27,
+              "data_loss": 1.388487649938852e-29,
+              "component_chi2_approx": {
+                "phase": 2.239421116493577e-27,
+                "logamp": 3.592227013249602e-27
+              },
+              "baseline_valid_count": 283,
+              "independent_used_baseline_count": 254,
+              "all_cell_count": 64,
+              "cells_with_constraints": 24,
+              "basis_and_covariance_sha256": "6ec6bddf7a6ff05ab1ecf2289f9331ed288d3e444cc4066389620b9f70044ac4",
+              "basis_indices_sha256": "093ad22c729cff3d5071f4e9ea0f786e590f43fa4c367a1a4c87ca24e552eff2",
+              "settings": {
+                "pixel_arcsec": 16.0,
+                "min_snr": 10.0,
+                "prior_fwhm_arcsec": 240.0,
+                "entropy": 0.01,
+                "tsv": 0.0001,
+                "centroid": 0.1
+              },
+              "optimizer_executed": false,
+              "p_value_computed": false,
+              "low_snr_likelihood_validated": false,
+              "actual_observation_validated": false,
+              "public_data_loss_absolute_difference": 3.464819319049493e-24,
+              "public_api_metrics": {
+                "objective": 0.051142102603462955,
+                "closure_chisq_per_measurement": 6.929666407851984e-24,
+                "data_loss": 3.464833203925992e-24,
+                "entropy_loss": 0.030249716356377805,
+                "tsv_loss": 0.01966781354280246,
+                "centroid_loss": 0.0012245727042826974,
+                "independent_closure_count": 210,
+                "independent_closure_counts": {
+                  "phase": 117,
+                  "logamp": 93
+                },
+                "centroid_arcsec": [
+                  -9.947080245541814,
+                  26.525300414273545
+                ]
+              }
+            }
+          },
+          "unused": {
+            "fit": {
+              "schema_version": 1,
+              "type": "fixed_image_closure_residual_diagnostic",
+              "state": "insufficient_constraints",
+              "independent_counts": {
+                "phase": 0,
+                "logamp": 0
+              },
+              "independent_count": 0,
+              "chi2_approx": null,
+              "data_loss": null,
+              "component_chi2_approx": {
+                "phase": null,
+                "logamp": null
+              },
+              "baseline_valid_count": 0,
+              "independent_used_baseline_count": 0,
+              "all_cell_count": 64,
+              "cells_with_constraints": 0,
+              "basis_and_covariance_sha256": "16107915fd5ef0e603f85ab79e05fa5f01aa52ddaef5ad1d88c08d384fe8b91a",
+              "basis_indices_sha256": "16107915fd5ef0e603f85ab79e05fa5f01aa52ddaef5ad1d88c08d384fe8b91a",
+              "settings": {
+                "pixel_arcsec": 64.0,
+                "min_snr": 10.0,
+                "prior_fwhm_arcsec": 240.0,
+                "entropy": 0.01,
+                "tsv": 0.0001,
+                "centroid": 0.1
+              },
+              "optimizer_executed": false,
+              "p_value_computed": false,
+              "low_snr_likelihood_validated": false,
+              "actual_observation_validated": false,
+              "public_data_loss_absolute_difference": null,
+              "public_api_metrics": null
+            },
+            "prior": {
+              "schema_version": 1,
+              "type": "fixed_image_closure_residual_diagnostic",
+              "state": "insufficient_constraints",
+              "independent_counts": {
+                "phase": 0,
+                "logamp": 0
+              },
+              "independent_count": 0,
+              "chi2_approx": null,
+              "data_loss": null,
+              "component_chi2_approx": {
+                "phase": null,
+                "logamp": null
+              },
+              "baseline_valid_count": 0,
+              "independent_used_baseline_count": 0,
+              "all_cell_count": 64,
+              "cells_with_constraints": 0,
+              "basis_and_covariance_sha256": "16107915fd5ef0e603f85ab79e05fa5f01aa52ddaef5ad1d88c08d384fe8b91a",
+              "basis_indices_sha256": "16107915fd5ef0e603f85ab79e05fa5f01aa52ddaef5ad1d88c08d384fe8b91a",
+              "settings": {
+                "pixel_arcsec": 64.0,
+                "min_snr": 10.0,
+                "prior_fwhm_arcsec": 240.0,
+                "entropy": 0.01,
+                "tsv": 0.0001,
+                "centroid": 0.1
+              },
+              "optimizer_executed": false,
+              "p_value_computed": false,
+              "low_snr_likelihood_validated": false,
+              "actual_observation_validated": false,
+              "public_data_loss_absolute_difference": null,
+              "public_api_metrics": null
+            },
+            "truth": {
+              "schema_version": 1,
+              "type": "fixed_image_closure_residual_diagnostic",
+              "state": "insufficient_constraints",
+              "independent_counts": {
+                "phase": 0,
+                "logamp": 0
+              },
+              "independent_count": 0,
+              "chi2_approx": null,
+              "data_loss": null,
+              "component_chi2_approx": {
+                "phase": null,
+                "logamp": null
+              },
+              "baseline_valid_count": 0,
+              "independent_used_baseline_count": 0,
+              "all_cell_count": 64,
+              "cells_with_constraints": 0,
+              "basis_and_covariance_sha256": "16107915fd5ef0e603f85ab79e05fa5f01aa52ddaef5ad1d88c08d384fe8b91a",
+              "basis_indices_sha256": "16107915fd5ef0e603f85ab79e05fa5f01aa52ddaef5ad1d88c08d384fe8b91a",
+              "settings": {
+                "pixel_arcsec": 16.0,
+                "min_snr": 10.0,
+                "prior_fwhm_arcsec": 240.0,
+                "entropy": 0.01,
+                "tsv": 0.0001,
+                "centroid": 0.1
+              },
+              "optimizer_executed": false,
+              "p_value_computed": false,
+              "low_snr_likelihood_validated": false,
+              "actual_observation_validated": false,
+              "public_data_loss_absolute_difference": null,
+              "public_api_metrics": null
+            }
+          },
+          "all": {
+            "fit": {
+              "schema_version": 1,
+              "type": "fixed_image_closure_residual_diagnostic",
+              "state": "complete",
+              "independent_counts": {
+                "phase": 117,
+                "logamp": 93
+              },
+              "independent_count": 210,
+              "chi2_approx": 0.20898208732818543,
+              "data_loss": 0.0004975763984004416,
+              "component_chi2_approx": {
+                "phase": 0.12900923314953658,
+                "logamp": 0.07997285417864886
+              },
+              "baseline_valid_count": 283,
+              "independent_used_baseline_count": 254,
+              "all_cell_count": 64,
+              "cells_with_constraints": 24,
+              "basis_and_covariance_sha256": "6ec6bddf7a6ff05ab1ecf2289f9331ed288d3e444cc4066389620b9f70044ac4",
+              "basis_indices_sha256": "093ad22c729cff3d5071f4e9ea0f786e590f43fa4c367a1a4c87ca24e552eff2",
+              "settings": {
+                "pixel_arcsec": 64.0,
+                "min_snr": 10.0,
+                "prior_fwhm_arcsec": 240.0,
+                "entropy": 0.01,
+                "tsv": 0.0001,
+                "centroid": 0.1
+              },
+              "optimizer_executed": false,
+              "p_value_computed": false,
+              "low_snr_likelihood_validated": false,
+              "actual_observation_validated": false,
+              "public_data_loss_absolute_difference": 3.3428121382073073e-15,
+              "public_api_metrics": {
+                "objective": 0.0028961402489925616,
+                "closure_chisq_per_measurement": 0.0009951527968075687,
+                "data_loss": 0.0004975763984037844,
+                "entropy_loss": 0.0017313302126832637,
+                "tsv_loss": 0.0002364972893628457,
+                "centroid_loss": 0.00043073634854266763,
+                "independent_closure_count": 210,
+                "independent_closure_counts": {
+                  "phase": 117,
+                  "logamp": 93
+                },
+                "centroid_arcsec": [
+                  -6.994398944092638,
+                  15.276313586457906
+                ]
+              }
+            },
+            "prior": {
+              "schema_version": 1,
+              "type": "fixed_image_closure_residual_diagnostic",
+              "state": "complete",
+              "independent_counts": {
+                "phase": 117,
+                "logamp": 93
+              },
+              "independent_count": 210,
+              "chi2_approx": 152630.81868100984,
+              "data_loss": 363.4067111452615,
+              "component_chi2_approx": {
+                "phase": 22457.779013389976,
+                "logamp": 130173.03966761987
+              },
+              "baseline_valid_count": 283,
+              "independent_used_baseline_count": 254,
+              "all_cell_count": 64,
+              "cells_with_constraints": 24,
+              "basis_and_covariance_sha256": "6ec6bddf7a6ff05ab1ecf2289f9331ed288d3e444cc4066389620b9f70044ac4",
+              "basis_indices_sha256": "093ad22c729cff3d5071f4e9ea0f786e590f43fa4c367a1a4c87ca24e552eff2",
+              "settings": {
+                "pixel_arcsec": 64.0,
+                "min_snr": 10.0,
+                "prior_fwhm_arcsec": 240.0,
+                "entropy": 0.01,
+                "tsv": 0.0001,
+                "centroid": 0.1
+              },
+              "optimizer_executed": false,
+              "p_value_computed": false,
+              "low_snr_likelihood_validated": false,
+              "actual_observation_validated": false,
+              "public_data_loss_absolute_difference": 3.4049207897624e-10,
+              "public_api_metrics": {
+                "objective": 363.40681182931854,
+                "closure_chisq_per_measurement": 726.813422289842,
+                "data_loss": 363.406711144921,
+                "entropy_loss": 0.0,
+                "tsv_loss": 7.71569179032074e-05,
+                "centroid_loss": 2.3527479634246545e-05,
+                "independent_closure_count": 210,
+                "independent_closure_counts": {
+                  "phase": 117,
+                  "logamp": 93
+                },
+                "centroid_arcsec": [
+                  -2.7765958522172305,
+                  -2.776595852217223
+                ]
+              }
+            },
+            "truth": {
+              "schema_version": 1,
+              "type": "fixed_image_closure_residual_diagnostic",
+              "state": "complete",
+              "independent_counts": {
+                "phase": 117,
+                "logamp": 93
+              },
+              "independent_count": 210,
+              "chi2_approx": 5.831648129743179e-27,
+              "data_loss": 1.388487649938852e-29,
+              "component_chi2_approx": {
+                "phase": 2.239421116493577e-27,
+                "logamp": 3.592227013249602e-27
+              },
+              "baseline_valid_count": 283,
+              "independent_used_baseline_count": 254,
+              "all_cell_count": 64,
+              "cells_with_constraints": 24,
+              "basis_and_covariance_sha256": "6ec6bddf7a6ff05ab1ecf2289f9331ed288d3e444cc4066389620b9f70044ac4",
+              "basis_indices_sha256": "093ad22c729cff3d5071f4e9ea0f786e590f43fa4c367a1a4c87ca24e552eff2",
+              "settings": {
+                "pixel_arcsec": 16.0,
+                "min_snr": 10.0,
+                "prior_fwhm_arcsec": 240.0,
+                "entropy": 0.01,
+                "tsv": 0.0001,
+                "centroid": 0.1
+              },
+              "optimizer_executed": false,
+              "p_value_computed": false,
+              "low_snr_likelihood_validated": false,
+              "actual_observation_validated": false,
+              "public_data_loss_absolute_difference": 3.464819319049493e-24,
+              "public_api_metrics": {
+                "objective": 0.051142102603462955,
+                "closure_chisq_per_measurement": 6.929666407851984e-24,
+                "data_loss": 3.464833203925992e-24,
+                "entropy_loss": 0.030249716356377805,
+                "tsv_loss": 0.01966781354280246,
+                "centroid_loss": 0.0012245727042826974,
+                "independent_closure_count": 210,
+                "independent_closure_counts": {
+                  "phase": 117,
+                  "logamp": 93
+                },
+                "centroid_arcsec": [
+                  -9.947080245541814,
+                  26.525300414273545
+                ]
+              }
+            }
+          }
+        },
+        "reference_metrics": {
+          "raw_nrmse": 0.07309470887982254,
+          "registered_nrmse": 0.04063404100800597,
+          "registered_correlation": 0.9995176094406849,
+          "registration_shift_yx_arcsec": [
+            8.103043984421083,
+            -2.7811517306492384
+          ],
+          "common_beam_arcsec": 110.0,
+          "comparison_version": 2,
+          "registration_method": "All bounded integer cells, bilinear subpixels, 9 deterministic coordinate starts per cell",
+          "registration_max_shift_pixels": 31,
+          "registration_boundary_reached": false,
+          "registration_diagnostics": {
+            "shift_yx_pixels": [
+              0.5064402490263177,
+              -0.1738219831655774
+            ],
+            "boundary_reached": false,
+            "grid_cells": 3844,
+            "multistarts_per_cell": 9,
+            "selected_coordinate_converged": true,
+            "selected_coordinate_iterations": 6,
+            "objective_identity_error": 1.1659408518955444e-18
+          },
+          "comparison_padding_pixels": 45,
+          "registered_flux_retained_fraction": 0.9999999999999993,
+          "comparison": "Unit-flux gauge, Gaussian common beam, translation only over complete zero-extended support. No post-shift flux rescaling, cropped-error masking, rotation, Jy calibration or astrometry."
+        },
+        "maximum_embedding_model_difference": 0.0,
+        "truth_used_for_selection": false,
+        "independent_noise_trials_claimed": false,
+        "coarse_oracle_evaluation": {
+          "training": {
+            "schema_version": 1,
+            "type": "fixed_image_closure_residual_diagnostic",
+            "state": "complete",
+            "independent_counts": {
+              "phase": 117,
+              "logamp": 93
+            },
+            "independent_count": 210,
+            "chi2_approx": 5.831648129743179e-27,
+            "data_loss": 1.388487649938852e-29,
+            "component_chi2_approx": {
+              "phase": 2.239421116493577e-27,
+              "logamp": 3.592227013249602e-27
+            },
+            "baseline_valid_count": 283,
+            "independent_used_baseline_count": 254,
+            "all_cell_count": 64,
+            "cells_with_constraints": 24,
+            "basis_and_covariance_sha256": "6ec6bddf7a6ff05ab1ecf2289f9331ed288d3e444cc4066389620b9f70044ac4",
+            "basis_indices_sha256": "093ad22c729cff3d5071f4e9ea0f786e590f43fa4c367a1a4c87ca24e552eff2",
+            "settings": {
+              "pixel_arcsec": 64.0,
+              "min_snr": 10.0,
+              "prior_fwhm_arcsec": 240.0,
+              "entropy": 0.01,
+              "tsv": 0.0001,
+              "centroid": 0.1
+            },
+            "optimizer_executed": false,
+            "p_value_computed": false,
+            "low_snr_likelihood_validated": false,
+            "actual_observation_validated": false,
+            "public_data_loss_absolute_difference": 3.46465816214898e-24,
+            "public_api_metrics": {
+              "objective": 0.003956890812054035,
+              "closure_chisq_per_measurement": 6.929344094050958e-24,
+              "data_loss": 3.464672047025479e-24,
+              "entropy_loss": 0.002471699627449714,
+              "tsv_loss": 0.0002606184803216244,
+              "centroid_loss": 0.0012245727042826972,
+              "independent_closure_count": 210,
+              "independent_closure_counts": {
+                "phase": 117,
+                "logamp": 93
+              },
+              "centroid_arcsec": [
+                -9.947080245541816,
+                26.52530041427354
+              ]
+            }
+          },
+          "unused": {
+            "schema_version": 1,
+            "type": "fixed_image_closure_residual_diagnostic",
+            "state": "insufficient_constraints",
+            "independent_counts": {
+              "phase": 0,
+              "logamp": 0
+            },
+            "independent_count": 0,
+            "chi2_approx": null,
+            "data_loss": null,
+            "component_chi2_approx": {
+              "phase": null,
+              "logamp": null
+            },
+            "baseline_valid_count": 0,
+            "independent_used_baseline_count": 0,
+            "all_cell_count": 64,
+            "cells_with_constraints": 0,
+            "basis_and_covariance_sha256": "16107915fd5ef0e603f85ab79e05fa5f01aa52ddaef5ad1d88c08d384fe8b91a",
+            "basis_indices_sha256": "16107915fd5ef0e603f85ab79e05fa5f01aa52ddaef5ad1d88c08d384fe8b91a",
+            "settings": {
+              "pixel_arcsec": 64.0,
+              "min_snr": 10.0,
+              "prior_fwhm_arcsec": 240.0,
+              "entropy": 0.01,
+              "tsv": 0.0001,
+              "centroid": 0.1
+            },
+            "optimizer_executed": false,
+            "p_value_computed": false,
+            "low_snr_likelihood_validated": false,
+            "actual_observation_validated": false,
+            "public_data_loss_absolute_difference": null,
+            "public_api_metrics": null
+          },
+          "all": {
+            "schema_version": 1,
+            "type": "fixed_image_closure_residual_diagnostic",
+            "state": "complete",
+            "independent_counts": {
+              "phase": 117,
+              "logamp": 93
+            },
+            "independent_count": 210,
+            "chi2_approx": 5.831648129743179e-27,
+            "data_loss": 1.388487649938852e-29,
+            "component_chi2_approx": {
+              "phase": 2.239421116493577e-27,
+              "logamp": 3.592227013249602e-27
+            },
+            "baseline_valid_count": 283,
+            "independent_used_baseline_count": 254,
+            "all_cell_count": 64,
+            "cells_with_constraints": 24,
+            "basis_and_covariance_sha256": "6ec6bddf7a6ff05ab1ecf2289f9331ed288d3e444cc4066389620b9f70044ac4",
+            "basis_indices_sha256": "093ad22c729cff3d5071f4e9ea0f786e590f43fa4c367a1a4c87ca24e552eff2",
+            "settings": {
+              "pixel_arcsec": 64.0,
+              "min_snr": 10.0,
+              "prior_fwhm_arcsec": 240.0,
+              "entropy": 0.01,
+              "tsv": 0.0001,
+              "centroid": 0.1
+            },
+            "optimizer_executed": false,
+            "p_value_computed": false,
+            "low_snr_likelihood_validated": false,
+            "actual_observation_validated": false,
+            "public_data_loss_absolute_difference": 3.46465816214898e-24,
+            "public_api_metrics": {
+              "objective": 0.003956890812054035,
+              "closure_chisq_per_measurement": 6.929344094050958e-24,
+              "data_loss": 3.464672047025479e-24,
+              "entropy_loss": 0.002471699627449714,
+              "tsv_loss": 0.0002606184803216244,
+              "centroid_loss": 0.0012245727042826972,
+              "independent_closure_count": 210,
+              "independent_closure_counts": {
+                "phase": 117,
+                "logamp": 93
+              },
+              "centroid_arcsec": [
+                -9.947080245541816,
+                26.52530041427354
+              ]
+            }
+          }
+        },
+        "same_grid_objective_comparison": {
+          "training": {
+            "oracle8_objective_minus_fitted_objective": 0.0010607505630614738,
+            "oracle8_data_loss": 3.464672047025479e-24,
+            "fitted_data_loss": 0.0004975763984037844,
+            "same_grid_regularizer_compared": true
+          },
+          "unused": null,
+          "all": {
+            "oracle8_objective_minus_fitted_objective": 0.0010607505630614738,
+            "oracle8_data_loss": 3.464672047025479e-24,
+            "fitted_data_loss": 0.0004975763984037844,
+            "same_grid_regularizer_compared": true
+          }
+        },
+        "embedded_32_regularizer_used_for_fitted_oracle_comparison": false,
+        "image_npy_sha256": "fd6c3a4c02a7af5920de5855314c86040311d781e1cd9238006563d6dd48b280",
+        "embedded_image_sha256": "bcbc8a1b03f0451472acf984237b4c456826d1a7860d481163676c655291646b"
+      },
+      "cell_array_row": 2
+    }
+  ],
+  "settings": {
+    "pixels": 8,
+    "pixel_arcsec": 64.0,
+    "min_snr": 10.0,
+    "prior_fwhm_arcsec": 240.0,
+    "entropy": 0.01,
+    "tsv": 0.0001,
+    "centroid": 0.1,
+    "starts": 3,
+    "max_iterations": 2000,
+    "seed": 21
+  },
+  "fixed_new_fits": 3,
+  "starts_each": 3,
+  "residual_evaluations": 27,
+  "additional_coarse_oracle_evaluations": 9,
+  "limits": "Changed noiseless quantized sky on exactly the fitter point grid, artificially preserving a prior observation SNR/mask. Conditional time split, not original sky or independent raw/noise. Fixed old optimizer and hyperparameters; truth used in generator and post-evaluation, never in fitter input or run selection. Not low-SNR likelihood or real observation success.",
+  "cell_array_axes": [
+    "case",
+    "training/unused/all",
+    "fit/prior/embedded_truth/oracle8",
+    "snapshot",
+    "channel"
+  ],
+  "missing_cell_convention": "valid=false/count0/NaN denotes unavailable, not zero loss"
+}
