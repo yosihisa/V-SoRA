@@ -1,0 +1,24 @@
+{
+  "state": "complete",
+  "checked_api_and_native_cli": 87,
+  "unavailable": [],
+  "all_science_json_identical": true,
+  "independently_checked_common_masks": 27,
+  "no_overwrite_and_input_sha_preserved": true,
+  "outside_checkout": true,
+  "runner_absent": true,
+  "pythonpath_absent": true,
+  "project_modules": [
+    "vsora_formats",
+    "vsora_formats.spectral",
+    "vsora_imaging",
+    "vsora_imaging.closure",
+    "vsora_imaging.objective_evaluation",
+    "vsora_imaging.rml",
+    "vsora_observation",
+    "vsora_observation.config",
+    "vsora_observation.geometry"
+  ],
+  "all_project_modules_in_prefix": true,
+  "optimizer_executed": false
+}
