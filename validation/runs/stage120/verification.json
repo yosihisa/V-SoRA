@@ -1,0 +1,39 @@
+{
+  "stage": 120,
+  "state": "complete",
+  "technical_baseline_stage": 119,
+  "technical_baseline_commit": "22521aec7f816c0dadf93f44c4f2614e2f71a2d8",
+  "chronology_first_add_commits_and_jst_dates_verified": 120,
+  "all_first_commit_identities_public": true,
+  "old_individual_stage_reports_sha_unchanged": 120,
+  "source_tests_tools_workflows_configs_tracked_files_unchanged": 395,
+  "non_stage_tracked_files_checked": 1223,
+  "all_non_stage_tracked_sha_unchanged": true,
+  "index_contiguous_rows_verified": 121,
+  "next_documentation_stage": 130,
+  "next_fundamental_review_stage": 150,
+  "initial_missing_links": 5,
+  "initial_missing_links_reason": "mistyped stage111 and stage113 report filenames, corrected before final verification",
+  "new_numerical_tests_run": false,
+  "new_browser_tests_run": false,
+  "new_wheel_built_or_installed": false,
+  "new_raw_processing_run": false,
+  "cited_latest_full_stage": 115,
+  "cited_full_passed_each": 2055,
+  "cited_full_elapsed_s": {
+    "source": 580.94,
+    "installed": 581.82
+  },
+  "cited_full_existing_warnings_each": 27396,
+  "cited_full_excluded_tests": 0,
+  "cited_targeted_stage": 119,
+  "cited_targeted_passed_each": 37,
+  "cited_current_collection_each": 2094,
+  "full2094_executed": false,
+  "actual_observation_validated": false,
+  "public_audit_findings": 0,
+  "documentation_links": {
+    "checked": 1574,
+    "missing": 0
+  }
+}
