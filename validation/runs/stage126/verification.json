@@ -1,0 +1,71 @@
+{
+  "stage": 126,
+  "state": "complete",
+  "actual_rml_cli_runs": 9,
+  "starts_each": 3,
+  "all_science_json_exact": true,
+  "images_and_embedded_arrays_exact": true,
+  "numeric_arrays_compared": 109,
+  "training_archives_bytes_exact": 9,
+  "fits_numeric_wcs_checksum_checked": 9,
+  "nonoverwrite_refusals": 9,
+  "original_inputs_sha_unchanged": true,
+  "native_project_module_prefixes": 37,
+  "source_exact_project_module_origins": 37,
+  "outside_checkout": true,
+  "runner_absent": true,
+  "pythonpath_removed_for_cli": true,
+  "truth_read_after_all_cli": true,
+  "independent_noise_trials_claimed": false,
+  "actual_observation_validated": false,
+  "targeted": {
+    "source": {
+      "passed": 74,
+      "elapsed_s": 3.32,
+      "new_tests": 18,
+      "reused_tests": 56,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 74,
+      "elapsed_s": 1.48,
+      "new_tests": 18,
+      "reused_tests": 56,
+      "excluded_tests": 0
+    }
+  },
+  "tests_collected_each": 2224,
+  "full2224_executed": false,
+  "cited_full_stage": 121,
+  "cited_full_tests_each": 2116,
+  "cited_full_elapsed_s": {
+    "source": 609.28,
+    "installed": 607.5
+  },
+  "cited_full_warnings_each": 27396,
+  "cited_full_excluded": 0,
+  "frozen_files": 418,
+  "all_frozen_sha_unchanged": true,
+  "old_core_package_files_unchanged": 215,
+  "core_wheel_package_files_checked": 103,
+  "reference_assets_checked": 4,
+  "main_environment_freeze_unchanged": true,
+  "new_wheel_or_browser_run": false,
+  "source_installed_figure_pixels_exact": true,
+  "selected_runs_converged": 6,
+  "selected_runs_not_converged": 3,
+  "all_runs_converged_count": 19,
+  "total_starts_each_environment": 27,
+  "actual_evaluations_each_environment": 81,
+  "initial_failure_preserved": true,
+  "initial_failure": "Jy loader adds vis_jy alias; initial roundtrip identity incorrectly treated alias as extra numeric field. Whitelisted numeric identity and ADC/Jy roundtrip tests added; full9 fits rerun.",
+  "initial_six_image_bytes_exact_to_final": true,
+  "initial_results_counted_in_final": false,
+  "public_audit_findings": 0,
+  "documentation_links": {
+    "checked": 1648,
+    "missing": 0
+  },
+  "public_npz_numeric_only": true,
+  "png_metadata_empty": true
+}
