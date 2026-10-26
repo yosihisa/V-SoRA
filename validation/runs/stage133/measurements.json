@@ -1,0 +1,112 @@
+{
+  "source": {
+    "cases": [
+      {
+        "case": "high_a_t0.3",
+        "elapsed_s": 2.593027789000189
+      },
+      {
+        "case": "high_a_t1",
+        "elapsed_s": 2.726835925001069
+      },
+      {
+        "case": "high_a_t3",
+        "elapsed_s": 3.2902889209944988
+      },
+      {
+        "case": "high_b_t0.3",
+        "elapsed_s": 3.291485716996249
+      },
+      {
+        "case": "high_b_t1",
+        "elapsed_s": 3.1360400839912472
+      },
+      {
+        "case": "high_b_t3",
+        "elapsed_s": 3.2034855319943745
+      },
+      {
+        "case": "weak_a_t0.3",
+        "elapsed_s": 0.3250840859982418
+      },
+      {
+        "case": "weak_a_t1",
+        "elapsed_s": 1.0338290819927352
+      },
+      {
+        "case": "weak_a_t3",
+        "elapsed_s": 3.262030116005917
+      },
+      {
+        "case": "weak_b_t0.3",
+        "elapsed_s": 0.3236164249974536
+      },
+      {
+        "case": "weak_b_t1",
+        "elapsed_s": 1.373558082996169
+      },
+      {
+        "case": "weak_b_t3",
+        "elapsed_s": 3.2852771440084325
+      }
+    ],
+    "scope": "Owned RML CLI including imports; no new correlation/real receiver/GPU benchmark"
+  },
+  "installed": {
+    "cases": [
+      {
+        "case": "high_a_t0.3",
+        "elapsed_s": 2.660013173997868
+      },
+      {
+        "case": "high_a_t1",
+        "elapsed_s": 2.9623977139999624
+      },
+      {
+        "case": "high_a_t3",
+        "elapsed_s": 3.26154601899907
+      },
+      {
+        "case": "high_b_t0.3",
+        "elapsed_s": 3.3537656419939594
+      },
+      {
+        "case": "high_b_t1",
+        "elapsed_s": 3.2533825379941845
+      },
+      {
+        "case": "high_b_t3",
+        "elapsed_s": 3.3452240100014023
+      },
+      {
+        "case": "weak_a_t0.3",
+        "elapsed_s": 0.318040298006963
+      },
+      {
+        "case": "weak_a_t1",
+        "elapsed_s": 1.0357411810109625
+      },
+      {
+        "case": "weak_a_t3",
+        "elapsed_s": 3.3026208560040686
+      },
+      {
+        "case": "weak_b_t0.3",
+        "elapsed_s": 0.3213944070012076
+      },
+      {
+        "case": "weak_b_t1",
+        "elapsed_s": 1.4094461450004019
+      },
+      {
+        "case": "weak_b_t3",
+        "elapsed_s": 3.3357136310078204
+      }
+    ],
+    "scope": "Owned RML CLI including imports; no new correlation/real receiver/GPU benchmark"
+  },
+  "actual_study_bytes_each": {
+    "source": 1059995,
+    "installed": 1060379
+  }
+}
