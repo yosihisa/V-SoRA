@@ -1,0 +1,59 @@
+{
+  "state": "complete",
+  "actual_new_rml_cli_runs": [
+    [
+      "estimated_rate",
+      8
+    ],
+    [
+      "estimated_rate",
+      16
+    ],
+    [
+      "truth_rate_control",
+      8
+    ],
+    [
+      "truth_rate_control",
+      16
+    ],
+    [
+      "ideal_model_true_rate_snr_control",
+      8
+    ],
+    [
+      "ideal_model_true_rate_snr_control",
+      16
+    ]
+  ],
+  "cited_118_fits": [
+    "estimated_rate",
+    "truth_rate_control",
+    "ideal_model_true_rate_snr_control"
+  ],
+  "all9_scientific_json_and_coarse_embedded_bytes_identical": true,
+  "fits_numeric_data_and_wcs_checked": 6,
+  "all6_existing_output_repetitions_refused_before_fit": true,
+  "all_input_sha_preserved": true,
+  "outside_checkout": true,
+  "runner_absent": true,
+  "pythonpath_absent": true,
+  "project_modules": [
+    "vsora_formats",
+    "vsora_formats.spectral",
+    "vsora_imaging",
+    "vsora_imaging.closure",
+    "vsora_imaging.experiment",
+    "vsora_imaging.objective_evaluation",
+    "vsora_imaging.registration",
+    "vsora_imaging.rml",
+    "vsora_observation",
+    "vsora_observation.config",
+    "vsora_observation.geometry",
+    "vsora_simulator",
+    "vsora_simulator.sky",
+    "vsora_simulator.visibility"
+  ],
+  "all_project_modules_in_prefix": true,
+  "source_workflow_not_imported": true
+}

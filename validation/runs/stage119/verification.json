@@ -1,0 +1,186 @@
+{
+  "stage": 119,
+  "state": "complete",
+  "base_commit": "5571da2b00fbe5c4166e714e3c6093e1b212705c",
+  "new_fits_each": 6,
+  "cited_stage118_fits": 3,
+  "starts_each": 3,
+  "new_selected_converged": 3,
+  "new_selected_not_converged": 3,
+  "new_tests": 11,
+  "targeted_tests_each": 37,
+  "targeted_elapsed_s": {
+    "source": 1.6,
+    "installed": 1.64
+  },
+  "all9_scientific_json_and_coarse_embedded_bytes_identical": true,
+  "all6_fits_numeric_data_wcs_verified": true,
+  "all6_output_repeats_refused_before_fit": true,
+  "all_input_arrays_sha_match_stage118": true,
+  "all_input_sha_unchanged": true,
+  "all_scientific_json_identical_to_preliminary": true,
+  "preliminary_counted": false,
+  "maximum_complex_visibility_embedding_difference": 0.0,
+  "maximum_data_loss_embedding_difference": 7.216449660063518e-16,
+  "prior_formula_equals_existing_objective": true,
+  "prior_reference_metrics_by_grid": {
+    "8": {
+      "raw_nrmse": 0.2910007186132467,
+      "registered_nrmse": 0.21651917348444077,
+      "registered_correlation": 0.9816282431910384,
+      "registration_shift_yx_arcsec": [
+        20.380383333622063,
+        -24.594395690322276
+      ],
+      "common_beam_arcsec": 110.0,
+      "comparison_version": 2,
+      "registration_method": "All bounded integer cells, bilinear subpixels, 9 deterministic coordinate starts per cell",
+      "registration_max_shift_pixels": 31,
+      "registration_boundary_reached": false,
+      "registration_diagnostics": {
+        "shift_yx_pixels": [
+          1.273773958351379,
+          -1.5371497306451423
+        ],
+        "boundary_reached": false,
+        "grid_cells": 3844,
+        "multistarts_per_cell": 9,
+        "selected_coordinate_converged": true,
+        "selected_coordinate_iterations": 6,
+        "objective_identity_error": 8.402566836762659e-19
+      },
+      "comparison_padding_pixels": 45,
+      "registered_flux_retained_fraction": 1.0000000000000004,
+      "comparison": "Unit-flux gauge, Gaussian common beam, translation only over complete zero-extended support. No post-shift flux rescaling, cropped-error masking, rotation, Jy calibration or astrometry."
+    },
+    "16": {
+      "raw_nrmse": 0.2923239017766064,
+      "registered_nrmse": 0.21849585488281595,
+      "registered_correlation": 0.9815030408488434,
+      "registration_shift_yx_arcsec": [
+        20.11118454368295,
+        -24.928887824490033
+      ],
+      "common_beam_arcsec": 110.0,
+      "comparison_version": 2,
+      "registration_method": "All bounded integer cells, bilinear subpixels, 9 deterministic coordinate starts per cell",
+      "registration_max_shift_pixels": 31,
+      "registration_boundary_reached": false,
+      "registration_diagnostics": {
+        "shift_yx_pixels": [
+          1.2569490339801843,
+          -1.558055489030627
+        ],
+        "boundary_reached": false,
+        "grid_cells": 3844,
+        "multistarts_per_cell": 9,
+        "selected_coordinate_converged": true,
+        "selected_coordinate_iterations": 6,
+        "objective_identity_error": 2.439454888092385e-19
+      },
+      "comparison_padding_pixels": 45,
+      "registered_flux_retained_fraction": 1.0000000000000002,
+      "comparison": "Unit-flux gauge, Gaussian common beam, translation only over complete zero-extended support. No post-shift flux rescaling, cropped-error masking, rotation, Jy calibration or astrometry."
+    },
+    "32": {
+      "raw_nrmse": 0.29262642279929957,
+      "registered_nrmse": 0.21887272354019244,
+      "registered_correlation": 0.9815009823856239,
+      "registration_shift_yx_arcsec": [
+        19.978835470944595,
+        -25.08627796594093
+      ],
+      "common_beam_arcsec": 110.0,
+      "comparison_version": 2,
+      "registration_method": "All bounded integer cells, bilinear subpixels, 9 deterministic coordinate starts per cell",
+      "registration_max_shift_pixels": 31,
+      "registration_boundary_reached": false,
+      "registration_diagnostics": {
+        "shift_yx_pixels": [
+          1.2486772169340372,
+          -1.5678923728713081
+        ],
+        "boundary_reached": false,
+        "grid_cells": 3844,
+        "multistarts_per_cell": 9,
+        "selected_coordinate_converged": true,
+        "selected_coordinate_iterations": 6,
+        "objective_identity_error": 4.607859233063394e-19
+      },
+      "comparison_padding_pixels": 45,
+      "registered_flux_retained_fraction": 1.0,
+      "comparison": "Unit-flux gauge, Gaussian common beam, translation only over complete zero-extended support. No post-shift flux rescaling, cropped-error masking, rotation, Jy calibration or astrometry."
+    }
+  },
+  "prior_data_loss_by_branch_and_grid": [
+    {
+      "branch": "estimated_rate",
+      "pixels": 8,
+      "data_loss": 365.77872172172283
+    },
+    {
+      "branch": "estimated_rate",
+      "pixels": 16,
+      "data_loss": 389.83979076938607
+    },
+    {
+      "branch": "estimated_rate",
+      "pixels": 32,
+      "data_loss": 398.7824519422471
+    },
+    {
+      "branch": "truth_rate_control",
+      "pixels": 8,
+      "data_loss": 366.563587259031
+    },
+    {
+      "branch": "truth_rate_control",
+      "pixels": 16,
+      "data_loss": 390.65731844758994
+    },
+    {
+      "branch": "truth_rate_control",
+      "pixels": 32,
+      "data_loss": 399.61025684927205
+    },
+    {
+      "branch": "ideal_model_true_rate_snr_control",
+      "pixels": 8,
+      "data_loss": 365.077673078224
+    },
+    {
+      "branch": "ideal_model_true_rate_snr_control",
+      "pixels": 16,
+      "data_loss": 388.96372895140155
+    },
+    {
+      "branch": "ideal_model_true_rate_snr_control",
+      "pixels": 32,
+      "data_loss": 397.6802086303366
+    }
+  ],
+  "frozen_python_json_toml_files": 367,
+  "all_frozen_sha_unchanged": true,
+  "all_previous_tracked_sha_unchanged_except_index": true,
+  "native_prefix_modules": 14,
+  "new_full_regression": false,
+  "cited_full_stage": 115,
+  "cited_full_passed_each": 2055,
+  "tests_collected_each": 2094,
+  "full_collected_tests_executed": false,
+  "new_wheel_built_or_installed": false,
+  "wheel_package_bytes_unchanged": 101,
+  "reference_assets_bytes_unchanged": 4,
+  "wheel_sha256": "d3016ac9145c047f1ecb96992228e2a4c418d3a8598208dfd40e4b1d4646a25f",
+  "pip_check_success": true,
+  "browser_rerun": false,
+  "actual_observation_validated": false,
+  "public_absolute_paths_generalized": true,
+  "figure_metadata_removed": true,
+  "public_audit_findings": 0,
+  "documentation_links": {
+    "checked": 1528,
+    "missing": 0
+  },
+  "report_index_contiguous_rows_verified": 120
+}
