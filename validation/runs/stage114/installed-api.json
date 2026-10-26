@@ -1,0 +1,84 @@
+{
+  "state": "complete",
+  "cases": [
+    {
+      "case": "seed109_estimated_rate",
+      "all_scientific_json_identical": true,
+      "truth_information_used": "none"
+    },
+    {
+      "case": "seed109_truth_rate_control",
+      "all_scientific_json_identical": true,
+      "truth_information_used": "true_station_rates_for_evaluation_only"
+    },
+    {
+      "case": "seed109_ideal_model_observed_snr_control",
+      "all_scientific_json_identical": true,
+      "truth_information_used": "true_sky_forward_model_for_evaluation_only"
+    },
+    {
+      "case": "seed110_estimated_rate",
+      "all_scientific_json_identical": true,
+      "truth_information_used": "none"
+    },
+    {
+      "case": "seed110_truth_rate_control",
+      "all_scientific_json_identical": true,
+      "truth_information_used": "true_station_rates_for_evaluation_only"
+    },
+    {
+      "case": "seed110_ideal_model_observed_snr_control",
+      "all_scientific_json_identical": true,
+      "truth_information_used": "true_sky_forward_model_for_evaluation_only"
+    },
+    {
+      "case": "seed111_estimated_rate",
+      "all_scientific_json_identical": true,
+      "truth_information_used": "none"
+    },
+    {
+      "case": "seed111_truth_rate_control",
+      "all_scientific_json_identical": true,
+      "truth_information_used": "true_station_rates_for_evaluation_only"
+    },
+    {
+      "case": "seed111_ideal_model_observed_snr_control",
+      "all_scientific_json_identical": true,
+      "truth_information_used": "true_sky_forward_model_for_evaluation_only"
+    }
+  ],
+  "actual_native_oracle_correlations": 3,
+  "actual_native_rml_attempts": 9,
+  "compared_numerical_arrays": 102,
+  "compared_image_arrays": 9,
+  "ideal_models_independently_reconstructed_and_snr_variance_masks_verified": 3,
+  "all_scientific_json_and_full_metrics_identical": true,
+  "all_input_original_profile_and_base_array_sha_unchanged": true,
+  "no_overwrite_and_bytes_preserved": true,
+  "evaluation_control_labels_verified": true,
+  "outside_checkout": true,
+  "runner_absent": true,
+  "pythonpath_absent": true,
+  "project_modules": [
+    "vsora_formats",
+    "vsora_formats.fitsidi",
+    "vsora_formats.spectral",
+    "vsora_formats.visibility",
+    "vsora_imaging",
+    "vsora_imaging.assessment",
+    "vsora_imaging.closure",
+    "vsora_imaging.experiment",
+    "vsora_imaging.registration",
+    "vsora_imaging.rml",
+    "vsora_observation",
+    "vsora_observation.config",
+    "vsora_observation.geometry",
+    "vsora_observation.reference",
+    "vsora_simulator",
+    "vsora_simulator.sky",
+    "vsora_simulator.visibility"
+  ],
+  "all_project_modules_in_prefix": true,
+  "reference_asset_in_prefix": true,
+  "scope": "Three new truth-rate correlations, nine native RML attempts; estimated/ideal inputs are frozen source files verified by SHA and independent ideal-model reconstruction. Truth controls are not unknown-observation solutions. Timing and input archive provenance digests excluded from science equality."
+}
