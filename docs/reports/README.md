@@ -133,6 +133,7 @@
 | 115 | [候補画像のデータ適合と正則化を評価](115-image-objective-evaluation.md) | 全27候補・導入JSON一致、26対象成功。両2055試験成功。画像optimizerは変更せず |
 | 116 | [固定画像の別入力評価・共通採用基線](116-image-transfer-and-masks.md) | 新12＋既存26、両38対象成功。固定87評価のsource/導入API/native CLI全JSON一致。事後的診断、画像は再最適化せず |
 | 117 | [別生成原本の独立Closureセル併用](117-independent-cell-image-fit.md) | 新9＋既存38、両47対象成功。固定4ケース/各3初期値の導入再実行・画像/全JSON一致。all3収束でも形状NRMSE .400、他3選択run未収束 |
+| 118 | [8時刻VDIF・推定LO/真値LO/理想モデル対照](118-multitime-vdif-controls.md) | 両62対象。各環境16 CLI・24相関・3画像/9探索を再実行し全配列/画像/科学JSON一致。形状NRMSE .351/.387/.108、3選択run未収束 |
 
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。
 

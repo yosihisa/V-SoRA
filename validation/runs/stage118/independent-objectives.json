@@ -1,0 +1,212 @@
+{
+  "candidates": [
+    {
+      "branch": "estimated_rate",
+      "candidate": "truth",
+      "independent_losses": {
+        "objective": 0.5569511765355184,
+        "data_loss": 0.5523014400016586,
+        "entropy_loss": 0.003578738755140163,
+        "tsv_loss": 8.089251036460126e-05,
+        "centroid_loss": 0.0009901052683551105,
+        "closure_chisq_per_measurement": 1.1046028800033172
+      },
+      "absolute_differences": {
+        "objective": 5.306866057708248e-14,
+        "data_loss": 5.306866057708248e-14,
+        "entropy_loss": 0.0,
+        "tsv_loss": 0.0,
+        "centroid_loss": 2.168404344971009e-19,
+        "closure_chisq_per_measurement": 1.0613732115416497e-13
+      }
+    },
+    {
+      "branch": "estimated_rate",
+      "candidate": "prior",
+      "independent_losses": {
+        "objective": 398.7824585422868,
+        "data_loss": 398.78245194245665,
+        "entropy_loss": 0.0,
+        "tsv_loss": 5.137008217050065e-06,
+        "centroid_loss": 1.4628219479422514e-06,
+        "closure_chisq_per_measurement": 797.5649038849133
+      },
+      "absolute_differences": {
+        "objective": 2.0952484192093834e-10,
+        "data_loss": 2.0952484192093834e-10,
+        "entropy_loss": 0.0,
+        "tsv_loss": 0.0,
+        "centroid_loss": 3.3881317890172014e-21,
+        "closure_chisq_per_measurement": 4.190496838418767e-10
+      }
+    },
+    {
+      "branch": "estimated_rate",
+      "candidate": "fitted",
+      "independent_losses": {
+        "objective": 0.2961774430735821,
+        "data_loss": 0.2870213762450789,
+        "entropy_loss": 0.008589262588633196,
+        "tsv_loss": 0.0003148311254647815,
+        "centroid_loss": 0.0002519731144052976,
+        "closure_chisq_per_measurement": 0.5740427524901578
+      },
+      "absolute_differences": {
+        "objective": 7.877032359715486e-14,
+        "data_loss": 7.877032359715486e-14,
+        "entropy_loss": 1.734723475976807e-18,
+        "tsv_loss": 0.0,
+        "centroid_loss": 5.421010862427522e-20,
+        "closure_chisq_per_measurement": 1.5754064719430971e-13
+      }
+    },
+    {
+      "branch": "truth_rate_control",
+      "candidate": "truth",
+      "independent_losses": {
+        "objective": 0.5590288416276146,
+        "data_loss": 0.5543791050937548,
+        "entropy_loss": 0.003578738755140163,
+        "tsv_loss": 8.089251036460126e-05,
+        "centroid_loss": 0.0009901052683551105,
+        "closure_chisq_per_measurement": 1.1087582101875095
+      },
+      "absolute_differences": {
+        "objective": 5.473399511402022e-14,
+        "data_loss": 5.473399511402022e-14,
+        "entropy_loss": 0.0,
+        "tsv_loss": 0.0,
+        "centroid_loss": 2.168404344971009e-19,
+        "closure_chisq_per_measurement": 1.0946799022804043e-13
+      }
+    },
+    {
+      "branch": "truth_rate_control",
+      "candidate": "prior",
+      "independent_losses": {
+        "objective": 399.6102634493124,
+        "data_loss": 399.61025684948225,
+        "entropy_loss": 0.0,
+        "tsv_loss": 5.137008217050065e-06,
+        "centroid_loss": 1.4628219479422514e-06,
+        "closure_chisq_per_measurement": 799.2205136989645
+      },
+      "absolute_differences": {
+        "objective": 2.1020696294726804e-10,
+        "data_loss": 2.1020696294726804e-10,
+        "entropy_loss": 0.0,
+        "tsv_loss": 0.0,
+        "centroid_loss": 3.3881317890172014e-21,
+        "closure_chisq_per_measurement": 4.204139258945361e-10
+      }
+    },
+    {
+      "branch": "truth_rate_control",
+      "candidate": "fitted",
+      "independent_losses": {
+        "objective": 0.298802627474366,
+        "data_loss": 0.2868689449109446,
+        "entropy_loss": 0.011019296220718199,
+        "tsv_loss": 0.00044460268783551174,
+        "centroid_loss": 0.00046978365486766084,
+        "closure_chisq_per_measurement": 0.5737378898218892
+      },
+      "absolute_differences": {
+        "objective": 1.2823075934420558e-14,
+        "data_loss": 1.2823075934420558e-14,
+        "entropy_loss": 1.734723475976807e-18,
+        "tsv_loss": 0.0,
+        "centroid_loss": 0.0,
+        "closure_chisq_per_measurement": 2.5646151868841116e-14
+      }
+    },
+    {
+      "branch": "ideal_model_true_rate_snr_control",
+      "candidate": "truth",
+      "independent_losses": {
+        "objective": 0.0046497365338598745,
+        "data_loss": 3.8123927640469204e-29,
+        "entropy_loss": 0.003578738755140163,
+        "tsv_loss": 8.089251036460126e-05,
+        "centroid_loss": 0.0009901052683551105,
+        "closure_chisq_per_measurement": 7.624785528093841e-29
+      },
+      "absolute_differences": {
+        "objective": 0.0,
+        "data_loss": 6.081680606144113e-25,
+        "entropy_loss": 0.0,
+        "tsv_loss": 0.0,
+        "centroid_loss": 2.168404344971009e-19,
+        "closure_chisq_per_measurement": 1.2163361212288226e-24
+      }
+    },
+    {
+      "branch": "ideal_model_true_rate_snr_control",
+      "candidate": "prior",
+      "independent_losses": {
+        "objective": 397.68021523037186,
+        "data_loss": 397.6802086305417,
+        "entropy_loss": 0.0,
+        "tsv_loss": 5.137008217050065e-06,
+        "centroid_loss": 1.4628219479422514e-06,
+        "closure_chisq_per_measurement": 795.3604172610834
+      },
+      "absolute_differences": {
+        "objective": 2.0509105524979532e-10,
+        "data_loss": 2.0509105524979532e-10,
+        "entropy_loss": 0.0,
+        "tsv_loss": 0.0,
+        "centroid_loss": 3.3881317890172014e-21,
+        "closure_chisq_per_measurement": 4.1018211049959064e-10
+      }
+    },
+    {
+      "branch": "ideal_model_true_rate_snr_control",
+      "candidate": "fitted",
+      "independent_losses": {
+        "objective": 0.0017877259188230706,
+        "data_loss": 0.00015548633283407671,
+        "entropy_loss": 0.0016072897424092936,
+        "tsv_loss": 2.3903792911008334e-05,
+        "centroid_loss": 1.0460506686917985e-06,
+        "closure_chisq_per_measurement": 0.00031097266566815343
+      },
+      "absolute_differences": {
+        "objective": 4.612196041753336e-16,
+        "data_loss": 4.617617052615763e-16,
+        "entropy_loss": 6.505213034913027e-19,
+        "tsv_loss": 0.0,
+        "centroid_loss": 1.207021949837378e-20,
+        "closure_chisq_per_measurement": 9.235234105231527e-16
+      }
+    }
+  ],
+  "maximum_absolute_difference": 4.204139258945361e-10,
+  "selected_uv_diagnostics": [
+    {
+      "branch": "estimated_rate",
+      "selected_baseline_cells": 284,
+      "total_baseline_cells": 1792,
+      "maximum_selected_projected_uv_lambda": 1933.4633905599048,
+      "inverse_uv_scale_arcsec": 106.68151631635749,
+      "not_a_measured_beam_or_resolution_guarantee": true
+    },
+    {
+      "branch": "truth_rate_control",
+      "selected_baseline_cells": 283,
+      "total_baseline_cells": 1792,
+      "maximum_selected_projected_uv_lambda": 1933.4633905599048,
+      "inverse_uv_scale_arcsec": 106.68151631635749,
+      "not_a_measured_beam_or_resolution_guarantee": true
+    },
+    {
+      "branch": "ideal_model_true_rate_snr_control",
+      "selected_baseline_cells": 283,
+      "total_baseline_cells": 1792,
+      "maximum_selected_projected_uv_lambda": 1933.4633905599048,
+      "inverse_uv_scale_arcsec": 106.68151631635749,
+      "not_a_measured_beam_or_resolution_guarantee": true
+    }
+  ],
+  "limits": "Direct Fourier and covariance solve differ from internal implementation, but closure selection designs and observed error approximation are shared. Inverse maximum selected uv is a scale, not a PSF or resolution guarantee."
+}
