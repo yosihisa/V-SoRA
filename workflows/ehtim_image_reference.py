@@ -135,13 +135,13 @@ def native(reference,output):
     (out/'science.json').write_text(json.dumps(science,indent=2)+'\n');(out/'timing.json').write_text(json.dumps({'elapsed_s':time.monotonic()-began})+'\n');return science
 
 
-def external(reference,output):
+def external_problem(reference):
     import ehtim as eh
     import ehtim.const_def as constants
     from ehtim.observing.pulses import deltaPulse2D
     from astropy.coordinates import EarthLocation
     import astropy.units as units
-    out=Path(output);out.mkdir(parents=True,exist_ok=False);metadata,data=load_input(reference)
+    metadata,data=load_input(reference)
     cls=reference_observation_class();stations=metadata['stations'];site=metadata['site'];n=len(stations)
     location=EarthLocation.from_geodetic(site['longitude_deg']*units.deg,site['latitude_deg']*units.deg,site['height_m']*units.m)
     origin=np.array([v.to_value(units.m) for v in location.geocentric]);positions=origin+enu_to_ecef([s['enu_m'] for s in stations],site['latitude_deg'],site['longitude_deg'])
@@ -159,6 +159,22 @@ def external(reference,output):
     assert len(observations)==3
     def image_object(image):
         return eh.image.Image(image[::-1,::-1].copy(),64.*ARCSEC_RAD,metadata['source_direction']['ra_deg']/15.,metadata['source_direction']['dec_deg'],rf=1.42e9,pulse=deltaPulse2D)
+    return metadata,data,observations,channels,image_object
+
+
+def external_imager(problem,initial_image,max_iterations=800):
+    """同じ外部参照条件を組み立て、反復上限だけを明示的に変えられる。"""
+    if type(max_iterations) is not int or not 1<=max_iterations<=5000:
+        raise ValueError('external iterations must be 1..5000')
+    import ehtim as eh
+    metadata,data,observations,channels,image_object=problem
+    return eh.imager.Imager(observations,image_object(initial_image),prior_im=image_object(data['prior']),flux=1.,data_term=EXTERNAL_DATA,reg_term=EXTERNAL_REG,
+        maxit=max_iterations,stop=1e-11,ttype='direct',debias=False,snrcut=0.,maxset=False,weighting='natural',clipfloor=0.,norm_init=True,norm_reg=True,transform=['log'],pol='I')
+
+
+def external(reference,output,max_iterations=800):
+    out=Path(output);out.mkdir(parents=True,exist_ok=False)
+    problem=external_problem(reference);metadata,data,observations,channels,image_object=problem
     # actual geometry上で、半画素の位相差がw=0のClosureから消えることも直接確認。
     observed=form_closures(data['visibilities'],data['weights'],data['pairs'],10.)
     transfer_checks=[]
@@ -176,11 +192,9 @@ def external(reference,output):
             difference=float(np.max(np.abs(delta[observed[kind+'_valid']])))
             assert difference<3e-10;row[kind+'_closure_maximum_difference']=difference
         transfer_checks.append(row)
-    prior=image_object(data['prior']);runs=[];models=[]
+    runs=[];models=[]
     for start,image in enumerate(data['initial_images']):
-        initial=image_object(image)
-        imager=eh.imager.Imager(observations,initial,prior_im=prior,flux=1.,data_term=EXTERNAL_DATA,reg_term=EXTERNAL_REG,
-            maxit=800,stop=1e-11,ttype='direct',debias=False,snrcut=0.,maxset=False,weighting='natural',clipfloor=0.,norm_init=True,norm_reg=True,transform=['log'],pol='I')
+        imager=external_imager(problem,image,max_iterations)
         began=time.monotonic();result,records,initials=capture_minimize(lambda:imager.make_image(pol='I',show_updates=False),1)
         np.testing.assert_allclose(np.exp(initials[0]).reshape(8,8)[::-1,::-1],image,rtol=3e-14,atol=1e-16)
         np.testing.assert_array_equal(result.imvec,imager.out_last().imvec)
@@ -195,7 +209,7 @@ def external(reference,output):
     selected=int(np.argmin([r['objective'] for r in runs]));np.save(out/'relative-model.npy',models[selected])
     result={'state':'complete','method':'ehtim1.3.2','input_sha256':metadata['input_sha256'],'selected_start':selected,'runs':runs,
         'channels':channels,'half_pixel_closure_checks':transfer_checks,'fitted_frequency_groups':len(observations),'data_term':EXTERNAL_DATA,'reg_term':EXTERNAL_REG,
-        'optimizer_args':{'maxit':800,'stop':1e-11,'ttype':'direct','debias':False,'maxset':False,'norm_reg':True},
+        'optimizer_args':{'maxit':max_iterations,'stop':1e-11,'ttype':'direct','debias':False,'maxset':False,'norm_reg':True},
         'image_sha256':sha(out/'relative-model.npy'),'optimizer_results_observed_without_modification':True,'physical_jy_or_stokes_calibration_performed':False,'actual_observation_validated':False}
     (out/'science.json').write_text(json.dumps(result,indent=2)+'\n');return result
 
@@ -213,8 +227,8 @@ def assess(reference,native_output,external_output,output):
 
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--mode',choices=['prepare','native','external','assess'],required=True);p.add_argument('--repository');p.add_argument('--reference');p.add_argument('--native-output');p.add_argument('--external-output');p.add_argument('--output',required=True);a=p.parse_args()
-    functions={'prepare':lambda:prepare(a.repository,a.output),'native':lambda:native(a.reference,a.output),'external':lambda:external(a.reference,a.output),'assess':lambda:assess(a.reference,a.native_output,a.external_output,a.output)}
+    p=argparse.ArgumentParser();p.add_argument('--mode',choices=['prepare','native','external','assess'],required=True);p.add_argument('--repository');p.add_argument('--reference');p.add_argument('--native-output');p.add_argument('--external-output');p.add_argument('--external-max-iterations',type=int,default=800);p.add_argument('--output',required=True);a=p.parse_args()
+    functions={'prepare':lambda:prepare(a.repository,a.output),'native':lambda:native(a.reference,a.output),'external':lambda:external(a.reference,a.output,a.external_max_iterations),'assess':lambda:assess(a.reference,a.native_output,a.external_output,a.output)}
     value=functions[a.mode]();print(json.dumps({'state':value.get('state','complete'),'mode':a.mode}))
 
 

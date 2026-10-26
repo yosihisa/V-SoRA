@@ -1,0 +1,72 @@
+{
+  "stage": 124,
+  "state": "complete",
+  "all_external_science_json_equal": true,
+  "all_source_installed_assessment_json_equal": true,
+  "images_exact": 8,
+  "new_iteration_limits": [
+    2000,
+    5000
+  ],
+  "initializations_each": 3,
+  "gradient_states": 12,
+  "primary_gradient_states_passed": 4,
+  "primary_gradient_states_failed": 8,
+  "maximum_primary_normalized_error": 0.0038805611852478303,
+  "maximum_secondary_normalized_error": 5.623597143511461e-08,
+  "secondary_diagnostic_changes_primary_verdict": false,
+  "source_core_prefixes": 4,
+  "installed_core_prefixes": 4,
+  "cwd_outside_checkout": true,
+  "repository_runner_invoked": false,
+  "nonoverwrite_and_all_bytes_unchanged": true,
+  "converged_runs_by_limit": {
+    "2000": 0,
+    "5000": 0
+  },
+  "actual_observation_validated": false,
+  "targeted": {
+    "source": {
+      "passed": 71,
+      "elapsed_s": 1.35,
+      "new_tests": 13,
+      "reused_tests": 58,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 71,
+      "elapsed_s": 0.77,
+      "new_tests": 13,
+      "reused_tests": 58,
+      "excluded_tests": 0
+    }
+  },
+  "tests_collected_each": 2187,
+  "full2187_executed": false,
+  "cited_full_stage": 121,
+  "cited_full_tests_each": 2116,
+  "cited_full_elapsed_s": {
+    "source": 609.28,
+    "installed": 607.5
+  },
+  "cited_full_warnings_each": 27396,
+  "cited_full_excluded": 0,
+  "frozen_files": 412,
+  "all_frozen_sha_unchanged": true,
+  "old_core_package_files_unchanged": 215,
+  "core_wheel_package_files_checked": 103,
+  "reference_assets_checked": 4,
+  "ehtim_original_package_files_checked": 49,
+  "main_environment_freeze_unchanged": true,
+  "old800_all_science_identical": true,
+  "regression122_passed": true,
+  "regression123_passed": true,
+  "new_wheel_or_browser_run": false,
+  "external_further_tuning_deferred": true,
+  "public_audit_findings": 0,
+  "documentation_links": {
+    "checked": 1628,
+    "missing": 0
+  },
+  "source_core_origins_exactly_source_directories": true
+}

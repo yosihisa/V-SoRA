@@ -1,0 +1,29 @@
+[
+  {
+    "iteration_limit": 800,
+    "cited_from_stage123": true,
+    "selected_start": 1,
+    "optimizer_success": false,
+    "own_objective": -599.7704842135652,
+    "registered_nrmse": 0.12460649370920658,
+    "native_common_data_loss": 0.5700885440502712
+  },
+  {
+    "iteration_limit": 2000,
+    "cited_from_stage123": false,
+    "selected_start": 1,
+    "optimizer_success": false,
+    "own_objective": -599.805991473362,
+    "registered_nrmse": 0.14670481114161202,
+    "native_common_data_loss": 0.869498305771343
+  },
+  {
+    "iteration_limit": 5000,
+    "cited_from_stage123": false,
+    "selected_start": 1,
+    "optimizer_success": false,
+    "own_objective": -599.8393948731181,
+    "registered_nrmse": 0.200205705064891,
+    "native_common_data_loss": 3.883805406441355
+  }
+]
