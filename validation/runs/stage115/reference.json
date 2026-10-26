@@ -1,0 +1,2855 @@
+{
+  "type": "fixed_image_objective_candidates",
+  "state": "complete",
+  "candidates": [
+    {
+      "candidate_id": "seed109_estimated_rate_truth",
+      "case": "seed109_estimated_rate",
+      "kind": "truth",
+      "spectrum": "outputs/stage113-source-study/seed109_t3/correlation/shard-00000.npz",
+      "image": "outputs/stage115-source-study/seed109_estimated_rate_truth/candidate.npy",
+      "generating": {
+        "model": "casa",
+        "assumed_flux_jy": 1000.0,
+        "assumed_sefd_jy": 10000.0,
+        "input_span_s": 3.04,
+        "station_rates_hz": [
+          0.0,
+          17.28079772050818,
+          -11.742376693627982,
+          26.06432998527464,
+          8.32531897622535,
+          -0.3836599966777766,
+          1.7475523136722335,
+          -3.0817835529034214
+        ],
+        "seed": 109,
+        "fft_length": 8,
+        "useful_rf_channel_centers": 3,
+        "narrowband_phase_bound_rad": 0.0062428836257420696,
+        "sky_temporal_phase_bound_rad": 0.0019191137615900767,
+        "limits": "Continuous periodic colored Gaussian with midpoint sky covariance at center RF; supplied exact nominal clocks; fixed broadband station delay, piecewise RF geometry and constant LO rate; no real antenna or RFI"
+      },
+      "settings": {
+        "pixel_arcsec": 16.0,
+        "min_snr": 10.0,
+        "prior_fwhm_arcsec": 240.0,
+        "entropy": 0.01,
+        "tsv": 0.0001,
+        "centroid": 0.1
+      },
+      "evaluation": {
+        "schema_version": 1,
+        "type": "unit_flux_closure_image_objective",
+        "settings": {
+          "pixels": 32,
+          "pixel_arcsec": 16.0,
+          "min_snr": 10.0,
+          "prior_fwhm_arcsec": 240.0,
+          "entropy": 0.01,
+          "tsv": 0.0001,
+          "centroid": 0.1
+        },
+        "candidate_sum_before_normalization": 1000.0,
+        "unit_flux_sum": 0.9999999999999999,
+        "metrics": {
+          "objective": 0.6249361479666551,
+          "closure_chisq_per_measurement": 1.2405728228655906,
+          "data_loss": 0.6202864114327953,
+          "entropy_loss": 0.003578738755140163,
+          "tsv_loss": 8.089251036460126e-05,
+          "centroid_loss": 0.0009901052683551103,
+          "independent_closure_count": 31,
+          "independent_closure_counts": {
+            "phase": 17,
+            "logamp": 14
+          },
+          "centroid_arcsec": [
+            -17.744381387572616,
+            18.276003880541598
+          ]
+        },
+        "optimizer_executed": false,
+        "optimizer_parameter_sum_penalty_included": false,
+        "absolute_flux_measured": false,
+        "absolute_position_measured": false,
+        "actual_observation_success_certified": false,
+        "limits": "Same fixed observed high-SNR Gaussian closure approximation as current RML; wrapped phase loss. Unit-flux image cost excludes the optimizer parameter-scale penalty. Lower objective is not a certificate of true morphology, global optimality, or a calibrated image probability.",
+        "input_sha256": "d215c684cd8003d87c56cac7d4a7ed87c11a75321fd78b966198b349f5dd6182",
+        "candidate_sha256": "9189445bdd1552a2ca885a019662b5d5158f44a1cf2101a1a6b626716c2e07f8"
+      },
+      "independent_losses": {
+        "objective": 0.6249361479664151,
+        "data_loss": 0.6202864114325553,
+        "entropy_loss": 0.003578738755140163,
+        "tsv_loss": 8.089251036460126e-05,
+        "centroid_loss": 0.0009901052683551105,
+        "closure_chisq_per_measurement": 1.2405728228651105
+      },
+      "independent_absolute_differences": {
+        "objective": 2.4003021792395884e-13,
+        "data_loss": 2.4003021792395884e-13,
+        "entropy_loss": 0.0,
+        "tsv_loss": 0.0,
+        "centroid_loss": 2.168404344971009e-19,
+        "closure_chisq_per_measurement": 4.800604358479177e-13
+      },
+      "softmax_reference_checked": true,
+      "original_fitted_npy_sha256": "99469484cfc290a8a76396cd4775e6cf8c8627214138f9975e2d85f99eafc0b6",
+      "original_reference_metrics": null
+    },
+    {
+      "candidate_id": "seed109_estimated_rate_prior",
+      "case": "seed109_estimated_rate",
+      "kind": "prior",
+      "spectrum": "outputs/stage113-source-study/seed109_t3/correlation/shard-00000.npz",
+      "image": "outputs/stage115-source-study/seed109_estimated_rate_prior/candidate.npy",
+      "generating": {
+        "model": "casa",
+        "assumed_flux_jy": 1000.0,
+        "assumed_sefd_jy": 10000.0,
+        "input_span_s": 3.04,
+        "station_rates_hz": [
+          0.0,
+          17.28079772050818,
+          -11.742376693627982,
+          26.06432998527464,
+          8.32531897622535,
+          -0.3836599966777766,
+          1.7475523136722335,
+          -3.0817835529034214
+        ],
+        "seed": 109,
+        "fft_length": 8,
+        "useful_rf_channel_centers": 3,
+        "narrowband_phase_bound_rad": 0.0062428836257420696,
+        "sky_temporal_phase_bound_rad": 0.0019191137615900767,
+        "limits": "Continuous periodic colored Gaussian with midpoint sky covariance at center RF; supplied exact nominal clocks; fixed broadband station delay, piecewise RF geometry and constant LO rate; no real antenna or RFI"
+      },
+      "settings": {
+        "pixel_arcsec": 16.0,
+        "min_snr": 10.0,
+        "prior_fwhm_arcsec": 240.0,
+        "entropy": 0.01,
+        "tsv": 0.0001,
+        "centroid": 0.1
+      },
+      "evaluation": {
+        "schema_version": 1,
+        "type": "unit_flux_closure_image_objective",
+        "settings": {
+          "pixels": 32,
+          "pixel_arcsec": 16.0,
+          "min_snr": 10.0,
+          "prior_fwhm_arcsec": 240.0,
+          "entropy": 0.01,
+          "tsv": 0.0001,
+          "centroid": 0.1
+        },
+        "candidate_sum_before_normalization": 1.0,
+        "unit_flux_sum": 1.0,
+        "metrics": {
+          "objective": 454.9629575445895,
+          "closure_chisq_per_measurement": 909.9259018895186,
+          "data_loss": 454.9629509447593,
+          "entropy_loss": 0.0,
+          "tsv_loss": 5.137008217050065e-06,
+          "centroid_loss": 1.462821947942248e-06,
+          "independent_closure_count": 31,
+          "independent_closure_counts": {
+            "phase": 17,
+            "logamp": 14
+          },
+          "centroid_arcsec": [
+            -0.6923420367865257,
+            -0.692342036786527
+          ]
+        },
+        "optimizer_executed": false,
+        "optimizer_parameter_sum_penalty_included": false,
+        "absolute_flux_measured": false,
+        "absolute_position_measured": false,
+        "actual_observation_success_certified": false,
+        "limits": "Same fixed observed high-SNR Gaussian closure approximation as current RML; wrapped phase loss. Unit-flux image cost excludes the optimizer parameter-scale penalty. Lower objective is not a certificate of true morphology, global optimality, or a calibrated image probability.",
+        "input_sha256": "d215c684cd8003d87c56cac7d4a7ed87c11a75321fd78b966198b349f5dd6182",
+        "candidate_sha256": "5e455a946b98afb407f4ca172089894f23e8efebf2e479f60789b9c36c8f66d8"
+      },
+      "independent_losses": {
+        "objective": 454.96295754467917,
+        "data_loss": 454.962950944849,
+        "entropy_loss": 0.0,
+        "tsv_loss": 5.137008217050065e-06,
+        "centroid_loss": 1.4628219479422514e-06,
+        "closure_chisq_per_measurement": 909.925901889698
+      },
+      "independent_absolute_differences": {
+        "objective": 8.969891496235505e-11,
+        "data_loss": 8.969891496235505e-11,
+        "entropy_loss": 0.0,
+        "tsv_loss": 0.0,
+        "centroid_loss": 3.3881317890172014e-21,
+        "closure_chisq_per_measurement": 1.793978299247101e-10
+      },
+      "softmax_reference_checked": true,
+      "original_fitted_npy_sha256": "99469484cfc290a8a76396cd4775e6cf8c8627214138f9975e2d85f99eafc0b6",
+      "original_reference_metrics": null
+    },
+    {
+      "candidate_id": "seed109_estimated_rate_fitted",
+      "case": "seed109_estimated_rate",
+      "kind": "fitted",
+      "spectrum": "outputs/stage113-source-study/seed109_t3/correlation/shard-00000.npz",
+      "image": "outputs/stage115-source-study/seed109_estimated_rate_fitted/candidate.npy",
+      "generating": {
+        "model": "casa",
+        "assumed_flux_jy": 1000.0,
+        "assumed_sefd_jy": 10000.0,
+        "input_span_s": 3.04,
+        "station_rates_hz": [
+          0.0,
+          17.28079772050818,
+          -11.742376693627982,
+          26.06432998527464,
+          8.32531897622535,
+          -0.3836599966777766,
+          1.7475523136722335,
+          -3.0817835529034214
+        ],
+        "seed": 109,
+        "fft_length": 8,
+        "useful_rf_channel_centers": 3,
+        "narrowband_phase_bound_rad": 0.0062428836257420696,
+        "sky_temporal_phase_bound_rad": 0.0019191137615900767,
+        "limits": "Continuous periodic colored Gaussian with midpoint sky covariance at center RF; supplied exact nominal clocks; fixed broadband station delay, piecewise RF geometry and constant LO rate; no real antenna or RFI"
+      },
+      "settings": {
+        "pixel_arcsec": 16.0,
+        "min_snr": 10.0,
+        "prior_fwhm_arcsec": 240.0,
+        "entropy": 0.01,
+        "tsv": 0.0001,
+        "centroid": 0.1
+      },
+      "evaluation": {
+        "schema_version": 1,
+        "type": "unit_flux_closure_image_objective",
+        "settings": {
+          "pixels": 32,
+          "pixel_arcsec": 16.0,
+          "min_snr": 10.0,
+          "prior_fwhm_arcsec": 240.0,
+          "entropy": 0.01,
+          "tsv": 0.0001,
+          "centroid": 0.1
+        },
+        "candidate_sum_before_normalization": 1.0,
+        "unit_flux_sum": 1.0,
+        "metrics": {
+          "objective": 0.274532302287089,
+          "closure_chisq_per_measurement": 0.541838403602784,
+          "data_loss": 0.270919201801392,
+          "entropy_loss": 0.0034602411312327163,
+          "tsv_loss": 2.8459239611680523e-05,
+          "centroid_loss": 0.00012440011485257058,
+          "independent_closure_count": 31,
+          "independent_closure_counts": {
+            "phase": 17,
+            "logamp": 14
+          },
+          "centroid_arcsec": [
+            3.0188609800736406,
+            8.509602673025896
+          ]
+        },
+        "optimizer_executed": false,
+        "optimizer_parameter_sum_penalty_included": false,
+        "absolute_flux_measured": false,
+        "absolute_position_measured": false,
+        "actual_observation_success_certified": false,
+        "limits": "Same fixed observed high-SNR Gaussian closure approximation as current RML; wrapped phase loss. Unit-flux image cost excludes the optimizer parameter-scale penalty. Lower objective is not a certificate of true morphology, global optimality, or a calibrated image probability.",
+        "input_sha256": "d215c684cd8003d87c56cac7d4a7ed87c11a75321fd78b966198b349f5dd6182",
+        "candidate_sha256": "99469484cfc290a8a76396cd4775e6cf8c8627214138f9975e2d85f99eafc0b6"
+      },
+      "independent_losses": {
+        "objective": 0.2745323022870975,
+        "data_loss": 0.2709192018014005,
+        "entropy_loss": 0.003460241131232716,
+        "tsv_loss": 2.8459239611680523e-05,
+        "centroid_loss": 0.00012440011485257058,
+        "closure_chisq_per_measurement": 0.541838403602801
+      },
+      "independent_absolute_differences": {
+        "objective": 8.493206138382448e-15,
+        "data_loss": 8.493206138382448e-15,
+        "entropy_loss": 4.336808689942018e-19,
+        "tsv_loss": 0.0,
+        "centroid_loss": 0.0,
+        "closure_chisq_per_measurement": 1.6986412276764895e-14
+      },
+      "softmax_reference_checked": true,
+      "original_fitted_npy_sha256": "99469484cfc290a8a76396cd4775e6cf8c8627214138f9975e2d85f99eafc0b6",
+      "original_reference_metrics": {
+        "raw_nrmse": 0.46177647211097306,
+        "registered_nrmse": 0.44486525161719026,
+        "registered_correlation": 0.914680153533003,
+        "registration_shift_yx_arcsec": [
+          0.0,
+          -27.3369997883283
+        ],
+        "common_beam_arcsec": 110.0,
+        "comparison_version": 2,
+        "registration_method": "All bounded integer cells, bilinear subpixels, 9 deterministic coordinate starts per cell",
+        "registration_max_shift_pixels": 31,
+        "registration_boundary_reached": false,
+        "registration_diagnostics": {
+          "shift_yx_pixels": [
+            0.0,
+            -1.7085624867705187
+          ],
+          "boundary_reached": false,
+          "grid_cells": 3844,
+          "multistarts_per_cell": 9,
+          "selected_coordinate_converged": true,
+          "selected_coordinate_iterations": 6,
+          "objective_identity_error": 3.2526065174565133e-19
+        },
+        "comparison_padding_pixels": 45,
+        "registered_flux_retained_fraction": 1.0,
+        "comparison": "Unit-flux gauge, Gaussian common beam, translation only over complete zero-extended support. No post-shift flux rescaling, cropped-error masking, rotation, Jy calibration or astrometry."
+      }
+    },
+    {
+      "candidate_id": "seed109_truth_rate_control_truth",
+      "case": "seed109_truth_rate_control",
+      "kind": "truth",
+      "spectrum": "outputs/stage114-source-final-study/seed109_truth_rate_control/correlation/shard-00000.npz",
+      "image": "outputs/stage115-source-study/seed109_truth_rate_control_truth/candidate.npy",
+      "generating": {
+        "model": "casa",
+        "assumed_flux_jy": 1000.0,
+        "assumed_sefd_jy": 10000.0,
+        "input_span_s": 3.04,
+        "station_rates_hz": [
+          0.0,
+          17.28079772050818,
+          -11.742376693627982,
+          26.06432998527464,
+          8.32531897622535,
+          -0.3836599966777766,
+          1.7475523136722335,
+          -3.0817835529034214
+        ],
+        "seed": 109,
+        "fft_length": 8,
+        "useful_rf_channel_centers": 3,
+        "narrowband_phase_bound_rad": 0.0062428836257420696,
+        "sky_temporal_phase_bound_rad": 0.0019191137615900767,
+        "limits": "Continuous periodic colored Gaussian with midpoint sky covariance at center RF; supplied exact nominal clocks; fixed broadband station delay, piecewise RF geometry and constant LO rate; no real antenna or RFI"
+      },
+      "settings": {
+        "pixel_arcsec": 16.0,
+        "min_snr": 10.0,
+        "prior_fwhm_arcsec": 240.0,
+        "entropy": 0.01,
+        "tsv": 0.0001,
+        "centroid": 0.1
+      },
+      "evaluation": {
+        "schema_version": 1,
+        "type": "unit_flux_closure_image_objective",
+        "settings": {
+          "pixels": 32,
+          "pixel_arcsec": 16.0,
+          "min_snr": 10.0,
+          "prior_fwhm_arcsec": 240.0,
+          "entropy": 0.01,
+          "tsv": 0.0001,
+          "centroid": 0.1
+        },
+        "candidate_sum_before_normalization": 1000.0,
+        "unit_flux_sum": 0.9999999999999999,
+        "metrics": {
+          "objective": 0.6254027267021229,
+          "closure_chisq_per_measurement": 1.2415059803365263,
+          "data_loss": 0.6207529901682631,
+          "entropy_loss": 0.003578738755140163,
+          "tsv_loss": 8.089251036460126e-05,
+          "centroid_loss": 0.0009901052683551103,
+          "independent_closure_count": 31,
+          "independent_closure_counts": {
+            "phase": 17,
+            "logamp": 14
+          },
+          "centroid_arcsec": [
+            -17.744381387572616,
+            18.276003880541598
+          ]
+        },
+        "optimizer_executed": false,
+        "optimizer_parameter_sum_penalty_included": false,
+        "absolute_flux_measured": false,
+        "absolute_position_measured": false,
+        "actual_observation_success_certified": false,
+        "limits": "Same fixed observed high-SNR Gaussian closure approximation as current RML; wrapped phase loss. Unit-flux image cost excludes the optimizer parameter-scale penalty. Lower objective is not a certificate of true morphology, global optimality, or a calibrated image probability.",
+        "input_sha256": "234063d1cb5f6314ae02a2ac2c7ab39e21cb6fc1a4c0695e2d2f7c8ed63fed25",
+        "candidate_sha256": "9189445bdd1552a2ca885a019662b5d5158f44a1cf2101a1a6b626716c2e07f8"
+      },
+      "independent_losses": {
+        "objective": 0.6254027267018838,
+        "data_loss": 0.620752990168024,
+        "entropy_loss": 0.003578738755140163,
+        "tsv_loss": 8.089251036460126e-05,
+        "centroid_loss": 0.0009901052683551105,
+        "closure_chisq_per_measurement": 1.241505980336048
+      },
+      "independent_absolute_differences": {
+        "objective": 2.391420395042587e-13,
+        "data_loss": 2.391420395042587e-13,
+        "entropy_loss": 0.0,
+        "tsv_loss": 0.0,
+        "centroid_loss": 2.168404344971009e-19,
+        "closure_chisq_per_measurement": 4.782840790085174e-13
+      },
+      "softmax_reference_checked": true,
+      "original_fitted_npy_sha256": "80a9d1805a8199388aa51cbcf9dd472f5f61a7ec08eda2cc28b701bfd4aaf281",
+      "original_reference_metrics": null
+    },
+    {
+      "candidate_id": "seed109_truth_rate_control_prior",
+      "case": "seed109_truth_rate_control",
+      "kind": "prior",
+      "spectrum": "outputs/stage114-source-final-study/seed109_truth_rate_control/correlation/shard-00000.npz",
+      "image": "outputs/stage115-source-study/seed109_truth_rate_control_prior/candidate.npy",
+      "generating": {
+        "model": "casa",
+        "assumed_flux_jy": 1000.0,
+        "assumed_sefd_jy": 10000.0,
+        "input_span_s": 3.04,
+        "station_rates_hz": [
+          0.0,
+          17.28079772050818,
+          -11.742376693627982,
+          26.06432998527464,
+          8.32531897622535,
+          -0.3836599966777766,
+          1.7475523136722335,
+          -3.0817835529034214
+        ],
+        "seed": 109,
+        "fft_length": 8,
+        "useful_rf_channel_centers": 3,
+        "narrowband_phase_bound_rad": 0.0062428836257420696,
+        "sky_temporal_phase_bound_rad": 0.0019191137615900767,
+        "limits": "Continuous periodic colored Gaussian with midpoint sky covariance at center RF; supplied exact nominal clocks; fixed broadband station delay, piecewise RF geometry and constant LO rate; no real antenna or RFI"
+      },
+      "settings": {
+        "pixel_arcsec": 16.0,
+        "min_snr": 10.0,
+        "prior_fwhm_arcsec": 240.0,
+        "entropy": 0.01,
+        "tsv": 0.0001,
+        "centroid": 0.1
+      },
+      "evaluation": {
+        "schema_version": 1,
+        "type": "unit_flux_closure_image_objective",
+        "settings": {
+          "pixels": 32,
+          "pixel_arcsec": 16.0,
+          "min_snr": 10.0,
+          "prior_fwhm_arcsec": 240.0,
+          "entropy": 0.01,
+          "tsv": 0.0001,
+          "centroid": 0.1
+        },
+        "candidate_sum_before_normalization": 1.0,
+        "unit_flux_sum": 1.0,
+        "metrics": {
+          "objective": 454.9628503247787,
+          "closure_chisq_per_measurement": 909.925687449897,
+          "data_loss": 454.9628437249485,
+          "entropy_loss": 0.0,
+          "tsv_loss": 5.137008217050065e-06,
+          "centroid_loss": 1.462821947942248e-06,
+          "independent_closure_count": 31,
+          "independent_closure_counts": {
+            "phase": 17,
+            "logamp": 14
+          },
+          "centroid_arcsec": [
+            -0.6923420367865257,
+            -0.692342036786527
+          ]
+        },
+        "optimizer_executed": false,
+        "optimizer_parameter_sum_penalty_included": false,
+        "absolute_flux_measured": false,
+        "absolute_position_measured": false,
+        "actual_observation_success_certified": false,
+        "limits": "Same fixed observed high-SNR Gaussian closure approximation as current RML; wrapped phase loss. Unit-flux image cost excludes the optimizer parameter-scale penalty. Lower objective is not a certificate of true morphology, global optimality, or a calibrated image probability.",
+        "input_sha256": "234063d1cb5f6314ae02a2ac2c7ab39e21cb6fc1a4c0695e2d2f7c8ed63fed25",
+        "candidate_sha256": "5e455a946b98afb407f4ca172089894f23e8efebf2e479f60789b9c36c8f66d8"
+      },
+      "independent_losses": {
+        "objective": 454.96285032486827,
+        "data_loss": 454.9628437250381,
+        "entropy_loss": 0.0,
+        "tsv_loss": 5.137008217050065e-06,
+        "centroid_loss": 1.4628219479422514e-06,
+        "closure_chisq_per_measurement": 909.9256874500762
+      },
+      "independent_absolute_differences": {
+        "objective": 8.958522812463343e-11,
+        "data_loss": 8.958522812463343e-11,
+        "entropy_loss": 0.0,
+        "tsv_loss": 0.0,
+        "centroid_loss": 3.3881317890172014e-21,
+        "closure_chisq_per_measurement": 1.7917045624926686e-10
+      },
+      "softmax_reference_checked": true,
+      "original_fitted_npy_sha256": "80a9d1805a8199388aa51cbcf9dd472f5f61a7ec08eda2cc28b701bfd4aaf281",
+      "original_reference_metrics": null
+    },
+    {
+      "candidate_id": "seed109_truth_rate_control_fitted",
+      "case": "seed109_truth_rate_control",
+      "kind": "fitted",
+      "spectrum": "outputs/stage114-source-final-study/seed109_truth_rate_control/correlation/shard-00000.npz",
+      "image": "outputs/stage115-source-study/seed109_truth_rate_control_fitted/candidate.npy",
+      "generating": {
+        "model": "casa",
+        "assumed_flux_jy": 1000.0,
+        "assumed_sefd_jy": 10000.0,
+        "input_span_s": 3.04,
+        "station_rates_hz": [
+          0.0,
+          17.28079772050818,
+          -11.742376693627982,
+          26.06432998527464,
+          8.32531897622535,
+          -0.3836599966777766,
+          1.7475523136722335,
+          -3.0817835529034214
+        ],
+        "seed": 109,
+        "fft_length": 8,
+        "useful_rf_channel_centers": 3,
+        "narrowband_phase_bound_rad": 0.0062428836257420696,
+        "sky_temporal_phase_bound_rad": 0.0019191137615900767,
+        "limits": "Continuous periodic colored Gaussian with midpoint sky covariance at center RF; supplied exact nominal clocks; fixed broadband station delay, piecewise RF geometry and constant LO rate; no real antenna or RFI"
+      },
+      "settings": {
+        "pixel_arcsec": 16.0,
+        "min_snr": 10.0,
+        "prior_fwhm_arcsec": 240.0,
+        "entropy": 0.01,
+        "tsv": 0.0001,
+        "centroid": 0.1
+      },
+      "evaluation": {
+        "schema_version": 1,
+        "type": "unit_flux_closure_image_objective",
+        "settings": {
+          "pixels": 32,
+          "pixel_arcsec": 16.0,
+          "min_snr": 10.0,
+          "prior_fwhm_arcsec": 240.0,
+          "entropy": 0.01,
+          "tsv": 0.0001,
+          "centroid": 0.1
+        },
+        "candidate_sum_before_normalization": 1.0,
+        "unit_flux_sum": 1.0,
+        "metrics": {
+          "objective": 0.25995985380855857,
+          "closure_chisq_per_measurement": 0.5132532373315243,
+          "data_loss": 0.25662661866576214,
+          "entropy_loss": 0.0031414268416109633,
+          "tsv_loss": 0.00013721980994160516,
+          "centroid_loss": 5.4588491243910655e-05,
+          "independent_closure_count": 31,
+          "independent_closure_counts": {
+            "phase": 17,
+            "logamp": 14
+          },
+          "centroid_arcsec": [
+            1.2900181638365524,
+            -5.84045946468093
+          ]
+        },
+        "optimizer_executed": false,
+        "optimizer_parameter_sum_penalty_included": false,
+        "absolute_flux_measured": false,
+        "absolute_position_measured": false,
+        "actual_observation_success_certified": false,
+        "limits": "Same fixed observed high-SNR Gaussian closure approximation as current RML; wrapped phase loss. Unit-flux image cost excludes the optimizer parameter-scale penalty. Lower objective is not a certificate of true morphology, global optimality, or a calibrated image probability.",
+        "input_sha256": "234063d1cb5f6314ae02a2ac2c7ab39e21cb6fc1a4c0695e2d2f7c8ed63fed25",
+        "candidate_sha256": "80a9d1805a8199388aa51cbcf9dd472f5f61a7ec08eda2cc28b701bfd4aaf281"
+      },
+      "independent_losses": {
+        "objective": 0.2599598538084966,
+        "data_loss": 0.2566266186657002,
+        "entropy_loss": 0.0031414268416109633,
+        "tsv_loss": 0.00013721980994160516,
+        "centroid_loss": 5.458849124391033e-05,
+        "closure_chisq_per_measurement": 0.5132532373314004
+      },
+      "independent_absolute_differences": {
+        "objective": 6.195044477408373e-14,
+        "data_loss": 6.195044477408373e-14,
+        "entropy_loss": 0.0,
+        "tsv_loss": 0.0,
+        "centroid_loss": 3.2526065174565133e-19,
+        "closure_chisq_per_measurement": 1.2390088954816747e-13
+      },
+      "softmax_reference_checked": true,
+      "original_fitted_npy_sha256": "80a9d1805a8199388aa51cbcf9dd472f5f61a7ec08eda2cc28b701bfd4aaf281",
+      "original_reference_metrics": {
+        "raw_nrmse": 0.406740781089242,
+        "registered_nrmse": 0.36610067807966407,
+        "registered_correlation": 0.9458147605102115,
+        "registration_shift_yx_arcsec": [
+          18.731807818988383,
+          -29.070390377926184
+        ],
+        "common_beam_arcsec": 110.0,
+        "comparison_version": 2,
+        "registration_method": "All bounded integer cells, bilinear subpixels, 9 deterministic coordinate starts per cell",
+        "registration_max_shift_pixels": 31,
+        "registration_boundary_reached": false,
+        "registration_diagnostics": {
+          "shift_yx_pixels": [
+            1.170737988686774,
+            -1.8168993986203865
+          ],
+          "boundary_reached": false,
+          "grid_cells": 3844,
+          "multistarts_per_cell": 9,
+          "selected_coordinate_converged": true,
+          "selected_coordinate_iterations": 6,
+          "objective_identity_error": 0.0
+        },
+        "comparison_padding_pixels": 45,
+        "registered_flux_retained_fraction": 0.9999999999999994,
+        "comparison": "Unit-flux gauge, Gaussian common beam, translation only over complete zero-extended support. No post-shift flux rescaling, cropped-error masking, rotation, Jy calibration or astrometry."
+      }
+    },
+    {
+      "candidate_id": "seed109_ideal_model_observed_snr_control_truth",
+      "case": "seed109_ideal_model_observed_snr_control",
+      "kind": "truth",
+      "spectrum": "outputs/stage114-source-final-study/seed109_ideal_model_observed_snr_control/ideal-visibility.npz",
+      "image": "outputs/stage115-source-study/seed109_ideal_model_observed_snr_control_truth/candidate.npy",
+      "generating": {
+        "model": "casa",
+        "assumed_flux_jy": 1000.0,
+        "assumed_sefd_jy": 10000.0,
+        "input_span_s": 3.04,
+        "station_rates_hz": [
+          0.0,
+          17.28079772050818,
+          -11.742376693627982,
+          26.06432998527464,
+          8.32531897622535,
+          -0.3836599966777766,
+          1.7475523136722335,
+          -3.0817835529034214
+        ],
+        "seed": 109,
+        "fft_length": 8,
+        "useful_rf_channel_centers": 3,
+        "narrowband_phase_bound_rad": 0.0062428836257420696,
+        "sky_temporal_phase_bound_rad": 0.0019191137615900767,
+        "limits": "Continuous periodic colored Gaussian with midpoint sky covariance at center RF; supplied exact nominal clocks; fixed broadband station delay, piecewise RF geometry and constant LO rate; no real antenna or RFI"
+      },
+      "settings": {
+        "pixel_arcsec": 16.0,
+        "min_snr": 10.0,
+        "prior_fwhm_arcsec": 240.0,
+        "entropy": 0.01,
+        "tsv": 0.0001,
+        "centroid": 0.1
+      },
+      "evaluation": {
+        "schema_version": 1,
+        "type": "unit_flux_closure_image_objective",
+        "settings": {
+          "pixels": 32,
+          "pixel_arcsec": 16.0,
+          "min_snr": 10.0,
+          "prior_fwhm_arcsec": 240.0,
+          "entropy": 0.01,
+          "tsv": 0.0001,
+          "centroid": 0.1
+        },
+        "candidate_sum_before_normalization": 1000.0,
+        "unit_flux_sum": 0.9999999999999999,
+        "metrics": {
+          "objective": 0.0046497365338598745,
+          "closure_chisq_per_measurement": 7.550213154905661e-25,
+          "data_loss": 3.7751065774528307e-25,
+          "entropy_loss": 0.003578738755140163,
+          "tsv_loss": 8.089251036460126e-05,
+          "centroid_loss": 0.0009901052683551103,
+          "independent_closure_count": 31,
+          "independent_closure_counts": {
+            "phase": 17,
+            "logamp": 14
+          },
+          "centroid_arcsec": [
+            -17.744381387572616,
+            18.276003880541598
+          ]
+        },
+        "optimizer_executed": false,
+        "optimizer_parameter_sum_penalty_included": false,
+        "absolute_flux_measured": false,
+        "absolute_position_measured": false,
+        "actual_observation_success_certified": false,
+        "limits": "Same fixed observed high-SNR Gaussian closure approximation as current RML; wrapped phase loss. Unit-flux image cost excludes the optimizer parameter-scale penalty. Lower objective is not a certificate of true morphology, global optimality, or a calibrated image probability.",
+        "input_sha256": "6064397f914fbb6fcfdf7e9e154f4decf60095d52751e3fb8f8b64c172b8710e",
+        "candidate_sha256": "9189445bdd1552a2ca885a019662b5d5158f44a1cf2101a1a6b626716c2e07f8"
+      },
+      "independent_losses": {
+        "objective": 0.0046497365338598745,
+        "data_loss": 2.1914615082678945e-29,
+        "entropy_loss": 0.003578738755140163,
+        "tsv_loss": 8.089251036460126e-05,
+        "centroid_loss": 0.0009901052683551105,
+        "closure_chisq_per_measurement": 4.382923016535789e-29
+      },
+      "independent_absolute_differences": {
+        "objective": 0.0,
+        "data_loss": 3.774887431302004e-25,
+        "entropy_loss": 0.0,
+        "tsv_loss": 0.0,
+        "centroid_loss": 2.168404344971009e-19,
+        "closure_chisq_per_measurement": 7.549774862604008e-25
+      },
+      "softmax_reference_checked": true,
+      "original_fitted_npy_sha256": "3e8d90ee8a99bd1d0fa93110c5e80986892c36acea3b836377565e28a6633f9d",
+      "original_reference_metrics": null
+    },
+    {
+      "candidate_id": "seed109_ideal_model_observed_snr_control_prior",
+      "case": "seed109_ideal_model_observed_snr_control",
+      "kind": "prior",
+      "spectrum": "outputs/stage114-source-final-study/seed109_ideal_model_observed_snr_control/ideal-visibility.npz",
+      "image": "outputs/stage115-source-study/seed109_ideal_model_observed_snr_control_prior/candidate.npy",
+      "generating": {
+        "model": "casa",
+        "assumed_flux_jy": 1000.0,
+        "assumed_sefd_jy": 10000.0,
+        "input_span_s": 3.04,
+        "station_rates_hz": [
+          0.0,
+          17.28079772050818,
+          -11.742376693627982,
+          26.06432998527464,
+          8.32531897622535,
+          -0.3836599966777766,
+          1.7475523136722335,
+          -3.0817835529034214
+        ],
+        "seed": 109,
+        "fft_length": 8,
+        "useful_rf_channel_centers": 3,
+        "narrowband_phase_bound_rad": 0.0062428836257420696,
+        "sky_temporal_phase_bound_rad": 0.0019191137615900767,
+        "limits": "Continuous periodic colored Gaussian with midpoint sky covariance at center RF; supplied exact nominal clocks; fixed broadband station delay, piecewise RF geometry and constant LO rate; no real antenna or RFI"
+      },
+      "settings": {
+        "pixel_arcsec": 16.0,
+        "min_snr": 10.0,
+        "prior_fwhm_arcsec": 240.0,
+        "entropy": 0.01,
+        "tsv": 0.0001,
+        "centroid": 0.1
+      },
+      "evaluation": {
+        "schema_version": 1,
+        "type": "unit_flux_closure_image_objective",
+        "settings": {
+          "pixels": 32,
+          "pixel_arcsec": 16.0,
+          "min_snr": 10.0,
+          "prior_fwhm_arcsec": 240.0,
+          "entropy": 0.01,
+          "tsv": 0.0001,
+          "centroid": 0.1
+        },
+        "candidate_sum_before_normalization": 1.0,
+        "unit_flux_sum": 1.0,
+        "metrics": {
+          "objective": 452.6253945197673,
+          "closure_chisq_per_measurement": 905.2507758398743,
+          "data_loss": 452.62538791993717,
+          "entropy_loss": 0.0,
+          "tsv_loss": 5.137008217050065e-06,
+          "centroid_loss": 1.462821947942248e-06,
+          "independent_closure_count": 31,
+          "independent_closure_counts": {
+            "phase": 17,
+            "logamp": 14
+          },
+          "centroid_arcsec": [
+            -0.6923420367865257,
+            -0.692342036786527
+          ]
+        },
+        "optimizer_executed": false,
+        "optimizer_parameter_sum_penalty_included": false,
+        "absolute_flux_measured": false,
+        "absolute_position_measured": false,
+        "actual_observation_success_certified": false,
+        "limits": "Same fixed observed high-SNR Gaussian closure approximation as current RML; wrapped phase loss. Unit-flux image cost excludes the optimizer parameter-scale penalty. Lower objective is not a certificate of true morphology, global optimality, or a calibrated image probability.",
+        "input_sha256": "6064397f914fbb6fcfdf7e9e154f4decf60095d52751e3fb8f8b64c172b8710e",
+        "candidate_sha256": "5e455a946b98afb407f4ca172089894f23e8efebf2e479f60789b9c36c8f66d8"
+      },
+      "independent_losses": {
+        "objective": 452.62539451985225,
+        "data_loss": 452.6253879200221,
+        "entropy_loss": 0.0,
+        "tsv_loss": 5.137008217050065e-06,
+        "centroid_loss": 1.4628219479422514e-06,
+        "closure_chisq_per_measurement": 905.2507758400442
+      },
+      "independent_absolute_differences": {
+        "objective": 8.492406777804717e-11,
+        "data_loss": 8.492406777804717e-11,
+        "entropy_loss": 0.0,
+        "tsv_loss": 0.0,
+        "centroid_loss": 3.3881317890172014e-21,
+        "closure_chisq_per_measurement": 1.6984813555609435e-10
+      },
+      "softmax_reference_checked": true,
+      "original_fitted_npy_sha256": "3e8d90ee8a99bd1d0fa93110c5e80986892c36acea3b836377565e28a6633f9d",
+      "original_reference_metrics": null
+    },
+    {
+      "candidate_id": "seed109_ideal_model_observed_snr_control_fitted",
+      "case": "seed109_ideal_model_observed_snr_control",
+      "kind": "fitted",
+      "spectrum": "outputs/stage114-source-final-study/seed109_ideal_model_observed_snr_control/ideal-visibility.npz",
+      "image": "outputs/stage115-source-study/seed109_ideal_model_observed_snr_control_fitted/candidate.npy",
+      "generating": {
+        "model": "casa",
+        "assumed_flux_jy": 1000.0,
+        "assumed_sefd_jy": 10000.0,
+        "input_span_s": 3.04,
+        "station_rates_hz": [
+          0.0,
+          17.28079772050818,
+          -11.742376693627982,
+          26.06432998527464,
+          8.32531897622535,
+          -0.3836599966777766,
+          1.7475523136722335,
+          -3.0817835529034214
+        ],
+        "seed": 109,
+        "fft_length": 8,
+        "useful_rf_channel_centers": 3,
+        "narrowband_phase_bound_rad": 0.0062428836257420696,
+        "sky_temporal_phase_bound_rad": 0.0019191137615900767,
+        "limits": "Continuous periodic colored Gaussian with midpoint sky covariance at center RF; supplied exact nominal clocks; fixed broadband station delay, piecewise RF geometry and constant LO rate; no real antenna or RFI"
+      },
+      "settings": {
+        "pixel_arcsec": 16.0,
+        "min_snr": 10.0,
+        "prior_fwhm_arcsec": 240.0,
+        "entropy": 0.01,
+        "tsv": 0.0001,
+        "centroid": 0.1
+      },
+      "evaluation": {
+        "schema_version": 1,
+        "type": "unit_flux_closure_image_objective",
+        "settings": {
+          "pixels": 32,
+          "pixel_arcsec": 16.0,
+          "min_snr": 10.0,
+          "prior_fwhm_arcsec": 240.0,
+          "entropy": 0.01,
+          "tsv": 0.0001,
+          "centroid": 0.1
+        },
+        "candidate_sum_before_normalization": 1.0,
+        "unit_flux_sum": 1.0,
+        "metrics": {
+          "objective": 0.00043846996717305056,
+          "closure_chisq_per_measurement": 2.4501641674140084e-05,
+          "data_loss": 1.2250820837070042e-05,
+          "entropy_loss": 0.0003768755720674145,
+          "tsv_loss": 4.8455302346904494e-05,
+          "centroid_loss": 8.882719216615799e-07,
+          "independent_closure_count": 31,
+          "independent_closure_counts": {
+            "phase": 17,
+            "logamp": 14
+          },
+          "centroid_arcsec": [
+            0.7209509888908454,
+            0.2497349759193635
+          ]
+        },
+        "optimizer_executed": false,
+        "optimizer_parameter_sum_penalty_included": false,
+        "absolute_flux_measured": false,
+        "absolute_position_measured": false,
+        "actual_observation_success_certified": false,
+        "limits": "Same fixed observed high-SNR Gaussian closure approximation as current RML; wrapped phase loss. Unit-flux image cost excludes the optimizer parameter-scale penalty. Lower objective is not a certificate of true morphology, global optimality, or a calibrated image probability.",
+        "input_sha256": "6064397f914fbb6fcfdf7e9e154f4decf60095d52751e3fb8f8b64c172b8710e",
+        "candidate_sha256": "3e8d90ee8a99bd1d0fa93110c5e80986892c36acea3b836377565e28a6633f9d"
+      },
+      "independent_losses": {
+        "objective": 0.0004384699671715224,
+        "data_loss": 1.2250820835541842e-05,
+        "entropy_loss": 0.0003768755720674144,
+        "tsv_loss": 4.8455302346904494e-05,
+        "centroid_loss": 8.882719216615951e-07,
+        "closure_chisq_per_measurement": 2.4501641671083684e-05
+      },
+      "independent_absolute_differences": {
+        "objective": 1.5281829621183185e-15,
+        "data_loss": 1.5281999027772636e-15,
+        "entropy_loss": 5.421010862427522e-20,
+        "tsv_loss": 0.0,
+        "centroid_loss": 1.5246593050577406e-20,
+        "closure_chisq_per_measurement": 3.056399805554527e-15
+      },
+      "softmax_reference_checked": true,
+      "original_fitted_npy_sha256": "3e8d90ee8a99bd1d0fa93110c5e80986892c36acea3b836377565e28a6633f9d",
+      "original_reference_metrics": {
+        "raw_nrmse": 0.2987491219474286,
+        "registered_nrmse": 0.23365201699424115,
+        "registered_correlation": 0.9808465082340186,
+        "registration_shift_yx_arcsec": [
+          16.1135042783699,
+          -25.743573857569054
+        ],
+        "common_beam_arcsec": 110.0,
+        "comparison_version": 2,
+        "registration_method": "All bounded integer cells, bilinear subpixels, 9 deterministic coordinate starts per cell",
+        "registration_max_shift_pixels": 31,
+        "registration_boundary_reached": false,
+        "registration_diagnostics": {
+          "shift_yx_pixels": [
+            1.0070940173981187,
+            -1.6089733660980658
+          ],
+          "boundary_reached": false,
+          "grid_cells": 3844,
+          "multistarts_per_cell": 9,
+          "selected_coordinate_converged": true,
+          "selected_coordinate_iterations": 6,
+          "objective_identity_error": 2.574980159653073e-19
+        },
+        "comparison_padding_pixels": 45,
+        "registered_flux_retained_fraction": 0.9999999999999999,
+        "comparison": "Unit-flux gauge, Gaussian common beam, translation only over complete zero-extended support. No post-shift flux rescaling, cropped-error masking, rotation, Jy calibration or astrometry."
+      }
+    },
+    {
+      "candidate_id": "seed110_estimated_rate_truth",
+      "case": "seed110_estimated_rate",
+      "kind": "truth",
+      "spectrum": "outputs/stage113-source-study/seed110_t3/correlation/shard-00000.npz",
+      "image": "outputs/stage115-source-study/seed110_estimated_rate_truth/candidate.npy",
+      "generating": {
+        "model": "casa",
+        "assumed_flux_jy": 1000.0,
+        "assumed_sefd_jy": 10000.0,
+        "input_span_s": 3.04,
+        "station_rates_hz": [
+          0.0,
+          17.320626802645595,
+          -11.64925748855967,
+          26.19494226474453,
+          8.176428326993072,
+          -0.35176050635903644,
+          1.7460851338696204,
+          -2.984194404911251
+        ],
+        "seed": 110,
+        "fft_length": 8,
+        "useful_rf_channel_centers": 3,
+        "narrowband_phase_bound_rad": 0.0062428836257420696,
+        "sky_temporal_phase_bound_rad": 0.0019191137615900767,
+        "limits": "Continuous periodic colored Gaussian with midpoint sky covariance at center RF; supplied exact nominal clocks; fixed broadband station delay, piecewise RF geometry and constant LO rate; no real antenna or RFI"
+      },
+      "settings": {
+        "pixel_arcsec": 16.0,
+        "min_snr": 10.0,
+        "prior_fwhm_arcsec": 240.0,
+        "entropy": 0.01,
+        "tsv": 0.0001,
+        "centroid": 0.1
+      },
+      "evaluation": {
+        "schema_version": 1,
+        "type": "unit_flux_closure_image_objective",
+        "settings": {
+          "pixels": 32,
+          "pixel_arcsec": 16.0,
+          "min_snr": 10.0,
+          "prior_fwhm_arcsec": 240.0,
+          "entropy": 0.01,
+          "tsv": 0.0001,
+          "centroid": 0.1
+        },
+        "candidate_sum_before_normalization": 1000.0,
+        "unit_flux_sum": 0.9999999999999999,
+        "metrics": {
+          "objective": 0.651811489312607,
+          "closure_chisq_per_measurement": 1.2943235055574944,
+          "data_loss": 0.6471617527787472,
+          "entropy_loss": 0.003578738755140163,
+          "tsv_loss": 8.089251036460126e-05,
+          "centroid_loss": 0.0009901052683551103,
+          "independent_closure_count": 29,
+          "independent_closure_counts": {
+            "phase": 16,
+            "logamp": 13
+          },
+          "centroid_arcsec": [
+            -17.744381387572616,
+            18.276003880541598
+          ]
+        },
+        "optimizer_executed": false,
+        "optimizer_parameter_sum_penalty_included": false,
+        "absolute_flux_measured": false,
+        "absolute_position_measured": false,
+        "actual_observation_success_certified": false,
+        "limits": "Same fixed observed high-SNR Gaussian closure approximation as current RML; wrapped phase loss. Unit-flux image cost excludes the optimizer parameter-scale penalty. Lower objective is not a certificate of true morphology, global optimality, or a calibrated image probability.",
+        "input_sha256": "7260b4aa13a723e86a009e0c05fa3767411905033df02f48b6dcce22196e3aad",
+        "candidate_sha256": "9189445bdd1552a2ca885a019662b5d5158f44a1cf2101a1a6b626716c2e07f8"
+      },
+      "independent_losses": {
+        "objective": 0.6518114893127973,
+        "data_loss": 0.6471617527789375,
+        "entropy_loss": 0.003578738755140163,
+        "tsv_loss": 8.089251036460126e-05,
+        "centroid_loss": 0.0009901052683551105,
+        "closure_chisq_per_measurement": 1.294323505557875
+      },
+      "independent_absolute_differences": {
+        "objective": 1.9029222642075183e-13,
+        "data_loss": 1.9029222642075183e-13,
+        "entropy_loss": 0.0,
+        "tsv_loss": 0.0,
+        "centroid_loss": 2.168404344971009e-19,
+        "closure_chisq_per_measurement": 3.8058445284150366e-13
+      },
+      "softmax_reference_checked": true,
+      "original_fitted_npy_sha256": "47f4320859b762699d6842f82bf847cc01cf01ddbdd6e069aa353347930a2de7",
+      "original_reference_metrics": null
+    },
+    {
+      "candidate_id": "seed110_estimated_rate_prior",
+      "case": "seed110_estimated_rate",
+      "kind": "prior",
+      "spectrum": "outputs/stage113-source-study/seed110_t3/correlation/shard-00000.npz",
+      "image": "outputs/stage115-source-study/seed110_estimated_rate_prior/candidate.npy",
+      "generating": {
+        "model": "casa",
+        "assumed_flux_jy": 1000.0,
+        "assumed_sefd_jy": 10000.0,
+        "input_span_s": 3.04,
+        "station_rates_hz": [
+          0.0,
+          17.320626802645595,
+          -11.64925748855967,
+          26.19494226474453,
+          8.176428326993072,
+          -0.35176050635903644,
+          1.7460851338696204,
+          -2.984194404911251
+        ],
+        "seed": 110,
+        "fft_length": 8,
+        "useful_rf_channel_centers": 3,
+        "narrowband_phase_bound_rad": 0.0062428836257420696,
+        "sky_temporal_phase_bound_rad": 0.0019191137615900767,
+        "limits": "Continuous periodic colored Gaussian with midpoint sky covariance at center RF; supplied exact nominal clocks; fixed broadband station delay, piecewise RF geometry and constant LO rate; no real antenna or RFI"
+      },
+      "settings": {
+        "pixel_arcsec": 16.0,
+        "min_snr": 10.0,
+        "prior_fwhm_arcsec": 240.0,
+        "entropy": 0.01,
+        "tsv": 0.0001,
+        "centroid": 0.1
+      },
+      "evaluation": {
+        "schema_version": 1,
+        "type": "unit_flux_closure_image_objective",
+        "settings": {
+          "pixels": 32,
+          "pixel_arcsec": 16.0,
+          "min_snr": 10.0,
+          "prior_fwhm_arcsec": 240.0,
+          "entropy": 0.01,
+          "tsv": 0.0001,
+          "centroid": 0.1
+        },
+        "candidate_sum_before_normalization": 1.0,
+        "unit_flux_sum": 1.0,
+        "metrics": {
+          "objective": 466.9682269273472,
+          "closure_chisq_per_measurement": 933.9364406550341,
+          "data_loss": 466.96822032751703,
+          "entropy_loss": 0.0,
+          "tsv_loss": 5.137008217050065e-06,
+          "centroid_loss": 1.462821947942248e-06,
+          "independent_closure_count": 29,
+          "independent_closure_counts": {
+            "phase": 16,
+            "logamp": 13
+          },
+          "centroid_arcsec": [
+            -0.6923420367865257,
+            -0.692342036786527
+          ]
+        },
+        "optimizer_executed": false,
+        "optimizer_parameter_sum_penalty_included": false,
+        "absolute_flux_measured": false,
+        "absolute_position_measured": false,
+        "actual_observation_success_certified": false,
+        "limits": "Same fixed observed high-SNR Gaussian closure approximation as current RML; wrapped phase loss. Unit-flux image cost excludes the optimizer parameter-scale penalty. Lower objective is not a certificate of true morphology, global optimality, or a calibrated image probability.",
+        "input_sha256": "7260b4aa13a723e86a009e0c05fa3767411905033df02f48b6dcce22196e3aad",
+        "candidate_sha256": "5e455a946b98afb407f4ca172089894f23e8efebf2e479f60789b9c36c8f66d8"
+      },
+      "independent_losses": {
+        "objective": 466.9682269273693,
+        "data_loss": 466.96822032753914,
+        "entropy_loss": 0.0,
+        "tsv_loss": 5.137008217050065e-06,
+        "centroid_loss": 1.4628219479422514e-06,
+        "closure_chisq_per_measurement": 933.9364406550783
+      },
+      "independent_absolute_differences": {
+        "objective": 2.2112089936854318e-11,
+        "data_loss": 2.2112089936854318e-11,
+        "entropy_loss": 0.0,
+        "tsv_loss": 0.0,
+        "centroid_loss": 3.3881317890172014e-21,
+        "closure_chisq_per_measurement": 4.4224179873708636e-11
+      },
+      "softmax_reference_checked": true,
+      "original_fitted_npy_sha256": "47f4320859b762699d6842f82bf847cc01cf01ddbdd6e069aa353347930a2de7",
+      "original_reference_metrics": null
+    },
+    {
+      "candidate_id": "seed110_estimated_rate_fitted",
+      "case": "seed110_estimated_rate",
+      "kind": "fitted",
+      "spectrum": "outputs/stage113-source-study/seed110_t3/correlation/shard-00000.npz",
+      "image": "outputs/stage115-source-study/seed110_estimated_rate_fitted/candidate.npy",
+      "generating": {
+        "model": "casa",
+        "assumed_flux_jy": 1000.0,
+        "assumed_sefd_jy": 10000.0,
+        "input_span_s": 3.04,
+        "station_rates_hz": [
+          0.0,
+          17.320626802645595,
+          -11.64925748855967,
+          26.19494226474453,
+          8.176428326993072,
+          -0.35176050635903644,
+          1.7460851338696204,
+          -2.984194404911251
+        ],
+        "seed": 110,
+        "fft_length": 8,
+        "useful_rf_channel_centers": 3,
+        "narrowband_phase_bound_rad": 0.0062428836257420696,
+        "sky_temporal_phase_bound_rad": 0.0019191137615900767,
+        "limits": "Continuous periodic colored Gaussian with midpoint sky covariance at center RF; supplied exact nominal clocks; fixed broadband station delay, piecewise RF geometry and constant LO rate; no real antenna or RFI"
+      },
+      "settings": {
+        "pixel_arcsec": 16.0,
+        "min_snr": 10.0,
+        "prior_fwhm_arcsec": 240.0,
+        "entropy": 0.01,
+        "tsv": 0.0001,
+        "centroid": 0.1
+      },
+      "evaluation": {
+        "schema_version": 1,
+        "type": "unit_flux_closure_image_objective",
+        "settings": {
+          "pixels": 32,
+          "pixel_arcsec": 16.0,
+          "min_snr": 10.0,
+          "prior_fwhm_arcsec": 240.0,
+          "entropy": 0.01,
+          "tsv": 0.0001,
+          "centroid": 0.1
+        },
+        "candidate_sum_before_normalization": 1.0,
+        "unit_flux_sum": 1.0,
+        "metrics": {
+          "objective": 0.25496875035314087,
+          "closure_chisq_per_measurement": 0.49788553166776006,
+          "data_loss": 0.24894276583388003,
+          "entropy_loss": 0.005745008988112008,
+          "tsv_loss": 0.00017334332011605442,
+          "centroid_loss": 0.0001076322110327918,
+          "independent_closure_count": 29,
+          "independent_closure_counts": {
+            "phase": 16,
+            "logamp": 13
+          },
+          "centroid_arcsec": [
+            -2.953243849969753,
+            -7.862327682376655
+          ]
+        },
+        "optimizer_executed": false,
+        "optimizer_parameter_sum_penalty_included": false,
+        "absolute_flux_measured": false,
+        "absolute_position_measured": false,
+        "actual_observation_success_certified": false,
+        "limits": "Same fixed observed high-SNR Gaussian closure approximation as current RML; wrapped phase loss. Unit-flux image cost excludes the optimizer parameter-scale penalty. Lower objective is not a certificate of true morphology, global optimality, or a calibrated image probability.",
+        "input_sha256": "7260b4aa13a723e86a009e0c05fa3767411905033df02f48b6dcce22196e3aad",
+        "candidate_sha256": "47f4320859b762699d6842f82bf847cc01cf01ddbdd6e069aa353347930a2de7"
+      },
+      "independent_losses": {
+        "objective": 0.25496875035368277,
+        "data_loss": 0.24894276583442193,
+        "entropy_loss": 0.005745008988112007,
+        "tsv_loss": 0.00017334332011605442,
+        "centroid_loss": 0.0001076322110327917,
+        "closure_chisq_per_measurement": 0.49788553166884386
+      },
+      "independent_absolute_differences": {
+        "objective": 5.418998583195389e-13,
+        "data_loss": 5.418998583195389e-13,
+        "entropy_loss": 8.673617379884035e-19,
+        "tsv_loss": 0.0,
+        "centroid_loss": 1.0842021724855044e-19,
+        "closure_chisq_per_measurement": 1.0837997166390778e-12
+      },
+      "softmax_reference_checked": true,
+      "original_fitted_npy_sha256": "47f4320859b762699d6842f82bf847cc01cf01ddbdd6e069aa353347930a2de7",
+      "original_reference_metrics": {
+        "raw_nrmse": 0.5133397062141275,
+        "registered_nrmse": 0.4827786854730921,
+        "registered_correlation": 0.8961876425546683,
+        "registration_shift_yx_arcsec": [
+          39.53878856763331,
+          -17.887436595565298
+        ],
+        "common_beam_arcsec": 110.0,
+        "comparison_version": 2,
+        "registration_method": "All bounded integer cells, bilinear subpixels, 9 deterministic coordinate starts per cell",
+        "registration_max_shift_pixels": 31,
+        "registration_boundary_reached": false,
+        "registration_diagnostics": {
+          "shift_yx_pixels": [
+            2.471174285477082,
+            -1.117964787222831
+          ],
+          "boundary_reached": false,
+          "grid_cells": 3844,
+          "multistarts_per_cell": 9,
+          "selected_coordinate_converged": true,
+          "selected_coordinate_iterations": 6,
+          "objective_identity_error": 3.2526065174565133e-19
+        },
+        "comparison_padding_pixels": 45,
+        "registered_flux_retained_fraction": 0.9999999999999998,
+        "comparison": "Unit-flux gauge, Gaussian common beam, translation only over complete zero-extended support. No post-shift flux rescaling, cropped-error masking, rotation, Jy calibration or astrometry."
+      }
+    },
+    {
+      "candidate_id": "seed110_truth_rate_control_truth",
+      "case": "seed110_truth_rate_control",
+      "kind": "truth",
+      "spectrum": "outputs/stage114-source-final-study/seed110_truth_rate_control/correlation/shard-00000.npz",
+      "image": "outputs/stage115-source-study/seed110_truth_rate_control_truth/candidate.npy",
+      "generating": {
+        "model": "casa",
+        "assumed_flux_jy": 1000.0,
+        "assumed_sefd_jy": 10000.0,
+        "input_span_s": 3.04,
+        "station_rates_hz": [
+          0.0,
+          17.320626802645595,
+          -11.64925748855967,
+          26.19494226474453,
+          8.176428326993072,
+          -0.35176050635903644,
+          1.7460851338696204,
+          -2.984194404911251
+        ],
+        "seed": 110,
+        "fft_length": 8,
+        "useful_rf_channel_centers": 3,
+        "narrowband_phase_bound_rad": 0.0062428836257420696,
+        "sky_temporal_phase_bound_rad": 0.0019191137615900767,
+        "limits": "Continuous periodic colored Gaussian with midpoint sky covariance at center RF; supplied exact nominal clocks; fixed broadband station delay, piecewise RF geometry and constant LO rate; no real antenna or RFI"
+      },
+      "settings": {
+        "pixel_arcsec": 16.0,
+        "min_snr": 10.0,
+        "prior_fwhm_arcsec": 240.0,
+        "entropy": 0.01,
+        "tsv": 0.0001,
+        "centroid": 0.1
+      },
+      "evaluation": {
+        "schema_version": 1,
+        "type": "unit_flux_closure_image_objective",
+        "settings": {
+          "pixels": 32,
+          "pixel_arcsec": 16.0,
+          "min_snr": 10.0,
+          "prior_fwhm_arcsec": 240.0,
+          "entropy": 0.01,
+          "tsv": 0.0001,
+          "centroid": 0.1
+        },
+        "candidate_sum_before_normalization": 1000.0,
+        "unit_flux_sum": 0.9999999999999999,
+        "metrics": {
+          "objective": 0.6123734740796376,
+          "closure_chisq_per_measurement": 1.2154474750915556,
+          "data_loss": 0.6077237375457778,
+          "entropy_loss": 0.003578738755140163,
+          "tsv_loss": 8.089251036460126e-05,
+          "centroid_loss": 0.0009901052683551103,
+          "independent_closure_count": 31,
+          "independent_closure_counts": {
+            "phase": 17,
+            "logamp": 14
+          },
+          "centroid_arcsec": [
+            -17.744381387572616,
+            18.276003880541598
+          ]
+        },
+        "optimizer_executed": false,
+        "optimizer_parameter_sum_penalty_included": false,
+        "absolute_flux_measured": false,
+        "absolute_position_measured": false,
+        "actual_observation_success_certified": false,
+        "limits": "Same fixed observed high-SNR Gaussian closure approximation as current RML; wrapped phase loss. Unit-flux image cost excludes the optimizer parameter-scale penalty. Lower objective is not a certificate of true morphology, global optimality, or a calibrated image probability.",
+        "input_sha256": "6079c728d86d95db1517a67a0ac1c047728d63b8cede35d0e6691d24807128d2",
+        "candidate_sha256": "9189445bdd1552a2ca885a019662b5d5158f44a1cf2101a1a6b626716c2e07f8"
+      },
+      "independent_losses": {
+        "objective": 0.6123734740798137,
+        "data_loss": 0.6077237375459539,
+        "entropy_loss": 0.003578738755140163,
+        "tsv_loss": 8.089251036460126e-05,
+        "centroid_loss": 0.0009901052683551105,
+        "closure_chisq_per_measurement": 1.2154474750919078
+      },
+      "independent_absolute_differences": {
+        "objective": 1.7608137170554983e-13,
+        "data_loss": 1.7608137170554983e-13,
+        "entropy_loss": 0.0,
+        "tsv_loss": 0.0,
+        "centroid_loss": 2.168404344971009e-19,
+        "closure_chisq_per_measurement": 3.5216274341109965e-13
+      },
+      "softmax_reference_checked": true,
+      "original_fitted_npy_sha256": "f6c720bb4894770cc0d081d8d72defac813a2c6bd53f67c77843b755e66465d4",
+      "original_reference_metrics": null
+    },
+    {
+      "candidate_id": "seed110_truth_rate_control_prior",
+      "case": "seed110_truth_rate_control",
+      "kind": "prior",
+      "spectrum": "outputs/stage114-source-final-study/seed110_truth_rate_control/correlation/shard-00000.npz",
+      "image": "outputs/stage115-source-study/seed110_truth_rate_control_prior/candidate.npy",
+      "generating": {
+        "model": "casa",
+        "assumed_flux_jy": 1000.0,
+        "assumed_sefd_jy": 10000.0,
+        "input_span_s": 3.04,
+        "station_rates_hz": [
+          0.0,
+          17.320626802645595,
+          -11.64925748855967,
+          26.19494226474453,
+          8.176428326993072,
+          -0.35176050635903644,
+          1.7460851338696204,
+          -2.984194404911251
+        ],
+        "seed": 110,
+        "fft_length": 8,
+        "useful_rf_channel_centers": 3,
+        "narrowband_phase_bound_rad": 0.0062428836257420696,
+        "sky_temporal_phase_bound_rad": 0.0019191137615900767,
+        "limits": "Continuous periodic colored Gaussian with midpoint sky covariance at center RF; supplied exact nominal clocks; fixed broadband station delay, piecewise RF geometry and constant LO rate; no real antenna or RFI"
+      },
+      "settings": {
+        "pixel_arcsec": 16.0,
+        "min_snr": 10.0,
+        "prior_fwhm_arcsec": 240.0,
+        "entropy": 0.01,
+        "tsv": 0.0001,
+        "centroid": 0.1
+      },
+      "evaluation": {
+        "schema_version": 1,
+        "type": "unit_flux_closure_image_objective",
+        "settings": {
+          "pixels": 32,
+          "pixel_arcsec": 16.0,
+          "min_snr": 10.0,
+          "prior_fwhm_arcsec": 240.0,
+          "entropy": 0.01,
+          "tsv": 0.0001,
+          "centroid": 0.1
+        },
+        "candidate_sum_before_normalization": 1.0,
+        "unit_flux_sum": 1.0,
+        "metrics": {
+          "objective": 442.21774646847797,
+          "closure_chisq_per_measurement": 884.4354797372956,
+          "data_loss": 442.2177398686478,
+          "entropy_loss": 0.0,
+          "tsv_loss": 5.137008217050065e-06,
+          "centroid_loss": 1.462821947942248e-06,
+          "independent_closure_count": 31,
+          "independent_closure_counts": {
+            "phase": 17,
+            "logamp": 14
+          },
+          "centroid_arcsec": [
+            -0.6923420367865257,
+            -0.692342036786527
+          ]
+        },
+        "optimizer_executed": false,
+        "optimizer_parameter_sum_penalty_included": false,
+        "absolute_flux_measured": false,
+        "absolute_position_measured": false,
+        "actual_observation_success_certified": false,
+        "limits": "Same fixed observed high-SNR Gaussian closure approximation as current RML; wrapped phase loss. Unit-flux image cost excludes the optimizer parameter-scale penalty. Lower objective is not a certificate of true morphology, global optimality, or a calibrated image probability.",
+        "input_sha256": "6079c728d86d95db1517a67a0ac1c047728d63b8cede35d0e6691d24807128d2",
+        "candidate_sha256": "5e455a946b98afb407f4ca172089894f23e8efebf2e479f60789b9c36c8f66d8"
+      },
+      "independent_losses": {
+        "objective": 442.2177464685367,
+        "data_loss": 442.21773986870653,
+        "entropy_loss": 0.0,
+        "tsv_loss": 5.137008217050065e-06,
+        "centroid_loss": 1.4628219479422514e-06,
+        "closure_chisq_per_measurement": 884.4354797374131
+      },
+      "independent_absolute_differences": {
+        "objective": 5.871925168321468e-11,
+        "data_loss": 5.871925168321468e-11,
+        "entropy_loss": 0.0,
+        "tsv_loss": 0.0,
+        "centroid_loss": 3.3881317890172014e-21,
+        "closure_chisq_per_measurement": 1.1743850336642936e-10
+      },
+      "softmax_reference_checked": true,
+      "original_fitted_npy_sha256": "f6c720bb4894770cc0d081d8d72defac813a2c6bd53f67c77843b755e66465d4",
+      "original_reference_metrics": null
+    },
+    {
+      "candidate_id": "seed110_truth_rate_control_fitted",
+      "case": "seed110_truth_rate_control",
+      "kind": "fitted",
+      "spectrum": "outputs/stage114-source-final-study/seed110_truth_rate_control/correlation/shard-00000.npz",
+      "image": "outputs/stage115-source-study/seed110_truth_rate_control_fitted/candidate.npy",
+      "generating": {
+        "model": "casa",
+        "assumed_flux_jy": 1000.0,
+        "assumed_sefd_jy": 10000.0,
+        "input_span_s": 3.04,
+        "station_rates_hz": [
+          0.0,
+          17.320626802645595,
+          -11.64925748855967,
+          26.19494226474453,
+          8.176428326993072,
+          -0.35176050635903644,
+          1.7460851338696204,
+          -2.984194404911251
+        ],
+        "seed": 110,
+        "fft_length": 8,
+        "useful_rf_channel_centers": 3,
+        "narrowband_phase_bound_rad": 0.0062428836257420696,
+        "sky_temporal_phase_bound_rad": 0.0019191137615900767,
+        "limits": "Continuous periodic colored Gaussian with midpoint sky covariance at center RF; supplied exact nominal clocks; fixed broadband station delay, piecewise RF geometry and constant LO rate; no real antenna or RFI"
+      },
+      "settings": {
+        "pixel_arcsec": 16.0,
+        "min_snr": 10.0,
+        "prior_fwhm_arcsec": 240.0,
+        "entropy": 0.01,
+        "tsv": 0.0001,
+        "centroid": 0.1
+      },
+      "evaluation": {
+        "schema_version": 1,
+        "type": "unit_flux_closure_image_objective",
+        "settings": {
+          "pixels": 32,
+          "pixel_arcsec": 16.0,
+          "min_snr": 10.0,
+          "prior_fwhm_arcsec": 240.0,
+          "entropy": 0.01,
+          "tsv": 0.0001,
+          "centroid": 0.1
+        },
+        "candidate_sum_before_normalization": 0.9999999999999999,
+        "unit_flux_sum": 1.0000000000000002,
+        "metrics": {
+          "objective": 0.23012498954728694,
+          "closure_chisq_per_measurement": 0.44719444264432373,
+          "data_loss": 0.22359722132216187,
+          "entropy_loss": 0.006005334093358225,
+          "tsv_loss": 0.0001341851653674624,
+          "centroid_loss": 0.00038824896639937817,
+          "independent_closure_count": 31,
+          "independent_closure_counts": {
+            "phase": 17,
+            "logamp": 14
+          },
+          "centroid_arcsec": [
+            -4.602146384448603,
+            -15.272952932409735
+          ]
+        },
+        "optimizer_executed": false,
+        "optimizer_parameter_sum_penalty_included": false,
+        "absolute_flux_measured": false,
+        "absolute_position_measured": false,
+        "actual_observation_success_certified": false,
+        "limits": "Same fixed observed high-SNR Gaussian closure approximation as current RML; wrapped phase loss. Unit-flux image cost excludes the optimizer parameter-scale penalty. Lower objective is not a certificate of true morphology, global optimality, or a calibrated image probability.",
+        "input_sha256": "6079c728d86d95db1517a67a0ac1c047728d63b8cede35d0e6691d24807128d2",
+        "candidate_sha256": "f6c720bb4894770cc0d081d8d72defac813a2c6bd53f67c77843b755e66465d4"
+      },
+      "independent_losses": {
+        "objective": 0.23012498954729682,
+        "data_loss": 0.22359722132217175,
+        "entropy_loss": 0.006005334093358225,
+        "tsv_loss": 0.0001341851653674624,
+        "centroid_loss": 0.00038824896639937936,
+        "closure_chisq_per_measurement": 0.4471944426443435
+      },
+      "independent_absolute_differences": {
+        "objective": 9.880984919163893e-15,
+        "data_loss": 9.880984919163893e-15,
+        "entropy_loss": 0.0,
+        "tsv_loss": 0.0,
+        "centroid_loss": 1.1926223897340549e-18,
+        "closure_chisq_per_measurement": 1.9761969838327786e-14
+      },
+      "softmax_reference_checked": true,
+      "original_fitted_npy_sha256": "f6c720bb4894770cc0d081d8d72defac813a2c6bd53f67c77843b755e66465d4",
+      "original_reference_metrics": {
+        "raw_nrmse": 0.5296262909334175,
+        "registered_nrmse": 0.48337011120328954,
+        "registered_correlation": 0.8977878304089354,
+        "registration_shift_yx_arcsec": [
+          47.3278539069825,
+          -23.92432089250574
+        ],
+        "common_beam_arcsec": 110.0,
+        "comparison_version": 2,
+        "registration_method": "All bounded integer cells, bilinear subpixels, 9 deterministic coordinate starts per cell",
+        "registration_max_shift_pixels": 31,
+        "registration_boundary_reached": false,
+        "registration_diagnostics": {
+          "shift_yx_pixels": [
+            2.957990869186406,
+            -1.4952700557816088
+          ],
+          "boundary_reached": false,
+          "grid_cells": 3844,
+          "multistarts_per_cell": 9,
+          "selected_coordinate_converged": true,
+          "selected_coordinate_iterations": 6,
+          "objective_identity_error": 3.2526065174565133e-19
+        },
+        "comparison_padding_pixels": 45,
+        "registered_flux_retained_fraction": 1.0000000000000002,
+        "comparison": "Unit-flux gauge, Gaussian common beam, translation only over complete zero-extended support. No post-shift flux rescaling, cropped-error masking, rotation, Jy calibration or astrometry."
+      }
+    },
+    {
+      "candidate_id": "seed110_ideal_model_observed_snr_control_truth",
+      "case": "seed110_ideal_model_observed_snr_control",
+      "kind": "truth",
+      "spectrum": "outputs/stage114-source-final-study/seed110_ideal_model_observed_snr_control/ideal-visibility.npz",
+      "image": "outputs/stage115-source-study/seed110_ideal_model_observed_snr_control_truth/candidate.npy",
+      "generating": {
+        "model": "casa",
+        "assumed_flux_jy": 1000.0,
+        "assumed_sefd_jy": 10000.0,
+        "input_span_s": 3.04,
+        "station_rates_hz": [
+          0.0,
+          17.320626802645595,
+          -11.64925748855967,
+          26.19494226474453,
+          8.176428326993072,
+          -0.35176050635903644,
+          1.7460851338696204,
+          -2.984194404911251
+        ],
+        "seed": 110,
+        "fft_length": 8,
+        "useful_rf_channel_centers": 3,
+        "narrowband_phase_bound_rad": 0.0062428836257420696,
+        "sky_temporal_phase_bound_rad": 0.0019191137615900767,
+        "limits": "Continuous periodic colored Gaussian with midpoint sky covariance at center RF; supplied exact nominal clocks; fixed broadband station delay, piecewise RF geometry and constant LO rate; no real antenna or RFI"
+      },
+      "settings": {
+        "pixel_arcsec": 16.0,
+        "min_snr": 10.0,
+        "prior_fwhm_arcsec": 240.0,
+        "entropy": 0.01,
+        "tsv": 0.0001,
+        "centroid": 0.1
+      },
+      "evaluation": {
+        "schema_version": 1,
+        "type": "unit_flux_closure_image_objective",
+        "settings": {
+          "pixels": 32,
+          "pixel_arcsec": 16.0,
+          "min_snr": 10.0,
+          "prior_fwhm_arcsec": 240.0,
+          "entropy": 0.01,
+          "tsv": 0.0001,
+          "centroid": 0.1
+        },
+        "candidate_sum_before_normalization": 1000.0,
+        "unit_flux_sum": 0.9999999999999999,
+        "metrics": {
+          "objective": 0.0046497365338598745,
+          "closure_chisq_per_measurement": 7.554851719044548e-25,
+          "data_loss": 3.777425859522274e-25,
+          "entropy_loss": 0.003578738755140163,
+          "tsv_loss": 8.089251036460126e-05,
+          "centroid_loss": 0.0009901052683551103,
+          "independent_closure_count": 29,
+          "independent_closure_counts": {
+            "phase": 16,
+            "logamp": 13
+          },
+          "centroid_arcsec": [
+            -17.744381387572616,
+            18.276003880541598
+          ]
+        },
+        "optimizer_executed": false,
+        "optimizer_parameter_sum_penalty_included": false,
+        "absolute_flux_measured": false,
+        "absolute_position_measured": false,
+        "actual_observation_success_certified": false,
+        "limits": "Same fixed observed high-SNR Gaussian closure approximation as current RML; wrapped phase loss. Unit-flux image cost excludes the optimizer parameter-scale penalty. Lower objective is not a certificate of true morphology, global optimality, or a calibrated image probability.",
+        "input_sha256": "44dbf935cbcbc1cdb5f98a3c015d46815240e833fd74f0cf446090daafbf91d1",
+        "candidate_sha256": "9189445bdd1552a2ca885a019662b5d5158f44a1cf2101a1a6b626716c2e07f8"
+      },
+      "independent_losses": {
+        "objective": 0.0046497365338598745,
+        "data_loss": 2.791591053850618e-29,
+        "entropy_loss": 0.003578738755140163,
+        "tsv_loss": 8.089251036460126e-05,
+        "centroid_loss": 0.0009901052683551105,
+        "closure_chisq_per_measurement": 5.583182107701236e-29
+      },
+      "independent_absolute_differences": {
+        "objective": 0.0,
+        "data_loss": 3.777146700416889e-25,
+        "entropy_loss": 0.0,
+        "tsv_loss": 0.0,
+        "centroid_loss": 2.168404344971009e-19,
+        "closure_chisq_per_measurement": 7.554293400833778e-25
+      },
+      "softmax_reference_checked": true,
+      "original_fitted_npy_sha256": "ab9ab5c24e0d5d161f457595c356d063bcf4db0eb2cbfb366590f9e055f9af05",
+      "original_reference_metrics": null
+    },
+    {
+      "candidate_id": "seed110_ideal_model_observed_snr_control_prior",
+      "case": "seed110_ideal_model_observed_snr_control",
+      "kind": "prior",
+      "spectrum": "outputs/stage114-source-final-study/seed110_ideal_model_observed_snr_control/ideal-visibility.npz",
+      "image": "outputs/stage115-source-study/seed110_ideal_model_observed_snr_control_prior/candidate.npy",
+      "generating": {
+        "model": "casa",
+        "assumed_flux_jy": 1000.0,
+        "assumed_sefd_jy": 10000.0,
+        "input_span_s": 3.04,
+        "station_rates_hz": [
+          0.0,
+          17.320626802645595,
+          -11.64925748855967,
+          26.19494226474453,
+          8.176428326993072,
+          -0.35176050635903644,
+          1.7460851338696204,
+          -2.984194404911251
+        ],
+        "seed": 110,
+        "fft_length": 8,
+        "useful_rf_channel_centers": 3,
+        "narrowband_phase_bound_rad": 0.0062428836257420696,
+        "sky_temporal_phase_bound_rad": 0.0019191137615900767,
+        "limits": "Continuous periodic colored Gaussian with midpoint sky covariance at center RF; supplied exact nominal clocks; fixed broadband station delay, piecewise RF geometry and constant LO rate; no real antenna or RFI"
+      },
+      "settings": {
+        "pixel_arcsec": 16.0,
+        "min_snr": 10.0,
+        "prior_fwhm_arcsec": 240.0,
+        "entropy": 0.01,
+        "tsv": 0.0001,
+        "centroid": 0.1
+      },
+      "evaluation": {
+        "schema_version": 1,
+        "type": "unit_flux_closure_image_objective",
+        "settings": {
+          "pixels": 32,
+          "pixel_arcsec": 16.0,
+          "min_snr": 10.0,
+          "prior_fwhm_arcsec": 240.0,
+          "entropy": 0.01,
+          "tsv": 0.0001,
+          "centroid": 0.1
+        },
+        "candidate_sum_before_normalization": 1.0,
+        "unit_flux_sum": 1.0,
+        "metrics": {
+          "objective": 470.759715761451,
+          "closure_chisq_per_measurement": 941.5194183232417,
+          "data_loss": 470.75970916162083,
+          "entropy_loss": 0.0,
+          "tsv_loss": 5.137008217050065e-06,
+          "centroid_loss": 1.462821947942248e-06,
+          "independent_closure_count": 29,
+          "independent_closure_counts": {
+            "phase": 16,
+            "logamp": 13
+          },
+          "centroid_arcsec": [
+            -0.6923420367865257,
+            -0.692342036786527
+          ]
+        },
+        "optimizer_executed": false,
+        "optimizer_parameter_sum_penalty_included": false,
+        "absolute_flux_measured": false,
+        "absolute_position_measured": false,
+        "actual_observation_success_certified": false,
+        "limits": "Same fixed observed high-SNR Gaussian closure approximation as current RML; wrapped phase loss. Unit-flux image cost excludes the optimizer parameter-scale penalty. Lower objective is not a certificate of true morphology, global optimality, or a calibrated image probability.",
+        "input_sha256": "44dbf935cbcbc1cdb5f98a3c015d46815240e833fd74f0cf446090daafbf91d1",
+        "candidate_sha256": "5e455a946b98afb407f4ca172089894f23e8efebf2e479f60789b9c36c8f66d8"
+      },
+      "independent_losses": {
+        "objective": 470.75971576147293,
+        "data_loss": 470.7597091616428,
+        "entropy_loss": 0.0,
+        "tsv_loss": 5.137008217050065e-06,
+        "centroid_loss": 1.4628219479422514e-06,
+        "closure_chisq_per_measurement": 941.5194183232855
+      },
+      "independent_absolute_differences": {
+        "objective": 2.1941559680271894e-11,
+        "data_loss": 2.1941559680271894e-11,
+        "entropy_loss": 0.0,
+        "tsv_loss": 0.0,
+        "centroid_loss": 3.3881317890172014e-21,
+        "closure_chisq_per_measurement": 4.388311936054379e-11
+      },
+      "softmax_reference_checked": true,
+      "original_fitted_npy_sha256": "ab9ab5c24e0d5d161f457595c356d063bcf4db0eb2cbfb366590f9e055f9af05",
+      "original_reference_metrics": null
+    },
+    {
+      "candidate_id": "seed110_ideal_model_observed_snr_control_fitted",
+      "case": "seed110_ideal_model_observed_snr_control",
+      "kind": "fitted",
+      "spectrum": "outputs/stage114-source-final-study/seed110_ideal_model_observed_snr_control/ideal-visibility.npz",
+      "image": "outputs/stage115-source-study/seed110_ideal_model_observed_snr_control_fitted/candidate.npy",
+      "generating": {
+        "model": "casa",
+        "assumed_flux_jy": 1000.0,
+        "assumed_sefd_jy": 10000.0,
+        "input_span_s": 3.04,
+        "station_rates_hz": [
+          0.0,
+          17.320626802645595,
+          -11.64925748855967,
+          26.19494226474453,
+          8.176428326993072,
+          -0.35176050635903644,
+          1.7460851338696204,
+          -2.984194404911251
+        ],
+        "seed": 110,
+        "fft_length": 8,
+        "useful_rf_channel_centers": 3,
+        "narrowband_phase_bound_rad": 0.0062428836257420696,
+        "sky_temporal_phase_bound_rad": 0.0019191137615900767,
+        "limits": "Continuous periodic colored Gaussian with midpoint sky covariance at center RF; supplied exact nominal clocks; fixed broadband station delay, piecewise RF geometry and constant LO rate; no real antenna or RFI"
+      },
+      "settings": {
+        "pixel_arcsec": 16.0,
+        "min_snr": 10.0,
+        "prior_fwhm_arcsec": 240.0,
+        "entropy": 0.01,
+        "tsv": 0.0001,
+        "centroid": 0.1
+      },
+      "evaluation": {
+        "schema_version": 1,
+        "type": "unit_flux_closure_image_objective",
+        "settings": {
+          "pixels": 32,
+          "pixel_arcsec": 16.0,
+          "min_snr": 10.0,
+          "prior_fwhm_arcsec": 240.0,
+          "entropy": 0.01,
+          "tsv": 0.0001,
+          "centroid": 0.1
+        },
+        "candidate_sum_before_normalization": 0.9999999999999999,
+        "unit_flux_sum": 1.0,
+        "metrics": {
+          "objective": 0.0003043581217094644,
+          "closure_chisq_per_measurement": 3.270663753294129e-05,
+          "data_loss": 1.6353318766470645e-05,
+          "entropy_loss": 0.000261620116844001,
+          "tsv_loss": 2.605096857577609e-05,
+          "centroid_loss": 3.3371752321667565e-07,
+          "independent_closure_count": 29,
+          "independent_closure_counts": {
+            "phase": 16,
+            "logamp": 13
+          },
+          "centroid_arcsec": [
+            0.4596707685974991,
+            -0.08606916121506564
+          ]
+        },
+        "optimizer_executed": false,
+        "optimizer_parameter_sum_penalty_included": false,
+        "absolute_flux_measured": false,
+        "absolute_position_measured": false,
+        "actual_observation_success_certified": false,
+        "limits": "Same fixed observed high-SNR Gaussian closure approximation as current RML; wrapped phase loss. Unit-flux image cost excludes the optimizer parameter-scale penalty. Lower objective is not a certificate of true morphology, global optimality, or a calibrated image probability.",
+        "input_sha256": "44dbf935cbcbc1cdb5f98a3c015d46815240e833fd74f0cf446090daafbf91d1",
+        "candidate_sha256": "ab9ab5c24e0d5d161f457595c356d063bcf4db0eb2cbfb366590f9e055f9af05"
+      },
+      "independent_losses": {
+        "objective": 0.0003043581217102868,
+        "data_loss": 1.6353318767292907e-05,
+        "entropy_loss": 0.0002616201168440011,
+        "tsv_loss": 2.605096857577609e-05,
+        "centroid_loss": 3.3371752321668777e-07,
+        "closure_chisq_per_measurement": 3.2706637534585814e-05
+      },
+      "independent_absolute_differences": {
+        "objective": 8.223673478302551e-16,
+        "data_loss": 8.222623157447956e-16,
+        "entropy_loss": 1.0842021724855044e-19,
+        "tsv_loss": 0.0,
+        "centroid_loss": 1.2123159057577174e-20,
+        "closure_chisq_per_measurement": 1.6445246314895912e-15
+      },
+      "softmax_reference_checked": true,
+      "original_fitted_npy_sha256": "ab9ab5c24e0d5d161f457595c356d063bcf4db0eb2cbfb366590f9e055f9af05",
+      "original_reference_metrics": {
+        "raw_nrmse": 0.31045871258313656,
+        "registered_nrmse": 0.2557658909199593,
+        "registered_correlation": 0.9758083586280611,
+        "registration_shift_yx_arcsec": [
+          16.71985515162202,
+          -24.15473001594834
+        ],
+        "common_beam_arcsec": 110.0,
+        "comparison_version": 2,
+        "registration_method": "All bounded integer cells, bilinear subpixels, 9 deterministic coordinate starts per cell",
+        "registration_max_shift_pixels": 31,
+        "registration_boundary_reached": false,
+        "registration_diagnostics": {
+          "shift_yx_pixels": [
+            1.0449909469763763,
+            -1.5096706259967712
+          ],
+          "boundary_reached": false,
+          "grid_cells": 3844,
+          "multistarts_per_cell": 9,
+          "selected_coordinate_converged": true,
+          "selected_coordinate_iterations": 6,
+          "objective_identity_error": 8.131516293641283e-20
+        },
+        "comparison_padding_pixels": 45,
+        "registered_flux_retained_fraction": 0.9999999999999991,
+        "comparison": "Unit-flux gauge, Gaussian common beam, translation only over complete zero-extended support. No post-shift flux rescaling, cropped-error masking, rotation, Jy calibration or astrometry."
+      }
+    },
+    {
+      "candidate_id": "seed111_estimated_rate_truth",
+      "case": "seed111_estimated_rate",
+      "kind": "truth",
+      "spectrum": "outputs/stage113-source-study/seed111_t3/correlation/shard-00000.npz",
+      "image": "outputs/stage115-source-study/seed111_estimated_rate_truth/candidate.npy",
+      "generating": {
+        "model": "casa",
+        "assumed_flux_jy": 1000.0,
+        "assumed_sefd_jy": 10000.0,
+        "input_span_s": 3.04,
+        "station_rates_hz": [
+          0.0,
+          17.238461249075286,
+          -11.6209070489527,
+          26.11175840573129,
+          8.08474223123241,
+          -0.39558536117242193,
+          1.7327351088210015,
+          -3.0537668282099264
+        ],
+        "seed": 111,
+        "fft_length": 8,
+        "useful_rf_channel_centers": 3,
+        "narrowband_phase_bound_rad": 0.0062428836257420696,
+        "sky_temporal_phase_bound_rad": 0.0019191137615900767,
+        "limits": "Continuous periodic colored Gaussian with midpoint sky covariance at center RF; supplied exact nominal clocks; fixed broadband station delay, piecewise RF geometry and constant LO rate; no real antenna or RFI"
+      },
+      "settings": {
+        "pixel_arcsec": 16.0,
+        "min_snr": 10.0,
+        "prior_fwhm_arcsec": 240.0,
+        "entropy": 0.01,
+        "tsv": 0.0001,
+        "centroid": 0.1
+      },
+      "evaluation": {
+        "schema_version": 1,
+        "type": "unit_flux_closure_image_objective",
+        "settings": {
+          "pixels": 32,
+          "pixel_arcsec": 16.0,
+          "min_snr": 10.0,
+          "prior_fwhm_arcsec": 240.0,
+          "entropy": 0.01,
+          "tsv": 0.0001,
+          "centroid": 0.1
+        },
+        "candidate_sum_before_normalization": 1000.0,
+        "unit_flux_sum": 0.9999999999999999,
+        "metrics": {
+          "objective": 0.5777925557024811,
+          "closure_chisq_per_measurement": 1.1462856383372426,
+          "data_loss": 0.5731428191686213,
+          "entropy_loss": 0.003578738755140163,
+          "tsv_loss": 8.089251036460126e-05,
+          "centroid_loss": 0.0009901052683551103,
+          "independent_closure_count": 36,
+          "independent_closure_counts": {
+            "phase": 20,
+            "logamp": 16
+          },
+          "centroid_arcsec": [
+            -17.744381387572616,
+            18.276003880541598
+          ]
+        },
+        "optimizer_executed": false,
+        "optimizer_parameter_sum_penalty_included": false,
+        "absolute_flux_measured": false,
+        "absolute_position_measured": false,
+        "actual_observation_success_certified": false,
+        "limits": "Same fixed observed high-SNR Gaussian closure approximation as current RML; wrapped phase loss. Unit-flux image cost excludes the optimizer parameter-scale penalty. Lower objective is not a certificate of true morphology, global optimality, or a calibrated image probability.",
+        "input_sha256": "895cba6c1bb8eb5c11418ed7fd85f2af09e0d775e8efe2dd71e6d520cebbf657",
+        "candidate_sha256": "9189445bdd1552a2ca885a019662b5d5158f44a1cf2101a1a6b626716c2e07f8"
+      },
+      "independent_losses": {
+        "objective": 0.5777925557024085,
+        "data_loss": 0.5731428191685487,
+        "entropy_loss": 0.003578738755140163,
+        "tsv_loss": 8.089251036460126e-05,
+        "centroid_loss": 0.0009901052683551105,
+        "closure_chisq_per_measurement": 1.1462856383370974
+      },
+      "independent_absolute_differences": {
+        "objective": 7.260858581048524e-14,
+        "data_loss": 7.260858581048524e-14,
+        "entropy_loss": 0.0,
+        "tsv_loss": 0.0,
+        "centroid_loss": 2.168404344971009e-19,
+        "closure_chisq_per_measurement": 1.4521717162097048e-13
+      },
+      "softmax_reference_checked": true,
+      "original_fitted_npy_sha256": "2fae4f81a251826e90eb3e6510e035abdc0b375efc9346e5a5029cfc3afd2cdc",
+      "original_reference_metrics": null
+    },
+    {
+      "candidate_id": "seed111_estimated_rate_prior",
+      "case": "seed111_estimated_rate",
+      "kind": "prior",
+      "spectrum": "outputs/stage113-source-study/seed111_t3/correlation/shard-00000.npz",
+      "image": "outputs/stage115-source-study/seed111_estimated_rate_prior/candidate.npy",
+      "generating": {
+        "model": "casa",
+        "assumed_flux_jy": 1000.0,
+        "assumed_sefd_jy": 10000.0,
+        "input_span_s": 3.04,
+        "station_rates_hz": [
+          0.0,
+          17.238461249075286,
+          -11.6209070489527,
+          26.11175840573129,
+          8.08474223123241,
+          -0.39558536117242193,
+          1.7327351088210015,
+          -3.0537668282099264
+        ],
+        "seed": 111,
+        "fft_length": 8,
+        "useful_rf_channel_centers": 3,
+        "narrowband_phase_bound_rad": 0.0062428836257420696,
+        "sky_temporal_phase_bound_rad": 0.0019191137615900767,
+        "limits": "Continuous periodic colored Gaussian with midpoint sky covariance at center RF; supplied exact nominal clocks; fixed broadband station delay, piecewise RF geometry and constant LO rate; no real antenna or RFI"
+      },
+      "settings": {
+        "pixel_arcsec": 16.0,
+        "min_snr": 10.0,
+        "prior_fwhm_arcsec": 240.0,
+        "entropy": 0.01,
+        "tsv": 0.0001,
+        "centroid": 0.1
+      },
+      "evaluation": {
+        "schema_version": 1,
+        "type": "unit_flux_closure_image_objective",
+        "settings": {
+          "pixels": 32,
+          "pixel_arcsec": 16.0,
+          "min_snr": 10.0,
+          "prior_fwhm_arcsec": 240.0,
+          "entropy": 0.01,
+          "tsv": 0.0001,
+          "centroid": 0.1
+        },
+        "candidate_sum_before_normalization": 1.0,
+        "unit_flux_sum": 1.0,
+        "metrics": {
+          "objective": 487.43636455493066,
+          "closure_chisq_per_measurement": 974.872715910201,
+          "data_loss": 487.4363579551005,
+          "entropy_loss": 0.0,
+          "tsv_loss": 5.137008217050065e-06,
+          "centroid_loss": 1.462821947942248e-06,
+          "independent_closure_count": 36,
+          "independent_closure_counts": {
+            "phase": 20,
+            "logamp": 16
+          },
+          "centroid_arcsec": [
+            -0.6923420367865257,
+            -0.692342036786527
+          ]
+        },
+        "optimizer_executed": false,
+        "optimizer_parameter_sum_penalty_included": false,
+        "absolute_flux_measured": false,
+        "absolute_position_measured": false,
+        "actual_observation_success_certified": false,
+        "limits": "Same fixed observed high-SNR Gaussian closure approximation as current RML; wrapped phase loss. Unit-flux image cost excludes the optimizer parameter-scale penalty. Lower objective is not a certificate of true morphology, global optimality, or a calibrated image probability.",
+        "input_sha256": "895cba6c1bb8eb5c11418ed7fd85f2af09e0d775e8efe2dd71e6d520cebbf657",
+        "candidate_sha256": "5e455a946b98afb407f4ca172089894f23e8efebf2e479f60789b9c36c8f66d8"
+      },
+      "independent_losses": {
+        "objective": 487.4363645550558,
+        "data_loss": 487.4363579552256,
+        "entropy_loss": 0.0,
+        "tsv_loss": 5.137008217050065e-06,
+        "centroid_loss": 1.4628219479422514e-06,
+        "closure_chisq_per_measurement": 974.8727159104512
+      },
+      "independent_absolute_differences": {
+        "objective": 1.2511236491263844e-10,
+        "data_loss": 1.2511236491263844e-10,
+        "entropy_loss": 0.0,
+        "tsv_loss": 0.0,
+        "centroid_loss": 3.3881317890172014e-21,
+        "closure_chisq_per_measurement": 2.502247298252769e-10
+      },
+      "softmax_reference_checked": true,
+      "original_fitted_npy_sha256": "2fae4f81a251826e90eb3e6510e035abdc0b375efc9346e5a5029cfc3afd2cdc",
+      "original_reference_metrics": null
+    },
+    {
+      "candidate_id": "seed111_estimated_rate_fitted",
+      "case": "seed111_estimated_rate",
+      "kind": "fitted",
+      "spectrum": "outputs/stage113-source-study/seed111_t3/correlation/shard-00000.npz",
+      "image": "outputs/stage115-source-study/seed111_estimated_rate_fitted/candidate.npy",
+      "generating": {
+        "model": "casa",
+        "assumed_flux_jy": 1000.0,
+        "assumed_sefd_jy": 10000.0,
+        "input_span_s": 3.04,
+        "station_rates_hz": [
+          0.0,
+          17.238461249075286,
+          -11.6209070489527,
+          26.11175840573129,
+          8.08474223123241,
+          -0.39558536117242193,
+          1.7327351088210015,
+          -3.0537668282099264
+        ],
+        "seed": 111,
+        "fft_length": 8,
+        "useful_rf_channel_centers": 3,
+        "narrowband_phase_bound_rad": 0.0062428836257420696,
+        "sky_temporal_phase_bound_rad": 0.0019191137615900767,
+        "limits": "Continuous periodic colored Gaussian with midpoint sky covariance at center RF; supplied exact nominal clocks; fixed broadband station delay, piecewise RF geometry and constant LO rate; no real antenna or RFI"
+      },
+      "settings": {
+        "pixel_arcsec": 16.0,
+        "min_snr": 10.0,
+        "prior_fwhm_arcsec": 240.0,
+        "entropy": 0.01,
+        "tsv": 0.0001,
+        "centroid": 0.1
+      },
+      "evaluation": {
+        "schema_version": 1,
+        "type": "unit_flux_closure_image_objective",
+        "settings": {
+          "pixels": 32,
+          "pixel_arcsec": 16.0,
+          "min_snr": 10.0,
+          "prior_fwhm_arcsec": 240.0,
+          "entropy": 0.01,
+          "tsv": 0.0001,
+          "centroid": 0.1
+        },
+        "candidate_sum_before_normalization": 1.0,
+        "unit_flux_sum": 1.0,
+        "metrics": {
+          "objective": 0.16591302570561936,
+          "closure_chisq_per_measurement": 0.32445087145773044,
+          "data_loss": 0.16222543572886522,
+          "entropy_loss": 0.003584037708074519,
+          "tsv_loss": 8.38703107762254e-05,
+          "centroid_loss": 1.968195790338456e-05,
+          "independent_closure_count": 36,
+          "independent_closure_counts": {
+            "phase": 20,
+            "logamp": 16
+          },
+          "centroid_arcsec": [
+            1.9470157877880248,
+            -3.0179293321193392
+          ]
+        },
+        "optimizer_executed": false,
+        "optimizer_parameter_sum_penalty_included": false,
+        "absolute_flux_measured": false,
+        "absolute_position_measured": false,
+        "actual_observation_success_certified": false,
+        "limits": "Same fixed observed high-SNR Gaussian closure approximation as current RML; wrapped phase loss. Unit-flux image cost excludes the optimizer parameter-scale penalty. Lower objective is not a certificate of true morphology, global optimality, or a calibrated image probability.",
+        "input_sha256": "895cba6c1bb8eb5c11418ed7fd85f2af09e0d775e8efe2dd71e6d520cebbf657",
+        "candidate_sha256": "2fae4f81a251826e90eb3e6510e035abdc0b375efc9346e5a5029cfc3afd2cdc"
+      },
+      "independent_losses": {
+        "objective": 0.1659130257056979,
+        "data_loss": 0.16222543572894377,
+        "entropy_loss": 0.003584037708074519,
+        "tsv_loss": 8.38703107762254e-05,
+        "centroid_loss": 1.9681957903384763e-05,
+        "closure_chisq_per_measurement": 0.32445087145788754
+      },
+      "independent_absolute_differences": {
+        "objective": 7.854827899222983e-14,
+        "data_loss": 7.854827899222983e-14,
+        "entropy_loss": 0.0,
+        "tsv_loss": 0.0,
+        "centroid_loss": 2.0328790734103208e-19,
+        "closure_chisq_per_measurement": 1.5709655798445965e-13
+      },
+      "softmax_reference_checked": true,
+      "original_fitted_npy_sha256": "2fae4f81a251826e90eb3e6510e035abdc0b375efc9346e5a5029cfc3afd2cdc",
+      "original_reference_metrics": {
+        "raw_nrmse": 0.38018523864647863,
+        "registered_nrmse": 0.3578047753236841,
+        "registered_correlation": 0.9515093074092699,
+        "registration_shift_yx_arcsec": [
+          16.0,
+          -16.0
+        ],
+        "common_beam_arcsec": 110.0,
+        "comparison_version": 2,
+        "registration_method": "All bounded integer cells, bilinear subpixels, 9 deterministic coordinate starts per cell",
+        "registration_max_shift_pixels": 31,
+        "registration_boundary_reached": false,
+        "registration_diagnostics": {
+          "shift_yx_pixels": [
+            1.0,
+            -1.0
+          ],
+          "boundary_reached": false,
+          "grid_cells": 3844,
+          "multistarts_per_cell": 9,
+          "selected_coordinate_converged": true,
+          "selected_coordinate_iterations": 6,
+          "objective_identity_error": 7.589415207398531e-19
+        },
+        "comparison_padding_pixels": 45,
+        "registered_flux_retained_fraction": 1.0,
+        "comparison": "Unit-flux gauge, Gaussian common beam, translation only over complete zero-extended support. No post-shift flux rescaling, cropped-error masking, rotation, Jy calibration or astrometry."
+      }
+    },
+    {
+      "candidate_id": "seed111_truth_rate_control_truth",
+      "case": "seed111_truth_rate_control",
+      "kind": "truth",
+      "spectrum": "outputs/stage114-source-final-study/seed111_truth_rate_control/correlation/shard-00000.npz",
+      "image": "outputs/stage115-source-study/seed111_truth_rate_control_truth/candidate.npy",
+      "generating": {
+        "model": "casa",
+        "assumed_flux_jy": 1000.0,
+        "assumed_sefd_jy": 10000.0,
+        "input_span_s": 3.04,
+        "station_rates_hz": [
+          0.0,
+          17.238461249075286,
+          -11.6209070489527,
+          26.11175840573129,
+          8.08474223123241,
+          -0.39558536117242193,
+          1.7327351088210015,
+          -3.0537668282099264
+        ],
+        "seed": 111,
+        "fft_length": 8,
+        "useful_rf_channel_centers": 3,
+        "narrowband_phase_bound_rad": 0.0062428836257420696,
+        "sky_temporal_phase_bound_rad": 0.0019191137615900767,
+        "limits": "Continuous periodic colored Gaussian with midpoint sky covariance at center RF; supplied exact nominal clocks; fixed broadband station delay, piecewise RF geometry and constant LO rate; no real antenna or RFI"
+      },
+      "settings": {
+        "pixel_arcsec": 16.0,
+        "min_snr": 10.0,
+        "prior_fwhm_arcsec": 240.0,
+        "entropy": 0.01,
+        "tsv": 0.0001,
+        "centroid": 0.1
+      },
+      "evaluation": {
+        "schema_version": 1,
+        "type": "unit_flux_closure_image_objective",
+        "settings": {
+          "pixels": 32,
+          "pixel_arcsec": 16.0,
+          "min_snr": 10.0,
+          "prior_fwhm_arcsec": 240.0,
+          "entropy": 0.01,
+          "tsv": 0.0001,
+          "centroid": 0.1
+        },
+        "candidate_sum_before_normalization": 1000.0,
+        "unit_flux_sum": 0.9999999999999999,
+        "metrics": {
+          "objective": 0.5777733871840242,
+          "closure_chisq_per_measurement": 1.1462473013003287,
+          "data_loss": 0.5731236506501644,
+          "entropy_loss": 0.003578738755140163,
+          "tsv_loss": 8.089251036460126e-05,
+          "centroid_loss": 0.0009901052683551103,
+          "independent_closure_count": 36,
+          "independent_closure_counts": {
+            "phase": 20,
+            "logamp": 16
+          },
+          "centroid_arcsec": [
+            -17.744381387572616,
+            18.276003880541598
+          ]
+        },
+        "optimizer_executed": false,
+        "optimizer_parameter_sum_penalty_included": false,
+        "absolute_flux_measured": false,
+        "absolute_position_measured": false,
+        "actual_observation_success_certified": false,
+        "limits": "Same fixed observed high-SNR Gaussian closure approximation as current RML; wrapped phase loss. Unit-flux image cost excludes the optimizer parameter-scale penalty. Lower objective is not a certificate of true morphology, global optimality, or a calibrated image probability.",
+        "input_sha256": "9fee3b8afb0e2447eb220e7588831a1907cf6cc02635848aa43e31c04b063884",
+        "candidate_sha256": "9189445bdd1552a2ca885a019662b5d5158f44a1cf2101a1a6b626716c2e07f8"
+      },
+      "independent_losses": {
+        "objective": 0.5777733871839538,
+        "data_loss": 0.573123650650094,
+        "entropy_loss": 0.003578738755140163,
+        "tsv_loss": 8.089251036460126e-05,
+        "centroid_loss": 0.0009901052683551105,
+        "closure_chisq_per_measurement": 1.146247301300188
+      },
+      "independent_absolute_differences": {
+        "objective": 7.038813976123492e-14,
+        "data_loss": 7.038813976123492e-14,
+        "entropy_loss": 0.0,
+        "tsv_loss": 0.0,
+        "centroid_loss": 2.168404344971009e-19,
+        "closure_chisq_per_measurement": 1.4077627952246985e-13
+      },
+      "softmax_reference_checked": true,
+      "original_fitted_npy_sha256": "058166e51f690e3ddb4aa579e41f699881d6f715820a3cde4a4f6fe1916f5f34",
+      "original_reference_metrics": null
+    },
+    {
+      "candidate_id": "seed111_truth_rate_control_prior",
+      "case": "seed111_truth_rate_control",
+      "kind": "prior",
+      "spectrum": "outputs/stage114-source-final-study/seed111_truth_rate_control/correlation/shard-00000.npz",
+      "image": "outputs/stage115-source-study/seed111_truth_rate_control_prior/candidate.npy",
+      "generating": {
+        "model": "casa",
+        "assumed_flux_jy": 1000.0,
+        "assumed_sefd_jy": 10000.0,
+        "input_span_s": 3.04,
+        "station_rates_hz": [
+          0.0,
+          17.238461249075286,
+          -11.6209070489527,
+          26.11175840573129,
+          8.08474223123241,
+          -0.39558536117242193,
+          1.7327351088210015,
+          -3.0537668282099264
+        ],
+        "seed": 111,
+        "fft_length": 8,
+        "useful_rf_channel_centers": 3,
+        "narrowband_phase_bound_rad": 0.0062428836257420696,
+        "sky_temporal_phase_bound_rad": 0.0019191137615900767,
+        "limits": "Continuous periodic colored Gaussian with midpoint sky covariance at center RF; supplied exact nominal clocks; fixed broadband station delay, piecewise RF geometry and constant LO rate; no real antenna or RFI"
+      },
+      "settings": {
+        "pixel_arcsec": 16.0,
+        "min_snr": 10.0,
+        "prior_fwhm_arcsec": 240.0,
+        "entropy": 0.01,
+        "tsv": 0.0001,
+        "centroid": 0.1
+      },
+      "evaluation": {
+        "schema_version": 1,
+        "type": "unit_flux_closure_image_objective",
+        "settings": {
+          "pixels": 32,
+          "pixel_arcsec": 16.0,
+          "min_snr": 10.0,
+          "prior_fwhm_arcsec": 240.0,
+          "entropy": 0.01,
+          "tsv": 0.0001,
+          "centroid": 0.1
+        },
+        "candidate_sum_before_normalization": 1.0,
+        "unit_flux_sum": 1.0,
+        "metrics": {
+          "objective": 487.26082641207915,
+          "closure_chisq_per_measurement": 974.521639624498,
+          "data_loss": 487.260819812249,
+          "entropy_loss": 0.0,
+          "tsv_loss": 5.137008217050065e-06,
+          "centroid_loss": 1.462821947942248e-06,
+          "independent_closure_count": 36,
+          "independent_closure_counts": {
+            "phase": 20,
+            "logamp": 16
+          },
+          "centroid_arcsec": [
+            -0.6923420367865257,
+            -0.692342036786527
+          ]
+        },
+        "optimizer_executed": false,
+        "optimizer_parameter_sum_penalty_included": false,
+        "absolute_flux_measured": false,
+        "absolute_position_measured": false,
+        "actual_observation_success_certified": false,
+        "limits": "Same fixed observed high-SNR Gaussian closure approximation as current RML; wrapped phase loss. Unit-flux image cost excludes the optimizer parameter-scale penalty. Lower objective is not a certificate of true morphology, global optimality, or a calibrated image probability.",
+        "input_sha256": "9fee3b8afb0e2447eb220e7588831a1907cf6cc02635848aa43e31c04b063884",
+        "candidate_sha256": "5e455a946b98afb407f4ca172089894f23e8efebf2e479f60789b9c36c8f66d8"
+      },
+      "independent_losses": {
+        "objective": 487.26082641220404,
+        "data_loss": 487.2608198123739,
+        "entropy_loss": 0.0,
+        "tsv_loss": 5.137008217050065e-06,
+        "centroid_loss": 1.4628219479422514e-06,
+        "closure_chisq_per_measurement": 974.5216396247478
+      },
+      "independent_absolute_differences": {
+        "objective": 1.248849912371952e-10,
+        "data_loss": 1.248849912371952e-10,
+        "entropy_loss": 0.0,
+        "tsv_loss": 0.0,
+        "centroid_loss": 3.3881317890172014e-21,
+        "closure_chisq_per_measurement": 2.497699824743904e-10
+      },
+      "softmax_reference_checked": true,
+      "original_fitted_npy_sha256": "058166e51f690e3ddb4aa579e41f699881d6f715820a3cde4a4f6fe1916f5f34",
+      "original_reference_metrics": null
+    },
+    {
+      "candidate_id": "seed111_truth_rate_control_fitted",
+      "case": "seed111_truth_rate_control",
+      "kind": "fitted",
+      "spectrum": "outputs/stage114-source-final-study/seed111_truth_rate_control/correlation/shard-00000.npz",
+      "image": "outputs/stage115-source-study/seed111_truth_rate_control_fitted/candidate.npy",
+      "generating": {
+        "model": "casa",
+        "assumed_flux_jy": 1000.0,
+        "assumed_sefd_jy": 10000.0,
+        "input_span_s": 3.04,
+        "station_rates_hz": [
+          0.0,
+          17.238461249075286,
+          -11.6209070489527,
+          26.11175840573129,
+          8.08474223123241,
+          -0.39558536117242193,
+          1.7327351088210015,
+          -3.0537668282099264
+        ],
+        "seed": 111,
+        "fft_length": 8,
+        "useful_rf_channel_centers": 3,
+        "narrowband_phase_bound_rad": 0.0062428836257420696,
+        "sky_temporal_phase_bound_rad": 0.0019191137615900767,
+        "limits": "Continuous periodic colored Gaussian with midpoint sky covariance at center RF; supplied exact nominal clocks; fixed broadband station delay, piecewise RF geometry and constant LO rate; no real antenna or RFI"
+      },
+      "settings": {
+        "pixel_arcsec": 16.0,
+        "min_snr": 10.0,
+        "prior_fwhm_arcsec": 240.0,
+        "entropy": 0.01,
+        "tsv": 0.0001,
+        "centroid": 0.1
+      },
+      "evaluation": {
+        "schema_version": 1,
+        "type": "unit_flux_closure_image_objective",
+        "settings": {
+          "pixels": 32,
+          "pixel_arcsec": 16.0,
+          "min_snr": 10.0,
+          "prior_fwhm_arcsec": 240.0,
+          "entropy": 0.01,
+          "tsv": 0.0001,
+          "centroid": 0.1
+        },
+        "candidate_sum_before_normalization": 1.0,
+        "unit_flux_sum": 1.0,
+        "metrics": {
+          "objective": 0.16805882814637707,
+          "closure_chisq_per_measurement": 0.32382297110811287,
+          "data_loss": 0.16191148555405643,
+          "entropy_loss": 0.005833535028835003,
+          "tsv_loss": 0.0001590689693565317,
+          "centroid_loss": 0.00015473859412912943,
+          "independent_closure_count": 36,
+          "independent_closure_counts": {
+            "phase": 20,
+            "logamp": 16
+          },
+          "centroid_arcsec": [
+            -6.485971298511394,
+            -7.703353903550886
+          ]
+        },
+        "optimizer_executed": false,
+        "optimizer_parameter_sum_penalty_included": false,
+        "absolute_flux_measured": false,
+        "absolute_position_measured": false,
+        "actual_observation_success_certified": false,
+        "limits": "Same fixed observed high-SNR Gaussian closure approximation as current RML; wrapped phase loss. Unit-flux image cost excludes the optimizer parameter-scale penalty. Lower objective is not a certificate of true morphology, global optimality, or a calibrated image probability.",
+        "input_sha256": "9fee3b8afb0e2447eb220e7588831a1907cf6cc02635848aa43e31c04b063884",
+        "candidate_sha256": "058166e51f690e3ddb4aa579e41f699881d6f715820a3cde4a4f6fe1916f5f34"
+      },
+      "independent_losses": {
+        "objective": 0.16805882814642006,
+        "data_loss": 0.16191148555409943,
+        "entropy_loss": 0.005833535028835003,
+        "tsv_loss": 0.0001590689693565317,
+        "centroid_loss": 0.0001547385941291294,
+        "closure_chisq_per_measurement": 0.32382297110819885
+      },
+      "independent_absolute_differences": {
+        "objective": 4.299338662860919e-14,
+        "data_loss": 4.299338662860919e-14,
+        "entropy_loss": 0.0,
+        "tsv_loss": 0.0,
+        "centroid_loss": 2.710505431213761e-20,
+        "closure_chisq_per_measurement": 8.598677325721837e-14
+      },
+      "softmax_reference_checked": true,
+      "original_fitted_npy_sha256": "058166e51f690e3ddb4aa579e41f699881d6f715820a3cde4a4f6fe1916f5f34",
+      "original_reference_metrics": {
+        "raw_nrmse": 0.4487708437808898,
+        "registered_nrmse": 0.4295973238928779,
+        "registered_correlation": 0.925478086228117,
+        "registration_shift_yx_arcsec": [
+          18.260463387117365,
+          -16.0
+        ],
+        "common_beam_arcsec": 110.0,
+        "comparison_version": 2,
+        "registration_method": "All bounded integer cells, bilinear subpixels, 9 deterministic coordinate starts per cell",
+        "registration_max_shift_pixels": 31,
+        "registration_boundary_reached": false,
+        "registration_diagnostics": {
+          "shift_yx_pixels": [
+            1.1412789616948353,
+            -1.0
+          ],
+          "boundary_reached": false,
+          "grid_cells": 3844,
+          "multistarts_per_cell": 9,
+          "selected_coordinate_converged": true,
+          "selected_coordinate_iterations": 6,
+          "objective_identity_error": 3.2526065174565133e-19
+        },
+        "comparison_padding_pixels": 45,
+        "registered_flux_retained_fraction": 1.0000000000000002,
+        "comparison": "Unit-flux gauge, Gaussian common beam, translation only over complete zero-extended support. No post-shift flux rescaling, cropped-error masking, rotation, Jy calibration or astrometry."
+      }
+    },
+    {
+      "candidate_id": "seed111_ideal_model_observed_snr_control_truth",
+      "case": "seed111_ideal_model_observed_snr_control",
+      "kind": "truth",
+      "spectrum": "outputs/stage114-source-final-study/seed111_ideal_model_observed_snr_control/ideal-visibility.npz",
+      "image": "outputs/stage115-source-study/seed111_ideal_model_observed_snr_control_truth/candidate.npy",
+      "generating": {
+        "model": "casa",
+        "assumed_flux_jy": 1000.0,
+        "assumed_sefd_jy": 10000.0,
+        "input_span_s": 3.04,
+        "station_rates_hz": [
+          0.0,
+          17.238461249075286,
+          -11.6209070489527,
+          26.11175840573129,
+          8.08474223123241,
+          -0.39558536117242193,
+          1.7327351088210015,
+          -3.0537668282099264
+        ],
+        "seed": 111,
+        "fft_length": 8,
+        "useful_rf_channel_centers": 3,
+        "narrowband_phase_bound_rad": 0.0062428836257420696,
+        "sky_temporal_phase_bound_rad": 0.0019191137615900767,
+        "limits": "Continuous periodic colored Gaussian with midpoint sky covariance at center RF; supplied exact nominal clocks; fixed broadband station delay, piecewise RF geometry and constant LO rate; no real antenna or RFI"
+      },
+      "settings": {
+        "pixel_arcsec": 16.0,
+        "min_snr": 10.0,
+        "prior_fwhm_arcsec": 240.0,
+        "entropy": 0.01,
+        "tsv": 0.0001,
+        "centroid": 0.1
+      },
+      "evaluation": {
+        "schema_version": 1,
+        "type": "unit_flux_closure_image_objective",
+        "settings": {
+          "pixels": 32,
+          "pixel_arcsec": 16.0,
+          "min_snr": 10.0,
+          "prior_fwhm_arcsec": 240.0,
+          "entropy": 0.01,
+          "tsv": 0.0001,
+          "centroid": 0.1
+        },
+        "candidate_sum_before_normalization": 1000.0,
+        "unit_flux_sum": 0.9999999999999999,
+        "metrics": {
+          "objective": 0.0046497365338598745,
+          "closure_chisq_per_measurement": 6.609101015113564e-25,
+          "data_loss": 3.304550507556782e-25,
+          "entropy_loss": 0.003578738755140163,
+          "tsv_loss": 8.089251036460126e-05,
+          "centroid_loss": 0.0009901052683551103,
+          "independent_closure_count": 36,
+          "independent_closure_counts": {
+            "phase": 20,
+            "logamp": 16
+          },
+          "centroid_arcsec": [
+            -17.744381387572616,
+            18.276003880541598
+          ]
+        },
+        "optimizer_executed": false,
+        "optimizer_parameter_sum_penalty_included": false,
+        "absolute_flux_measured": false,
+        "absolute_position_measured": false,
+        "actual_observation_success_certified": false,
+        "limits": "Same fixed observed high-SNR Gaussian closure approximation as current RML; wrapped phase loss. Unit-flux image cost excludes the optimizer parameter-scale penalty. Lower objective is not a certificate of true morphology, global optimality, or a calibrated image probability.",
+        "input_sha256": "10d2d524ee7d6ccb18627b729a90fd33df43606c4e4c7dfb830468809a08f3b2",
+        "candidate_sha256": "9189445bdd1552a2ca885a019662b5d5158f44a1cf2101a1a6b626716c2e07f8"
+      },
+      "independent_losses": {
+        "objective": 0.0046497365338598745,
+        "data_loss": 2.3478553964722092e-29,
+        "entropy_loss": 0.003578738755140163,
+        "tsv_loss": 8.089251036460126e-05,
+        "centroid_loss": 0.0009901052683551105,
+        "closure_chisq_per_measurement": 4.6957107929444183e-29
+      },
+      "independent_absolute_differences": {
+        "objective": 0.0,
+        "data_loss": 3.3043157220171346e-25,
+        "entropy_loss": 0.0,
+        "tsv_loss": 0.0,
+        "centroid_loss": 2.168404344971009e-19,
+        "closure_chisq_per_measurement": 6.608631444034269e-25
+      },
+      "softmax_reference_checked": true,
+      "original_fitted_npy_sha256": "9ca03a7aa9d5ab49a40a141bda0404979f61625e7fd6bc225d5ace37fc2420f9",
+      "original_reference_metrics": null
+    },
+    {
+      "candidate_id": "seed111_ideal_model_observed_snr_control_prior",
+      "case": "seed111_ideal_model_observed_snr_control",
+      "kind": "prior",
+      "spectrum": "outputs/stage114-source-final-study/seed111_ideal_model_observed_snr_control/ideal-visibility.npz",
+      "image": "outputs/stage115-source-study/seed111_ideal_model_observed_snr_control_prior/candidate.npy",
+      "generating": {
+        "model": "casa",
+        "assumed_flux_jy": 1000.0,
+        "assumed_sefd_jy": 10000.0,
+        "input_span_s": 3.04,
+        "station_rates_hz": [
+          0.0,
+          17.238461249075286,
+          -11.6209070489527,
+          26.11175840573129,
+          8.08474223123241,
+          -0.39558536117242193,
+          1.7327351088210015,
+          -3.0537668282099264
+        ],
+        "seed": 111,
+        "fft_length": 8,
+        "useful_rf_channel_centers": 3,
+        "narrowband_phase_bound_rad": 0.0062428836257420696,
+        "sky_temporal_phase_bound_rad": 0.0019191137615900767,
+        "limits": "Continuous periodic colored Gaussian with midpoint sky covariance at center RF; supplied exact nominal clocks; fixed broadband station delay, piecewise RF geometry and constant LO rate; no real antenna or RFI"
+      },
+      "settings": {
+        "pixel_arcsec": 16.0,
+        "min_snr": 10.0,
+        "prior_fwhm_arcsec": 240.0,
+        "entropy": 0.01,
+        "tsv": 0.0001,
+        "centroid": 0.1
+      },
+      "evaluation": {
+        "schema_version": 1,
+        "type": "unit_flux_closure_image_objective",
+        "settings": {
+          "pixels": 32,
+          "pixel_arcsec": 16.0,
+          "min_snr": 10.0,
+          "prior_fwhm_arcsec": 240.0,
+          "entropy": 0.01,
+          "tsv": 0.0001,
+          "centroid": 0.1
+        },
+        "candidate_sum_before_normalization": 1.0,
+        "unit_flux_sum": 1.0,
+        "metrics": {
+          "objective": 563.5439436652119,
+          "closure_chisq_per_measurement": 1127.0878741307636,
+          "data_loss": 563.5439370653818,
+          "entropy_loss": 0.0,
+          "tsv_loss": 5.137008217050065e-06,
+          "centroid_loss": 1.462821947942248e-06,
+          "independent_closure_count": 36,
+          "independent_closure_counts": {
+            "phase": 20,
+            "logamp": 16
+          },
+          "centroid_arcsec": [
+            -0.6923420367865257,
+            -0.692342036786527
+          ]
+        },
+        "optimizer_executed": false,
+        "optimizer_parameter_sum_penalty_included": false,
+        "absolute_flux_measured": false,
+        "absolute_position_measured": false,
+        "actual_observation_success_certified": false,
+        "limits": "Same fixed observed high-SNR Gaussian closure approximation as current RML; wrapped phase loss. Unit-flux image cost excludes the optimizer parameter-scale penalty. Lower objective is not a certificate of true morphology, global optimality, or a calibrated image probability.",
+        "input_sha256": "10d2d524ee7d6ccb18627b729a90fd33df43606c4e4c7dfb830468809a08f3b2",
+        "candidate_sha256": "5e455a946b98afb407f4ca172089894f23e8efebf2e479f60789b9c36c8f66d8"
+      },
+      "independent_losses": {
+        "objective": 563.5439436653722,
+        "data_loss": 563.5439370655421,
+        "entropy_loss": 0.0,
+        "tsv_loss": 5.137008217050065e-06,
+        "centroid_loss": 1.4628219479422514e-06,
+        "closure_chisq_per_measurement": 1127.0878741310842
+      },
+      "independent_absolute_differences": {
+        "objective": 1.602984411874786e-10,
+        "data_loss": 1.602984411874786e-10,
+        "entropy_loss": 0.0,
+        "tsv_loss": 0.0,
+        "centroid_loss": 3.3881317890172014e-21,
+        "closure_chisq_per_measurement": 3.205968823749572e-10
+      },
+      "softmax_reference_checked": true,
+      "original_fitted_npy_sha256": "9ca03a7aa9d5ab49a40a141bda0404979f61625e7fd6bc225d5ace37fc2420f9",
+      "original_reference_metrics": null
+    },
+    {
+      "candidate_id": "seed111_ideal_model_observed_snr_control_fitted",
+      "case": "seed111_ideal_model_observed_snr_control",
+      "kind": "fitted",
+      "spectrum": "outputs/stage114-source-final-study/seed111_ideal_model_observed_snr_control/ideal-visibility.npz",
+      "image": "outputs/stage115-source-study/seed111_ideal_model_observed_snr_control_fitted/candidate.npy",
+      "generating": {
+        "model": "casa",
+        "assumed_flux_jy": 1000.0,
+        "assumed_sefd_jy": 10000.0,
+        "input_span_s": 3.04,
+        "station_rates_hz": [
+          0.0,
+          17.238461249075286,
+          -11.6209070489527,
+          26.11175840573129,
+          8.08474223123241,
+          -0.39558536117242193,
+          1.7327351088210015,
+          -3.0537668282099264
+        ],
+        "seed": 111,
+        "fft_length": 8,
+        "useful_rf_channel_centers": 3,
+        "narrowband_phase_bound_rad": 0.0062428836257420696,
+        "sky_temporal_phase_bound_rad": 0.0019191137615900767,
+        "limits": "Continuous periodic colored Gaussian with midpoint sky covariance at center RF; supplied exact nominal clocks; fixed broadband station delay, piecewise RF geometry and constant LO rate; no real antenna or RFI"
+      },
+      "settings": {
+        "pixel_arcsec": 16.0,
+        "min_snr": 10.0,
+        "prior_fwhm_arcsec": 240.0,
+        "entropy": 0.01,
+        "tsv": 0.0001,
+        "centroid": 0.1
+      },
+      "evaluation": {
+        "schema_version": 1,
+        "type": "unit_flux_closure_image_objective",
+        "settings": {
+          "pixels": 32,
+          "pixel_arcsec": 16.0,
+          "min_snr": 10.0,
+          "prior_fwhm_arcsec": 240.0,
+          "entropy": 0.01,
+          "tsv": 0.0001,
+          "centroid": 0.1
+        },
+        "candidate_sum_before_normalization": 1.0,
+        "unit_flux_sum": 1.0,
+        "metrics": {
+          "objective": 0.00031522644766484356,
+          "closure_chisq_per_measurement": 3.359130451827389e-05,
+          "data_loss": 1.6795652259136945e-05,
+          "entropy_loss": 0.00027539630439777615,
+          "tsv_loss": 2.2622963863394312e-05,
+          "centroid_loss": 4.1152714453613527e-07,
+          "independent_closure_count": 36,
+          "independent_closure_counts": {
+            "phase": 20,
+            "logamp": 16
+          },
+          "centroid_arcsec": [
+            0.493196820339946,
+            -0.16265093252043972
+          ]
+        },
+        "optimizer_executed": false,
+        "optimizer_parameter_sum_penalty_included": false,
+        "absolute_flux_measured": false,
+        "absolute_position_measured": false,
+        "actual_observation_success_certified": false,
+        "limits": "Same fixed observed high-SNR Gaussian closure approximation as current RML; wrapped phase loss. Unit-flux image cost excludes the optimizer parameter-scale penalty. Lower objective is not a certificate of true morphology, global optimality, or a calibrated image probability.",
+        "input_sha256": "10d2d524ee7d6ccb18627b729a90fd33df43606c4e4c7dfb830468809a08f3b2",
+        "candidate_sha256": "9ca03a7aa9d5ab49a40a141bda0404979f61625e7fd6bc225d5ace37fc2420f9"
+      },
+      "independent_losses": {
+        "objective": 0.00031522644766502717,
+        "data_loss": 1.679565225932056e-05,
+        "entropy_loss": 0.0002753963043977762,
+        "tsv_loss": 2.2622963863394312e-05,
+        "centroid_loss": 4.11527144536129e-07,
+        "closure_chisq_per_measurement": 3.359130451864112e-05
+      },
+      "independent_absolute_differences": {
+        "objective": 1.8360963791042018e-16,
+        "data_loss": 1.836164141739982e-16,
+        "entropy_loss": 5.421010862427522e-20,
+        "tsv_loss": 0.0,
+        "centroid_loss": 6.246867986000465e-21,
+        "closure_chisq_per_measurement": 3.672328283479964e-16
+      },
+      "softmax_reference_checked": true,
+      "original_fitted_npy_sha256": "9ca03a7aa9d5ab49a40a141bda0404979f61625e7fd6bc225d5ace37fc2420f9",
+      "original_reference_metrics": {
+        "raw_nrmse": 0.30997865116337,
+        "registered_nrmse": 0.2553361641118723,
+        "registered_correlation": 0.9761247192817974,
+        "registration_shift_yx_arcsec": [
+          16.638608778858572,
+          -24.126096334898826
+        ],
+        "common_beam_arcsec": 110.0,
+        "comparison_version": 2,
+        "registration_method": "All bounded integer cells, bilinear subpixels, 9 deterministic coordinate starts per cell",
+        "registration_max_shift_pixels": 31,
+        "registration_boundary_reached": false,
+        "registration_diagnostics": {
+          "shift_yx_pixels": [
+            1.0399130486786607,
+            -1.5078810209311766
+          ],
+          "boundary_reached": false,
+          "grid_cells": 3844,
+          "multistarts_per_cell": 9,
+          "selected_coordinate_converged": true,
+          "selected_coordinate_iterations": 6,
+          "objective_identity_error": 1.6263032587282567e-19
+        },
+        "comparison_padding_pixels": 45,
+        "registered_flux_retained_fraction": 0.9999999999999998,
+        "comparison": "Unit-flux gauge, Gaussian common beam, translation only over complete zero-extended support. No post-shift flux rescaling, cropped-error masking, rotation, Jy calibration or astrometry."
+      }
+    }
+  ],
+  "candidate_count": 27,
+  "maximum_independent_absolute_difference": 3.205968823749572e-10,
+  "optimizer_run_by_this_workflow": false,
+  "limits": "Nine fixed existing visibility inputs, three candidates each. Truth is a diagnostic candidate only. Model Fourier and covariance solve paths independently checked, but selected closure designs and fixed observed high-SNR approximation are shared. Image objective excludes parameter-sum penalty. Comparing different data/grid/weights/regularizers is not a likelihood ranking. No physical cause, uncertainty or global optimum certified.",
+  "public_absolute_paths_generalized": true
+}

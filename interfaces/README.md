@@ -39,6 +39,7 @@
 - [画像経路の完了・収束・参照画像差を分ける](image-assessment.md)
 - [同じrateで最終積分と画像を比較](integration-image-validation.md)
 - [真のrateと理想モデルを評価専用の画像対照にする](image-control-validation.md)
+- [候補画像のデータ損失と正則化を分解する](image-objective-evaluation.md)
 
 ### 配置・既知天体の条件比較
 
