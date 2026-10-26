@@ -137,6 +137,7 @@
 | 119 | [同じ視野・同じ観測の画像格子比較](119-fixed-field-image-grids.md) | 両37対象。新6 fitの導入CLI/FITS・全9科学JSONと画像一致。8格子3収束、通常経路NRMSE .240だが同格子prior .217。既定値変更なし |
 | 120 | [主画像経路の判断を全体文書へ反映](120-documentation-checkpoint.md) | 文書整理。技術基準119・全000〜119時系列、目的別進捗・計画・入口を統一。数値/ブラウザ/wheelは再実行せず引用を明示 |
 | 121 | [画像結果の三つの判定を日本語GUIへ接続](121-image-assessment-gui.md) | 処理状態・選択run収束・参照v2の差を分離。原本不変・JSON保存、両全2116・両実Chromiumの6記録とRML/CLEANを確認。画像性能の改善ではない |
+| 122 | [外部RML比較前の座標・誤差・Closure接続](122-ehtim-convention-bridge.md) | 固定EHTim1.3.2を独立envで実行。DFT60/Closure6/w項27、明示した型接続、両40対象。画像optimizer未実行・全2156はcollectのみ |
 
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。
 
