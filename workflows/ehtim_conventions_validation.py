@@ -157,14 +157,9 @@ def prepare(repository, output):
     (out/'summary.json').write_text(json.dumps(result, indent=2)+'\n'); return result
 
 
-def external(reference, output):
-    # optional外部依存は専用環境でだけimportする。productionへの依存追加はしない。
+def reference_observation_class():
+    """外部sourceを変えず、検証済みequal-time dtype接続を再利用する。"""
     import ehtim as eh
-    import ehtim.const_def as constants
-    from ehtim.observing.pulses import deltaPulse2D
-    import importlib.metadata
-    import sysconfig
-    import sys
     class GroupedReferenceObservation(eh.obsdata.Obsdata):
         # 外部原本は変更しない。試験したequal-timeのみ扱い、scan平均は拒否する。
         def tlist(self, conj=False, t_gather=0., scan_gather=False):
@@ -174,6 +169,19 @@ def external(reference, output):
 
         def copy(self):
             return deepcopy(self)
+
+    return GroupedReferenceObservation
+
+
+def external(reference, output):
+    # optional外部依存は専用環境でだけimportする。productionへの依存追加はしない。
+    import ehtim as eh
+    import ehtim.const_def as constants
+    from ehtim.observing.pulses import deltaPulse2D
+    import importlib.metadata
+    import sysconfig
+    import sys
+    GroupedReferenceObservation = reference_observation_class()
 
     prefix = Path(sysconfig.get_path('purelib')).resolve()
     assert Path(eh.__file__).resolve().is_relative_to(prefix)

@@ -1,0 +1,168 @@
+{
+  "state": "complete",
+  "method": "native",
+  "input_sha256": "c88a68ef105d869f22f998408fc2808d85134b76ac8cda20279032dfebf86577",
+  "summary": {
+    "objective": 0.002856915810931535,
+    "closure_chisq_per_measurement": 0.00082047246170285,
+    "data_loss": 0.000410236230851425,
+    "entropy_loss": 0.0017017824806264692,
+    "tsv_loss": 0.0002462127177427575,
+    "centroid_loss": 0.0004986843764375018,
+    "independent_closure_count": 210,
+    "independent_closure_counts": {
+      "phase": 117,
+      "logamp": 93
+    },
+    "centroid_arcsec": [
+      -13.455469786154975,
+      12.073447137249236
+    ],
+    "parameter_sum_penalty": 5.273381281136001e-12,
+    "selected_start": 1,
+    "runs": [
+      {
+        "objective": 0.002858017796041241,
+        "closure_chisq_per_measurement": 0.0008144133938794189,
+        "data_loss": 0.00040720669693970947,
+        "entropy_loss": 0.0017082893644880099,
+        "tsv_loss": 0.0002471991328779034,
+        "centroid_loss": 0.0004953225930095466,
+        "independent_closure_count": 210,
+        "independent_closure_counts": {
+          "phase": 117,
+          "logamp": 93
+        },
+        "centroid_arcsec": [
+          -13.58531247509287,
+          11.834437016978145
+        ],
+        "parameter_sum_penalty": 8.726071548360758e-12,
+        "start": 0,
+        "circular_warmup_iterations": 300,
+        "iterations": 800,
+        "optimizer_success": false,
+        "optimizer_message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT"
+      },
+      {
+        "objective": 0.002856915810931535,
+        "closure_chisq_per_measurement": 0.00082047246170285,
+        "data_loss": 0.000410236230851425,
+        "entropy_loss": 0.0017017824806264692,
+        "tsv_loss": 0.0002462127177427575,
+        "centroid_loss": 0.0004986843764375018,
+        "independent_closure_count": 210,
+        "independent_closure_counts": {
+          "phase": 117,
+          "logamp": 93
+        },
+        "centroid_arcsec": [
+          -13.455469786154975,
+          12.073447137249236
+        ],
+        "parameter_sum_penalty": 5.273381281136001e-12,
+        "start": 1,
+        "circular_warmup_iterations": 300,
+        "iterations": 689,
+        "optimizer_success": true,
+        "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH"
+      },
+      {
+        "objective": 0.015757445364551544,
+        "closure_chisq_per_measurement": 0.018551216240307315,
+        "data_loss": 0.009275608120153657,
+        "entropy_loss": 0.002650629549363576,
+        "tsv_loss": 0.0002481398164019729,
+        "centroid_loss": 0.003583067811505402,
+        "independent_closure_count": 210,
+        "independent_closure_counts": {
+          "phase": 117,
+          "logamp": 93
+        },
+        "centroid_arcsec": [
+          26.778771487436643,
+          -40.38683843248727
+        ],
+        "parameter_sum_penalty": 6.712693765538159e-11,
+        "start": 2,
+        "circular_warmup_iterations": 300,
+        "iterations": 487,
+        "optimizer_success": true,
+        "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH"
+      }
+    ],
+    "image_sum": 0.9999999999999999,
+    "output_unit": "relative flux/pixel",
+    "absolute_flux_measured": false,
+    "absolute_position_measured": false,
+    "amplitude_constraints_available": true,
+    "centroid_constraint": "Weak penalty around display center; actual centroid reported; not measured astrometry",
+    "settings": {
+      "pixels": 8,
+      "pixel_arcsec": 64.0,
+      "prior_fwhm_arcsec": 240.0,
+      "entropy": 0.01,
+      "tsv": 0.0001,
+      "centroid": 0.1,
+      "min_snr": 10.0,
+      "starts": 3,
+      "max_iterations": 800,
+      "seed": 21
+    },
+    "noise_model": "Fixed observed high SNR independent-baseline covariance, full within each closure cell",
+    "likelihood_limit": "Wrapped local Gaussian phase residual; low SNR and phase branch boundaries excluded"
+  },
+  "actual_optimizer_calls": [
+    {
+      "optimizer_success": false,
+      "optimizer_status": 1,
+      "optimizer_message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+      "iterations": 300,
+      "function_evaluations": 313,
+      "objective": 0.0058941208863085345
+    },
+    {
+      "optimizer_success": false,
+      "optimizer_status": 1,
+      "optimizer_message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+      "iterations": 800,
+      "function_evaluations": 876,
+      "objective": 0.002858017796041241
+    },
+    {
+      "optimizer_success": false,
+      "optimizer_status": 1,
+      "optimizer_message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+      "iterations": 300,
+      "function_evaluations": 306,
+      "objective": 0.002869170435157698
+    },
+    {
+      "optimizer_success": true,
+      "optimizer_status": 0,
+      "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "iterations": 689,
+      "function_evaluations": 828,
+      "objective": 0.002856915810931535
+    },
+    {
+      "optimizer_success": false,
+      "optimizer_status": 1,
+      "optimizer_message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+      "iterations": 300,
+      "function_evaluations": 311,
+      "objective": 0.015832642739766756
+    },
+    {
+      "optimizer_success": true,
+      "optimizer_status": 0,
+      "optimizer_message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "iterations": 487,
+      "function_evaluations": 524,
+      "objective": 0.015757445364551544
+    }
+  ],
+  "initial_image_maximum_difference": 0.0,
+  "image_sha256": "e4acff2840d426460ce2996cb2d122a3d096cca9ca64c7748b728854c65df49f",
+  "actual_observation_validated": false
+}

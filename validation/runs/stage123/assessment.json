@@ -1,0 +1,287 @@
+{
+  "stage": 123,
+  "state": "complete",
+  "candidates": {
+    "truth": {
+      "native_common_objective": {
+        "schema_version": 1,
+        "type": "unit_flux_closure_image_objective",
+        "settings": {
+          "pixels": 8,
+          "pixel_arcsec": 64.0,
+          "min_snr": 10.0,
+          "prior_fwhm_arcsec": 240.0,
+          "entropy": 0.01,
+          "tsv": 0.0001,
+          "centroid": 0.1
+        },
+        "candidate_sum_before_normalization": 0.9999999999999999,
+        "unit_flux_sum": 1.0,
+        "metrics": {
+          "objective": 0.0037444162072919835,
+          "closure_chisq_per_measurement": 5.528950487394904e-29,
+          "data_loss": 2.764475243697452e-29,
+          "entropy_loss": 0.0024647971559227885,
+          "tsv_loss": 0.00028062187171630005,
+          "centroid_loss": 0.0009989971796528947,
+          "independent_closure_count": 210,
+          "independent_closure_counts": {
+            "phase": 117,
+            "logamp": 93
+          },
+          "centroid_arcsec": [
+            -17.76915749612032,
+            18.41086183575859
+          ]
+        },
+        "optimizer_executed": false,
+        "optimizer_parameter_sum_penalty_included": false,
+        "absolute_flux_measured": false,
+        "absolute_position_measured": false,
+        "actual_observation_success_certified": false,
+        "limits": "Same fixed observed high-SNR Gaussian closure approximation as current RML; wrapped phase loss. Unit-flux image cost excludes the optimizer parameter-scale penalty. Lower objective is not a certificate of true morphology, global optimality, or a calibrated image probability."
+      },
+      "reference_metrics": {
+        "raw_nrmse": 0.0,
+        "registered_nrmse": 0.0,
+        "registered_correlation": 0.9999999999999999,
+        "registration_shift_yx_arcsec": [
+          0.0,
+          0.0
+        ],
+        "common_beam_arcsec": 110.0,
+        "comparison_version": 2,
+        "registration_method": "All bounded integer cells, bilinear subpixels, 9 deterministic coordinate starts per cell",
+        "registration_max_shift_pixels": 7,
+        "registration_boundary_reached": false,
+        "registration_diagnostics": {
+          "shift_yx_pixels": [
+            0.0,
+            0.0
+          ],
+          "boundary_reached": false,
+          "grid_cells": 196,
+          "multistarts_per_cell": 9,
+          "selected_coordinate_converged": true,
+          "selected_coordinate_iterations": 7,
+          "objective_identity_error": 0.0
+        },
+        "comparison_padding_pixels": 12,
+        "registered_flux_retained_fraction": 1.0,
+        "comparison": "Unit-flux gauge, Gaussian common beam, translation only over complete zero-extended support. No post-shift flux rescaling, cropped-error masking, rotation, Jy calibration or astrometry."
+      }
+    },
+    "prior": {
+      "native_common_objective": {
+        "schema_version": 1,
+        "type": "unit_flux_closure_image_objective",
+        "settings": {
+          "pixels": 8,
+          "pixel_arcsec": 64.0,
+          "min_snr": 10.0,
+          "prior_fwhm_arcsec": 240.0,
+          "entropy": 0.01,
+          "tsv": 0.0001,
+          "centroid": 0.1
+        },
+        "candidate_sum_before_normalization": 1.0,
+        "unit_flux_sum": 1.0,
+        "metrics": {
+          "objective": 381.416890773934,
+          "closure_chisq_per_measurement": 762.833580179073,
+          "data_loss": 381.4167900895365,
+          "entropy_loss": 0.0,
+          "tsv_loss": 7.71569179032074e-05,
+          "centroid_loss": 2.3527479634246545e-05,
+          "independent_closure_count": 210,
+          "independent_closure_counts": {
+            "phase": 117,
+            "logamp": 93
+          },
+          "centroid_arcsec": [
+            -2.7765958522172305,
+            -2.776595852217223
+          ]
+        },
+        "optimizer_executed": false,
+        "optimizer_parameter_sum_penalty_included": false,
+        "absolute_flux_measured": false,
+        "absolute_position_measured": false,
+        "actual_observation_success_certified": false,
+        "limits": "Same fixed observed high-SNR Gaussian closure approximation as current RML; wrapped phase loss. Unit-flux image cost excludes the optimizer parameter-scale penalty. Lower objective is not a certificate of true morphology, global optimality, or a calibrated image probability."
+      },
+      "reference_metrics": {
+        "raw_nrmse": 0.2778382939954494,
+        "registered_nrmse": 0.22692290271085805,
+        "registered_correlation": 0.9814578467135828,
+        "registration_shift_yx_arcsec": [
+          18.271694385208136,
+          -22.21718639152479
+        ],
+        "common_beam_arcsec": 110.0,
+        "comparison_version": 2,
+        "registration_method": "All bounded integer cells, bilinear subpixels, 9 deterministic coordinate starts per cell",
+        "registration_max_shift_pixels": 7,
+        "registration_boundary_reached": false,
+        "registration_diagnostics": {
+          "shift_yx_pixels": [
+            0.2854952247688771,
+            -0.34714353736757486
+          ],
+          "boundary_reached": false,
+          "grid_cells": 196,
+          "multistarts_per_cell": 9,
+          "selected_coordinate_converged": true,
+          "selected_coordinate_iterations": 7,
+          "objective_identity_error": 8.023096076392733e-18
+        },
+        "comparison_padding_pixels": 12,
+        "registered_flux_retained_fraction": 1.0,
+        "comparison": "Unit-flux gauge, Gaussian common beam, translation only over complete zero-extended support. No post-shift flux rescaling, cropped-error masking, rotation, Jy calibration or astrometry."
+      }
+    },
+    "native": {
+      "native_common_objective": {
+        "schema_version": 1,
+        "type": "unit_flux_closure_image_objective",
+        "settings": {
+          "pixels": 8,
+          "pixel_arcsec": 64.0,
+          "min_snr": 10.0,
+          "prior_fwhm_arcsec": 240.0,
+          "entropy": 0.01,
+          "tsv": 0.0001,
+          "centroid": 0.1
+        },
+        "candidate_sum_before_normalization": 0.9999999999999999,
+        "unit_flux_sum": 1.0,
+        "metrics": {
+          "objective": 0.0028569158056581598,
+          "closure_chisq_per_measurement": 0.0008204724617028584,
+          "data_loss": 0.0004102362308514292,
+          "entropy_loss": 0.0017017824806264711,
+          "tsv_loss": 0.0002462127177427576,
+          "centroid_loss": 0.000498684376437502,
+          "independent_closure_count": 210,
+          "independent_closure_counts": {
+            "phase": 117,
+            "logamp": 93
+          },
+          "centroid_arcsec": [
+            -13.455469786154977,
+            12.073447137249241
+          ]
+        },
+        "optimizer_executed": false,
+        "optimizer_parameter_sum_penalty_included": false,
+        "absolute_flux_measured": false,
+        "absolute_position_measured": false,
+        "actual_observation_success_certified": false,
+        "limits": "Same fixed observed high-SNR Gaussian closure approximation as current RML; wrapped phase loss. Unit-flux image cost excludes the optimizer parameter-scale penalty. Lower objective is not a certificate of true morphology, global optimality, or a calibrated image probability."
+      },
+      "reference_metrics": {
+        "raw_nrmse": 0.05810947236756537,
+        "registered_nrmse": 0.054974344297631796,
+        "registered_correlation": 0.9990688087336438,
+        "registration_shift_yx_arcsec": [
+          0.9504085170255867,
+          -2.536881343386206
+        ],
+        "common_beam_arcsec": 110.0,
+        "comparison_version": 2,
+        "registration_method": "All bounded integer cells, bilinear subpixels, 9 deterministic coordinate starts per cell",
+        "registration_max_shift_pixels": 7,
+        "registration_boundary_reached": false,
+        "registration_diagnostics": {
+          "shift_yx_pixels": [
+            0.014850133078524792,
+            -0.039638770990409466
+          ],
+          "boundary_reached": false,
+          "grid_cells": 196,
+          "multistarts_per_cell": 9,
+          "selected_coordinate_converged": true,
+          "selected_coordinate_iterations": 7,
+          "objective_identity_error": 1.0516761073109393e-17
+        },
+        "comparison_padding_pixels": 12,
+        "registered_flux_retained_fraction": 0.9999999999999996,
+        "comparison": "Unit-flux gauge, Gaussian common beam, translation only over complete zero-extended support. No post-shift flux rescaling, cropped-error masking, rotation, Jy calibration or astrometry."
+      }
+    },
+    "ehtim": {
+      "native_common_objective": {
+        "schema_version": 1,
+        "type": "unit_flux_closure_image_objective",
+        "settings": {
+          "pixels": 8,
+          "pixel_arcsec": 64.0,
+          "min_snr": 10.0,
+          "prior_fwhm_arcsec": 240.0,
+          "entropy": 0.01,
+          "tsv": 0.0001,
+          "centroid": 0.1
+        },
+        "candidate_sum_before_normalization": 1.0,
+        "unit_flux_sum": 1.0,
+        "metrics": {
+          "objective": 0.5729711041626304,
+          "closure_chisq_per_measurement": 1.1401770881005424,
+          "data_loss": 0.5700885440502712,
+          "entropy_loss": 0.0014554499491359798,
+          "tsv_loss": 0.00026148099671148214,
+          "centroid_loss": 0.001165629166511701,
+          "independent_closure_count": 210,
+          "independent_closure_counts": {
+            "phase": 117,
+            "logamp": 93
+          },
+          "centroid_arcsec": [
+            -24.361935834754483,
+            -13.053842842183052
+          ]
+        },
+        "optimizer_executed": false,
+        "optimizer_parameter_sum_penalty_included": false,
+        "absolute_flux_measured": false,
+        "absolute_position_measured": false,
+        "actual_observation_success_certified": false,
+        "limits": "Same fixed observed high-SNR Gaussian closure approximation as current RML; wrapped phase loss. Unit-flux image cost excludes the optimizer parameter-scale penalty. Lower objective is not a certificate of true morphology, global optimality, or a calibrated image probability."
+      },
+      "reference_metrics": {
+        "raw_nrmse": 0.2156878638080182,
+        "registered_nrmse": 0.12460649370920658,
+        "registered_correlation": 0.9951785642087239,
+        "registration_shift_yx_arcsec": [
+          27.586181286650998,
+          1.265741083776499
+        ],
+        "common_beam_arcsec": 110.0,
+        "comparison_version": 2,
+        "registration_method": "All bounded integer cells, bilinear subpixels, 9 deterministic coordinate starts per cell",
+        "registration_max_shift_pixels": 7,
+        "registration_boundary_reached": false,
+        "registration_diagnostics": {
+          "shift_yx_pixels": [
+            0.43103408260392184,
+            0.019777204434007798
+          ],
+          "boundary_reached": false,
+          "grid_cells": 196,
+          "multistarts_per_cell": 9,
+          "selected_coordinate_converged": true,
+          "selected_coordinate_iterations": 7,
+          "objective_identity_error": 1.0842021724855044e-17
+        },
+        "comparison_padding_pixels": 12,
+        "registered_flux_retained_fraction": 1.0,
+        "comparison": "Unit-flux gauge, Gaussian common beam, translation only over complete zero-extended support. No post-shift flux rescaling, cropped-error masking, rotation, Jy calibration or astrometry."
+      }
+    }
+  },
+  "input_sha256": "c88a68ef105d869f22f998408fc2808d85134b76ac8cda20279032dfebf86577",
+  "w_zero_control_only": true,
+  "physical_receiver_noise_generated": false,
+  "image_methods_ranked_by_truth": false,
+  "actual_observation_validated": false
+}

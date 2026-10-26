@@ -1,0 +1,134 @@
+{
+  "settings": {
+    "pixels": 8,
+    "pixel_arcsec": 64.0,
+    "prior_fwhm_arcsec": 240.0,
+    "entropy": 0.01,
+    "tsv": 0.0001,
+    "centroid": 0.1,
+    "min_snr": 10.0,
+    "starts": 3,
+    "max_iterations": 800,
+    "seed": 21
+  },
+  "external_data": {
+    "cphase": 100.0,
+    "logcamp": 100.0
+  },
+  "external_reg": {
+    "simple": 1.0,
+    "tv2": 0.1,
+    "flux": 10000.0,
+    "cm": 0.1
+  },
+  "external_stop": 1e-11,
+  "external_maxset": false,
+  "reference_unit": "arbitrary relative scalar visibility; not calibrated Jy or Stokes I",
+  "source_input": "outputs/stage118-source-study/truth_rate_control/visibility.npz",
+  "source_sha256": "7bb8712e402681c20e5dbdee401cbdfe57c31f1457b5de7a67d51b7d25009057",
+  "site": {
+    "latitude_deg": 35.0,
+    "longitude_deg": 135.0,
+    "height_m": 0.0,
+    "description": "Assumed public synthetic site, not an actual observation location"
+  },
+  "stations": [
+    {
+      "id": "ST01",
+      "enu_m": [
+        -228.58179532783782,
+        -148.5781669630946,
+        0.0
+      ],
+      "sefd_jy": 10000.0
+    },
+    {
+      "id": "ST02",
+      "enu_m": [
+        -205.72361579505403,
+        -114.29089766391891,
+        0.0
+      ],
+      "sefd_jy": 10000.0
+    },
+    {
+      "id": "ST03",
+      "enu_m": [
+        182.86543626227024,
+        -205.72361579505403,
+        0.0
+      ],
+      "sefd_jy": 10000.0
+    },
+    {
+      "id": "ST04",
+      "enu_m": [
+        251.4399748606216,
+        194.29452602866215,
+        0.0
+      ],
+      "sefd_jy": 10000.0
+    },
+    {
+      "id": "ST05",
+      "enu_m": [
+        -274.29815439340535,
+        182.86543626227024,
+        0.0
+      ],
+      "sefd_jy": 10000.0
+    },
+    {
+      "id": "ST06",
+      "enu_m": [
+        -45.71635906556756,
+        45.71635906556756,
+        0.0
+      ],
+      "sefd_jy": 10000.0
+    },
+    {
+      "id": "ST07",
+      "enu_m": [
+        45.71635906556756,
+        -91.43271813113512,
+        0.0
+      ],
+      "sefd_jy": 10000.0
+    },
+    {
+      "id": "ST08",
+      "enu_m": [
+        205.72361579505403,
+        22.85817953278378,
+        0.0
+      ],
+      "sefd_jy": 10000.0
+    }
+  ],
+  "source_direction": {
+    "ra_deg": 350.8664166662,
+    "dec_deg": 58.8117777793
+  },
+  "input_sha256": "c88a68ef105d869f22f998408fc2808d85134b76ac8cda20279032dfebf86577",
+  "truth_sha256": "c9c3d44f1af46322ac1fd0d7d167773e393704c278e3e22d8aa7e2bf91992bf6",
+  "generation_gains_sha256": "0a77ffadc75ca295c394e5e8a34df8fa3fb78a9d6490f73eff4ae19bfc2f2d25",
+  "integration_s_range": [
+    3.0,
+    3.0
+  ],
+  "times_s_range": [
+    1.502,
+    12601.501999999999
+  ],
+  "reference_gain_seed": 123,
+  "common_mask_preserved": true,
+  "station_gain_maximum_closure_difference": {
+    "phase": 1.0824674490095276e-15,
+    "logamp": 1.3322676295501878e-15
+  },
+  "physical_receiver_noise_generated": false,
+  "w_zero_control_only": true,
+  "truth_and_gain_in_fitter_input": false,
+  "actual_observation_validated": false
+}

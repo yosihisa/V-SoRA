@@ -1,0 +1,74 @@
+{
+  "stage": 123,
+  "state": "complete",
+  "arrays_exact": 16,
+  "all_native_science_json_equal": true,
+  "all_external_science_json_equal": true,
+  "all_assessment_json_equal": true,
+  "native_core_prefixes": 4,
+  "external_prefixes": 6,
+  "working_directory_outside_checkout": true,
+  "repository_runner_invoked": false,
+  "all_four_nonoverwrite_checks": true,
+  "all_input_and_output_bytes_unchanged": true,
+  "native_initializations_each": 3,
+  "external_initializations_each": 3,
+  "native_minimize_calls_each": 6,
+  "external_minimize_calls_each": 3,
+  "native_selected_start": 1,
+  "native_selected_converged": true,
+  "external_selected_start": 1,
+  "external_selected_converged": false,
+  "native_converged_runs": 2,
+  "external_converged_runs": 0,
+  "maximum_actual_initial_image_difference": 1.3877787807814457e-17,
+  "w_zero_control_only": true,
+  "physical_receiver_noise_generated": false,
+  "actual_observation_validated": false,
+  "targeted": {
+    "source": {
+      "passed": 58,
+      "elapsed_s": 1.31,
+      "new_tests": 18,
+      "reused_stage122_tests": 40,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 58,
+      "elapsed_s": 0.76,
+      "new_tests": 18,
+      "reused_stage122_tests": 40,
+      "excluded_tests": 0
+    }
+  },
+  "tests_collected_each": 2174,
+  "full2174_executed": false,
+  "cited_full_stage": 121,
+  "cited_full_tests_each": 2116,
+  "cited_full_elapsed_s": {
+    "source": 609.28,
+    "installed": 607.5
+  },
+  "cited_full_warnings_each": 27396,
+  "cited_full_excluded": 0,
+  "frozen_files": 409,
+  "all_frozen_sha_unchanged": true,
+  "existing_core_package_files_unchanged": 215,
+  "core_wheel_package_bytes_checked": 103,
+  "reference_assets_bytes_checked": 4,
+  "external_original_package_files_checked": 49,
+  "main_verification_environment_freeze_unchanged": true,
+  "new_wheel_or_gui_browser_run": false,
+  "stage122_full_external_reference_regression_passed": true,
+  "inherited_integration_s": [
+    3.0,
+    3.0
+  ],
+  "initial_template_tint_s": 0.3,
+  "metadata_fix_changed_images": false,
+  "public_audit_findings": 0,
+  "documentation_links": {
+    "checked": 1611,
+    "missing": 0
+  }
+}

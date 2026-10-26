@@ -1,0 +1,170 @@
+{
+  "state": "complete",
+  "method": "ehtim1.3.2",
+  "input_sha256": "c88a68ef105d869f22f998408fc2808d85134b76ac8cda20279032dfebf86577",
+  "selected_start": 1,
+  "runs": [
+    {
+      "start": 0,
+      "optimizer_success": false,
+      "optimizer_status": 1,
+      "optimizer_message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+      "iterations": 800,
+      "function_evaluations": 835,
+      "objective": -599.5915720466395,
+      "external_chisq_terms": {
+        "cphase_0": 0.0002792786324071538,
+        "cphase_1": 0.00020908321997664943,
+        "cphase_2": 0.0002246869540548026,
+        "logcamp_0": 1.2458241818473918e-06,
+        "logcamp_1": 1.5033178982600173e-06,
+        "logcamp_2": 5.307414219125844e-07
+      },
+      "external_regularizer_terms": {
+        "cm": 0.927302851982146,
+        "flux": 1.0342335570148365e-10,
+        "simple": 0.20519554400971213,
+        "tv2": 0.3886822092499428
+      },
+      "image_flux_before_gauge_normalization": 0.9999898302725847,
+      "initial_image_maximum_difference": 1.3877787807814457e-17
+    },
+    {
+      "start": 1,
+      "optimizer_success": false,
+      "optimizer_status": 1,
+      "optimizer_message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+      "iterations": 800,
+      "function_evaluations": 838,
+      "objective": -599.7704842135652,
+      "external_chisq_terms": {
+        "cphase_0": 6.364428163650285e-05,
+        "cphase_1": 4.198198659291416e-05,
+        "cphase_2": 4.154033692180108e-05,
+        "logcamp_0": 5.267649998977801e-06,
+        "logcamp_1": 1.6038311203623086e-06,
+        "logcamp_2": 4.117400566718573e-06
+      },
+      "external_regularizer_terms": {
+        "cm": 0.36609179132352077,
+        "flux": 6.729762728001022e-10,
+        "simple": 0.14551527776671425,
+        "tv2": 0.3156905108924572
+      },
+      "image_flux_before_gauge_normalization": 0.9999740582137701,
+      "initial_image_maximum_difference": 1.3877787807814457e-17
+    },
+    {
+      "start": 2,
+      "optimizer_success": false,
+      "optimizer_status": 1,
+      "optimizer_message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+      "iterations": 800,
+      "function_evaluations": 835,
+      "objective": -599.4244730020325,
+      "external_chisq_terms": {
+        "cphase_0": 0.00022504815678746893,
+        "cphase_1": 0.0010403842719220121,
+        "cphase_2": 0.0008013668590682573,
+        "logcamp_0": 1.3167438947296702e-05,
+        "logcamp_1": 4.084505631514438e-06,
+        "logcamp_2": 5.488548186775093e-06
+      },
+      "external_regularizer_terms": {
+        "cm": 0.6172181853765867,
+        "flux": 1.27276550942672e-08,
+        "simple": 0.25952282319375264,
+        "tv2": 0.45201101630817025
+      },
+      "image_flux_before_gauge_normalization": 0.9998871830903884,
+      "initial_image_maximum_difference": 1.3877787807814457e-17
+    }
+  ],
+  "channels": [
+    {
+      "channel_index": 0,
+      "frequency_hz": 1418976000.0,
+      "rows": 0
+    },
+    {
+      "channel_index": 1,
+      "frequency_hz": 1419232000.0,
+      "rows": 0
+    },
+    {
+      "channel_index": 2,
+      "frequency_hz": 1419488000.0,
+      "rows": 0
+    },
+    {
+      "channel_index": 3,
+      "frequency_hz": 1419744000.0,
+      "rows": 97
+    },
+    {
+      "channel_index": 4,
+      "frequency_hz": 1420000000.0,
+      "rows": 94
+    },
+    {
+      "channel_index": 5,
+      "frequency_hz": 1420256000.0,
+      "rows": 92
+    },
+    {
+      "channel_index": 6,
+      "frequency_hz": 1420512000.0,
+      "rows": 0
+    },
+    {
+      "channel_index": 7,
+      "frequency_hz": 1420768000.0,
+      "rows": 0
+    }
+  ],
+  "half_pixel_closure_checks": [
+    {
+      "maximum_corrected_visibility_difference": 7.622209927893056e-16,
+      "phase_closure_maximum_difference": 1.876505759165559e-13,
+      "logamp_closure_maximum_difference": 4.96269692007445e-13
+    },
+    {
+      "maximum_corrected_visibility_difference": 7.687643896702463e-16,
+      "phase_closure_maximum_difference": 1.8984813721090177e-13,
+      "logamp_closure_maximum_difference": 4.163336342344337e-13
+    },
+    {
+      "maximum_corrected_visibility_difference": 7.772800161809615e-16,
+      "phase_closure_maximum_difference": 9.126713556830723e-15,
+      "logamp_closure_maximum_difference": 8.43769498715119e-15
+    },
+    {
+      "maximum_corrected_visibility_difference": 7.76766021162747e-16,
+      "phase_closure_maximum_difference": 5.573999878030222e-15,
+      "logamp_closure_maximum_difference": 6.897260540483785e-15
+    }
+  ],
+  "fitted_frequency_groups": 3,
+  "data_term": {
+    "cphase": 100.0,
+    "logcamp": 100.0
+  },
+  "reg_term": {
+    "simple": 1.0,
+    "tv2": 0.1,
+    "flux": 10000.0,
+    "cm": 0.1
+  },
+  "optimizer_args": {
+    "maxit": 800,
+    "stop": 1e-11,
+    "ttype": "direct",
+    "debias": false,
+    "maxset": false,
+    "norm_reg": true
+  },
+  "image_sha256": "d7cd41c27b95a7231950d2f94b70dfdda3d8563edd389b0703df6bbc2ee193ee",
+  "optimizer_results_observed_without_modification": true,
+  "physical_jy_or_stokes_calibration_performed": false,
+  "actual_observation_validated": false
+}
