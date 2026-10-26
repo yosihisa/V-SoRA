@@ -1,0 +1,40 @@
+{
+  "state": "complete",
+  "all_science_json_and_image_bytes_identical": [
+    "all3",
+    "omit109",
+    "omit110",
+    "omit111"
+  ],
+  "all_input_sha_unchanged": true,
+  "outside_checkout": true,
+  "runner_absent": true,
+  "pythonpath_absent": true,
+  "workflow_not_imported": true,
+  "project_modules": [
+    "vsora_formats",
+    "vsora_formats.spectral",
+    "vsora_imaging",
+    "vsora_imaging.assessment",
+    "vsora_imaging.closure",
+    "vsora_imaging.experiment",
+    "vsora_imaging.objective_evaluation",
+    "vsora_imaging.registration",
+    "vsora_imaging.rml",
+    "vsora_observation",
+    "vsora_observation.config",
+    "vsora_observation.geometry",
+    "vsora_simulator",
+    "vsora_simulator.sky",
+    "vsora_simulator.visibility"
+  ],
+  "all_project_modules_in_prefix": true,
+  "native_solver_calls": 4,
+  "starts_each": 3,
+  "no_actual_time_axis_fabricated": true,
+  "non_overwrite": {
+    "refused_before_repeated_fit": true,
+    "all_output_bytes_preserved": true,
+    "files": 9
+  }
+}
