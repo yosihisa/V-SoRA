@@ -40,5 +40,11 @@
   "documentation_links": {
     "checked": 1480,
     "missing": 0
-  }
+  },
+  "report_index_completion_labels_verified": [
+    113,
+    114
+  ],
+  "report_index_table_rows_contiguous": 115,
+  "documentation_followup_scientific_changes": false
 }
