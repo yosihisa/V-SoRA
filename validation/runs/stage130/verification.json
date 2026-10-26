@@ -1,0 +1,59 @@
+{
+  "stage": 130,
+  "state": "complete",
+  "technical_baseline_stage": 129,
+  "technical_baseline_commit": "483a0b9d3c665a0688653dfc1beb3e0d7ca39ccb",
+  "new_numerical_tests_run": false,
+  "new_collect_run": false,
+  "new_wheel_or_browser_run": false,
+  "raw_regenerated_recorrelated_or_refitted": false,
+  "chronology_first_add_stages": 130,
+  "all_public_author_committer_identities_verified": true,
+  "all_chronology_report_paths_exist": true,
+  "old_individual_reports_sha_unchanged": 130,
+  "old_code_test_tool_workflow_config_sha_unchanged": 422,
+  "all_nonstage_tracked_sha_unchanged": 1322,
+  "primary_current_documents_aligned": [
+    "README.md",
+    "docs/README.md",
+    "docs/design/development-governance.md",
+    "docs/design/development-roadmap.md",
+    "docs/guide/09-observation-readiness.md",
+    "docs/reports/README.md",
+    "docs/reports/overviews/development-history.md",
+    "docs/reports/overviews/goal-and-progress.md"
+  ],
+  "index_contiguous_stages": 131,
+  "chronology_contiguous_stages": 130,
+  "cited_latest_full_stage": 121,
+  "cited_full_tests_each": 2116,
+  "cited_full_elapsed_s": {
+    "source": 609.28,
+    "installed": 607.5
+  },
+  "cited_full_warnings_each": 27396,
+  "cited_full_excluded": 0,
+  "cited_latest_targeted_stage": 129,
+  "cited_targeted_each": 93,
+  "cited_targeted_elapsed_s": {
+    "source": 2.5,
+    "installed": 1.66
+  },
+  "cited_collect_only_each": 2243,
+  "full2243_run_in_this_stage": false,
+  "science_packages_changed": false,
+  "defaults_changed": false,
+  "cited_gui_browser_stage": 121,
+  "new_comparisons125_to129_in_gui": false,
+  "next_documentation_stage": 140,
+  "next_fundamental_review_stage": 150,
+  "fundamental_review150_performed": false,
+  "initial_index_spacing_parser_failure_corrected": true,
+  "initial_record_readme_missing_link_before_creation": 1,
+  "public_audit_findings": 0,
+  "documentation_links": {
+    "checked": 1709,
+    "missing": 0
+  },
+  "cited121_full_record_values_verified": true
+}

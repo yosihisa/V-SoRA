@@ -1,8 +1,8 @@
 # V-SoRA開発の全体記録：目的、判断の経緯、実施順
 
-- 初版整理：2026-10-06／更新：2026-10-26（120の定期整理、119までを反映）
-- 対象：段階000〜119。段階084・095・106・110・今回120は全体文書の整理
-- 技術的な到達点の基準：`22521ae`（段階119）。過去の数値は各実施時点の記録
+- 初版整理：2026-10-06／更新：2026-10-26（130の定期整理、129までを反映）
+- 対象：段階000〜129。今回130は全体文書の定期整理
+- 技術的な到達点の基準：`483a0b9`（段階129）。過去の数値は各実施時点の記録
 - 読者：複素数とフーリエ変換の初歩を学んだ工学系学部生
 
 ## 1. この開発で実現したいこと
@@ -36,7 +36,7 @@ Windows収録ソフトはハードウェアに合わせて後で開発する。�
 | 有限模擬データの処理 | 電圧やVDIFを生成し、実際のソフトへ入力する | その生成条件での実装の動作・誤差・失敗 |
 | 実受信機の観測 | 実際のアンテナ、受信機、時計、電波環境で記録する | 実装置で成立した感度・補正・画像品質 |
 
-段階119までに、最初の二つを多数確認した。実RTL-SDRによるCas A画像化はまだ確認していない。レポート内の「実VDIF」は、模擬電圧を本物のVDIF形式へ書き込んで読んだ試験を含む。「実機で受信したVDIF」と同じ意味にはならない。
+段階129までに、最初の二つを確認した。実RTL-SDRによるCas A画像化はまだ確認していない。レポート内の「実VDIF」は、模擬電圧を本物のVDIF形式へ書き込んで読んだ試験を含む。「実機で受信したVDIF」と同じ意味にはならない。
 
 また、工程の完了、最適化の停止条件への到達、画像の忠実度は別の判断である。画像ファイルが生成されても、探索が反復上限で止まったり、形が正しくなかったりする。以後の章は、その違いを保って読む。
 
@@ -55,7 +55,7 @@ Windows収録ソフトはハードウェアに合わせて後で開発する。�
 | 2026-10-06 | 084 | 既存結果を時系列と目標別に読み直せる文書へ整理 |
 | 2026-10-17 | 085〜096 | 観測power正規化、条件付き検定、共通電力保存とGUI、全体整理、既知二モデルの独立評価 |
 | 2026-10-24 | 097〜107 | 学習/評価反復、既知Gaussian共分散、局位相探索・対比較・閾値学習とGUI |
-| 2026-10-26 | 108〜119 | 基準見直し、主画像経路のpilot・積分・画像損失・別入力・複数時刻・格子の対照と文書整理 |
+| 2026-10-26 | 108〜129 | 基準見直し、主画像経路、画像評価GUI、外部RML、残差・時刻分割・格子/罰則の固定対照、保存相関への移送 |
 
 ## 4. 段階000〜003：まず理想条件で画像になることを確かめる
 
@@ -317,85 +317,119 @@ Q区間なら2^Q通りをすべて数える。Q=2では最小pが0.5で、5%の�
 
 格子を変えると画素中心と正則化の離散化も変わる。真値を見て最良格子を選んだ性能保証ではなく、既定値や推奨格子は変更しなかった。120はこの経緯を全体文書へ反映する整理で、新しい数値実験を追加していない。
 
-## 21. 開発順を通して得た判断
+## 21. 段階121〜129：適合・予測・正しい形を分けて確かめる
 
-最初は標準形式を使って画像まで接続できるかを確かめた。次に実受信機の条件を導入し、局gainを正確に測れない場合のClosure経路を作った。有限模擬データを通すと、弱い信号、周波数差の推定失敗、積分内変動、誤差モデルの近似が画像の成否を左右することが分かった。そのため、画像化機能の追加と並行して、統計の条件を調べ、診断に必要な元情報を保存する開発へ進んだ。
+### 完了した画像を、どう読めばよいか
 
-現在は、限定条件の原本から相対画像まで進むCPU参照実装と診断がある。111〜119ではpilot取得を通した後も、採用基線・uv幾何・画像の自由度・正則化で形状が変わることを調べた。次は主経路の三種類の状態を観測者へ示し、必要なら既製RMLと同じ入力で独立比較する。そのうえで、未知の実観測へ使える誤差分布と低SNR画像尤度を接続する。尤度は、候補画像の下で観測された値がどの程度出やすいかを表す仕組みである。
+[121](../121-image-assessment-gui.md)は、保存済みjobの処理状態・選択runの収束・参照v2による形状差を日本語GUIで分けた。参照が無い実観測へ真値NRMSEを作り足さず、未評価や不足として示す。元のsummaryは書き換えずSHAを対応させ、評価JSONを保存する。両実Chromiumで6記録と実RML/CLEANを確認した。これは画像の正しさを自動認証する機能ではない。
 
-必要な要素と完了条件は[最終目標から逆算した進捗](goal-and-progress.md)、操作は[GUIガイド](../../guide/06-gui.md)、日々の実装と失敗は[段階レポート索引](../README.md)を参照する。過去の段階レポートは、その当時の条件と判断を保った記録として残す。
+### 外部法でも同じ値を計算できるか
 
-## 22. 全段階の時系列一覧
+自作solverだけの現象を観測の物理的限界と混同しないため、[122](../122-ehtim-convention-bridge.md)で独立環境へEHTim1.3.2を固定した。まず点画像のFourier符号・座標・Closure・sigmaを照合した。外部原本は変更せず、等長時刻群の型接続の失敗を記録し、値とbytesを保つ自作接続で処理した。
 
-以下は各段階レポートを初めて追加したコミットである。後続の修正は各ファイルのGit履歴を確認する。段階000の開発案の番号と、実際に採用した段階番号は一致しない。
+元118の幾何ではw項のモデル差があったため、最初の画像比較[123](../123-paired-w0-rml-reference.md)はw=0・無雑音・同じ8格子・人工weightの一条件に限定した。nativeの選択runは収束、外部は反復上限だった。truthは初期化やrun選択に使わず、同じ形状指標とnativeデータ項で後評価した。
+
+[124](../124-ehtim-iteration-gradient-controls.md)は外部の反復を2000/5000へ増やしたが全初期値が未収束だった。外部自身のFは下がっても共通NRMSEは約0.125→0.147→0.200となった。勾配の固定stepの主判定は4/12点適合・8/12不適合。補助の多step解析は打切り誤差の影響と整合したが、主判定を上書きしなかった。外部法一般の不良や実機の限界を断定せず、追加反復・truthを見た設定調整を保留して主経路へ戻った。
+
+### 元の保存相関に、正解とfitはどう適合するか
+
+[125](../125-closure-residual-diagnostics.md)は118の保存相関と画像を再fitせずに18条件へ分けた。三枝の共通SNR10採用基線は283の時刻/channel/基線セル、選択Closureは210行で、共有誤差の共分散を保持した。正解画像のデータ損失Dは推定LO/真値LOで約0.554、fitは約0.287〜0.288だった。Dはwhitening残差の二乗和を2Nで割った値で、形状の正しさやp値とは違う。
+
+[126](../126-temporal-image-validation.md)では8時刻の偶数/奇数を事前固定し、片方で画像を作り他方のClosureを予測した。未使用visibilityはfitterへ渡さず、係数・初期値・run選択はtraining側へ限定した。学習D約0.215〜0.240でも未使用Dは約5.88〜13.40だった。上流LO・weight・共通maskを共有しうる同じ原本内の分割で、独立なrawや完全blindな評価ではない。理想枝にも差があったため、雑音だけの原因としなかった。
+
+### 生成格子を揃え、罰則の好みを分ける
+
+126にはfine32の正解と8格子fitterの表現力の違いがある。[127](../127-matched-grid-image-control.md)は元の点fluxを8格子中心へ保存的に集約し、その新しい天空から生成した。物理的には元と別の天空である。共通SNR・分散・maskを人工的に保ち、同じ3分割を試した。全3選択runが収束しても未使用D約0.095/0.367が残った。oracleのDはほぼ0でも、事前画像や中心位置の罰則を加えたFはfitより大きかった。
+
+[128](../128-regularizer-image-controls.md)は同じ入力・初期化式を保ち、中心罰則なし、形状罰則なし、画像罰則なしの三つを事前固定した。新9fitは選択7収束/2未収束。画像罰則なし・全時刻ではNRMSE約0.000318へ近づいたが、半分の時刻の未使用Dは約0.122/0.284だった。形状罰則なしの別条件では未使用Dが大きくなる例もあり、無正則化を既定へ採用しなかった。
+
+### 主経路へ戻したときに同じ到達があるか
+
+[129](../129-main-path-regularizer-transfer.md)はその三つの設定を全て、126の推定LO/真値LO/理想保存相関の全時刻へ移した。9選択runと27探索が全て収束した。推定LOの形状差は既定約0.208、画像罰則なし約0.200で、128の無雑音・同格子の到達とは違う。全時刻使用なので新しい未使用予測を測った結果でもない。
+
+元の生成正解はfine32のままで、8格子へ丸めた画像はquantized referenceと呼んだ。これを厳密oracleと呼ぶと、正解モデルなのに悪く見える誤読を生む。129ではfine32のデータ残差だけを125へ照合し、格子が違う正解のregularizerをfit8のF比較に使わなかった。既定格子や係数は維持した。130はここまでの判断を整理し、新しい数値実験を追加していない。
+
+## 22. 開発順を通して得た判断
+
+標準形式と理想画像から始め、受信機の時計・gain・短積分の条件を加え、弱いLO取得・採用基線・画像モデル・誤差仮定の順で律速を観測してきた。121〜129では、GUIの読み方、外部法の独立照合、元の残差、未使用時刻の予測、格子と罰則の影響を分けた。
+
+現在は、限定条件の原本から相対画像まで進むCPU参照実装と、日本語の評価表示がある。無雑音・同格子での良い到達を、模擬電圧の主経路や実機へそのまま移せたとは言えない。今後は同じ一原本の対照だけを増やさず、独立な原本、短積分と未知LO、弱い画像データの誤差へ戻る。低SNR画像尤度・実感度・全夜/GPUは未検証のままである。
+
+[目標別の進捗](goal-and-progress.md)に必要な理由と残る完了条件、[開発計画](../../design/development-roadmap.md)に次の受入条件、[レポート索引](../README.md)に当時の失敗と未実施を残す。段階数や試験数を画像化の完成率とは扱わない。
+
+次の文書整理は140、専用の根本見直しは150。130は定期整理で、新しい数値試験を行っていない。
+
+## 23. 全段階の時系列一覧
+
+以下は000〜129の個別レポートを初めて追加したコミットである。表示名は現在の索引から採り、初回追加の日時・公開author/committerをGitで照合した。[機械可読記録](../../../validation/runs/stage130/chronology.json)に完全IDと日時を保存した。130自身は今回の追加コミットで特定する。過去の個別レポートは変更していない。
 
 | 段階 | コミット日（JST） | 段階レポート | 初回コミット |
 | --- | --- | --- | --- |
 | 000 | 2026-10-02 | [初期整理・開発構想](../000-initial-plan.md) | `1dbaf99` |
-| 001 | 2026-10-02 | [ソフト別構成と共通入力・参照画像](../001-foundation.md) | `34dd009` |
-| 002 | 2026-10-02 | [理想visibilityと画像復元](../002-ideal-imaging.md) | `dec0206` |
-| 003 | 2026-10-02 | [Cas A参照モデルと局配置の初期比較](../003-casa-array-study.md) | `34f21fe` |
-| 004 | 2026-10-02 | [短時間模擬IQ・VDIF・FX相関](../004-vdif-fx.md) | `c3d4524` |
-| 005 | 2026-10-02 | [模擬IQからFITS-IDI候補を経た画像復元](../005-iq-to-image.md) | `dd1173a` |
-| 006 | 2026-10-02 | [CASAによる独立互換確認](../006-casa-compatibility.md) | `488d3f2` |
-| 007 | 2026-10-02 | [未知の遅延・位相・rate・利得の推定](../007-fringe-calibration.md) | `4a1c4cf` |
-| 008 | 2026-10-02 | [IQから未知LO差の推定と再相関](../008-iq-fringe-tracking.md) | `2c1ec2a` |
-| 009 | 2026-10-02 | [ADC時計と分数sample整列](../009-adc-clock-alignment.md) | `526ee03` |
-| 010 | 2026-10-02 | [session manifestとstream相関CLI](../010-session-cli.md) | `28a85d1` |
-| 011 | 2026-10-02 | [独立環境とwheel導入](../011-reproducible-environment.md) | `e0a64f6` |
-| 012 | 2026-10-02 | [Cas A shape較正と未知局応答の通し検証](../012-casa-model-calibration.md) | `c0c27dd` |
-| 013 | 2026-10-02 | [多channel FITS-IDIと全視野CLEANの修正](../013-spectral-idi-exact-clean.md) | `ef6baa4` |
-| 014 | 2026-10-02 | [VDIFの時計・幾何sample整列](../014-stream-clock-geometry.md) | `77346b6` |
-| 015 | 2026-10-02 | [短いpilot積分と入力検査](../015-short-pilot-input-validation.md) | `d2e3656` |
+| 001 | 2026-10-02 | [共通入力・参照画像](../001-foundation.md) | `34dd009` |
+| 002 | 2026-10-02 | [理想visibility・画像復元](../002-ideal-imaging.md) | `dec0206` |
+| 003 | 2026-10-02 | [Cas A・局配置比較](../003-casa-array-study.md) | `34f21fe` |
+| 004 | 2026-10-02 | [VDIF・FX相関](../004-vdif-fx.md) | `c3d4524` |
+| 005 | 2026-10-02 | [IQから画像まで](../005-iq-to-image.md) | `dd1173a` |
+| 006 | 2026-10-02 | [CASA独立互換確認](../006-casa-compatibility.md) | `488d3f2` |
+| 007 | 2026-10-02 | [未知の局応答の較正](../007-fringe-calibration.md) | `4a1c4cf` |
+| 008 | 2026-10-02 | [IQの未知LO差と再相関](../008-iq-fringe-tracking.md) | `2c1ec2a` |
+| 009 | 2026-10-02 | [ADC時計・分数sample整列](../009-adc-clock-alignment.md) | `526ee03` |
+| 010 | 2026-10-02 | [session・相関CLI](../010-session-cli.md) | `28a85d1` |
+| 011 | 2026-10-02 | [独立環境・wheel導入](../011-reproducible-environment.md) | `e0a64f6` |
+| 012 | 2026-10-02 | [Cas Aモデル較正](../012-casa-model-calibration.md) | `c0c27dd` |
+| 013 | 2026-10-02 | [多channel IDI・正確なCLEAN](../013-spectral-idi-exact-clean.md) | `ef6baa4` |
+| 014 | 2026-10-02 | [時計・幾何sample整列](../014-stream-clock-geometry.md) | `77346b6` |
+| 015 | 2026-10-02 | [短いpilot積分・入力検査](../015-short-pilot-input-validation.md) | `d2e3656` |
 | 016 | 2026-10-02 | [実データ用CASAアダプター](../016-casa-production-adapter.md) | `d6110c9` |
-| 017 | 2026-10-02 | [周波数別雑音重みとRFI診断](../017-spectral-quality-rfi.md) | `8362341` |
-| 018 | 2026-10-02 | [学部生向け文書への整理](../018-undergraduate-documentation.md) | `5dd1d9e` |
-| 019 | 2026-10-02 | [日本語ブラウザGUIの第一版](../019-japanese-browser-gui.md) | `0fb1504` |
-| 020 | 2026-10-02 | [Closureと短積分の周波数差](../020-closure-short-integration.md) | `2ec767b` |
-| 021 | 2026-10-02 | [Closure＋RMLのCPU参照実装と日本語GUI](../021-closure-rml-reference.md) | `a12d103` |
-| 022 | 2026-10-02 | [skyモデルを使わない短pilot周波数差推定](../022-model-free-rate.md) | `aab6bfc` |
-| 023 | 2026-10-02 | [VDIFから短区間Closure＋RMLと日本語解析GUI](../023-vdif-closure-pipeline.md) | `2dc912c` |
-| 024 | 2026-10-02 | [短露光のVDIF合成・Cas A形状と感度不足](../024-vdif-synthesis.md) | `8c5d672` |
-| 025 | 2026-10-02 | [短積分の感度計画とClosure情報不足](../025-sensitivity-planning.md) | `c7d6dcd` |
-| 026 | 2026-10-02 | [統計を保持した相関の分割処理](../026-bounded-fx.md) | `5a8adc0` |
-| 027 | 2026-10-02 | [3秒pilot・分割幾何と短積分画像](../027-three-second-pilot.md) | `c3297e2` |
-| 028 | 2026-10-02 | [Cas Aの3秒VDIF合成と低感度の形状誤差](../028-casa-three-second-sensitivity.md) | `1f59510` |
+| 017 | 2026-10-02 | [周波数別重み・RFI診断](../017-spectral-quality-rfi.md) | `8362341` |
+| 018 | 2026-10-02 | [学部生向け文書](../018-undergraduate-documentation.md) | `5dd1d9e` |
+| 019 | 2026-10-02 | [日本語ブラウザGUI](../019-japanese-browser-gui.md) | `0fb1504` |
+| 020 | 2026-10-02 | [Closure・短積分の周波数差](../020-closure-short-integration.md) | `2ec767b` |
+| 021 | 2026-10-02 | [Closure＋RML・日本語GUI](../021-closure-rml-reference.md) | `a12d103` |
+| 022 | 2026-10-02 | [モデル不要のLO差推定](../022-model-free-rate.md) | `aab6bfc` |
+| 023 | 2026-10-02 | [VDIFからClosure＋RML・解析GUI](../023-vdif-closure-pipeline.md) | `2dc912c` |
+| 024 | 2026-10-02 | [短露光VDIF合成・感度不足](../024-vdif-synthesis.md) | `8c5d672` |
+| 025 | 2026-10-02 | [短積分の感度計画](../025-sensitivity-planning.md) | `c7d6dcd` |
+| 026 | 2026-10-02 | [相関の分割処理](../026-bounded-fx.md) | `5a8adc0` |
+| 027 | 2026-10-02 | [3秒pilot・分割幾何](../027-three-second-pilot.md) | `c3297e2` |
+| 028 | 2026-10-02 | [Cas Aの3秒合成・低感度](../028-casa-three-second-sensitivity.md) | `1f59510` |
 | 029 | 2026-10-03 | [短い刻みの広範囲LO探索](../029-wide-rate-pilot.md) | `edca267` |
-| 030 | 2026-10-03 | [画像の全成分を保持した位置合わせ評価](../030-full-support-registration.md) | `e944f7e` |
-| 031 | 2026-10-03 | [guardを保持したVDIF部分読取](../031-guarded-vdif-seek.md) | `1d1c03d` |
-| 032 | 2026-10-03 | [同一VDIFの短window列とLO再推定](../032-short-window-sequence.md) | `0c6733a` |
+| 030 | 2026-10-03 | [全成分を保持した位置合わせ評価](../030-full-support-registration.md) | `e944f7e` |
+| 031 | 2026-10-03 | [guard付きVDIF部分読取](../031-guarded-vdif-seek.md) | `1d1c03d` |
+| 032 | 2026-10-03 | [短window列・LO再推定](../032-short-window-sequence.md) | `0c6733a` |
 | 033 | 2026-10-03 | [短区間列の日本語解析GUI](../033-sequence-gui.md) | `6bfadef` |
-| 034 | 2026-10-03 | [固定原本の識別情報を実行内で共有](../034-shared-input-identity.md) | `3aabd73` |
-| 035 | 2026-10-03 | [積分中の局周波数変動とClosureの誤差](../035-within-window-rate-drift.md) | `c590c4f` |
+| 034 | 2026-10-03 | [固定原本の識別情報共有](../034-shared-input-identity.md) | `3aabd73` |
+| 035 | 2026-10-03 | [積分中の周波数変動とClosure](../035-within-window-rate-drift.md) | `c590c4f` |
 | 036 | 2026-10-03 | [pilot内の分割rate診断](../036-subpilot-rate-diagnostics.md) | `162edfa` |
-| 037 | 2026-10-03 | [測定した滑らかな周波数変動のIQ補正](../037-measured-linear-rate-correction.md) | `ed560cb` |
+| 037 | 2026-10-03 | [測定した線形rateのIQ補正](../037-measured-linear-rate-correction.md) | `ed560cb` |
 | 038 | 2026-10-03 | [線形rateの日本語GUIと区間列](../038-linear-rate-gui-sequence.md) | `0c35257` |
-| 039 | 2026-10-03 | [周期位相変動を加えたVDIFとClosure](../039-periodic-phase-coherence.md) | `bed8fa6` |
-| 040 | 2026-10-03 | [線形rateの推定誤差を相関へ伝える](../040-linear-rate-uncertainty.md) | `510a400` |
+| 039 | 2026-10-03 | [周期位相を加えたVDIFとClosure](../039-periodic-phase-coherence.md) | `bed8fa6` |
+| 040 | 2026-10-03 | [線形rateの推定誤差診断](../040-linear-rate-uncertainty.md) | `510a400` |
 | 041 | 2026-10-03 | [推定誤差診断の日本語GUI](../041-rate-uncertainty-gui.md) | `3c8409a` |
-| 042 | 2026-10-03 | [rate推定の誤差共分散を検証する](../042-rate-covariance-validation.md) | `a97d83c` |
+| 042 | 2026-10-03 | [rate推定の誤差共分散検証](../042-rate-covariance-validation.md) | `a97d83c` |
 | 043 | 2026-10-03 | [rate共分散検証の日本語GUI](../043-rate-covariance-gui.md) | `45a03ed` |
 | 044 | 2026-10-03 | [共有信号を含むClosureの誤差伝播](../044-joint-closure-noise.md) | `460f240` |
 | 045 | 2026-10-03 | [Closure雑音検証の日本語GUI](../045-closure-noise-gui.md) | `d4f0519` |
-| 046 | 2026-10-03 | [局の標本からvisibility雑音を推定する](../046-sample-noise-estimator.md) | `09db0aa` |
+| 046 | 2026-10-03 | [局の標本からvisibility雑音を推定](../046-sample-noise-estimator.md) | `09db0aa` |
 | 047 | 2026-10-03 | [相関ファイルの雑音診断](../047-observation-noise-diagnostic.md) | `acfc4c6` |
-| 048 | 2026-10-04 | [相関ファイルの雑音診断GUI](../048-observation-noise-gui.md) | `743d10e` |
+| 048 | 2026-10-04 | [保存相関の雑音診断GUI](../048-observation-noise-gui.md) | `743d10e` |
 | 049 | 2026-10-04 | [FIR・補間後のFFT雑音](../049-filtered-fft-noise.md) | `3cf2f0f` |
 | 050 | 2026-10-04 | [FFT雑音検証の日本語GUI](../050-filtered-noise-gui.md) | `e3ba4dd` |
-| 051 | 2026-10-04 | [pilotの時間散乱の条件付き診断](../051-pilot-time-scatter.md) | `aa1c535` |
+| 051 | 2026-10-04 | [pilot時間散乱の条件付き診断](../051-pilot-time-scatter.md) | `aa1c535` |
 | 052 | 2026-10-04 | [pilot時間散乱の日本語GUI](../052-pilot-time-scatter-gui.md) | `fb1d57e` |
-| 053 | 2026-10-04 | [異なる電圧標本を使うbispectrumの試作](../053-distinct-sample-bispectrum.md) | `1122bec` |
+| 053 | 2026-10-04 | [異標本bispectrumの試作](../053-distinct-sample-bispectrum.md) | `1122bec` |
 | 054 | 2026-10-04 | [三次統計検証の日本語GUI](../054-bispectrum-validation-gui.md) | `a643c15` |
-| 055 | 2026-10-04 | [時間相関が三基線積へ与える偏り](../055-temporal-bispectrum.md) | `d479483` |
-| 056 | 2026-10-04 | [時間相関と三基線積の日本語GUI](../056-temporal-bispectrum-gui.md) | `cef187e` |
-| 057 | 2026-10-04 | [短積分の三基線積の雑音と条件付き感度](../057-bispectrum-sensitivity.md) | `dfa588b` |
-| 058 | 2026-10-04 | [三基線積の雑音と短積分の日本語GUI](../058-bispectrum-sensitivity-gui.md) | `9269b56` |
-| 059 | 2026-10-04 | [天体信号を含む三基線積の雑音共分散](../059-joint-bispectrum-moments.md) | `1bacde3` |
-| 060 | 2026-10-04 | [三角形間の誤差相関を確認する日本語GUI](../060-joint-bispectrum-gui.md) | `9384e3a` |
-| 061 | 2026-10-04 | [三次統計の追加の和を少ないメモリで蓄積](../061-streaming-bispectrum-sums.md) | `956ab56` |
-| 062 | 2026-10-04 | [三次統計の保存形式と元相関ファイルの照合](../062-bispectrum-sidecar-format.md) | `edcd9ae` |
+| 055 | 2026-10-04 | [時間相関と三基線積](../055-temporal-bispectrum.md) | `d479483` |
+| 056 | 2026-10-04 | [時間相関の日本語検証GUI](../056-temporal-bispectrum-gui.md) | `cef187e` |
+| 057 | 2026-10-04 | [三基線積の雑音と条件付き感度](../057-bispectrum-sensitivity.md) | `dfa588b` |
+| 058 | 2026-10-04 | [三基線積の短積分比較GUI](../058-bispectrum-sensitivity-gui.md) | `9269b56` |
+| 059 | 2026-10-04 | [天体信号を含む三基線積の全共分散](../059-joint-bispectrum-moments.md) | `1bacde3` |
+| 060 | 2026-10-04 | [三角形間の誤差相関の日本語GUI](../060-joint-bispectrum-gui.md) | `9384e3a` |
+| 061 | 2026-10-04 | [三次統計の追加の和の蓄積](../061-streaming-bispectrum-sums.md) | `956ab56` |
+| 062 | 2026-10-04 | [三次統計の保存形式と元相関の照合](../062-bispectrum-sidecar-format.md) | `edcd9ae` |
 | 063 | 2026-10-04 | [相関器のFFTから三次統計を収集](../063-fx-bispectrum-accumulation.md) | `e2cd40c` |
-| 064 | 2026-10-04 | [VDIF相関から再解析用の三次統計を保存](../064-vdif-bispectrum-sidecar.md) | `4e906fa` |
+| 064 | 2026-10-04 | [VDIF相関から三次統計を保存](../064-vdif-bispectrum-sidecar.md) | `4e906fa` |
 | 065 | 2026-10-04 | [三次統計の保存を指定する日本語GUI](../065-bispectrum-storage-gui.md) | `d0d4fe3` |
 | 066 | 2026-10-05 | [保存した三次統計を時刻と周波数で確認](../066-bispectrum-inspection.md) | `19fb653` |
 | 067 | 2026-10-05 | [保存三次統計の日本語GUI](../067-bispectrum-inspection-gui.md) | `99006ef` |
@@ -409,45 +443,55 @@ Q区間なら2^Q通りをすべて数える。Q=2では最小pが0.5で、5%の�
 | 075 | 2026-10-05 | [周波数群の三次統計のまとめ方を日本語GUIで確認](../075-bispectrum-pooling-gui.md) | `08b1e3d` |
 | 076 | 2026-10-05 | [既知Cas A形状と天体雑音を含む三次統計の尺度](../076-bispectrum-known-sky-scale.md) | `9772fdc` |
 | 077 | 2026-10-05 | [天体形状と三次統計の条件比較を日本語GUIで確認](../077-bispectrum-known-sky-gui.md) | `9889e3a` |
-| 078 | 2026-10-05 | [局別の時間変化を持つ既知Gaussian電圧の三次統計の平均](../078-bispectrum-joint-temporal.md) | `720490c` |
+| 078 | 2026-10-05 | [局別時間変化を持つ既知電圧の三次統計の平均](../078-bispectrum-joint-temporal.md) | `720490c` |
 | 079 | 2026-10-05 | [局別時間変化と三次統計の平均を日本語GUIで確認](../079-bispectrum-joint-temporal-gui.md) | `4720b7a` |
 | 080 | 2026-10-05 | [最大基線長を指定する模擬観測・RML・感度計画](../080-maximum-baseline-gui.md) | `13e15a2` |
 | 081 | 2026-10-05 | [最大基線長と既知Cas A形状の条件付き比較](../081-array-scale-known-sky.md) | `80ca607` |
 | 082 | 2026-10-05 | [最大基線と既知Cas A形状の日本語比較画面](../082-array-scale-gui.md) | `6a03165` |
 | 083 | 2026-10-05 | [同梱データだけで実行する配置比較](../083-native-array-scale.md) | `1a9afea` |
-| 084 | 2026-10-06 | [文書整理と開発全体の二つのレポート](../084-observation-readiness.md) | `6cfade2` |
-| 085 | 2026-10-17 | [観測powerで正規化した三次統計の基礎](../085-observed-power-bispectrum.md) | `dfc87da` |
-| 086 | 2026-10-17 | [window全体の符号反転による条件付き対称性の検定](../086-window-sign-symmetry.md) | `1e91318` |
-| 087 | 2026-10-17 | [既知Cas A・点源の有限電圧とwindowの虚部対称性](../087-casa-window-symmetry.md) | `4b71a06` |
-| 088 | 2026-10-17 | [既知天空と短区間の虚部対称性を日本語GUIへ接続](../088-casa-window-symmetry-gui.md) | `cf04801` |
+| 084 | 2026-10-06 | [文書整理と二つの全体レポート](../084-observation-readiness.md) | `6cfade2` |
+| 085 | 2026-10-17 | [観測power正規化U₃と有限標本の平均](../085-observed-power-bispectrum.md) | `dfc87da` |
+| 086 | 2026-10-17 | [window符号反転による条件付き対称性検定](../086-window-sign-symmetry.md) | `1e91318` |
+| 087 | 2026-10-17 | [既知Cas A・点源の有限電圧とwindow虚部の対称性](../087-casa-window-symmetry.md) | `4b71a06` |
+| 088 | 2026-10-17 | [既知天空の虚部対称性を日本語GUIへ接続](../088-casa-window-symmetry-gui.md) | `cf04801` |
 | 089 | 2026-10-17 | [streaming U₃と三角形共通標本power](../089-common-bispectrum-power.md) | `53c9d55` |
-| 090 | 2026-10-17 | [共通FFT電力を保存するraw profile version2](../090-bispectrum-power-archive.md) | `0c6a6e1` |
+| 090 | 2026-10-17 | [共通FFT電力を保存するraw version2](../090-bispectrum-power-archive.md) | `0c6a6e1` |
 | 091 | 2026-10-17 | [VDIF相関から共通FFT電力を保存](../091-vdif-common-power.md) | `48d829f` |
 | 092 | 2026-10-17 | [共通電力と無次元比を日本語GUIで確認](../092-bispectrum-power-gui.md) | `c987227` |
-| 093 | 2026-10-17 | [保存したwindow列を条件付き対称性検定へ接続](../093-stored-window-symmetry.md) | `4171ce0` |
+| 093 | 2026-10-17 | [保存window列の条件付き対称性検定](../093-stored-window-symmetry.md) | `4171ce0` |
 | 094 | 2026-10-17 | [保存区間列の条件付き対称性を日本語GUIへ接続](../094-stored-window-symmetry-gui.md) | `603b089` |
-| 095 | 2026-10-17 | [全体文書へ観測power・保存診断・区間検定の進展を反映](../095-current-overview.md) | `5b2d1bc` |
-| 096 | 2026-10-17 | [既知点源・Cas Aの有限電圧を独立データで識別する](../096-known-template-holdout.md) | `0b824a6` |
+| 095 | 2026-10-17 | [全体文書へ085〜094を反映](../095-current-overview.md) | `5b2d1bc` |
+| 096 | 2026-10-17 | [既知点源・Cas Aの独立学習/評価](../096-known-template-holdout.md) | `0b824a6` |
 | 097 | 2026-10-24 | [既知二モデルの独立評価を日本語GUIへ接続](../097-known-template-gui.md) | `ff8425c` |
 | 098 | 2026-10-24 | [独立した学習・評価を繰り返したときの揺らぎ](../098-independent-training-repeats.md) | `a223d4b` |
 | 099 | 2026-10-24 | [独立した学習・評価の反復を日本語GUIへ接続](../099-independent-training-gui.md) | `d62d347` |
 | 100 | 2026-10-24 | [既知共分散Gaussian尤度の参照API](../100-known-covariance-gaussian.md) | `13115ab` |
 | 101 | 2026-10-24 | [既知点源／Cas AのGaussian共分散による比較](../101-known-covariance-template.md) | `8e00fe9` |
 | 102 | 2026-10-24 | [既知共分散による比較を日本語GUIへ接続](../102-known-covariance-gui.md) | `03c4754` |
-| 103 | 2026-10-24 | [既知振幅・雑音で局位相だけを合わせるGaussian参照](../103-gaussian-phase-profile.md) | `57c42cd` |
-| 104 | 2026-10-24 | [同じ模擬電圧で既知位相と未知位相を対に比較](../104-paired-phase-template.md) | `4a38482` |
+| 103 | 2026-10-24 | [既知振幅・雑音で局位相を合わせるGaussian参照](../103-gaussian-phase-profile.md) | `57c42cd` |
+| 104 | 2026-10-24 | [同じ電圧での既知位相・位相探索の比較](../104-paired-phase-template.md) | `4a38482` |
 | 105 | 2026-10-24 | [同じ電圧での局位相比較を日本語GUIへ接続](../105-paired-phase-gui.md) | `5261903` |
-| 106 | 2026-10-24 | [全体文書へ既知二モデル・Gaussian・未知局位相の参照を反映](../106-current-overview.md) | `c23ff0f` |
-| 107 | 2026-10-24 | [位相探索scoreの閾値を学習し独立データで評価](../107-independent-phase-threshold.md) | `a91ff24` |
-| 108 | 2026-10-26 | [最終目標に対する基準見直しと継続開発の運用](../108-goal-review-and-cadence.md) | `2ea5c9d` |
+| 106 | 2026-10-24 | [全体文書へ既知二モデル・Gaussian・未知局位相を反映](../106-current-overview.md) | `c23ff0f` |
+| 107 | 2026-10-24 | [位相探索scoreの閾値を学習し独立評価](../107-independent-phase-threshold.md) | `a91ff24` |
+| 108 | 2026-10-26 | [最終目標への基準見直しと継続開発の運用](../108-goal-review-and-cadence.md) | `2ea5c9d` |
 | 109 | 2026-10-26 | [主画像経路の受入記録と律速の切り分け](../109-image-path-acceptance.md) | `c852971` |
 | 110 | 2026-10-26 | [10段階ごとの文書整理と主経路の優先順位](../110-documentation-checkpoint.md) | `63cd101` |
-| 111 | 2026-10-26 | [失敗したpilotの検出基線と局のつながりを保存](../111-pilot-rate-graph.md) | `0e3021f` |
-| 112 | 2026-10-26 | [同じ長い原本で1・2・3秒のpilotを補正相関へ接続](../112-long-pilot-acquisition.md) | `3f281d8` |
-| 113 | 2026-10-26 | [最終積分と画像を比較し、収束と形状改善を分ける](../113-integration-and-image.md) | `8677fe9` |
-| 114 | 2026-10-26 | [真のrateと理想モデルを評価専用の画像対照にする](../114-image-controls.md) | `915bf1a` |
-| 115 | 2026-10-26 | [候補画像のデータ適合と正則化を分解して評価](../115-image-objective-evaluation.md) | `1a9a2f9` |
-| 116 | 2026-10-26 | [固定画像の別データ評価と採用基線の重なり](../116-image-transfer-and-masks.md) | `4a0dc45` |
-| 117 | 2026-10-26 | [別生成原本のClosure制約を同じ画像へ課す](../117-independent-cell-image-fit.md) | `9c0758a` |
-| 118 | 2026-10-26 | [8時刻の模擬VDIFを同じ原本で三つの対照へ再処理](../118-multitime-vdif-controls.md) | `5571da2` |
-| 119 | 2026-10-26 | [同じ視野・同じ観測で画像格子を比較](../119-fixed-field-image-grids.md) | `22521ae` |
+| 111 | 2026-10-26 | [失敗したpilotの検出基線と局graph](../111-pilot-rate-graph.md) | `0e3021f` |
+| 112 | 2026-10-26 | [同じ長い原本のpilotから補正相関へ](../112-long-pilot-acquisition.md) | `3f281d8` |
+| 113 | 2026-10-26 | [最終積分・収束・priorからの形状改善を分離](../113-integration-and-image.md) | `8677fe9` |
+| 114 | 2026-10-26 | [真のrate・理想モデルと画像誤差の対照](../114-image-controls.md) | `915bf1a` |
+| 115 | 2026-10-26 | [候補画像のデータ適合と正則化を評価](../115-image-objective-evaluation.md) | `1a9a2f9` |
+| 116 | 2026-10-26 | [固定画像の別入力評価・共通採用基線](../116-image-transfer-and-masks.md) | `4a0dc45` |
+| 117 | 2026-10-26 | [別生成原本の独立Closureセル併用](../117-independent-cell-image-fit.md) | `9c0758a` |
+| 118 | 2026-10-26 | [8時刻VDIF・推定LO/真値LO/理想モデル対照](../118-multitime-vdif-controls.md) | `5571da2` |
+| 119 | 2026-10-26 | [同じ視野・同じ観測の画像格子比較](../119-fixed-field-image-grids.md) | `22521ae` |
+| 120 | 2026-10-26 | [主画像経路の判断を全体文書へ反映](../120-documentation-checkpoint.md) | `c809b86` |
+| 121 | 2026-10-26 | [画像結果の三つの判定を日本語GUIへ接続](../121-image-assessment-gui.md) | `bf60965` |
+| 122 | 2026-10-26 | [外部RML比較前の座標・誤差・Closure接続](../122-ehtim-convention-bridge.md) | `9012c38` |
+| 123 | 2026-10-26 | [w=0の同一参照を自作/外部RMLで画像化](../123-paired-w0-rml-reference.md) | `00ecc51` |
+| 124 | 2026-10-26 | [外部RMLの反復上限と局所勾配を診断](../124-ehtim-iteration-gradient-controls.md) | `b18974a` |
+| 125 | 2026-10-26 | [保存相関のClosure残差と共通有効基線](../125-closure-residual-diagnostics.md) | `1708978` |
+| 126 | 2026-10-26 | [時刻を分けた画像の学習・未使用予測](../126-temporal-image-validation.md) | `83f8e1b` |
+| 127 | 2026-10-26 | [生成天空と復元画像の格子を揃えた対照](../127-matched-grid-image-control.md) | `d92ff7a` |
+| 128 | 2026-10-26 | [同じ無雑音データで画像罰則を固定比較](../128-regularizer-image-controls.md) | `46f44b8` |
+| 129 | 2026-10-26 | [模擬電圧由来の相関へ固定罰則を移送](../129-main-path-regularizer-transfer.md) | `483a0b9` |
