@@ -1,0 +1,19 @@
+{
+  "owned_execution_wall_s": [
+    {
+      "mode": "source",
+      "targeted_wall_s": 423.19256928400137,
+      "browser_wall_s": 105.92353880099836
+    },
+    {
+      "mode": "installed",
+      "targeted_wall_s": 413.2691479490022,
+      "browser_wall_s": 85.6348076180002
+    }
+  ],
+  "output_bytes_each": {
+    "source": 391564,
+    "installed": 391162
+  },
+  "scope": "Finite verification run only; not whole-night/GPU/PC sizing benchmark"
+}

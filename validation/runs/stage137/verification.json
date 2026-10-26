@@ -1,0 +1,96 @@
+{
+  "stage": 137,
+  "state": "complete",
+  "targeted": {
+    "source": {
+      "passed": 201,
+      "warnings": 10921,
+      "elapsed_s": 422.39,
+      "new_tests": 0,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 201,
+      "warnings": 10921,
+      "elapsed_s": 412.7,
+      "new_tests": 0,
+      "excluded_tests": 0
+    }
+  },
+  "gui_workers_each": 28,
+  "json_downloads_each": 56,
+  "all_28_case_and_summary_json_match": true,
+  "all_source_installed_cases_exact": true,
+  "time_baseline_rows_checked_each": 672,
+  "null_power_ratios_each": 50,
+  "negative_power_ratios_each": 174,
+  "above_one_power_ratios_each": 148,
+  "source_browser": "153.0.8010.12",
+  "installed_browser": "153.0.8010.12",
+  "project_modules_verified_each": 10,
+  "source_exact_module_origins": true,
+  "installed_module_prefixes_verified": true,
+  "installed_pythonpath_absent": true,
+  "outside_checkout_both": true,
+  "runner_absent_both": true,
+  "japanese_font_390px_both": true,
+  "page_horizontal_overflow_both": false,
+  "time_table_wrapping_both": true,
+  "local_horizontal_scrolling_claimed": false,
+  "external_requests_both": 0,
+  "javascript_errors_both": 0,
+  "raw_files_sha_preserved": 76,
+  "pilot_files_sha_preserved": 12,
+  "rate_profiles_sha_preserved": 4,
+  "correlation_files_sha_preserved": 12,
+  "frozen_files": 441,
+  "all_frozen_sha_unchanged": true,
+  "old_core_package_files_unchanged": 215,
+  "wheel_package_files_checked": 103,
+  "reference_assets_checked": 4,
+  "main_environment_freeze_unchanged": true,
+  "production_changed": false,
+  "new_unit_tests": 0,
+  "new_full_collection_performed": false,
+  "targeted_collection_only": 201,
+  "cited_collection_stage": 135,
+  "cited_collected_tests_each": 2277,
+  "full2277_executed": false,
+  "cited_full_stage": 121,
+  "cited_full_tests_each": 2116,
+  "cited_full_elapsed_s": {
+    "source": 609.28,
+    "installed": 607.5
+  },
+  "cited_full_warnings_each": 27396,
+  "cited_full_excluded_each": 0,
+  "new_wheel_install_full_regression": false,
+  "new_raw_correlation_fit": false,
+  "actual_hardware_data": false,
+  "hardware_coherence_measured": false,
+  "low_snr_image_likelihood_verified": false,
+  "public_audit_findings": 0,
+  "documentation_links": {
+    "checked": 1783,
+    "missing": 0
+  },
+  "installed_test_parent_modules_verified": 41,
+  "initial_installed_targeted": {
+    "failed": 7,
+    "passed": 194,
+    "warnings": 1,
+    "elapsed_s": 347.4,
+    "cause": "Parent test process lacked checkout workflows fixture helpers; product unchanged; corrected root-only sys.path for fixtures, not apps source paths",
+    "counted_as_final_passes": false
+  },
+  "browser_output_nonoverwrite": {
+    "source": {
+      "nonoverwrite": true,
+      "files_sha_preserved": 5
+    },
+    "installed": {
+      "nonoverwrite": true,
+      "files_sha_preserved": 5
+    }
+  }
+}
