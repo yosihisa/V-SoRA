@@ -1,0 +1,65 @@
+{
+  "stage": 125,
+  "state": "complete",
+  "all_science_json_identical": true,
+  "detail_archives_compared": 18,
+  "numeric_arrays_exact": 11593,
+  "native_public_cli_evaluations": 18,
+  "all_cli_science_json_exact_to_api": true,
+  "source_core_origins_exact": 4,
+  "installed_core_prefixes": 4,
+  "cwd_outside_checkout": true,
+  "repository_runner_invoked": false,
+  "nonoverwrite_and_all_input_output_bytes_unchanged": true,
+  "maximum_independent_api_loss_absolute_difference": 2.105480234604329e-10,
+  "common_valid_baselines": 283,
+  "common_basis_indices_identical": true,
+  "new_correlation_or_image_fit_executed": false,
+  "p_value_computed": false,
+  "actual_observation_validated": false,
+  "targeted": {
+    "source": {
+      "passed": 45,
+      "elapsed_s": 2.56,
+      "new_tests": 19,
+      "reused_tests": 26,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 45,
+      "elapsed_s": 1.51,
+      "new_tests": 19,
+      "reused_tests": 26,
+      "excluded_tests": 0
+    }
+  },
+  "tests_collected_each": 2206,
+  "full2206_executed": false,
+  "cited_full_stage": 121,
+  "cited_full_tests_each": 2116,
+  "cited_full_elapsed_s": {
+    "source": 609.28,
+    "installed": 607.5
+  },
+  "cited_full_warnings_each": 27396,
+  "cited_full_excluded": 0,
+  "frozen_files": 415,
+  "all_frozen_sha_unchanged": true,
+  "old_core_package_files_unchanged": 215,
+  "core_wheel_package_files_checked": 103,
+  "reference_assets_checked": 4,
+  "main_environment_freeze_unchanged": true,
+  "new_wheel_or_browser_run": false,
+  "source_installed_figure_pixels_exact": true,
+  "initial_failure_preserved": true,
+  "initial_failure": "Metadata dictionary was mistakenly passed as a numeric field to save_spectral; CLI refused object arrays. Caller now excludes metadata and checks numeric roundtrip.",
+  "final_diagnostic_science_exact_to_initial": true,
+  "initial_results_counted_in_final": false,
+  "public_audit_findings": 0,
+  "documentation_links": {
+    "checked": 1638,
+    "missing": 0
+  },
+  "public_npz_numeric_only": true,
+  "png_metadata_empty": true
+}

@@ -140,6 +140,7 @@
 | 122 | [外部RML比較前の座標・誤差・Closure接続](122-ehtim-convention-bridge.md) | 固定EHTim1.3.2を独立envで実行。DFT60/Closure6/w項27、明示した型接続、両40対象。画像optimizer未実行・全2156はcollectのみ |
 | 123 | [w=0の同一参照を自作/外部RMLで画像化](123-paired-w0-rml-reference.md) | 各3初期値の実fit。native選択は収束・外部は上限、条件付きNRMSEと共通損失を分離。両58対象/16配列一致、全2174はcollectのみ |
 | 124 | [外部RMLの反復上限と局所勾配を診断](124-ehtim-iteration-gradient-controls.md) | 2000/5000全未収束、主勾配4/12適合・8/12不適合を保持。両71対象/8画像一致、追加調整保留・主経路残差診断へ。全2187はcollectのみ |
+| 125 | [保存相関のClosure残差と共通有効基線](125-closure-residual-diagnostics.md) | 両45対象、固定18条件/導入18CLI/11593配列一致。真値D約.554・保存fit約.287、形状の正確さと分離。新相関/fitなし、全2206はcollectのみ |
 
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。
 
