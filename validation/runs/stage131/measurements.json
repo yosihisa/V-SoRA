@@ -1,0 +1,52 @@
+{
+  "source": {
+    "mode": "source",
+    "cases": [
+      {
+        "elapsed_s": 8.127928447000158,
+        "peak_process_rss_bytes": 2702938112
+      },
+      {
+        "elapsed_s": 8.626414647995261,
+        "peak_process_rss_bytes": 2703187968
+      },
+      {
+        "elapsed_s": 9.262580078997416,
+        "peak_process_rss_bytes": 2702757888
+      },
+      {
+        "elapsed_s": 8.572457755006326,
+        "peak_process_rss_bytes": 2702909440
+      }
+    ],
+    "actual_output_bytes_before_final_records": 400895086
+  },
+  "installed": {
+    "mode": "installed",
+    "cases": [
+      {
+        "elapsed_s": 8.880672455001331,
+        "peak_process_rss_bytes": 2703675392
+      },
+      {
+        "elapsed_s": 9.108654085001035,
+        "peak_process_rss_bytes": 2703810560
+      },
+      {
+        "elapsed_s": 8.769190749997506,
+        "peak_process_rss_bytes": 2703831040
+      },
+      {
+        "elapsed_s": 8.957430615002522,
+        "peak_process_rss_bytes": 2703925248
+      }
+    ],
+    "actual_output_bytes_before_final_records": 400897814
+  },
+  "actual_study_bytes_each": {
+    "source": 400937532,
+    "installed": 400940263
+  },
+  "wall_time_kind": "worker generation and structural validation excluding imports",
+  "rss_kind": "Linux worker process high-water RSS, includes imports; not minimum PC RAM or pipeline/GPU benchmark"
+}

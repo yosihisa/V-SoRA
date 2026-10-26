@@ -1,0 +1,85 @@
+{
+  "stage": 131,
+  "state": "complete",
+  "raw_cases_each": 4,
+  "same_conditions_reexecuted_not_independent_eight_cases": true,
+  "input_files_bytes_exact": 76,
+  "generation_truth_boundary_archives_bytes_exact": 12,
+  "numeric_arrays_exact": 68,
+  "all_science_json_exact": true,
+  "headers_checked_each": 48640,
+  "boundary_frames_decoded_each": 64,
+  "worker_prefix_module_counts": [
+    34,
+    34,
+    34,
+    34
+  ],
+  "outside_checkout": true,
+  "repository_runner_invoked_in_installed": false,
+  "workflow_helper_still_requires_checkout": true,
+  "pythonpath_removed": true,
+  "worker_existing_output_refusals_each": 4,
+  "whole_study_existing_output_refused": true,
+  "source_all_raw_sha_unchanged": true,
+  "new_inference_correlation_image_executed": false,
+  "zero_sky_control_generated": false,
+  "actual_observation_validated": false,
+  "targeted": {
+    "source": {
+      "passed": 14,
+      "warnings": 49,
+      "elapsed_s": 0.9,
+      "new_tests": 9,
+      "reused_tests": 5,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 14,
+      "warnings": 49,
+      "elapsed_s": 1.05,
+      "new_tests": 9,
+      "reused_tests": 5,
+      "excluded_tests": 0
+    }
+  },
+  "tests_collected_each": 2252,
+  "full2252_executed": false,
+  "cited_full_stage": 121,
+  "cited_full_tests_each": 2116,
+  "cited_full_elapsed_s": {
+    "source": 609.28,
+    "installed": 607.5
+  },
+  "cited_full_warnings_each": 27396,
+  "cited_full_excluded": 0,
+  "frozen_files": 429,
+  "all_frozen_sha_unchanged": true,
+  "old_core_package_files_unchanged": 215,
+  "core_wheel_package_files_checked": 103,
+  "reference_assets_checked": 4,
+  "main_environment_freeze_unchanged": true,
+  "new_wheel_or_browser_run": false,
+  "source_exact_worker_prefix_counts": [
+    34,
+    34,
+    34,
+    34
+  ],
+  "actual_output_bytes_each": {
+    "source": 400937532,
+    "installed": 400940263
+  },
+  "total_both_study_bytes": 801877795,
+  "max_worker_peak_rss_bytes": 2703925248,
+  "initial_targeted_failure": "Corruption test tried to change immutable Baseband header; fixed by copying header first. Producer unchanged.",
+  "initial_targeted_failed": 1,
+  "initial_targeted_passed": 13,
+  "initial_results_counted_as_formal": false,
+  "matplotlib_temp_cache_warning_preserved_in_private_log": true,
+  "public_audit_findings": 0,
+  "documentation_links": {
+    "checked": 1716,
+    "missing": 0
+  }
+}

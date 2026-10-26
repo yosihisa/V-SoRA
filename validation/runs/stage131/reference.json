@@ -1,0 +1,1052 @@
+{
+  "stage": 131,
+  "state": "complete",
+  "fixed_plan": [
+    {
+      "case": "high_a",
+      "seed": 131001,
+      "sefd_jy": 1000.0
+    },
+    {
+      "case": "high_b",
+      "seed": 131002,
+      "sefd_jy": 1000.0
+    },
+    {
+      "case": "weak_a",
+      "seed": 131003,
+      "sefd_jy": 10000.0
+    },
+    {
+      "case": "weak_b",
+      "seed": 131004,
+      "sefd_jy": 10000.0
+    }
+  ],
+  "cases": [
+    {
+      "case": "high_a",
+      "seed": 131001,
+      "assumed_sefd_jy": 1000.0,
+      "start_utc": "2026-10-02T10:00:00Z",
+      "frame_count": 1520,
+      "sample_rate_hz": 2048000,
+      "samples_per_frame": 4096,
+      "recorded_span_s": 3.04,
+      "maximum_baseline_m": 600.0,
+      "generating": {
+        "model": "casa",
+        "assumed_flux_jy": 1000.0,
+        "assumed_sefd_jy": 1000.0,
+        "input_span_s": 3.04,
+        "station_rates_hz": [
+          0.0,
+          17.330894011120897,
+          -11.704548043915482,
+          26.079325043640935,
+          8.225550025856881,
+          -0.46941651329735024,
+          1.6171742790141663,
+          -3.0672957293707803
+        ],
+        "seed": 131001,
+        "fft_length": 8,
+        "useful_rf_channel_centers": 3,
+        "narrowband_phase_bound_rad": 0.0062428836257420696,
+        "sky_temporal_phase_bound_rad": 0.0019191137615900767,
+        "limits": "Continuous periodic colored Gaussian with midpoint sky covariance at center RF; supplied exact nominal clocks; fixed broadband station delay, piecewise RF geometry and constant LO rate; no real antenna or RFI"
+      },
+      "raw_input_file_sha256": {
+        "clock.json": "b4b914971335dd6e7962b9863313016bc7768d2c4bd4250fa0711cf9b7d23250",
+        "manifest.json": "07e2beeb317f22472759dcc108a947ffaf565a0502bd890e55ee4d8695479072",
+        "observation.json": "4ea421860c947a36452b1fe6182805112b34ae00da4d9a36b02b562e8b46a356",
+        "station-1.json": "ef78704f8187aeea59e51d4a73d43e7f170cab8c85f8ed16814575e35aad869e",
+        "station-1.vdif": "83312c7e35a9e9d956213684c358e3ef5ada3a7bc812f463a8a8de974668d1e6",
+        "station-2.json": "bfb59d99684c93d033e3c214d26856803c8573572b539b39f1952da465427751",
+        "station-2.vdif": "cbe0d4157d5443a9bf7b7e0dddac10f0ae91a90b4415e11bc60301f8cf449f51",
+        "station-3.json": "253eb8ce169a92b5ad1676f2e8abeee6754d25d0983fb1e2162c3b74cada4379",
+        "station-3.vdif": "572d196054a8f2deaae72c4263dcce53c9351a059001708953419906bceca6d4",
+        "station-4.json": "629cf20a806b1b84568566033be797e1121386128885c565fbc5080f13ac3b8b",
+        "station-4.vdif": "30cab683b53b5a422996d4101c3d26dd0eaf05e50c61970d6247baadccaf24b3",
+        "station-5.json": "6f81d1e34c372311db41a32efd0527d41aec2abac7d4968ca03bbdf22439b1b2",
+        "station-5.vdif": "d5d237ac5f75a6c1c5d0154b3b831233869811a2481fb2621350d3ea39bd52b2",
+        "station-6.json": "8f6e91dad6466a6cdb993d3e019e754dfc237a573e08d43bcee30f410ad8035d",
+        "station-6.vdif": "759306738d174379db87f031938fb5a36e291d360087604ff44f42c02b95f135",
+        "station-7.json": "dce11ec4ace24c6d197ed8280c7262e6e0e52b5bcc3e9ec4ac6f4ffc1f206322",
+        "station-7.vdif": "1d1fe6f951e1e938b3a47dac5fe85c0cb4d2525bced4a3d04242cd5de3c51caf",
+        "station-8.json": "2edde69a10e6e44c886bf2f16bd4ef9026af3e471ba4a28f0b1a875c4dca8a5a",
+        "station-8.vdif": "fb6860597f75e2c9b40ccdb8958e379293b571f7f484911c2e841bdb0944715a"
+      },
+      "truth_npy_sha256": "9189445bdd1552a2ca885a019662b5d5158f44a1cf2101a1a6b626716c2e07f8",
+      "boundary_npz_sha256": "3b90ede3afe3eb8f0021d4f3deae135336670a9ee6a07a31b09ad447c072c5e9",
+      "station_validation": [
+        {
+          "station_numeric_id": 1,
+          "frames_checked": 1520,
+          "sample_count": 6225920,
+          "vdif_bytes": 12500480,
+          "decoded_voltage_unit": "ADC",
+          "decoded_voltage_scale": 227.99075922969854,
+          "clipped_fraction": 0.0,
+          "boundaries": [
+            {
+              "boundary": "first",
+              "frame_index": 0,
+              "sample_index": 0,
+              "decoded_complex128_sha256": "59f083a506c37f7a088fe2fdef1f67b023abbb8e4ad0577ef3b0b35d4be72d8b"
+            },
+            {
+              "boundary": "last",
+              "frame_index": 1519,
+              "sample_index": 6221824,
+              "decoded_complex128_sha256": "595aff4cf36b6ff65f4860eca28f7a3660efab0a40ae2618d9a1dc8e97d6afaa"
+            }
+          ]
+        },
+        {
+          "station_numeric_id": 2,
+          "frames_checked": 1520,
+          "sample_count": 6225920,
+          "vdif_bytes": 12500480,
+          "decoded_voltage_unit": "ADC",
+          "decoded_voltage_scale": 79.53778595621998,
+          "clipped_fraction": 0.0,
+          "boundaries": [
+            {
+              "boundary": "first",
+              "frame_index": 0,
+              "sample_index": 0,
+              "decoded_complex128_sha256": "e91dc5d8d7f9fedd7ed1fdc85a552d54e577980c4a22f018cc67944fffdec4e5"
+            },
+            {
+              "boundary": "last",
+              "frame_index": 1519,
+              "sample_index": 6221824,
+              "decoded_complex128_sha256": "c5d4b43d75718eb473c1734adbf7aebec5812e7b756ebe9e991f99b01c4db1e2"
+            }
+          ]
+        },
+        {
+          "station_numeric_id": 3,
+          "frames_checked": 1520,
+          "sample_count": 6225920,
+          "vdif_bytes": 12500480,
+          "decoded_voltage_unit": "ADC",
+          "decoded_voltage_scale": 225.9883036579692,
+          "clipped_fraction": 0.0,
+          "boundaries": [
+            {
+              "boundary": "first",
+              "frame_index": 0,
+              "sample_index": 0,
+              "decoded_complex128_sha256": "b5eaa0f8b7323e2c8570fdf9fef9a9032b481f1691be6769077bf0b56b05c5b1"
+            },
+            {
+              "boundary": "last",
+              "frame_index": 1519,
+              "sample_index": 6221824,
+              "decoded_complex128_sha256": "9c6891d5832459acc97d2a5b393588e6cd6c099213d0f09d3deafd47f63f00bb"
+            }
+          ]
+        },
+        {
+          "station_numeric_id": 4,
+          "frames_checked": 1520,
+          "sample_count": 6225920,
+          "vdif_bytes": 12500480,
+          "decoded_voltage_unit": "ADC",
+          "decoded_voltage_scale": 25.296549240595517,
+          "clipped_fraction": 0.0,
+          "boundaries": [
+            {
+              "boundary": "first",
+              "frame_index": 0,
+              "sample_index": 0,
+              "decoded_complex128_sha256": "51d66084c45e0bbe42dc09beebbe5db57cacc22deae72e0fb24a502668ade019"
+            },
+            {
+              "boundary": "last",
+              "frame_index": 1519,
+              "sample_index": 6221824,
+              "decoded_complex128_sha256": "18132462a17f31309190d53d9191ea6fc8dc175e3b525605b45f2834c117663b"
+            }
+          ]
+        },
+        {
+          "station_numeric_id": 5,
+          "frames_checked": 1520,
+          "sample_count": 6225920,
+          "vdif_bytes": 12500480,
+          "decoded_voltage_unit": "ADC",
+          "decoded_voltage_scale": 102.77223909439756,
+          "clipped_fraction": 0.0,
+          "boundaries": [
+            {
+              "boundary": "first",
+              "frame_index": 0,
+              "sample_index": 0,
+              "decoded_complex128_sha256": "55ac9e094f482c64dd0b46b832f5e9de8257a42d583c9708a527a85060e8c747"
+            },
+            {
+              "boundary": "last",
+              "frame_index": 1519,
+              "sample_index": 6221824,
+              "decoded_complex128_sha256": "3cf494b3cc54c448a20e09feb676d852f554096476fd437b5bbeabec2e70c00c"
+            }
+          ]
+        },
+        {
+          "station_numeric_id": 6,
+          "frames_checked": 1520,
+          "sample_count": 6225920,
+          "vdif_bytes": 12500480,
+          "decoded_voltage_unit": "ADC",
+          "decoded_voltage_scale": 248.17277774856214,
+          "clipped_fraction": 0.0,
+          "boundaries": [
+            {
+              "boundary": "first",
+              "frame_index": 0,
+              "sample_index": 0,
+              "decoded_complex128_sha256": "110a4bc1b7da9501ce3b032ffdc636c4cd695ff5391c32a6b83d9c60c6a9a722"
+            },
+            {
+              "boundary": "last",
+              "frame_index": 1519,
+              "sample_index": 6221824,
+              "decoded_complex128_sha256": "6c7f5d7aed16f30497c90415928c9c5ff2f529b65e9a553912f36cdf587bbf36"
+            }
+          ]
+        },
+        {
+          "station_numeric_id": 7,
+          "frames_checked": 1520,
+          "sample_count": 6225920,
+          "vdif_bytes": 12500480,
+          "decoded_voltage_unit": "ADC",
+          "decoded_voltage_scale": 219.86739061133687,
+          "clipped_fraction": 0.0,
+          "boundaries": [
+            {
+              "boundary": "first",
+              "frame_index": 0,
+              "sample_index": 0,
+              "decoded_complex128_sha256": "8992d2a75c15603879012aa11616a9c81a32bd2039f044e3805014601b9f42ce"
+            },
+            {
+              "boundary": "last",
+              "frame_index": 1519,
+              "sample_index": 6221824,
+              "decoded_complex128_sha256": "ed6a31a0c8cc0f1df1cff8508a521f5275d0c15bc6f0d221bb506761436aed65"
+            }
+          ]
+        },
+        {
+          "station_numeric_id": 8,
+          "frames_checked": 1520,
+          "sample_count": 6225920,
+          "vdif_bytes": 12500480,
+          "decoded_voltage_unit": "ADC",
+          "decoded_voltage_scale": 67.8913776114999,
+          "clipped_fraction": 0.0,
+          "boundaries": [
+            {
+              "boundary": "first",
+              "frame_index": 0,
+              "sample_index": 0,
+              "decoded_complex128_sha256": "f11d39612ee037b9a891cf9141eb71d48b7d9475a6bbd073aa577173eb7ce40c"
+            },
+            {
+              "boundary": "last",
+              "frame_index": 1519,
+              "sample_index": 6221824,
+              "decoded_complex128_sha256": "5a6126e96f5bf55de785cff7d270da139106e2dfee6228d4b1c5587dc7ee4796"
+            }
+          ]
+        }
+      ],
+      "observed_model_unknown": true,
+      "observed_config_seed": 42,
+      "observed_config_seed_is_generation_seed": false,
+      "observer_noise_enabled_corrected_to_describe_raw": true,
+      "exact_clock_and_decoder_scales_supplied": true,
+      "gain_truth_not_exported_by_existing_fixture": true,
+      "noise_only_intervention": false,
+      "source_or_rate_truth_supplied_to_inference": false,
+      "inference_executed": false,
+      "raw_vdif_bytes": 100003840
+    },
+    {
+      "case": "high_b",
+      "seed": 131002,
+      "assumed_sefd_jy": 1000.0,
+      "start_utc": "2026-10-02T10:00:00Z",
+      "frame_count": 1520,
+      "sample_rate_hz": 2048000,
+      "samples_per_frame": 4096,
+      "recorded_span_s": 3.04,
+      "maximum_baseline_m": 600.0,
+      "generating": {
+        "model": "casa",
+        "assumed_flux_jy": 1000.0,
+        "assumed_sefd_jy": 1000.0,
+        "input_span_s": 3.04,
+        "station_rates_hz": [
+          0.0,
+          17.245728953459526,
+          -11.824011925039775,
+          26.116972619072662,
+          8.231674891817134,
+          -0.3254607148501501,
+          1.706095446752085,
+          -3.1341597052477352
+        ],
+        "seed": 131002,
+        "fft_length": 8,
+        "useful_rf_channel_centers": 3,
+        "narrowband_phase_bound_rad": 0.0062428836257420696,
+        "sky_temporal_phase_bound_rad": 0.0019191137615900767,
+        "limits": "Continuous periodic colored Gaussian with midpoint sky covariance at center RF; supplied exact nominal clocks; fixed broadband station delay, piecewise RF geometry and constant LO rate; no real antenna or RFI"
+      },
+      "raw_input_file_sha256": {
+        "clock.json": "b4b914971335dd6e7962b9863313016bc7768d2c4bd4250fa0711cf9b7d23250",
+        "manifest.json": "f7fe13ebb1ff1d9bbc41d27e6fb09e32ffba3634867932a84f1c8b8aecc251b4",
+        "observation.json": "4ea421860c947a36452b1fe6182805112b34ae00da4d9a36b02b562e8b46a356",
+        "station-1.json": "b278bfd551a70d61d4caf611581493029a2d178b86316d084cb8532d985afa4e",
+        "station-1.vdif": "342642f6fa44bff05edf5d30cee96e97696f818b0c7218c3a8eb71b46bbdb38b",
+        "station-2.json": "272701cefef922a23af618e40933270b73f58fd7ce29f3a2b6c2901e8d306745",
+        "station-2.vdif": "e93a7620e5730fffc2ac949ebb2280c13849eb7d31e0934636b40a6108e43b93",
+        "station-3.json": "9a491ac0e1dfae26ef3669627d190fa0d00b8dd4a0d60668cf77497c38d87e97",
+        "station-3.vdif": "90a48adc334f7cd38f2c3803584976164743e9666548551dcfe3b08118e9b679",
+        "station-4.json": "2a4a68cad5269a8797626dd43cb5e08346bb608038bb535fdfc61ddaa6e56fc7",
+        "station-4.vdif": "789b4885ece5d7265893445edf88000fb1c40ee560d3d44a173eecc115be1437",
+        "station-5.json": "2a8b355711039ac1404ececec087831eecb3c1d58c8f121b958392c1bbc411a6",
+        "station-5.vdif": "8636a3f549e791193121b07bba8fae3003c77ee9cf0bff18472d1195b65773e4",
+        "station-6.json": "387ff1839c2a63885e7a09a33438a1a3c8d21a2f3006346132dccb57ae090f98",
+        "station-6.vdif": "de1160ff39c4783b2531828f8f30c1567c4fd0d228038139edae848e14f99b68",
+        "station-7.json": "98921681c5ce17b3efa117ead26da60c838a4bd458a3ea19e34af930faff222f",
+        "station-7.vdif": "2aee713f64fbe5e8a27f2a51761dbc921ca663bdeb7259c4e94d1c168eb46c0f",
+        "station-8.json": "03068f8659f95051addf2855d80d63726c39f5bc41b81178fd6a3a8bd606c9bd",
+        "station-8.vdif": "7c8c7b9a5b597652251a001da3cd44730491af48292e75cbfbf37a472911129c"
+      },
+      "truth_npy_sha256": "9189445bdd1552a2ca885a019662b5d5158f44a1cf2101a1a6b626716c2e07f8",
+      "boundary_npz_sha256": "0a4666c9e0ff4ab730df5977bd10dae787fa55a3bfd110736954089a9fddc28b",
+      "station_validation": [
+        {
+          "station_numeric_id": 1,
+          "frames_checked": 1520,
+          "sample_count": 6225920,
+          "vdif_bytes": 12500480,
+          "decoded_voltage_unit": "ADC",
+          "decoded_voltage_scale": 155.94125406089972,
+          "clipped_fraction": 0.0,
+          "boundaries": [
+            {
+              "boundary": "first",
+              "frame_index": 0,
+              "sample_index": 0,
+              "decoded_complex128_sha256": "d9a4fccf67473e92417243583caa34472a09cf54552805cb7319f44de23c3f9a"
+            },
+            {
+              "boundary": "last",
+              "frame_index": 1519,
+              "sample_index": 6221824,
+              "decoded_complex128_sha256": "6a545dd1107e84b9fc874bcd90fc9ebed3af457fc7241879e90a6ce62adbe8a7"
+            }
+          ]
+        },
+        {
+          "station_numeric_id": 2,
+          "frames_checked": 1520,
+          "sample_count": 6225920,
+          "vdif_bytes": 12500480,
+          "decoded_voltage_unit": "ADC",
+          "decoded_voltage_scale": 160.69218166679747,
+          "clipped_fraction": 0.0,
+          "boundaries": [
+            {
+              "boundary": "first",
+              "frame_index": 0,
+              "sample_index": 0,
+              "decoded_complex128_sha256": "1d75bbda66fd498fa5b3ecfe451f6c9d2102b0db98ba629e4f21641f5772d8ac"
+            },
+            {
+              "boundary": "last",
+              "frame_index": 1519,
+              "sample_index": 6221824,
+              "decoded_complex128_sha256": "f206e9a05e19c6e3d4daab88a10d8303a3739ad8440026305e214cb79d3da881"
+            }
+          ]
+        },
+        {
+          "station_numeric_id": 3,
+          "frames_checked": 1520,
+          "sample_count": 6225920,
+          "vdif_bytes": 12500480,
+          "decoded_voltage_unit": "ADC",
+          "decoded_voltage_scale": 21.641191460985688,
+          "clipped_fraction": 0.0,
+          "boundaries": [
+            {
+              "boundary": "first",
+              "frame_index": 0,
+              "sample_index": 0,
+              "decoded_complex128_sha256": "f94e69b663f72fad593b26c05561a4762527ed949fd04d0aa8fecac5c4688bd6"
+            },
+            {
+              "boundary": "last",
+              "frame_index": 1519,
+              "sample_index": 6221824,
+              "decoded_complex128_sha256": "2e06662cc9bdf0196818b4e1c5c0e2fea3b0c007353594e99af9c246e26ea335"
+            }
+          ]
+        },
+        {
+          "station_numeric_id": 4,
+          "frames_checked": 1520,
+          "sample_count": 6225920,
+          "vdif_bytes": 12500480,
+          "decoded_voltage_unit": "ADC",
+          "decoded_voltage_scale": 127.49700158920443,
+          "clipped_fraction": 0.0,
+          "boundaries": [
+            {
+              "boundary": "first",
+              "frame_index": 0,
+              "sample_index": 0,
+              "decoded_complex128_sha256": "5203f8650da752c3f18929a883a81f2c9e8e369c66954fb59616c8d5e4c0ed65"
+            },
+            {
+              "boundary": "last",
+              "frame_index": 1519,
+              "sample_index": 6221824,
+              "decoded_complex128_sha256": "49f384c0c19b41f02f6a899aa7528aee5ce1347fdfff923329eb79e823654b8b"
+            }
+          ]
+        },
+        {
+          "station_numeric_id": 5,
+          "frames_checked": 1520,
+          "sample_count": 6225920,
+          "vdif_bytes": 12500480,
+          "decoded_voltage_unit": "ADC",
+          "decoded_voltage_scale": 29.939871517350834,
+          "clipped_fraction": 0.0,
+          "boundaries": [
+            {
+              "boundary": "first",
+              "frame_index": 0,
+              "sample_index": 0,
+              "decoded_complex128_sha256": "5d320df3a9958b299c987015372733a1b2d918f2fa96d585abc23daa7a0f240f"
+            },
+            {
+              "boundary": "last",
+              "frame_index": 1519,
+              "sample_index": 6221824,
+              "decoded_complex128_sha256": "068f2bb21309e9a5de73cb86656d3897f56e55ff0d84f800f32923e66de1195d"
+            }
+          ]
+        },
+        {
+          "station_numeric_id": 6,
+          "frames_checked": 1520,
+          "sample_count": 6225920,
+          "vdif_bytes": 12500480,
+          "decoded_voltage_unit": "ADC",
+          "decoded_voltage_scale": 16.018312020435506,
+          "clipped_fraction": 0.0,
+          "boundaries": [
+            {
+              "boundary": "first",
+              "frame_index": 0,
+              "sample_index": 0,
+              "decoded_complex128_sha256": "8d02540be7594229deedf6d2bd25665e6dc75148fc8d81b0ef69bf2e06420d9e"
+            },
+            {
+              "boundary": "last",
+              "frame_index": 1519,
+              "sample_index": 6221824,
+              "decoded_complex128_sha256": "d2ff34bb9b4fec4b6234ae26721820ffdd101365858b1c622ac72f1ec29ca365"
+            }
+          ]
+        },
+        {
+          "station_numeric_id": 7,
+          "frames_checked": 1520,
+          "sample_count": 6225920,
+          "vdif_bytes": 12500480,
+          "decoded_voltage_unit": "ADC",
+          "decoded_voltage_scale": 57.01857306585944,
+          "clipped_fraction": 0.0,
+          "boundaries": [
+            {
+              "boundary": "first",
+              "frame_index": 0,
+              "sample_index": 0,
+              "decoded_complex128_sha256": "44c3ed0064eff646a1457f6f75c737a99769f72011a9428fe633209ef6f79022"
+            },
+            {
+              "boundary": "last",
+              "frame_index": 1519,
+              "sample_index": 6221824,
+              "decoded_complex128_sha256": "db6e611a4090d4a76f35585bcf307b552c95912d3a910c939432b875710097e1"
+            }
+          ]
+        },
+        {
+          "station_numeric_id": 8,
+          "frames_checked": 1520,
+          "sample_count": 6225920,
+          "vdif_bytes": 12500480,
+          "decoded_voltage_unit": "ADC",
+          "decoded_voltage_scale": 77.17370458008212,
+          "clipped_fraction": 0.0,
+          "boundaries": [
+            {
+              "boundary": "first",
+              "frame_index": 0,
+              "sample_index": 0,
+              "decoded_complex128_sha256": "5f866640ed6f9289ee9830ab3b305b5fecf82d417aa470f3aa18cf4138abb0cb"
+            },
+            {
+              "boundary": "last",
+              "frame_index": 1519,
+              "sample_index": 6221824,
+              "decoded_complex128_sha256": "51b28e9f6099703d6de5f3cc5e8c17e9d8746c9a839944bfc5e0d3bfbb35bc5e"
+            }
+          ]
+        }
+      ],
+      "observed_model_unknown": true,
+      "observed_config_seed": 42,
+      "observed_config_seed_is_generation_seed": false,
+      "observer_noise_enabled_corrected_to_describe_raw": true,
+      "exact_clock_and_decoder_scales_supplied": true,
+      "gain_truth_not_exported_by_existing_fixture": true,
+      "noise_only_intervention": false,
+      "source_or_rate_truth_supplied_to_inference": false,
+      "inference_executed": false,
+      "raw_vdif_bytes": 100003840
+    },
+    {
+      "case": "weak_a",
+      "seed": 131003,
+      "assumed_sefd_jy": 10000.0,
+      "start_utc": "2026-10-02T10:00:00Z",
+      "frame_count": 1520,
+      "sample_rate_hz": 2048000,
+      "samples_per_frame": 4096,
+      "recorded_span_s": 3.04,
+      "maximum_baseline_m": 600.0,
+      "generating": {
+        "model": "casa",
+        "assumed_flux_jy": 1000.0,
+        "assumed_sefd_jy": 10000.0,
+        "input_span_s": 3.04,
+        "station_rates_hz": [
+          0.0,
+          17.254783043409713,
+          -11.741406325001709,
+          26.091919341824788,
+          8.198709339703544,
+          -0.3743135607447883,
+          1.821731999011083,
+          -3.0394140578492177
+        ],
+        "seed": 131003,
+        "fft_length": 8,
+        "useful_rf_channel_centers": 3,
+        "narrowband_phase_bound_rad": 0.0062428836257420696,
+        "sky_temporal_phase_bound_rad": 0.0019191137615900767,
+        "limits": "Continuous periodic colored Gaussian with midpoint sky covariance at center RF; supplied exact nominal clocks; fixed broadband station delay, piecewise RF geometry and constant LO rate; no real antenna or RFI"
+      },
+      "raw_input_file_sha256": {
+        "clock.json": "b4b914971335dd6e7962b9863313016bc7768d2c4bd4250fa0711cf9b7d23250",
+        "manifest.json": "1fe299fe0e881579184018f689871c1e084f4a5b5c74094e1b5c98b3b47c5090",
+        "observation.json": "6e6e5aabfaef8d5687c3552f59f10c9132bff1a6d00412713098f8e89dc37be5",
+        "station-1.json": "bc5dc2b9b6de382233e1682c79caf710421db71e3ec8617bac1d77a11bcba948",
+        "station-1.vdif": "a87c967481204bcf1a99276a3a12f9f1b9085ff7c7e1cabdb8cfda3a107a6764",
+        "station-2.json": "10437cc84f61a7c738ea3b6dfbbc638c5304283e7673f992000f81efb3dc5e51",
+        "station-2.vdif": "ff40a76c84f188674c2c359e912fdaaf38dc477aac225e539773b24f9c297605",
+        "station-3.json": "cc691ac518157a5faee2ee63c981cbc1b60154aa63dce4d9e996fdccb88e767f",
+        "station-3.vdif": "5613ea40c266e45f13d0bfcfc2ec71e64e65a514ffa1af365034185c17e891b8",
+        "station-4.json": "f8dc6e10997cf543f571ef068d09c8dfb1347960397ee202ba56289be5bc0a17",
+        "station-4.vdif": "7254b46469bc235564bac6a1b961e9c5b20ba5b766f42476433059b7316dbd15",
+        "station-5.json": "d50c60761cc79dcf0f0822c0d5d5cbe4b1a0019c722d7ff654821c6c62c344b9",
+        "station-5.vdif": "9fcc3a38ac80ad5f2564b308d52f8e0b5dd566b5b119d5dceab64d7fbc1f2d86",
+        "station-6.json": "7c46d374ee8388220383df6c8b7bc1b3b442c1958a25663d90ddc0a1ca6c2168",
+        "station-6.vdif": "9c86c16f3c398e9a68f0d3b68907e0c14f91e87d1e4dfca726f5f6dccd871e0d",
+        "station-7.json": "03f0a76f82c6e48db0b46e649000f3b710da285f40f6de362482207ae2f7eb1c",
+        "station-7.vdif": "f59a4b0232dcb62dcb35aaa5a40b9cbdd342f6ea4ec6a651a1ad84b717210d36",
+        "station-8.json": "c67f9a15b73a33dd93ac5081a72fd2f8d7a2f62057059280a39f2c18e7eef83b",
+        "station-8.vdif": "6c29896606bd1badbbb1904f82b805fdd1b0d3f9070a8bf47c1955e9d43f036f"
+      },
+      "truth_npy_sha256": "9189445bdd1552a2ca885a019662b5d5158f44a1cf2101a1a6b626716c2e07f8",
+      "boundary_npz_sha256": "70c6d16d9e49063810a406698afa1e809ed8fe25450634fc4c93f3ce77b23708",
+      "station_validation": [
+        {
+          "station_numeric_id": 1,
+          "frames_checked": 1520,
+          "sample_count": 6225920,
+          "vdif_bytes": 12500480,
+          "decoded_voltage_unit": "ADC",
+          "decoded_voltage_scale": 196.09951585881234,
+          "clipped_fraction": 0.0,
+          "boundaries": [
+            {
+              "boundary": "first",
+              "frame_index": 0,
+              "sample_index": 0,
+              "decoded_complex128_sha256": "a1bce90b2c766d1ec6220e22a484f6180a46eec88c0af520fd4f4d87911a2728"
+            },
+            {
+              "boundary": "last",
+              "frame_index": 1519,
+              "sample_index": 6221824,
+              "decoded_complex128_sha256": "a79d3ab3ab61b7551a42d9f65ef4e5b13e65da157692f353d32ac199ca960ac2"
+            }
+          ]
+        },
+        {
+          "station_numeric_id": 2,
+          "frames_checked": 1520,
+          "sample_count": 6225920,
+          "vdif_bytes": 12500480,
+          "decoded_voltage_unit": "ADC",
+          "decoded_voltage_scale": 53.67209320431069,
+          "clipped_fraction": 0.0,
+          "boundaries": [
+            {
+              "boundary": "first",
+              "frame_index": 0,
+              "sample_index": 0,
+              "decoded_complex128_sha256": "7f8b9e7004acac68e4ea12a4aa84d07ab63e1e35ad517a057bc4821d73340277"
+            },
+            {
+              "boundary": "last",
+              "frame_index": 1519,
+              "sample_index": 6221824,
+              "decoded_complex128_sha256": "ecc0ab9d684424aa4276d20ed4982eda56b6078601a697c716967ba61efb5fef"
+            }
+          ]
+        },
+        {
+          "station_numeric_id": 3,
+          "frames_checked": 1520,
+          "sample_count": 6225920,
+          "vdif_bytes": 12500480,
+          "decoded_voltage_unit": "ADC",
+          "decoded_voltage_scale": 295.985399152329,
+          "clipped_fraction": 0.0,
+          "boundaries": [
+            {
+              "boundary": "first",
+              "frame_index": 0,
+              "sample_index": 0,
+              "decoded_complex128_sha256": "be8518bf6ae94d21c74e5701cf40845e896c6e6fab4abd7fcfbd4e9fb818e231"
+            },
+            {
+              "boundary": "last",
+              "frame_index": 1519,
+              "sample_index": 6221824,
+              "decoded_complex128_sha256": "a498701492663b0f297031f32dece0315a19398c6d624c5b380c2df0e761425f"
+            }
+          ]
+        },
+        {
+          "station_numeric_id": 4,
+          "frames_checked": 1520,
+          "sample_count": 6225920,
+          "vdif_bytes": 12500480,
+          "decoded_voltage_unit": "ADC",
+          "decoded_voltage_scale": 81.92942564191183,
+          "clipped_fraction": 0.0,
+          "boundaries": [
+            {
+              "boundary": "first",
+              "frame_index": 0,
+              "sample_index": 0,
+              "decoded_complex128_sha256": "691bf17367efe303b9632f8dd8212b3d17ff67fa8436ba35f7c8c9da0384893c"
+            },
+            {
+              "boundary": "last",
+              "frame_index": 1519,
+              "sample_index": 6221824,
+              "decoded_complex128_sha256": "68b4f16af2fd70378f425d4ea09349388412898c1f6ca5c7f4b92a70fd223e5a"
+            }
+          ]
+        },
+        {
+          "station_numeric_id": 5,
+          "frames_checked": 1520,
+          "sample_count": 6225920,
+          "vdif_bytes": 12500480,
+          "decoded_voltage_unit": "ADC",
+          "decoded_voltage_scale": 198.9769436436742,
+          "clipped_fraction": 0.0,
+          "boundaries": [
+            {
+              "boundary": "first",
+              "frame_index": 0,
+              "sample_index": 0,
+              "decoded_complex128_sha256": "81719dffb36bfc09cb6842d0ad059e1ae4e236d2c995264005e64e9053c8e8db"
+            },
+            {
+              "boundary": "last",
+              "frame_index": 1519,
+              "sample_index": 6221824,
+              "decoded_complex128_sha256": "440c098c1fee2fab57c92b99d3c771e79f12204d247fde507786d3f227752b5b"
+            }
+          ]
+        },
+        {
+          "station_numeric_id": 6,
+          "frames_checked": 1520,
+          "sample_count": 6225920,
+          "vdif_bytes": 12500480,
+          "decoded_voltage_unit": "ADC",
+          "decoded_voltage_scale": 67.66511671647864,
+          "clipped_fraction": 0.0,
+          "boundaries": [
+            {
+              "boundary": "first",
+              "frame_index": 0,
+              "sample_index": 0,
+              "decoded_complex128_sha256": "2787072d562aaff63ac75f4840142051c9df70b95a32e12f076805b5fe4925b3"
+            },
+            {
+              "boundary": "last",
+              "frame_index": 1519,
+              "sample_index": 6221824,
+              "decoded_complex128_sha256": "7761c48d94b77b4a64a4f9afbc4daaa92d1a53c567f356c51130414b0891a5dd"
+            }
+          ]
+        },
+        {
+          "station_numeric_id": 7,
+          "frames_checked": 1520,
+          "sample_count": 6225920,
+          "vdif_bytes": 12500480,
+          "decoded_voltage_unit": "ADC",
+          "decoded_voltage_scale": 79.76725794530164,
+          "clipped_fraction": 0.0,
+          "boundaries": [
+            {
+              "boundary": "first",
+              "frame_index": 0,
+              "sample_index": 0,
+              "decoded_complex128_sha256": "f12c84d11520c00561649370569ffc53eb6605bd997c481597bed46e7cca1c2d"
+            },
+            {
+              "boundary": "last",
+              "frame_index": 1519,
+              "sample_index": 6221824,
+              "decoded_complex128_sha256": "c4fd77df982ac0633eae29462cce9388dc6772314dd9c15ba2e3a84cc41d7cca"
+            }
+          ]
+        },
+        {
+          "station_numeric_id": 8,
+          "frames_checked": 1520,
+          "sample_count": 6225920,
+          "vdif_bytes": 12500480,
+          "decoded_voltage_unit": "ADC",
+          "decoded_voltage_scale": 51.569252010545235,
+          "clipped_fraction": 0.0,
+          "boundaries": [
+            {
+              "boundary": "first",
+              "frame_index": 0,
+              "sample_index": 0,
+              "decoded_complex128_sha256": "929445649744ced21a831e3ffb8b0d7a4e4b0f063501d2f1ff467de591c51afb"
+            },
+            {
+              "boundary": "last",
+              "frame_index": 1519,
+              "sample_index": 6221824,
+              "decoded_complex128_sha256": "b2cac231a801c167536a6373d24681c81c3586ff55ce377cc89ccfffd8ccc21d"
+            }
+          ]
+        }
+      ],
+      "observed_model_unknown": true,
+      "observed_config_seed": 42,
+      "observed_config_seed_is_generation_seed": false,
+      "observer_noise_enabled_corrected_to_describe_raw": true,
+      "exact_clock_and_decoder_scales_supplied": true,
+      "gain_truth_not_exported_by_existing_fixture": true,
+      "noise_only_intervention": false,
+      "source_or_rate_truth_supplied_to_inference": false,
+      "inference_executed": false,
+      "raw_vdif_bytes": 100003840
+    },
+    {
+      "case": "weak_b",
+      "seed": 131004,
+      "assumed_sefd_jy": 10000.0,
+      "start_utc": "2026-10-02T10:00:00Z",
+      "frame_count": 1520,
+      "sample_rate_hz": 2048000,
+      "samples_per_frame": 4096,
+      "recorded_span_s": 3.04,
+      "maximum_baseline_m": 600.0,
+      "generating": {
+        "model": "casa",
+        "assumed_flux_jy": 1000.0,
+        "assumed_sefd_jy": 10000.0,
+        "input_span_s": 3.04,
+        "station_rates_hz": [
+          0.0,
+          17.322179179570032,
+          -11.757802200088191,
+          26.141634336781287,
+          8.248678584815087,
+          -0.39542817047600864,
+          1.7108247206566352,
+          -3.1148323593494522
+        ],
+        "seed": 131004,
+        "fft_length": 8,
+        "useful_rf_channel_centers": 3,
+        "narrowband_phase_bound_rad": 0.0062428836257420696,
+        "sky_temporal_phase_bound_rad": 0.0019191137615900767,
+        "limits": "Continuous periodic colored Gaussian with midpoint sky covariance at center RF; supplied exact nominal clocks; fixed broadband station delay, piecewise RF geometry and constant LO rate; no real antenna or RFI"
+      },
+      "raw_input_file_sha256": {
+        "clock.json": "b4b914971335dd6e7962b9863313016bc7768d2c4bd4250fa0711cf9b7d23250",
+        "manifest.json": "458270a2b2c156dc634289acf4f197e8ea00a9dd8f2bac6b761666b806c391bf",
+        "observation.json": "6e6e5aabfaef8d5687c3552f59f10c9132bff1a6d00412713098f8e89dc37be5",
+        "station-1.json": "8304c4295696a7646c0253a95b7431c0e9759f8db44b459eee2a1189226272ea",
+        "station-1.vdif": "5bdd096f6736747c6d6422f7c7debcf2c6777cf1a296449027e359af52ec77ce",
+        "station-2.json": "6c5042e8b2ec6b9e7c0e8da7060616913991e8274e5ac0a6cb4df0eb2720c841",
+        "station-2.vdif": "5147c7bdac21926c2de2fc756a7d89deb74c32f53743056d4f440670742cb700",
+        "station-3.json": "63727c5fd2dfdc79eee7fc916e67755a82bc80b09ed2a3ac067597feb2684ccb",
+        "station-3.vdif": "efb2c835d5a674fe1fd51780b17f45f351375329e0494ef0f8ac7ed81aa99d98",
+        "station-4.json": "0938affdd18c54184e6e165bb4c4cef04a33951eda6804e31eda5054c16ea4ea",
+        "station-4.vdif": "5f7052940017a7d8bbfae975713c220c41efa90b3c86b4338c710a3ee6affd7a",
+        "station-5.json": "65eac7fb4db9fb78b3d8159f6e482699fc57e137a6a19302eb1b50d6f2751da4",
+        "station-5.vdif": "9ac113f265f483bd1f2f096f5fbb609ae6530a07b515bddc2c3137ba57f7cc06",
+        "station-6.json": "8a1648273fd867a6179df118561d50e22f4dd79e42409a96c3df326329321c5a",
+        "station-6.vdif": "fd74883b8bc84d408625f61c7357c0eb9320ce99298392579eb2943e4063818e",
+        "station-7.json": "0a66114695358c20f75393f481ddc62c78f3338cc3ca6fe67ec394b55b79dfa6",
+        "station-7.vdif": "4315a566ab25cf82bfbd2dde0783dde9a1262b0eb9f5f9210609070f67e49451",
+        "station-8.json": "0a5567898bf96673f6e5ced8746824ff18d5347ca3427af4187b767fd328cd1a",
+        "station-8.vdif": "607921e1733daae4fbc64227775e8d73aae38e0466bc8ab9ff91b86a5454b8ca"
+      },
+      "truth_npy_sha256": "9189445bdd1552a2ca885a019662b5d5158f44a1cf2101a1a6b626716c2e07f8",
+      "boundary_npz_sha256": "e65b279ed802b4f739784162b327e90cc9a8e030ad254ceffd11358cb5768fff",
+      "station_validation": [
+        {
+          "station_numeric_id": 1,
+          "frames_checked": 1520,
+          "sample_count": 6225920,
+          "vdif_bytes": 12500480,
+          "decoded_voltage_unit": "ADC",
+          "decoded_voltage_scale": 68.16797364077709,
+          "clipped_fraction": 0.0,
+          "boundaries": [
+            {
+              "boundary": "first",
+              "frame_index": 0,
+              "sample_index": 0,
+              "decoded_complex128_sha256": "46ef8065de1fb5d4df9b29f5bacc6fec457ac375ccdbce5675c356416da46e8a"
+            },
+            {
+              "boundary": "last",
+              "frame_index": 1519,
+              "sample_index": 6221824,
+              "decoded_complex128_sha256": "93f840535d0fbd2d4e876c4262e9419fe126cd372fa642a938d16d8694bf2c36"
+            }
+          ]
+        },
+        {
+          "station_numeric_id": 2,
+          "frames_checked": 1520,
+          "sample_count": 6225920,
+          "vdif_bytes": 12500480,
+          "decoded_voltage_unit": "ADC",
+          "decoded_voltage_scale": 166.7481345193009,
+          "clipped_fraction": 0.0,
+          "boundaries": [
+            {
+              "boundary": "first",
+              "frame_index": 0,
+              "sample_index": 0,
+              "decoded_complex128_sha256": "429ba51283b81abb002941099fdc98d6cb77177639205be9d24753507b16d08a"
+            },
+            {
+              "boundary": "last",
+              "frame_index": 1519,
+              "sample_index": 6221824,
+              "decoded_complex128_sha256": "7d60d9fe8d164825f24f4846fed49368397d96e495a7b721acd62544debc34a6"
+            }
+          ]
+        },
+        {
+          "station_numeric_id": 3,
+          "frames_checked": 1520,
+          "sample_count": 6225920,
+          "vdif_bytes": 12500480,
+          "decoded_voltage_unit": "ADC",
+          "decoded_voltage_scale": 371.14861559523547,
+          "clipped_fraction": 0.0,
+          "boundaries": [
+            {
+              "boundary": "first",
+              "frame_index": 0,
+              "sample_index": 0,
+              "decoded_complex128_sha256": "eefc686581f7f8916ce1ff34d0fc6ace19765ae6ce33d67d77e77cb2767ded8e"
+            },
+            {
+              "boundary": "last",
+              "frame_index": 1519,
+              "sample_index": 6221824,
+              "decoded_complex128_sha256": "5da5c9988526ca9cec4f6773e07167ebf51ceebcddf92760b3af0ad7b6d3ca7d"
+            }
+          ]
+        },
+        {
+          "station_numeric_id": 4,
+          "frames_checked": 1520,
+          "sample_count": 6225920,
+          "vdif_bytes": 12500480,
+          "decoded_voltage_unit": "ADC",
+          "decoded_voltage_scale": 88.78162965907292,
+          "clipped_fraction": 0.0,
+          "boundaries": [
+            {
+              "boundary": "first",
+              "frame_index": 0,
+              "sample_index": 0,
+              "decoded_complex128_sha256": "db3a28e2bf1963e96d1c50c5d2596e90de39d8f255380b23d3e9fd42d558663e"
+            },
+            {
+              "boundary": "last",
+              "frame_index": 1519,
+              "sample_index": 6221824,
+              "decoded_complex128_sha256": "0798c5c7b3473499dc84e57d841f7e8885e7facc66e30964ce8120fd2d6ab7ee"
+            }
+          ]
+        },
+        {
+          "station_numeric_id": 5,
+          "frames_checked": 1520,
+          "sample_count": 6225920,
+          "vdif_bytes": 12500480,
+          "decoded_voltage_unit": "ADC",
+          "decoded_voltage_scale": 543.4517763113622,
+          "clipped_fraction": 0.0,
+          "boundaries": [
+            {
+              "boundary": "first",
+              "frame_index": 0,
+              "sample_index": 0,
+              "decoded_complex128_sha256": "40a8f72bca7e877c176dee04643b5e2e2c58effc2bb21e772fb7c55668b475c4"
+            },
+            {
+              "boundary": "last",
+              "frame_index": 1519,
+              "sample_index": 6221824,
+              "decoded_complex128_sha256": "19427c22aed3f8d92daebbc647d618b44355a660063476943585dc8928d35eb9"
+            }
+          ]
+        },
+        {
+          "station_numeric_id": 6,
+          "frames_checked": 1520,
+          "sample_count": 6225920,
+          "vdif_bytes": 12500480,
+          "decoded_voltage_unit": "ADC",
+          "decoded_voltage_scale": 196.08892293810482,
+          "clipped_fraction": 0.0,
+          "boundaries": [
+            {
+              "boundary": "first",
+              "frame_index": 0,
+              "sample_index": 0,
+              "decoded_complex128_sha256": "23e664a41fa8153c16a465f7e50f426359722a9fb800c462db09eacdb5d3a95d"
+            },
+            {
+              "boundary": "last",
+              "frame_index": 1519,
+              "sample_index": 6221824,
+              "decoded_complex128_sha256": "5cf34449fcc07103f48159780c45942022009c1cfe3656d89d27922d9282a3dc"
+            }
+          ]
+        },
+        {
+          "station_numeric_id": 7,
+          "frames_checked": 1520,
+          "sample_count": 6225920,
+          "vdif_bytes": 12500480,
+          "decoded_voltage_unit": "ADC",
+          "decoded_voltage_scale": 213.5672739103952,
+          "clipped_fraction": 0.0,
+          "boundaries": [
+            {
+              "boundary": "first",
+              "frame_index": 0,
+              "sample_index": 0,
+              "decoded_complex128_sha256": "f830b1dd3838f5d182681f734989eae3a91d0310c9b34031fdad8343986c4115"
+            },
+            {
+              "boundary": "last",
+              "frame_index": 1519,
+              "sample_index": 6221824,
+              "decoded_complex128_sha256": "2b96c2c609801ebf0f39040b2383c5a295736cf1317ea665c3b8aef55dd19ed6"
+            }
+          ]
+        },
+        {
+          "station_numeric_id": 8,
+          "frames_checked": 1520,
+          "sample_count": 6225920,
+          "vdif_bytes": 12500480,
+          "decoded_voltage_unit": "ADC",
+          "decoded_voltage_scale": 361.8207407120609,
+          "clipped_fraction": 0.0,
+          "boundaries": [
+            {
+              "boundary": "first",
+              "frame_index": 0,
+              "sample_index": 0,
+              "decoded_complex128_sha256": "d2de9fdcc1bb86b3ec5398621dd240152104991462d2959aed540b2df490e92d"
+            },
+            {
+              "boundary": "last",
+              "frame_index": 1519,
+              "sample_index": 6221824,
+              "decoded_complex128_sha256": "27c8bcaf671734fd6defd51a6fc28cd860b1462abff51eb082dd71280b2abe81"
+            }
+          ]
+        }
+      ],
+      "observed_model_unknown": true,
+      "observed_config_seed": 42,
+      "observed_config_seed_is_generation_seed": false,
+      "observer_noise_enabled_corrected_to_describe_raw": true,
+      "exact_clock_and_decoder_scales_supplied": true,
+      "gain_truth_not_exported_by_existing_fixture": true,
+      "noise_only_intervention": false,
+      "source_or_rate_truth_supplied_to_inference": false,
+      "inference_executed": false,
+      "raw_vdif_bytes": 100003840
+    }
+  ],
+  "case_count": 4,
+  "headers_checked": 48640,
+  "boundary_decodes": 64,
+  "distinct_generation_seeds": true,
+  "distinct_raw_vdif_hash_vectors": true,
+  "dependencies": {
+    "numpy": "2.5.1",
+    "scipy": "1.18.0",
+    "astropy": "7.2.2",
+    "baseband": "4.3.0"
+  },
+  "raw_vdif_bytes_total": 400015360,
+  "configured_budget_each_environment_bytes": 536870912,
+  "same_snapshot_geometry": true,
+  "zero_sky_control_generated": false,
+  "limits": "Four fixed single-epoch synthetic raw cases, two seeds per assumed SEFD. Seeds change noise/gain/LO jointly. Fixed 3.04s, midpoint narrowband sky, FFT-periodic bandlimited Gaussian, exact clocks/decoder scales. No inference/correlation/image, null-sky false alarm, independent eight observations, real RTL-SDR/Cas A, measured SEFD or full-night/GPU validation."
+}
