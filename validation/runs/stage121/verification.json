@@ -1,0 +1,95 @@
+{
+  "stage": 121,
+  "state": "complete",
+  "base_commit": "c809b86381b080c2cf61547f597673556cb93465",
+  "regressions": {
+    "source": {
+      "passed": 2116,
+      "warnings": 27396,
+      "elapsed_s": 609.28,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 2116,
+      "warnings": 27396,
+      "elapsed_s": 607.5,
+      "excluded_tests": 0
+    }
+  },
+  "targeted": {
+    "passed": 143,
+    "warnings": 9641,
+    "elapsed_s": 463.14,
+    "new_tests": 22
+  },
+  "all_six_fixture_json_equal_between_environments": true,
+  "all_actual_worker_assessment_bodies_equal_between_environments": true,
+  "browser_each": {
+    "fixtures": 6,
+    "actual_rml_workers": 1,
+    "actual_clean_workers": 1,
+    "json_downloads": 7,
+    "project_module_prefixes": 11,
+    "all_visible_cards_and_counts_chisq_checked": true,
+    "all_original_summaries_unchanged": true,
+    "no_runner_outside_repository": true,
+    "japanese_390px": true,
+    "external_requests": 0,
+    "javascript_errors": 0,
+    "browser": "153.0.8010.12"
+  },
+  "initial_regression_failures": {
+    "source": {
+      "failed": 2,
+      "passed": 2114,
+      "warnings": 27396,
+      "elapsed_s": 594.91,
+      "formal_success": false
+    },
+    "installed": {
+      "failed": 2,
+      "passed": 2114,
+      "warnings": 27396,
+      "elapsed_s": 589.62,
+      "formal_success": false
+    }
+  },
+  "initial_failure_reason": "Legacy saved status without kind raised KeyError in new GUI hook; use optional kind and leave unclassified records without RML assessment.",
+  "initial_browser_failure": "Closed RML details before setting starts; verifier opens details before interaction.",
+  "initial_build_failure": "No setuptools in runtime environment; isolated wheel build used without changing runtime dependencies.",
+  "preliminary_success_counted_as_formal": false,
+  "frozen_files": 402,
+  "all_frozen_sha_unchanged": true,
+  "wheel_package_files": 103,
+  "wheel_assets": 4,
+  "all_source_installed_wheel_bytes_identical": true,
+  "wheel_sha256": "8c13de04cacc04b379f323b5501652583055ceb10e2192e75109ab31bee73a13",
+  "pip_check_success": true,
+  "dependencies": {
+    "numpy": "2.5.1",
+    "scipy": "1.18.0",
+    "astropy": "7.2.2",
+    "matplotlib": "3.11.1",
+    "pytest": "8.4.2",
+    "baseband": "4.3.0",
+    "fastapi": "0.142.2",
+    "httpx": "0.28.1",
+    "playwright": "1.63.0"
+  },
+  "numerical_solver_or_scientific_package_changed": false,
+  "actual_observation_validated": false,
+  "public_audit_findings": 0,
+  "documentation_links": {
+    "checked": 1589,
+    "missing": 0
+  },
+  "normal_gui": {
+    "state": "complete",
+    "port": 8765,
+    "active_jobs": 0,
+    "installed_new_asset_matches_source_bytes": true,
+    "existing_complete_rml_readable": true,
+    "existing_reference_note": "legacy_reference_record",
+    "no_new_normal_gui_job_submitted": true
+  }
+}

@@ -1,0 +1,278 @@
+{
+  "state": "complete",
+  "mode": "source",
+  "browser": "153.0.8010.12",
+  "fixture_count": 6,
+  "fixtures": [
+    {
+      "label": "収束と参照",
+      "assessment": {
+        "schema_version": 1,
+        "type": "gui_image_assessment",
+        "job_state": "complete",
+        "source_summary_sha256": "aa0d0f919c5c436c886069a0ac9e1dcdcf85ad2ab6a64e207bfbad3daad1eedf",
+        "state": "available",
+        "reason_code": null,
+        "assessment": {
+          "schema_version": 1,
+          "type": "image_path_assessment",
+          "processing_state": "complete",
+          "image_computed": true,
+          "numerical": {
+            "state": "converged",
+            "selected_start": 0,
+            "optimizer_success": true
+          },
+          "independent_constraints": {
+            "phase": 118,
+            "logamp": 93,
+            "total": 211
+          },
+          "reference_fidelity": {
+            "state": "evaluated",
+            "registered_nrmse": 0.23961280834010154,
+            "comparison_version": 2,
+            "common_beam_arcsec": 110.0,
+            "registered_flux_retained_fraction": 1.0000000000000002,
+            "registration_boundary_reached": false,
+            "declared_max_registered_nrmse": null,
+            "within_declared_limit": null
+          },
+          "recorded_issues": [],
+          "actual_observation_success_certified": false,
+          "low_snr_likelihood_validated": false,
+          "interpretation": "Diagnostic record only. Optimizer convergence and reference-image similarity are separate; missing amplitude constraints do not prove imaging impossible. No absolute flux or astrometry certified."
+        },
+        "reference_note": "evaluated_full_support_v2"
+      }
+    },
+    {
+      "label": "未収束と参照",
+      "assessment": {
+        "schema_version": 1,
+        "type": "gui_image_assessment",
+        "job_state": "complete",
+        "source_summary_sha256": "8cd8eed4393b8fb7734ff09814f643e7316b0176f26f3d5b56afb1c504883a41",
+        "state": "available",
+        "reason_code": null,
+        "assessment": {
+          "schema_version": 1,
+          "type": "image_path_assessment",
+          "processing_state": "complete",
+          "image_computed": true,
+          "numerical": {
+            "state": "not_converged",
+            "selected_start": 2,
+            "optimizer_success": false
+          },
+          "independent_constraints": {
+            "phase": 118,
+            "logamp": 93,
+            "total": 211
+          },
+          "reference_fidelity": {
+            "state": "evaluated",
+            "registered_nrmse": 0.35147726545030294,
+            "comparison_version": 2,
+            "common_beam_arcsec": 110.0,
+            "registered_flux_retained_fraction": 1.0,
+            "registration_boundary_reached": false,
+            "declared_max_registered_nrmse": null,
+            "within_declared_limit": null
+          },
+          "recorded_issues": [
+            "optimizer_not_converged"
+          ],
+          "actual_observation_success_certified": false,
+          "low_snr_likelihood_validated": false,
+          "interpretation": "Diagnostic record only. Optimizer convergence and reference-image similarity are separate; missing amplitude constraints do not prove imaging impossible. No absolute flux or astrometry certified."
+        },
+        "reference_note": "evaluated_full_support_v2"
+      }
+    },
+    {
+      "label": "参照なし",
+      "assessment": {
+        "schema_version": 1,
+        "type": "gui_image_assessment",
+        "job_state": "complete",
+        "source_summary_sha256": "3c1389a5d12d849f26515836d1dcc29147893f9667a0e8507002955eec0d1171",
+        "state": "available",
+        "reason_code": null,
+        "assessment": {
+          "schema_version": 1,
+          "type": "image_path_assessment",
+          "processing_state": "complete",
+          "image_computed": true,
+          "numerical": {
+            "state": "converged",
+            "selected_start": 0,
+            "optimizer_success": true
+          },
+          "independent_constraints": {
+            "phase": 118,
+            "logamp": 93,
+            "total": 211
+          },
+          "reference_fidelity": {
+            "state": "not_evaluated",
+            "registered_nrmse": null,
+            "declared_max_registered_nrmse": null,
+            "within_declared_limit": null
+          },
+          "recorded_issues": [],
+          "actual_observation_success_certified": false,
+          "low_snr_likelihood_validated": false,
+          "interpretation": "Diagnostic record only. Optimizer convergence and reference-image similarity are separate; missing amplitude constraints do not prove imaging impossible. No absolute flux or astrometry certified."
+        },
+        "reference_note": "not_provided"
+      }
+    },
+    {
+      "label": "画像未実行",
+      "assessment": {
+        "schema_version": 1,
+        "type": "gui_image_assessment",
+        "job_state": "failed",
+        "source_summary_sha256": null,
+        "state": "available",
+        "reason_code": null,
+        "assessment": {
+          "schema_version": 1,
+          "type": "image_path_assessment",
+          "processing_state": "failed",
+          "image_computed": false,
+          "numerical": {
+            "state": "not_run",
+            "selected_start": null,
+            "optimizer_success": null
+          },
+          "independent_constraints": {
+            "phase": null,
+            "logamp": null,
+            "total": null
+          },
+          "reference_fidelity": {
+            "state": "not_evaluated",
+            "registered_nrmse": null,
+            "declared_max_registered_nrmse": null,
+            "within_declared_limit": null
+          },
+          "recorded_issues": [
+            "processing_not_complete",
+            "image_not_run"
+          ],
+          "actual_observation_success_certified": false,
+          "low_snr_likelihood_validated": false,
+          "interpretation": "Diagnostic record only. Optimizer convergence and reference-image similarity are separate; missing amplitude constraints do not prove imaging impossible. No absolute flux or astrometry certified."
+        },
+        "reference_note": "not_provided"
+      }
+    },
+    {
+      "label": "壊れた記録",
+      "assessment": {
+        "schema_version": 1,
+        "type": "gui_image_assessment",
+        "job_state": "complete",
+        "source_summary_sha256": "9dfdd4a1fe3157daf60f8bf9cd6f587a393ee7c1ec35a1c27030e73a8bca3848",
+        "state": "invalid_record",
+        "reason_code": "invalid_rml_record",
+        "assessment": null,
+        "reference_note": "not_provided"
+      }
+    },
+    {
+      "label": "旧参照形式",
+      "assessment": {
+        "schema_version": 1,
+        "type": "gui_image_assessment",
+        "job_state": "complete",
+        "source_summary_sha256": "8852ff77a1b0ab987514a81a0c73efb8364a2d7ee3278dad6dfbed6d2821a39d",
+        "state": "available",
+        "reason_code": null,
+        "assessment": {
+          "schema_version": 1,
+          "type": "image_path_assessment",
+          "processing_state": "complete",
+          "image_computed": true,
+          "numerical": {
+            "state": "converged",
+            "selected_start": 0,
+            "optimizer_success": true
+          },
+          "independent_constraints": {
+            "phase": 118,
+            "logamp": 93,
+            "total": 211
+          },
+          "reference_fidelity": {
+            "state": "not_evaluated",
+            "registered_nrmse": null,
+            "declared_max_registered_nrmse": null,
+            "within_declared_limit": null
+          },
+          "recorded_issues": [],
+          "actual_observation_success_certified": false,
+          "low_snr_likelihood_validated": false,
+          "interpretation": "Diagnostic record only. Optimizer convergence and reference-image similarity are separate; missing amplitude constraints do not prove imaging impossible. No absolute flux or astrometry certified."
+        },
+        "reference_note": "legacy_reference_record"
+      }
+    }
+  ],
+  "all_displayed_cards_counts_and_chisq_checked": true,
+  "actual_rml_worker": {
+    "schema_version": 1,
+    "type": "gui_image_assessment",
+    "job_state": "complete",
+    "source_summary_sha256": "d9497fc3503423882314ce1c005e52d22093db4ca47fb6f7e1592df299daf9be",
+    "state": "available",
+    "reason_code": null,
+    "assessment": {
+      "schema_version": 1,
+      "type": "image_path_assessment",
+      "processing_state": "complete",
+      "image_computed": true,
+      "numerical": {
+        "state": "not_converged",
+        "selected_start": 0,
+        "optimizer_success": false
+      },
+      "independent_constraints": {
+        "phase": 24,
+        "logamp": 16,
+        "total": 40
+      },
+      "reference_fidelity": {
+        "state": "evaluated",
+        "registered_nrmse": 0.6590444483742993,
+        "comparison_version": 2,
+        "common_beam_arcsec": 110.0,
+        "registered_flux_retained_fraction": 1.0,
+        "registration_boundary_reached": false,
+        "declared_max_registered_nrmse": null,
+        "within_declared_limit": null
+      },
+      "recorded_issues": [
+        "optimizer_not_converged"
+      ],
+      "actual_observation_success_certified": false,
+      "low_snr_likelihood_validated": false,
+      "interpretation": "Diagnostic record only. Optimizer convergence and reference-image similarity are separate; missing amplitude constraints do not prove imaging impossible. No absolute flux or astrometry certified."
+    },
+    "reference_note": "evaluated_full_support_v2"
+  },
+  "actual_clean_worker_complete": true,
+  "clean_peak_jy_per_beam": 999.9999999999995,
+  "all_seven_actual_json_downloads_equal_api": true,
+  "all_original_summaries_unchanged": true,
+  "all_assessments_equal_independent_existing_api": true,
+  "no_repository_runner_in_workspace": true,
+  "checked_project_module_prefixes": 11,
+  "japanese_font_390px": true,
+  "mobile_horizontal_overflow": false,
+  "javascript_errors": [],
+  "external_requests": 0,
+  "scope": "Headless Chromium on WSL; Windows browser and desktop WSLg not directly observed"
+}

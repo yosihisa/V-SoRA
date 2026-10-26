@@ -1,5 +1,6 @@
 from contextlib import asynccontextmanager
 import json
+import hashlib
 from zipfile import BadZipFile
 from pathlib import Path
 from fastapi import FastAPI,HTTPException,Request
@@ -7,6 +8,7 @@ from fastapi.responses import FileResponse,JSONResponse
 from fastapi.staticfiles import StaticFiles
 from starlette.middleware.trustedhost import TrustedHostMiddleware
 from .jobs import JobManager
+from .image_assessment import describe_image_job
 from typing import get_args
 from .models import ValidationRequest,JobRequest,NoiseInputRequest,BispectrumInputRequest
 
@@ -70,7 +72,11 @@ def create_app(workspace):
         try:
             status=manager.status(job_id);directory=manager.directory(job_id)
             summary=directory/'summary.json'
-            status['summary']=json.loads(summary.read_text()) if summary.exists() else None
+            raw_summary=summary.read_bytes() if summary.exists() else None
+            status['summary']=json.loads(raw_summary) if raw_summary is not None else None
+            assessment=describe_image_job(status.get('kind'),status['state'],status['summary'],
+                summary_sha256=None if raw_summary is None else hashlib.sha256(raw_summary).hexdigest())
+            if assessment is not None:status['image_assessment']=assessment
             artifacts=[]
             for p in sorted(directory.rglob('*')):
                 if p.suffix not in ('.png','.fits','.npz','.json','.npy','.log'):continue
@@ -80,6 +86,12 @@ def create_app(workspace):
             status['artifacts']=artifacts
             return status
         except FileNotFoundError: raise HTTPException(404,'実行が見つかりません') from None
+
+    @app.get('/api/jobs/{job_id}/image-assessment')
+    def image_assessment(job_id:str):
+        record=detail(job_id).get('image_assessment')
+        if record is None:raise HTTPException(404,'この実行にRML画像評価はありません')
+        return JSONResponse(record,headers={'Content-Disposition':f'attachment; filename="image-assessment-{job_id}.json"'})
 
     @app.post('/api/jobs/{job_id}/cancel')
     def cancel(job_id:str):
