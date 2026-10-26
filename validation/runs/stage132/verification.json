@@ -1,0 +1,89 @@
+{
+  "state": "complete",
+  "actual_installed_native_cli_runs": 12,
+  "nonoverwrite_cases": 12,
+  "whole_study_nonoverwrite": true,
+  "all_science_json_exact": true,
+  "numerical_arrays_directly_compared": {
+    "pilot": 156,
+    "correlation": 156,
+    "closure": 180
+  },
+  "archives_directly_compared": 36,
+  "array_dtype_shape_values_sha_exact": true,
+  "input_files_sha_preserved": 76,
+  "outside_checkout": true,
+  "runner_absent": true,
+  "pythonpath_absent": true,
+  "helper_requires_checkout": true,
+  "project_modules": [
+    "vsora_correlator",
+    "vsora_correlator.rate",
+    "vsora_correlator.rate_graph",
+    "vsora_formats",
+    "vsora_formats.fitsidi",
+    "vsora_formats.spectral",
+    "vsora_formats.visibility",
+    "vsora_imaging",
+    "vsora_imaging.closure"
+  ],
+  "all_project_modules_in_prefix": true,
+  "core_package_changed": false,
+  "images_executed": false,
+  "archive_bytes_equal_claimed": false,
+  "provenance_comparison": "input SHA checked against published131; each applied profile SHA matches its saved profile. Output paths and dependent archive/profile SHA excluded from science equality. All other spectral metadata and complete pipeline science/diagnostics retained.",
+  "stage": 132,
+  "targeted": {
+    "source": {
+      "passed": 50,
+      "new_tests": 11,
+      "reused_tests": 39,
+      "elapsed_s": 26.15,
+      "warnings": 2280,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 50,
+      "new_tests": 11,
+      "reused_tests": 39,
+      "elapsed_s": 24.03,
+      "warnings": 2280,
+      "excluded_tests": 0
+    }
+  },
+  "tests_collected_each": 2263,
+  "full2263_executed": false,
+  "cited_full_stage": 121,
+  "cited_full_tests_each": 2116,
+  "cited_full_elapsed_s": {
+    "source": 609.28,
+    "installed": 607.5
+  },
+  "cited_full_warnings_each": 27396,
+  "cited_full_excluded": 0,
+  "frozen_files": 432,
+  "all_frozen_sha_unchanged": true,
+  "old_core_package_files_unchanged": 215,
+  "core_wheel_package_files_checked": 103,
+  "reference_assets_checked": 4,
+  "main_environment_freeze_unchanged": true,
+  "new_wheel_browser_full_regression": false,
+  "source_parent_module_count": 9,
+  "project_origin_scope": "Parent scientific projection module paths checked exactly; CLI subprocesses use same interpreter without PYTHONPATH from source runner or installed outside checkout. Every installed wheel package file verified.",
+  "actual_output_bytes_each": {
+    "source": 91301091,
+    "installed": 91301343
+  },
+  "initial_targeted_50_counted_as_formal": false,
+  "images_executed_scope": "No images for the four stage131 raw studies; reused small pipeline tests do execute their existing RML fixture",
+  "source_study_nonoverwrite_verified": {
+    "whole_study_nonoverwrite": true,
+    "all_source_study_file_sha_unchanged": true,
+    "files_checked": 184
+  },
+  "public_audit_findings": 0,
+  "documentation_links": {
+    "checked": 1723,
+    "missing": 0
+  }
+}

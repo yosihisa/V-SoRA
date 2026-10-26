@@ -147,6 +147,7 @@
 | 129 | [模擬電圧由来の相関へ固定罰則を移送](129-main-path-regularizer-transfer.md) | 両93対象、新9fit/27探索・導入9CLI一致。全探索収束、通常枝の形状差約.208→.200、既定値変更なし。全時刻使用で新holdoutなし。全2243はcollectのみ |
 | 130 | [画像の適合・予測・形状を全体文書へ反映](130-documentation-checkpoint.md) | 文書整理。技術基準129・全000〜129時系列、目標別進捗・計画・入口を同期。数値/collect/wheel/browserは再実行せず引用を明記 |
 | 131 | [独立seedの短区間VDIF原本を4条件固定生成](131-independent-raw-matrix.md) | 両14対象、source/導入各4原本・48640header/64境界・全76入力byte/68配列一致。約0.8GB、相関/画像/零天空は未実施。全2252はcollectのみ |
+| 132 | [独立原本の未知LO取得と短積分相関](132-unknown-lo-short-integrations.md) | 両50対象、4原本×3積分の全12科学JSON/全配列一致。相関12・取得停止0、Closureと独立rankを記録。画像未評価、全2263はcollectのみ |
 
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。
 

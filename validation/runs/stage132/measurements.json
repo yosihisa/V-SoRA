@@ -1,0 +1,115 @@
+{
+  "source": {
+    "cases": [
+      {
+        "case": "high_a_t0.3",
+        "elapsed_s": 56.17013041800237
+      },
+      {
+        "case": "high_a_t1",
+        "elapsed_s": 68.65656995400059
+      },
+      {
+        "case": "high_a_t3",
+        "elapsed_s": 102.81319210599759
+      },
+      {
+        "case": "high_b_t0.3",
+        "elapsed_s": 56.60704984699987
+      },
+      {
+        "case": "high_b_t1",
+        "elapsed_s": 68.18571231299575
+      },
+      {
+        "case": "high_b_t3",
+        "elapsed_s": 101.77841072699812
+      },
+      {
+        "case": "weak_a_t0.3",
+        "elapsed_s": 56.59884508699906
+      },
+      {
+        "case": "weak_a_t1",
+        "elapsed_s": 68.54468923099921
+      },
+      {
+        "case": "weak_a_t3",
+        "elapsed_s": 101.11490842999774
+      },
+      {
+        "case": "weak_b_t0.3",
+        "elapsed_s": 56.16193291400123
+      },
+      {
+        "case": "weak_b_t1",
+        "elapsed_s": 68.2154023760013
+      },
+      {
+        "case": "weak_b_t3",
+        "elapsed_s": 100.69553359400015
+      }
+    ],
+    "module_count": 9,
+    "output_bytes": 90360813
+  },
+  "installed": {
+    "cases": [
+      {
+        "case": "high_a_t0.3",
+        "elapsed_s": 56.75185849200352
+      },
+      {
+        "case": "high_a_t1",
+        "elapsed_s": 67.61613980300172
+      },
+      {
+        "case": "high_a_t3",
+        "elapsed_s": 100.58002593100537
+      },
+      {
+        "case": "high_b_t0.3",
+        "elapsed_s": 55.90521781700227
+      },
+      {
+        "case": "high_b_t1",
+        "elapsed_s": 67.20526792800229
+      },
+      {
+        "case": "high_b_t3",
+        "elapsed_s": 99.46132403900265
+      },
+      {
+        "case": "weak_a_t0.3",
+        "elapsed_s": 56.60667055399972
+      },
+      {
+        "case": "weak_a_t1",
+        "elapsed_s": 67.53864110299764
+      },
+      {
+        "case": "weak_a_t3",
+        "elapsed_s": 99.88355555199814
+      },
+      {
+        "case": "weak_b_t0.3",
+        "elapsed_s": 56.11107327300124
+      },
+      {
+        "case": "weak_b_t1",
+        "elapsed_s": 67.8637301550043
+      },
+      {
+        "case": "weak_b_t3",
+        "elapsed_s": 100.56046246300684
+      }
+    ],
+    "module_count": 9,
+    "output_bytes": 90361067
+  },
+  "actual_study_bytes_each": {
+    "source": 91301091,
+    "installed": 91301343
+  },
+  "wall_time_scope": "Owned pipeline CLI subprocesses including imports, pilot and final correlation; no image/GPU/full-night benchmark"
+}
