@@ -156,6 +156,7 @@
 | 138 | [時計JSONの型検査とLinux実入力契約](138-clock-input-contract.md) | bool帯域が1Hzになる反例を修正、新44/両75対象・全2321成功。4原本API/CLI全数値とmetadata/旧正しい出力一致、両実GUI28条件。実時計精度は未検証 |
 | 139 | [有限入力の失敗保持と別出力への再実行](139-finite-operation-recovery.md) | 両API/CLI各8worker、末尾不足/partial/完成先の非上書き、別出力の全26配列一致。有限時間/peakRSS/容量を測定、自動resume・全夜性能は未検証 |
 | 140 | [独立原本・条件付き診断・実入力を全体文書へ反映](140-documentation-checkpoint.md) | 文書整理。技術基準139、全000〜139の初回Git/JST/公開名義を照合。138全回帰・139対象を引用し新数値なし。次文書/根本150 |
+| 141 | [既知の色付き入力と固定FFT全雑音参照](141-colored-fft-noise-reference.md) | 既存049へ短い入力FIRを合成、独立trace/直接補間FFT/各color4096試行を照合。両52対象・42配列一致。実効FFT数/coverage/画像尤度は未校正 |
 
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。
 

@@ -1,0 +1,15 @@
+{
+  "source": {
+    "wall_s": 6.037393481994513,
+    "peak_process_rss_bytes": 118865920,
+    "project_module_count": 8,
+    "exact_source_or_prefix_origins_verified": true
+  },
+  "installed": {
+    "wall_s": 5.829542068007868,
+    "peak_process_rss_bytes": 118857728,
+    "project_module_count": 8,
+    "exact_source_or_prefix_origins_verified": true
+  },
+  "scope": "Single CPU run per environment, workflow wall excludes interpreter/import startup; Linux RUSAGE_SELF lifetime peak includes dependencies. OMP/OpenBLAS=1; no cache control, full-night, GPU or minimum-PC inference."
+}

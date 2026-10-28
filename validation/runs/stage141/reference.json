@@ -1,0 +1,233 @@
+{
+  "stage": 141,
+  "state": "complete",
+  "trials_per_color": 4096,
+  "color_ensembles": 2,
+  "total_generated_trial_rows": 8192,
+  "same_raw_random_numbers_across_colors": true,
+  "same_voltages_across_channels": true,
+  "cases": [
+    {
+      "color": "white",
+      "channel": 3,
+      "trials": 4096,
+      "nominal_fft_blocks": 16,
+      "fixed_station_offsets_samples": [
+        0.0,
+        0.25,
+        0.5,
+        0.75
+      ],
+      "input_fir_real": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "input_fir_imag": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "known_variance_to_iid_range": [
+        1.0000084470569162,
+        1.0004626796622698
+      ],
+      "maximum_normalized_exact_iid_difference": 0.0006550372064995425,
+      "maximum_mean_difference_in_mcse": 2.4360755063068575,
+      "maximum_covariance_difference_in_mcse": 2.1028571901384354,
+      "dense_real_trace_matches_existing049": true,
+      "all_mc_means_and_covariances_within_fixed_6mcse": true,
+      "direct_all_fft_channel_kernel_max_abs_error": 5.691449808321056e-15,
+      "first_two_trials_fx_max_abs_error": 0.0,
+      "single_effective_count_assumed": false,
+      "observational_confidence_interval_calibrated": false
+    },
+    {
+      "color": "white",
+      "channel": 4,
+      "trials": 4096,
+      "nominal_fft_blocks": 16,
+      "fixed_station_offsets_samples": [
+        0.0,
+        0.25,
+        0.5,
+        0.75
+      ],
+      "input_fir_real": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "input_fir_imag": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "known_variance_to_iid_range": [
+        0.99999768541595,
+        1.0003009682974813
+      ],
+      "maximum_normalized_exact_iid_difference": 0.0005642035368476647,
+      "maximum_mean_difference_in_mcse": 1.5850210324498306,
+      "maximum_covariance_difference_in_mcse": 2.0816757646681285,
+      "dense_real_trace_matches_existing049": true,
+      "all_mc_means_and_covariances_within_fixed_6mcse": true,
+      "direct_all_fft_channel_kernel_max_abs_error": 5.691449808321056e-15,
+      "first_two_trials_fx_max_abs_error": 0.0,
+      "single_effective_count_assumed": false,
+      "observational_confidence_interval_calibrated": false
+    },
+    {
+      "color": "white",
+      "channel": 5,
+      "trials": 4096,
+      "nominal_fft_blocks": 16,
+      "fixed_station_offsets_samples": [
+        0.0,
+        0.25,
+        0.5,
+        0.75
+      ],
+      "input_fir_real": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "input_fir_imag": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "known_variance_to_iid_range": [
+        1.0000351404224246,
+        1.0003534120782724
+      ],
+      "maximum_normalized_exact_iid_difference": 0.0006177365136189519,
+      "maximum_mean_difference_in_mcse": 1.4304311060759372,
+      "maximum_covariance_difference_in_mcse": 2.337092630495938,
+      "dense_real_trace_matches_existing049": true,
+      "all_mc_means_and_covariances_within_fixed_6mcse": true,
+      "direct_all_fft_channel_kernel_max_abs_error": 5.691449808321056e-15,
+      "first_two_trials_fx_max_abs_error": 0.0,
+      "single_effective_count_assumed": false,
+      "observational_confidence_interval_calibrated": false
+    },
+    {
+      "color": "colored",
+      "channel": 3,
+      "trials": 4096,
+      "nominal_fft_blocks": 16,
+      "fixed_station_offsets_samples": [
+        0.0,
+        0.25,
+        0.5,
+        0.75
+      ],
+      "input_fir_real": [
+        0.7844645405527362,
+        0.0,
+        0.19611613513818404
+      ],
+      "input_fir_imag": [
+        0.0,
+        0.5883484054145521,
+        0.0
+      ],
+      "known_variance_to_iid_range": [
+        1.0307398732101913,
+        1.0349054799129607
+      ],
+      "maximum_normalized_exact_iid_difference": 0.033728181549387795,
+      "maximum_mean_difference_in_mcse": 1.3629877640813348,
+      "maximum_covariance_difference_in_mcse": 2.395170674190577,
+      "dense_real_trace_matches_existing049": true,
+      "all_mc_means_and_covariances_within_fixed_6mcse": true,
+      "direct_all_fft_channel_kernel_max_abs_error": 5.590681932865258e-15,
+      "first_two_trials_fx_max_abs_error": 0.0,
+      "single_effective_count_assumed": false,
+      "observational_confidence_interval_calibrated": false
+    },
+    {
+      "color": "colored",
+      "channel": 4,
+      "trials": 4096,
+      "nominal_fft_blocks": 16,
+      "fixed_station_offsets_samples": [
+        0.0,
+        0.25,
+        0.5,
+        0.75
+      ],
+      "input_fir_real": [
+        0.7844645405527362,
+        0.0,
+        0.19611613513818404
+      ],
+      "input_fir_imag": [
+        0.0,
+        0.5883484054145521,
+        0.0
+      ],
+      "known_variance_to_iid_range": [
+        1.0052771013485908,
+        1.005598311324062
+      ],
+      "maximum_normalized_exact_iid_difference": 0.005567144714762733,
+      "maximum_mean_difference_in_mcse": 1.754696582388068,
+      "maximum_covariance_difference_in_mcse": 2.0587770276166117,
+      "dense_real_trace_matches_existing049": true,
+      "all_mc_means_and_covariances_within_fixed_6mcse": true,
+      "direct_all_fft_channel_kernel_max_abs_error": 5.590681932865258e-15,
+      "first_two_trials_fx_max_abs_error": 0.0,
+      "single_effective_count_assumed": false,
+      "observational_confidence_interval_calibrated": false
+    },
+    {
+      "color": "colored",
+      "channel": 5,
+      "trials": 4096,
+      "nominal_fft_blocks": 16,
+      "fixed_station_offsets_samples": [
+        0.0,
+        0.25,
+        0.5,
+        0.75
+      ],
+      "input_fir_real": [
+        0.7844645405527362,
+        0.0,
+        0.19611613513818404
+      ],
+      "input_fir_imag": [
+        0.0,
+        0.5883484054145521,
+        0.0
+      ],
+      "known_variance_to_iid_range": [
+        1.0016390291532093,
+        1.001980474219237
+      ],
+      "maximum_normalized_exact_iid_difference": 0.0019765596937208496,
+      "maximum_mean_difference_in_mcse": 1.4974556609557648,
+      "maximum_covariance_difference_in_mcse": 1.9867875080660902,
+      "dense_real_trace_matches_existing049": true,
+      "all_mc_means_and_covariances_within_fixed_6mcse": true,
+      "direct_all_fft_channel_kernel_max_abs_error": 5.590681932865258e-15,
+      "first_two_trials_fx_max_abs_error": 0.0,
+      "single_effective_count_assumed": false,
+      "observational_confidence_interval_calibrated": false
+    }
+  ],
+  "new_product_noise_api": false,
+  "production_rml_changed": false,
+  "physical_adc_vdif_processed": false,
+  "matches131_periodic_colored_input": false,
+  "variable_clock_geometry_rate_quantization_masks_verified": false,
+  "unknown_gain_sefd_or_real_casa_verified": false,
+  "scope": "Known proper Gaussian raw covariance and fixed finite coloring/FIR/sinc/FFT operators; unselected voltages, no measured effective FFT count or coverage.",
+  "formal_seed": 141,
+  "fft_length": 8,
+  "raw_station_covariance": "ones + 0.7 exp(i phase) exp(i phase)^H + 1.5 I; phase=[0,.4,1.1,2.2]",
+  "raw_random_draws_independent_trials_per_environment": 4096,
+  "no_independence_claim_across_colors_or_channels_or_reexecuted_environments": true
+}

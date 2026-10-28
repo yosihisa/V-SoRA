@@ -1,0 +1,398 @@
+{
+  "stage": 141,
+  "state": "complete",
+  "base_commit": "ffd80c5fccf14be76c251a81de85792e74b62d34",
+  "product_code_changed": false,
+  "new_noise_api": false,
+  "old_white_fixed_operator_validation_already_present": true,
+  "reviewed_existing_files_sha256": {
+    "apps/simulator/src/vsora_simulator/filtered_noise.py": "921c1eb2cfe52bd7621f91bc2fc4e4864702f9f9ad3864a6a7024d7775e5bd5e",
+    "apps/simulator/tests/test_filtered_noise.py": "0a092306d9ae434cd167be1e604eaf002e4985ce9128bb5d1f1f5e0c92b94c18",
+    "workflows/filtered_noise_validation.py": "bb4dfe630483463fb8df2b8cfe7cc5d12b68c9c7f09a0109491b0eb3aa9d1fa6",
+    "validation/runs/stage049/summary.json": "c85c6c4e4ca718df25d9c7f2e898f4d0c4ad7c33dbc69f17518fa6411e435e37",
+    "validation/runs/stage049/verification.json": "675a38a17507ad8ca944c445899d14f6942b28ed587a5e81eeb5ab40763520b1",
+    "apps/correlator/src/vsora_correlator/clock.py": "6310e948281794badc4b17093280133d37248a470742c7eaf5260aeaa6bba58d",
+    "apps/correlator/src/vsora_correlator/stream_fx.py": "14e0562e22fc96590614ce70b1264b8ca768564698b62db820d2814b7a9de946",
+    "workflows/time_scatter_validation.py": "c8d8b2c544b249f3ba263e73fe2402b7002e10b4530a082b382de68adb5e087a"
+  },
+  "formal_trials_per_color": 4096,
+  "formal_colors": 2,
+  "same_raw_draws_across_colors": true,
+  "three_channels_shared_per_trial": true,
+  "dense_real_quadratic_trace_all_six_match": true,
+  "all_means_and_full_covariance_elements_within_fixed_6mcse": true,
+  "first_two_trials_all8channel_voltage_and_actual_fx_checked_each_color": true,
+  "source_native_all_scientific_json_exact": true,
+  "numeric_arrays_directly_equal": 42,
+  "array_manifest": {
+    "white_channel3_known_mean": {
+      "dtype": "<c16",
+      "shape": [
+        6
+      ],
+      "sha256": "6c91acf905907b9355f696876524b4880211fa73bbf54ad7049202a09842c95a"
+    },
+    "white_channel3_known_real_covariance": {
+      "dtype": "<f8",
+      "shape": [
+        12,
+        12
+      ],
+      "sha256": "1888899898ed5a20087fe6883365335924d70a725ca5b7a7a8e0077e5abdb355"
+    },
+    "white_channel3_iid_real_covariance": {
+      "dtype": "<f8",
+      "shape": [
+        12,
+        12
+      ],
+      "sha256": "b0419108746c4ae23f3262d5d2fbe5990a889961fa925056cc4bfec9c1c96dbd"
+    },
+    "white_channel3_measured_real_covariance": {
+      "dtype": "<f8",
+      "shape": [
+        12,
+        12
+      ],
+      "sha256": "5157928826498a2da69652d088172d9aa75bcf191c237cb5ecae12d331322c54"
+    },
+    "white_channel3_covariance_mcse": {
+      "dtype": "<f8",
+      "shape": [
+        12,
+        12
+      ],
+      "sha256": "a801a71a6a4b63f02aa5350ecf21344d453dfc45e8e727208711930146a4dd21"
+    },
+    "white_channel3_measured_centered_mean": {
+      "dtype": "<f8",
+      "shape": [
+        12
+      ],
+      "sha256": "ba6d31cc945b901d0e6d98eafb41169518b51e6fef3adbbf6c279fa354837c57"
+    },
+    "white_channel3_mean_mcse": {
+      "dtype": "<f8",
+      "shape": [
+        12
+      ],
+      "sha256": "fa9698cfeac2f4146b6c66d6106b0cbdce2599ef2d734dfea1553949270b24a1"
+    },
+    "white_channel4_known_mean": {
+      "dtype": "<c16",
+      "shape": [
+        6
+      ],
+      "sha256": "4e56e3128fc381d7de9d7c64abfaa488de70aaeaa1c3e14f491427119252accb"
+    },
+    "white_channel4_known_real_covariance": {
+      "dtype": "<f8",
+      "shape": [
+        12,
+        12
+      ],
+      "sha256": "052687333f2d41562569244b5eeb76c01d6ac7c29eeb6bd8ae66ee1e0f3012ba"
+    },
+    "white_channel4_iid_real_covariance": {
+      "dtype": "<f8",
+      "shape": [
+        12,
+        12
+      ],
+      "sha256": "a7e1a4f17a4d9d30ee36c90c32ccc7069d9176f482d4a2d16cc3a69978484c59"
+    },
+    "white_channel4_measured_real_covariance": {
+      "dtype": "<f8",
+      "shape": [
+        12,
+        12
+      ],
+      "sha256": "058bf1beaa1b2a05fdfb354a0fb7cf04cdd9dddee10620a4984bb638924d7c59"
+    },
+    "white_channel4_covariance_mcse": {
+      "dtype": "<f8",
+      "shape": [
+        12,
+        12
+      ],
+      "sha256": "99adaa85d993e96ef83283fdab9ff16bd9b7e691a5a1c6bb18007ed29f3f0cfc"
+    },
+    "white_channel4_measured_centered_mean": {
+      "dtype": "<f8",
+      "shape": [
+        12
+      ],
+      "sha256": "2186b0d3054bbbf01d7aa9efca96eb13ff71680b7cff6122b421edd9b2e772dd"
+    },
+    "white_channel4_mean_mcse": {
+      "dtype": "<f8",
+      "shape": [
+        12
+      ],
+      "sha256": "efd72b74f2cd9a1cc595bae104242599e307e25e065c63df570599322e2ae8b2"
+    },
+    "white_channel5_known_mean": {
+      "dtype": "<c16",
+      "shape": [
+        6
+      ],
+      "sha256": "0977d4e179b43be37d0a9c920b31277db6ebd35a61ceb383df3f719c4c4bc6af"
+    },
+    "white_channel5_known_real_covariance": {
+      "dtype": "<f8",
+      "shape": [
+        12,
+        12
+      ],
+      "sha256": "4cf5a2e6a743b311e0117d4d47d8faef1c996cc73ffccc65dc25dfda705a1f9e"
+    },
+    "white_channel5_iid_real_covariance": {
+      "dtype": "<f8",
+      "shape": [
+        12,
+        12
+      ],
+      "sha256": "d35d7921e70c7b50329748f173324e9b329c3bae702bf3f48b04662793315089"
+    },
+    "white_channel5_measured_real_covariance": {
+      "dtype": "<f8",
+      "shape": [
+        12,
+        12
+      ],
+      "sha256": "2e32a7152003d5155bc522ceec187d61e006ae30db6938c10d1f5b88f7a6a833"
+    },
+    "white_channel5_covariance_mcse": {
+      "dtype": "<f8",
+      "shape": [
+        12,
+        12
+      ],
+      "sha256": "b47278d041f8bed9630fd5aaa22dd4d7288e66f0389545f4ebc2998ba5cdbb4c"
+    },
+    "white_channel5_measured_centered_mean": {
+      "dtype": "<f8",
+      "shape": [
+        12
+      ],
+      "sha256": "c0a0702aa5ec1dbccf620a651105b64d13b9dbdae606ab7ba5c16fa54e6a88de"
+    },
+    "white_channel5_mean_mcse": {
+      "dtype": "<f8",
+      "shape": [
+        12
+      ],
+      "sha256": "d32ddd21b85961cc950b1200a3c7ae68aea3d76cdb3f6b0be7a76084f84bfce9"
+    },
+    "colored_channel3_known_mean": {
+      "dtype": "<c16",
+      "shape": [
+        6
+      ],
+      "sha256": "bd84124c1f84ba46fa7e2cff6828a22bcb23b8f34ba8708183dab64ae492011e"
+    },
+    "colored_channel3_known_real_covariance": {
+      "dtype": "<f8",
+      "shape": [
+        12,
+        12
+      ],
+      "sha256": "8b427325493f6775de667bbc8f1ebf2928abee0e8c26b28a9289ef6a0a7e1682"
+    },
+    "colored_channel3_iid_real_covariance": {
+      "dtype": "<f8",
+      "shape": [
+        12,
+        12
+      ],
+      "sha256": "ecc22cfa05e19f7eb9bac68c6329c3d4cdbab81b81b6bee2ddb257b2eb695cf3"
+    },
+    "colored_channel3_measured_real_covariance": {
+      "dtype": "<f8",
+      "shape": [
+        12,
+        12
+      ],
+      "sha256": "010376363681f111578ae73d43f24b0aee993d98ffcb58a2e9abee9a576b1906"
+    },
+    "colored_channel3_covariance_mcse": {
+      "dtype": "<f8",
+      "shape": [
+        12,
+        12
+      ],
+      "sha256": "7ad98808be49322d1f075e945bfb4ff149fee717ee889bca0e30f9a49eaf248a"
+    },
+    "colored_channel3_measured_centered_mean": {
+      "dtype": "<f8",
+      "shape": [
+        12
+      ],
+      "sha256": "129b097107b06cb34b4b71893277f005d8a2c9dd905d2209aec61a9be5802bf6"
+    },
+    "colored_channel3_mean_mcse": {
+      "dtype": "<f8",
+      "shape": [
+        12
+      ],
+      "sha256": "22e3597842e76baa01fef7c3467a8f3e0586f568f0842aa846e7d7c3eab5e0ce"
+    },
+    "colored_channel4_known_mean": {
+      "dtype": "<c16",
+      "shape": [
+        6
+      ],
+      "sha256": "42bb9e12f4690d08450f9d4cac2dcc29de694d573442a7a21fd6a820932ab70e"
+    },
+    "colored_channel4_known_real_covariance": {
+      "dtype": "<f8",
+      "shape": [
+        12,
+        12
+      ],
+      "sha256": "0277c6e6b1fde9374919712eb39a57f59b5258b3107be468fb2e8418a48c9a8b"
+    },
+    "colored_channel4_iid_real_covariance": {
+      "dtype": "<f8",
+      "shape": [
+        12,
+        12
+      ],
+      "sha256": "c323cc1105bd11e1f8c4a549d23422c2a20b9b62b68d10d60eb4634bb437a715"
+    },
+    "colored_channel4_measured_real_covariance": {
+      "dtype": "<f8",
+      "shape": [
+        12,
+        12
+      ],
+      "sha256": "431f7338c9363c054a30f0bdabe5cee4f4a02f14876392d85beadee5c4ae1575"
+    },
+    "colored_channel4_covariance_mcse": {
+      "dtype": "<f8",
+      "shape": [
+        12,
+        12
+      ],
+      "sha256": "4ed8002a0bf16f375f848ce715cd1cde6e72d624c574aab236a910ba2992ac78"
+    },
+    "colored_channel4_measured_centered_mean": {
+      "dtype": "<f8",
+      "shape": [
+        12
+      ],
+      "sha256": "a81a435aa3761361c9af9fc654a0ea4f8f4dd4aeacfd3de15cd87f6711031618"
+    },
+    "colored_channel4_mean_mcse": {
+      "dtype": "<f8",
+      "shape": [
+        12
+      ],
+      "sha256": "6c58239c32abf5108ce863a45a011ae2f7250fef343cd4351dc9c17599fd1457"
+    },
+    "colored_channel5_known_mean": {
+      "dtype": "<c16",
+      "shape": [
+        6
+      ],
+      "sha256": "ae45ba8c57e7599bc5001171d84fe8b779c285da10970dc932cca763e720231c"
+    },
+    "colored_channel5_known_real_covariance": {
+      "dtype": "<f8",
+      "shape": [
+        12,
+        12
+      ],
+      "sha256": "e985a01bd21030c594ffd9f36e1839706d4713a1518f26841a281eae461bd4ce"
+    },
+    "colored_channel5_iid_real_covariance": {
+      "dtype": "<f8",
+      "shape": [
+        12,
+        12
+      ],
+      "sha256": "526517171d9b5872a6f8f497f70ceaed4b43d8e21e6f14d67898ef018cbcf711"
+    },
+    "colored_channel5_measured_real_covariance": {
+      "dtype": "<f8",
+      "shape": [
+        12,
+        12
+      ],
+      "sha256": "526eef1100ce18329f845185d6a933dca3d00d564f277bc1b8bde79ee42918ed"
+    },
+    "colored_channel5_covariance_mcse": {
+      "dtype": "<f8",
+      "shape": [
+        12,
+        12
+      ],
+      "sha256": "8f1d1774040e2c731b8726bd5f0d63f72e1c930943fa382f41b40d0b7bf7df03"
+    },
+    "colored_channel5_measured_centered_mean": {
+      "dtype": "<f8",
+      "shape": [
+        12
+      ],
+      "sha256": "7d51fc2bfb37ec909fecc347085b3d5dc454800a4f184f2eb60e9af6bbf288f7"
+    },
+    "colored_channel5_mean_mcse": {
+      "dtype": "<f8",
+      "shape": [
+        12
+      ],
+      "sha256": "93a3cf4c4b4b794c00bce0545374ca211c9457710245e40e18dfc347b0668df3"
+    }
+  },
+  "nonoverwrite_refusals": 2,
+  "raw_files_sha_preserved": 76,
+  "frozen_files": 446,
+  "new_unit_tests": 0,
+  "targeted": {
+    "source": {
+      "passed": 52,
+      "warnings": 0,
+      "elapsed_s": 1.4,
+      "excluded": 0
+    },
+    "installed": {
+      "passed": 52,
+      "warnings": 0,
+      "elapsed_s": 1.38,
+      "excluded": 0
+    }
+  },
+  "new_full_or_collect_executed": false,
+  "cited_full_stage": 138,
+  "cited_full": {
+    "source": {
+      "passed": 2321,
+      "warnings": 30220,
+      "elapsed_s": 542.82,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 2321,
+      "warnings": 30220,
+      "elapsed_s": 541.45,
+      "excluded_tests": 0
+    }
+  },
+  "wheel_source_installed_package_bytes_unchanged": 103,
+  "reference_assets_bytes_unchanged": 4,
+  "wheel_sha256": "81e7f819d500e015f7e43d9e46e12ca88887cea99d455ef1c7129ec7c36a2ef7",
+  "new_wheel_browser_or_install": false,
+  "cited_browser_stage": 138,
+  "gaussian_visibility_distribution_assumed": false,
+  "effective_fft_count_measured": false,
+  "confidence_interval_coverage_calibrated": false,
+  "real_casa_or_low_snr_image_likelihood_verified": false,
+  "initial_workflow_axis_order_failure_retained": true,
+  "initial_failed_run_targeted_passes_not_added_to_formal": true,
+  "formal_seed_trials_tolerance_unchanged_after_axis_fix": true,
+  "public_audit_findings": 0,
+  "documentation_links": {
+    "checked": 1855,
+    "missing": 0
+  }
+}
