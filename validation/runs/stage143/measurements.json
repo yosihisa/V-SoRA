@@ -1,0 +1,434 @@
+{
+  "source": {
+    "mode": "source",
+    "operations": [
+      {
+        "case": "high_a/train-parity-0",
+        "action": "estimate-rate",
+        "wall_s": 0.022618954011704773
+      },
+      {
+        "case": "high_a/train-parity-0",
+        "action": "training-unrotated",
+        "wall_s": 0.5436576849897392
+      },
+      {
+        "case": "high_a/train-parity-0",
+        "action": "training-training_rate",
+        "wall_s": 0.5303677539923228
+      },
+      {
+        "case": "high_a/train-parity-0",
+        "action": "heldout-unrotated",
+        "wall_s": 0.5383294539933559
+      },
+      {
+        "case": "high_a/train-parity-0",
+        "action": "heldout-training_rate",
+        "wall_s": 0.532595652010059
+      },
+      {
+        "case": "high_a/train-parity-1",
+        "action": "estimate-rate",
+        "wall_s": 0.021911482996074483
+      },
+      {
+        "case": "high_a/train-parity-1",
+        "action": "training-unrotated",
+        "wall_s": 0.5411910680122674
+      },
+      {
+        "case": "high_a/train-parity-1",
+        "action": "training-training_rate",
+        "wall_s": 0.5370527420018334
+      },
+      {
+        "case": "high_a/train-parity-1",
+        "action": "heldout-unrotated",
+        "wall_s": 0.5451446229999419
+      },
+      {
+        "case": "high_a/train-parity-1",
+        "action": "heldout-training_rate",
+        "wall_s": 0.5401658429764211
+      },
+      {
+        "case": "high_b/train-parity-0",
+        "action": "estimate-rate",
+        "wall_s": 0.022253078990615904
+      },
+      {
+        "case": "high_b/train-parity-0",
+        "action": "training-unrotated",
+        "wall_s": 0.5446204080071766
+      },
+      {
+        "case": "high_b/train-parity-0",
+        "action": "training-training_rate",
+        "wall_s": 0.5434556880209129
+      },
+      {
+        "case": "high_b/train-parity-0",
+        "action": "heldout-unrotated",
+        "wall_s": 0.5486163489986211
+      },
+      {
+        "case": "high_b/train-parity-0",
+        "action": "heldout-training_rate",
+        "wall_s": 0.5399730470089708
+      },
+      {
+        "case": "high_b/train-parity-1",
+        "action": "estimate-rate",
+        "wall_s": 0.021973235998302698
+      },
+      {
+        "case": "high_b/train-parity-1",
+        "action": "training-unrotated",
+        "wall_s": 0.5449592689983547
+      },
+      {
+        "case": "high_b/train-parity-1",
+        "action": "training-training_rate",
+        "wall_s": 0.5468968450149987
+      },
+      {
+        "case": "high_b/train-parity-1",
+        "action": "heldout-unrotated",
+        "wall_s": 0.5474524649907835
+      },
+      {
+        "case": "high_b/train-parity-1",
+        "action": "heldout-training_rate",
+        "wall_s": 0.5478585239907261
+      },
+      {
+        "case": "weak_a/train-parity-0",
+        "action": "estimate-rate",
+        "wall_s": 0.022380984999472275
+      },
+      {
+        "case": "weak_a/train-parity-0",
+        "action": "training-unrotated",
+        "wall_s": 0.5471228389942553
+      },
+      {
+        "case": "weak_a/train-parity-0",
+        "action": "training-training_rate",
+        "wall_s": 0.5478444819746073
+      },
+      {
+        "case": "weak_a/train-parity-0",
+        "action": "heldout-unrotated",
+        "wall_s": 0.5658984579786193
+      },
+      {
+        "case": "weak_a/train-parity-0",
+        "action": "heldout-training_rate",
+        "wall_s": 0.5753652499988675
+      },
+      {
+        "case": "weak_a/train-parity-1",
+        "action": "estimate-rate",
+        "wall_s": 0.022706454998115078
+      },
+      {
+        "case": "weak_a/train-parity-1",
+        "action": "training-unrotated",
+        "wall_s": 0.5708566379908007
+      },
+      {
+        "case": "weak_a/train-parity-1",
+        "action": "training-training_rate",
+        "wall_s": 0.5547297059965786
+      },
+      {
+        "case": "weak_a/train-parity-1",
+        "action": "heldout-unrotated",
+        "wall_s": 0.568499294022331
+      },
+      {
+        "case": "weak_a/train-parity-1",
+        "action": "heldout-training_rate",
+        "wall_s": 0.5523559020075481
+      },
+      {
+        "case": "weak_b/train-parity-0",
+        "action": "estimate-rate",
+        "wall_s": 0.022026037011528388
+      },
+      {
+        "case": "weak_b/train-parity-0",
+        "action": "training-unrotated",
+        "wall_s": 0.5547798769839574
+      },
+      {
+        "case": "weak_b/train-parity-0",
+        "action": "training-training_rate",
+        "wall_s": 0.5540951740113087
+      },
+      {
+        "case": "weak_b/train-parity-0",
+        "action": "heldout-unrotated",
+        "wall_s": 0.5569804199913051
+      },
+      {
+        "case": "weak_b/train-parity-0",
+        "action": "heldout-training_rate",
+        "wall_s": 0.556719668005826
+      },
+      {
+        "case": "weak_b/train-parity-1",
+        "action": "estimate-rate",
+        "wall_s": 0.022113243001513183
+      },
+      {
+        "case": "weak_b/train-parity-1",
+        "action": "training-unrotated",
+        "wall_s": 0.5549211150209885
+      },
+      {
+        "case": "weak_b/train-parity-1",
+        "action": "training-training_rate",
+        "wall_s": 0.5552069639961701
+      },
+      {
+        "case": "weak_b/train-parity-1",
+        "action": "heldout-unrotated",
+        "wall_s": 0.5589750280196313
+      },
+      {
+        "case": "weak_b/train-parity-1",
+        "action": "heldout-training_rate",
+        "wall_s": 0.5611256679985672
+      }
+    ],
+    "actual_native_cli_calls": 0,
+    "parent_product_modules_verified": 16,
+    "total_output_bytes": 90797310
+  },
+  "installed": {
+    "mode": "installed",
+    "operations": [
+      {
+        "action": "estimate-rate",
+        "case": "high_a/train-parity-0",
+        "wall_s": 0.22537249201559462
+      },
+      {
+        "action": "training-unrotated",
+        "case": "high_a/train-parity-0",
+        "wall_s": 0.7860451620072126
+      },
+      {
+        "action": "training-training_rate",
+        "case": "high_a/train-parity-0",
+        "wall_s": 0.897444998001447
+      },
+      {
+        "action": "heldout-unrotated",
+        "case": "high_a/train-parity-0",
+        "wall_s": 0.7612673280236777
+      },
+      {
+        "action": "heldout-training_rate",
+        "case": "high_a/train-parity-0",
+        "wall_s": 0.8923839700000826
+      },
+      {
+        "action": "untrimmed-refused",
+        "case": "high_a/train-parity-0",
+        "wall_s": 0.8788848640106153
+      },
+      {
+        "action": "estimate-rate",
+        "case": "high_a/train-parity-1",
+        "wall_s": 0.20424894499592483
+      },
+      {
+        "action": "training-unrotated",
+        "case": "high_a/train-parity-1",
+        "wall_s": 0.7479433720000088
+      },
+      {
+        "action": "training-training_rate",
+        "case": "high_a/train-parity-1",
+        "wall_s": 0.9160049030033406
+      },
+      {
+        "action": "heldout-unrotated",
+        "case": "high_a/train-parity-1",
+        "wall_s": 0.7658302859927062
+      },
+      {
+        "action": "heldout-training_rate",
+        "case": "high_a/train-parity-1",
+        "wall_s": 0.8907460519985761
+      },
+      {
+        "action": "estimate-rate",
+        "case": "high_b/train-parity-0",
+        "wall_s": 0.22411698699579574
+      },
+      {
+        "action": "training-unrotated",
+        "case": "high_b/train-parity-0",
+        "wall_s": 0.744418157992186
+      },
+      {
+        "action": "training-training_rate",
+        "case": "high_b/train-parity-0",
+        "wall_s": 0.8969824469822925
+      },
+      {
+        "action": "heldout-unrotated",
+        "case": "high_b/train-parity-0",
+        "wall_s": 0.7689404049888253
+      },
+      {
+        "action": "heldout-training_rate",
+        "case": "high_b/train-parity-0",
+        "wall_s": 0.9111223350046203
+      },
+      {
+        "action": "estimate-rate",
+        "case": "high_b/train-parity-1",
+        "wall_s": 0.20824141899356619
+      },
+      {
+        "action": "training-unrotated",
+        "case": "high_b/train-parity-1",
+        "wall_s": 0.7596741059969645
+      },
+      {
+        "action": "training-training_rate",
+        "case": "high_b/train-parity-1",
+        "wall_s": 0.89162183899316
+      },
+      {
+        "action": "heldout-unrotated",
+        "case": "high_b/train-parity-1",
+        "wall_s": 0.7457905559858773
+      },
+      {
+        "action": "heldout-training_rate",
+        "case": "high_b/train-parity-1",
+        "wall_s": 0.8901912659930531
+      },
+      {
+        "action": "estimate-rate",
+        "case": "weak_a/train-parity-0",
+        "wall_s": 0.21526632001041435
+      },
+      {
+        "action": "training-unrotated",
+        "case": "weak_a/train-parity-0",
+        "wall_s": 0.7914545940002427
+      },
+      {
+        "action": "training-training_rate",
+        "case": "weak_a/train-parity-0",
+        "wall_s": 0.9250260039989371
+      },
+      {
+        "action": "heldout-unrotated",
+        "case": "weak_a/train-parity-0",
+        "wall_s": 0.7311571490135975
+      },
+      {
+        "action": "heldout-training_rate",
+        "case": "weak_a/train-parity-0",
+        "wall_s": 0.9153338480100501
+      },
+      {
+        "action": "estimate-rate",
+        "case": "weak_a/train-parity-1",
+        "wall_s": 0.22131190402433276
+      },
+      {
+        "action": "training-unrotated",
+        "case": "weak_a/train-parity-1",
+        "wall_s": 0.7738901989941951
+      },
+      {
+        "action": "training-training_rate",
+        "case": "weak_a/train-parity-1",
+        "wall_s": 0.8884597480064258
+      },
+      {
+        "action": "heldout-unrotated",
+        "case": "weak_a/train-parity-1",
+        "wall_s": 0.7530404680001084
+      },
+      {
+        "action": "heldout-training_rate",
+        "case": "weak_a/train-parity-1",
+        "wall_s": 0.8901251549832523
+      },
+      {
+        "action": "estimate-rate",
+        "case": "weak_b/train-parity-0",
+        "wall_s": 0.20615832399926148
+      },
+      {
+        "action": "training-unrotated",
+        "case": "weak_b/train-parity-0",
+        "wall_s": 0.7568149950238876
+      },
+      {
+        "action": "training-training_rate",
+        "case": "weak_b/train-parity-0",
+        "wall_s": 0.9003750419942662
+      },
+      {
+        "action": "heldout-unrotated",
+        "case": "weak_b/train-parity-0",
+        "wall_s": 0.7591410529857967
+      },
+      {
+        "action": "heldout-training_rate",
+        "case": "weak_b/train-parity-0",
+        "wall_s": 0.8987681750149932
+      },
+      {
+        "action": "estimate-rate",
+        "case": "weak_b/train-parity-1",
+        "wall_s": 0.20992928199120797
+      },
+      {
+        "action": "training-unrotated",
+        "case": "weak_b/train-parity-1",
+        "wall_s": 0.7669640730018727
+      },
+      {
+        "action": "training-training_rate",
+        "case": "weak_b/train-parity-1",
+        "wall_s": 0.9151626369857695
+      },
+      {
+        "action": "heldout-unrotated",
+        "case": "weak_b/train-parity-1",
+        "wall_s": 0.7560434110055212
+      },
+      {
+        "action": "heldout-training_rate",
+        "case": "weak_b/train-parity-1",
+        "wall_s": 0.861367805977352
+      }
+    ],
+    "actual_native_cli_calls": 41,
+    "parent_product_modules_verified": 16,
+    "total_output_bytes": 90951642,
+    "actual_cli_prefix_checks": 41,
+    "cli_product_module_count_range": [
+      3,
+      14
+    ]
+  },
+  "owned_runner_stdout_phase_wall_s": {
+    "source_study": 21.725120599003276,
+    "installed_study": 32.453246652003145
+  },
+  "scope": "Owned runner start-through-exit includes Python/imports, enrollment, derived archives and native CLI startups; captured from runner stdout. Operation timings are narrower. No cache control or full-night extrapolation; peak RSS not measured in this stage.",
+  "peak_rss_measured": false
+}
