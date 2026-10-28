@@ -1,0 +1,273 @@
+{
+  "stage": 144,
+  "state": "complete",
+  "cases": [
+    {
+      "case": 0,
+      "rho": 0.0,
+      "samples": 128,
+      "trials": 4096,
+      "seed": 144000,
+      "known_quadrature_snr_validation_only": 0.0,
+      "groups": {
+        "all": {
+          "count": 4096,
+          "state": "descriptive",
+          "baseline01_real_mean_error": -0.0008296087052043859,
+          "baseline01_imag_mean_error": 0.0003735876036696935,
+          "baseline01_real_error_mse": 0.003886499582704366,
+          "baseline01_real_mean_estimated_variance": 0.003903366702210022,
+          "rejected_count": 0
+        },
+        "joint_baseline5": {
+          "count": 0,
+          "state": "empty",
+          "baseline01_real_mean_error": null,
+          "baseline01_imag_mean_error": null,
+          "baseline01_real_error_mse": null,
+          "baseline01_real_mean_estimated_variance": null,
+          "rejected_count": 4096
+        },
+        "joint_triangle5": {
+          "count": 0,
+          "state": "empty",
+          "baseline01_real_mean_error": null,
+          "baseline01_imag_mean_error": null,
+          "baseline01_real_error_mse": null,
+          "baseline01_real_mean_estimated_variance": null,
+          "rejected_count": 4096
+        },
+        "joint_baseline10": {
+          "count": 0,
+          "state": "empty",
+          "baseline01_real_mean_error": null,
+          "baseline01_imag_mean_error": null,
+          "baseline01_real_error_mse": null,
+          "baseline01_real_mean_estimated_variance": null,
+          "rejected_count": 4096
+        },
+        "joint_triangle10": {
+          "count": 0,
+          "state": "empty",
+          "baseline01_real_mean_error": null,
+          "baseline01_imag_mean_error": null,
+          "baseline01_real_error_mse": null,
+          "baseline01_real_mean_estimated_variance": null,
+          "rejected_count": 4096
+        },
+        "production_baseline10": {
+          "count": 0,
+          "state": "empty",
+          "baseline01_real_mean_error": null,
+          "baseline01_imag_mean_error": null,
+          "baseline01_real_error_mse": null,
+          "baseline01_real_mean_estimated_variance": null,
+          "rejected_count": 4096
+        },
+        "production_triangle10": {
+          "count": 0,
+          "state": "empty",
+          "baseline01_real_mean_error": null,
+          "baseline01_imag_mean_error": null,
+          "baseline01_real_error_mse": null,
+          "baseline01_real_mean_estimated_variance": null,
+          "rejected_count": 4096
+        }
+      },
+      "all_trial_means_mse_and_estimated_covariance_within_fixed_6mcse": true,
+      "joint10_production10_baseline_mask_disagreements": 0,
+      "joint10_production10_triangle_mask_disagreements": 0,
+      "first_trial_cell047_probe": {
+        "cell_state": "conditional_estimate",
+        "default5_joint_valid_rows": 0,
+        "phase_rows": 4,
+        "logamp_rows": 2,
+        "synthetic_format_unit_is_not_physical_adc_calibration": true
+      }
+    },
+    {
+      "case": 1,
+      "rho": 0.45,
+      "samples": 128,
+      "trials": 4096,
+      "seed": 144001,
+      "known_quadrature_snr_validation_only": 4.9655172413793105,
+      "groups": {
+        "all": {
+          "count": 4096,
+          "state": "descriptive",
+          "baseline01_real_mean_error": 0.0021890333448115426,
+          "baseline01_imag_mean_error": -0.0018604388876963204,
+          "baseline01_real_error_mse": 0.00892408414054111,
+          "baseline01_real_mean_estimated_variance": 0.009015499012753234,
+          "rejected_count": 0
+        },
+        "joint_baseline5": {
+          "count": 2182,
+          "state": "descriptive",
+          "baseline01_real_mean_error": 0.06816660379429751,
+          "baseline01_imag_mean_error": -0.0018388281585775602,
+          "baseline01_real_error_mse": 0.008875606830903986,
+          "baseline01_real_mean_estimated_variance": 0.009469609032835427,
+          "rejected_count": 1914
+        },
+        "joint_triangle5": {
+          "count": 878,
+          "state": "descriptive",
+          "baseline01_real_mean_error": 0.08679857719046348,
+          "baseline01_imag_mean_error": -0.002396520966148991,
+          "baseline01_real_error_mse": 0.012351213107061805,
+          "baseline01_real_mean_estimated_variance": 0.009796588522590853,
+          "rejected_count": 3218
+        },
+        "joint_baseline10": {
+          "count": 0,
+          "state": "empty",
+          "baseline01_real_mean_error": null,
+          "baseline01_imag_mean_error": null,
+          "baseline01_real_error_mse": null,
+          "baseline01_real_mean_estimated_variance": null,
+          "rejected_count": 4096
+        },
+        "joint_triangle10": {
+          "count": 0,
+          "state": "empty",
+          "baseline01_real_mean_error": null,
+          "baseline01_imag_mean_error": null,
+          "baseline01_real_error_mse": null,
+          "baseline01_real_mean_estimated_variance": null,
+          "rejected_count": 4096
+        },
+        "production_baseline10": {
+          "count": 0,
+          "state": "empty",
+          "baseline01_real_mean_error": null,
+          "baseline01_imag_mean_error": null,
+          "baseline01_real_error_mse": null,
+          "baseline01_real_mean_estimated_variance": null,
+          "rejected_count": 4096
+        },
+        "production_triangle10": {
+          "count": 0,
+          "state": "empty",
+          "baseline01_real_mean_error": null,
+          "baseline01_imag_mean_error": null,
+          "baseline01_real_error_mse": null,
+          "baseline01_real_mean_estimated_variance": null,
+          "rejected_count": 4096
+        }
+      },
+      "all_trial_means_mse_and_estimated_covariance_within_fixed_6mcse": true,
+      "joint10_production10_baseline_mask_disagreements": 0,
+      "joint10_production10_triangle_mask_disagreements": 0,
+      "first_trial_cell047_probe": {
+        "cell_state": "conditional_estimate",
+        "default5_joint_valid_rows": 3,
+        "phase_rows": 4,
+        "logamp_rows": 2,
+        "synthetic_format_unit_is_not_physical_adc_calibration": true
+      }
+    },
+    {
+      "case": 2,
+      "rho": 1.6,
+      "samples": 128,
+      "trials": 4096,
+      "seed": 144002,
+      "known_quadrature_snr_validation_only": 9.846153846153847,
+      "groups": {
+        "all": {
+          "count": 4096,
+          "state": "descriptive",
+          "baseline01_real_mean_error": -0.00293975708534816,
+          "baseline01_imag_mean_error": 0.005271728398519388,
+          "baseline01_real_error_mse": 0.03647150593561935,
+          "baseline01_real_mean_estimated_variance": 0.03628538093253736,
+          "rejected_count": 0
+        },
+        "joint_baseline5": {
+          "count": 4096,
+          "state": "descriptive",
+          "baseline01_real_mean_error": -0.00293975708534816,
+          "baseline01_imag_mean_error": 0.005271728398519388,
+          "baseline01_real_error_mse": 0.03647150593561935,
+          "baseline01_real_mean_estimated_variance": 0.03628538093253736,
+          "rejected_count": 0
+        },
+        "joint_triangle5": {
+          "count": 4096,
+          "state": "descriptive",
+          "baseline01_real_mean_error": -0.00293975708534816,
+          "baseline01_imag_mean_error": 0.005271728398519388,
+          "baseline01_real_error_mse": 0.03647150593561935,
+          "baseline01_real_mean_estimated_variance": 0.03628538093253736,
+          "rejected_count": 0
+        },
+        "joint_baseline10": {
+          "count": 1760,
+          "state": "descriptive",
+          "baseline01_real_mean_error": 0.1448377785398284,
+          "baseline01_imag_mean_error": 0.004546613995946235,
+          "baseline01_real_error_mse": 0.04201023747061382,
+          "baseline01_real_mean_estimated_variance": 0.039952216040207295,
+          "rejected_count": 2336
+        },
+        "joint_triangle10": {
+          "count": 738,
+          "state": "descriptive",
+          "baseline01_real_mean_error": 0.2087812643414093,
+          "baseline01_imag_mean_error": 0.007334713576368946,
+          "baseline01_real_error_mse": 0.06274363870930247,
+          "baseline01_real_mean_estimated_variance": 0.04229571439331872,
+          "rejected_count": 3358
+        },
+        "production_baseline10": {
+          "count": 1724,
+          "state": "descriptive",
+          "baseline01_real_mean_error": 0.14691274991422165,
+          "baseline01_imag_mean_error": 0.004759786590097674,
+          "baseline01_real_error_mse": 0.0427163306899572,
+          "baseline01_real_mean_estimated_variance": 0.03999878886382133,
+          "rejected_count": 2372
+        },
+        "production_triangle10": {
+          "count": 712,
+          "state": "descriptive",
+          "baseline01_real_mean_error": 0.21035642728311932,
+          "baseline01_imag_mean_error": 0.00807213996831649,
+          "baseline01_real_error_mse": 0.06358651221769832,
+          "baseline01_real_mean_estimated_variance": 0.042342034655441244,
+          "rejected_count": 3384
+        }
+      },
+      "all_trial_means_mse_and_estimated_covariance_within_fixed_6mcse": true,
+      "joint10_production10_baseline_mask_disagreements": 36,
+      "joint10_production10_triangle_mask_disagreements": 26,
+      "first_trial_cell047_probe": {
+        "cell_state": "conditional_estimate",
+        "default5_joint_valid_rows": 6,
+        "phase_rows": 4,
+        "logamp_rows": 2,
+        "synthetic_format_unit_is_not_physical_adc_calibration": true
+      }
+    }
+  ],
+  "independent_trials_per_case": 4096,
+  "selection_uses_observed_values_only": true,
+  "fixed_baseline": [
+    0,
+    1
+  ],
+  "fixed_triangle": [
+    0,
+    1,
+    2
+  ],
+  "multiple_masks_share_trials": true,
+  "selected_population_unbiasedness_or_coverage_claimed": false,
+  "unknown_covariance_or_image_likelihood_api_added": false,
+  "production_rml_changed": false,
+  "physical_adc_vdif_processed": false,
+  "real_hardware_or_fft_independence_calibrated": false,
+  "scope": "Known iid zero-mean proper Gaussian voltages. All-trial controls against known covariance; selected subsets descriptive only. No rate fit, filter, quantization, masks, unknown gain/SEFD or image calibration."
+}

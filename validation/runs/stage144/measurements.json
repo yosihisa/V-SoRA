@@ -1,0 +1,13 @@
+{
+  "source": {
+    "wall_s": 4.700626372010447,
+    "peak_process_rss_bytes": 83107840,
+    "project_modules_verified": 10
+  },
+  "installed": {
+    "wall_s": 4.603676111000823,
+    "peak_process_rss_bytes": 83656704,
+    "project_modules_verified": 10
+  },
+  "scope": "Workflow body wall excludes Python/import startup; Linux RUSAGE_SELF lifetime peak includes imports. OPENBLAS/OMP=1, no cache control, minimum PC or full-night/GPU inference."
+}
