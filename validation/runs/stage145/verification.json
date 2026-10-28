@@ -1,0 +1,186 @@
+{
+  "stage": 145,
+  "state": "complete",
+  "base_commit": "db8dca3659f1df20f4bd00c3292cfbd770f04d9d",
+  "scope": "documentation_and_readonly_code_record_audit",
+  "new_product_api": false,
+  "product_code_changed": false,
+  "new_runtime_gate": false,
+  "code_files_reviewed": 23,
+  "code_function_spans_reviewed": 47,
+  "cited_files_sha_preserved": 46,
+  "frozen_code_test_tool_workflow_sha_preserved": 449,
+  "original131_raw_files_sha_preserved": 76,
+  "new_scientific_computations_or_trials": 0,
+  "new_unit_targeted_full_collect_wheel_install_browser_raw_correlation_fit": false,
+  "cited_verifications": {
+    "133": {
+      "path": "validation/runs/stage133/verification.json",
+      "sha256": "7165aa624701ef6895e9d510ac940412fc69ef24d896129ad6634794cea89ab8",
+      "targeted_cited_not_rerun": {
+        "source": {
+          "passed": 87,
+          "new_tests": 7,
+          "reused_tests": 80,
+          "elapsed_s": 2.58,
+          "warnings": 0,
+          "excluded_tests": 0
+        },
+        "installed": {
+          "passed": 87,
+          "new_tests": 7,
+          "reused_tests": 80,
+          "elapsed_s": 2.49,
+          "warnings": 0,
+          "excluded_tests": 0
+        }
+      },
+      "all_numeric_arrays_cited_not_rerun": null
+    },
+    "135": {
+      "path": "validation/runs/stage135/verification.json",
+      "sha256": "58d2c45874ce3166f7761c1d8f9a434d1872a9bb49e1666329eb711c69a9e803",
+      "targeted_cited_not_rerun": {
+        "source": {
+          "passed": 91,
+          "new_tests": 7,
+          "reused_tests": 84,
+          "elapsed_s": 3.05,
+          "warnings": 640,
+          "excluded_tests": 0
+        },
+        "installed": {
+          "passed": 91,
+          "new_tests": 7,
+          "reused_tests": 84,
+          "elapsed_s": 2.43,
+          "warnings": 640,
+          "excluded_tests": 0
+        }
+      },
+      "all_numeric_arrays_cited_not_rerun": null
+    },
+    "138": {
+      "path": "validation/runs/stage138/verification.json",
+      "sha256": "65b7e405fa097e0bbbbb1b3879c8cad7fd96b49bf20b1b8d47dfb178b49817bd",
+      "targeted_cited_not_rerun": {
+        "source": {
+          "passed": 75,
+          "warnings": 5793,
+          "elapsed_s": 10.17,
+          "excluded_tests": 0
+        },
+        "installed": {
+          "passed": 75,
+          "warnings": 5793,
+          "elapsed_s": 9.76,
+          "excluded_tests": 0
+        }
+      },
+      "all_numeric_arrays_cited_not_rerun": null
+    },
+    "141": {
+      "path": "validation/runs/stage141/verification.json",
+      "sha256": "4358ca21118c69db3ae3effdf467f740c3afd3a663b7bc1acfac1659de54070e",
+      "targeted_cited_not_rerun": {
+        "source": {
+          "passed": 52,
+          "warnings": 0,
+          "elapsed_s": 1.4,
+          "excluded": 0
+        },
+        "installed": {
+          "passed": 52,
+          "warnings": 0,
+          "elapsed_s": 1.38,
+          "excluded": 0
+        }
+      },
+      "all_numeric_arrays_cited_not_rerun": 42
+    },
+    "142": {
+      "path": "validation/runs/stage142/verification.json",
+      "sha256": "11d933b84a7f10455542d1a24f222f57b06a078589bfca4f1a1033a931d528a7",
+      "targeted_cited_not_rerun": {
+        "source": {
+          "passed": 52,
+          "warnings": 0,
+          "elapsed_s": 1.95,
+          "excluded": 0
+        },
+        "installed": {
+          "passed": 52,
+          "warnings": 0,
+          "elapsed_s": 1.4,
+          "excluded": 0
+        }
+      },
+      "all_numeric_arrays_cited_not_rerun": 79
+    },
+    "143": {
+      "path": "validation/runs/stage143/verification.json",
+      "sha256": "8599ff08deb76645c4683f47435f9c44c4daf703c65ba62028e604529bce77f7",
+      "targeted_cited_not_rerun": {
+        "source": {
+          "passed": 76,
+          "warnings": 640,
+          "elapsed_s": 4.4,
+          "excluded": 0
+        },
+        "installed": {
+          "passed": 76,
+          "warnings": 640,
+          "elapsed_s": 3.32,
+          "excluded": 0
+        }
+      },
+      "all_numeric_arrays_cited_not_rerun": 312
+    },
+    "144": {
+      "path": "validation/runs/stage144/verification.json",
+      "sha256": "c10c4e1b95433d41250458f43ae9273066742032e994b719b77ae47fa1c533bc",
+      "targeted_cited_not_rerun": {
+        "source": {
+          "passed": 84,
+          "warnings": 640,
+          "elapsed_s": 3.64,
+          "excluded": 0
+        },
+        "installed": {
+          "passed": 84,
+          "warnings": 640,
+          "elapsed_s": 2.42,
+          "excluded": 0
+        }
+      },
+      "all_numeric_arrays_cited_not_rerun": 107
+    }
+  },
+  "cited_full_stage": 138,
+  "cited_full_from_stage144": {
+    "source": {
+      "passed": 2321,
+      "warnings": 30220,
+      "elapsed_s": 542.82,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 2321,
+      "warnings": 30220,
+      "elapsed_s": 541.45,
+      "excluded_tests": 0
+    }
+  },
+  "cited_wheel_gui_stage": 138,
+  "noise_model_adopted_into_rml": false,
+  "independent_objective_gradient_for_new_model_executed": false,
+  "observed_selection_coverage_calibrated": false,
+  "real_fft_independence_calibrated": false,
+  "docs_only_no_numerical_reruns": true,
+  "public_audit_findings": 0,
+  "documentation_links": {
+    "checked": 1922,
+    "missing": 0
+  },
+  "outside_allowlist_tracked_sha_preserved": 1434
+}

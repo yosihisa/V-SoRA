@@ -160,6 +160,7 @@
 | 142 | [有限周期bandlimitとFFT全雑音の既知参照](142-periodic-fft-noise-reference.md) | P512の閉形式/周波数投影/4096試行を照合、131公称Pと無限周期は計算のみ。両52対象・79配列一致。実131/画像尤度/実効FFT数の校正ではない |
 | 143 | [保存pilotのrate学習と未使用cell評価](143-pilot-rate-holdout.md) | 固定parityの8profile/32系列、source APIとnative41CLI/24派生312配列一致。両76対象。範囲外拒否・null/負/1超保持、独立raw/fit依存校正ではない |
 | 144 | [観測SNR選別と全試行の雑音推定を比較](144-observed-snr-selection.md) | 固定3case各4096、全試行6MCSE対照と採用群を分離。両84対象・107配列一致、joint10/production10のmask差とN0保持。coverage/画像尤度は未校正 |
+| 145 | [画像雑音モデルの適用条件と接続判断](145-image-noise-applicability.md) | 文書・一次コードの監査。23file/47関数と八条件を整理、新RML/画像/GUI接続を保留し時変queryの最小差を優先。新数値なし、原本76/コード449SHA保持 |
 
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。
 

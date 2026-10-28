@@ -1,0 +1,115 @@
+{
+  "stage": 145,
+  "decision": "defer_new_noise_likelihood_image_and_gui_connection",
+  "existing_product_behavior_changed": false,
+  "new_runtime_gate_or_API_added": false,
+  "source_stage": 144,
+  "gates": [
+    {
+      "id": "forward",
+      "current_status": "partial_reference_only",
+      "established_scope": [
+        "native_point_pixel_uvw_includes_w",
+        "131_finite_voltage_mean_not_identical_proof"
+      ],
+      "required_before_claim": [
+        "finite_filter_interpolation_time_frequency_averaging",
+        "unknown_gain_sefd_beam_forward_covariance"
+      ]
+    },
+    {
+      "id": "units",
+      "current_status": "metadata_checked_physical_scale_unverified",
+      "established_scope": [
+        "ADC^2 visibility with ADC^4 covariance or Jy with Jy^2",
+        "phase_rad_logamp_dimensionless_relative_flux_image"
+      ],
+      "required_before_claim": [
+        "measured_IQ_voltage_scale_SEFD_beam",
+        "same_units_for_model_data_and_covariance"
+      ]
+    },
+    {
+      "id": "sample_set",
+      "current_status": "producer_common_set_conditional_iid_unverified",
+      "established_scope": [
+        "all_station_and_complete_pair_counts_equal_M_under_FX_definition",
+        "047 flags_power_units_station_identity_PSD_gate"
+      ],
+      "required_before_claim": [
+        "actual_FFT_independence",
+        "stationarity_proper_Gaussian_and_zero_mean"
+      ]
+    },
+    {
+      "id": "time_frequency",
+      "current_status": "known_fixed_small_operator_only",
+      "established_scope": [
+        "141_short_color_FIR_fixed_offsets",
+        "142_period512_fixed_operator_MC_large_period_computation_only"
+      ],
+      "required_before_claim": [
+        "actual_time_varying_queries_and_phase",
+        "quantization_masks_cross_channel_and_cell_covariance"
+      ]
+    },
+    {
+      "id": "nuisance_fit",
+      "current_status": "same_raw_split_descriptive_only",
+      "established_scope": [
+        "143_fixed_parity_train375_held374",
+        "profiles_derived_without_truth_LO_sky_gain"
+      ],
+      "required_before_claim": [
+        "same_raw_period_filter_clock_gain_dependence",
+        "unknown_nuisance_inference_or_marginalization"
+      ]
+    },
+    {
+      "id": "selection",
+      "current_status": "all_trial_guarantee_not_transferred",
+      "established_scope": [
+        "144_fixed_observed_masks_all_trials_vs_selected_groups",
+        "047_outer_state_is_not_joint_validity",
+        "production10_and_joint10_masks_differ_in_fixed_reference"
+      ],
+      "required_before_claim": [
+        "conditional_distribution_after_observed_selection",
+        "coverage_independent_of_truth_tuning"
+      ]
+    },
+    {
+      "id": "closure_joint",
+      "current_status": "diagnostic_not_consumer",
+      "established_scope": [
+        "044_full_ReIm_joint_first_order_matrix_and_valid_mask",
+        "production_same_type_same_cell_full_covariance"
+      ],
+      "required_before_claim": [
+        "nonredundant_joint_basis_and_singular_covariance_handling",
+        "low_SNR_branch_distribution_and_inter_cell_correlation"
+      ]
+    },
+    {
+      "id": "objective",
+      "current_status": "new_connection_deferred",
+      "established_scope": [
+        "current_RML_covariance_and_basis_fixed_at_construction",
+        "100_known_C_iid_voltage_nll_is_existing_reference"
+      ],
+      "required_before_claim": [
+        "chosen_probability_model_observation_support_and_normalization",
+        "parameter_dependent_covariance_and_gradient_if_adopted",
+        "independent_objective_gradient_failure_and_nuisance_controls"
+      ]
+    }
+  ],
+  "next_priorities": {
+    "146": "Review existing049/055/059/061/078 and clock/FX tests first; select only unmatched finite deterministic varying-query/phase operator contrast before any image fit. If already covered, revise or skip; no duplicate API.",
+    "147": "New image comparison/GUI integration deferred until applicability conditions hold; choose remaining nuisance/selection uncertainty independently, no blanket likelihood claim.",
+    "148_149": "Hardware access and measurement methods must be confirmed before measurements; otherwise consolidate applicability and failures without repeating138/139.",
+    "150": "Mandatory documentation checkpoint and dedicated fundamental review, not performed here."
+  },
+  "truth_tuned_weights_effective_count_or_image_coefficients": false,
+  "new_real_hardware_or_low_snr_image_likelihood_validation": false
+}
