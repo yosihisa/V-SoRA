@@ -1,0 +1,353 @@
+{
+  "stage": 147,
+  "state": "complete",
+  "base_commit": "39fbaa302ade0aec7c24e6d76aa193da26f7c599",
+  "reviewed_existing_sha256": {
+    "apps/correlator/src/vsora_correlator/rate.py": "4954bbdfbe438efb041318267b498f25f078ecb311370f634967539e5d423fb7",
+    "apps/correlator/src/vsora_correlator/rate_graph.py": "8c4116883617158dc7ece7ea4b2e447dede61433ad1270f1767c674137c50dd6",
+    "apps/correlator/src/vsora_correlator/rate_linear.py": "7744555f799b10e69e7492b4e71617fa1c2339d0a79e96a801dfe4b864b95331",
+    "apps/correlator/src/vsora_correlator/rate_uncertainty.py": "218f9c86bf184fdafe5d10facc63d09af731107bc5d2ddaf768d851ea79598e4",
+    "apps/correlator/src/vsora_correlator/time_scatter.py": "cebc333c0586645314e939f76f60ced61ecd02120b6ae058b970cf292e2d7406",
+    "workflows/rate_covariance_validation.py": "ec99c67425e4419b6868dfb5479207b202c0f77af9d32be1cdc9bbffaa9af4ca",
+    "workflows/rate_uncertainty_validation.py": "a86dc4511f37091c4ce45a4b54fbb8a917181a099ac9ea3f718e867e3287311b",
+    "workflows/pilot_rate_holdout_validation.py": "b2f214388fad9ed18c55a568e25beb0a7ba21b284363ed420bfe0e099c7fb212",
+    "docs/reports/042-rate-covariance-validation.md": "1239308f74c48dfe65bdede932db8624fdc77e2ceabdabe755b2c2f3c80f399d",
+    "docs/reports/051-pilot-time-scatter.md": "bb9fdcdbe4075feead2ed26342c36705e5efa499ca453219b3dbfbe28f67f3dc",
+    "docs/reports/098-independent-training-repeats.md": "ed31f466a876991204bb4b5009eec9b2d08dbb86d82d802259a2f601d5a62bef",
+    "docs/reports/101-known-covariance-template.md": "5bb619b92c58466ee7c0172c81a2f45c512a16d268a87239604638b536a9c947",
+    "docs/reports/107-independent-phase-threshold.md": "42f7c9b079ee4d8c0a595539aa15deafed47429f53ed3685862a6341d8e8116f",
+    "docs/reports/143-pilot-rate-holdout.md": "2e076e22f3f236b7a73a45813936f8a5607b7e755e36a4261fbfcf3f5a3af856"
+  },
+  "product_code_changed": false,
+  "new_statistical_api": false,
+  "first_formal_attempt_passed": true,
+  "conditions": 2,
+  "trials_per_condition": 256,
+  "train_eval_pairs": 512,
+  "all_trial_outcomes_retained": 512,
+  "successful_rate_estimates": [
+    233,
+    121
+  ],
+  "disconnected_graph_failures": 131,
+  "rate_consistency_failures": 27,
+  "failed_fitted_powers_null_not_zero": 158,
+  "all_trial_oracle_controls_within_fixed6mcse": true,
+  "independent_eval_postfit_controls_within_fixed6mcse": true,
+  "training_fit_statistics_descriptive_only": true,
+  "fit_inputs_exclude_truth_and_evaluation": true,
+  "generation_independent_noise_roles_assumed_not_hardware": true,
+  "source_native_all_scientific_json_exact": true,
+  "numeric_arrays_directly_equal": 33,
+  "array_manifest": {
+    "pairs": {
+      "dtype": "<i8",
+      "shape": [
+        3,
+        2
+      ],
+      "sha256": "79804fd0053199256af1dee6baa3c44ee78fc1c597da9105d41e7d1fca910d6b"
+    },
+    "time_cells_s": {
+      "dtype": "<f8",
+      "shape": [
+        64
+      ],
+      "sha256": "9ca00d49eb3cfedcfabd022f2068f6f02c11dde36584fc4cd69284aa08fdb5a3"
+    },
+    "known_center_mean_validation_only": {
+      "dtype": "<c16",
+      "shape": [
+        3
+      ],
+      "sha256": "5084f4e86c74b40566112683f28a71fbf000995e9acf4863c77f9fd5c1cf5d86"
+    },
+    "condition0_train_all_oracle_complex_mean": {
+      "dtype": "<c16",
+      "shape": [
+        256,
+        3
+      ],
+      "sha256": "57bf4fa791d8c68619fe9016970e0cb3eb0a2e1f59a420a592113e03ad22e4a0"
+    },
+    "condition0_train_all_oracle_mean_power": {
+      "dtype": "<f8",
+      "shape": [
+        256,
+        3
+      ],
+      "sha256": "e47f153e4cf38f969dd9c7497f40fe64f8e248a7a5971fa7c574a0c6c02e6d4f"
+    },
+    "condition0_train_estimated_complex_mean": {
+      "dtype": "<c16",
+      "shape": [
+        233,
+        3
+      ],
+      "sha256": "a9c27118a10c407e344982f752024c77c6e6a5333fafb55c70a5f5f8d5b68c35"
+    },
+    "condition0_train_estimated_mean_power": {
+      "dtype": "<f8",
+      "shape": [
+        233,
+        3
+      ],
+      "sha256": "2f8ac21da804f3c5061fc0151417f3189bac70514aa479dfc1bd41c71afada84"
+    },
+    "condition0_train_fit_minus_oracle": {
+      "dtype": "<f8",
+      "shape": [
+        233,
+        3
+      ],
+      "sha256": "534d498c80b186dc9ee4f8321f1104155ee5b0f3d975bb336c960f56741443a5"
+    },
+    "condition0_train_fit_minus_independent_prediction": {
+      "dtype": "<f8",
+      "shape": [
+        233,
+        3
+      ],
+      "sha256": "93bf818a0e4969e75fe8082aec5e276c4f54c14dcfc24606767ca673bda26aea"
+    },
+    "condition0_evaluation_all_oracle_complex_mean": {
+      "dtype": "<c16",
+      "shape": [
+        256,
+        3
+      ],
+      "sha256": "9c873780fa5a9c1a12d2fe6712e8714cf5e7fbe982b2b478bf4a96d80cd038fe"
+    },
+    "condition0_evaluation_all_oracle_mean_power": {
+      "dtype": "<f8",
+      "shape": [
+        256,
+        3
+      ],
+      "sha256": "a7c684277e4b3392fccc8a481861bf873a18f6c92f679a1b26de9a535d370226"
+    },
+    "condition0_evaluation_estimated_complex_mean": {
+      "dtype": "<c16",
+      "shape": [
+        233,
+        3
+      ],
+      "sha256": "6e7fe10bc972697115315d2769cbdff6d691be75cf5f32978b52671a289def8a"
+    },
+    "condition0_evaluation_estimated_mean_power": {
+      "dtype": "<f8",
+      "shape": [
+        233,
+        3
+      ],
+      "sha256": "01733f3a704617fffd2f89f7ca02d7f61cf00e37fa37a182f07a982c4ced369c"
+    },
+    "condition0_evaluation_fit_minus_oracle": {
+      "dtype": "<f8",
+      "shape": [
+        233,
+        3
+      ],
+      "sha256": "742f18bd5266e930000cedcd5c06729c9d891f8eba9f6092bd3c3aa620756858"
+    },
+    "condition0_evaluation_fit_minus_independent_prediction": {
+      "dtype": "<f8",
+      "shape": [
+        233,
+        3
+      ],
+      "sha256": "7c7315166f1a99f4961b55762c149e599bbaf83abe8676c5b52d474811955dc4"
+    },
+    "condition0_accepted_trial_indices": {
+      "dtype": "<i8",
+      "shape": [
+        233
+      ],
+      "sha256": "60516d8f0a9258073c3e51b96523e53742c15f8ece7aad1b9713d8aee679df9d"
+    },
+    "condition0_known_eval_power_prediction": {
+      "dtype": "<f8",
+      "shape": [
+        233,
+        3
+      ],
+      "sha256": "b809223e3377697ad3d0565f0378a90ae6d651ba4c71f455f6ce3918f3f5e794"
+    },
+    "condition0_estimated_rate_error_validation_only": {
+      "dtype": "<f8",
+      "shape": [
+        233,
+        2
+      ],
+      "sha256": "d5d39e868c45ec9b9c387e427b3ab7516eaef4aa0d6c4e55598c0114b47d33c9"
+    },
+    "condition1_train_all_oracle_complex_mean": {
+      "dtype": "<c16",
+      "shape": [
+        256,
+        3
+      ],
+      "sha256": "3a6cf2e717b04de65fb2627441990d798affa281b5fca53d89dca4a590185a2b"
+    },
+    "condition1_train_all_oracle_mean_power": {
+      "dtype": "<f8",
+      "shape": [
+        256,
+        3
+      ],
+      "sha256": "28aa1ad0077db4e88a2c090c6b57df7867be4cd6944a4640cff26da177ba002b"
+    },
+    "condition1_train_estimated_complex_mean": {
+      "dtype": "<c16",
+      "shape": [
+        121,
+        3
+      ],
+      "sha256": "cbf434a621515c4323907c8aa12c484436fd2c6f8460d5408e41a5b67e7cb2c0"
+    },
+    "condition1_train_estimated_mean_power": {
+      "dtype": "<f8",
+      "shape": [
+        121,
+        3
+      ],
+      "sha256": "4dda728d1ce25565a07ff5c2e75f419ae745fe88fbdbd99f9c73f122acf9418e"
+    },
+    "condition1_train_fit_minus_oracle": {
+      "dtype": "<f8",
+      "shape": [
+        121,
+        3
+      ],
+      "sha256": "1047342dd52060e60eb9cd92e83848b3e087605c9dfff6987c0e39a79c1e958d"
+    },
+    "condition1_train_fit_minus_independent_prediction": {
+      "dtype": "<f8",
+      "shape": [
+        121,
+        3
+      ],
+      "sha256": "8cba18e99464b73bd011c44d0b19372214faec49162c767fee54e8ee8c83b1d0"
+    },
+    "condition1_evaluation_all_oracle_complex_mean": {
+      "dtype": "<c16",
+      "shape": [
+        256,
+        3
+      ],
+      "sha256": "fdf8138e789d6bb9285f250abaa71874c1ac776ff841a8fb5e700f2e1b3e8fa6"
+    },
+    "condition1_evaluation_all_oracle_mean_power": {
+      "dtype": "<f8",
+      "shape": [
+        256,
+        3
+      ],
+      "sha256": "962a00a4c056c67904f6fd164a98ba87c7b9eae27192da3943938f11c5ff1711"
+    },
+    "condition1_evaluation_estimated_complex_mean": {
+      "dtype": "<c16",
+      "shape": [
+        121,
+        3
+      ],
+      "sha256": "2e1058526995aac55120fdcdaf0607720bcf1669b6d67cd60a608216efe02de8"
+    },
+    "condition1_evaluation_estimated_mean_power": {
+      "dtype": "<f8",
+      "shape": [
+        121,
+        3
+      ],
+      "sha256": "54f631f704a83d328bd464f94248237d67ed69beb2c730a9b240108d7f01fb3f"
+    },
+    "condition1_evaluation_fit_minus_oracle": {
+      "dtype": "<f8",
+      "shape": [
+        121,
+        3
+      ],
+      "sha256": "4f09a8978c46b92595e46b6ad79188b7adc1efe61aa9d05790a74d9b2c887f4b"
+    },
+    "condition1_evaluation_fit_minus_independent_prediction": {
+      "dtype": "<f8",
+      "shape": [
+        121,
+        3
+      ],
+      "sha256": "dd68fec58e5237418f52150cf255a2e86c7f288a9435d766504e97f43d1062d7"
+    },
+    "condition1_accepted_trial_indices": {
+      "dtype": "<i8",
+      "shape": [
+        121
+      ],
+      "sha256": "970272ce12a786ad2712bd27b829a037f68a2ab3a4fea7859a08b36f8efa3db4"
+    },
+    "condition1_known_eval_power_prediction": {
+      "dtype": "<f8",
+      "shape": [
+        121,
+        3
+      ],
+      "sha256": "047f9bd10d0dcb9a55033ed47e4377eeda5339c48b07895edd34274db0d04b11"
+    },
+    "condition1_estimated_rate_error_validation_only": {
+      "dtype": "<f8",
+      "shape": [
+        121,
+        2
+      ],
+      "sha256": "c70905ac954db263e71eb656ab9eaeb0675f45fb13b9de30b4b5418a7813f272"
+    }
+  },
+  "project_modules_verified_each": 16,
+  "outside_checkout_no_runner_pythonpath": true,
+  "study_nonoverwrite_refusals": 2,
+  "raw_files_sha_preserved": 76,
+  "new_unit_tests": 0,
+  "targeted": {
+    "source": {
+      "passed": 101,
+      "warnings": 640,
+      "elapsed_s": 5.74,
+      "excluded": 0
+    },
+    "installed": {
+      "passed": 101,
+      "warnings": 640,
+      "elapsed_s": 4.22,
+      "excluded": 0
+    }
+  },
+  "frozen_files": 451,
+  "new_full_or_collect_executed": false,
+  "cited_full_stage": 138,
+  "cited_full": {
+    "source": {
+      "passed": 2321,
+      "warnings": 30220,
+      "elapsed_s": 542.82,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 2321,
+      "warnings": 30220,
+      "elapsed_s": 541.45,
+      "excluded_tests": 0
+    }
+  },
+  "wheel_source_installed_package_bytes_unchanged": 103,
+  "reference_assets_bytes_unchanged": 4,
+  "wheel_sha256": "81e7f819d500e015f7e43d9e46e12ca88887cea99d455ef1c7129ec7c36a2ef7",
+  "new_wheel_browser_or_install": false,
+  "cited_browser_stage": 138,
+  "physical_iq_vdif_or_original_raw_processed_in_main_study": false,
+  "real_fft_independence_or_coverage_calibrated": false,
+  "new_low_snr_image_likelihood": false,
+  "public_audit_findings": 0,
+  "documentation_links": {
+    "checked": 1947,
+    "missing": 0
+  }
+}

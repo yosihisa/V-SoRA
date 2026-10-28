@@ -162,6 +162,7 @@
 | 144 | [観測SNR選別と全試行の雑音推定を比較](144-observed-snr-selection.md) | 固定3case各4096、全試行6MCSE対照と採用群を分離。両84対象・107配列一致、joint10/production10のmask差とN0保持。coverage/画像尤度は未校正 |
 | 145 | [画像雑音モデルの適用条件と接続判断](145-image-noise-applicability.md) | 文書・一次コードの監査。23file/47関数と八条件を整理、新RML/画像/GUI接続を保留し時変queryの最小差を優先。新数値なし、原本76/コード449SHA保持 |
 | 146 | [供給clockと実SampleBufferの全有限係数を照合](146-clock-samplebuffer-operator.md) | 合成decoded frameによる各3072基底buffer・2seed/8FX、両46対象・53配列一致。全係数/既存049/142と照合。codec/量子化/実FFT独立性/画像校正は未検証 |
+| 147 | [同pilot rate推定と独立雑音pilotのpowerを比較](147-rate-fit-reuse.md) | 既知Gaussian visibility各256×2、推定成功233/121・失敗158を全保存。両101対象・33配列一致。全oracle/独立eval予測6MCSE、学習側は記述のみ、実機補正なし |
 
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。
 
