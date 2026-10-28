@@ -1,0 +1,142 @@
+{
+  "stage": 146,
+  "state": "complete",
+  "cases": [
+    {
+      "label": "clock0",
+      "station_clock_ppm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "actual_sample_rates_hz": [
+        2048000.0,
+        2048000.0,
+        2048000.0
+      ],
+      "impulse_buffer_calls": 1536,
+      "synthetic_decoded_frames_for_impulses": 7680,
+      "maximum_basis_coefficient_error": 1.0329400704738531e-15,
+      "maximum_fir_tap_error": 0.0,
+      "maximum_seed_voltage_operator_error": 4.010656666373001e-15,
+      "maximum_chunk_value_error": 0.0,
+      "actual_fx_finish_calls": 4,
+      "maximum_fx_visibility_error": 1.1443916996305594e-16,
+      "relative_operator_difference_from_clock0": 0.0,
+      "channels": [
+        {
+          "channel": 3,
+          "known_model_variance_to_nominal_iid_range": [
+            1.000118557831654,
+            1.0002697499242938
+          ],
+          "normalized_covariance_difference_from_clock0": 0.0,
+          "trace_and_direct_block_pair_contractions_match": true
+        },
+        {
+          "channel": 4,
+          "known_model_variance_to_nominal_iid_range": [
+            1.0000728529687082,
+            1.0001940606818538
+          ],
+          "normalized_covariance_difference_from_clock0": 0.0,
+          "trace_and_direct_block_pair_contractions_match": true
+        },
+        {
+          "channel": 5,
+          "known_model_variance_to_nominal_iid_range": [
+            1.0001185578316545,
+            1.0002697499242943
+          ],
+          "normalized_covariance_difference_from_clock0": 0.0,
+          "trace_and_direct_block_pair_contractions_match": true
+        }
+      ]
+    },
+    {
+      "label": "clock_drift",
+      "station_clock_ppm": [
+        -200.0,
+        0.0,
+        200.0
+      ],
+      "actual_sample_rates_hz": [
+        2047590.4000000001,
+        2048000.0,
+        2048409.5999999999
+      ],
+      "impulse_buffer_calls": 1536,
+      "synthetic_decoded_frames_for_impulses": 7680,
+      "maximum_basis_coefficient_error": 1.062716010695555e-15,
+      "maximum_fir_tap_error": 1.3010426069826053e-16,
+      "maximum_seed_voltage_operator_error": 4.362484308104375e-15,
+      "maximum_chunk_value_error": 0.0,
+      "actual_fx_finish_calls": 4,
+      "maximum_fx_visibility_error": 1.6883057536160646e-16,
+      "relative_operator_difference_from_clock0": 0.0332708766778822,
+      "channels": [
+        {
+          "channel": 3,
+          "known_model_variance_to_nominal_iid_range": [
+            1.000104137717382,
+            1.0002845282751094
+          ],
+          "normalized_covariance_difference_from_clock0": 0.009048102984604563,
+          "trace_and_direct_block_pair_contractions_match": true
+        },
+        {
+          "channel": 4,
+          "known_model_variance_to_nominal_iid_range": [
+            1.0000622442901959,
+            1.0002056955425502
+          ],
+          "normalized_covariance_difference_from_clock0": 0.001613171526023102,
+          "trace_and_direct_block_pair_contractions_match": true
+        },
+        {
+          "channel": 5,
+          "known_model_variance_to_nominal_iid_range": [
+            1.0001041377173818,
+            1.000284528275109
+          ],
+          "normalized_covariance_difference_from_clock0": 0.009048102984604544,
+          "trace_and_direct_block_pair_contractions_match": true
+        }
+      ]
+    }
+  ],
+  "stations": 3,
+  "raw_samples": 512,
+  "fft_length": 8,
+  "nominal_blocks": 16,
+  "fixed_offsets_samples": [
+    0.0,
+    0.25,
+    0.5
+  ],
+  "fixed_input_start_s": [
+    -4.6875e-05,
+    -4.69970703125e-05,
+    -4.7119140625e-05
+  ],
+  "nominal_sample_rate_hz": 2048000.0,
+  "query_formula": "(96 + station_offset + output_sample_index) * actual_rate / nominal_rate; SampleBuffer adds 32",
+  "reader_adapter": "Synthetic decoded complex frames of 64 samples, all valid, no binary VDIF decoder; seek_input=False",
+  "all_channel_actual_basis_matches_independent_operator": true,
+  "existing049_zero_slope_control_matches": true,
+  "existing142_trace_helper_reused": true,
+  "monte_carlo_trials": 0,
+  "mcse_applicable": false,
+  "fixed_random_seed_vectors_not_mc_calibration": [
+    146,
+    147
+  ],
+  "seeds_and_clock_conditions_share_input_voltages": true,
+  "physical_adc_vdif_codec_processed": false,
+  "geometry_rf_rate_phase_path_executed": false,
+  "unknown_clock_estimation_performed": false,
+  "real131_raw_reprocessed": false,
+  "effective_fft_count_or_coverage_calibrated": false,
+  "production_rml_changed": false,
+  "scope": "Known finite white proper Gaussian input and supplied clock slopes. Actual SampleBuffer FIR/state/guard/interpolation with synthetic decoded-frame reader, then actual FX. No quantization, flags, geometry/rate phase, same-pilot inference, observed selection, real hardware or image calibration."
+}
