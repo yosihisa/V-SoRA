@@ -1,0 +1,62 @@
+{
+  "stage": 139,
+  "state": "complete",
+  "base_commit": "74ed25fdc3f93f99658fd15d3b301a8ab580037a",
+  "actual_workers_each_environment": 8,
+  "source_installed_all_science_exact": true,
+  "new_output_spectral_arrays_directly_compared_to138_each": 26,
+  "new_output_summaries_metadata_exact_to138": true,
+  "eof_failures_each": 2,
+  "partial_nonoverwrite_each": 2,
+  "success_new_outputs_each": 2,
+  "complete_nonoverwrite_each": 2,
+  "raw_files_sha_preserved": 76,
+  "fresh_input_identity_each_worker": true,
+  "failure_actual_frames_measured": false,
+  "frozen_code_files": 445,
+  "new_unit_tests": 0,
+  "targeted": {
+    "source": {
+      "passed": 19,
+      "warnings": 7272,
+      "elapsed_s": 48.92,
+      "excluded": 0
+    },
+    "installed": {
+      "passed": 19,
+      "warnings": 7272,
+      "elapsed_s": 48.07,
+      "excluded": 0
+    }
+  },
+  "new_full_or_collect_executed": false,
+  "cited_full_stage": 138,
+  "cited_full": {
+    "source": {
+      "passed": 2321,
+      "warnings": 30220,
+      "elapsed_s": 542.82,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 2321,
+      "warnings": 30220,
+      "elapsed_s": 541.45,
+      "excluded_tests": 0
+    }
+  },
+  "wheel_rebuilt_or_reinstalled": false,
+  "wheel_package_source_installed_bytes_unchanged": 103,
+  "reference_assets_bytes_unchanged": 4,
+  "wheel_sha256": "81e7f819d500e015f7e43d9e46e12ca88887cea99d455ef1c7129ec7c36a2ef7",
+  "new_browser_executed": false,
+  "cited_browser_stage": 138,
+  "product_code_changed": false,
+  "automatic_checkpoint_resume_implemented": false,
+  "real_full_night_or_gpu_performance_verified": false,
+  "public_audit_findings": 0,
+  "documentation_links": {
+    "checked": 1811,
+    "missing": 0
+  }
+}

@@ -1,0 +1,805 @@
+{
+  "stage": 139,
+  "state": "complete",
+  "entries": [
+    {
+      "entry": "api",
+      "input_identity": {
+        "input_manifest_sha256": "07e2beeb317f22472759dcc108a947ffaf565a0502bd890e55ee4d8695479072",
+        "input_clock_sha256": "b4b914971335dd6e7962b9863313016bc7768d2c4bd4250fa0711cf9b7d23250",
+        "input_observation_sha256": "4ea421860c947a36452b1fe6182805112b34ae00da4d9a36b02b562e8b46a356",
+        "input_vdif": [
+          {
+            "station_id": "ST01",
+            "sha256": "83312c7e35a9e9d956213684c358e3ef5ada3a7bc812f463a8a8de974668d1e6",
+            "bytes": 12500480
+          },
+          {
+            "station_id": "ST02",
+            "sha256": "cbe0d4157d5443a9bf7b7e0dddac10f0ae91a90b4415e11bc60301f8cf449f51",
+            "bytes": 12500480
+          },
+          {
+            "station_id": "ST03",
+            "sha256": "572d196054a8f2deaae72c4263dcce53c9351a059001708953419906bceca6d4",
+            "bytes": 12500480
+          },
+          {
+            "station_id": "ST04",
+            "sha256": "30cab683b53b5a422996d4101c3d26dd0eaf05e50c61970d6247baadccaf24b3",
+            "bytes": 12500480
+          },
+          {
+            "station_id": "ST05",
+            "sha256": "d5d237ac5f75a6c1c5d0154b3b831233869811a2481fb2621350d3ea39bd52b2",
+            "bytes": 12500480
+          },
+          {
+            "station_id": "ST06",
+            "sha256": "759306738d174379db87f031938fb5a36e291d360087604ff44f42c02b95f135",
+            "bytes": 12500480
+          },
+          {
+            "station_id": "ST07",
+            "sha256": "1d1fe6f951e1e938b3a47dac5fe85c0cb4d2525bced4a3d04242cd5de3c51caf",
+            "bytes": 12500480
+          },
+          {
+            "station_id": "ST08",
+            "sha256": "fb6860597f75e2c9b40ccdb8958e379293b571f7f484911c2e841bdb0944715a",
+            "bytes": 12500480
+          }
+        ]
+      },
+      "failed_request_s": [
+        3.038,
+        3.042
+      ],
+      "failure": {
+        "state": "incomplete",
+        "error_type": "ValueError"
+      },
+      "failure_files": {
+        "failure.json": "2accc21f467a932293bd5c8ed093f915f9eb0142759c3a7f6d81afa0d531160b"
+      },
+      "partial_preserved": true,
+      "same_partial_refused": true,
+      "complete_refused": true,
+      "complete_preserved": true,
+      "new_output_summary": {
+        "state": "complete",
+        "integrations": 1,
+        "recorded_span_s": 0.004,
+        "start_offset_s": 0.002,
+        "station_max_buffer_samples": [
+          12288,
+          12289,
+          12289,
+          12291,
+          12290,
+          12290,
+          12289,
+          12290
+        ],
+        "station_decoded_frames": [
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4
+        ],
+        "station_read_start_samples": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "vdif_read_mode": "guarded_seek",
+        "vdif_validation_scope": "File origin and length, decoded range headers and nominal continuity; skipped prefix not structurally scanned",
+        "samples_per_integration": 8192,
+        "maximum_fx_chunk_samples": 8192,
+        "spectral_cells": 224,
+        "geometry_segment_max_span_s": 0.004,
+        "geometry_midpoint_max_baseline_phase_error_rad": 2.0228144449226293e-08,
+        "fft_accumulation": "Sums of cross-products, power and fourth moments; flags after whole integration",
+        "clock_model": "Supplied linear ADC mapping; no automatic weak-source clock recovery",
+        "geometry": "Sample alignment and RF rephasing; piecewise linear delay over <=1s per segment, <=3s total, <=600m",
+        "weight_note": "2*valid FFT blocks / product of measured station channel powers; weak-source quadrature approximation; filtered FFT correlations not fully modeled"
+      },
+      "new_output_science": {
+        "arrays": {
+          "visibilities": {
+            "dtype": "<c16",
+            "shape": [
+              1,
+              8,
+              28
+            ],
+            "sha256": "d065cd09bdeb4b9b9ea212b2df1f15672c30ca77a07d8102e5d898d6591fc22f"
+          },
+          "weights": {
+            "dtype": "<f8",
+            "shape": [
+              1,
+              8,
+              28
+            ],
+            "sha256": "53ca9dc2f4101ba12dc183c935ebc76076e13d2eff815f1f62ca0ab714623a4b"
+          },
+          "pairs": {
+            "dtype": "<i8",
+            "shape": [
+              28,
+              2
+            ],
+            "sha256": "77dd18378e5847909c18331ae810f09a80aea526095837fcbd06d04e0e91f707"
+          },
+          "times_s": {
+            "dtype": "<f8",
+            "shape": [
+              1
+            ],
+            "sha256": "4af2a737188933df88d443bd40eb02f61634d43ca596a170b0d2a682c2ba9985"
+          },
+          "frequencies_hz": {
+            "dtype": "<f8",
+            "shape": [
+              8
+            ],
+            "sha256": "d8fe4c24c5afc70fdab4102c5c2fb67d874b0964045bf92f5f2b1f3c44b45034"
+          },
+          "uvw_lambda": {
+            "dtype": "<f8",
+            "shape": [
+              1,
+              8,
+              28,
+              3
+            ],
+            "sha256": "7da3fa8db7b8d2233eb5d1d77bf0703c36d85d7950df5d4b0681434b24cf3390"
+          },
+          "integration_s": {
+            "dtype": "<f8",
+            "shape": [
+              1,
+              28
+            ],
+            "sha256": "7730558b8d36765e24028c32031397d6aa2fa122fb2e311a01fc3c71ba332e81"
+          },
+          "valid_fft_count": {
+            "dtype": "<i8",
+            "shape": [
+              1,
+              28
+            ],
+            "sha256": "b0619879f1925892dedf7b291048f584ab95070140929bd9dda36f6eca13a332"
+          },
+          "diagnostic_station_power": {
+            "dtype": "<f8",
+            "shape": [
+              1,
+              8,
+              8
+            ],
+            "sha256": "256e7f1cfdc7a9dc774e0d336320bcbbc8340eabeb314dbff9588d0fb5cc064b"
+          },
+          "diagnostic_station_sk": {
+            "dtype": "<f8",
+            "shape": [
+              1,
+              8,
+              8
+            ],
+            "sha256": "da7604595ad87ee0ef64f53af4a3a93319c82d6838cbbe0aaf04827b3df37bf4"
+          },
+          "diagnostic_station_sk_eligible": {
+            "dtype": "|b1",
+            "shape": [
+              1,
+              8,
+              8
+            ],
+            "sha256": "7c8975e1e60a5c8337f28edf8c33c3b180360b7279644a9bc1af3c51e6220bf5"
+          },
+          "diagnostic_station_flags": {
+            "dtype": "|u1",
+            "shape": [
+              1,
+              8,
+              8
+            ],
+            "sha256": "a3d22d329d380e838ca4de9793830936350f5bf0ae74025d51bdfa4e3edcdf42"
+          },
+          "diagnostic_station_valid_fft_count": {
+            "dtype": "<i8",
+            "shape": [
+              1,
+              8
+            ],
+            "sha256": "220a933ef483296df7bd5469bee5a61cee6af5e8f28642a573f43fb37fa162e8"
+          }
+        },
+        "metadata": {
+          "config": {
+            "schema_version": 1,
+            "site": {
+              "latitude_deg": 35.0,
+              "longitude_deg": 135.0,
+              "height_m": 0.0,
+              "description": "Assumed public synthetic site, not an actual observation location"
+            },
+            "source": {
+              "frame": "icrs",
+              "ra_deg": 350.8664166662,
+              "dec_deg": 58.8117777793,
+              "model": "unknown"
+            },
+            "observation": {
+              "start_utc": "2026-10-02T10:00:00Z",
+              "duration_s": 3.04,
+              "integration_s": 0.004,
+              "frequency_hz": 1420000000.0,
+              "bandwidth_hz": 2048000.0,
+              "elevation_min_deg": 15.0
+            },
+            "stations": [
+              {
+                "id": "ST01",
+                "enu_m": [
+                  -228.58179532783782,
+                  -148.5781669630946,
+                  0.0
+                ],
+                "sefd_jy": 1000.0
+              },
+              {
+                "id": "ST02",
+                "enu_m": [
+                  -205.72361579505403,
+                  -114.29089766391891,
+                  0.0
+                ],
+                "sefd_jy": 1000.0
+              },
+              {
+                "id": "ST03",
+                "enu_m": [
+                  182.86543626227024,
+                  -205.72361579505403,
+                  0.0
+                ],
+                "sefd_jy": 1000.0
+              },
+              {
+                "id": "ST04",
+                "enu_m": [
+                  251.4399748606216,
+                  194.29452602866215,
+                  0.0
+                ],
+                "sefd_jy": 1000.0
+              },
+              {
+                "id": "ST05",
+                "enu_m": [
+                  -274.29815439340535,
+                  182.86543626227024,
+                  0.0
+                ],
+                "sefd_jy": 1000.0
+              },
+              {
+                "id": "ST06",
+                "enu_m": [
+                  -45.71635906556756,
+                  45.71635906556756,
+                  0.0
+                ],
+                "sefd_jy": 1000.0
+              },
+              {
+                "id": "ST07",
+                "enu_m": [
+                  45.71635906556756,
+                  -91.43271813113512,
+                  0.0
+                ],
+                "sefd_jy": 1000.0
+              },
+              {
+                "id": "ST08",
+                "enu_m": [
+                  205.72361579505403,
+                  22.85817953278378,
+                  0.0
+                ],
+                "sefd_jy": 1000.0
+              }
+            ],
+            "image": {
+              "pixels": 32,
+              "pixel_arcsec": 16.0
+            },
+            "noise": {
+              "enabled": true,
+              "efficiency": 1.0
+            },
+            "seed": 42
+          },
+          "time_origin_utc": "2026-10-02T10:00:00.000Z",
+          "visibility_unit": "ADC^2",
+          "phase_center_corrected": true,
+          "rate_applied_hz": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rate_applied_reference_s": 0.0,
+          "rate_applied_slopes_hz_per_s": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rate_profile_type": null,
+          "rate_only_profile_sha256": null,
+          "rate_only_extrapolation_allowed": false,
+          "nominal_integration_s": 0.004,
+          "fft_length": 8,
+          "fft_sample_rate_hz": 2048000,
+          "fft_count_note": "Counts of nonoverlapping rectangular FFT blocks; actual independence after filtering/interpolation is unverified",
+          "vdif_read_mode": "guarded_seek",
+          "vdif_validation_scope": "File origin and length, decoded range headers and nominal continuity; skipped prefix not structurally scanned",
+          "clock_mapping_applied": true,
+          "filter": "65-tap Kaiser lowpass; group delay compensated",
+          "max_abs_baseband_hz": 409600.0,
+          "eop_status": [
+            2
+          ],
+          "geometry_segment_max_span_s": 0.004,
+          "geometry_midpoint_max_baseline_phase_error_rad": 2.0228144449226293e-08,
+          "spectral_quality": {
+            "channel_weights": true,
+            "min_sk_blocks": 128,
+            "sk_bounds": [
+              0.3,
+              3.0
+            ],
+            "exclude_rf_ranges_hz": [
+              [
+                1417952000.0,
+                1419590400.0
+              ],
+              [
+                1420409600.0,
+                1422048000.0
+              ]
+            ]
+          },
+          "diagnostic_power_unit": "ADC^2"
+        }
+      },
+      "success_output_bytes": 16658,
+      "failure_output_bytes": 52,
+      "failure_actual_decoded_frame_count": null
+    },
+    {
+      "entry": "cli",
+      "input_identity": {
+        "input_manifest_sha256": "07e2beeb317f22472759dcc108a947ffaf565a0502bd890e55ee4d8695479072",
+        "input_clock_sha256": "b4b914971335dd6e7962b9863313016bc7768d2c4bd4250fa0711cf9b7d23250",
+        "input_observation_sha256": "4ea421860c947a36452b1fe6182805112b34ae00da4d9a36b02b562e8b46a356",
+        "input_vdif": [
+          {
+            "station_id": "ST01",
+            "sha256": "83312c7e35a9e9d956213684c358e3ef5ada3a7bc812f463a8a8de974668d1e6",
+            "bytes": 12500480
+          },
+          {
+            "station_id": "ST02",
+            "sha256": "cbe0d4157d5443a9bf7b7e0dddac10f0ae91a90b4415e11bc60301f8cf449f51",
+            "bytes": 12500480
+          },
+          {
+            "station_id": "ST03",
+            "sha256": "572d196054a8f2deaae72c4263dcce53c9351a059001708953419906bceca6d4",
+            "bytes": 12500480
+          },
+          {
+            "station_id": "ST04",
+            "sha256": "30cab683b53b5a422996d4101c3d26dd0eaf05e50c61970d6247baadccaf24b3",
+            "bytes": 12500480
+          },
+          {
+            "station_id": "ST05",
+            "sha256": "d5d237ac5f75a6c1c5d0154b3b831233869811a2481fb2621350d3ea39bd52b2",
+            "bytes": 12500480
+          },
+          {
+            "station_id": "ST06",
+            "sha256": "759306738d174379db87f031938fb5a36e291d360087604ff44f42c02b95f135",
+            "bytes": 12500480
+          },
+          {
+            "station_id": "ST07",
+            "sha256": "1d1fe6f951e1e938b3a47dac5fe85c0cb4d2525bced4a3d04242cd5de3c51caf",
+            "bytes": 12500480
+          },
+          {
+            "station_id": "ST08",
+            "sha256": "fb6860597f75e2c9b40ccdb8958e379293b571f7f484911c2e841bdb0944715a",
+            "bytes": 12500480
+          }
+        ]
+      },
+      "failed_request_s": [
+        3.038,
+        3.042
+      ],
+      "failure": {
+        "state": "incomplete",
+        "error_type": "ValueError"
+      },
+      "failure_files": {
+        "failure.json": "2accc21f467a932293bd5c8ed093f915f9eb0142759c3a7f6d81afa0d531160b"
+      },
+      "partial_preserved": true,
+      "same_partial_refused": true,
+      "complete_refused": true,
+      "complete_preserved": true,
+      "new_output_summary": {
+        "state": "complete",
+        "integrations": 1,
+        "recorded_span_s": 0.004,
+        "start_offset_s": 0.002,
+        "station_max_buffer_samples": [
+          12288,
+          12289,
+          12289,
+          12291,
+          12290,
+          12290,
+          12289,
+          12290
+        ],
+        "station_decoded_frames": [
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4
+        ],
+        "station_read_start_samples": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "vdif_read_mode": "guarded_seek",
+        "vdif_validation_scope": "File origin and length, decoded range headers and nominal continuity; skipped prefix not structurally scanned",
+        "samples_per_integration": 8192,
+        "maximum_fx_chunk_samples": 8192,
+        "spectral_cells": 224,
+        "geometry_segment_max_span_s": 0.004,
+        "geometry_midpoint_max_baseline_phase_error_rad": 2.0228144449226293e-08,
+        "fft_accumulation": "Sums of cross-products, power and fourth moments; flags after whole integration",
+        "clock_model": "Supplied linear ADC mapping; no automatic weak-source clock recovery",
+        "geometry": "Sample alignment and RF rephasing; piecewise linear delay over <=1s per segment, <=3s total, <=600m",
+        "weight_note": "2*valid FFT blocks / product of measured station channel powers; weak-source quadrature approximation; filtered FFT correlations not fully modeled"
+      },
+      "new_output_science": {
+        "arrays": {
+          "visibilities": {
+            "dtype": "<c16",
+            "shape": [
+              1,
+              8,
+              28
+            ],
+            "sha256": "d065cd09bdeb4b9b9ea212b2df1f15672c30ca77a07d8102e5d898d6591fc22f"
+          },
+          "weights": {
+            "dtype": "<f8",
+            "shape": [
+              1,
+              8,
+              28
+            ],
+            "sha256": "53ca9dc2f4101ba12dc183c935ebc76076e13d2eff815f1f62ca0ab714623a4b"
+          },
+          "pairs": {
+            "dtype": "<i8",
+            "shape": [
+              28,
+              2
+            ],
+            "sha256": "77dd18378e5847909c18331ae810f09a80aea526095837fcbd06d04e0e91f707"
+          },
+          "times_s": {
+            "dtype": "<f8",
+            "shape": [
+              1
+            ],
+            "sha256": "4af2a737188933df88d443bd40eb02f61634d43ca596a170b0d2a682c2ba9985"
+          },
+          "frequencies_hz": {
+            "dtype": "<f8",
+            "shape": [
+              8
+            ],
+            "sha256": "d8fe4c24c5afc70fdab4102c5c2fb67d874b0964045bf92f5f2b1f3c44b45034"
+          },
+          "uvw_lambda": {
+            "dtype": "<f8",
+            "shape": [
+              1,
+              8,
+              28,
+              3
+            ],
+            "sha256": "7da3fa8db7b8d2233eb5d1d77bf0703c36d85d7950df5d4b0681434b24cf3390"
+          },
+          "integration_s": {
+            "dtype": "<f8",
+            "shape": [
+              1,
+              28
+            ],
+            "sha256": "7730558b8d36765e24028c32031397d6aa2fa122fb2e311a01fc3c71ba332e81"
+          },
+          "valid_fft_count": {
+            "dtype": "<i8",
+            "shape": [
+              1,
+              28
+            ],
+            "sha256": "b0619879f1925892dedf7b291048f584ab95070140929bd9dda36f6eca13a332"
+          },
+          "diagnostic_station_power": {
+            "dtype": "<f8",
+            "shape": [
+              1,
+              8,
+              8
+            ],
+            "sha256": "256e7f1cfdc7a9dc774e0d336320bcbbc8340eabeb314dbff9588d0fb5cc064b"
+          },
+          "diagnostic_station_sk": {
+            "dtype": "<f8",
+            "shape": [
+              1,
+              8,
+              8
+            ],
+            "sha256": "da7604595ad87ee0ef64f53af4a3a93319c82d6838cbbe0aaf04827b3df37bf4"
+          },
+          "diagnostic_station_sk_eligible": {
+            "dtype": "|b1",
+            "shape": [
+              1,
+              8,
+              8
+            ],
+            "sha256": "7c8975e1e60a5c8337f28edf8c33c3b180360b7279644a9bc1af3c51e6220bf5"
+          },
+          "diagnostic_station_flags": {
+            "dtype": "|u1",
+            "shape": [
+              1,
+              8,
+              8
+            ],
+            "sha256": "a3d22d329d380e838ca4de9793830936350f5bf0ae74025d51bdfa4e3edcdf42"
+          },
+          "diagnostic_station_valid_fft_count": {
+            "dtype": "<i8",
+            "shape": [
+              1,
+              8
+            ],
+            "sha256": "220a933ef483296df7bd5469bee5a61cee6af5e8f28642a573f43fb37fa162e8"
+          }
+        },
+        "metadata": {
+          "config": {
+            "schema_version": 1,
+            "site": {
+              "latitude_deg": 35.0,
+              "longitude_deg": 135.0,
+              "height_m": 0.0,
+              "description": "Assumed public synthetic site, not an actual observation location"
+            },
+            "source": {
+              "frame": "icrs",
+              "ra_deg": 350.8664166662,
+              "dec_deg": 58.8117777793,
+              "model": "unknown"
+            },
+            "observation": {
+              "start_utc": "2026-10-02T10:00:00Z",
+              "duration_s": 3.04,
+              "integration_s": 0.004,
+              "frequency_hz": 1420000000.0,
+              "bandwidth_hz": 2048000.0,
+              "elevation_min_deg": 15.0
+            },
+            "stations": [
+              {
+                "id": "ST01",
+                "enu_m": [
+                  -228.58179532783782,
+                  -148.5781669630946,
+                  0.0
+                ],
+                "sefd_jy": 1000.0
+              },
+              {
+                "id": "ST02",
+                "enu_m": [
+                  -205.72361579505403,
+                  -114.29089766391891,
+                  0.0
+                ],
+                "sefd_jy": 1000.0
+              },
+              {
+                "id": "ST03",
+                "enu_m": [
+                  182.86543626227024,
+                  -205.72361579505403,
+                  0.0
+                ],
+                "sefd_jy": 1000.0
+              },
+              {
+                "id": "ST04",
+                "enu_m": [
+                  251.4399748606216,
+                  194.29452602866215,
+                  0.0
+                ],
+                "sefd_jy": 1000.0
+              },
+              {
+                "id": "ST05",
+                "enu_m": [
+                  -274.29815439340535,
+                  182.86543626227024,
+                  0.0
+                ],
+                "sefd_jy": 1000.0
+              },
+              {
+                "id": "ST06",
+                "enu_m": [
+                  -45.71635906556756,
+                  45.71635906556756,
+                  0.0
+                ],
+                "sefd_jy": 1000.0
+              },
+              {
+                "id": "ST07",
+                "enu_m": [
+                  45.71635906556756,
+                  -91.43271813113512,
+                  0.0
+                ],
+                "sefd_jy": 1000.0
+              },
+              {
+                "id": "ST08",
+                "enu_m": [
+                  205.72361579505403,
+                  22.85817953278378,
+                  0.0
+                ],
+                "sefd_jy": 1000.0
+              }
+            ],
+            "image": {
+              "pixels": 32,
+              "pixel_arcsec": 16.0
+            },
+            "noise": {
+              "enabled": true,
+              "efficiency": 1.0
+            },
+            "seed": 42
+          },
+          "time_origin_utc": "2026-10-02T10:00:00.000Z",
+          "visibility_unit": "ADC^2",
+          "phase_center_corrected": true,
+          "rate_applied_hz": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rate_applied_reference_s": 0.0,
+          "rate_applied_slopes_hz_per_s": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rate_profile_type": null,
+          "rate_only_profile_sha256": null,
+          "rate_only_extrapolation_allowed": false,
+          "nominal_integration_s": 0.004,
+          "fft_length": 8,
+          "fft_sample_rate_hz": 2048000,
+          "fft_count_note": "Counts of nonoverlapping rectangular FFT blocks; actual independence after filtering/interpolation is unverified",
+          "vdif_read_mode": "guarded_seek",
+          "vdif_validation_scope": "File origin and length, decoded range headers and nominal continuity; skipped prefix not structurally scanned",
+          "clock_mapping_applied": true,
+          "filter": "65-tap Kaiser lowpass; group delay compensated",
+          "max_abs_baseband_hz": 409600.0,
+          "eop_status": [
+            2
+          ],
+          "geometry_segment_max_span_s": 0.004,
+          "geometry_midpoint_max_baseline_phase_error_rad": 2.0228144449226293e-08,
+          "spectral_quality": {
+            "channel_weights": true,
+            "min_sk_blocks": 128,
+            "sk_bounds": [
+              0.3,
+              3.0
+            ],
+            "exclude_rf_ranges_hz": [
+              [
+                1417952000.0,
+                1419590400.0
+              ],
+              [
+                1420409600.0,
+                1422048000.0
+              ]
+            ]
+          },
+          "diagnostic_power_unit": "ADC^2"
+        }
+      },
+      "success_output_bytes": 16658,
+      "failure_output_bytes": 52,
+      "failure_actual_decoded_frame_count": null
+    }
+  ],
+  "actual_workers": 8,
+  "raw_input_files_sha_preserved": 76,
+  "automatic_checkpoint_resume_implemented": false,
+  "real_observation_or_full_night_performance_verified": false,
+  "new_product_code_or_images": false
+}

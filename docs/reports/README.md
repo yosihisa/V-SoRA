@@ -155,6 +155,8 @@
 | 137 | [現在の保存診断を既存日本語GUIで照合](137-saved-diagnostics-gui.md) | 両実Chromium各28worker/56実download、672行/50null/負174/1超148一致。両201既存対象、production不変・実coherence未校正 |
 | 138 | [時計JSONの型検査とLinux実入力契約](138-clock-input-contract.md) | bool帯域が1Hzになる反例を修正、新44/両75対象・全2321成功。4原本API/CLI全数値とmetadata/旧正しい出力一致、両実GUI28条件。実時計精度は未検証 |
 
+| 139 | [有限入力の失敗保持と別出力への再実行](139-finite-operation-recovery.md) | 両API/CLI各8worker、末尾不足/partial/完成先の非上書き、別出力の全26配列一致。有限時間/peakRSS/容量を測定、自動resume・全夜性能は未検証 |
+
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。
 
 ## 定期的な整理と見直し
