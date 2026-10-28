@@ -1,0 +1,73 @@
+{
+  "stage": 140,
+  "state": "complete",
+  "technical_baseline_stage": 139,
+  "technical_baseline_commit": "efc2f366871d521fbb8451f1c20f2b0f118b6090",
+  "new_numerical_tests_run": false,
+  "new_collect_run": false,
+  "new_wheel_or_browser_run": false,
+  "raw_regenerated_recorrelated_or_refitted": false,
+  "chronology_first_add_stages": 140,
+  "all_public_author_committer_identities_verified": true,
+  "all_chronology_paths_exist": true,
+  "old_individual_reports_sha_unchanged": 140,
+  "old_code_test_tool_workflow_config_sha_unchanged": 441,
+  "all_nonstage_tracked_sha_unchanged": 1397,
+  "primary_current_documents_aligned": [
+    "README.md",
+    "docs/README.md",
+    "docs/design/development-governance.md",
+    "docs/design/development-roadmap.md",
+    "docs/guide/09-observation-readiness.md",
+    "docs/reports/README.md",
+    "docs/reports/overviews/development-history.md",
+    "docs/reports/overviews/goal-and-progress.md"
+  ],
+  "index_contiguous_stages": 141,
+  "chronology_contiguous_stages": 140,
+  "cited_latest_full_stage": 138,
+  "cited_full": {
+    "source": {
+      "passed": 2321,
+      "warnings": 30220,
+      "elapsed_s": 542.82,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 2321,
+      "warnings": 30220,
+      "elapsed_s": 541.45,
+      "excluded_tests": 0
+    }
+  },
+  "cited_latest_targeted_stage": 139,
+  "cited_targeted": {
+    "source": {
+      "passed": 19,
+      "warnings": 7272,
+      "elapsed_s": 48.92,
+      "excluded": 0
+    },
+    "installed": {
+      "passed": 19,
+      "warnings": 7272,
+      "elapsed_s": 48.07,
+      "excluded": 0
+    }
+  },
+  "cited139_actual_workers_total": 16,
+  "cited_gui_browser_wheel_stage": 138,
+  "cited_wheel103_assets4": true,
+  "statistical_common_set_is_not_iid": true,
+  "new_comparisons125_to133_in_gui": false,
+  "next_documentation_stage": 150,
+  "next_fundamental_review_stage": 150,
+  "fundamental_review150_performed": false,
+  "science_packages_changed": false,
+  "defaults_changed": false,
+  "public_audit_findings": 0,
+  "documentation_links": {
+    "checked": 1841,
+    "missing": 0
+  }
+}
