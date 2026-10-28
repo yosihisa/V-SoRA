@@ -1,0 +1,15 @@
+{
+  "source": {
+    "wall_s": 3.1049733300169464,
+    "peak_process_rss_bytes": 122138624,
+    "project_module_count": 8,
+    "exact_source_or_prefix_origins_verified": true
+  },
+  "installed": {
+    "wall_s": 3.076051888987422,
+    "peak_process_rss_bytes": 122929152,
+    "project_module_count": 8,
+    "exact_source_or_prefix_origins_verified": true
+  },
+  "scope": "One CPU workflow per environment, body wall excludes Python/import startup; RUSAGE_SELF lifetime peak includes imports. OPENBLAS/OMP=1. No cache-control/full-night/GPU/minimum-PC inference."
+}

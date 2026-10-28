@@ -1,0 +1,198 @@
+{
+  "stage": 142,
+  "state": "complete",
+  "cases": [
+    {
+      "model": "period512",
+      "period_raw_samples": 512,
+      "channel": 3,
+      "known_variance_to_iid_range": [
+        1.0013838731520834,
+        1.0016590352535766
+      ],
+      "maximum_normalized_exact_iid_difference": 0.0016562874143660512,
+      "iid_is_counterfactual_only": true,
+      "nominal_blocks": 16,
+      "dirichlet_fft_and_frequency_projection_checked": true,
+      "mc_executed": true,
+      "mc_trials": 4096,
+      "real131_voltage_or_geometry_processed": false,
+      "all_means_and_covariances_within_fixed_6mcse": true,
+      "maximum_mean_difference_in_mcse": 1.7357299048685793,
+      "maximum_covariance_difference_in_mcse": 2.423592838704352,
+      "maximum_covariance_difference_to_infinite_normalized": 0.00776695871898749
+    },
+    {
+      "model": "period512",
+      "period_raw_samples": 512,
+      "channel": 4,
+      "known_variance_to_iid_range": [
+        1.0006635866615978,
+        1.0008930678653094
+      ],
+      "maximum_normalized_exact_iid_difference": 0.0008922710067460795,
+      "iid_is_counterfactual_only": true,
+      "nominal_blocks": 16,
+      "dirichlet_fft_and_frequency_projection_checked": true,
+      "mc_executed": true,
+      "mc_trials": 4096,
+      "real131_voltage_or_geometry_processed": false,
+      "all_means_and_covariances_within_fixed_6mcse": true,
+      "maximum_mean_difference_in_mcse": 1.4061281341185983,
+      "maximum_covariance_difference_in_mcse": 2.2654134049485664,
+      "maximum_covariance_difference_to_infinite_normalized": 0.007766960409894828
+    },
+    {
+      "model": "period512",
+      "period_raw_samples": 512,
+      "channel": 5,
+      "known_variance_to_iid_range": [
+        1.001250996066756,
+        1.001732822999859
+      ],
+      "maximum_normalized_exact_iid_difference": 0.001729825518415035,
+      "iid_is_counterfactual_only": true,
+      "nominal_blocks": 16,
+      "dirichlet_fft_and_frequency_projection_checked": true,
+      "mc_executed": true,
+      "mc_trials": 4096,
+      "real131_voltage_or_geometry_processed": false,
+      "all_means_and_covariances_within_fixed_6mcse": true,
+      "maximum_mean_difference_in_mcse": 2.9215509511492734,
+      "maximum_covariance_difference_in_mcse": 2.2346249731737915,
+      "maximum_covariance_difference_to_infinite_normalized": 0.007766958672745921
+    },
+    {
+      "model": "period131",
+      "period_raw_samples": 6225920,
+      "channel": 3,
+      "known_variance_to_iid_range": [
+        1.0013838729842897,
+        1.0016590351882266
+      ],
+      "maximum_normalized_exact_iid_difference": 0.0016562873492324331,
+      "iid_is_counterfactual_only": true,
+      "nominal_blocks": 16,
+      "dirichlet_fft_and_frequency_projection_checked": false,
+      "mc_executed": false,
+      "mc_trials": 0,
+      "real131_voltage_or_geometry_processed": false,
+      "maximum_covariance_difference_to_infinite_normalized": 6.424750193535765e-07
+    },
+    {
+      "model": "period131",
+      "period_raw_samples": 6225920,
+      "channel": 4,
+      "known_variance_to_iid_range": [
+        1.0006635866217684,
+        1.0008930678736518
+      ],
+      "maximum_normalized_exact_iid_difference": 0.0008922710150737921,
+      "iid_is_counterfactual_only": true,
+      "nominal_blocks": 16,
+      "dirichlet_fft_and_frequency_projection_checked": false,
+      "mc_executed": false,
+      "mc_trials": 0,
+      "real131_voltage_or_geometry_processed": false,
+      "maximum_covariance_difference_to_infinite_normalized": 6.424750207445121e-07
+    },
+    {
+      "model": "period131",
+      "period_raw_samples": 6225920,
+      "channel": 5,
+      "known_variance_to_iid_range": [
+        1.001250995889448,
+        1.0017328229228324
+      ],
+      "maximum_normalized_exact_iid_difference": 0.0017298254416545943,
+      "iid_is_counterfactual_only": true,
+      "nominal_blocks": 16,
+      "dirichlet_fft_and_frequency_projection_checked": false,
+      "mc_executed": false,
+      "mc_trials": 0,
+      "real131_voltage_or_geometry_processed": false,
+      "maximum_covariance_difference_to_infinite_normalized": 6.424750198318365e-07
+    },
+    {
+      "model": "infinite",
+      "period_raw_samples": null,
+      "channel": 3,
+      "known_variance_to_iid_range": [
+        1.0013838729842883,
+        1.001659035188226
+      ],
+      "maximum_normalized_exact_iid_difference": 0.0016562873492317282,
+      "iid_is_counterfactual_only": true,
+      "nominal_blocks": 16,
+      "dirichlet_fft_and_frequency_projection_checked": false,
+      "mc_executed": false,
+      "mc_trials": 0,
+      "real131_voltage_or_geometry_processed": false,
+      "maximum_covariance_difference_to_infinite_normalized": 0.0
+    },
+    {
+      "model": "infinite",
+      "period_raw_samples": null,
+      "channel": 4,
+      "known_variance_to_iid_range": [
+        1.0006635866217675,
+        1.0008930678736507
+      ],
+      "maximum_normalized_exact_iid_difference": 0.0008922710150724793,
+      "iid_is_counterfactual_only": true,
+      "nominal_blocks": 16,
+      "dirichlet_fft_and_frequency_projection_checked": false,
+      "mc_executed": false,
+      "mc_trials": 0,
+      "real131_voltage_or_geometry_processed": false,
+      "maximum_covariance_difference_to_infinite_normalized": 0.0
+    },
+    {
+      "model": "infinite",
+      "period_raw_samples": null,
+      "channel": 5,
+      "known_variance_to_iid_range": [
+        1.001250995889447,
+        1.001732822922832
+      ],
+      "maximum_normalized_exact_iid_difference": 0.0017298254416540453,
+      "iid_is_counterfactual_only": true,
+      "nominal_blocks": 16,
+      "dirichlet_fft_and_frequency_projection_checked": false,
+      "mc_executed": false,
+      "mc_trials": 0,
+      "real131_voltage_or_geometry_processed": false,
+      "maximum_covariance_difference_to_infinite_normalized": 0.0
+    }
+  ],
+  "seed": 142,
+  "independent_base_trials": 4096,
+  "mc_model_count": 1,
+  "channels_shared_per_trial": 3,
+  "analytic_only_models": [
+    "period131",
+    "infinite"
+  ],
+  "first_two_trials_all8channel_kernel_max_abs_error": 6.2803698347351005e-15,
+  "first_two_trials_actual_fx_max_abs_error": 0.0,
+  "new_product_noise_api": false,
+  "production_rml_changed": false,
+  "real131_period_processed_as_raw_voltage": false,
+  "physical_adc_vdif_processed": false,
+  "effective_fft_count_measured": false,
+  "confidence_interval_calibrated": false,
+  "scope": "Known stationary periodic proper Gaussian, fixed FIR/offset/FFT. Large131 period and infinite limit are analytic-only small-operator conditional references; no geometry, LO fitting, ADC, masks, unknown receiver or image likelihood calibration.",
+  "fft_length": 8,
+  "nominal_blocks": 16,
+  "station_offsets_samples": [
+    0.0,
+    0.25,
+    0.5,
+    0.75
+  ],
+  "direct_query_origin": 96,
+  "normalized_sample_rate": 1,
+  "period131_scalar_verified_from_public131": true,
+  "period131_raw_case_not_reprocessed": true,
+  "large_period_and_infinite_models_are_computation_only": true
+}
