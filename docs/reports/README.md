@@ -153,6 +153,7 @@
 | 135 | [保存相関を条件付き全雑音診断へ接続](135-saved-noise-contract.md) | 両91対象、全96JSON/594配列一致。36条件付き・60inactive・6空制約。SNR10同じ基底の分散/交差を比較、RML変更なし、全2277はcollectのみ |
 | 136 | [保存pilotの時間powerを条件付きで診断](136-saved-pilot-time.md) | 両62既存対象、24系列/全JSON byte一致。672行中50比未判定、負174/1超148を保持。実coherenceではない。新test/collect/画像なし |
 | 137 | [現在の保存診断を既存日本語GUIで照合](137-saved-diagnostics-gui.md) | 両実Chromium各28worker/56実download、672行/50null/負174/1超148一致。両201既存対象、production不変・実coherence未校正 |
+| 138 | [時計JSONの型検査とLinux実入力契約](138-clock-input-contract.md) | bool帯域が1Hzになる反例を修正、新44/両75対象・全2321成功。4原本API/CLI全数値とmetadata/旧正しい出力一致、両実GUI28条件。実時計精度は未検証 |
 
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。
 

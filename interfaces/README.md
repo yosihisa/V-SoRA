@@ -33,6 +33,7 @@
 
 - [VDIF sessionの受渡し](session-manifest.md)
 - [clock mappingと短chunk整列](clock-model.md)
+- [Linux解析側へ渡す実入力と原本追跡の確認](linux-input-readiness.md)
 - [周波数分解visibilityと較正](spectral-and-calibration.md)
 - [FITS-IDI出力の限定profile](fitsidi-profile.md)
 - [VDIFからClosure＋RMLへの短区間profile](closure-pipeline.md)

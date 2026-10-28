@@ -1,0 +1,133 @@
+{
+  "stage": 138,
+  "state": "complete",
+  "base_commit": "6433f2a2c803eb8dbe80af182e0181552ae7c362",
+  "regressions": {
+    "source": {
+      "passed": 2321,
+      "warnings": 30220,
+      "elapsed_s": 542.82,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 2321,
+      "warnings": 30220,
+      "elapsed_s": 541.45,
+      "excluded_tests": 0
+    }
+  },
+  "targeted": {
+    "source": {
+      "passed": 75,
+      "warnings": 5793,
+      "elapsed_s": 10.17,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 75,
+      "warnings": 5793,
+      "elapsed_s": 9.76,
+      "excluded_tests": 0
+    }
+  },
+  "new_tests": 44,
+  "collected_each": 2321,
+  "full2321_executed_both": true,
+  "all_frozen_sha_unchanged": true,
+  "frozen_files": 444,
+  "existing_core_files_checked": 215,
+  "existing_core_files_changed": [
+    "apps/correlator/src/vsora_correlator/aligned.py"
+  ],
+  "new_public_api_added": false,
+  "new_clock_parser_private_only": true,
+  "source_native_science_exact": true,
+  "numeric_arrays_directly_compared": 52,
+  "four_valid_api_and_native_cli": true,
+  "bad_boolean_api_rejections_each": 3,
+  "bad_boolean_native_cli_rejections": 3,
+  "no_bad_output_or_partial": true,
+  "rejection_scope": "correlate_aligned API and correlate-aligned CLI; higher pipeline/job can retain its own failure partial/status",
+  "high_a_arrays_equal_before_fix": true,
+  "before_fix_all_three_malformed_clocks_accepted": true,
+  "before_fix_band_effect": {
+    "canonical_positive_weight_cells": 84,
+    "boolean_band_positive_weight_cells": 28,
+    "changed_weight_cells": 56
+  },
+  "initial_counterexample_recorder_failure": "Incorrectly expected all malformed clocks to preserve numerical arrays. Boolean bandwidth changed weights; four completed original outputs reread and recorded without repeating correlations.",
+  "initial_build_failure": {
+    "exit_code": 2,
+    "cause": "ModuleNotFoundError: No module named 'setuptools'",
+    "method": "pip wheel --no-build-isolation --no-deps",
+    "runtime_dependencies_changed": false,
+    "stdout_preserved": "build-wheel-initial-failed.log",
+    "full_stderr_preserved": false,
+    "stderr_reason_recorded_from_tool": true
+  },
+  "isolated_build_backend_setuptools": "84.2.1",
+  "runtime_dependency_versions_unchanged": true,
+  "wheel_source_installed_package_files": 103,
+  "wheel_assets": 4,
+  "only_changed_wheel_package_file": [
+    "vsora_correlator/aligned.py"
+  ],
+  "wheel_sha256": "81e7f819d500e015f7e43d9e46e12ca88887cea99d455ef1c7129ec7c36a2ef7",
+  "pip_check_success": true,
+  "api": {
+    "stage": 138,
+    "state": "complete",
+    "all_four_api_cli_science_exact": true,
+    "all_numerical_arrays_directly_compared": true,
+    "all_metadata_exact": true,
+    "actual_valid_cli_calls": 4,
+    "actual_bad_cli_rejections": 3,
+    "valid_api_refusals": 4,
+    "valid_cli_refusals": 4,
+    "outside_checkout": true,
+    "runner_absent": true,
+    "pythonpath_absent": true,
+    "helper_requires_checkout": true,
+    "project_module_count": 19,
+    "all_project_modules_in_prefix": true,
+    "raw_files_sha_preserved": 76,
+    "physical_iq_clock_or_sefd_verified": false
+  },
+  "browser_each": {
+    "workers": 28,
+    "json_downloads": 56,
+    "time_baseline_rows": 672,
+    "null_ratios": 50,
+    "negative_ratios": 174,
+    "above_one_ratios": 148,
+    "japanese_390px": true,
+    "table_wrapping_verified": true,
+    "local_horizontal_scrolling_claimed": false,
+    "external_requests": 0,
+    "javascript_errors": 0,
+    "modules": 10,
+    "version": "153.0.8010.12"
+  },
+  "all_browser_cases_exact": true,
+  "raw_files_sha_preserved": 76,
+  "real_clock_accuracy_verified": false,
+  "physical_iq_scale_or_sefd_verified": false,
+  "low_snr_image_likelihood_changed": false,
+  "windows_capture_implemented": false,
+  "new_scientific_images_generated": false,
+  "public_audit_findings": 0,
+  "documentation_links": {
+    "checked": 1800,
+    "missing": 0
+  },
+  "source_module_count_checked": 19,
+  "installed_module_count_checked": 91,
+  "initial_publication_review_error": {
+    "reason": "Automatic approval review failed: builder error",
+    "action_executed": false,
+    "unsafe_decision": false,
+    "readonly_audit_findings_after_failure": 0,
+    "target_files_verified": 13,
+    "failed_attempts_before_execution": 2
+  }
+}

@@ -16,6 +16,10 @@
 
 順番とidはsession manifestと一致させる。input_start_offset_sは観測設定のUTC原点から**入力sample0の実physical time**までの秒。USB到着時刻ではない。actual_sample_rate_hzはその短区間の実ADC rate。天体幾何を除いた時計値を指定する。段階009のeffective offsetは幾何を含みうるため、無条件で転用しない。
 
+段階138から、版数はJSON整数の1、帯域・秒・Hzは有限なJSON数値に限定する。`true`/`false`を1/0として受け付けない。時計本体はobject、stationsは局順のarrayで、全局を検査してからVDIF bufferを作る。帯域は正で公称sample rateの0.3倍以下、実sample rateは公称値との差が1000 ppm以内という既存の制限を維持する。整数と小数の数値はどちらも使えるが、版数の`1.0`や文字列の`"2048000"`は受け付けない。
+
+この型検査は時計の測定精度を保証しない。実入力で別途確認する情報と原本追跡は、[Linux解析側へ渡す入力の確認](linux-input-readiness.md)を参照する。
+
 ```sh
 python tools/run.py vsora_correlator correlate-aligned --manifest manifest.json --clock-model clock.json --integrations 64 --start-offset-s 0.002 --output outputs/aligned
 ```

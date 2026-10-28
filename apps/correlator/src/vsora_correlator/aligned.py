@@ -92,6 +92,30 @@ class SampleBuffer:
         if self.reader is not None:self.reader.close()
 
 
+def _validated_clock_stations(clock,config):
+    """JSON時計を全局分検査し、boolをHzや秒へ暗黙変換させない。"""
+    if (not isinstance(clock,dict) or set(clock)!={'schema_version','max_abs_baseband_hz','stations'}
+            or type(clock['schema_version']) is not int or clock['schema_version']!=1):
+        raise ValueError('unsupported clock model; integer schema_version 1 required')
+    def finite_real(value):
+        if isinstance(value,bool) or not isinstance(value,(int,float)):return False
+        try:return math.isfinite(value)
+        except (OverflowError,TypeError):return False
+    stations=clock['stations'];band=clock['max_abs_baseband_hz'];fs=config['sample_rate_hz']
+    if (not isinstance(stations,list) or len(stations)!=len(config['stations'])
+            or not finite_real(band) or not 0<band<=.3*fs):
+        raise ValueError('invalid station count/band guard; finite numeric clock bandwidth required')
+    for measured,station in zip(stations,config['stations']):
+        if (not isinstance(measured,dict) or set(measured)!={'id','input_start_offset_s','actual_sample_rate_hz'}
+                or measured['id']!=station['id']):
+            raise ValueError('clock model station order/keys differ')
+        actual=measured['actual_sample_rate_hz'];offset=measured['input_start_offset_s']
+        if (not finite_real(actual) or not finite_real(offset) or actual<=0
+                or abs(actual/fs-1)>.001):
+            raise ValueError('clock model requires finite numeric seconds/Hz, no booleans, and rate within 1000 ppm')
+    return stations
+
+
 def correlate_aligned(manifest,clock_model,output,integrations,start_offset_s=.002,rate_profile=None,allow_rate_extrapolation=False,seek_input=True,collect_bispectrum=False):
     if not isinstance(collect_bispectrum,bool):raise ValueError("collect_bispectrum bool required")
     if not isinstance(seek_input,bool):raise ValueError('seek_input bool required')
@@ -101,6 +125,7 @@ def correlate_aligned(manifest,clock_model,output,integrations,start_offset_s=.0
     if collect_bispectrum:validate_bispectrum_dimensions(c,integrations)
     if not np.isfinite(start_offset_s) or start_offset_s<0: raise ValueError('nonnegative start offset required')
     clock_bytes=Path(clock_model).read_bytes();clock=json.loads(clock_bytes)
+    stations=_validated_clock_stations(clock,c);band=clock['max_abs_baseband_hz']
     rate=np.zeros(len(c['stations']));slopes=np.zeros_like(rate);rate_epoch=0.;rate_sha=None;rate_type=None
     if rate_profile:
         profile=json.loads(Path(rate_profile).read_text())
@@ -113,17 +138,9 @@ def correlate_aligned(manifest,clock_model,output,integrations,start_offset_s=.0
             rate,rate_epoch=validate_rate_profile(profile,[s['id'] for s in config['stations']],
                 config['observation']['start_utc'],start_offset_s,start_offset_s+span,allow_rate_extrapolation)
         with open(rate_profile,'rb') as stream:rate_sha=hashlib.file_digest(stream,'sha256').hexdigest()
-    if set(clock)!={'schema_version','max_abs_baseband_hz','stations'} or clock['schema_version']!=1:
-        raise ValueError('unsupported clock model')
-    stations=clock['stations'];band=clock['max_abs_baseband_hz']
-    if len(stations)!=len(c['stations']) or not 0<band<=.3*fs: raise ValueError('invalid station count/band guard')
     buffers=[]
     for measured,station in zip(stations,c['stations']):
-        if set(measured)!={'id','input_start_offset_s','actual_sample_rate_hz'} or measured['id']!=station['id']:
-            raise ValueError('clock model station order differs')
-        actual=measured['actual_sample_rate_hz'];offset=measured['input_start_offset_s']
-        if not np.isfinite(actual) or not np.isfinite(offset) or abs(actual/fs-1)>.001:
-            raise ValueError('clock model must be finite and within 1000 ppm')
+        actual=measured['actual_sample_rate_hz']
         buffers.append(SampleBuffer(c['_root']/station['vdif'],fs,station['station_numeric_id'],station['decoded_voltage_scale'],actual,seek_input))
     out=Path(output);partial=out.with_name(out.name+'.partial')
     if out.exists() or partial.exists(): raise FileExistsError('choose a new output directory')

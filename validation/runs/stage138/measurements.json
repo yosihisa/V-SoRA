@@ -1,0 +1,19 @@
+{
+  "source": {
+    "targeted_wall_s": 10.747768797009485,
+    "study_wall_s": 2.023136446994613,
+    "full_wall_s": 543.9690063540038,
+    "browser_wall_s": 104.32348782199551
+  },
+  "installed": {
+    "targeted_wall_s": 10.196511889997055,
+    "api_wall_s": 8.487312957993709,
+    "full_wall_s": 542.5089365940075,
+    "browser_wall_s": 101.45415641799627
+  },
+  "study_output_bytes": {
+    "source": 122123,
+    "installed": 194386
+  },
+  "limits": "4ms validation of fixed synthetic files and finite regressions; not whole-night/GPU/minimum-PC benchmark"
+}
