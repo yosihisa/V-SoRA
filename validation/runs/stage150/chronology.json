@@ -1,0 +1,1507 @@
+{
+  "scope": "First additions 000..149; stage150 itself is identified by its own report addition",
+  "technical_baseline_stage": 149,
+  "technical_baseline_commit": "3cb8e573bcebae6cee973b35d1f412da301db52a",
+  "stages": [
+    {
+      "stage": 0,
+      "title_from_current_index": "初期整理・開発構想",
+      "report": "docs/reports/000-initial-plan.md",
+      "first_add_commit": "1dbaf9987f7d1792ef68ef77d1461af5c43ad58c",
+      "committed_utc": "2026-10-02T01:50:05+00:00",
+      "committed_jst": "2026-10-02T10:50:05+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 1,
+      "title_from_current_index": "共通入力・参照画像",
+      "report": "docs/reports/001-foundation.md",
+      "first_add_commit": "34dd0090ef4488c2b8942588f0d5adc57804923a",
+      "committed_utc": "2026-10-02T02:04:43+00:00",
+      "committed_jst": "2026-10-02T11:04:43+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 2,
+      "title_from_current_index": "理想visibility・画像復元",
+      "report": "docs/reports/002-ideal-imaging.md",
+      "first_add_commit": "dec02063a9a5ca09e63b54cd6e4132097098884c",
+      "committed_utc": "2026-10-02T02:11:14+00:00",
+      "committed_jst": "2026-10-02T11:11:14+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 3,
+      "title_from_current_index": "Cas A・局配置比較",
+      "report": "docs/reports/003-casa-array-study.md",
+      "first_add_commit": "34f21fead764b117cc832b633cb0f7163b497112",
+      "committed_utc": "2026-10-02T02:15:53+00:00",
+      "committed_jst": "2026-10-02T11:15:53+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 4,
+      "title_from_current_index": "VDIF・FX相関",
+      "report": "docs/reports/004-vdif-fx.md",
+      "first_add_commit": "c3d45240d7e23769070fea6baa1cf422a0359ba3",
+      "committed_utc": "2026-10-02T02:24:14+00:00",
+      "committed_jst": "2026-10-02T11:24:14+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 5,
+      "title_from_current_index": "IQから画像まで",
+      "report": "docs/reports/005-iq-to-image.md",
+      "first_add_commit": "dd1173a50904abbdf0cfe882c02ea5e4e3e7ea7a",
+      "committed_utc": "2026-10-02T02:34:23+00:00",
+      "committed_jst": "2026-10-02T11:34:23+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 6,
+      "title_from_current_index": "CASA独立互換確認",
+      "report": "docs/reports/006-casa-compatibility.md",
+      "first_add_commit": "488d3f2d7792e36271a69ab22327c4a1d374436d",
+      "committed_utc": "2026-10-02T02:58:22+00:00",
+      "committed_jst": "2026-10-02T11:58:22+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 7,
+      "title_from_current_index": "未知の局応答の較正",
+      "report": "docs/reports/007-fringe-calibration.md",
+      "first_add_commit": "4a1c4cfcab4418ccf2ca06db929dbfe6b2418627",
+      "committed_utc": "2026-10-02T03:06:01+00:00",
+      "committed_jst": "2026-10-02T12:06:01+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 8,
+      "title_from_current_index": "IQの未知LO差と再相関",
+      "report": "docs/reports/008-iq-fringe-tracking.md",
+      "first_add_commit": "2c1ec2a05d77204c6512c2873a0ba03c750663ae",
+      "committed_utc": "2026-10-02T03:15:12+00:00",
+      "committed_jst": "2026-10-02T12:15:12+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 9,
+      "title_from_current_index": "ADC時計・分数sample整列",
+      "report": "docs/reports/009-adc-clock-alignment.md",
+      "first_add_commit": "526ee03ca5fd8012d7a6c103202dc67915dcdda3",
+      "committed_utc": "2026-10-02T03:22:08+00:00",
+      "committed_jst": "2026-10-02T12:22:08+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 10,
+      "title_from_current_index": "session・相関CLI",
+      "report": "docs/reports/010-session-cli.md",
+      "first_add_commit": "28a85d12006c3ef7c26232816da0c90739889e99",
+      "committed_utc": "2026-10-02T03:38:20+00:00",
+      "committed_jst": "2026-10-02T12:38:20+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 11,
+      "title_from_current_index": "独立環境・wheel導入",
+      "report": "docs/reports/011-reproducible-environment.md",
+      "first_add_commit": "e0a64f61aa24463bef2eddaae3592b5f9e593394",
+      "committed_utc": "2026-10-02T03:44:29+00:00",
+      "committed_jst": "2026-10-02T12:44:29+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 12,
+      "title_from_current_index": "Cas Aモデル較正",
+      "report": "docs/reports/012-casa-model-calibration.md",
+      "first_add_commit": "c0c27dd8558a24ad803c0e712897240ce08d2ed5",
+      "committed_utc": "2026-10-02T04:24:26+00:00",
+      "committed_jst": "2026-10-02T13:24:26+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 13,
+      "title_from_current_index": "多channel IDI・正確なCLEAN",
+      "report": "docs/reports/013-spectral-idi-exact-clean.md",
+      "first_add_commit": "ef6baa425a23b5e81b9efee8d67b3a655c0b6bad",
+      "committed_utc": "2026-10-02T04:35:56+00:00",
+      "committed_jst": "2026-10-02T13:35:56+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 14,
+      "title_from_current_index": "時計・幾何sample整列",
+      "report": "docs/reports/014-stream-clock-geometry.md",
+      "first_add_commit": "77346b665a6526b379e14ff331241c7a45e47d03",
+      "committed_utc": "2026-10-02T04:50:28+00:00",
+      "committed_jst": "2026-10-02T13:50:28+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 15,
+      "title_from_current_index": "短いpilot積分・入力検査",
+      "report": "docs/reports/015-short-pilot-input-validation.md",
+      "first_add_commit": "d2e36561c9b7213ffb94c3cec3a715d361e0f486",
+      "committed_utc": "2026-10-02T05:04:19+00:00",
+      "committed_jst": "2026-10-02T14:04:19+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 16,
+      "title_from_current_index": "実データ用CASAアダプター",
+      "report": "docs/reports/016-casa-production-adapter.md",
+      "first_add_commit": "d6110c94b6960fc3ccc1c4dc767ba293c6f0300d",
+      "committed_utc": "2026-10-02T05:11:51+00:00",
+      "committed_jst": "2026-10-02T14:11:51+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 17,
+      "title_from_current_index": "周波数別重み・RFI診断",
+      "report": "docs/reports/017-spectral-quality-rfi.md",
+      "first_add_commit": "8362341585a11ec7fa95613097a6fc4acf252919",
+      "committed_utc": "2026-10-02T05:19:59+00:00",
+      "committed_jst": "2026-10-02T14:19:59+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 18,
+      "title_from_current_index": "学部生向け文書",
+      "report": "docs/reports/018-undergraduate-documentation.md",
+      "first_add_commit": "5dd1d9e1e9d85c25fd332c78eb0df2b3c132fa42",
+      "committed_utc": "2026-10-02T05:35:07+00:00",
+      "committed_jst": "2026-10-02T14:35:07+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 19,
+      "title_from_current_index": "日本語ブラウザGUI",
+      "report": "docs/reports/019-japanese-browser-gui.md",
+      "first_add_commit": "0fb150401f7dfb8b8b1f33fa5deb73e93e3d76b7",
+      "committed_utc": "2026-10-02T06:10:42+00:00",
+      "committed_jst": "2026-10-02T15:10:42+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 20,
+      "title_from_current_index": "Closure・短積分の周波数差",
+      "report": "docs/reports/020-closure-short-integration.md",
+      "first_add_commit": "2ec767bbfc65fee2bbf0f8cf36d7d37092a6119f",
+      "committed_utc": "2026-10-02T06:33:36+00:00",
+      "committed_jst": "2026-10-02T15:33:36+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 21,
+      "title_from_current_index": "Closure＋RML・日本語GUI",
+      "report": "docs/reports/021-closure-rml-reference.md",
+      "first_add_commit": "a12d103195bed18ddc53fb566e6a8f2f5d888091",
+      "committed_utc": "2026-10-02T07:01:52+00:00",
+      "committed_jst": "2026-10-02T16:01:52+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 22,
+      "title_from_current_index": "モデル不要のLO差推定",
+      "report": "docs/reports/022-model-free-rate.md",
+      "first_add_commit": "aab6bfc5d9b9aff63ed79e585bc0aac1f737bb5b",
+      "committed_utc": "2026-10-02T07:15:30+00:00",
+      "committed_jst": "2026-10-02T16:15:30+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 23,
+      "title_from_current_index": "VDIFからClosure＋RML・解析GUI",
+      "report": "docs/reports/023-vdif-closure-pipeline.md",
+      "first_add_commit": "2dc912c7ef9c388d267eece7d48c2b32714dbb1a",
+      "committed_utc": "2026-10-02T07:49:35+00:00",
+      "committed_jst": "2026-10-02T16:49:35+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 24,
+      "title_from_current_index": "短露光VDIF合成・感度不足",
+      "report": "docs/reports/024-vdif-synthesis.md",
+      "first_add_commit": "8c5d6725414eed1c0ab3b59984a492e5b7b2b63c",
+      "committed_utc": "2026-10-02T08:34:27+00:00",
+      "committed_jst": "2026-10-02T17:34:27+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 25,
+      "title_from_current_index": "短積分の感度計画",
+      "report": "docs/reports/025-sensitivity-planning.md",
+      "first_add_commit": "c7d6dcd07b932d1a0c615897748f96234a72b7fa",
+      "committed_utc": "2026-10-02T08:49:53+00:00",
+      "committed_jst": "2026-10-02T17:49:53+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 26,
+      "title_from_current_index": "相関の分割処理",
+      "report": "docs/reports/026-bounded-fx.md",
+      "first_add_commit": "5a8adc0affb8ea7144aa45aa5c226b91e73579f0",
+      "committed_utc": "2026-10-02T09:02:36+00:00",
+      "committed_jst": "2026-10-02T18:02:36+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 27,
+      "title_from_current_index": "3秒pilot・分割幾何",
+      "report": "docs/reports/027-three-second-pilot.md",
+      "first_add_commit": "c3297e2cb6eaa654f3380d9a39a7c251a5caef36",
+      "committed_utc": "2026-10-02T09:16:30+00:00",
+      "committed_jst": "2026-10-02T18:16:30+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 28,
+      "title_from_current_index": "Cas Aの3秒合成・低感度",
+      "report": "docs/reports/028-casa-three-second-sensitivity.md",
+      "first_add_commit": "1f59510b94ee83b54189dc1933f22632bc404b02",
+      "committed_utc": "2026-10-02T09:46:24+00:00",
+      "committed_jst": "2026-10-02T18:46:24+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 29,
+      "title_from_current_index": "短い刻みの広範囲LO探索",
+      "report": "docs/reports/029-wide-rate-pilot.md",
+      "first_add_commit": "edca2670b525261699a55537fc7fc336faf38318",
+      "committed_utc": "2026-10-03T02:50:44+00:00",
+      "committed_jst": "2026-10-03T11:50:44+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 30,
+      "title_from_current_index": "全成分を保持した位置合わせ評価",
+      "report": "docs/reports/030-full-support-registration.md",
+      "first_add_commit": "e944f7e571aa0ffa8aecd64ae337569370809f06",
+      "committed_utc": "2026-10-03T03:04:06+00:00",
+      "committed_jst": "2026-10-03T12:04:06+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 31,
+      "title_from_current_index": "guard付きVDIF部分読取",
+      "report": "docs/reports/031-guarded-vdif-seek.md",
+      "first_add_commit": "1d1c03db9cd09fafc94a144fe9e1a78fc49d27e1",
+      "committed_utc": "2026-10-03T03:21:52+00:00",
+      "committed_jst": "2026-10-03T12:21:52+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 32,
+      "title_from_current_index": "短window列・LO再推定",
+      "report": "docs/reports/032-short-window-sequence.md",
+      "first_add_commit": "0c6733af371a820bc73fc161e8fc99212287ab2e",
+      "committed_utc": "2026-10-03T03:52:35+00:00",
+      "committed_jst": "2026-10-03T12:52:35+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 33,
+      "title_from_current_index": "短区間列の日本語解析GUI",
+      "report": "docs/reports/033-sequence-gui.md",
+      "first_add_commit": "6bfadefda7478399e824adb0f917e675bb2ad31f",
+      "committed_utc": "2026-10-03T04:16:05+00:00",
+      "committed_jst": "2026-10-03T13:16:05+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 34,
+      "title_from_current_index": "固定原本の識別情報共有",
+      "report": "docs/reports/034-shared-input-identity.md",
+      "first_add_commit": "3aabd73b5883de6d2c87417bd0c0d0a426121134",
+      "committed_utc": "2026-10-03T04:30:40+00:00",
+      "committed_jst": "2026-10-03T13:30:40+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 35,
+      "title_from_current_index": "積分中の周波数変動とClosure",
+      "report": "docs/reports/035-within-window-rate-drift.md",
+      "first_add_commit": "c590c4f8a2d1fb593598ae08b0521f14f65158d0",
+      "committed_utc": "2026-10-03T04:50:52+00:00",
+      "committed_jst": "2026-10-03T13:50:52+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 36,
+      "title_from_current_index": "pilot内の分割rate診断",
+      "report": "docs/reports/036-subpilot-rate-diagnostics.md",
+      "first_add_commit": "162edfa9d0a6bf6827ebce0d908f0815466a1294",
+      "committed_utc": "2026-10-03T05:24:55+00:00",
+      "committed_jst": "2026-10-03T14:24:55+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 37,
+      "title_from_current_index": "測定した線形rateのIQ補正",
+      "report": "docs/reports/037-measured-linear-rate-correction.md",
+      "first_add_commit": "ed560cb74885233733af7b8970f85fc28778c0d7",
+      "committed_utc": "2026-10-03T05:36:35+00:00",
+      "committed_jst": "2026-10-03T14:36:35+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 38,
+      "title_from_current_index": "線形rateの日本語GUIと区間列",
+      "report": "docs/reports/038-linear-rate-gui-sequence.md",
+      "first_add_commit": "0c35257e44594b4e73fa7cc1a1f8169e1d2b3d2e",
+      "committed_utc": "2026-10-03T05:51:32+00:00",
+      "committed_jst": "2026-10-03T14:51:32+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 39,
+      "title_from_current_index": "周期位相を加えたVDIFとClosure",
+      "report": "docs/reports/039-periodic-phase-coherence.md",
+      "first_add_commit": "bed8fa6925c0519bf3263c71b2bf0a7b34d2b589",
+      "committed_utc": "2026-10-03T06:25:28+00:00",
+      "committed_jst": "2026-10-03T15:25:28+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 40,
+      "title_from_current_index": "線形rateの推定誤差診断",
+      "report": "docs/reports/040-linear-rate-uncertainty.md",
+      "first_add_commit": "510a4002026fa455780edf5c2d64d76907fe62e7",
+      "committed_utc": "2026-10-03T07:54:24+00:00",
+      "committed_jst": "2026-10-03T16:54:24+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 41,
+      "title_from_current_index": "推定誤差診断の日本語GUI",
+      "report": "docs/reports/041-rate-uncertainty-gui.md",
+      "first_add_commit": "3c8409a2f0810f859fae2bcdb3bf58306cc98425",
+      "committed_utc": "2026-10-03T08:20:20+00:00",
+      "committed_jst": "2026-10-03T17:20:20+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 42,
+      "title_from_current_index": "rate推定の誤差共分散検証",
+      "report": "docs/reports/042-rate-covariance-validation.md",
+      "first_add_commit": "a97d83c1bb6855ef14318b5079f9538222fedecc",
+      "committed_utc": "2026-10-03T08:48:12+00:00",
+      "committed_jst": "2026-10-03T17:48:12+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 43,
+      "title_from_current_index": "rate共分散検証の日本語GUI",
+      "report": "docs/reports/043-rate-covariance-gui.md",
+      "first_add_commit": "45a03ed14e35a70ff5c48caff669e0fbdd708c7b",
+      "committed_utc": "2026-10-03T09:14:58+00:00",
+      "committed_jst": "2026-10-03T18:14:58+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 44,
+      "title_from_current_index": "共有信号を含むClosureの誤差伝播",
+      "report": "docs/reports/044-joint-closure-noise.md",
+      "first_add_commit": "460f240c5dc605f5102582dad3527d10c7c02b7e",
+      "committed_utc": "2026-10-03T09:34:31+00:00",
+      "committed_jst": "2026-10-03T18:34:31+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 45,
+      "title_from_current_index": "Closure雑音検証の日本語GUI",
+      "report": "docs/reports/045-closure-noise-gui.md",
+      "first_add_commit": "d4f0519efca091b41380cff8aa4a912aeea13398",
+      "committed_utc": "2026-10-03T09:57:24+00:00",
+      "committed_jst": "2026-10-03T18:57:24+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 46,
+      "title_from_current_index": "局の標本からvisibility雑音を推定",
+      "report": "docs/reports/046-sample-noise-estimator.md",
+      "first_add_commit": "09db0aa58d5909c1f37ee3c26aff71bbf4c1363a",
+      "committed_utc": "2026-10-03T10:38:25+00:00",
+      "committed_jst": "2026-10-03T19:38:25+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 47,
+      "title_from_current_index": "相関ファイルの雑音診断",
+      "report": "docs/reports/047-observation-noise-diagnostic.md",
+      "first_add_commit": "acfc4c6f226b03fd2b046d94eba660ead18979ff",
+      "committed_utc": "2026-10-03T11:38:34+00:00",
+      "committed_jst": "2026-10-03T20:38:34+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 48,
+      "title_from_current_index": "保存相関の雑音診断GUI",
+      "report": "docs/reports/048-observation-noise-gui.md",
+      "first_add_commit": "743d10ea4dd4b364810c62ae98342f3544d11748",
+      "committed_utc": "2026-10-03T19:43:39+00:00",
+      "committed_jst": "2026-10-04T04:43:39+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 49,
+      "title_from_current_index": "FIR・補間後のFFT雑音",
+      "report": "docs/reports/049-filtered-fft-noise.md",
+      "first_add_commit": "3cf2f0ffed75a0079d516196656ba4f0075d1abb",
+      "committed_utc": "2026-10-03T20:22:11+00:00",
+      "committed_jst": "2026-10-04T05:22:11+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 50,
+      "title_from_current_index": "FFT雑音検証の日本語GUI",
+      "report": "docs/reports/050-filtered-noise-gui.md",
+      "first_add_commit": "e3ba4dd56f66ff13c55749553e282341296b9e85",
+      "committed_utc": "2026-10-03T20:48:27+00:00",
+      "committed_jst": "2026-10-04T05:48:27+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 51,
+      "title_from_current_index": "pilot時間散乱の条件付き診断",
+      "report": "docs/reports/051-pilot-time-scatter.md",
+      "first_add_commit": "aa1c53523930a9913da5de679d3a903936158512",
+      "committed_utc": "2026-10-03T21:14:49+00:00",
+      "committed_jst": "2026-10-04T06:14:49+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 52,
+      "title_from_current_index": "pilot時間散乱の日本語GUI",
+      "report": "docs/reports/052-pilot-time-scatter-gui.md",
+      "first_add_commit": "fb1d57e34291212bacd95d9cfce12c8e10238f39",
+      "committed_utc": "2026-10-03T21:34:37+00:00",
+      "committed_jst": "2026-10-04T06:34:37+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 53,
+      "title_from_current_index": "異標本bispectrumの試作",
+      "report": "docs/reports/053-distinct-sample-bispectrum.md",
+      "first_add_commit": "1122beceb41af9b2ea6937047c31d9bbc6d2b4dc",
+      "committed_utc": "2026-10-03T21:57:01+00:00",
+      "committed_jst": "2026-10-04T06:57:01+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 54,
+      "title_from_current_index": "三次統計検証の日本語GUI",
+      "report": "docs/reports/054-bispectrum-validation-gui.md",
+      "first_add_commit": "a643c15926123a2d6e585e79484c854320c9629e",
+      "committed_utc": "2026-10-03T22:24:18+00:00",
+      "committed_jst": "2026-10-04T07:24:18+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 55,
+      "title_from_current_index": "時間相関と三基線積",
+      "report": "docs/reports/055-temporal-bispectrum.md",
+      "first_add_commit": "d479483e745a082e8ea4fe4ed24317b324130a80",
+      "committed_utc": "2026-10-03T22:42:35+00:00",
+      "committed_jst": "2026-10-04T07:42:35+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 56,
+      "title_from_current_index": "時間相関の日本語検証GUI",
+      "report": "docs/reports/056-temporal-bispectrum-gui.md",
+      "first_add_commit": "cef187e2a8958ea6c10c7d3f4fdd76b2126ac849",
+      "committed_utc": "2026-10-03T22:59:50+00:00",
+      "committed_jst": "2026-10-04T07:59:50+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 57,
+      "title_from_current_index": "三基線積の雑音と条件付き感度",
+      "report": "docs/reports/057-bispectrum-sensitivity.md",
+      "first_add_commit": "dfa588bcd521ff0204958fc072016a10e704f7df",
+      "committed_utc": "2026-10-04T02:10:21+00:00",
+      "committed_jst": "2026-10-04T11:10:21+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 58,
+      "title_from_current_index": "三基線積の短積分比較GUI",
+      "report": "docs/reports/058-bispectrum-sensitivity-gui.md",
+      "first_add_commit": "9269b56cdcda04c6e4d2b32ec5d6b4cf4345f4f7",
+      "committed_utc": "2026-10-04T02:29:09+00:00",
+      "committed_jst": "2026-10-04T11:29:09+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 59,
+      "title_from_current_index": "天体信号を含む三基線積の全共分散",
+      "report": "docs/reports/059-joint-bispectrum-moments.md",
+      "first_add_commit": "1bacde366fe09411b2909fca0c2d1ccb14b0088d",
+      "committed_utc": "2026-10-04T02:52:39+00:00",
+      "committed_jst": "2026-10-04T11:52:39+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 60,
+      "title_from_current_index": "三角形間の誤差相関の日本語GUI",
+      "report": "docs/reports/060-joint-bispectrum-gui.md",
+      "first_add_commit": "9384e3a7e51aa41ee91c0cdd4c72fef45cb6de47",
+      "committed_utc": "2026-10-04T03:21:57+00:00",
+      "committed_jst": "2026-10-04T12:21:57+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 61,
+      "title_from_current_index": "三次統計の追加の和の蓄積",
+      "report": "docs/reports/061-streaming-bispectrum-sums.md",
+      "first_add_commit": "956ab569fd563ff339b28ca88e8931978bfd15d4",
+      "committed_utc": "2026-10-04T04:03:08+00:00",
+      "committed_jst": "2026-10-04T13:03:08+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 62,
+      "title_from_current_index": "三次統計の保存形式と元相関の照合",
+      "report": "docs/reports/062-bispectrum-sidecar-format.md",
+      "first_add_commit": "edcd9aea4fcf7a04db7c102ba4375ca06ceb22c7",
+      "committed_utc": "2026-10-04T04:27:03+00:00",
+      "committed_jst": "2026-10-04T13:27:03+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 63,
+      "title_from_current_index": "相関器のFFTから三次統計を収集",
+      "report": "docs/reports/063-fx-bispectrum-accumulation.md",
+      "first_add_commit": "e2cd40cce4b58aeb6713c425322c6f334e689ad0",
+      "committed_utc": "2026-10-04T04:46:01+00:00",
+      "committed_jst": "2026-10-04T13:46:01+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 64,
+      "title_from_current_index": "VDIF相関から三次統計を保存",
+      "report": "docs/reports/064-vdif-bispectrum-sidecar.md",
+      "first_add_commit": "4e906fa0d56bad3f2b62d5296b63b5831a7cdf44",
+      "committed_utc": "2026-10-04T05:06:27+00:00",
+      "committed_jst": "2026-10-04T14:06:27+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 65,
+      "title_from_current_index": "三次統計の保存を指定する日本語GUI",
+      "report": "docs/reports/065-bispectrum-storage-gui.md",
+      "first_add_commit": "d0d4fe3e34ce5576eef10b0883b4de34238b3143",
+      "committed_utc": "2026-10-04T05:38:32+00:00",
+      "committed_jst": "2026-10-04T14:38:32+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 66,
+      "title_from_current_index": "保存した三次統計を時刻と周波数で確認",
+      "report": "docs/reports/066-bispectrum-inspection.md",
+      "first_add_commit": "19fb6531b833cb55dc96e138cd5017aa4261f61c",
+      "committed_utc": "2026-10-05T00:34:03+00:00",
+      "committed_jst": "2026-10-05T09:34:03+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 67,
+      "title_from_current_index": "保存三次統計の日本語GUI",
+      "report": "docs/reports/067-bispectrum-inspection-gui.md",
+      "first_add_commit": "99006ef1cff13a48f6078210d78f155a555ba980",
+      "committed_utc": "2026-10-05T01:10:35+00:00",
+      "committed_jst": "2026-10-05T10:10:35+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 68,
+      "title_from_current_index": "短積分U₃を平均した分布の確認",
+      "report": "docs/reports/068-bispectrum-window-averaging.md",
+      "first_add_commit": "02f7fb6b1df307892668bfe081a7561c433c00c4",
+      "committed_utc": "2026-10-05T01:49:51+00:00",
+      "committed_jst": "2026-10-05T10:49:51+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 69,
+      "title_from_current_index": "短積分平均の誤差分布を日本語GUIで確認",
+      "report": "docs/reports/069-bispectrum-averaging-gui.md",
+      "first_add_commit": "c068c29ea665f9e361a92a295851a901246b44ef",
+      "committed_utc": "2026-10-05T02:16:40+00:00",
+      "committed_jst": "2026-10-05T11:16:40+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 70,
+      "title_from_current_index": "未知の局gainとbispectrum平均の振幅制約",
+      "report": "docs/reports/070-bispectrum-gain-constraints.md",
+      "first_add_commit": "4b702b93515a465bc15d0a61e356b07621887f6a",
+      "committed_utc": "2026-10-05T02:39:33+00:00",
+      "committed_jst": "2026-10-05T11:39:33+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 71,
+      "title_from_current_index": "未知gainと母平均の制約を日本語GUIで確認",
+      "report": "docs/reports/071-bispectrum-gain-gui.md",
+      "first_add_commit": "9fb0ec161a1a4a5ad5dae4558f2cdaadc73861dd",
+      "committed_utc": "2026-10-05T03:03:09+00:00",
+      "committed_jst": "2026-10-05T12:03:09+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 72,
+      "title_from_current_index": "天体信号と共通時間相関が三次統計の平均へ与える影響",
+      "report": "docs/reports/072-bispectrum-signal-temporal.md",
+      "first_add_commit": "d5a319a4d5aee57060b7b8288b516c3a78affc38",
+      "committed_utc": "2026-10-05T03:29:40+00:00",
+      "committed_jst": "2026-10-05T12:29:40+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 73,
+      "title_from_current_index": "天体信号と共通時間相関の平均比較を日本語GUIで確認",
+      "report": "docs/reports/073-bispectrum-signal-temporal-gui.md",
+      "first_add_commit": "3cc9c07daf019884cdcdf8c1ed020d0fc5472f21",
+      "committed_utc": "2026-10-05T03:51:08+00:00",
+      "committed_jst": "2026-10-05T12:51:08+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 74,
+      "title_from_current_index": "独立周波数群の三次統計とまとめ方の条件",
+      "report": "docs/reports/074-bispectrum-independent-group-pooling.md",
+      "first_add_commit": "4c57f5d47959e52d99fcf32dd7f2f0698232d5fc",
+      "committed_utc": "2026-10-05T05:30:53+00:00",
+      "committed_jst": "2026-10-05T14:30:53+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 75,
+      "title_from_current_index": "周波数群の三次統計のまとめ方を日本語GUIで確認",
+      "report": "docs/reports/075-bispectrum-pooling-gui.md",
+      "first_add_commit": "08b1e3dabc477eb2a22952602502c86c16302406",
+      "committed_utc": "2026-10-05T05:57:20+00:00",
+      "committed_jst": "2026-10-05T14:57:20+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 76,
+      "title_from_current_index": "既知Cas A形状と天体雑音を含む三次統計の尺度",
+      "report": "docs/reports/076-bispectrum-known-sky-scale.md",
+      "first_add_commit": "9772fdc5cb034a1b94fe159422051bdd61bd51cb",
+      "committed_utc": "2026-10-05T06:26:42+00:00",
+      "committed_jst": "2026-10-05T15:26:42+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 77,
+      "title_from_current_index": "天体形状と三次統計の条件比較を日本語GUIで確認",
+      "report": "docs/reports/077-bispectrum-known-sky-gui.md",
+      "first_add_commit": "9889e3ae18562b83e42046c5d35c0e5883c4e57e",
+      "committed_utc": "2026-10-05T06:57:45+00:00",
+      "committed_jst": "2026-10-05T15:57:45+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 78,
+      "title_from_current_index": "局別時間変化を持つ既知電圧の三次統計の平均",
+      "report": "docs/reports/078-bispectrum-joint-temporal.md",
+      "first_add_commit": "720490c435d51f747194288375dd8152bd0a18d6",
+      "committed_utc": "2026-10-05T07:23:15+00:00",
+      "committed_jst": "2026-10-05T16:23:15+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 79,
+      "title_from_current_index": "局別時間変化と三次統計の平均を日本語GUIで確認",
+      "report": "docs/reports/079-bispectrum-joint-temporal-gui.md",
+      "first_add_commit": "4720b7ae35d6828582b4a931e28c243a5d49ce8c",
+      "committed_utc": "2026-10-05T07:51:21+00:00",
+      "committed_jst": "2026-10-05T16:51:21+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 80,
+      "title_from_current_index": "最大基線長を指定する模擬観測・RML・感度計画",
+      "report": "docs/reports/080-maximum-baseline-gui.md",
+      "first_add_commit": "13e15a2ce5c731d2bc66d307a5506e911b28fea3",
+      "committed_utc": "2026-10-05T08:18:59+00:00",
+      "committed_jst": "2026-10-05T17:18:59+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 81,
+      "title_from_current_index": "最大基線長と既知Cas A形状の条件付き比較",
+      "report": "docs/reports/081-array-scale-known-sky.md",
+      "first_add_commit": "80ca6075d717e4f30857f50c261163f7682bf27c",
+      "committed_utc": "2026-10-05T08:46:03+00:00",
+      "committed_jst": "2026-10-05T17:46:03+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 82,
+      "title_from_current_index": "最大基線と既知Cas A形状の日本語比較画面",
+      "report": "docs/reports/082-array-scale-gui.md",
+      "first_add_commit": "6a031656321f726578060de85fa3cc9e578640e0",
+      "committed_utc": "2026-10-05T09:10:23+00:00",
+      "committed_jst": "2026-10-05T18:10:23+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 83,
+      "title_from_current_index": "同梱データだけで実行する配置比較",
+      "report": "docs/reports/083-native-array-scale.md",
+      "first_add_commit": "1a9afea408f5abf0a6768ee6aa779925f302247a",
+      "committed_utc": "2026-10-05T10:39:23+00:00",
+      "committed_jst": "2026-10-05T19:39:23+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 84,
+      "title_from_current_index": "文書整理と二つの全体レポート",
+      "report": "docs/reports/084-observation-readiness.md",
+      "first_add_commit": "6cfade21d400be2ad7fc155a7970a1602a176dee",
+      "committed_utc": "2026-10-06T00:36:52+00:00",
+      "committed_jst": "2026-10-06T09:36:52+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 85,
+      "title_from_current_index": "観測power正規化U₃と有限標本の平均",
+      "report": "docs/reports/085-observed-power-bispectrum.md",
+      "first_add_commit": "dfc87da1cbae11f490e73b7a523a57410b3bed30",
+      "committed_utc": "2026-10-16T22:43:51+00:00",
+      "committed_jst": "2026-10-17T07:43:51+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 86,
+      "title_from_current_index": "window符号反転による条件付き対称性検定",
+      "report": "docs/reports/086-window-sign-symmetry.md",
+      "first_add_commit": "1e913188e11494c3ac44963b81087d5b55c99240",
+      "committed_utc": "2026-10-16T23:21:13+00:00",
+      "committed_jst": "2026-10-17T08:21:13+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 87,
+      "title_from_current_index": "既知Cas A・点源の有限電圧とwindow虚部の対称性",
+      "report": "docs/reports/087-casa-window-symmetry.md",
+      "first_add_commit": "4b71a0622621ade0aae61b57c9d9926e33c9c950",
+      "committed_utc": "2026-10-17T00:08:14+00:00",
+      "committed_jst": "2026-10-17T09:08:14+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 88,
+      "title_from_current_index": "既知天空の虚部対称性を日本語GUIへ接続",
+      "report": "docs/reports/088-casa-window-symmetry-gui.md",
+      "first_add_commit": "cf04801341304cfea90a51cf713e6789deefba87",
+      "committed_utc": "2026-10-17T04:20:55+00:00",
+      "committed_jst": "2026-10-17T13:20:55+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 89,
+      "title_from_current_index": "streaming U₃と三角形共通標本power",
+      "report": "docs/reports/089-common-bispectrum-power.md",
+      "first_add_commit": "53c9d55c576c17f4649fb53d0c6a2dd2bf4e4f61",
+      "committed_utc": "2026-10-17T04:41:58+00:00",
+      "committed_jst": "2026-10-17T13:41:58+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 90,
+      "title_from_current_index": "共通FFT電力を保存するraw version2",
+      "report": "docs/reports/090-bispectrum-power-archive.md",
+      "first_add_commit": "0c6a6e1b88ec135642e4019ffcad1692b42ec45e",
+      "committed_utc": "2026-10-17T05:03:23+00:00",
+      "committed_jst": "2026-10-17T14:03:23+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 91,
+      "title_from_current_index": "VDIF相関から共通FFT電力を保存",
+      "report": "docs/reports/091-vdif-common-power.md",
+      "first_add_commit": "48d829f35dc754f0fbedc5841b6c571ca9617b68",
+      "committed_utc": "2026-10-17T05:35:50+00:00",
+      "committed_jst": "2026-10-17T14:35:50+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 92,
+      "title_from_current_index": "共通電力と無次元比を日本語GUIで確認",
+      "report": "docs/reports/092-bispectrum-power-gui.md",
+      "first_add_commit": "c987227d7b584f761043fda08a7da49e03a0820f",
+      "committed_utc": "2026-10-17T08:54:19+00:00",
+      "committed_jst": "2026-10-17T17:54:19+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 93,
+      "title_from_current_index": "保存window列の条件付き対称性検定",
+      "report": "docs/reports/093-stored-window-symmetry.md",
+      "first_add_commit": "4171ce054765333e1bfb57712a1b78145af6a0de",
+      "committed_utc": "2026-10-17T09:16:16+00:00",
+      "committed_jst": "2026-10-17T18:16:16+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 94,
+      "title_from_current_index": "保存区間列の条件付き対称性を日本語GUIへ接続",
+      "report": "docs/reports/094-stored-window-symmetry-gui.md",
+      "first_add_commit": "603b0892fa4252568385ea5d98f30da016681068",
+      "committed_utc": "2026-10-17T09:39:51+00:00",
+      "committed_jst": "2026-10-17T18:39:51+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 95,
+      "title_from_current_index": "全体文書へ085〜094を反映",
+      "report": "docs/reports/095-current-overview.md",
+      "first_add_commit": "5b2d1bcd955377129d2a745a5050548de14edb78",
+      "committed_utc": "2026-10-17T09:41:36+00:00",
+      "committed_jst": "2026-10-17T18:41:36+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 96,
+      "title_from_current_index": "既知点源・Cas Aの独立学習/評価",
+      "report": "docs/reports/096-known-template-holdout.md",
+      "first_add_commit": "0b824a63960ef80f794ed234257372217834c117",
+      "committed_utc": "2026-10-17T10:08:42+00:00",
+      "committed_jst": "2026-10-17T19:08:42+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 97,
+      "title_from_current_index": "既知二モデルの独立評価を日本語GUIへ接続",
+      "report": "docs/reports/097-known-template-gui.md",
+      "first_add_commit": "ff8425cb1a5c72576569b49dec3a7f59bd7a08c5",
+      "committed_utc": "2026-10-24T00:26:04+00:00",
+      "committed_jst": "2026-10-24T09:26:04+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 98,
+      "title_from_current_index": "独立した学習・評価を繰り返したときの揺らぎ",
+      "report": "docs/reports/098-independent-training-repeats.md",
+      "first_add_commit": "a223d4b7c62caed3c25aed46f052cfb17550f7bf",
+      "committed_utc": "2026-10-24T01:00:02+00:00",
+      "committed_jst": "2026-10-24T10:00:02+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 99,
+      "title_from_current_index": "独立した学習・評価の反復を日本語GUIへ接続",
+      "report": "docs/reports/099-independent-training-gui.md",
+      "first_add_commit": "d62d34771bfb0a0ae19a06cab3e985936b279402",
+      "committed_utc": "2026-10-24T01:43:16+00:00",
+      "committed_jst": "2026-10-24T10:43:16+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 100,
+      "title_from_current_index": "既知共分散Gaussian尤度の参照API",
+      "report": "docs/reports/100-known-covariance-gaussian.md",
+      "first_add_commit": "13115ab85ebcc6ef914ac28eedccba12bedb790b",
+      "committed_utc": "2026-10-24T04:51:55+00:00",
+      "committed_jst": "2026-10-24T13:51:55+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 101,
+      "title_from_current_index": "既知点源／Cas AのGaussian共分散による比較",
+      "report": "docs/reports/101-known-covariance-template.md",
+      "first_add_commit": "8e00fe91bb3ddb7a81cd194be471862cb29880e1",
+      "committed_utc": "2026-10-24T05:20:17+00:00",
+      "committed_jst": "2026-10-24T14:20:17+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 102,
+      "title_from_current_index": "既知共分散による比較を日本語GUIへ接続",
+      "report": "docs/reports/102-known-covariance-gui.md",
+      "first_add_commit": "03c4754f4e6be33538118b3a3b191af5e574a888",
+      "committed_utc": "2026-10-24T06:19:32+00:00",
+      "committed_jst": "2026-10-24T15:19:32+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 103,
+      "title_from_current_index": "既知振幅・雑音で局位相を合わせるGaussian参照",
+      "report": "docs/reports/103-gaussian-phase-profile.md",
+      "first_add_commit": "57c42cd6e99df0a76a3a2538306f5464f6b34d7c",
+      "committed_utc": "2026-10-24T07:27:47+00:00",
+      "committed_jst": "2026-10-24T16:27:47+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 104,
+      "title_from_current_index": "同じ電圧での既知位相・位相探索の比較",
+      "report": "docs/reports/104-paired-phase-template.md",
+      "first_add_commit": "4a38482ea54a7d35f20536e8d5853a4fd0022b11",
+      "committed_utc": "2026-10-24T09:39:41+00:00",
+      "committed_jst": "2026-10-24T18:39:41+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 105,
+      "title_from_current_index": "同じ電圧での局位相比較を日本語GUIへ接続",
+      "report": "docs/reports/105-paired-phase-gui.md",
+      "first_add_commit": "5261903bc8d2088dec91e48824ce987a4b92141c",
+      "committed_utc": "2026-10-24T10:19:01+00:00",
+      "committed_jst": "2026-10-24T19:19:01+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 106,
+      "title_from_current_index": "全体文書へ既知二モデル・Gaussian・未知局位相を反映",
+      "report": "docs/reports/106-current-overview.md",
+      "first_add_commit": "c23ff0f6a52e1a92afb0e34ebd163622781fb309",
+      "committed_utc": "2026-10-24T10:22:46+00:00",
+      "committed_jst": "2026-10-24T19:22:46+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 107,
+      "title_from_current_index": "位相探索scoreの閾値を学習し独立評価",
+      "report": "docs/reports/107-independent-phase-threshold.md",
+      "first_add_commit": "a91ff24ac47e47d2eab66b9af11552f410d967b1",
+      "committed_utc": "2026-10-24T10:47:09+00:00",
+      "committed_jst": "2026-10-24T19:47:09+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 108,
+      "title_from_current_index": "最終目標への基準見直しと継続開発の運用",
+      "report": "docs/reports/108-goal-review-and-cadence.md",
+      "first_add_commit": "2ea5c9dffa31ca8c778b7ed8a6999a5c980dc829",
+      "committed_utc": "2026-10-25T22:41:05+00:00",
+      "committed_jst": "2026-10-26T07:41:05+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 109,
+      "title_from_current_index": "主画像経路の受入記録と律速の切り分け",
+      "report": "docs/reports/109-image-path-acceptance.md",
+      "first_add_commit": "c852971ed6fbb0c449b76dea9692941756d63b49",
+      "committed_utc": "2026-10-25T23:05:13+00:00",
+      "committed_jst": "2026-10-26T08:05:13+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 110,
+      "title_from_current_index": "10段階ごとの文書整理と主経路の優先順位",
+      "report": "docs/reports/110-documentation-checkpoint.md",
+      "first_add_commit": "63cd1016e39bcef2239b562223f45a0f46c6e424",
+      "committed_utc": "2026-10-25T23:06:35+00:00",
+      "committed_jst": "2026-10-26T08:06:35+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 111,
+      "title_from_current_index": "失敗したpilotの検出基線と局graph",
+      "report": "docs/reports/111-pilot-rate-graph.md",
+      "first_add_commit": "0e3021f549f61f303098b193c0c96ce32f32948e",
+      "committed_utc": "2026-10-25T23:23:04+00:00",
+      "committed_jst": "2026-10-26T08:23:04+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 112,
+      "title_from_current_index": "同じ長い原本のpilotから補正相関へ",
+      "report": "docs/reports/112-long-pilot-acquisition.md",
+      "first_add_commit": "3f281d81afbef754c80dabf8e9cddb7bec3cc5d4",
+      "committed_utc": "2026-10-25T23:39:48+00:00",
+      "committed_jst": "2026-10-26T08:39:48+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 113,
+      "title_from_current_index": "最終積分・収束・priorからの形状改善を分離",
+      "report": "docs/reports/113-integration-and-image.md",
+      "first_add_commit": "8677fe96640a5317d9d8eee7d7a307a40dc028eb",
+      "committed_utc": "2026-10-25T23:54:43+00:00",
+      "committed_jst": "2026-10-26T08:54:43+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 114,
+      "title_from_current_index": "真のrate・理想モデルと画像誤差の対照",
+      "report": "docs/reports/114-image-controls.md",
+      "first_add_commit": "915bf1a36ae01da5588b2c3ddbceb3b845027ac2",
+      "committed_utc": "2026-10-26T00:24:18+00:00",
+      "committed_jst": "2026-10-26T09:24:18+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 115,
+      "title_from_current_index": "候補画像のデータ適合と正則化を評価",
+      "report": "docs/reports/115-image-objective-evaluation.md",
+      "first_add_commit": "1a9a2f9b08e445b45f55a43ef9bf272de131358d",
+      "committed_utc": "2026-10-26T03:59:33+00:00",
+      "committed_jst": "2026-10-26T12:59:33+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 116,
+      "title_from_current_index": "固定画像の別入力評価・共通採用基線",
+      "report": "docs/reports/116-image-transfer-and-masks.md",
+      "first_add_commit": "4a0dc45d5daafaba6cee89bb1689790517a4fbe7",
+      "committed_utc": "2026-10-26T04:10:39+00:00",
+      "committed_jst": "2026-10-26T13:10:39+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 117,
+      "title_from_current_index": "別生成原本の独立Closureセル併用",
+      "report": "docs/reports/117-independent-cell-image-fit.md",
+      "first_add_commit": "9c0758ad0a911b2dad392946eda69f75515ae046",
+      "committed_utc": "2026-10-26T04:18:36+00:00",
+      "committed_jst": "2026-10-26T13:18:36+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 118,
+      "title_from_current_index": "8時刻VDIF・推定LO/真値LO/理想モデル対照",
+      "report": "docs/reports/118-multitime-vdif-controls.md",
+      "first_add_commit": "5571da2b00fbe5c4166e714e3c6093e1b212705c",
+      "committed_utc": "2026-10-26T05:09:31+00:00",
+      "committed_jst": "2026-10-26T14:09:31+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 119,
+      "title_from_current_index": "同じ視野・同じ観測の画像格子比較",
+      "report": "docs/reports/119-fixed-field-image-grids.md",
+      "first_add_commit": "22521aec7f816c0dadf93f44c4f2614e2f71a2d8",
+      "committed_utc": "2026-10-26T05:22:17+00:00",
+      "committed_jst": "2026-10-26T14:22:17+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 120,
+      "title_from_current_index": "主画像経路の判断を全体文書へ反映",
+      "report": "docs/reports/120-documentation-checkpoint.md",
+      "first_add_commit": "c809b86381b080c2cf61547f597673556cb93465",
+      "committed_utc": "2026-10-26T05:36:09+00:00",
+      "committed_jst": "2026-10-26T14:36:09+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 121,
+      "title_from_current_index": "画像結果の三つの判定を日本語GUIへ接続",
+      "report": "docs/reports/121-image-assessment-gui.md",
+      "first_add_commit": "bf6096513da53dd8fdc23b86001a8837356d4070",
+      "committed_utc": "2026-10-26T09:10:23+00:00",
+      "committed_jst": "2026-10-26T18:10:23+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 122,
+      "title_from_current_index": "外部RML比較前の座標・誤差・Closure接続",
+      "report": "docs/reports/122-ehtim-convention-bridge.md",
+      "first_add_commit": "9012c3816018297c77b383e648e5aa4fd857f2e2",
+      "committed_utc": "2026-10-26T09:44:42+00:00",
+      "committed_jst": "2026-10-26T18:44:42+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 123,
+      "title_from_current_index": "w=0の同一参照を自作/外部RMLで画像化",
+      "report": "docs/reports/123-paired-w0-rml-reference.md",
+      "first_add_commit": "00ecc517ebab6e956902991f1d92a1ce4b1d897d",
+      "committed_utc": "2026-10-26T10:23:58+00:00",
+      "committed_jst": "2026-10-26T19:23:58+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 124,
+      "title_from_current_index": "外部RMLの反復上限と局所勾配を診断",
+      "report": "docs/reports/124-ehtim-iteration-gradient-controls.md",
+      "first_add_commit": "b18974a12a162a0757456ba5d92b0a80dd6b7455",
+      "committed_utc": "2026-10-26T10:47:40+00:00",
+      "committed_jst": "2026-10-26T19:47:40+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 125,
+      "title_from_current_index": "保存相関のClosure残差と共通有効基線",
+      "report": "docs/reports/125-closure-residual-diagnostics.md",
+      "first_add_commit": "17089789b2724c370d82136304c3465d3e67e71a",
+      "committed_utc": "2026-10-26T11:47:49+00:00",
+      "committed_jst": "2026-10-26T20:47:49+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 126,
+      "title_from_current_index": "時刻を分けた画像の学習・未使用予測",
+      "report": "docs/reports/126-temporal-image-validation.md",
+      "first_add_commit": "83f8e1b9aea8dc8cfc2e0a3ab7f71340e953b2b4",
+      "committed_utc": "2026-10-26T12:06:25+00:00",
+      "committed_jst": "2026-10-26T21:06:25+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 127,
+      "title_from_current_index": "生成天空と復元画像の格子を揃えた対照",
+      "report": "docs/reports/127-matched-grid-image-control.md",
+      "first_add_commit": "d92ff7aad7d464fc42ffc5e82618473b8366973f",
+      "committed_utc": "2026-10-26T12:31:00+00:00",
+      "committed_jst": "2026-10-26T21:31:00+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 128,
+      "title_from_current_index": "同じ無雑音データで画像罰則を固定比較",
+      "report": "docs/reports/128-regularizer-image-controls.md",
+      "first_add_commit": "46f44b83cc9f3345bbfe838746428de69cfd2a95",
+      "committed_utc": "2026-10-26T12:48:19+00:00",
+      "committed_jst": "2026-10-26T21:48:19+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 129,
+      "title_from_current_index": "模擬電圧由来の相関へ固定罰則を移送",
+      "report": "docs/reports/129-main-path-regularizer-transfer.md",
+      "first_add_commit": "483a0b9d3c665a0688653dfc1beb3e0d7ca39ccb",
+      "committed_utc": "2026-10-26T13:02:22+00:00",
+      "committed_jst": "2026-10-26T22:02:22+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 130,
+      "title_from_current_index": "画像の適合・予測・形状を全体文書へ反映",
+      "report": "docs/reports/130-documentation-checkpoint.md",
+      "first_add_commit": "b36e593e87ed87e743abe39b9350cfe54ff7f531",
+      "committed_utc": "2026-10-26T13:23:08+00:00",
+      "committed_jst": "2026-10-26T22:23:08+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 131,
+      "title_from_current_index": "独立seedの短区間VDIF原本を4条件固定生成",
+      "report": "docs/reports/131-independent-raw-matrix.md",
+      "first_add_commit": "f78a36391d161ae09c6f0b42d40084d0a82b3cf9",
+      "committed_utc": "2026-10-26T14:26:17+00:00",
+      "committed_jst": "2026-10-26T23:26:17+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 132,
+      "title_from_current_index": "独立原本の未知LO取得と短積分相関",
+      "report": "docs/reports/132-unknown-lo-short-integrations.md",
+      "first_add_commit": "deb20bdb6398c25d412601395b13ca9c7538f2dd",
+      "committed_utc": "2026-10-26T17:02:05+00:00",
+      "committed_jst": "2026-10-27T02:02:05+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 133,
+      "title_from_current_index": "短積分相関から既定格子の相対画像を評価",
+      "report": "docs/reports/133-short-integration-images.md",
+      "first_add_commit": "cb5c3c6ff35771ed494a5dee584c85ec47b18321",
+      "committed_utc": "2026-10-26T17:16:40+00:00",
+      "committed_jst": "2026-10-27T02:16:40+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 134,
+      "title_from_current_index": "画像主経路のモデル・誤差・保存量を監査",
+      "report": "docs/reports/134-image-statistics-contract.md",
+      "first_add_commit": "13c93f86a8363d629a08e64ec6efd8a7dbe86393",
+      "committed_utc": "2026-10-26T17:39:53+00:00",
+      "committed_jst": "2026-10-27T02:39:53+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 135,
+      "title_from_current_index": "保存相関を条件付き全雑音診断へ接続",
+      "report": "docs/reports/135-saved-noise-contract.md",
+      "first_add_commit": "eeead83099ae1c684fa028048db3976e605eccac",
+      "committed_utc": "2026-10-26T17:56:05+00:00",
+      "committed_jst": "2026-10-27T02:56:05+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 136,
+      "title_from_current_index": "保存pilotの時間powerを条件付きで診断",
+      "report": "docs/reports/136-saved-pilot-time.md",
+      "first_add_commit": "6a6dea70b735b6d6840cc952647d1c01d869c1a0",
+      "committed_utc": "2026-10-26T18:12:42+00:00",
+      "committed_jst": "2026-10-27T03:12:42+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 137,
+      "title_from_current_index": "現在の保存診断を既存日本語GUIで照合",
+      "report": "docs/reports/137-saved-diagnostics-gui.md",
+      "first_add_commit": "6433f2a2c803eb8dbe80af182e0181552ae7c362",
+      "committed_utc": "2026-10-26T21:47:52+00:00",
+      "committed_jst": "2026-10-27T06:47:52+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 138,
+      "title_from_current_index": "時計JSONの型検査とLinux実入力契約",
+      "report": "docs/reports/138-clock-input-contract.md",
+      "first_add_commit": "74ed25fdc3f93f99658fd15d3b301a8ab580037a",
+      "committed_utc": "2026-10-28T15:18:03+00:00",
+      "committed_jst": "2026-10-29T00:18:03+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 139,
+      "title_from_current_index": "有限入力の失敗保持と別出力への再実行",
+      "report": "docs/reports/139-finite-operation-recovery.md",
+      "first_add_commit": "efc2f366871d521fbb8451f1c20f2b0f118b6090",
+      "committed_utc": "2026-10-28T15:25:27+00:00",
+      "committed_jst": "2026-10-29T00:25:27+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 140,
+      "title_from_current_index": "独立原本・条件付き診断・実入力を全体文書へ反映",
+      "report": "docs/reports/140-documentation-checkpoint.md",
+      "first_add_commit": "ffd80c5fccf14be76c251a81de85792e74b62d34",
+      "committed_utc": "2026-10-28T15:32:46+00:00",
+      "committed_jst": "2026-10-29T00:32:46+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 141,
+      "title_from_current_index": "既知の色付き入力と固定FFT全雑音参照",
+      "report": "docs/reports/141-colored-fft-noise-reference.md",
+      "first_add_commit": "e160915bd598baa92a44b501358ab4f4da3cf65e",
+      "committed_utc": "2026-10-28T16:06:30+00:00",
+      "committed_jst": "2026-10-29T01:06:30+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 142,
+      "title_from_current_index": "有限周期bandlimitとFFT全雑音の既知参照",
+      "report": "docs/reports/142-periodic-fft-noise-reference.md",
+      "first_add_commit": "7fe1eef7bffc022f22ee3d4ba3c34b4ee9b4a74e",
+      "committed_utc": "2026-10-28T17:11:39+00:00",
+      "committed_jst": "2026-10-29T02:11:39+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 143,
+      "title_from_current_index": "保存pilotのrate学習と未使用cell評価",
+      "report": "docs/reports/143-pilot-rate-holdout.md",
+      "first_add_commit": "f7fceb438b2594b4f8883e172a3be262da40532d",
+      "committed_utc": "2026-10-28T18:13:01+00:00",
+      "committed_jst": "2026-10-29T03:13:01+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 144,
+      "title_from_current_index": "観測SNR選別と全試行の雑音推定を比較",
+      "report": "docs/reports/144-observed-snr-selection.md",
+      "first_add_commit": "db8dca3659f1df20f4bd00c3292cfbd770f04d9d",
+      "committed_utc": "2026-10-28T19:09:05+00:00",
+      "committed_jst": "2026-10-29T04:09:05+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 145,
+      "title_from_current_index": "画像雑音モデルの適用条件と接続判断",
+      "report": "docs/reports/145-image-noise-applicability.md",
+      "first_add_commit": "85f0defb7463cfdcf1f52fb4a411214d91f91298",
+      "committed_utc": "2026-10-28T21:11:02+00:00",
+      "committed_jst": "2026-10-29T06:11:02+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 146,
+      "title_from_current_index": "供給clockと実SampleBufferの全有限係数を照合",
+      "report": "docs/reports/146-clock-samplebuffer-operator.md",
+      "first_add_commit": "39fbaa302ade0aec7c24e6d76aa193da26f7c599",
+      "committed_utc": "2026-10-28T22:11:14+00:00",
+      "committed_jst": "2026-10-29T07:11:14+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 147,
+      "title_from_current_index": "同pilot rate推定と独立雑音pilotのpowerを比較",
+      "report": "docs/reports/147-rate-fit-reuse.md",
+      "first_add_commit": "8032cd922d63f55310ef96f941558b24397efc68",
+      "committed_utc": "2026-10-28T23:08:12+00:00",
+      "committed_jst": "2026-10-29T08:08:12+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 148,
+      "title_from_current_index": "実入力の根拠と取得context・引渡し票",
+      "report": "docs/reports/148-real-input-evidence.md",
+      "first_add_commit": "728ef876da9460a6c43b6784d7cde3f7d50febb3",
+      "committed_utc": "2026-10-29T00:19:27+00:00",
+      "committed_jst": "2026-10-29T09:19:27+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    },
+    {
+      "stage": 149,
+      "title_from_current_index": "固定VDIF容量と系列計画・RML制限",
+      "report": "docs/reports/149-finite-capacity-limits.md",
+      "first_add_commit": "3cb8e573bcebae6cee973b35d1f412da301db52a",
+      "committed_utc": "2026-10-29T01:08:12+00:00",
+      "committed_jst": "2026-10-29T10:08:12+09:00",
+      "public_author_verified": true,
+      "public_committer_verified": true
+    }
+  ]
+}

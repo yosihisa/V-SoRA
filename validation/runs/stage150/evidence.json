@@ -1,0 +1,167 @@
+{
+  "stage": 150,
+  "method": "Existing report/validation citation, static Git/AST/file hash review only; no scientific reruns",
+  "current_code": {
+    "apps/imaging/src/vsora_imaging/rml.py": {
+      "sha256": "3a160002c7709df3934d58edd8349eb98a6800161c080f970e91af5756d82936",
+      "function": "ClosureObjective.__init__",
+      "start_line": 21,
+      "end_line": 59,
+      "span_sha256": "cf5d7f43ed429063435faa162777ef398aea4bf7062021b3c08575214bcc086a"
+    },
+    "apps/correlator/src/vsora_correlator/sequence.py": {
+      "sha256": "7975bff1e78ff28a4a0d8a17ed9bcf232c46960bde6b5a57f42c306fa880fe9d",
+      "function": "process_sequence",
+      "start_line": 44,
+      "end_line": 116,
+      "span_sha256": "e1a34a024deda071737c4b9040d83c555c064c1cca2d273f8e449504fe19b79c"
+    },
+    "apps/correlator/src/vsora_correlator/aligned.py": {
+      "sha256": "2f2a8cb83bb99b64351076c7b1edbc97c2f51ec8b022e7dee16c8083c119bba5",
+      "function": "correlate_aligned",
+      "start_line": 119,
+      "end_line": 261,
+      "span_sha256": "793570d8453f3afba11f9857974accb2db4d7dd5044371e77effb1e9bcdc1ace"
+    },
+    "apps/imaging/src/vsora_imaging/closure.py": {
+      "sha256": "670550a3aacd3e2ed0c1710219fdd5f3d61ec0fea741046b77dee238f0b40b3b",
+      "function": "form_closures",
+      "start_line": 49,
+      "end_line": 72,
+      "span_sha256": "09959526a69484601cebc104d9ba9eebaaac09265f985c3c7c79bf3631208df8"
+    }
+  },
+  "cited_files_sha256": {
+    "docs/reports/108-goal-review-and-cadence.md": "81618c18c7e00e10019cba616c2e457cae4b9cef687be1f115e3ccd755387804",
+    "docs/reports/124-ehtim-iteration-gradient-controls.md": "942fd4c8fe75c807a25faf0474ddaae1a0173f02a7890a1193205fe21ba46e84",
+    "docs/reports/129-main-path-regularizer-transfer.md": "d9f3b89c42536ce951ce1f83356d2c37b2ba9a7e741ae31a11b51dbfcf67b479",
+    "docs/reports/131-independent-raw-matrix.md": "0a20f55ca73070893298929d61ce4a6ff9da89e4005c262dff2f75bcfe40f8f1",
+    "docs/reports/132-unknown-lo-short-integrations.md": "f8e90c17782d3db08585c1f7976e24f862cdbe9d170c2a5a396a0f44836fa99c",
+    "docs/reports/133-short-integration-images.md": "73342efc3ceedb0ff155583331b1bbf42360e15e60f2271ce04674697fe53a2e",
+    "docs/reports/134-image-statistics-contract.md": "b67ac97d251d40346354f689b0ae6f91408a4d66f6eb574718bb788029f34fd0",
+    "docs/reports/135-saved-noise-contract.md": "8cf787772336f74b26dab2b94e5df13d753228566af695e84a4e37f3b696a8e1",
+    "docs/reports/136-saved-pilot-time.md": "016680d0acc47d4f2e1af41148725efa08d8cfe9ba157f1dccc274419e5307c0",
+    "docs/reports/137-saved-diagnostics-gui.md": "e15d7f613ad66da41f43a2d787fb1bb1ae947c796d0f9d9a84a05edbb230dea7",
+    "docs/reports/138-clock-input-contract.md": "9896e5843dd7a5142106ee9cdf43c56d3c91f59ac7c0118b0a2270779b62aa49",
+    "docs/reports/139-finite-operation-recovery.md": "2fb27a7dd5b4fc77161bf59cab811d1fdad41ea91c0986ecaa2c16c3e22bfb55",
+    "docs/reports/140-documentation-checkpoint.md": "686bfa5feff6706ee8eed0ab4b6981d8e138fe13b043c21ecb4027faaff4357e",
+    "docs/reports/141-colored-fft-noise-reference.md": "98a994a7483ea6b2980162f4bfa5f9ce198ea46948bc01c0dbd06147454915c5",
+    "docs/reports/142-periodic-fft-noise-reference.md": "a30cf3869ea962ec746dc09aecb12da4ab8548585a261df8bfcf64f01c805b7b",
+    "docs/reports/143-pilot-rate-holdout.md": "2e076e22f3f236b7a73a45813936f8a5607b7e755e36a4261fbfcf3f5a3af856",
+    "docs/reports/144-observed-snr-selection.md": "69b55b68ae27dfad5e7ca3eea7c86490715d7e1748c2771ba20fe4828551a399",
+    "docs/reports/145-image-noise-applicability.md": "6d796f1ed9a7e0708f0fee3bb2699c883927d79b01a470db67cdd5557d4a2b01",
+    "docs/reports/146-clock-samplebuffer-operator.md": "8ec9ed56afff33310318494c337a4585335695a74266b6ceafa3984b9347e304",
+    "docs/reports/147-rate-fit-reuse.md": "1eab4d7e1f78eba8a72d019d36bcab6569b9806fb9ac0dfe8685de8e249c1300",
+    "docs/reports/148-real-input-evidence.md": "39958b3cb1f482b77472c1343a213b1b71cc4dfaca80973b31175d9682c5dff3",
+    "docs/reports/149-finite-capacity-limits.md": "940459a03cc38ce150996953ce57324c8718310b94926ef1a140d8db80b4ff7e",
+    "interfaces/image-statistics-contract.md": "1bd106fd426996dec96e0662ff29b3b7770feda1687e9ec7109824ec84cc8f6d",
+    "interfaces/image-noise-applicability.md": "1df7b58c317f012695921a83c02bd3ccc1563a8f0a899d664b791e35638b0beb",
+    "interfaces/linux-input-readiness.md": "c1c89c24255c1524b4779958abf9dfa58e64cece1d25beb13d34c8fc4996f6fc",
+    "validation/runs/stage131/verification.json": "48c7b98237f5b96edd10444b02e23b2c43ccc8c087ce586ebb7cdc69139ee11e",
+    "validation/runs/stage133/verification.json": "7165aa624701ef6895e9d510ac940412fc69ef24d896129ad6634794cea89ab8",
+    "validation/runs/stage138/verification.json": "65b7e405fa097e0bbbbb1b3879c8cad7fd96b49bf20b1b8d47dfb178b49817bd",
+    "validation/runs/stage139/verification.json": "f0f01ad8162e9b5855374bc0cb8c779ebbf57149ca0059966a0bad542768c0c6",
+    "validation/runs/stage141/verification.json": "4358ca21118c69db3ae3effdf467f740c3afd3a663b7bc1acfac1659de54070e",
+    "validation/runs/stage142/verification.json": "11d933b84a7f10455542d1a24f222f57b06a078589bfca4f1a1033a931d528a7",
+    "validation/runs/stage143/verification.json": "8599ff08deb76645c4683f47435f9c44c4daf703c65ba62028e604529bce77f7",
+    "validation/runs/stage144/verification.json": "c10c4e1b95433d41250458f43ae9273066742032e994b719b77ae47fa1c533bc",
+    "validation/runs/stage145/verification.json": "30f5fa4f5740a10fc5b002d783cac8d3cd0afc65ee05d224821735d9d6fce6b3",
+    "validation/runs/stage146/verification.json": "baaf149afc745493660e68addb62b0ca3203b57312d73d91c0a44ad5998d1f37",
+    "validation/runs/stage147/verification.json": "2bc5270684762e610c6ac770676694125359dc4935aff252641109586990f127",
+    "validation/runs/stage148/verification.json": "d44540d1fd62545e78f35f2f6b67b4e3d2fbc1e34db67f77e77242bb24dea78e",
+    "validation/runs/stage149/verification.json": "919f2f857cda92fb180938c3ecdea639fafefa61b149e563713cd0364da3eb4c",
+    "validation/runs/stage131/reference.json": "e9b93c6696e86df78c6bb92e2e7c634f5be96e50d749d5fb217c848c413b084d",
+    "validation/runs/stage133/reference.json": "74215707fa1b6db66627439cdb9467c8e93e77d443e00746f56df1d9476557d7"
+  },
+  "claims": [
+    {
+      "stages": [
+        131,
+        132,
+        133
+      ],
+      "kind": "finite_synthetic_raw_and_images",
+      "finding": "供給時計/scale・仮定SEFDの4原本。同じ3秒pilotから12相関、10画像/2不足、全10形状差はpriorより大。noise/gain/LOは同時seed変更。",
+      "does_not_establish": "実Cas A、独立雑音だけの介入、形状失敗の単一原因"
+    },
+    {
+      "stages": [
+        141,
+        142
+      ],
+      "kind": "known_small_fixed_operator",
+      "finding": "短いFIRと有限周期bandlimitの独立trace/実処理/固定MC。042/049再利用。",
+      "does_not_establish": "131の全8局4ms条件、量子化、画像尤度、実効M/coverage"
+    },
+    {
+      "stages": [
+        143,
+        144
+      ],
+      "kind": "holdout_and_observed_selection_controls",
+      "finding": "143同raw分割の共有を保持。144全試行と採用群を分離、N0/null保持。",
+      "does_not_establish": "独立raw、選別後不偏性、実機confidence"
+    },
+    {
+      "stages": [
+        145,
+        146,
+        147
+      ],
+      "kind": "applicability_audit_and_limited_reference",
+      "finding": "145八条件。146 decoded-reader限定の時変query係数。147 Gaussian相関値の同pilot/独立雑音比較で採用gateも混在。",
+      "does_not_establish": "codec/実RF-rate幾何の全平均、未知SEFD/gain同定、依存と採否の分離、新RML接続"
+    },
+    {
+      "stages": [
+        148
+      ],
+      "kind": "readonly_current_context_metadata_and_provenance",
+      "finding": "現Linuxから取得経路を確認できず、実記録/環境照会済み。実測なし。原本76SHA/44metadataは模擬。",
+      "does_not_establish": "物理装置不存在、Windows側不可、全ホスト調査、実受信成功"
+    },
+    {
+      "stages": [
+        149
+      ],
+      "kind": "conditional_capacity_and_existing_guard_probes",
+      "finding": "固定VDIF容量。36/37/64窓計画受理、32pixelsの37窓は行列上限で早期拒否。",
+      "does_not_establish": "36窓完走、早期一括preflight実装、必要PC、全夜throughput/GPU"
+    }
+  ],
+  "cited_full_stage": 138,
+  "cited_full": {
+    "source": {
+      "passed": 2321,
+      "warnings": 30220,
+      "elapsed_s": 542.82,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 2321,
+      "warnings": 30220,
+      "elapsed_s": 541.45,
+      "excluded_tests": 0
+    }
+  },
+  "cited_latest_pytest_stage": 147,
+  "cited_latest_pytest": {
+    "source": {
+      "passed": 101,
+      "warnings": 640,
+      "elapsed_s": 5.74,
+      "excluded": 0
+    },
+    "installed": {
+      "passed": 101,
+      "warnings": 640,
+      "elapsed_s": 4.22,
+      "excluded": 0
+    }
+  },
+  "cited_small_api_stage": 149,
+  "cited_small_api_plans_per_environment": 3,
+  "cited_small_api_rml_expected_refusals_per_environment": 1,
+  "source_installed_repeats_are_not_independent_trials": true,
+  "real_device_or_real_capture_newly_verified": false
+}

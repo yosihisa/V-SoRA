@@ -1,0 +1,86 @@
+{
+  "stage": 150,
+  "state": "complete",
+  "scope": "documentation_checkpoint_and_dedicated_fundamental_goal_review",
+  "technical_baseline_stage": 149,
+  "technical_baseline_commit": "3cb8e573bcebae6cee973b35d1f412da301db52a",
+  "current_documents_synchronized": 8,
+  "chronology_first_additions_verified": 150,
+  "chronology_public_author_and_committer_verified": 150,
+  "index_rows": 151,
+  "history_rows": 150,
+  "old_individual_reports_sha_preserved": 150,
+  "frozen_code_config_assets_sha_preserved": 451,
+  "outside_allowlist_tracked_sha_preserved": 1462,
+  "original131_raw_files_sha_preserved": 76,
+  "current_code_file_and_function_spans_reviewed": 4,
+  "cited_files_sha_preserved": 40,
+  "fundamental_review_performed": true,
+  "priority_actions_applied_to_roadmap": 6,
+  "next_unselected_candidates": [
+    151,
+    152,
+    153,
+    154,
+    155,
+    156
+  ],
+  "next_documentation_checkpoint": 160,
+  "next_scheduled_fundamental_review": 200,
+  "real_input_answer_prioritized": true,
+  "product_code_changed": false,
+  "new_product_function_calls": 0,
+  "new_scientific_calculations_MC_raw_correlation_closure_fit": false,
+  "new_unit_targeted_full_collect_wheel_install_browser": false,
+  "new_device_open_capture_install_reset_or_reconfiguration": false,
+  "new_vdif_header_or_payload_decode": false,
+  "physical_device_absence_concluded": false,
+  "real_input_or_low_SNR_image_likelihood_or_full_night_GPU_validated": false,
+  "new_GUI_stopped_or_updated": false,
+  "cited_full_stage": 138,
+  "cited_full": {
+    "source": {
+      "passed": 2321,
+      "warnings": 30220,
+      "elapsed_s": 542.82,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 2321,
+      "warnings": 30220,
+      "elapsed_s": 541.45,
+      "excluded_tests": 0
+    }
+  },
+  "cited_wheel_and_GUI_stage": 138,
+  "cited_latest_pytest_stage": 147,
+  "cited_latest_pytest": {
+    "source": {
+      "passed": 101,
+      "warnings": 640,
+      "elapsed_s": 5.74,
+      "excluded": 0
+    },
+    "installed": {
+      "passed": 101,
+      "warnings": 640,
+      "elapsed_s": 4.22,
+      "excluded": 0
+    }
+  },
+  "cited_small_API_stage": 149,
+  "cited_finite_reprocessing_stage": 139,
+  "budget": {
+    "scientific_MC_trials": 0,
+    "seed_or_MCSE_applicable": false,
+    "static_worker_limit_s": 120,
+    "formal_static_elapsed_s": 2.3969959909736644,
+    "public_record_limit_bytes": 524288,
+    "ignored_new_record_limit_bytes": 4194304
+  },
+  "public_audit_findings": 0,
+  "documentation_links": {
+    "checked": 2038,
+    "missing": 0
+  }
+}
