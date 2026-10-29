@@ -1,0 +1,163 @@
+{
+  "stage": 149,
+  "records_equal_both_environments": true,
+  "record_each_environment": {
+    "plans": [
+      {
+        "windows": 36,
+        "accepted": true,
+        "pilot_span_s": 3.0,
+        "last_pilot_end_s": 108.002,
+        "image_exposure_per_station_s": 10.799999999999999
+      },
+      {
+        "windows": 37,
+        "accepted": true,
+        "pilot_span_s": 3.0,
+        "last_pilot_end_s": 111.002,
+        "image_exposure_per_station_s": 11.1
+      },
+      {
+        "windows": 64,
+        "accepted": true,
+        "pilot_span_s": 3.0,
+        "last_pilot_end_s": 192.002,
+        "image_exposure_per_station_s": 19.2
+      }
+    ],
+    "rml_refusal": {
+      "windows": 37,
+      "pixels": 32,
+      "visibility_shape": [
+        37,
+        8,
+        28
+      ],
+      "expected_matrix_bytes": 135790592,
+      "exception_type": "ValueError",
+      "message": "direct Fourier matrix would exceed 128 MiB; select fewer cells or pixels",
+      "input_arrays_bytes": 398272
+    },
+    "no_raw_read_or_correlation_or_closure_or_fit": true
+  },
+  "runtime": {
+    "source": {
+      "product_modules": [
+        "vsora_correlator",
+        "vsora_correlator.aligned",
+        "vsora_correlator.bispectrum_accumulator",
+        "vsora_correlator.clock",
+        "vsora_correlator.closure_pipeline",
+        "vsora_correlator.fringe",
+        "vsora_correlator.fx",
+        "vsora_correlator.input_identity",
+        "vsora_correlator.quality",
+        "vsora_correlator.rate",
+        "vsora_correlator.sequence",
+        "vsora_correlator.session",
+        "vsora_correlator.stream_fx",
+        "vsora_formats",
+        "vsora_formats.bispectrum",
+        "vsora_formats.fitsidi",
+        "vsora_formats.spectral",
+        "vsora_formats.vdif",
+        "vsora_imaging",
+        "vsora_imaging.closure",
+        "vsora_imaging.rml",
+        "vsora_observation",
+        "vsora_observation.config",
+        "vsora_observation.geometry"
+      ],
+      "count": 24,
+      "correct_source_or_installed_prefix_verified": true,
+      "product_module_file_sha256": {
+        "vsora_correlator": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "vsora_observation.config": "214a03201951c360b958c22568a164076e6e3a7cafcd64311d595e5f68f0bffa",
+        "vsora_observation": "401dbc0585f456aeef99e9bf9b459c56aded140dfe8ee48a45038a53f82b18e3",
+        "vsora_observation.geometry": "1c47c3fdee985363f06e8740f474a7d727460635a4866224a9bf458903f6cf70",
+        "vsora_formats": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "vsora_formats.vdif": "73ef8c8c3f7694763d85cffabe3fc31d8374b9a92a5f80c9256ba3d59c9caa1c",
+        "vsora_formats.spectral": "2e14df0629b5add9a1872ebc1c8a9ee8209209b9363feed4b963f20fc89d4ebc",
+        "vsora_formats.fitsidi": "0d20192434b823d9107fe8250bcca8b9e4bd881cadce9910b4f214e0ea2a106e",
+        "vsora_correlator.quality": "bd038b649e4dfe737282929b6174c05691b713aadbb15ee6ee746c9664248350",
+        "vsora_correlator.fx": "0ab4dcc13a02167055fd9fa6e8362b69c5ede7bae946d5a20ac60d2dead02048",
+        "vsora_correlator.fringe": "c62607852c0191154ad9e2bd032408d6b2483e3ead4954479c3382b8a53aa536",
+        "vsora_correlator.session": "6faa279ed163710dae5bbdebf81743dee45637d841327e5ec69a723fb18127a6",
+        "vsora_formats.bispectrum": "f7563f19bbf9d6e050d09fd39941e736d28bfdcc0b303c7a859377d737c5d0f7",
+        "vsora_correlator.clock": "6310e948281794badc4b17093280133d37248a470742c7eaf5260aeaa6bba58d",
+        "vsora_correlator.bispectrum_accumulator": "79c5aee3df4800cd68abf0f885394ef64090d7b509937cbe0c182e43764dee40",
+        "vsora_correlator.stream_fx": "14e0562e22fc96590614ce70b1264b8ca768564698b62db820d2814b7a9de946",
+        "vsora_correlator.rate": "4954bbdfbe438efb041318267b498f25f078ecb311370f634967539e5d423fb7",
+        "vsora_correlator.aligned": "2f2a8cb83bb99b64351076c7b1edbc97c2f51ec8b022e7dee16c8083c119bba5",
+        "vsora_correlator.input_identity": "ee8dd77b84110a7b4d937f58ea91ce5aff250c55d29a8e824c314fa80b532d0a",
+        "vsora_correlator.closure_pipeline": "9bf6d6878d9cfe46ff3cabb0f23478de768a1edc7e3749b5d7580e30dcb1e385",
+        "vsora_correlator.sequence": "7975bff1e78ff28a4a0d8a17ed9bcf232c46960bde6b5a57f42c306fa880fe9d",
+        "vsora_imaging": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "vsora_imaging.closure": "670550a3aacd3e2ed0c1710219fdd5f3d61ec0fea741046b77dee238f0b40b3b",
+        "vsora_imaging.rml": "3a160002c7709df3934d58edd8349eb98a6800161c080f970e91af5756d82936"
+      }
+    },
+    "installed": {
+      "product_modules": [
+        "vsora_correlator",
+        "vsora_correlator.aligned",
+        "vsora_correlator.bispectrum_accumulator",
+        "vsora_correlator.clock",
+        "vsora_correlator.closure_pipeline",
+        "vsora_correlator.fringe",
+        "vsora_correlator.fx",
+        "vsora_correlator.input_identity",
+        "vsora_correlator.quality",
+        "vsora_correlator.rate",
+        "vsora_correlator.sequence",
+        "vsora_correlator.session",
+        "vsora_correlator.stream_fx",
+        "vsora_formats",
+        "vsora_formats.bispectrum",
+        "vsora_formats.fitsidi",
+        "vsora_formats.spectral",
+        "vsora_formats.vdif",
+        "vsora_imaging",
+        "vsora_imaging.closure",
+        "vsora_imaging.rml",
+        "vsora_observation",
+        "vsora_observation.config",
+        "vsora_observation.geometry"
+      ],
+      "count": 24,
+      "correct_source_or_installed_prefix_verified": true,
+      "product_module_file_sha256": {
+        "vsora_correlator": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "vsora_observation.config": "214a03201951c360b958c22568a164076e6e3a7cafcd64311d595e5f68f0bffa",
+        "vsora_observation": "401dbc0585f456aeef99e9bf9b459c56aded140dfe8ee48a45038a53f82b18e3",
+        "vsora_observation.geometry": "1c47c3fdee985363f06e8740f474a7d727460635a4866224a9bf458903f6cf70",
+        "vsora_formats": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "vsora_formats.vdif": "73ef8c8c3f7694763d85cffabe3fc31d8374b9a92a5f80c9256ba3d59c9caa1c",
+        "vsora_formats.spectral": "2e14df0629b5add9a1872ebc1c8a9ee8209209b9363feed4b963f20fc89d4ebc",
+        "vsora_formats.fitsidi": "0d20192434b823d9107fe8250bcca8b9e4bd881cadce9910b4f214e0ea2a106e",
+        "vsora_correlator.quality": "bd038b649e4dfe737282929b6174c05691b713aadbb15ee6ee746c9664248350",
+        "vsora_correlator.fx": "0ab4dcc13a02167055fd9fa6e8362b69c5ede7bae946d5a20ac60d2dead02048",
+        "vsora_correlator.fringe": "c62607852c0191154ad9e2bd032408d6b2483e3ead4954479c3382b8a53aa536",
+        "vsora_correlator.session": "6faa279ed163710dae5bbdebf81743dee45637d841327e5ec69a723fb18127a6",
+        "vsora_formats.bispectrum": "f7563f19bbf9d6e050d09fd39941e736d28bfdcc0b303c7a859377d737c5d0f7",
+        "vsora_correlator.clock": "6310e948281794badc4b17093280133d37248a470742c7eaf5260aeaa6bba58d",
+        "vsora_correlator.bispectrum_accumulator": "79c5aee3df4800cd68abf0f885394ef64090d7b509937cbe0c182e43764dee40",
+        "vsora_correlator.stream_fx": "14e0562e22fc96590614ce70b1264b8ca768564698b62db820d2814b7a9de946",
+        "vsora_correlator.rate": "4954bbdfbe438efb041318267b498f25f078ecb311370f634967539e5d423fb7",
+        "vsora_correlator.aligned": "2f2a8cb83bb99b64351076c7b1edbc97c2f51ec8b022e7dee16c8083c119bba5",
+        "vsora_correlator.input_identity": "ee8dd77b84110a7b4d937f58ea91ce5aff250c55d29a8e824c314fa80b532d0a",
+        "vsora_correlator.closure_pipeline": "9bf6d6878d9cfe46ff3cabb0f23478de768a1edc7e3749b5d7580e30dcb1e385",
+        "vsora_correlator.sequence": "7975bff1e78ff28a4a0d8a17ed9bcf232c46960bde6b5a57f42c306fa880fe9d",
+        "vsora_imaging": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "vsora_imaging.closure": "670550a3aacd3e2ed0c1710219fdd5f3d61ec0fea741046b77dee238f0b40b3b",
+        "vsora_imaging.rml": "3a160002c7709df3934d58edd8349eb98a6800161c080f970e91af5756d82936"
+      }
+    }
+  },
+  "installed_checkout_outside": true,
+  "installed_runner_or_PYTHONPATH_used": false,
+  "source_explicit_src_path_wrapper_used": true,
+  "real_session_or_sequence_or_RML_fit_executed": false,
+  "matrix_or_closure_constructed": false,
+  "method": "Three pure plan_windows calls and one expected early ClosureObjective refusal per environment; fake numeric arrays carry no sky/measurement claim"
+}

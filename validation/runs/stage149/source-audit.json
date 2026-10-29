@@ -1,0 +1,113 @@
+{
+  "stage": 149,
+  "method": "readonly AST/function spans and SHA-256; existing tests reviewed, not re-executed",
+  "code": {
+    "workflows/independent_raw_matrix.py": {
+      "sha256": "b860a09acfe89ab9be476808fa51708e6fb0541cbeb417b263b8bd8506e9881c",
+      "functions": [
+        {
+          "function": "expected_vdif_bytes",
+          "start_line": 43,
+          "end_line": 45,
+          "span_sha256": "0471a7959c31adbfbdd73b77c37295598b73c7e4d3406c2d4ab85cab430e5f6f"
+        },
+        {
+          "function": "check_resources",
+          "start_line": 48,
+          "end_line": 51,
+          "span_sha256": "7fa507f13adf46632d6d56ed094b1428045d39f0a94a653ab7272e860cc8eb16"
+        }
+      ]
+    },
+    "apps/correlator/src/vsora_correlator/aligned.py": {
+      "sha256": "2f2a8cb83bb99b64351076c7b1edbc97c2f51ec8b022e7dee16c8083c119bba5",
+      "functions": [
+        {
+          "function": "validate_aligned_dimensions",
+          "start_line": 24,
+          "end_line": 36,
+          "span_sha256": "94ebe5653f937fc008668eb6035712d34808c6606da573fd88ef084d8600b4f8"
+        }
+      ]
+    },
+    "apps/correlator/src/vsora_correlator/sequence.py": {
+      "sha256": "7975bff1e78ff28a4a0d8a17ed9bcf232c46960bde6b5a57f42c306fa880fe9d",
+      "functions": [
+        {
+          "function": "plan_windows",
+          "start_line": 11,
+          "end_line": 41,
+          "span_sha256": "6786550d89a97c220ad221a9ffdaa8b4c2f4b91680bab2c2330348b65c73ec57"
+        },
+        {
+          "function": "process_sequence",
+          "start_line": 44,
+          "end_line": 116,
+          "span_sha256": "e1a34a024deda071737c4b9040d83c555c064c1cca2d273f8e449504fe19b79c"
+        }
+      ]
+    },
+    "apps/correlator/src/vsora_correlator/closure_pipeline.py": {
+      "sha256": "9bf6d6878d9cfe46ff3cabb0f23478de768a1edc7e3749b5d7580e30dcb1e385",
+      "functions": [
+        {
+          "function": "process_closure_session",
+          "start_line": 12,
+          "end_line": 129,
+          "span_sha256": "da38e8cc735d58483503681f21fdc6f7d368ed55ed7e7db5370357d90b08bc52"
+        }
+      ]
+    },
+    "apps/imaging/src/vsora_imaging/synthesis.py": {
+      "sha256": "a01e2a42f956a549bafeb6ccb16c6d934525cfc9058e951aea1c2e481eda4969",
+      "functions": [
+        {
+          "function": "merge_spectral",
+          "start_line": 11,
+          "end_line": 71,
+          "span_sha256": "74a813d179235a12a720cf958532d9a3bcc85c1a0db64c815a636300f2ec0d25"
+        },
+        {
+          "function": "image_synthesis",
+          "start_line": 74,
+          "end_line": 88,
+          "span_sha256": "03d849b96da4159d0d59a728bdb2fc90cca5acb5c408ba60e33bc4d6c2545340"
+        }
+      ]
+    },
+    "apps/imaging/src/vsora_imaging/rml.py": {
+      "sha256": "3a160002c7709df3934d58edd8349eb98a6800161c080f970e91af5756d82936",
+      "functions": [
+        {
+          "function": "ClosureObjective.__init__",
+          "start_line": 21,
+          "end_line": 59,
+          "span_sha256": "cf5d7f43ed429063435faa162777ef398aea4bf7062021b3c08575214bcc086a"
+        },
+        {
+          "function": "image_closure",
+          "start_line": 165,
+          "end_line": 194,
+          "span_sha256": "642fcf79c53908232b1ac3b6a2e251d586a83b65aa059a347402a1dafdb6a1d3"
+        }
+      ]
+    }
+  },
+  "cited_files_sha256": {
+    "docs/design/2026-10-02-operational-architecture.md": "a3057ac61543118c1544ebca31214684c63b8dd774517008b0dc985e151bfcd2",
+    "docs/reports/032-short-window-sequence.md": "6fc2ffa88f3ada10d2004afbed40a04020770babb68c612538a0b5a48ed94f83",
+    "docs/reports/131-independent-raw-matrix.md": "0a20f55ca73070893298929d61ce4a6ff9da89e4005c262dff2f75bcfe40f8f1",
+    "docs/reports/138-clock-input-contract.md": "9896e5843dd7a5142106ee9cdf43c56d3c91f59ac7c0118b0a2270779b62aa49",
+    "docs/reports/139-finite-operation-recovery.md": "2fb27a7dd5b4fc77161bf59cab811d1fdad41ea91c0986ecaa2c16c3e22bfb55",
+    "docs/reports/145-image-noise-applicability.md": "6d796f1ed9a7e0708f0fee3bb2699c883927d79b01a470db67cdd5557d4a2b01",
+    "docs/reports/148-real-input-evidence.md": "39958b3cb1f482b77472c1343a213b1b71cc4dfaca80973b31175d9682c5dff3",
+    "validation/runs/stage131/reference.json": "e9b93c6696e86df78c6bb92e2e7c634f5be96e50d749d5fb217c848c413b084d",
+    "validation/runs/stage138/verification.json": "65b7e405fa097e0bbbbb1b3879c8cad7fd96b49bf20b1b8d47dfb178b49817bd",
+    "validation/runs/stage139/verification.json": "f0f01ad8162e9b5855374bc0cb8c779ebbf57149ca0059966a0bad542768c0c6",
+    "validation/runs/stage147/verification.json": "2bc5270684762e610c6ac770676694125359dc4935aff252641109586990f127",
+    "validation/runs/stage148/verification.json": "d44540d1fd62545e78f35f2f6b67b4e3d2fbc1e34db67f77e77242bb24dea78e",
+    "apps/correlator/tests/test_sequence.py": "013ca00732f6e4300b0215de5c0a83ed72993512837ca2900794b59da06baff9",
+    "apps/imaging/tests/test_rml.py": "e597ae0d3fb1278b2476ffe38e0e1b092738fa13d5d189a853f441f227276c3f",
+    "apps/correlator/src/vsora_correlator/input_identity.py": "ee8dd77b84110a7b4d937f58ea91ce5aff250c55d29a8e824c314fa80b532d0a"
+  }
+}

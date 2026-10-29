@@ -1,0 +1,67 @@
+{
+  "stage": 149,
+  "state": "complete",
+  "base_commit": "728ef876da9460a6c43b6784d7cde3f7d50febb3",
+  "scope": "documentation_conditional_integer_capacity_and_existing_guard_composition_probes",
+  "product_code_changed": false,
+  "new_product_preflight_or_api": false,
+  "existing_capacity_function_calls": 4,
+  "expected_capacity_function_body_executed_without_generator_import": true,
+  "duration_capacity_arithmetic_exact": true,
+  "pure_plan_calls_each_environment": 3,
+  "existing_rml_early_refusal_each_environment": 1,
+  "source_installed_probe_json_exact": true,
+  "module_count_each_environment": 24,
+  "product_imported_module_source_installed_bytes_exact": true,
+  "full_package_all_byte_check_newly_repeated": false,
+  "original131_raw_files_sha_preserved": 76,
+  "original_vdif_stat_checks": 32,
+  "new_header_or_payload_decode": false,
+  "code_files_reviewed": 6,
+  "code_function_spans_reviewed": 10,
+  "cited_files_sha_preserved": 15,
+  "frozen_code_config_assets_sha_preserved": 451,
+  "outside_allowlist_tracked_sha_preserved": 1462,
+  "new_unit_targeted_full_collect_wheel_install_browser": false,
+  "new_scientific_MC_raw_generation_correlation_closure_image_fit": false,
+  "full_sequence_completion_verified": false,
+  "throughput_full_night_GPU_measured": false,
+  "automatic_checkpoint_resume_implemented": false,
+  "new_hardware_or_usb_operation": false,
+  "budget": {
+    "MC_trials": 0,
+    "MCSE_applicable": false,
+    "seed_applicable": false,
+    "subprocess_timeout_s": 60,
+    "api_and_capacity_all_elapsed_s": 2.8033988139941357,
+    "api_and_capacity_timeout_s": 120,
+    "ignored_new_output_limit_bytes": 2097152,
+    "public_record_limit_bytes": 131072,
+    "public_record_actual_bytes_before_audit": 28396,
+    "ignored_outputs_actual_bytes_before_publish": 207970
+  },
+  "cited_full_stage": 138,
+  "cited_full": {
+    "source": {
+      "passed": 2321,
+      "warnings": 30220,
+      "elapsed_s": 542.82,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 2321,
+      "warnings": 30220,
+      "elapsed_s": 541.45,
+      "excluded_tests": 0
+    }
+  },
+  "cited_wheel_GUI_stage": 138,
+  "cited_latest_pytest_targeted_stage": 147,
+  "cited_finite_partial_nonoverwrite_stage": 139,
+  "normal_GUI138_changed": false,
+  "public_audit_findings": 0,
+  "documentation_links": {
+    "checked": 1988,
+    "missing": 0
+  }
+}
