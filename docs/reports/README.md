@@ -174,6 +174,7 @@
 | 156 | [保存Closureの局所Jacobianとrank](156-saved-closure-jacobian.md) | 133の3入力・固定prior、新fit0。Richardson差分へ手順改訂、初回/第二停止保持。両36対象・50配列一致、弱条件null保持。真のFisherではない |
 | 157 | [比較平滑化と局所near-null部分空間](157-smoothed-null-subspace.md) | 既定110arcsec全支持作用素と基底不変normを照合。両59対象・16配列一致。一次beam/画像confidenceではなく新fit0 |
 | 158 | [局所方向から構成した有限非負候補](158-positive-null-candidates.md) | 保存157方向・事前固定3振幅×正負12候補と基準2点を独立Closure/既存APIへ照合。両25対象・48配列一致、fit試験1除外。有限非線形応答を記録し振幅confidenceとはしない |
+| 159 | [供給点形状と有限FFTチャネル平均](159-point-channel-forward.md) | 固定幾何/合成decoded readerの実整列6条件を独立tone応答/点Fourierへ照合。両11対象・38配列/6NPZ60フィールド一致。広帯域/実機較正ではなく新fit0 |
 
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。
 

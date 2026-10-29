@@ -1,0 +1,346 @@
+{
+  "stage": 159,
+  "summary": {
+    "stage": 159,
+    "state": "complete",
+    "conditions": [
+      {
+        "point": "center",
+        "point_row_column": [
+          4,
+          4
+        ],
+        "baseband_fraction_Fs": 0.0,
+        "maximum_corrected_voltage_error": 5.551115123125783e-16,
+        "maximum_visibility_error": 3.606869625359589e-15,
+        "maximum_RML_point_matrix_error": 0.0,
+        "finite_DFT_power_sum": 7.999999999999998,
+        "channel_plus1_center_frequency_spatial_error": 0.0,
+        "RML_constructor_closure_count_not_evaluated_as_loss": 1,
+        "API_summary": {
+          "state": "complete",
+          "integrations": 1,
+          "recorded_span_s": 6.25e-05,
+          "start_offset_s": 4.6875e-05,
+          "station_max_buffer_samples": [
+            224,
+            225,
+            224
+          ],
+          "station_decoded_frames": [
+            5,
+            5,
+            5
+          ],
+          "station_read_start_samples": [
+            0,
+            0,
+            0
+          ],
+          "vdif_read_mode": "sequential_prefix",
+          "vdif_validation_scope": "Sequential prefix and decoded range headers",
+          "samples_per_integration": 128,
+          "maximum_fx_chunk_samples": 128,
+          "spectral_cells": 24,
+          "geometry_segment_max_span_s": 6.25e-05,
+          "geometry_midpoint_max_baseline_phase_error_rad": 0.0,
+          "fft_accumulation": "Sums of cross-products, power and fourth moments; flags after whole integration",
+          "clock_model": "Supplied linear ADC mapping; no automatic weak-source clock recovery",
+          "geometry": "Sample alignment and RF rephasing; piecewise linear delay over <=1s per segment, <=3s total, <=600m",
+          "weight_note": "2*valid FFT blocks / product of measured station total powers; filtered FFT correlations not fully modeled"
+        }
+      },
+      {
+        "point": "center",
+        "point_row_column": [
+          4,
+          4
+        ],
+        "baseband_fraction_Fs": 0.125,
+        "maximum_corrected_voltage_error": 2.9168334759511155e-13,
+        "maximum_visibility_error": 2.125447341135808e-12,
+        "maximum_RML_point_matrix_error": 0.0,
+        "finite_DFT_power_sum": 7.999999999999998,
+        "channel_plus1_center_frequency_spatial_error": 0.0,
+        "RML_constructor_closure_count_not_evaluated_as_loss": 1,
+        "API_summary": {
+          "state": "complete",
+          "integrations": 1,
+          "recorded_span_s": 6.25e-05,
+          "start_offset_s": 4.6875e-05,
+          "station_max_buffer_samples": [
+            224,
+            225,
+            224
+          ],
+          "station_decoded_frames": [
+            5,
+            5,
+            5
+          ],
+          "station_read_start_samples": [
+            0,
+            0,
+            0
+          ],
+          "vdif_read_mode": "sequential_prefix",
+          "vdif_validation_scope": "Sequential prefix and decoded range headers",
+          "samples_per_integration": 128,
+          "maximum_fx_chunk_samples": 128,
+          "spectral_cells": 24,
+          "geometry_segment_max_span_s": 6.25e-05,
+          "geometry_midpoint_max_baseline_phase_error_rad": 0.0,
+          "fft_accumulation": "Sums of cross-products, power and fourth moments; flags after whole integration",
+          "clock_model": "Supplied linear ADC mapping; no automatic weak-source clock recovery",
+          "geometry": "Sample alignment and RF rephasing; piecewise linear delay over <=1s per segment, <=3s total, <=600m",
+          "weight_note": "2*valid FFT blocks / product of measured station total powers; filtered FFT correlations not fully modeled"
+        }
+      },
+      {
+        "point": "center",
+        "point_row_column": [
+          4,
+          4
+        ],
+        "baseband_fraction_Fs": 0.15625,
+        "maximum_corrected_voltage_error": 4.794035138967683e-13,
+        "maximum_visibility_error": 2.8997220637166014e-12,
+        "maximum_RML_point_matrix_error": 0.0,
+        "finite_DFT_power_sum": 7.999999999999996,
+        "channel_plus1_center_frequency_spatial_error": 0.0,
+        "RML_constructor_closure_count_not_evaluated_as_loss": 1,
+        "API_summary": {
+          "state": "complete",
+          "integrations": 1,
+          "recorded_span_s": 6.25e-05,
+          "start_offset_s": 4.6875e-05,
+          "station_max_buffer_samples": [
+            224,
+            225,
+            224
+          ],
+          "station_decoded_frames": [
+            5,
+            5,
+            5
+          ],
+          "station_read_start_samples": [
+            0,
+            0,
+            0
+          ],
+          "vdif_read_mode": "sequential_prefix",
+          "vdif_validation_scope": "Sequential prefix and decoded range headers",
+          "samples_per_integration": 128,
+          "maximum_fx_chunk_samples": 128,
+          "spectral_cells": 24,
+          "geometry_segment_max_span_s": 6.25e-05,
+          "geometry_midpoint_max_baseline_phase_error_rad": 0.0,
+          "fft_accumulation": "Sums of cross-products, power and fourth moments; flags after whole integration",
+          "clock_model": "Supplied linear ADC mapping; no automatic weak-source clock recovery",
+          "geometry": "Sample alignment and RF rephasing; piecewise linear delay over <=1s per segment, <=3s total, <=600m",
+          "weight_note": "2*valid FFT blocks / product of measured station total powers; filtered FFT correlations not fully modeled"
+        }
+      },
+      {
+        "point": "off_axis",
+        "point_row_column": [
+          1,
+          6
+        ],
+        "baseband_fraction_Fs": 0.0,
+        "maximum_corrected_voltage_error": 8.008414789893136e-14,
+        "maximum_visibility_error": 6.399584380970199e-13,
+        "maximum_RML_point_matrix_error": 2.6658359842250048e-15,
+        "finite_DFT_power_sum": 7.999999999999998,
+        "channel_plus1_center_frequency_spatial_error": 2.679349105473632e-20,
+        "RML_constructor_closure_count_not_evaluated_as_loss": 1,
+        "API_summary": {
+          "state": "complete",
+          "integrations": 1,
+          "recorded_span_s": 6.25e-05,
+          "start_offset_s": 4.6875e-05,
+          "station_max_buffer_samples": [
+            224,
+            225,
+            224
+          ],
+          "station_decoded_frames": [
+            5,
+            5,
+            5
+          ],
+          "station_read_start_samples": [
+            0,
+            0,
+            0
+          ],
+          "vdif_read_mode": "sequential_prefix",
+          "vdif_validation_scope": "Sequential prefix and decoded range headers",
+          "samples_per_integration": 128,
+          "maximum_fx_chunk_samples": 128,
+          "spectral_cells": 24,
+          "geometry_segment_max_span_s": 6.25e-05,
+          "geometry_midpoint_max_baseline_phase_error_rad": 0.0,
+          "fft_accumulation": "Sums of cross-products, power and fourth moments; flags after whole integration",
+          "clock_model": "Supplied linear ADC mapping; no automatic weak-source clock recovery",
+          "geometry": "Sample alignment and RF rephasing; piecewise linear delay over <=1s per segment, <=3s total, <=600m",
+          "weight_note": "2*valid FFT blocks / product of measured station total powers; filtered FFT correlations not fully modeled"
+        }
+      },
+      {
+        "point": "off_axis",
+        "point_row_column": [
+          1,
+          6
+        ],
+        "baseband_fraction_Fs": 0.125,
+        "maximum_corrected_voltage_error": 3.270918175145789e-13,
+        "maximum_visibility_error": 3.6247275219768162e-12,
+        "maximum_RML_point_matrix_error": 2.6658359842250048e-15,
+        "finite_DFT_power_sum": 7.999999999999998,
+        "channel_plus1_center_frequency_spatial_error": 0.0,
+        "RML_constructor_closure_count_not_evaluated_as_loss": 1,
+        "API_summary": {
+          "state": "complete",
+          "integrations": 1,
+          "recorded_span_s": 6.25e-05,
+          "start_offset_s": 4.6875e-05,
+          "station_max_buffer_samples": [
+            224,
+            225,
+            224
+          ],
+          "station_decoded_frames": [
+            5,
+            5,
+            5
+          ],
+          "station_read_start_samples": [
+            0,
+            0,
+            0
+          ],
+          "vdif_read_mode": "sequential_prefix",
+          "vdif_validation_scope": "Sequential prefix and decoded range headers",
+          "samples_per_integration": 128,
+          "maximum_fx_chunk_samples": 128,
+          "spectral_cells": 24,
+          "geometry_segment_max_span_s": 6.25e-05,
+          "geometry_midpoint_max_baseline_phase_error_rad": 0.0,
+          "fft_accumulation": "Sums of cross-products, power and fourth moments; flags after whole integration",
+          "clock_model": "Supplied linear ADC mapping; no automatic weak-source clock recovery",
+          "geometry": "Sample alignment and RF rephasing; piecewise linear delay over <=1s per segment, <=3s total, <=600m",
+          "weight_note": "2*valid FFT blocks / product of measured station total powers; filtered FFT correlations not fully modeled"
+        }
+      },
+      {
+        "point": "off_axis",
+        "point_row_column": [
+          1,
+          6
+        ],
+        "baseband_fraction_Fs": 0.15625,
+        "maximum_corrected_voltage_error": 3.8999786488275064e-13,
+        "maximum_visibility_error": 3.672056569954058e-12,
+        "maximum_RML_point_matrix_error": 2.6658359842250048e-15,
+        "finite_DFT_power_sum": 7.999999999999996,
+        "channel_plus1_center_frequency_spatial_error": 0.0002603865017424047,
+        "RML_constructor_closure_count_not_evaluated_as_loss": 1,
+        "API_summary": {
+          "state": "complete",
+          "integrations": 1,
+          "recorded_span_s": 6.25e-05,
+          "start_offset_s": 4.6875e-05,
+          "station_max_buffer_samples": [
+            224,
+            225,
+            224
+          ],
+          "station_decoded_frames": [
+            5,
+            5,
+            5
+          ],
+          "station_read_start_samples": [
+            0,
+            0,
+            0
+          ],
+          "vdif_read_mode": "sequential_prefix",
+          "vdif_validation_scope": "Sequential prefix and decoded range headers",
+          "samples_per_integration": 128,
+          "maximum_fx_chunk_samples": 128,
+          "spectral_cells": 24,
+          "geometry_segment_max_span_s": 6.25e-05,
+          "geometry_midpoint_max_baseline_phase_error_rad": 0.0,
+          "fft_accumulation": "Sums of cross-products, power and fourth moments; flags after whole integration",
+          "clock_model": "Supplied linear ADC mapping; no automatic weak-source clock recovery",
+          "geometry": "Sample alignment and RF rephasing; piecewise linear delay over <=1s per segment, <=3s total, <=600m",
+          "weight_note": "2*valid FFT blocks / product of measured station total powers; filtered FFT correlations not fully modeled"
+        }
+      }
+    ],
+    "actual_API_calls": 6,
+    "raw_samples_per_station": 512,
+    "fft": 8,
+    "blocks": 16,
+    "station_count": 3,
+    "span_s": 6.25e-05,
+    "unit": "ADC^2 for stored cross-power; unit-sum point shape is not Jy calibration",
+    "geometry_replaced_by_fixed_consistent_UVW_and_delays": true,
+    "reader_replaced_by_synthetic_decoded_frames": true,
+    "VDIF_payload_decoded": false,
+    "MC_trials": 0,
+    "seed_MCSE_applicable": false,
+    "image_optimizer_calls": 0,
+    "image_objective_or_gradient_evaluated": false,
+    "product_code_changed": false,
+    "real_observation_or_finite_band_sky_likelihood_calibrated": false,
+    "scope": "Known unit point shapes and deterministic single tones. Real clock/manifest validation, FIR/interpolation/RF/FX/save with fixed synthetic geometry and decoded reader. Finite-channel leakage spatial phase follows the supplied tone frequency; not independent sky signals at each leaked channel center."
+  },
+  "cited_files_sha256": {
+    "packages/observation/src/vsora_observation/geometry.py": "1c47c3fdee985363f06e8740f474a7d727460635a4866224a9bf458903f6cf70",
+    "apps/simulator/src/vsora_simulator/visibility.py": "57ea050dfdad4549ca929fcf9928c0c1637eb2bb3a77cb54682a0d3b99abedc4",
+    "apps/simulator/src/vsora_simulator/iq.py": "bb937b898e03ebf61747eaf3f76a8e7dfcc21f5560d494d4639c74ab6bc35ef8",
+    "apps/simulator/src/vsora_simulator/sky.py": "a7535bc16bd0fff24b216bc0f3dfdade70683d48f9b5458bf82bdbba54655fb1",
+    "apps/correlator/src/vsora_correlator/aligned.py": "2f2a8cb83bb99b64351076c7b1edbc97c2f51ec8b022e7dee16c8083c119bba5",
+    "apps/correlator/src/vsora_correlator/stream_fx.py": "14e0562e22fc96590614ce70b1264b8ca768564698b62db820d2814b7a9de946",
+    "apps/imaging/src/vsora_imaging/rml.py": "0fce7c0e9f9c99d50c3997439b9d940ebc2aa99117fe90c9fe71661a4d00b46d",
+    "apps/imaging/src/vsora_imaging/synthesis.py": "a01e2a42f956a549bafeb6ccb16c6d934525cfc9058e951aea1c2e481eda4969",
+    "apps/correlator/tests/test_clock.py": "d9800f82d3620e80da68ada2cbdf0c269f6ed5d7cf23c3d5316a6de04923d7b7",
+    "apps/correlator/tests/test_stream_fx.py": "268dfa5488d7dc85eae8a95c9165eb3424c55f70fcc4ed99216605c06c47fcf4",
+    "apps/simulator/tests/test_visibility.py": "45591ff3710fc25ecbf0bbecd3185dc7cc2a5e55efb25c4b13ad24e7ba9a0420",
+    "workflows/aligned_mean_validation.py": "9b6f993952da82b94c5e5f0ad9b5d282a75a380a0656c1f1584a4a3e64d56f12",
+    "workflows/clock_operator_validation.py": "9ff99485f0ae019ace471130c704b95c0f1a9205723c24a1e77e691184bfcea3",
+    "workflows/vdif_closure_validation.py": "2e34ad120eedc1ecc5aebb049b815e1cb85a40d023224dc35f4d1dc648e11186",
+    "docs/reports/128-regularizer-image-controls.md": "f70332882dcca19a23cbe1bd13ee12cf41b8937d7c3767bbfade4869ffbcdbce",
+    "docs/reports/078-bispectrum-joint-temporal.md": "8aa9457ce248fe397d69a3276012f2f176826f6d90ea1ef51086fa6f3d0b0c93",
+    "docs/reports/145-image-noise-applicability.md": "6d796f1ed9a7e0708f0fee3bb2699c883927d79b01a470db67cdd5557d4a2b01",
+    "docs/reports/059-joint-bispectrum-moments.md": "e674afea1956213501a727e909fffc1d71ca1c0c8c13e500c25464f7daa209a5",
+    "docs/reports/152-aligned-forward-mean.md": "61e7587afb0ca05b71892d3637992a697e40cf02e8f64852da9de54fdf708e7d",
+    "docs/reports/055-temporal-bispectrum.md": "8d565c2492579b1c1dd2c121f4f55f7db7a2af44cc23acdff6d9b4a8dcdf4e7b",
+    "docs/reports/129-main-path-regularizer-transfer.md": "d9f3b89c42536ce951ce1f83356d2c37b2ba9a7e741ae31a11b51dbfcf67b479",
+    "docs/reports/009-adc-clock-alignment.md": "57db923427e8446694885df59db575c1978a2867c2c7a3e7eaebe8b0f86944e1",
+    "docs/reports/151-sequence-capacity-guard.md": "1ad3d2a6dc21e76160316783a43dbf9d3af98cc3173aec44e083488514446611",
+    "docs/reports/014-stream-clock-geometry.md": "80ce00fa678e615dfca6b4e17c082fca16b99bd75593478031cc9ffc3fe9b595",
+    "docs/reports/150-fundamental-goal-review.md": "7e24e1cfafb689362c5ad5de52b297055ebfcbb1c33bfb39dfa7110b66a82166",
+    "docs/reports/061-streaming-bispectrum-sums.md": "d6ca61cfef51afb0d9110e921b5a1e9a124b57a25c9b1b99698af84103fda373",
+    "validation/runs/stage055/gaussian.json": "5e8718874c3f50b26ec9b9b85f48cb637cf4eb0965e57aea2acc141bf7f92783",
+    "validation/runs/stage059/known-gaussian-moments.json": "77cf290b21ebb83b5d4b1279a9013da5349bed54f59ac067b255b77ec68b8618",
+    "validation/runs/stage061/streaming-results.json": "64b3bc36e77a3c4594637dda00c5c96538a147eb63611bc50b7355a054b38278",
+    "validation/runs/stage078/known-joint-time.json": "777311db2f044797c5a58651aae08ea1aa679c573e98d75cc2e09d94aff45060",
+    "validation/runs/stage128/reference.json": "db58beb66361b793e198ad71960dee4482e5ace6b3ae11220c7d2cc93aedbb6a",
+    "validation/runs/stage129/reference.json": "f4fa6909880ddd2395a5149b002336d34def8b23c83d4492abed040a4e82c28b",
+    "validation/runs/stage152/reference.json": "8e94565fb1d4424da03213d1fd4c3ae9b473de15311295e65c07a40a0c3fe5bc"
+  },
+  "fixed_inputs_sha256": {
+    "stage131-source-study/high_a/input/manifest.json": "07e2beeb317f22472759dcc108a947ffaf565a0502bd890e55ee4d8695479072",
+    "stage131-source-study/high_a/input/observation.json": "4ea421860c947a36452b1fe6182805112b34ae00da4d9a36b02b562e8b46a356"
+  },
+  "saved_shard_files_each": 6,
+  "saved_fields_exact_including_metadata": 60,
+  "public_arrays_sha256": "054769173b636a628b460eab17bfaf556c7c36ee290c0bb4654884650a4f8ed3",
+  "array_count": 38,
+  "API_scope_labels_not_header_evidence_under_mock_reader": true
+}

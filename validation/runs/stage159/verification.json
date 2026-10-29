@@ -1,0 +1,82 @@
+{
+  "stage": 159,
+  "state": "complete",
+  "base_commit": "ccecb581b99e0f33753764e6ae5628353d2e783f",
+  "product_code_changed": false,
+  "new_workflow_only": true,
+  "new_unit_tests": 0,
+  "first_formal_attempt_passed": false,
+  "initial_config_grid_below_schema_minimum_preserved": true,
+  "recording_profile32_separate_from_analysis_grid8": true,
+  "initial_source_target_passes_not_added": true,
+  "targeted": {
+    "source": {
+      "passed": 11,
+      "warnings": 0,
+      "elapsed_s": 1.13,
+      "excluded": 0
+    },
+    "installed": {
+      "passed": 11,
+      "warnings": 0,
+      "elapsed_s": 0.71,
+      "excluded": 0
+    }
+  },
+  "all_scientific_summary_JSON_exact": true,
+  "numeric_arrays_exact": 38,
+  "saved_NPZ_each": 6,
+  "saved_fields_exact_including_metadata": 60,
+  "fixed_input_files_SHA_preserved": 2,
+  "actual_API_calls_each": 6,
+  "new_image_objective_gradient_fit_MC": false,
+  "module_count_each": 24,
+  "module_paths_and_bytes_verified": true,
+  "native_checkout_outside_runner_PYTHONPATH_absent": true,
+  "nonoverwrite_refusals": 2,
+  "frozen_files": 459,
+  "existing_frozen458_unchanged": true,
+  "package_wheel_source_installed_bytes_unchanged": 103,
+  "reference_assets_bytes_unchanged": 4,
+  "wheel_sha256": "c54348ec4b11b89bc70956c2f0d3ad77762b79093ca128834a4bebe053f2b2ec",
+  "raw131_SHA_preserved": 76,
+  "outside_allowlist_SHA_preserved": 1518,
+  "cited_files_SHA_preserved": 33,
+  "new_full_collect_wheel_install_browser": false,
+  "cited_full_wheel_GUI_stage": 151,
+  "cited_full": {
+    "source": {
+      "passed": 2328,
+      "warnings": 30220,
+      "elapsed_s": 552.61,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 2328,
+      "warnings": 30220,
+      "elapsed_s": 551.31,
+      "excluded_tests": 0
+    }
+  },
+  "normal_GUI151_changed": false,
+  "broadband_sky_or_real_observation_calibrated": false,
+  "runtime": {
+    "source": {
+      "wall_s": 0.03848330496111885,
+      "peak_process_rss_bytes": 133488640
+    },
+    "installed": {
+      "wall_s": 0.03392474103020504,
+      "peak_process_rss_bytes": 134049792
+    }
+  },
+  "output_bytes_each": {
+    "source": 62964,
+    "installed": 63628
+  },
+  "public_audit_findings": 0,
+  "documentation_links": {
+    "checked": 2151,
+    "missing": 0
+  }
+}
