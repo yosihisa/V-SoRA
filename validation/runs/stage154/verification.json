@@ -1,0 +1,91 @@
+{
+  "stage": 154,
+  "state": "complete",
+  "base_commit": "e1ac5fae1a4762ed9e8c5f9da03fab7cd5cc1271",
+  "product_code_changed": false,
+  "new_workflow_only": true,
+  "new_unit_tests": 0,
+  "targeted": {
+    "source": {
+      "passed": 76,
+      "warnings": 640,
+      "elapsed_s": 3.19,
+      "excluded": 0
+    },
+    "installed": {
+      "passed": 76,
+      "warnings": 640,
+      "elapsed_s": 3.19,
+      "excluded": 0
+    }
+  },
+  "initial_result_assembly_KeyError_preserved": true,
+  "initial_target_success_not_added": true,
+  "all_scientific_summary_JSON_exact": true,
+  "numeric_arrays_exact": 16,
+  "original147_trial_pairs_reused": 512,
+  "original147_fingerprints_verified": 512,
+  "original147_oracle_rows_verified": 1024,
+  "original147_archive_files_SHA_preserved": 4,
+  "new_independent_trials": 0,
+  "new_rate_fits": 0,
+  "reported_candidate_count": 1536,
+  "detected_candidate_count": 1143,
+  "rejected_candidate_count": 393,
+  "candidate_unavailable_count": 0,
+  "power_negative_count_on_available_train_eval_only": 0,
+  "power_above_one_count_on_available_train_eval_only": 1476,
+  "independent_eval_controls_within_fixed6MCSE": 15,
+  "empty_group_controls_unverified": 3,
+  "maximum_absolute_eval_mean_residual_over_MCSE": 2.0154750267351735,
+  "module_count_each": 16,
+  "module_paths_and_bytes_verified": true,
+  "native_checkout_outside_runner_PYTHONPATH_absent": true,
+  "checkout147_helper_required": true,
+  "nonoverwrite_refusals": 2,
+  "frozen_files": 454,
+  "existing_frozen453_unchanged": true,
+  "package_wheel_source_installed_bytes_unchanged": 103,
+  "reference_assets_bytes_unchanged": 4,
+  "wheel_sha256": "c54348ec4b11b89bc70956c2f0d3ad77762b79093ca128834a4bebe053f2b2ec",
+  "raw131_SHA_preserved": 76,
+  "outside_allowlist_SHA_preserved": 1489,
+  "cited_files_SHA_preserved": 18,
+  "new_full_collect_wheel_install_browser_raw_correlation_or_image_fit": false,
+  "cited_full_wheel_GUI_stage": 151,
+  "cited_full": {
+    "source": {
+      "passed": 2328,
+      "warnings": 30220,
+      "elapsed_s": 552.61,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 2328,
+      "warnings": 30220,
+      "elapsed_s": 551.31,
+      "excluded_tests": 0
+    }
+  },
+  "normal_GUI151_changed": false,
+  "real_hardware_or_causal_station_estimator_bias_or_image_likelihood_calibrated": false,
+  "runtime": {
+    "source": {
+      "wall_s": 0.35686367395101115,
+      "peak_process_rss_bytes": 83816448
+    },
+    "installed": {
+      "wall_s": 0.3525161410216242,
+      "peak_process_rss_bytes": 84230144
+    }
+  },
+  "output_bytes_each": {
+    "source": 407033,
+    "installed": 407490
+  },
+  "public_audit_findings": 0,
+  "documentation_links": {
+    "checked": 2089,
+    "missing": 0
+  }
+}

@@ -169,6 +169,7 @@
 | 151 | [系列RML容量の早期検査](151-sequence-capacity-guard.md) | 共通private式で37/64窓をhash/worker/partial前に拒否。旧bispectrum/非上書き優先を保持。新7/両43対象・全2328、wheel/全byte/API/CLI/両28実GUI。初回全回帰1失敗は終了後修正し保存 |
 | 152 | [実整列APIと幾何RF/rate位相の有限平均](152-aligned-forward-mean.md) | 合成decoded readerの12実API/環境、3mode正負の決定論的平均。全ch/局power/保存平均が独立係数と一致。両42対象・19配列/12NPZ180フィールド一致、codec/実機/雑音尤度は未校正 |
 | 153 | [量子化前後の有限平均・共分散](153-quantized-finite-ensemble.md) | 同じ8probe/2scaleの実codec・FXを独立参照へ照合。両9対象・13配列一致。実機較正ではない |
+| 154 | [保存rateの採用maskと同pilot power](154-archived-rate-gate.md) | 147の512組・保存1536基線候補を再利用、fit追加0。両76対象・16配列一致。局推定全体の因果的分離ではない |
 
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。
 
