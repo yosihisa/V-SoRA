@@ -176,6 +176,7 @@
 | 158 | [局所方向から構成した有限非負候補](158-positive-null-candidates.md) | 保存157方向・事前固定3振幅×正負12候補と基準2点を独立Closure/既存APIへ照合。両25対象・48配列一致、fit試験1除外。有限非線形応答を記録し振幅confidenceとはしない |
 | 159 | [供給点形状と有限FFTチャネル平均](159-point-channel-forward.md) | 固定幾何/合成decoded readerの実整列6条件を独立tone応答/点Fourierへ照合。両11対象・38配列/6NPZ60フィールド一致。広帯域/実機較正ではなく新fit0 |
 | 160 | [技術基準159への文書整理](160-documentation-checkpoint.md) | 二全体文書/計画/案内/入口/索引/運用を同期。000〜159初回Git/JST/公開名義照合。新科学計算/試験なし、151製品と152〜159限定参照を分離 |
+| 161 | [同時混合3線スペクトルの有限平均](161-finite-band-forward-mean.md) | 固定4符号×2電力配分の8実整列APIをmode別point応答和へ照合。両11対象・21配列/8NPZ80フィールド一致。連続PSD/Gaussian noiseではなく新fit0 |
 
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。
 

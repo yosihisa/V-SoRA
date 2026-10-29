@@ -1,0 +1,383 @@
+{
+  "stage": 161,
+  "summary": {
+    "stage": 161,
+    "state": "complete",
+    "conditions": [
+      {
+        "line_power_case": "uniform",
+        "line_power_fractions": [
+          0.3333333333333333,
+          0.3333333333333333,
+          0.3333333333333333
+        ],
+        "actual_API_calls": 4,
+        "maximum_voltage_error": 4.693277400930852e-13,
+        "maximum_per_probe_visibility_error": 1.377508433734993e-12,
+        "maximum_mean_error": 1.342573534223941e-12,
+        "channel_center_spatial_phase_only_relative_mean_difference": 0.0004600916097446129,
+        "single_probe_relative_distance_to_finite_mean": [
+          0.06463373132508987,
+          0.06604151460222113,
+          0.019481685459095704,
+          0.04842083709591631
+        ],
+        "API_summaries": [
+          {
+            "state": "complete",
+            "integrations": 1,
+            "recorded_span_s": 6.25e-05,
+            "start_offset_s": 4.6875e-05,
+            "station_max_buffer_samples": [
+              224,
+              225,
+              224
+            ],
+            "station_decoded_frames": [
+              5,
+              5,
+              5
+            ],
+            "station_read_start_samples": [
+              0,
+              0,
+              0
+            ],
+            "vdif_read_mode": "sequential_prefix",
+            "vdif_validation_scope": "Sequential prefix and decoded range headers",
+            "samples_per_integration": 128,
+            "maximum_fx_chunk_samples": 128,
+            "spectral_cells": 24,
+            "geometry_segment_max_span_s": 6.25e-05,
+            "geometry_midpoint_max_baseline_phase_error_rad": 0.0,
+            "fft_accumulation": "Sums of cross-products, power and fourth moments; flags after whole integration",
+            "clock_model": "Supplied linear ADC mapping; no automatic weak-source clock recovery",
+            "geometry": "Sample alignment and RF rephasing; piecewise linear delay over <=1s per segment, <=3s total, <=600m",
+            "weight_note": "2*valid FFT blocks / product of measured station total powers; filtered FFT correlations not fully modeled"
+          },
+          {
+            "state": "complete",
+            "integrations": 1,
+            "recorded_span_s": 6.25e-05,
+            "start_offset_s": 4.6875e-05,
+            "station_max_buffer_samples": [
+              224,
+              225,
+              224
+            ],
+            "station_decoded_frames": [
+              5,
+              5,
+              5
+            ],
+            "station_read_start_samples": [
+              0,
+              0,
+              0
+            ],
+            "vdif_read_mode": "sequential_prefix",
+            "vdif_validation_scope": "Sequential prefix and decoded range headers",
+            "samples_per_integration": 128,
+            "maximum_fx_chunk_samples": 128,
+            "spectral_cells": 24,
+            "geometry_segment_max_span_s": 6.25e-05,
+            "geometry_midpoint_max_baseline_phase_error_rad": 0.0,
+            "fft_accumulation": "Sums of cross-products, power and fourth moments; flags after whole integration",
+            "clock_model": "Supplied linear ADC mapping; no automatic weak-source clock recovery",
+            "geometry": "Sample alignment and RF rephasing; piecewise linear delay over <=1s per segment, <=3s total, <=600m",
+            "weight_note": "2*valid FFT blocks / product of measured station total powers; filtered FFT correlations not fully modeled"
+          },
+          {
+            "state": "complete",
+            "integrations": 1,
+            "recorded_span_s": 6.25e-05,
+            "start_offset_s": 4.6875e-05,
+            "station_max_buffer_samples": [
+              224,
+              225,
+              224
+            ],
+            "station_decoded_frames": [
+              5,
+              5,
+              5
+            ],
+            "station_read_start_samples": [
+              0,
+              0,
+              0
+            ],
+            "vdif_read_mode": "sequential_prefix",
+            "vdif_validation_scope": "Sequential prefix and decoded range headers",
+            "samples_per_integration": 128,
+            "maximum_fx_chunk_samples": 128,
+            "spectral_cells": 24,
+            "geometry_segment_max_span_s": 6.25e-05,
+            "geometry_midpoint_max_baseline_phase_error_rad": 0.0,
+            "fft_accumulation": "Sums of cross-products, power and fourth moments; flags after whole integration",
+            "clock_model": "Supplied linear ADC mapping; no automatic weak-source clock recovery",
+            "geometry": "Sample alignment and RF rephasing; piecewise linear delay over <=1s per segment, <=3s total, <=600m",
+            "weight_note": "2*valid FFT blocks / product of measured station total powers; filtered FFT correlations not fully modeled"
+          },
+          {
+            "state": "complete",
+            "integrations": 1,
+            "recorded_span_s": 6.25e-05,
+            "start_offset_s": 4.6875e-05,
+            "station_max_buffer_samples": [
+              224,
+              225,
+              224
+            ],
+            "station_decoded_frames": [
+              5,
+              5,
+              5
+            ],
+            "station_read_start_samples": [
+              0,
+              0,
+              0
+            ],
+            "vdif_read_mode": "sequential_prefix",
+            "vdif_validation_scope": "Sequential prefix and decoded range headers",
+            "samples_per_integration": 128,
+            "maximum_fx_chunk_samples": 128,
+            "spectral_cells": 24,
+            "geometry_segment_max_span_s": 6.25e-05,
+            "geometry_midpoint_max_baseline_phase_error_rad": 0.0,
+            "fft_accumulation": "Sums of cross-products, power and fourth moments; flags after whole integration",
+            "clock_model": "Supplied linear ADC mapping; no automatic weak-source clock recovery",
+            "geometry": "Sample alignment and RF rephasing; piecewise linear delay over <=1s per segment, <=3s total, <=600m",
+            "weight_note": "2*valid FFT blocks / product of measured station total powers; filtered FFT correlations not fully modeled"
+          }
+        ]
+      },
+      {
+        "line_power_case": "colored",
+        "line_power_fractions": [
+          0.1,
+          0.3,
+          0.6
+        ],
+        "actual_API_calls": 4,
+        "maximum_voltage_error": 5.18015819950453e-13,
+        "maximum_per_probe_visibility_error": 2.443368672681284e-12,
+        "maximum_mean_error": 2.4190021322230555e-12,
+        "channel_center_spatial_phase_only_relative_mean_difference": 0.0004436416217816876,
+        "single_probe_relative_distance_to_finite_mean": [
+          0.03703088424131133,
+          0.035849073213923034,
+          0.0016654269195815008,
+          0.033013563371107654
+        ],
+        "API_summaries": [
+          {
+            "state": "complete",
+            "integrations": 1,
+            "recorded_span_s": 6.25e-05,
+            "start_offset_s": 4.6875e-05,
+            "station_max_buffer_samples": [
+              224,
+              225,
+              224
+            ],
+            "station_decoded_frames": [
+              5,
+              5,
+              5
+            ],
+            "station_read_start_samples": [
+              0,
+              0,
+              0
+            ],
+            "vdif_read_mode": "sequential_prefix",
+            "vdif_validation_scope": "Sequential prefix and decoded range headers",
+            "samples_per_integration": 128,
+            "maximum_fx_chunk_samples": 128,
+            "spectral_cells": 24,
+            "geometry_segment_max_span_s": 6.25e-05,
+            "geometry_midpoint_max_baseline_phase_error_rad": 0.0,
+            "fft_accumulation": "Sums of cross-products, power and fourth moments; flags after whole integration",
+            "clock_model": "Supplied linear ADC mapping; no automatic weak-source clock recovery",
+            "geometry": "Sample alignment and RF rephasing; piecewise linear delay over <=1s per segment, <=3s total, <=600m",
+            "weight_note": "2*valid FFT blocks / product of measured station total powers; filtered FFT correlations not fully modeled"
+          },
+          {
+            "state": "complete",
+            "integrations": 1,
+            "recorded_span_s": 6.25e-05,
+            "start_offset_s": 4.6875e-05,
+            "station_max_buffer_samples": [
+              224,
+              225,
+              224
+            ],
+            "station_decoded_frames": [
+              5,
+              5,
+              5
+            ],
+            "station_read_start_samples": [
+              0,
+              0,
+              0
+            ],
+            "vdif_read_mode": "sequential_prefix",
+            "vdif_validation_scope": "Sequential prefix and decoded range headers",
+            "samples_per_integration": 128,
+            "maximum_fx_chunk_samples": 128,
+            "spectral_cells": 24,
+            "geometry_segment_max_span_s": 6.25e-05,
+            "geometry_midpoint_max_baseline_phase_error_rad": 0.0,
+            "fft_accumulation": "Sums of cross-products, power and fourth moments; flags after whole integration",
+            "clock_model": "Supplied linear ADC mapping; no automatic weak-source clock recovery",
+            "geometry": "Sample alignment and RF rephasing; piecewise linear delay over <=1s per segment, <=3s total, <=600m",
+            "weight_note": "2*valid FFT blocks / product of measured station total powers; filtered FFT correlations not fully modeled"
+          },
+          {
+            "state": "complete",
+            "integrations": 1,
+            "recorded_span_s": 6.25e-05,
+            "start_offset_s": 4.6875e-05,
+            "station_max_buffer_samples": [
+              224,
+              225,
+              224
+            ],
+            "station_decoded_frames": [
+              5,
+              5,
+              5
+            ],
+            "station_read_start_samples": [
+              0,
+              0,
+              0
+            ],
+            "vdif_read_mode": "sequential_prefix",
+            "vdif_validation_scope": "Sequential prefix and decoded range headers",
+            "samples_per_integration": 128,
+            "maximum_fx_chunk_samples": 128,
+            "spectral_cells": 24,
+            "geometry_segment_max_span_s": 6.25e-05,
+            "geometry_midpoint_max_baseline_phase_error_rad": 0.0,
+            "fft_accumulation": "Sums of cross-products, power and fourth moments; flags after whole integration",
+            "clock_model": "Supplied linear ADC mapping; no automatic weak-source clock recovery",
+            "geometry": "Sample alignment and RF rephasing; piecewise linear delay over <=1s per segment, <=3s total, <=600m",
+            "weight_note": "2*valid FFT blocks / product of measured station total powers; filtered FFT correlations not fully modeled"
+          },
+          {
+            "state": "complete",
+            "integrations": 1,
+            "recorded_span_s": 6.25e-05,
+            "start_offset_s": 4.6875e-05,
+            "station_max_buffer_samples": [
+              224,
+              225,
+              224
+            ],
+            "station_decoded_frames": [
+              5,
+              5,
+              5
+            ],
+            "station_read_start_samples": [
+              0,
+              0,
+              0
+            ],
+            "vdif_read_mode": "sequential_prefix",
+            "vdif_validation_scope": "Sequential prefix and decoded range headers",
+            "samples_per_integration": 128,
+            "maximum_fx_chunk_samples": 128,
+            "spectral_cells": 24,
+            "geometry_segment_max_span_s": 6.25e-05,
+            "geometry_midpoint_max_baseline_phase_error_rad": 0.0,
+            "fft_accumulation": "Sums of cross-products, power and fourth moments; flags after whole integration",
+            "clock_model": "Supplied linear ADC mapping; no automatic weak-source clock recovery",
+            "geometry": "Sample alignment and RF rephasing; piecewise linear delay over <=1s per segment, <=3s total, <=600m",
+            "weight_note": "2*valid FFT blocks / product of measured station total powers; filtered FFT correlations not fully modeled"
+          }
+        ]
+      }
+    ],
+    "actual_API_calls": 8,
+    "finite_sign_probes": 4,
+    "input_modes_per_probe": 3,
+    "raw_samples_per_station": 512,
+    "fft": 8,
+    "blocks": 16,
+    "span_s": 6.25e-05,
+    "mode_fractions_Fs": [
+      -0.173828125,
+      0.048828125,
+      0.2109375
+    ],
+    "MC_trials": 0,
+    "seed_MCSE_applicable": false,
+    "ensemble_proper_complex_or_Gaussian": false,
+    "mode_pseudomoment": "I, not zero",
+    "power_weights_are_discrete_line_masses_not_continuous_PSD_per_Hz": true,
+    "image_optimizer_calls": 0,
+    "new_Closure_or_RML_evaluation": false,
+    "product_code_changed": false,
+    "scope": "Fixed point and three spectral lines, four deterministic sign probes with simultaneous mode mixing. Real aligned FIR/interpolation/RF/FX/save under synthetic decoded reader and fixed geometry. Finite mean identity only; no continuous-band PSD integral, Gaussian noise covariance, IID/coverage, calibrated Jy, unknown station inference or actual observation success."
+  },
+  "cited_files_sha256": {
+    "packages/observation/src/vsora_observation/geometry.py": "1c47c3fdee985363f06e8740f474a7d727460635a4866224a9bf458903f6cf70",
+    "apps/simulator/src/vsora_simulator/visibility.py": "57ea050dfdad4549ca929fcf9928c0c1637eb2bb3a77cb54682a0d3b99abedc4",
+    "apps/simulator/src/vsora_simulator/filtered_noise.py": "921c1eb2cfe52bd7621f91bc2fc4e4864702f9f9ad3864a6a7024d7775e5bd5e",
+    "apps/simulator/src/vsora_simulator/sky_covariance.py": "56cfc72b0c24bfe200f16b393c9ad8804193c2192898a972007d7e49bf6a0454",
+    "apps/simulator/src/vsora_simulator/bispectrum_pooling.py": "83847c68b97406beb090714a1cb534ec9a112acabbf7c0e44c849d090b2b4807",
+    "apps/correlator/src/vsora_correlator/aligned.py": "2f2a8cb83bb99b64351076c7b1edbc97c2f51ec8b022e7dee16c8083c119bba5",
+    "apps/correlator/src/vsora_correlator/stream_fx.py": "14e0562e22fc96590614ce70b1264b8ca768564698b62db820d2814b7a9de946",
+    "apps/correlator/tests/test_clock.py": "d9800f82d3620e80da68ada2cbdf0c269f6ed5d7cf23c3d5316a6de04923d7b7",
+    "apps/correlator/tests/test_stream_fx.py": "268dfa5488d7dc85eae8a95c9165eb3424c55f70fcc4ed99216605c06c47fcf4",
+    "apps/simulator/tests/test_visibility.py": "45591ff3710fc25ecbf0bbecd3185dc7cc2a5e55efb25c4b13ad24e7ba9a0420",
+    "apps/simulator/tests/test_filtered_noise.py": "0a092306d9ae434cd167be1e604eaf002e4985ce9128bb5d1f1f5e0c92b94c18",
+    "workflows/aligned_mean_validation.py": "9b6f993952da82b94c5e5f0ad9b5d282a75a380a0656c1f1584a4a3e64d56f12",
+    "workflows/periodic_fft_noise_validation.py": "6d4b993fefb5a24143f7eda7ec467f322f5462702ad0a492ec151977eb3fb24a",
+    "workflows/image_joint_validation.py": "a81808c656d35998525862cec73e32f48c9eaecfb1ce94c5b6349b611af613a0",
+    "workflows/point_channel_validation.py": "c846a98a6b9c8e29540fe685abad24db37ba9eb00cb409ebaf4e4ef582d43503",
+    "docs/reports/160-documentation-checkpoint.md": "1a0bd6d3ff2593528af533ab1cc3d017114949d255aa79c1bb99e86fbbc51331",
+    "docs/reports/078-bispectrum-joint-temporal.md": "8aa9457ce248fe397d69a3276012f2f176826f6d90ea1ef51086fa6f3d0b0c93",
+    "docs/reports/145-image-noise-applicability.md": "6d796f1ed9a7e0708f0fee3bb2699c883927d79b01a470db67cdd5557d4a2b01",
+    "docs/reports/146-clock-samplebuffer-operator.md": "8ec9ed56afff33310318494c337a4585335695a74266b6ceafa3984b9347e304",
+    "docs/reports/059-joint-bispectrum-moments.md": "e674afea1956213501a727e909fffc1d71ca1c0c8c13e500c25464f7daa209a5",
+    "docs/reports/159-point-channel-forward.md": "025016e60d727dd1535140ca2a2997a71487e3f4c2b86a5e7105c0eab9c665f1",
+    "docs/reports/049-filtered-fft-noise.md": "26ee44b9e0fa0bdea576b3406f341ebd32bba1286d651d6940eb07a0515e872d",
+    "docs/reports/152-aligned-forward-mean.md": "61e7587afb0ca05b71892d3637992a697e40cf02e8f64852da9de54fdf708e7d",
+    "docs/reports/142-periodic-fft-noise-reference.md": "a30cf3869ea962ec746dc09aecb12da4ab8548585a261df8bfcf64f01c805b7b",
+    "docs/reports/055-temporal-bispectrum.md": "8d565c2492579b1c1dd2c121f4f55f7db7a2af44cc23acdff6d9b4a8dcdf4e7b",
+    "docs/reports/151-sequence-capacity-guard.md": "1ad3d2a6dc21e76160316783a43dbf9d3af98cc3173aec44e083488514446611",
+    "docs/reports/141-colored-fft-noise-reference.md": "98a994a7483ea6b2980162f4bfa5f9ce198ea46948bc01c0dbd06147454915c5",
+    "docs/reports/100-known-covariance-gaussian.md": "314aaefe584bf624faffe913263acd5ab7d22cbc9a91fe59d7ef21e2988ea32e",
+    "docs/reports/074-bispectrum-independent-group-pooling.md": "1187bc5bc1d25c8f33cb5579b350004a5e485180f51deabc13d3322fb3f012a5",
+    "docs/reports/061-streaming-bispectrum-sums.md": "d6ca61cfef51afb0d9110e921b5a1e9a124b57a25c9b1b99698af84103fda373",
+    "docs/reports/076-bispectrum-known-sky-scale.md": "0ec8b646a50b88413bb5182c8f115c8a42604bd85260e30027c42d78f27ab85c",
+    "validation/runs/stage049/summary.json": "c85c6c4e4ca718df25d9c7f2e898f4d0c4ad7c33dbc69f17518fa6411e435e37",
+    "validation/runs/stage055/gaussian.json": "5e8718874c3f50b26ec9b9b85f48cb637cf4eb0965e57aea2acc141bf7f92783",
+    "validation/runs/stage059/known-gaussian-moments.json": "77cf290b21ebb83b5d4b1279a9013da5349bed54f59ac067b255b77ec68b8618",
+    "validation/runs/stage061/streaming-results.json": "64b3bc36e77a3c4594637dda00c5c96538a147eb63611bc50b7355a054b38278",
+    "validation/runs/stage074/known-independent-groups.json": "461a9e4c0208eaf711843a8182c83402079c770eb5c91c3b6b21f6d5aa0c4b11",
+    "validation/runs/stage076/known-sky-scale.json": "bc841361226f3e0ea692d17dd068798f35b8125ad53ece88f50799c510ae5a3f",
+    "validation/runs/stage078/known-joint-time.json": "777311db2f044797c5a58651aae08ea1aa679c573e98d75cc2e09d94aff45060",
+    "validation/runs/stage100/gaussian-reference.json": "342ba7e7f545d22dc676a62582eaec21fc1902788f49049abb9816c6dbf23d82",
+    "validation/runs/stage141/reference.json": "6d3f769a0e80c426e25f0d8ecb59c610003924aa9d5cad030e1a60f874046062",
+    "validation/runs/stage142/reference.json": "57025f1a2dcdfbe4b298833a085d19093adebe7c3d7e021e352068f787d09ee0",
+    "validation/runs/stage146/reference.json": "a26406a1567a0bd03fdc9df3a32066e6a90d98bcae81966b6b97c0a6929aa467",
+    "validation/runs/stage152/reference.json": "8e94565fb1d4424da03213d1fd4c3ae9b473de15311295e65c07a40a0c3fe5bc",
+    "validation/runs/stage159/reference.json": "c73af96a279e455604d961576ab356f834ae33b6d477b9f3f7c3187fbded1d19"
+  },
+  "fixed_inputs_sha256": {
+    "stage131-source-study/high_a/input/manifest.json": "07e2beeb317f22472759dcc108a947ffaf565a0502bd890e55ee4d8695479072",
+    "stage131-source-study/high_a/input/observation.json": "4ea421860c947a36452b1fe6182805112b34ae00da4d9a36b02b562e8b46a356"
+  },
+  "saved_shard_files_each": 8,
+  "saved_fields_exact_including_metadata": 80,
+  "public_arrays_sha256": "eeba03256cbc4300ceaff367f7a50ab5d687a33207cd256ecaf7ad1a8131e1b0",
+  "array_count": 21,
+  "API_scope_labels_not_header_evidence_under_mock_reader": true
+}
