@@ -96,6 +96,8 @@ python tools/run.py vsora_correlator.sequence --manifest manifest.json --clock-m
 
 配布CLIは`vsora-sequence`。2〜64window。`--step-s`を省略するとpilotのspanを開始間隔に使う。指定するならpilot/画像積分が重ならない間隔が必要。pilotはmanifestの値、または--pilot-integration-sを使う。各画像積分はそのpilot内に収め、最終積分はVDIF/FFTの整数格子に合わせる。
 
+151から、系列の最終visibility数（窓数×channel数×基線数）と固定pixels32について、直接Fourier行列の128MiB上限を計画内で確認する。RML単体と同じprivate容量検査を共用する。公開計画は元の被覆/非重複等の後に容量を検査し、処理入口では指定時の三次統計寸法と既存出力先の非上書きも先に確認する。原本全byte hash・worker・buffer・partial作成前に容量超過を拒否する。8局/FFT8では36窓126MiBがこの条件内、37窓129.5MiB・64窓224MiBは超過。無効行や重み0も保存cellとして数える。これは行列だけの容量で、peakRSS/搭載RAM/原本長/全系列成功を保証しない。画素数を変える新しいsequence引数は追加していない。[151の検証](../docs/reports/151-sequence-capacity-guard.md)を参照。
+
 各windowでsample/幾何整列・rate再推定・IQ再相関を3工程で実施。高精度gain/既知skyを入力せず、windowごとの未知定数phase/amplitudeを保持する。rate profileを別windowへ暗黙に外挿しない。単一区間CLIの--correlation-onlyもこの3工程だけを保存できる。
 
 各windowの`correlation/shard-00000.npz`を、複素平均せず最後のsynthesisへ渡す。相対RMLは最後に一度だけ実行。出力はwindow-0000/など、synthesis/、sequence.json、summary.json。window途中の失敗はcurrent_window_index、最終画像化の失敗はphase=synthesisとして区別し、全体は.partial/incompleteに残す。上書き・自動resume・弱い区間の自動skipは現段階では行わない。

@@ -27,6 +27,46 @@ def test_window_plan_and_coverage():
     with pytest.raises(ValueError,match='one million spectral'):plan_windows(large,32,None,.002,32,None,.1)
 
 
+def test_capacity_plan_preserves_valid_boundary_and_overlap_priority():
+    """36窓は容量条件内。37窓でも既存の重複エラーを先に返す。"""
+    c={**config(),'fft_length':8,'blocks_per_integration':1024,'stations':[{} for _ in range(8)]}
+    assert len(plan_windows(c,36,None,.002,750,None,.3))==36
+    with pytest.raises(ValueError,match='overlap'):
+        plan_windows(c,37,2.,.002,750,None,.3)
+
+
+@pytest.mark.parametrize('windows',[37,64])
+def test_capacity_rejected_before_identity_worker_and_partial(tmp_path,monkeypatch,windows):
+    """高コストの原本識別・worker・bufferへ進まず出力も作らない。"""
+    import vsora_correlator.sequence as sequence
+    import vsora_correlator.aligned as aligned
+    c={**config(),'fft_length':8,'blocks_per_integration':1024,'stations':[{} for _ in range(8)]}
+    monkeypatch.setattr(sequence,'load_session',lambda path:c)
+    calls=[]
+    def forbidden(*args,**kwargs):
+        calls.append(True)
+        raise AssertionError('capacity refusal must precede expensive work')
+    monkeypatch.setattr(sequence,'InputIdentity',forbidden)
+    monkeypatch.setattr(sequence,'process_closure_session',forbidden)
+    monkeypatch.setattr(aligned,'SampleBuffer',forbidden)
+    output=tmp_path/'oversized'
+    with pytest.raises(ValueError,match='128 MiB'):
+        process_sequence(tmp_path/'manifest',tmp_path/'clock',output,window_count=windows,pilot_integrations=750)
+    assert calls==[] and not output.exists() and not output.with_name(output.name+'.partial').exists()
+
+
+@pytest.mark.parametrize('partial',[False,True])
+def test_existing_sequence_destination_keeps_priority_over_capacity(tmp_path,monkeypatch,partial):
+    """容量超過と併存しても、従来の非上書きエラーを先に返す。"""
+    import vsora_correlator.sequence as sequence
+    c={**config(),'fft_length':8,'blocks_per_integration':1024,'stations':[{} for _ in range(8)]}
+    monkeypatch.setattr(sequence,'load_session',lambda path:c)
+    output=tmp_path/'existing'
+    (output.with_name(output.name+'.partial') if partial else output).mkdir()
+    with pytest.raises(FileExistsError,match='new sequence directory'):
+        process_sequence(tmp_path/'manifest',tmp_path/'clock',output,window_count=37,pilot_integrations=750)
+
+
 def test_sequence_local_rates_and_relative_synthesis(tmp_path):
     make_fixture(tmp_path/'input',seed=32,frame_count=800,
         rate_changes=[{'start_s':.514,'rates_hz':RATES[1]},{'start_s':1.026,'rates_hz':RATES[2]}])

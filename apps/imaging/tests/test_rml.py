@@ -14,6 +14,15 @@ def fixture(pixels=12, cells=3):
     return uvw, v, np.ones(v.shape)*1e4, pairs
 
 
+@pytest.mark.parametrize('weight',[0.,1.])
+def test_direct_matrix_capacity_guard_precedes_closures_even_with_zero_weight(weight):
+    """無効行/重み0でも、保存cell全体の行列容量を過小にしない。"""
+    pairs=np.array(list(combinations(range(8),2)))
+    v=np.zeros((37,8,28),complex)
+    with pytest.raises(ValueError,match='128 MiB'):
+        ClosureObjective(np.zeros(v.shape+(3,)),v,np.full(v.shape,weight),pairs)
+
+
 @pytest.mark.parametrize('phase_loss', ['wrapped', 'circular'])
 def test_analytic_gradient_against_independent_finite_difference(phase_loss):
     args = fixture(); objective = ClosureObjective(*args, pixels=12)

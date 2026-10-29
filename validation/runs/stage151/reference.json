@@ -1,0 +1,131 @@
+{
+  "stage": 151,
+  "before_plan_reproduction": {
+    "plans": [
+      {
+        "windows": 36,
+        "accepted": true
+      },
+      {
+        "windows": 37,
+        "accepted": true
+      },
+      {
+        "windows": 64,
+        "accepted": true
+      }
+    ],
+    "direct_rml_refusal": "direct Fourier matrix would exceed 128 MiB; select fewer cells or pixels"
+  },
+  "controlled_baseline_commit": "68e8717be5b985c994cfdb83cc83f9f26141cf3e",
+  "controlled_baseline_method": "old rml/sequence definitions from Git in an isolated source process, other modules unchanged, OPENBLAS/OMP=1; no workspace source restoration",
+  "initial_uncontrolled_thread_baseline_retained_not_formal_reference": true,
+  "baseline_input_sha256": {
+    "clock.json": "de055e1594cfae7a3d08cedbf88dde5c6d14807f430f6af9bf0cf69500d1787d",
+    "station-1.vdif": "733210c0ceeb7c5ee43353b4f86786ff53f15231ff0186d8086bca975bc4cd49",
+    "station-4.json": "cf44a8a470749fd9ffd191bfc1b2fbd20f80d1bf234236ca2be621278f8918c6",
+    "station-2.vdif": "b941969d6d42489459d35ab7fb4c89cfe20aa4b474875428ddfdc965a7026c1e",
+    "station-3.json": "da9649dfb0edfd4a36204fa5ad7bcde4c6ce24187abaf28b3ed61281dae12d04",
+    "station-3.vdif": "bdbb6b5cb963bf9a18239424363e9300ae447c145e05cd8738aa5bb1373261a0",
+    "manifest.json": "4be92e16e41173f773d346d7665b5bc3df49f05b6a751d13a9669c97159f67cf",
+    "station-1.json": "9a0f148f5de6c84369d16cf74e4154b73f134c0e5759d82e79d580cd388e4f72",
+    "station-4.vdif": "71a70329d444243fad9c44851591b6b4161f622d4b829674e521d4b72c8082e3",
+    "station-2.json": "3539b7838496e72bcad0cdf46ef152d9a85eed7257190eb8a5c18e477b2c97ff",
+    "observation.json": "e87d53bda1bfb668574aaa39e4908839bfb3a840652ceea8906a897ca1a8d75b"
+  },
+  "source_API": {
+    "mode": "source",
+    "plan36_capacity_only_passes": true,
+    "API_rejections": [
+      {
+        "windows": 37,
+        "exception": "ValueError",
+        "no_output_or_partial": true,
+        "missing_clock_not_opened": true
+      },
+      {
+        "windows": 64,
+        "exception": "ValueError",
+        "no_output_or_partial": true,
+        "missing_clock_not_opened": true
+      }
+    ],
+    "CLI": [],
+    "comparisons": [
+      {
+        "output": "valid-api",
+        "npz_files_exact": 8,
+        "array_fields_exact_including_metadata": 120,
+        "JSON_files_exact_except_elapsed_s": 34,
+        "image_npy_exact": true
+      }
+    ],
+    "API_nonoverwrite_refused": true,
+    "product_module_count": 30,
+    "origins_verified": true,
+    "physical_or_full_night_claim": false
+  },
+  "installed_API_CLI": {
+    "mode": "installed",
+    "plan36_capacity_only_passes": true,
+    "API_rejections": [
+      {
+        "windows": 37,
+        "exception": "ValueError",
+        "no_output_or_partial": true,
+        "missing_clock_not_opened": true
+      },
+      {
+        "windows": 64,
+        "exception": "ValueError",
+        "no_output_or_partial": true,
+        "missing_clock_not_opened": true
+      }
+    ],
+    "CLI": [
+      {
+        "windows": 37,
+        "rejected": true,
+        "no_output_or_partial": true
+      },
+      {
+        "windows": 64,
+        "rejected": true,
+        "no_output_or_partial": true
+      },
+      {
+        "valid_cli_complete": true,
+        "nonoverwrite_refused": true
+      }
+    ],
+    "comparisons": [
+      {
+        "output": "valid-api",
+        "npz_files_exact": 8,
+        "array_fields_exact_including_metadata": 120,
+        "JSON_files_exact_except_elapsed_s": 34,
+        "image_npy_exact": true
+      },
+      {
+        "output": "valid-cli",
+        "npz_files_exact": 8,
+        "array_fields_exact_including_metadata": 120,
+        "JSON_files_exact_except_elapsed_s": 34,
+        "image_npy_exact": true
+      }
+    ],
+    "API_nonoverwrite_refused": true,
+    "product_module_count": 30,
+    "origins_verified": true,
+    "physical_or_full_night_claim": false
+  },
+  "source_final_first_attempt_failure_preserved": {
+    "failed": 1,
+    "passed": 2325,
+    "warnings": 30220,
+    "elapsed_s": 555.2,
+    "all_jobs_exited_before_revision": true,
+    "failure": "bispectrum dimension error priority"
+  },
+  "limits": "Fixed existing four-station three-window simulation; timing-only elapsed_s excluded from JSON comparison. 36-window full completion, physical data and full-night performance unverified."
+}

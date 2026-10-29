@@ -7,8 +7,10 @@ from .aligned import validate_aligned_dimensions,validate_bispectrum_dimensions,
 from .closure_pipeline import process_closure_session
 from .input_identity import InputIdentity
 
+_SEQUENCE_PIXELS = 32
 
-def plan_windows(config,window_count,step_s,start_offset_s,pilot_integrations,pilot_integration_s,integration_s):
+
+def _plan_windows(config,window_count,step_s,start_offset_s,pilot_integrations,pilot_integration_s,integration_s):
     if isinstance(window_count,bool) or not isinstance(window_count,int) or not 2<=window_count<=64:
         raise ValueError('sequence requires 2..64 windows')
     if not np.isfinite(start_offset_s) or start_offset_s<0 or (step_s is not None and (not np.isfinite(step_s) or step_s<=0)):
@@ -41,6 +43,18 @@ def plan_windows(config,window_count,step_s,start_offset_s,pilot_integrations,pi
              'image_end_s':float(t+integration_s)} for i,t in enumerate(starts)]
 
 
+def _validate_sequence_fourier_size(config, window_count):
+    from vsora_imaging.rml import _validate_fourier_size
+    stations=len(config['stations'])
+    _validate_fourier_size(window_count*config['fft_length']*stations*(stations-1)//2, _SEQUENCE_PIXELS)
+
+
+def plan_windows(config,window_count,step_s,start_offset_s,pilot_integrations,pilot_integration_s,integration_s):
+    plan=_plan_windows(config,window_count,step_s,start_offset_s,pilot_integrations,pilot_integration_s,integration_s)
+    _validate_sequence_fourier_size(config,window_count)
+    return plan
+
+
 def process_sequence(manifest,clock_model,output,*,window_count=3,step_s=None,start_offset_s=.002,
                      pilot_integrations=256,pilot_integration_s=None,integration_s=.3,max_rate_hz=100.,
                      starts=3,max_iterations=800,prior_fwhm_arcsec=240.,entropy=.01,tsv=.0001,progress=None,
@@ -51,12 +65,13 @@ def process_sequence(manifest,clock_model,output,*,window_count=3,step_s=None,st
     if rate_model=='linear' and require_rate_consistency:
         raise ValueError('constant subpilot consistency requirement cannot be combined with linear rate correction')
     config=load_session(manifest)
-    plan=plan_windows(config,window_count,step_s,start_offset_s,pilot_integrations,pilot_integration_s,integration_s)
+    plan=_plan_windows(config,window_count,step_s,start_offset_s,pilot_integrations,pilot_integration_s,integration_s)
     if save_bispectrum:
         blocks=round(integration_s*config['sample_rate_hz']/config['fft_length'])
         validate_bispectrum_dimensions({**config,'blocks_per_integration':blocks},1)
     out=Path(output);partial=out.with_name(out.name+'.partial')
     if out.exists() or partial.exists():raise FileExistsError('choose a new sequence directory')
+    _validate_sequence_fourier_size(config,window_count)
     partial.mkdir(parents=True)
     state={'schema_version':1,'type':'short_window_sequence','state':'running','planned_windows':plan,
            'completed_windows':[],'current_window_index':None,'phase':'prepared','completed_steps':0,'total_steps':3*window_count+1}
@@ -91,7 +106,7 @@ def process_sequence(manifest,clock_model,output,*,window_count=3,step_s=None,st
         state.update(current_window_index=None,phase='synthesis');save()
         from vsora_imaging.synthesis import image_synthesis
         synthesis=image_synthesis(paths,partial/'synthesis',starts=starts,max_iterations=max_iterations,
-            prior_fwhm_arcsec=prior_fwhm_arcsec,entropy=entropy,tsv=tsv,pixels=32,
+            prior_fwhm_arcsec=prior_fwhm_arcsec,entropy=entropy,tsv=tsv,pixels=_SEQUENCE_PIXELS,
             pixel_arcsec=config['_config']['image']['pixel_arcsec'])
         unchanged();phase('sequence_relative_rml')
         unchanged()

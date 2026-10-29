@@ -1,0 +1,109 @@
+{
+  "stage": 151,
+  "state": "complete",
+  "base_commit": "68e8717be5b985c994cfdb83cc83f9f26141cf3e",
+  "new_private_shared_RML_capacity_helper": true,
+  "new_public_preflight_or_pixel_option": false,
+  "product_files_changed": [
+    "apps/correlator/src/vsora_correlator/sequence.py",
+    "apps/imaging/src/vsora_imaging/rml.py"
+  ],
+  "capacity_refusal_before_identity_worker_buffer_partial": true,
+  "original_bispectrum_and_nonoverwrite_error_priority_preserved": true,
+  "new_tests": 7,
+  "targeted": {
+    "source": {
+      "passed": 43,
+      "warnings": 6569,
+      "elapsed_s": 57.74,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 43,
+      "warnings": 6569,
+      "elapsed_s": 57.3,
+      "excluded_tests": 0
+    }
+  },
+  "regressions": {
+    "source": {
+      "passed": 2328,
+      "warnings": 30220,
+      "elapsed_s": 552.61,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 2328,
+      "warnings": 30220,
+      "elapsed_s": 551.31,
+      "excluded_tests": 0
+    }
+  },
+  "collected_each": 2328,
+  "full_regression_excluded": 0,
+  "initial_source_full_failure": {
+    "failed": 1,
+    "passed": 2325,
+    "warnings": 30220,
+    "elapsed_s": 555.2,
+    "all_jobs_exited_before_revision": true,
+    "failure": "bispectrum dimension error priority"
+  },
+  "initial_passes_not_added_to_final_counts": true,
+  "all_first_attempt_jobs_exited_before_revision": true,
+  "frozen_code_config_assets_checked": 451,
+  "old_unchanged_frozen_items": 447,
+  "outside_allowlist_tracked_sha_preserved": 1468,
+  "raw131_files_sha_preserved": 76,
+  "raw032_input_files_sha_preserved": 11,
+  "saved_correlations12_pilots12_profiles4_sha_preserved": true,
+  "valid_source_API_installed_API_CLI_exact_to_controlled_baseline": true,
+  "each_valid_sequence_npz_files": 8,
+  "each_valid_sequence_array_fields_including_metadata": 120,
+  "each_valid_sequence_JSON_files_except_elapsed_s": 34,
+  "each_valid_sequence_image_npy_exact": true,
+  "API_modules_each_correct_origin": 30,
+  "native_API_checkout_outside_runner_PYTHONPATH_absent": true,
+  "native_CLI_new_processes_used": true,
+  "package_source_wheel_installed_files": 103,
+  "reference_assets_all_byte_equal": 4,
+  "changed_wheel_package_files": [
+    "vsora_correlator/sequence.py",
+    "vsora_imaging/rml.py"
+  ],
+  "wheel_sha256": "c54348ec4b11b89bc70956c2f0d3ad77762b79093ca128834a4bebe053f2b2ec",
+  "pip_check_success": true,
+  "runtime_dependency_versions_unchanged": true,
+  "browser_each": {
+    "workers": 28,
+    "downloads": 56,
+    "time_baseline_rows": 672,
+    "null": 50,
+    "negative": 174,
+    "above_one": 148,
+    "Japanese390px": true,
+    "table_wrapping": true,
+    "horizontal_scroll_claimed": false,
+    "JS_errors": 0,
+    "external_requests": 0,
+    "modules": 10,
+    "version": "153.0.8010.12"
+  },
+  "normal_GUI_owned_idle_update_and_restart_verified": true,
+  "first_uncontrolled_preparation_run_not_counted_formal": true,
+  "validation_sequence_fits_formal_including_old_controlled_baseline": 4,
+  "scientific_noise_model_or_RML_parameters_changed": false,
+  "new_raw_generation_in_main_comparison": false,
+  "full_regression_uses_existing_temporary_simulated_fixtures": true,
+  "physical_unknown_LO_gain_SEFD_or_low_SNR_likelihood_or_full_night_GPU_validated": false,
+  "public_audit_findings": 0,
+  "documentation_links": {
+    "checked": 2054,
+    "missing": 0
+  },
+  "custom_sequence_output_budget": {
+    "each_limit_bytes": 16777216,
+    "combined_limit_bytes": 67108864,
+    "actual_combined_including_initial_and_superseded": 44466744
+  }
+}

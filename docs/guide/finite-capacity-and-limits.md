@@ -1,6 +1,6 @@
 # 固定VDIFの容量と、有限処理の制限
 
-現行の小規模CPU参照を実行する前の、人向けの確認手順である。製品の新しいpreflightではない。[149の条件と実行記録](../reports/149-finite-capacity-limits.md)、[実入力の引渡し票](real-input-handoff-template.md)、[Linux入力確認表](../../interfaces/linux-input-readiness.md)と併用する。
+現行の小規模CPU参照を実行する前の、人向けの確認手順である。製品の新しいpreflightではない。[149の条件と実行記録](../reports/149-finite-capacity-limits.md)、[151の早期容量検査](../reports/151-sequence-capacity-guard.md)、[実入力の引渡し票](real-input-handoff-template.md)、[Linux入力確認表](../../interfaces/linux-input-readiness.md)と併用する。
 
 ## 原本のbyte数
 
@@ -27,7 +27,7 @@
 | --- | --- | --- |
 | 整列相関1回 | integrations 1〜16384、span約3秒以下、基線×時間×周波数cell 100万以下 | raw長、時計精度、処理速度、画像に十分な信号 |
 | Closure短区間 | pilot 8〜16384 cell、画像0.1〜3秒、FFT/frame grid、pilot被覆、rate探索のNyquist条件等 | 未知LO推定の成功、低SNR画像尤度 |
-| sequenceの計画 | 2〜64窓、非重複、個々の有限条件、最終cell 100万以下 | 原本の末尾、最終RMLの行列上限、全窓の完走 |
+| sequenceの計画 | 2〜64窓、非重複、個々の有限条件、最終cell 100万以下、151から固定32画素の行列128MiB以下 | 原本の末尾、信号/推定の成功、全窓の完走 |
 | synthesis | 2〜64入力、軸/単位/位置/時刻/露出整合、重複拒否、100万cell以下 | 時間・周波数の独立性、RMLメモリ予算 |
 | RML | pixels 8〜64、visibility数×pixels²×16が128MiB以下、採用Closure等 | プロセス全体のpeakRSS、科学的妥当性、収束、GPU性能 |
 
@@ -43,7 +43,7 @@ MiBは2²⁰byte。RMLの式は複素128bitの直接Fourier行列だけを見積
 | 37 | 129.5MiB | 超過。既存RML APIで早期拒否を確認 |
 | 64 | 224MiB | 計算上超過 |
 
-149で36/37/64窓の`plan_windows`はすべて受理されたが、37窓の`ClosureObjective`は行列生成前に拒否した。原本・相関値・画像を新しく作って全系列を通した結果ではない。131と同じ軸寸法を使った計画例で、3.04秒の131原本を36窓へ増やしたものでもない。
+149の修正前確認では36/37/64窓の`plan_windows`はすべて受理されたが、37窓の`ClosureObjective`は行列生成前に拒否した。151からは既存RML容量式をprivate helperで共用し、37/64窓を計画の段階で拒否する。manifest/観測設定を読んだ後、原本全byte hash・相関worker・buffer・partial作成には進まない。36窓はこの容量条件を通るだけである。原本・相関値・画像を新しく作って全系列を通した結果ではない。131と同じ軸寸法を使った計画例で、3.04秒の131原本を36窓へ増やしたものでもない。
 
 低水準RMLへ16画素で64窓を渡した場合の行列は計算上56MiBだが、sequenceにはその画素数指定がない。この計算例を回避手順や画像品質の保証にしない。画素数やcell数を変える場合は、必要な視野・分解能・統計条件と製品の正式検証を別途定める。
 
@@ -57,4 +57,4 @@ MiBは2²⁰byte。RMLの式は複素128bitの直接Fourier行列だけを見積
 
 139の4ms出力16,658byteは圧縮やmetadataを含む一例で、長時間の出力容量へ比例外挿しない。単発wall時間・生涯peakRSSにもhash/import等が含まれ、取得throughputや全夜処理時間へ外挿しない。実運用では、取得速度、drop、原本保持、partial容量、反復実行、連続性、時計・gain・RFIの有効区間を実入力で測る必要が残る。
 
-150の文書整理・専用根本レビューで、この制限の組合せを次の優先順位へ反映する。早期の一括判定や全夜driverを実装済みとはしていない。
+150の文書整理・専用根本レビューで、この制限の組合せを151へ前倒しした。151は行列容量だけの早期検査で、全条件の一括認定ではない。全夜driverや自動checkpoint再開を実装済みとはしていない。

@@ -17,6 +17,12 @@ from vsora_observation.geometry import tangent_grid
 from .closure import form_closures, independent_closures, wrap_phase, load_visibility_input
 
 
+def _validate_fourier_size(visibility_count, pixels):
+    """内部の既知寸法で、直接Fourier行列の容量上限を共通に検査する。"""
+    if visibility_count*pixels*pixels*16 > 128*1024**2:
+        raise ValueError('direct Fourier matrix would exceed 128 MiB; select fewer cells or pixels')
+
+
 class ClosureObjective:
     def __init__(self, uvw, visibilities, weights, pairs, pixels=32, pixel_arcsec=16.,
                  min_snr=10., prior_fwhm_arcsec=240., entropy=0.01, tsv=0.0001, centroid=0.1):
@@ -27,8 +33,7 @@ class ClosureObjective:
                 or not np.isfinite(prior_fwhm_arcsec) or prior_fwhm_arcsec <= 0
                 or any(not np.isfinite(x) or x < 0 for x in (entropy, tsv, centroid))):
             raise ValueError('invalid RML geometry or regularization settings')
-        if v.size*pixels*pixels*16 > 128*1024**2:
-            raise ValueError('direct Fourier matrix would exceed 128 MiB; select fewer cells or pixels')
+        _validate_fourier_size(v.size, pixels)
         self.pixels, self.pixel_arcsec = pixels, pixel_arcsec
         self.shape = v.shape
         self.closures = c = form_closures(v, w, pairs, min_snr)

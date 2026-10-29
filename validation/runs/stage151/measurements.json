@@ -1,0 +1,65 @@
+{
+  "regressions": {
+    "source": {
+      "passed": 2328,
+      "warnings": 30220,
+      "elapsed_s": 552.61,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 2328,
+      "warnings": 30220,
+      "elapsed_s": 551.31,
+      "excluded_tests": 0
+    }
+  },
+  "targeted": {
+    "source": {
+      "passed": 43,
+      "warnings": 6569,
+      "elapsed_s": 57.74,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 43,
+      "warnings": 6569,
+      "elapsed_s": 57.3,
+      "excluded_tests": 0
+    }
+  },
+  "API_source": [
+    {
+      "output": "valid-api",
+      "npz_files_exact": 8,
+      "array_fields_exact_including_metadata": 120,
+      "JSON_files_exact_except_elapsed_s": 34,
+      "image_npy_exact": true
+    }
+  ],
+  "API_installed": [
+    {
+      "output": "valid-api",
+      "npz_files_exact": 8,
+      "array_fields_exact_including_metadata": 120,
+      "JSON_files_exact_except_elapsed_s": 34,
+      "image_npy_exact": true
+    },
+    {
+      "output": "valid-cli",
+      "npz_files_exact": 8,
+      "array_fields_exact_including_metadata": 120,
+      "JSON_files_exact_except_elapsed_s": 34,
+      "image_npy_exact": true
+    }
+  ],
+  "initial_failure": {
+    "failed": 1,
+    "passed": 2325,
+    "warnings": 30220,
+    "elapsed_s": 555.2,
+    "all_jobs_exited_before_revision": true,
+    "failure": "bispectrum dimension error priority"
+  },
+  "wheel_bytes": 5609775,
+  "limits": "Wall times are finite validation runs, not acquisition throughput or minimum PC measurements."
+}
