@@ -1,0 +1,134 @@
+{
+  "stage": 148,
+  "scope": "Read-only source/AST and previous completed records; no product functions executed",
+  "code": {
+    "apps/correlator/src/vsora_correlator/session.py": {
+      "sha256": "6faa279ed163710dae5bbdebf81743dee45637d841327e5ec69a723fb18127a6",
+      "functions": {
+        "load_session": {
+          "first_line": 18,
+          "last_line": 49,
+          "source_sha256": "1c654410e844f5fd9bc66fe10d0a49e66d5b1439b952cf9a4f4d6a7791467f9e"
+        }
+      }
+    },
+    "apps/correlator/src/vsora_correlator/input_identity.py": {
+      "sha256": "ee8dd77b84110a7b4d937f58ea91ce5aff250c55d29a8e824c314fa80b532d0a",
+      "functions": {
+        "input_paths": {
+          "first_line": 9,
+          "last_line": 13,
+          "source_sha256": "7f39789f55a5898f9bb3699ea9d7d20bdee44f6eea34b175824fcee5203c89a4"
+        },
+        "snapshot_paths": {
+          "first_line": 16,
+          "last_line": 18,
+          "source_sha256": "e493b4e35c577545c89bf70a3abfc5a2b5bda521916481e60f249b7db283353c"
+        },
+        "digest_file": {
+          "first_line": 21,
+          "last_line": 22,
+          "source_sha256": "a6fc45ccba39296238d82e9149a4b8a366e9ee0b6599b42295f17bc29f2d2f73"
+        },
+        "InputIdentity.__init__": {
+          "first_line": 35,
+          "last_line": 56,
+          "source_sha256": "2c0184cf7a587bb1cf7084fa32cd0674a9642e6d0f4931d80a25cd0c3a0f47ec"
+        },
+        "InputIdentity.assert_current": {
+          "first_line": 61,
+          "last_line": 78,
+          "source_sha256": "444b003ab8b4410c9711dbe9a7a823b0a0ca022efabeb45cc2cf4aa8b4adac32"
+        }
+      }
+    },
+    "packages/formats/src/vsora_formats/vdif.py": {
+      "sha256": "73ef8c8c3f7694763d85cffabe3fc31d8374b9a92a5f80c9256ba3d59c9caa1c",
+      "functions": {
+        "write_vdif": {
+          "first_line": 13,
+          "last_line": 48,
+          "source_sha256": "388212df51d9d24c0249c81af5658141f1b6ad29c09606c2064005f8384721ff"
+        },
+        "iter_vdif_frames": {
+          "first_line": 51,
+          "last_line": 90,
+          "source_sha256": "53dc23cf7e6a609c409d0e62ff266e503bf7347fb815909bffb0ab10bdae20c1"
+        }
+      }
+    },
+    "apps/correlator/src/vsora_correlator/aligned.py": {
+      "sha256": "2f2a8cb83bb99b64351076c7b1edbc97c2f51ec8b022e7dee16c8083c119bba5",
+      "functions": {
+        "validate_aligned_dimensions": {
+          "first_line": 24,
+          "last_line": 36,
+          "source_sha256": "94ebe5653f937fc008668eb6035712d34808c6606da573fd88ef084d8600b4f8"
+        },
+        "_validated_clock_stations": {
+          "first_line": 95,
+          "last_line": 116,
+          "source_sha256": "789f2126f173d9a80ddb3b58318b7d3aa1b7b4590c572e532a70159f46cb55b9"
+        },
+        "correlate_aligned": {
+          "first_line": 119,
+          "last_line": 261,
+          "source_sha256": "793570d8453f3afba11f9857974accb2db4d7dd5044371e77effb1e9bcdc1ace"
+        }
+      }
+    },
+    "apps/correlator/src/vsora_correlator/closure_pipeline.py": {
+      "sha256": "9bf6d6878d9cfe46ff3cabb0f23478de768a1edc7e3749b5d7580e30dcb1e385",
+      "functions": {
+        "process_closure_session": {
+          "first_line": 12,
+          "last_line": 129,
+          "source_sha256": "da38e8cc735d58483503681f21fdc6f7d368ed55ed7e7db5370357d90b08bc52"
+        }
+      }
+    },
+    "apps/correlator/src/vsora_correlator/sequence.py": {
+      "sha256": "7975bff1e78ff28a4a0d8a17ed9bcf232c46960bde6b5a57f42c306fa880fe9d",
+      "functions": {
+        "plan_windows": {
+          "first_line": 11,
+          "last_line": 41,
+          "source_sha256": "6786550d89a97c220ad221a9ffdaa8b4c2f4b91680bab2c2330348b65c73ec57"
+        },
+        "process_sequence": {
+          "first_line": 44,
+          "last_line": 116,
+          "source_sha256": "e1a34a024deda071737c4b9040d83c555c064c1cca2d273f8e449504fe19b79c"
+        }
+      }
+    }
+  },
+  "cited_files_sha256": {
+    "apps/recorder/README.md": "90fcbe72ffa20a04f4f83d4c1e0e8f4169ede21019a6601d4fad30da5a2ce294",
+    "docs/reports/131-independent-raw-matrix.md": "0a20f55ca73070893298929d61ce4a6ff9da89e4005c262dff2f75bcfe40f8f1",
+    "docs/reports/138-clock-input-contract.md": "9896e5843dd7a5142106ee9cdf43c56d3c91f59ac7c0118b0a2270779b62aa49",
+    "docs/reports/139-finite-operation-recovery.md": "2fb27a7dd5b4fc77161bf59cab811d1fdad41ea91c0986ecaa2c16c3e22bfb55",
+    "docs/reports/145-image-noise-applicability.md": "6d796f1ed9a7e0708f0fee3bb2699c883927d79b01a470db67cdd5557d4a2b01",
+    "docs/reports/146-clock-samplebuffer-operator.md": "8ec9ed56afff33310318494c337a4585335695a74266b6ceafa3984b9347e304",
+    "docs/reports/147-rate-fit-reuse.md": "1eab4d7e1f78eba8a72d019d36bcab6569b9806fb9ac0dfe8685de8e249c1300",
+    "interfaces/clock-model.md": "2984b2058ab141369786dcb5d244c7a2456f8ba236ca7fc835ef5cdeae312bf2",
+    "interfaces/image-noise-applicability.md": "1df7b58c317f012695921a83c02bd3ccc1563a8f0a899d664b791e35638b0beb",
+    "interfaces/linux-input-readiness.md": "c1c89c24255c1524b4779958abf9dfa58e64cece1d25beb13d34c8fc4996f6fc",
+    "interfaces/session-manifest.md": "1833a1db9c2a7de73bf325d8b49b24980efb50909d8d48b3f9dbecad6b9df53e",
+    "validation/runs/stage131/reference.json": "e9b93c6696e86df78c6bb92e2e7c634f5be96e50d749d5fb217c848c413b084d",
+    "validation/runs/stage131/verification.json": "48c7b98237f5b96edd10444b02e23b2c43ccc8c087ce586ebb7cdc69139ee11e",
+    "validation/runs/stage138/reference.json": "808971908f52fc1a5a21e797cf28686e3f6fbeaeacf16b31e182848ee8f1fe18",
+    "validation/runs/stage138/verification.json": "65b7e405fa097e0bbbbb1b3879c8cad7fd96b49bf20b1b8d47dfb178b49817bd",
+    "validation/runs/stage139/reference.json": "f1081ff7ce34c79a3a3d9b608e935f3bca423339fba3e00c17a6ecf03866effd",
+    "validation/runs/stage139/verification.json": "f0f01ad8162e9b5855374bc0cb8c779ebbf57149ca0059966a0bad542768c0c6",
+    "validation/runs/stage145/verification.json": "30f5fa4f5740a10fc5b002d783cac8d3cd0afc65ee05d224821735d9d6fce6b3",
+    "validation/runs/stage146/reference.json": "a26406a1567a0bd03fdc9df3a32066e6a90d98bcae81966b6b97c0a6929aa467",
+    "validation/runs/stage146/verification.json": "baaf149afc745493660e68addb62b0ca3203b57312d73d91c0a44ad5998d1f37",
+    "validation/runs/stage147/reference.json": "06f9683271f783ff50bd28f01c6ae5725e3d422146cd53dcbedad6589694720a",
+    "validation/runs/stage147/verification.json": "2bc5270684762e610c6ac770676694125359dc4935aff252641109586990f127",
+    "workflows/independent_raw_matrix.py": "b860a09acfe89ab9be476808fa51708e6fb0541cbeb417b263b8bd8506e9881c"
+  },
+  "identity_is_upper_pipeline_sequence_not_direct_aligned_feature": true,
+  "same_schema_or_preflight_reimplemented": false,
+  "new_physical_IQ_or_clock_validation": false
+}

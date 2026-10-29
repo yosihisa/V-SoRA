@@ -1,0 +1,48 @@
+{
+  "stage": 148,
+  "state": "complete",
+  "base_commit": "8032cd922d63f55310ef96f941558b24397efc68",
+  "scope": "documentation_input_provenance_and_readonly_availability_metadata",
+  "existing138_readiness_contract_reused": true,
+  "new_human_handoff_worksheet_not_parser": true,
+  "new_product_api_or_preflight": false,
+  "product_code_changed": false,
+  "code_files_reviewed": 6,
+  "code_function_spans_reviewed": 14,
+  "cited_files_sha_preserved_or_current_allowed_doc_hash": 23,
+  "frozen_code_config_assets_sha_preserved": 451,
+  "original131_raw_files_sha_preserved": 76,
+  "canonical_metadata_files_read": 44,
+  "new_hardware_capture_or_device_open": false,
+  "new_serial_hostname_or_tool_absolute_paths_exported": false,
+  "physical_device_absence_concluded": false,
+  "new_product_function_calls": 0,
+  "new_scientific_computations_or_trials": 0,
+  "new_unit_targeted_full_collect_wheel_install_browser_raw_correlation_fit": false,
+  "real_IQ_clock_SEFD_beam_RFI_measurements": false,
+  "user_capture_environment_or_real_input_location_requested": true,
+  "cited_full_stage": 138,
+  "cited_full": {
+    "source": {
+      "passed": 2321,
+      "warnings": 30220,
+      "elapsed_s": 542.82,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 2321,
+      "warnings": 30220,
+      "elapsed_s": 541.45,
+      "excluded_tests": 0
+    }
+  },
+  "cited_wheel_gui_stage": 138,
+  "cited_latest_targeted_stage": 147,
+  "public_audit_findings": 0,
+  "documentation_links": {
+    "checked": 1970,
+    "missing": 0
+  },
+  "outside_allowlist_tracked_sha_preserved": 1454,
+  "existing138_checklist_preserved_except_additive_links": true
+}

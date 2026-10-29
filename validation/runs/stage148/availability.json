@@ -1,0 +1,70 @@
+{
+  "stage": 148,
+  "state": "metadata_observation_complete_hardware_unverified",
+  "observations": [
+    {
+      "probe_mode": "normal",
+      "checked_utc": "2026-10-29T00:11:05.817877+00:00",
+      "scope": "Current Linux execution context metadata only; not a physical-host inventory",
+      "methods": [
+        "read /proc/sys/kernel/osrelease marker only",
+        "list /sys/bus/usb/devices vendor/product attributes if visible",
+        "count /dev/bus/usb/*/* character nodes if visible",
+        "shutil.which on fixed tool names without exporting paths"
+      ],
+      "wsl_kernel_marker_present": true,
+      "usb_sysfs_directory_visible": false,
+      "usb_device_id_pair_count": 0,
+      "usb_vendor_product_id_pairs": [],
+      "usb_character_nodes_visible": 0,
+      "path_tool_available": {
+        "lsusb": false,
+        "rtl_sdr": false,
+        "rtl_test": false,
+        "rtl_eeprom": false,
+        "rtl_tcp": false,
+        "usbip": false
+      },
+      "metadata_error_type": null,
+      "sdr_device_open_init_capture_or_reset": false,
+      "software_install_or_settings_change": false,
+      "physical_device_absence_inferred": false,
+      "serial_hostname_or_tool_absolute_paths_exported": false
+    },
+    {
+      "probe_mode": "reviewed_readonly",
+      "checked_utc": "2026-10-29T00:11:08.039301+00:00",
+      "scope": "Current Linux execution context metadata only; not a physical-host inventory",
+      "methods": [
+        "read /proc/sys/kernel/osrelease marker only",
+        "list /sys/bus/usb/devices vendor/product attributes if visible",
+        "count /dev/bus/usb/*/* character nodes if visible",
+        "shutil.which on fixed tool names without exporting paths"
+      ],
+      "wsl_kernel_marker_present": true,
+      "usb_sysfs_directory_visible": false,
+      "usb_device_id_pair_count": 0,
+      "usb_vendor_product_id_pairs": [],
+      "usb_character_nodes_visible": 0,
+      "path_tool_available": {
+        "lsusb": false,
+        "rtl_sdr": false,
+        "rtl_test": false,
+        "rtl_eeprom": false,
+        "rtl_tcp": false,
+        "usbip": false
+      },
+      "metadata_error_type": null,
+      "sdr_device_open_init_capture_or_reset": false,
+      "software_install_or_settings_change": false,
+      "physical_device_absence_inferred": false,
+      "serial_hostname_or_tool_absolute_paths_exported": false
+    }
+  ],
+  "same_visible_metadata_in_both_modes": true,
+  "physical_receiver_exists_or_absent_conclusion": null,
+  "capture_measurement_performed": false,
+  "windows_host_usb_or_hardware_access_verified": false,
+  "external_capture_environment_or_real_recording_location": "not established in this stage; requested from user",
+  "new_hardware_preflight_API_added": false
+}
