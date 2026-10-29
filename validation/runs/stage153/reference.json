@@ -1,0 +1,84 @@
+{
+  "stage": 153,
+  "summary": {
+    "stage": 153,
+    "state": "complete",
+    "cases": [
+      {
+        "label": "unclipped",
+        "scale_supplied_ADC": 1.0,
+        "clipped_fraction_min": 0.0,
+        "clipped_fraction_max": 0.0,
+        "maximum_FX_reference_difference": 3.4416913763379853e-15,
+        "mean_difference_norm_over_pre_mean_norm": 0.0025812356997411013,
+        "covariance_difference_norm_over_pre_covariance_norm": 0.013322897625511245,
+        "real_VDIF_files": 16
+      },
+      {
+        "label": "clipped",
+        "scale_supplied_ADC": 0.125,
+        "clipped_fraction_min": 0.9375,
+        "clipped_fraction_max": 1.0,
+        "maximum_FX_reference_difference": 4.440892098500626e-16,
+        "mean_difference_norm_over_pre_mean_norm": 0.6703941174612998,
+        "covariance_difference_norm_over_pre_covariance_norm": 0.9957538088417369,
+        "real_VDIF_files": 16
+      }
+    ],
+    "station_count": 2,
+    "finite_probes_shared_across_cases": 8,
+    "samples_per_station": 4096,
+    "FFT_length": 8,
+    "blocks_per_probe": 512,
+    "real_VDIF_files": 32,
+    "VDIF_bytes": 263168,
+    "MC_trials": 0,
+    "seed_MCSE_applicable": false,
+    "rtol": 1e-09,
+    "atol": 1e-10,
+    "covariance_definition": "finite eight-probe ReIm population covariance, denominator 8",
+    "physical_unit": "supplied uncalibrated ADC counts; legacy FX vis_jy key is ADC squared here",
+    "product_code_changed": false,
+    "limits": "Deterministic shared ensemble; actual codec and plain FX, no FIR/alignment/geometry/rate inference/selection/Closure/RML. No Gaussian/IID/physical coherence, correction factor, real receiver or image calibration."
+  },
+  "numeric_arrays_exact": 13,
+  "saved_scientific_and_VDIF_sidecar_files_exact": 65,
+  "cited_files_sha256": {
+    "docs/reports/004-vdif-fx.md": "25410fe07868c30beefcc66e849936e3f248bc68ee1e9f77e802356d313009df",
+    "docs/reports/006-casa-compatibility.md": "db024cd126387425d688c5061008442cc8e7478de1a5c8bc02a44ed57dbe0967",
+    "docs/reports/061-streaming-bispectrum-sums.md": "d6ca61cfef51afb0d9110e921b5a1e9a124b57a25c9b1b99698af84103fda373",
+    "docs/reports/152-aligned-forward-mean.md": "61e7587afb0ca05b71892d3637992a697e40cf02e8f64852da9de54fdf708e7d",
+    "packages/formats/src/vsora_formats/vdif.py": "73ef8c8c3f7694763d85cffabe3fc31d8374b9a92a5f80c9256ba3d59c9caa1c",
+    "packages/formats/tests/test_vdif.py": "3919d63aa4b69cfc2e4ff722d3c2f3efd3bd282dc0973780d83da6d00e9b3b9b",
+    "tests/integration/test_iq_vdif_fx.py": "585c8affd2ca0df4b047b4e7ab14ec7314f230ca51ac5f71bea78f61f37b2eef",
+    "apps/correlator/src/vsora_correlator/fx.py": "0ab4dcc13a02167055fd9fa6e8362b69c5ede7bae946d5a20ac60d2dead02048",
+    "apps/correlator/tests/test_fx.py": "08612dbfd7f16c911380bff07f88699b015d46c121a0bb848ce81ebff4f4d107"
+  },
+  "installed_Baseband_primary_source_spans": [
+    {
+      "name": "encode_8bit",
+      "start_line": 147,
+      "line_count": 12,
+      "source_sha256": "89be059ce8600e597b9a8912fc7f43a12f3b8dfae9c173aeb01ec7f6b0b8d170"
+    },
+    {
+      "name": "decode_8bit",
+      "start_line": 131,
+      "line_count": 14,
+      "source_sha256": "b4f23351759c351be5a969d946ffc3916a5935d1ea59ddd4e0cae5ab71ab288c"
+    },
+    {
+      "name": "PayloadBase.__setitem__",
+      "start_line": 322,
+      "line_count": 26,
+      "source_sha256": "2208968695c4c61310158e1e29a73c16ddf4eda1e8c761f9da6dc931c8cc6cf1"
+    },
+    {
+      "name": "VDIFFrameSet.__setitem__",
+      "start_line": 436,
+      "line_count": 41,
+      "source_sha256": "a711b476864c7062705989e8d1dda4f29cbc37ff09ff8564f194b2d34a7a97d3"
+    }
+  ],
+  "first_failure_and_postcheck_failure_preserved": true
+}

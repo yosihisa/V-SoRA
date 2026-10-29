@@ -1,0 +1,71 @@
+{
+  "stage": 153,
+  "state": "complete",
+  "base_commit": "e2fc82359328628e52c371d23cb57b79cc7848d0",
+  "product_code_changed": false,
+  "new_workflow_only": true,
+  "new_unit_tests": 0,
+  "targeted": {
+    "source": {
+      "passed": 9,
+      "warnings": 73,
+      "elapsed_s": 0.31,
+      "excluded": 0
+    },
+    "installed": {
+      "passed": 9,
+      "warnings": 73,
+      "elapsed_s": 0.31,
+      "excluded": 0
+    }
+  },
+  "initial_source_quantizer_failure_preserved": true,
+  "initial_target_passes_not_added_to_final_count": true,
+  "postcheck_stale_argument_failure_preserved_and_only_postcheck_repeated": true,
+  "all_scientific_summary_JSON_exact": true,
+  "numeric_arrays_exact": 13,
+  "VDIF_files_each": 32,
+  "VDIF_bytes_each": 263168,
+  "files_byte_exact_including_sidecars_and_summary": 65,
+  "module_count_each": 5,
+  "module_paths_and_bytes_verified": true,
+  "native_checkout_outside_runner_PYTHONPATH_absent": true,
+  "nonoverwrite_refusals": 2,
+  "frozen_files": 453,
+  "existing_frozen452_unchanged": true,
+  "package_wheel_source_installed_bytes_unchanged": 103,
+  "reference_assets_bytes_unchanged": 4,
+  "wheel_sha256": "c54348ec4b11b89bc70956c2f0d3ad77762b79093ca128834a4bebe053f2b2ec",
+  "raw131_SHA_preserved": 76,
+  "outside_allowlist_SHA_preserved": 1484,
+  "cited_files_SHA_preserved": 9,
+  "new_full_collect_wheel_install_browser_or_image_fit": false,
+  "cited_full_wheel_GUI_stage": 151,
+  "cited_full": {
+    "source": {
+      "passed": 2328,
+      "warnings": 30220,
+      "elapsed_s": 552.61,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 2328,
+      "warnings": 30220,
+      "elapsed_s": 551.31,
+      "excluded_tests": 0
+    }
+  },
+  "normal_GUI151_changed": false,
+  "MC_trials": 0,
+  "real_receiver_or_covariance_coverage_or_image_likelihood_calibrated": false,
+  "public_audit_findings": 0,
+  "documentation_links": {
+    "checked": 2077,
+    "missing": 0
+  },
+  "output_bytes_each": {
+    "source": 292200,
+    "installed": 292338
+  },
+  "initial_output_bytes": 8724
+}
