@@ -1,0 +1,88 @@
+{
+  "stage": 163,
+  "state": "complete",
+  "base_commit": "6cc5a0e413ac21e57034e4f54929e310fd6fce32",
+  "product_code_changed": false,
+  "new_workflow_only": true,
+  "new_unit_tests": 0,
+  "first_formal_attempt_passed": true,
+  "targeted": {
+    "source": {
+      "passed": 86,
+      "warnings": 1720,
+      "elapsed_s": 6.83,
+      "excluded": 0
+    },
+    "installed": {
+      "passed": 86,
+      "warnings": 1720,
+      "elapsed_s": 6.27,
+      "excluded": 0
+    }
+  },
+  "all_scientific_summary_JSON_exact": true,
+  "numeric_arrays_exact": 22,
+  "fixed_input_files_SHA_preserved": 4,
+  "training_fingerprints_verified": 512,
+  "actual_station_solver_replays_each": 512,
+  "station_candidates_before_chisq": 381,
+  "production_accepted_profiles": 354,
+  "chisq_rejected_candidates_not_profiles": 27,
+  "disconnected_null_trials": 131,
+  "original_successful_power_rows_verified": 708,
+  "new_baseline_rate_fits": 0,
+  "new_independent_trials": 0,
+  "default_gate_changed": false,
+  "all_512_trials_retained": true,
+  "full_rate_bias_gate_causal_separation_identified": false,
+  "module_count_each": 16,
+  "module_paths_and_bytes_verified": true,
+  "native_checkout_outside_runner_PYTHONPATH_absent": true,
+  "prior147_helper_requires_checkout": true,
+  "nonoverwrite_refusals": 2,
+  "frozen_files": 462,
+  "existing_frozen461_unchanged": true,
+  "package_wheel_source_installed_bytes_unchanged": 103,
+  "reference_assets_bytes_unchanged": 4,
+  "wheel_sha256": "c54348ec4b11b89bc70956c2f0d3ad77762b79093ca128834a4bebe053f2b2ec",
+  "raw131_SHA_preserved": 76,
+  "outside_allowlist_SHA_preserved": 1542,
+  "cited_files_SHA_preserved": 33,
+  "new_full_collect_wheel_install_browser": false,
+  "cited_full_wheel_GUI_stage": 151,
+  "cited_full": {
+    "source": {
+      "passed": 2328,
+      "warnings": 30220,
+      "elapsed_s": 552.61,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 2328,
+      "warnings": 30220,
+      "elapsed_s": 551.31,
+      "excluded_tests": 0
+    }
+  },
+  "normal_GUI151_changed": false,
+  "real_observation_or_noise_covariance_calibrated": false,
+  "runtime": {
+    "source": {
+      "wall_s": 0.3635691109811887,
+      "peak_process_rss_bytes": 86716416
+    },
+    "installed": {
+      "wall_s": 0.36315177200594917,
+      "peak_process_rss_bytes": 87355392
+    }
+  },
+  "output_bytes_each": {
+    "source": 334404,
+    "installed": 334863
+  },
+  "public_audit_findings": 0,
+  "documentation_links": {
+    "checked": 2219,
+    "missing": 0
+  }
+}
