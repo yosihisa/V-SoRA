@@ -1,0 +1,186 @@
+{
+  "stage": 160,
+  "method": "Existing report/validation citations plus static Git/AST/file hash review only; no scientific reruns",
+  "current_code": {
+    "apps/imaging/src/vsora_imaging/rml.py": {
+      "sha256": "0fce7c0e9f9c99d50c3997439b9d940ebc2aa99117fe90c9fe71661a4d00b46d",
+      "functions": [
+        {
+          "function": "ClosureObjective.__init__",
+          "start_line": 27,
+          "end_line": 64,
+          "span_sha256": "77647a49107c21166b02af0249156d0baab70573eed2abbb975601fedc544a68"
+        },
+        {
+          "function": "ClosureObjective._image_value_gradient",
+          "start_line": 90,
+          "end_line": 133,
+          "span_sha256": "9f501ef3a28f26bc1ca8d1bde72bcbfd1b65b4263fb7d1a7d8ff24ad6e1b5674"
+        }
+      ]
+    },
+    "apps/correlator/src/vsora_correlator/sequence.py": {
+      "sha256": "4a6c7103fcfebe7600eaa475b3c9ca1ddd77e2af0f8547ecb3c564b2114960c5",
+      "functions": [
+        {
+          "function": "process_sequence",
+          "start_line": 58,
+          "end_line": 131,
+          "span_sha256": "7cbd71aeed5e3239064996aab51f363b3d846e5022c6faa1973c2a2467f4a4ae"
+        }
+      ]
+    },
+    "apps/correlator/src/vsora_correlator/aligned.py": {
+      "sha256": "2f2a8cb83bb99b64351076c7b1edbc97c2f51ec8b022e7dee16c8083c119bba5",
+      "functions": [
+        {
+          "function": "correlate_aligned",
+          "start_line": 119,
+          "end_line": 261,
+          "span_sha256": "793570d8453f3afba11f9857974accb2db4d7dd5044371e77effb1e9bcdc1ace"
+        }
+      ]
+    },
+    "apps/imaging/src/vsora_imaging/objective_evaluation.py": {
+      "sha256": "d351bc90c86f82e4a7288020751ed6d2404452bd5f75b15205d116e21a889fd7",
+      "functions": [
+        {
+          "function": "evaluate_closure_image",
+          "start_line": 12,
+          "end_line": 43,
+          "span_sha256": "bda0e5fcef88245e3ad669950b8794b384be0a0b3b3290668da3aed8afb378df"
+        }
+      ]
+    }
+  },
+  "cited_files_sha256": {
+    "docs/reports/108-goal-review-and-cadence.md": "81618c18c7e00e10019cba616c2e457cae4b9cef687be1f115e3ccd755387804",
+    "docs/reports/131-independent-raw-matrix.md": "0a20f55ca73070893298929d61ce4a6ff9da89e4005c262dff2f75bcfe40f8f1",
+    "docs/reports/133-short-integration-images.md": "73342efc3ceedb0ff155583331b1bbf42360e15e60f2271ce04674697fe53a2e",
+    "docs/reports/134-image-statistics-contract.md": "b67ac97d251d40346354f689b0ae6f91408a4d66f6eb574718bb788029f34fd0",
+    "docs/reports/138-clock-input-contract.md": "9896e5843dd7a5142106ee9cdf43c56d3c91f59ac7c0118b0a2270779b62aa49",
+    "docs/reports/139-finite-operation-recovery.md": "2fb27a7dd5b4fc77161bf59cab811d1fdad41ea91c0986ecaa2c16c3e22bfb55",
+    "docs/reports/145-image-noise-applicability.md": "6d796f1ed9a7e0708f0fee3bb2699c883927d79b01a470db67cdd5557d4a2b01",
+    "docs/reports/148-real-input-evidence.md": "39958b3cb1f482b77472c1343a213b1b71cc4dfaca80973b31175d9682c5dff3",
+    "docs/reports/149-finite-capacity-limits.md": "940459a03cc38ce150996953ce57324c8718310b94926ef1a140d8db80b4ff7e",
+    "docs/reports/150-fundamental-goal-review.md": "7e24e1cfafb689362c5ad5de52b297055ebfcbb1c33bfb39dfa7110b66a82166",
+    "docs/reports/151-sequence-capacity-guard.md": "1ad3d2a6dc21e76160316783a43dbf9d3af98cc3173aec44e083488514446611",
+    "docs/reports/152-aligned-forward-mean.md": "61e7587afb0ca05b71892d3637992a697e40cf02e8f64852da9de54fdf708e7d",
+    "docs/reports/153-quantized-finite-ensemble.md": "eaa8b5b7d33dc6a51e47a5ef4d712f996283a249a0df1f394af9782ba20fd477",
+    "docs/reports/154-archived-rate-gate.md": "2daf1e9d50dac0862f5f9db7fb170f5e88d031b2439d14ca40764910a0be5613",
+    "docs/reports/155-image-covariance-gradient.md": "709d1d4d52dc842d6dc01a269dc1d72577abe770a35c19f2997b795599c839bd",
+    "docs/reports/156-saved-closure-jacobian.md": "f21242efe216eb73669d35771eedbd12f0fea7c47a78e5265c817f3b74ce2ef5",
+    "docs/reports/157-smoothed-null-subspace.md": "a79542bde548a9905d59246c42f0aee7a6e853a087634058457bbae406683efb",
+    "docs/reports/158-positive-null-candidates.md": "754a758c28376646238aff06edded5116ad575354ab45162fb8af768dbe6a639",
+    "docs/reports/159-point-channel-forward.md": "025016e60d727dd1535140ca2a2997a71487e3f4c2b86a5e7105c0eab9c665f1",
+    "interfaces/image-statistics-contract.md": "1bd106fd426996dec96e0662ff29b3b7770feda1687e9ec7109824ec84cc8f6d",
+    "interfaces/image-noise-applicability.md": "1df7b58c317f012695921a83c02bd3ccc1563a8f0a899d664b791e35638b0beb",
+    "interfaces/linux-input-readiness.md": "c1c89c24255c1524b4779958abf9dfa58e64cece1d25beb13d34c8fc4996f6fc",
+    "validation/runs/stage131/verification.json": "48c7b98237f5b96edd10444b02e23b2c43ccc8c087ce586ebb7cdc69139ee11e",
+    "validation/runs/stage133/verification.json": "7165aa624701ef6895e9d510ac940412fc69ef24d896129ad6634794cea89ab8",
+    "validation/runs/stage139/verification.json": "f0f01ad8162e9b5855374bc0cb8c779ebbf57149ca0059966a0bad542768c0c6",
+    "validation/runs/stage148/verification.json": "d44540d1fd62545e78f35f2f6b67b4e3d2fbc1e34db67f77e77242bb24dea78e",
+    "validation/runs/stage149/verification.json": "919f2f857cda92fb180938c3ecdea639fafefa61b149e563713cd0364da3eb4c",
+    "validation/runs/stage150/verification.json": "833d242fba73721014a5e68942c782262da891f8606b52edfe4f13b58cf91de1",
+    "validation/runs/stage151/verification.json": "94182a486375539e9231d688ddb1ac73ed572947f1b2f872ad4f54ff5149d47c",
+    "validation/runs/stage152/verification.json": "847581a50e59ae89cf841b2f858fae50c1afd6a6d94b7fe1adbc6fdd88e85eb3",
+    "validation/runs/stage153/verification.json": "9b89e58f6d8c18396233507ea91b7ff0141234568496a6e0e190573aca5f3044",
+    "validation/runs/stage154/verification.json": "e509651f59b04ba3194db937ae42712feb7c9ec13c2a2f70207a608d40a203f4",
+    "validation/runs/stage155/verification.json": "107225deff9dd69ae7fd3c767999f92a5a897abc75d2978afc63d551d4ae792b",
+    "validation/runs/stage156/verification.json": "ab3f7a62f1f8d4a2e6ddbcd428d6e1fa6e2118fa3d68d7dbb14d6334ed63c825",
+    "validation/runs/stage157/verification.json": "ac2b0685fcebfb343a232cb1eb755fc774794ad9e5a44eee5fc6002aa147dcd3",
+    "validation/runs/stage158/verification.json": "4ecaa1d212e9d2aefea57725aff402c6a6b9ad57c242aa77e60dc83c8b61913b",
+    "validation/runs/stage159/verification.json": "93bd662d92d3462361962693768a8f70e2a1aef1dcd659c85d13e6740f3caf0d",
+    "validation/runs/stage131/reference.json": "e9b93c6696e86df78c6bb92e2e7c634f5be96e50d749d5fb217c848c413b084d",
+    "validation/runs/stage133/reference.json": "74215707fa1b6db66627439cdb9467c8e93e77d443e00746f56df1d9476557d7"
+  },
+  "claims": [
+    {
+      "stages": [
+        151
+      ],
+      "kind": "product_guard_and_full_distribution_GUI_validation",
+      "finding": "既存128MiB式を共用し37/64窓を高コスト処理前に拒否。36窓126MiBは容量条件のみ。初回fullの優先順不備を保持し訂正後両2328/新wheel/実GUIを確認。",
+      "does_not_establish": "36窓全系列完走、自動resume、全夜性能、画像品質"
+    },
+    {
+      "stages": [
+        152,
+        153
+      ],
+      "kind": "separate_finite_mean_and_quantization_references",
+      "finding": "152は共有幾何/decoded readerの実整列平均。153は別の固定8電圧集合を実codec/plain FXへ照合。",
+      "does_not_establish": "両者を組み合わせた主経路全平均/共分散、実8局4ms/画像尤度"
+    },
+    {
+      "stages": [
+        154
+      ],
+      "kind": "archived_candidate_gate_description",
+      "finding": "147の保存基線rateとpowerを固定し採用maskだけを集計、新ratefit/独立試行0。",
+      "does_not_establish": "局推定全体の純粋な偏りやgate因果効果の識別"
+    },
+    {
+      "stages": [
+        155
+      ],
+      "kind": "given_receiver_conditional_image_covariance_model",
+      "finding": "既知G/receiverの画像依存Cの勾配・別密度と数値非一意性を照合。",
+      "does_not_establish": "未知局量、低SNR Closure尤度、productionモデルの採用"
+    },
+    {
+      "stages": [
+        156,
+        157,
+        158
+      ],
+      "kind": "local_mapping_comparison_blur_and_finite_positive_witnesses",
+      "finding": "固定priorの局所J、基底不変blur norm、保存方向の有限非負候補を順に照合。156直接FD未達/Richardson改訂を保持。158は有限非線形応答。",
+      "does_not_establish": "真Fisher/posterior/実beam、有限幅の厳密対称性、許容振幅confidence、復元改善"
+    },
+    {
+      "stages": [
+        159
+      ],
+      "kind": "fixed_point_and_tone_in_real_aligned_API_with_mocked_geometry_reader",
+      "finding": "固定合成UVW/delay/decoded readerの6tone条件。有限DFT漏れ先とtone周波数の空間位相を区別、実API平均へ照合。",
+      "does_not_establish": "実Astropy/EOP/codec、広帯域天空の周波数積分、131画像失敗の単一原因、実受信成功"
+    }
+  ],
+  "cited_full_stage": 151,
+  "cited_full": {
+    "source": {
+      "passed": 2328,
+      "warnings": 30220,
+      "elapsed_s": 552.61,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 2328,
+      "warnings": 30220,
+      "elapsed_s": 551.31,
+      "excluded_tests": 0
+    }
+  },
+  "cited_wheel_GUI_stage": 151,
+  "cited_latest_pytest_stage": 159,
+  "cited_latest_pytest": {
+    "source": {
+      "passed": 11,
+      "warnings": 0,
+      "elapsed_s": 1.13,
+      "excluded": 0
+    },
+    "installed": {
+      "passed": 11,
+      "warnings": 0,
+      "elapsed_s": 0.71,
+      "excluded": 0
+    }
+  },
+  "cited_latest_small_API_calls_each": 6,
+  "source_installed_repeats_are_not_independent_trials": true,
+  "fundamental_review_performed_in160": false,
+  "last_fundamental_review_stage": 150,
+  "real_device_or_real_capture_newly_verified": false
+}

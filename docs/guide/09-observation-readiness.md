@@ -1,6 +1,6 @@
 # いま使える処理と、実観測へ進むための確認
 
-2026-10-29、段階150で技術基準149（`3cb8e57`）へそろえた案内です。目標はRTL-SDR/OCXO、1.42GHz、最大基線約600m、数百ms〜数秒の短積分でCas Aの形を求めることです。精密な局gain較正が難しいためClosure＋RMLを主経路にします。Windows収録は装置に合わせて後で開発します。
+2026-10-29、段階160で技術基準159（`ed067c8`）へそろえた案内です。目標はRTL-SDR/OCXO、1.42GHz、最大基線約600m、数百ms〜数秒の短積分でCas Aの形を求めることです。精密な局gain較正が難しいためClosure＋RMLを主経路にします。Windows収録は装置に合わせて後で開発します。
 
 ## 何が動き、何をまだ確かめていないか
 
@@ -9,10 +9,10 @@
 | IQ・VDIF・相関・FITS-IDI | 限定profile、分割CPU処理、供給時計、138の型検査、原本追跡 | 実I/Q/単位、sample0/UTC、sample rate、欠損・設定変更の実測 |
 | 局別周波数差 | sky形状を渡さないpilot、一定/線形rate補正、132の12相関 | 弱い実信号、実OCXO変動、誤採用/残留位相、同pilot推定依存 |
 | Closure＋RML | 高SNR近似、同種共有基線の共分散、相対画像と固定対照 | 低SNR画像尤度、独立予測、画像不確かさ、実Cas A |
-| 日本語GUI | 模擬/VDIF/区間列、同梱参照6種類、121画像三判定、137/138保存診断 | 125〜133の全画像比較を新GUIへ接続した状態ではない |
-| 雑音・時間診断 | 135〜147の保存診断、固定/周期小operator、時変query、同pilot/選別の有限参照 | 実FIR/量子化後の依存、未知局量、低SNR尤度、実coherence/coverage |
+| 日本語GUI | 模擬/VDIF/区間列、同梱参照6種類、121画像三判定、151の新wheel/保存診断 | 125〜133の全画像比較を新GUIへ接続した状態ではない |
+| 雑音・時間診断 | 135〜159の個別限定参照、固定/周期小operator、時変query、同pilot/選別の有限参照 | 実FIR/量子化後の依存、未知局量、低SNR尤度、実coherence/coverage |
 | 三次統計U₃ | 共通電力raw v2、無次元比、条件付き区間検定とGUI | 未知gain/SEFD/LOと低SNR画像化との接続 |
-| 区間列・有限運用 | 139のpartial/別出力再処理、149の固定容量と行列guardの組合せ | 計画だけで全系列を保証しない。早期一括判定、自動再開、全夜速度/GPUは未実装/未検証 |
+| 区間列・有限運用 | 139のpartial/別出力再処理、151の共有容量guardによる早期拒否 | 36窓完走、総合preflight、自動再開、全夜速度/GPUは未確認 |
 
 実受信機からのCas A画像化は未検証です。模擬電圧を本物のVDIF形式へ保存した試験と、装置が受信した電圧の確認を分けます。供給時計・仮定SEFDを実測値へ読み替えません。
 
@@ -50,12 +50,20 @@
 
 148で現在のLinuxからUSB/取得ツールの可視性を確認できませんでしたが、物理装置の不存在やWindows側の不可を意味しません。実記録/取得環境を一度照会済みです。[引渡し票](real-input-handoff-template.md)には実測/推定/供給/未測定、根拠法、不確かさ、有効区間を記入します。
 
-149の固定profileでは8時間/8局VDIFが計算上947,404,800,000byteです。さらに8局/8チャネル/32画素では、37窓の行列129.5MiBが128MiB上限で拒否されます。計画は37窓を受理するため、全窓の完走は保証しません。36窓126MiBはこの上限内という計算だけで、必要RAM/速度や全夜成功ではありません。[有限容量と制限](finite-capacity-and-limits.md)を参照してください。
+149の固定profileでは8時間/8局VDIFが計算上947,404,800,000byteです。さらに8局/8チャネル/32画素では、37窓の行列129.5MiBが128MiB上限で拒否されます。149当時の計画は37窓を受理しました。151で公開plan/processの容量guardを共用し、37/64窓を高コスト処理前に拒否します。全窓の完走を保証するものではありません。36窓126MiBはこの上限内という計算だけで、必要RAM/速度や全夜成功ではありません。[有限容量と制限](finite-capacity-and-limits.md)を参照してください。
+
+## 151〜159の追加をどこまで使えるか
+
+151は37/64窓を原本hash/worker/partial前に拒否する製品修正です。初回全回帰で既存の寸法拒否を隠した不備を見つけ、元の非上書き/寸法優先順を戻して再検証しました。36窓完走・自動resume・画像品質の保証ではありません。
+
+152の共有幾何/decoded reader平均、153の別固定集合codec、154の保存候補gateは別々の参照で、全主経路の統合成功ではありません。155は供給receiverの画像依存C、156は固定priorの局所Jacobian、157は比較blurの作用素norm、158は有限非負候補の非線形応答です。一次beam/真Fisher/posterior/許容振幅confidence/復元改善へ変換しません。
+
+159は固定合成幾何とdecoded readerの6tone条件です。漏れたtoneの空間位相はtoneの周波数に従い、漏れ先channel中心の位相と同一にはなりません。実Astropy/codec、広帯域天空の周波数積分や実noiseモデルは未校正です。各段階の初回失敗・訂正と未実施は[時系列](../reports/overviews/development-history.md)と個別reportに残しています。
 
 ## 引用した検証基準と次の確認
 
-最新全回帰は[138正式記録](../../validation/runs/stage138/verification.json)の両2321成功542.82/541.45秒・各30220警告/除外0。wheel103 file+4asset、両実GUI28worker/56downloadも138の引用です。表は折り返しで、横scroll検証ではありません。最新pytest対象回帰は147の両101成功、149は両3計画/1既存RML拒否の小API照合です。150は文書・静的監査のみで、製品関数/MC/新pytest/全回帰/collect/wheel/install/browser/相関/画像fitを実行していません。
+最新全回帰は[151正式記録](../../validation/runs/stage151/verification.json)の両2328成功552.61/551.31秒・各30220警告/除外0です。wheel103file+4assets、両実GUI各28worker/56download/672行も151の引用。表は折り返しで横scroll検証ではありません。最新pytest対象/APIは[159](../../validation/runs/stage159/verification.json)の両11成功1.13/.71秒・警告0/除外0、各6条件/38配列/6NPZ60フィールドです。158のfit試験1除外は過去記録のまま保持します。
 
-[150の根本レビュー](../reports/150-fundamental-goal-review.md)で、151候補を早期容量判定、152〜154を実前方平均・量子化・推定/採否の最小差へ改めました。155の候補モデルを独立に照合できる条件が揃う場合だけ、156の固定原本画像比較へ進みます。実入力の新回答があれば最優先、同等の参照やtruth係数調整は増やしません。[151〜156の受入条件](../design/development-roadmap.md)は未選択の計画です。
+160は文書と静的監査だけで、新製品関数/科学数値/MC/unit/pytest/full/collect/wheel/install/browser/raw/相関/fitを実行していません。150の専用根本レビューを引き継ぎ、[161〜165の未選択候補](../design/development-roadmap.md)を現在計画へ同期しました。有限帯域平均から必要な接続だけを選び、モデル条件が成立するまでは新尤度/RML/画像再fit/GUIを保留します。実入力新回答最優先、148照会は繰り返しません。
 
-次の文書整理は160、予定の専用根本レビューは200。前提が崩れれば前倒しします。段階数・試験数は完成率ではありません。継続期限2026-11-06 15:00（Asia/Tokyo）、追加reset禁止を維持します。[時系列](../reports/overviews/development-history.md)、[必要要素と進捗](../reports/overviews/goal-and-progress.md)、[操作](06-gui.md)、[索引](../reports/README.md)へ接続します。
+次の文書整理170、予定の専用根本レビュー200、前提が崩れれば前倒し。段階数/試験数は完成率ではありません。継続期限2026-11-06 15:00（Asia/Tokyo）、追加reset禁止を維持します。[時系列](../reports/overviews/development-history.md)、[要素別進捗](../reports/overviews/goal-and-progress.md)、[操作](06-gui.md)、[索引](../reports/README.md)を参照してください。

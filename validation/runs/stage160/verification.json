@@ -1,0 +1,85 @@
+{
+  "stage": 160,
+  "state": "complete",
+  "scope": "documentation_checkpoint_only",
+  "technical_baseline_stage": 159,
+  "technical_baseline_commit": "ed067c8390b72f70a685f441c06a125ff5da1df7",
+  "current_documents_synchronized": 8,
+  "chronology_first_additions_verified": 160,
+  "chronology_public_author_and_committer_verified": 160,
+  "index_rows": 161,
+  "history_rows": 160,
+  "old_individual_reports_sha_preserved": 160,
+  "frozen_code_config_assets_sha_preserved": 459,
+  "outside_allowlist_tracked_sha_preserved": 1518,
+  "original131_raw_files_sha_preserved": 76,
+  "current_code_files_static_reviewed": 4,
+  "function_spans_static_reviewed": 5,
+  "cited_files_sha_preserved": 39,
+  "fundamental_review_performed_in160": false,
+  "last_fundamental_review_stage": 150,
+  "next_unselected_candidates": [
+    161,
+    162,
+    163,
+    164,
+    165
+  ],
+  "next_documentation_checkpoint": 170,
+  "next_scheduled_fundamental_review": 200,
+  "real_input_answer_prioritized": true,
+  "product_code_changed": false,
+  "new_product_function_calls": 0,
+  "new_scientific_calculations_MC_raw_correlation_closure_fit": false,
+  "new_unit_targeted_full_collect_wheel_install_browser": false,
+  "new_device_open_capture_install_reset_or_reconfiguration": false,
+  "new_vdif_header_or_payload_decode": false,
+  "physical_device_absence_concluded": false,
+  "real_input_or_low_SNR_image_likelihood_or_full_night_GPU_validated": false,
+  "new_GUI_stopped_or_updated": false,
+  "cited_full_stage": 151,
+  "cited_full": {
+    "source": {
+      "passed": 2328,
+      "warnings": 30220,
+      "elapsed_s": 552.61,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 2328,
+      "warnings": 30220,
+      "elapsed_s": 551.31,
+      "excluded_tests": 0
+    }
+  },
+  "cited_wheel_and_GUI_stage": 151,
+  "cited_latest_pytest_stage": 159,
+  "cited_latest_pytest": {
+    "source": {
+      "passed": 11,
+      "warnings": 0,
+      "elapsed_s": 1.13,
+      "excluded": 0
+    },
+    "installed": {
+      "passed": 11,
+      "warnings": 0,
+      "elapsed_s": 0.71,
+      "excluded": 0
+    }
+  },
+  "cited_latest_API_calls_each": 6,
+  "budget": {
+    "scientific_MC_trials": 0,
+    "seed_or_MCSE_applicable": false,
+    "static_worker_limit_s": 120,
+    "formal_static_elapsed_s": 2.8360599289881065,
+    "public_record_limit_bytes": 524288,
+    "ignored_new_record_limit_bytes": 4194304
+  },
+  "public_audit_findings": 0,
+  "documentation_links": {
+    "checked": 2182,
+    "missing": 0
+  }
+}

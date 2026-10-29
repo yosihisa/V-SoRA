@@ -1,0 +1,59 @@
+{
+  "stage": 160,
+  "scope": "current_plan_update_at_documentation_checkpoint",
+  "fundamental_review_performed_in160": false,
+  "last_fundamental_review_stage": 150,
+  "candidate_stages_unselected": true,
+  "candidate_count": 5,
+  "next_candidates": [
+    {
+      "candidate_stage": 161,
+      "title": "有限帯域の前方平均",
+      "prerequisite": "159の固定幾何/tone参照。049/142/146/152等との重複を先に確認。",
+      "purpose": "チャネル中心の点Fourierと、入力周波数の重み付き応答和の未接続差を確認する。",
+      "acceptance": "固定した少数の独立modeと供給PSD/点形状で、独立周波数和と実処理平均を照合。有限channel/単位/正規化を明示し、中心周波数近似の差は記述に留める。",
+      "budget": "候補上限3局/raw512/FFT8x16、worker120秒、追加64MiB、公開512KiB。MCなしを第一候補。",
+      "stop_or_revise": "既存参照と同等なら実行しない。広帯域PSDや処理の原点が定まらなければ目的を改訂し、画像fitへ進まない。"
+    },
+    {
+      "candidate_stage": 162,
+      "title": "量子化後の平均への接続",
+      "prerequisite": "161等で線形平均と入力単位が定まる場合だけ。004/006/014/153を先にreview。",
+      "purpose": "別々に確認したcodecと整列平均の間に残る差を一点だけ接続する。",
+      "acceptance": "同じ事前固定有限電圧の量子化前/decoded後を区別し、実codec・FIR/補間/FXの実行範囲と独立参照を明示。clip/scale/失敗を全件保持。",
+      "budget": "worker120秒、追加64MiB、公開512KiB。4096sample/frame等のprofileを選択前固定。",
+      "stop_or_revise": "同等の既存試験があれば重複しない。有限集合の一致をGaussian共分散/実機補正率/画像尤度へ変換しない。"
+    },
+    {
+      "candidate_stage": 163,
+      "title": "推定と採用の識別可能な対照",
+      "prerequisite": "040/042/098/101/107/143/144/147/154をreviewし、新しい識別可能な差がある場合だけ。",
+      "purpose": "同pilotの推定依存と採用群の混在を、主経路へ適用する前に限定する。",
+      "acceptance": "学習/評価への情報経路、事前固定支持と観測gateを区別し、graph不整合/失敗/null/採否indexを全保存。識別できない効果は未識別と判定。",
+      "budget": "候補上限3局/64cell/1channel/512組、worker120秒、追加64MiB、公開512KiB。seed/MCSEは選択前固定。",
+      "stop_or_revise": "147/154の再集計だけなら追加しない。truthで探索/係数/実効M/weightを合わせず、採用群の差を無条件偏り除去としない。"
+    },
+    {
+      "candidate_stage": 164,
+      "title": "具体的な確率モデルの独立照合",
+      "prerequisite": "八条件と前段の入力/平均/依存/未知局量/採否が具体化した場合だけ。現時点では保留。",
+      "purpose": "新しい画像尤度を採用する前に、何の密度かを定義して照合する。",
+      "acceptance": "固定小入力の独立objective/勾配/正規化/不正値拒否を照合。既存100/155や044/047を単純加算せず、観測支持とモデル依存を明示。",
+      "budget": "検証参照はworker120秒/追加64MiB/公開512KiB。製品変更は両full各900秒・両GUI各900秒・段階3600秒を初期上限として正式改訂。",
+      "stop_or_revise": "モデル未定なら実装しない。不足条件の反復文書だけを新段階にせず、未解決の入力/計算へ戻る。"
+    },
+    {
+      "candidate_stage": 165,
+      "title": "固定入力での画像比較",
+      "prerequisite": "164相当のモデル接続が成立した場合だけ。現時点では保留。",
+      "purpose": "主画像経路への寄与を、処理完了/収束/適合/独立予測/形状に分けて評価する。",
+      "acceptance": "原本・prior・格子・係数・失敗条件を実行前固定し、全run/不足を残す。未知真値をfitterへ渡さず、同raw/共有pilotと独立rawを区別。",
+      "budget": "対象少数・各worker900秒/保存64MiB/公開512KiBを初期候補とし期限と残量に合わせ正式固定。",
+      "stop_or_revise": "条件未成立なら再fitしない。truthに係数を合わせず、外部RML追加反復/新GUIを自動で増やさない。"
+    }
+  ],
+  "real_input_new_answer_has_priority": true,
+  "next_documentation_checkpoint": 170,
+  "next_scheduled_fundamental_review": 200,
+  "no_stage_number_filling": true
+}
