@@ -1,0 +1,89 @@
+{
+  "stage": 158,
+  "state": "complete",
+  "base_commit": "6963b78732ee12615568af3bdb5dd76bc3128638",
+  "product_code_changed": false,
+  "new_workflow_only": true,
+  "new_unit_tests": 0,
+  "first_formal_attempt_passed": true,
+  "targeted": {
+    "source": {
+      "passed": 25,
+      "warnings": 0,
+      "elapsed_s": 1.41,
+      "excluded": 1
+    },
+    "installed": {
+      "passed": 25,
+      "warnings": 0,
+      "elapsed_s": 0.94,
+      "excluded": 1
+    }
+  },
+  "all_scientific_summary_JSON_exact": true,
+  "numeric_arrays_exact": 48,
+  "fixed_input_files_SHA_preserved": 7,
+  "active_input_cases": 2,
+  "nonzero_candidates": 12,
+  "baseline_candidates": 2,
+  "weak_case_inherited_null": true,
+  "new_SVD_or_differentiation": false,
+  "translation_optimization_calls": 0,
+  "all_14_candidate_API_evaluations_succeeded": true,
+  "blocked_modelzero_or_branch_candidates": 0,
+  "phase_branch_crossings": 0,
+  "excluded_fit_test": "test_fitted_image_cost_excludes_parameter_gauge_penalty",
+  "MC_trials": 0,
+  "image_optimizer_calls": 0,
+  "module_count_each": 9,
+  "module_paths_and_bytes_verified": true,
+  "native_checkout_outside_runner_PYTHONPATH_absent": true,
+  "nonoverwrite_refusals": 2,
+  "frozen_files": 458,
+  "existing_frozen457_unchanged": true,
+  "package_wheel_source_installed_bytes_unchanged": 103,
+  "reference_assets_bytes_unchanged": 4,
+  "wheel_sha256": "c54348ec4b11b89bc70956c2f0d3ad77762b79093ca128834a4bebe053f2b2ec",
+  "raw131_SHA_preserved": 76,
+  "outside_allowlist_SHA_preserved": 1512,
+  "cited_files_SHA_preserved": 16,
+  "new_full_collect_wheel_install_browser_raw_correlation_or_image_fit": false,
+  "cited_full_wheel_GUI_stage": 151,
+  "cited_full": {
+    "source": {
+      "passed": 2328,
+      "warnings": 30220,
+      "elapsed_s": 552.61,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 2328,
+      "warnings": 30220,
+      "elapsed_s": 551.31,
+      "excluded_tests": 0
+    }
+  },
+  "normal_GUI151_changed": false,
+  "real_primary_beam_or_image_confidence_calibrated": false,
+  "runtime": {
+    "source": {
+      "wall_s": 0.12150071398355067,
+      "peak_process_rss_bytes": 126177280
+    },
+    "installed": {
+      "wall_s": 0.1169411430018954,
+      "peak_process_rss_bytes": 126836736
+    }
+  },
+  "output_bytes_each": {
+    "source": 163897,
+    "installed": 164143
+  },
+  "public_audit_findings": 0,
+  "documentation_links": {
+    "checked": 2138,
+    "missing": 0
+  },
+  "ignored_postprocessor_old_field_KeyError_preserved": true,
+  "scientific_rerun_for_postprocessor": false
+}

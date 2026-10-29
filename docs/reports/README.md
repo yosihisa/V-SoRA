@@ -173,6 +173,7 @@
 | 155 | [画像依存共分散の勾配と非一意性](155-image-covariance-gradient.md) | 供給受信機の条件付き参照。全64勾配・独立密度と30配列一致、両157対象。異なる画像で同じCを構成。RML/新尤度採用なし |
 | 156 | [保存Closureの局所Jacobianとrank](156-saved-closure-jacobian.md) | 133の3入力・固定prior、新fit0。Richardson差分へ手順改訂、初回/第二停止保持。両36対象・50配列一致、弱条件null保持。真のFisherではない |
 | 157 | [比較平滑化と局所near-null部分空間](157-smoothed-null-subspace.md) | 既定110arcsec全支持作用素と基底不変normを照合。両59対象・16配列一致。一次beam/画像confidenceではなく新fit0 |
+| 158 | [局所方向から構成した有限非負候補](158-positive-null-candidates.md) | 保存157方向・事前固定3振幅×正負12候補と基準2点を独立Closure/既存APIへ照合。両25対象・48配列一致、fit試験1除外。有限非線形応答を記録し振幅confidenceとはしない |
 
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。
 
