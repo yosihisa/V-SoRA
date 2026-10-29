@@ -1,0 +1,73 @@
+{
+  "stage": 152,
+  "state": "complete",
+  "base_commit": "3255b8112f71d5b490dc7ae94df4ff59a1f918ab",
+  "product_code_changed": false,
+  "new_workflow_only": true,
+  "first_formal_attempt_passed": true,
+  "new_unit_tests": 0,
+  "targeted": {
+    "source": {
+      "passed": 42,
+      "warnings": 154,
+      "elapsed_s": 2.99,
+      "excluded": 0
+    },
+    "installed": {
+      "passed": 42,
+      "warnings": 154,
+      "elapsed_s": 2.3,
+      "excluded": 0
+    }
+  },
+  "API_calls_each": 12,
+  "conditions": 2,
+  "signed_mode_probes_each_condition": 6,
+  "MC_trials": 0,
+  "seed_MCSE_applicable": false,
+  "all_scientific_summary_JSON_exact": true,
+  "numeric_arrays_exact": 19,
+  "saved_NPZ_files_each": 12,
+  "saved_NPZ_fields_exact_including_metadata": 180,
+  "module_count_each": 21,
+  "module_paths_and_bytes_verified": true,
+  "native_checkout_outside_runner_PYTHONPATH_absent": true,
+  "nonoverwrite_refusals": 2,
+  "frozen_files": 452,
+  "existing_frozen451_unchanged": true,
+  "package_wheel_source_installed_bytes_unchanged": 103,
+  "reference_assets_bytes_unchanged": 4,
+  "wheel_sha256": "c54348ec4b11b89bc70956c2f0d3ad77762b79093ca128834a4bebe053f2b2ec",
+  "raw131_SHA_preserved": 76,
+  "outside_allowlist_SHA_preserved": 1479,
+  "cited_files_SHA_preserved": 15,
+  "new_full_collect_wheel_install_browser_or_image_fit": false,
+  "cited_full_wheel_GUI_stage": 151,
+  "cited_full": {
+    "source": {
+      "passed": 2328,
+      "warnings": 30220,
+      "elapsed_s": 552.61,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 2328,
+      "warnings": 30220,
+      "elapsed_s": 551.31,
+      "excluded_tests": 0
+    }
+  },
+  "real_geometry_accuracy_or_codec_quantization_inference_selection_covariance_or_image_likelihood_validated": false,
+  "normal_GUI151_changed": false,
+  "public_audit_findings": 0,
+  "documentation_links": {
+    "checked": 2062,
+    "missing": 0
+  },
+  "runtime_dependency_versions_unchanged": true,
+  "geometry_delay_range_s_calculated_not_measured": [
+    0.0,
+    2.2635348799749354e-16,
+    1.6240285517484052e-15
+  ]
+}

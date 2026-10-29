@@ -167,6 +167,7 @@
 | 149 | [固定VDIF容量と系列計画・RML制限](149-finite-capacity-limits.md) | 4区間の整数容量・32VDIF stat/76SHA保持。両環境で36/37/64窓計画と37窓RML早期拒否を照合。32画素では36窓126MiB/37窓129.5MiB、全系列・全夜性能は未検証 |
 | 150 | [文書整理と最終目標への専用根本レビュー](150-fundamental-goal-review.md) | 技術基準149、八条件と実入力/容量制限を再評価。151〜156の優先順位・受入・保留を更新。150初回Git/JST/公開名義、過去150report/code/raw不変。新数値/製品試験なし |
 | 151 | [系列RML容量の早期検査](151-sequence-capacity-guard.md) | 共通private式で37/64窓をhash/worker/partial前に拒否。旧bispectrum/非上書き優先を保持。新7/両43対象・全2328、wheel/全byte/API/CLI/両28実GUI。初回全回帰1失敗は終了後修正し保存 |
+| 152 | [実整列APIと幾何RF/rate位相の有限平均](152-aligned-forward-mean.md) | 合成decoded readerの12実API/環境、3mode正負の決定論的平均。全ch/局power/保存平均が独立係数と一致。両42対象・19配列/12NPZ180フィールド一致、codec/実機/雑音尤度は未校正 |
 
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。
 
