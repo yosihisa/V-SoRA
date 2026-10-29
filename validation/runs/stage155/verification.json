@@ -1,0 +1,94 @@
+{
+  "stage": 155,
+  "state": "complete",
+  "base_commit": "81a19ce8d818b95a62869d769ff0fbd028597cb6",
+  "product_code_changed": false,
+  "new_workflow_only": true,
+  "new_unit_tests": 0,
+  "first_formal_attempt_passed": true,
+  "targeted": {
+    "source": {
+      "passed": 157,
+      "warnings": 0,
+      "elapsed_s": 1.49,
+      "excluded": 0
+    },
+    "installed": {
+      "passed": 157,
+      "warnings": 0,
+      "elapsed_s": 1.04,
+      "excluded": 0
+    }
+  },
+  "all_scientific_summary_JSON_exact": true,
+  "numeric_arrays_exact": 30,
+  "fixed_q_states": 3,
+  "full_image_gradient_components_each": 64,
+  "finite_difference_steps_each": 2,
+  "MC_trials": 0,
+  "image_optimizer_calls": 0,
+  "existing_API_refusals_each": 4,
+  "nonuniqueness": {
+    "forward_shape": [
+      25,
+      64
+    ],
+    "numerical_rank": 25,
+    "relative_singular_tolerance": 1e-10,
+    "null_dimension_at_least_from_rows": 39,
+    "image_L2_difference": 0.009149317906916993,
+    "maximum_covariance_difference": 3.249962378125255e-12,
+    "normalized_nll_difference": 0.0,
+    "positive_unit_sum_both": true
+  },
+  "module_count_each": 9,
+  "module_paths_and_bytes_verified": true,
+  "native_checkout_outside_runner_PYTHONPATH_absent": true,
+  "nonoverwrite_refusals": 2,
+  "frozen_files": 455,
+  "existing_frozen454_unchanged": true,
+  "package_wheel_source_installed_bytes_unchanged": 103,
+  "reference_assets_bytes_unchanged": 4,
+  "wheel_sha256": "c54348ec4b11b89bc70956c2f0d3ad77762b79093ca128834a4bebe053f2b2ec",
+  "raw131_SHA_preserved": 76,
+  "outside_allowlist_SHA_preserved": 1494,
+  "cited_files_SHA_preserved": 37,
+  "new_full_collect_wheel_install_browser_raw_correlation_or_image_fit": false,
+  "cited_full_wheel_GUI_stage": 151,
+  "cited_full": {
+    "source": {
+      "passed": 2328,
+      "warnings": 30220,
+      "elapsed_s": 552.61,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 2328,
+      "warnings": 30220,
+      "elapsed_s": 551.31,
+      "excluded_tests": 0
+    }
+  },
+  "normal_GUI151_changed": false,
+  "new_production_likelihood_adopted": false,
+  "unknown_receiver_or_real_hardware_or_low_SNR_closure_likelihood_validated": false,
+  "runtime": {
+    "source": {
+      "wall_s": 0.5190458750003017,
+      "peak_process_rss_bytes": 87228416
+    },
+    "installed": {
+      "wall_s": 0.46511720202397555,
+      "peak_process_rss_bytes": 87687168
+    }
+  },
+  "output_bytes_each": {
+    "source": 22320,
+    "installed": 22562
+  },
+  "public_audit_findings": 0,
+  "documentation_links": {
+    "checked": 2101,
+    "missing": 0
+  }
+}

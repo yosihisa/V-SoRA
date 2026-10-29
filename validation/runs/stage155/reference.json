@@ -1,0 +1,171 @@
+{
+  "stage": 155,
+  "summary": {
+    "stage": 155,
+    "state": "complete",
+    "states": [
+      {
+        "label": "uniform",
+        "normalized_raw_voltage_nll": 1505.313853028063,
+        "real_density_value": 1505.3138530280628,
+        "absolute_objective_difference": 2.2737367544323206e-13,
+        "gradient_inf_norm": 0.001600825148660216,
+        "missing_logdet_gradient_inf_norm": 0.0026328821859424867,
+        "finite_difference_checks": [
+          {
+            "step": 0.0001,
+            "maximum_absolute_difference": 3.3136330868880487e-09,
+            "difference_norm": 7.989715700794488e-09
+          },
+          {
+            "step": 3e-05,
+            "maximum_absolute_difference": 7.936635883221133e-09,
+            "difference_norm": 2.4454749101596102e-08
+          }
+        ]
+      },
+      {
+        "label": "asymmetric",
+        "normalized_raw_voltage_nll": 1505.318977500348,
+        "real_density_value": 1505.3189775003475,
+        "absolute_objective_difference": 4.547473508864641e-13,
+        "gradient_inf_norm": 0.006815655838367224,
+        "missing_logdet_gradient_inf_norm": 0.01512563869484276,
+        "finite_difference_checks": [
+          {
+            "step": 0.0001,
+            "maximum_absolute_difference": 2.233081562979383e-09,
+            "difference_norm": 7.112835350326909e-09
+          },
+          {
+            "step": 3e-05,
+            "maximum_absolute_difference": 8.99585230265676e-09,
+            "difference_norm": 2.497732108140888e-08
+          }
+        ]
+      },
+      {
+        "label": "reference_moment",
+        "normalized_raw_voltage_nll": 1505.3133235982882,
+        "real_density_value": 1505.3133235982882,
+        "absolute_objective_difference": 0.0,
+        "gradient_inf_norm": 2.2496980144649244e-18,
+        "missing_logdet_gradient_inf_norm": 0.004770057167668333,
+        "finite_difference_checks": [
+          {
+            "step": 0.0001,
+            "maximum_absolute_difference": 2.273736755739062e-09,
+            "difference_norm": 6.530811615702811e-09
+          },
+          {
+            "step": 3e-05,
+            "maximum_absolute_difference": 7.579122514012622e-09,
+            "difference_norm": 2.0407411916740613e-08
+          }
+        ]
+      }
+    ],
+    "model": "C_t(q)=G[A_t diag(1000 Jy q) A_t^H+diag([2000,3000,4000] Jy)]G^H; supplied gain/flux/receiver, scalar beam, iid proper complex Gaussian model; no selection",
+    "pixels": 8,
+    "stations": 3,
+    "cells": 4,
+    "deterministic_probes_per_cell": 12,
+    "MC_trials": 0,
+    "seed_MCSE_applicable": false,
+    "image_optimizer_calls": 0,
+    "finite_probes_are_Gaussian_samples": false,
+    "nonuniqueness": {
+      "forward_shape": [
+        25,
+        64
+      ],
+      "numerical_rank": 25,
+      "relative_singular_tolerance": 1e-10,
+      "null_dimension_at_least_from_rows": 39,
+      "image_L2_difference": 0.009149317906916993,
+      "maximum_covariance_difference": 3.249962378125255e-12,
+      "normalized_nll_difference": 0.0,
+      "positive_unit_sum_both": true
+    },
+    "existing_API_refusals": [
+      "singular_covariance",
+      "negative_receiver",
+      "boolean_modes",
+      "indefinite_second_moment"
+    ],
+    "new_production_likelihood_or_RML": false,
+    "unknown_receiver_or_real_observation_or_low_SNR_closure_model_validated": false,
+    "scope": "Conditional supplied-receiver image-covariance calculation and gradient; independent real raw-voltage density and finite differences. Constructive nonuniqueness even with supplied receivers. No adopted production model, image fit, filter/quantization/rate inference/gating or actual Cas A confidence."
+  },
+  "cited_files_sha256": {
+    "interfaces/image-statistics-contract.md": "1bd106fd426996dec96e0662ff29b3b7770feda1687e9ec7109824ec84cc8f6d",
+    "interfaces/image-noise-applicability.md": "1df7b58c317f012695921a83c02bd3ccc1563a8f0a899d664b791e35638b0beb",
+    "apps/imaging/src/vsora_imaging/rml.py": "0fce7c0e9f9c99d50c3997439b9d940ebc2aa99117fe90c9fe71661a4d00b46d",
+    "apps/imaging/src/vsora_imaging/synthesis.py": "a01e2a42f956a549bafeb6ccb16c6d934525cfc9058e951aea1c2e481eda4969",
+    "apps/imaging/tests/test_rml.py": "dd7a4c1bcee2220b06bafa22f4f242274abda2b2d9e79d2f4f1d46d4023997fd",
+    "workflows/image_objective_validation.py": "89d5f495f3173a4ed110e42d87a03753d93c41e9195742db12bca24b4f1fa344",
+    "workflows/matched_grid_image_validation.py": "2713ce237c85b878e92e7c3c9b29d4d6614f85a56896d3f9dcf75125a180fe16",
+    "apps/simulator/src/vsora_simulator/sky_covariance.py": "56cfc72b0c24bfe200f16b393c9ad8804193c2192898a972007d7e49bf6a0454",
+    "apps/simulator/tests/test_sky_covariance.py": "8b15ab7edb360f248bd21947420b96803410d2f928232cf2d84a35cd5fde8137",
+    "apps/simulator/src/vsora_simulator/visibility.py": "57ea050dfdad4549ca929fcf9928c0c1637eb2bb3a77cb54682a0d3b99abedc4",
+    "apps/correlator/src/vsora_correlator/gaussian_likelihood.py": "7266a84b1f631dddfc2779723114a4be27a11e93d2f9c84b46c301632f0f2227",
+    "apps/correlator/src/vsora_correlator/gaussian_phase_profile.py": "3d9c6ed1e458890d65950024c53de8413edbf419c3cadf2e68e8fc7f8b99898f",
+    "apps/correlator/tests/test_gaussian_likelihood.py": "b15d1911494a9a73cd9985f12de1123cba1b79d5133eb91a0d44316a15332b82",
+    "apps/correlator/tests/test_gaussian_phase_profile.py": "58839bfdbe5986711e2fca4d4d3916eee272e862122ed6a3ced06eec7d67e283",
+    "packages/observation/src/vsora_observation/geometry.py": "1c47c3fdee985363f06e8740f474a7d727460635a4866224a9bf458903f6cf70",
+    "docs/reports/130-documentation-checkpoint.md": "b116e539c4b2615278bef6eaaf71f990a35176c5f81f7d3f7ecb9b8a59038331",
+    "docs/reports/128-regularizer-image-controls.md": "f70332882dcca19a23cbe1bd13ee12cf41b8937d7c3767bbfade4869ffbcdbce",
+    "docs/reports/145-image-noise-applicability.md": "6d796f1ed9a7e0708f0fee3bb2699c883927d79b01a470db67cdd5557d4a2b01",
+    "docs/reports/047-observation-noise-diagnostic.md": "ff6d998880b5bbdb3c6fbf92d7bbe578594a769223ec2e2eba46d161f691cfa8",
+    "docs/reports/127-matched-grid-image-control.md": "c0347c54d854853af49503d58b7d98142516da0de1ff8c9774054797e6d6f5e6",
+    "docs/reports/049-filtered-fft-noise.md": "26ee44b9e0fa0bdea576b3406f341ebd32bba1286d651d6940eb07a0515e872d",
+    "docs/reports/152-aligned-forward-mean.md": "61e7587afb0ca05b71892d3637992a697e40cf02e8f64852da9de54fdf708e7d",
+    "docs/reports/132-unknown-lo-short-integrations.md": "f8e90c17782d3db08585c1f7976e24f862cdbe9d170c2a5a396a0f44836fa99c",
+    "docs/reports/042-rate-covariance-validation.md": "1239308f74c48dfe65bdede932db8624fdc77e2ceabdabe755b2c2f3c80f399d",
+    "docs/reports/131-independent-raw-matrix.md": "0a20f55ca73070893298929d61ce4a6ff9da89e4005c262dff2f75bcfe40f8f1",
+    "docs/reports/125-closure-residual-diagnostics.md": "62ff420b5ae5e8d1df7267bc95f5b08a115f4cf44eea24eac72faaaedd9aa8d0",
+    "docs/reports/133-short-integration-images.md": "73342efc3ceedb0ff155583331b1bbf42360e15e60f2271ce04674697fe53a2e",
+    "docs/reports/129-main-path-regularizer-transfer.md": "d9f3b89c42536ce951ce1f83356d2c37b2ba9a7e741ae31a11b51dbfcf67b479",
+    "docs/reports/126-temporal-image-validation.md": "eee69460979b24d5c7c71c9da6481f3c0e4e8b8e79ec150061955f84d35aae0b",
+    "docs/reports/051-pilot-time-scatter.md": "bb9fdcdbe4075feead2ed26342c36705e5efa499ca453219b3dbfbe28f67f3dc",
+    "docs/reports/044-joint-closure-noise.md": "505d28e05fea6b8b2c1b757db40e23667fdb114627e8557f627a391b880b565d",
+    "docs/reports/046-sample-noise-estimator.md": "c74afd5b76e56ff2ea755e188fad23fb6c49798be33d7717719d7ef8a151c1ce",
+    "docs/reports/151-sequence-capacity-guard.md": "1ad3d2a6dc21e76160316783a43dbf9d3af98cc3173aec44e083488514446611",
+    "docs/reports/153-quantized-finite-ensemble.md": "eaa8b5b7d33dc6a51e47a5ef4d712f996283a249a0df1f394af9782ba20fd477",
+    "docs/reports/150-fundamental-goal-review.md": "7e24e1cfafb689362c5ad5de52b297055ebfcbb1c33bfb39dfa7110b66a82166",
+    "docs/reports/100-known-covariance-gaussian.md": "314aaefe584bf624faffe913263acd5ab7d22cbc9a91fe59d7ef21e2988ea32e",
+    "docs/reports/154-archived-rate-gate.md": "2daf1e9d50dac0862f5f9db7fb170f5e88d031b2439d14ca40764910a0be5613"
+  },
+  "primary_function_spans": [
+    {
+      "file": "apps/simulator/src/vsora_simulator/sky_covariance.py",
+      "function": "sky_station_covariance",
+      "start_line": 6,
+      "end_line": 50,
+      "span_sha256": "fa7a486e41593865320c860cf8c5ea4edc15098ea2896d589153f5ecdd5f93f9"
+    },
+    {
+      "file": "apps/correlator/src/vsora_correlator/gaussian_likelihood.py",
+      "function": "sample_second_moment",
+      "start_line": 99,
+      "end_line": 124,
+      "span_sha256": "37c0bb77a2b53bea790536035b4c15f35ee3281b0fd6fb3dda2f2ea814bc46e5"
+    },
+    {
+      "file": "apps/correlator/src/vsora_correlator/gaussian_likelihood.py",
+      "function": "gaussian_nll",
+      "start_line": 127,
+      "end_line": 142,
+      "span_sha256": "ef1459ed4edd5878063b55fc98f855bdf3e91764195ebc2d309846e28ca82af8"
+    },
+    {
+      "file": "apps/simulator/src/vsora_simulator/visibility.py",
+      "function": "direct_visibility",
+      "start_line": 6,
+      "end_line": 17,
+      "span_sha256": "5e2f6478f21346e97f03ea51de49a602864dc880ec4affbd5fdaa7a62d8e7406"
+    }
+  ],
+  "arrays_sha256": "c8a4bd38ac9f77a12531d7e9580a181bc780ae5d68a5fb0024f234356e2e5f96",
+  "new_production_noise_model_adopted": false
+}
