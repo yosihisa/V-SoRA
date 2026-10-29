@@ -1,0 +1,237 @@
+{
+  "stage": 156,
+  "summary": {
+    "stage": 156,
+    "state": "complete",
+    "cases": [
+      {
+        "case": "high_a_t0.3",
+        "input_shape": [
+          1,
+          8,
+          28
+        ],
+        "pixels": 32,
+        "pixel_arcsec": 16.0,
+        "min_snr": 10.0,
+        "reference": "unchanged_constructor_prior_fwhm240",
+        "regularization_included_in_local_matrix": false,
+        "closure_count": 83,
+        "closure_counts": {
+          "phase": 43,
+          "logamp": 40
+        },
+        "minimum_model_visibility": 1.6056826191916737e-05,
+        "phase_residual_branch_margin": 0.0025201903729459296,
+        "state": "verified_local_jacobian",
+        "jacobian_shape": [
+          83,
+          1024
+        ],
+        "unit_sum_image_tangent_dimension": 1023,
+        "numerical_ranks": {
+          "1e-06": 57,
+          "1e-08": 69,
+          "1e-10": 82
+        },
+        "rank_thresholds_relative": [
+          1e-06,
+          1e-08,
+          1e-10
+        ],
+        "tangent_null_dimension_at_main_threshold": 941,
+        "data_loss": 1299.6430756359293,
+        "independent_data_loss": 1299.643075635929,
+        "data_gradient_relative_difference": 3.3803345634212965e-16,
+        "finite_difference_checks": [
+          {
+            "step": 1e-07,
+            "maximum_absolute_difference": 0.8994328077678801,
+            "relative_norm_difference": 1.1642105311388671e-05,
+            "within_original_component_tolerance": false
+          },
+          {
+            "step": 3e-08,
+            "maximum_absolute_difference": 0.08094728969444986,
+            "relative_norm_difference": 1.0477894926007945e-06,
+            "within_original_component_tolerance": false
+          }
+        ],
+        "formal_derivative_reference": "Richardson extrapolation of the same fixed two centered differences",
+        "Richardson_maximum_absolute_difference": 1.839434844441712e-06,
+        "Richardson_relative_norm_difference": 2.3382154351404846e-11,
+        "fine_over_coarse_error_norm_ratio": 0.09000000125199126,
+        "local_null_relative_Jd": 2.2963476887377857e-17,
+        "null_direction_sum": -2.220446049250313e-16,
+        "finite_null_pair_image_L2_difference": 2.0873561949048063e-06,
+        "finite_null_pair_whitened_prediction_difference_norm": 1.2707688685784566e-11,
+        "finite_null_pair_is_exact_nonlinear_symmetry_claimed": false,
+        "input_sha256": "1e984fd92f0bc2190be217a6bc5b6c9ad29f38a358ab6381ac63b4f4516dac41"
+      },
+      {
+        "case": "high_a_t3",
+        "input_shape": [
+          1,
+          8,
+          28
+        ],
+        "pixels": 32,
+        "pixel_arcsec": 16.0,
+        "min_snr": 10.0,
+        "reference": "unchanged_constructor_prior_fwhm240",
+        "regularization_included_in_local_matrix": false,
+        "closure_count": 119,
+        "closure_counts": {
+          "phase": 61,
+          "logamp": 58
+        },
+        "minimum_model_visibility": 1.6028802051319192e-05,
+        "phase_residual_branch_margin": 0.05812899403344973,
+        "state": "verified_local_jacobian",
+        "jacobian_shape": [
+          119,
+          1024
+        ],
+        "unit_sum_image_tangent_dimension": 1023,
+        "numerical_ranks": {
+          "1e-06": 76,
+          "1e-08": 92,
+          "1e-10": 114
+        },
+        "rank_thresholds_relative": [
+          1e-06,
+          1e-08,
+          1e-10
+        ],
+        "tangent_null_dimension_at_main_threshold": 909,
+        "data_loss": 10345.426397136453,
+        "independent_data_loss": 10345.426397136454,
+        "data_gradient_relative_difference": 2.9124620797860703e-16,
+        "finite_difference_checks": [
+          {
+            "step": 1e-07,
+            "maximum_absolute_difference": 2.3133948631002568,
+            "relative_norm_difference": 1.1579206918898298e-05,
+            "within_original_component_tolerance": false
+          },
+          {
+            "step": 3e-08,
+            "maximum_absolute_difference": 0.20820339187048376,
+            "relative_norm_difference": 1.0421286377540865e-06,
+            "within_original_component_tolerance": false
+          }
+        ],
+        "formal_derivative_reference": "Richardson extrapolation of the same fixed two centered differences",
+        "Richardson_maximum_absolute_difference": 4.781031748279929e-06,
+        "Richardson_relative_norm_difference": 2.3350508765829985e-11,
+        "fine_over_coarse_error_norm_ratio": 0.09000000130002338,
+        "local_null_relative_Jd": 3.390940873968928e-17,
+        "null_direction_sum": -1.887379141862766e-15,
+        "finite_null_pair_image_L2_difference": 2.9646119678386946e-06,
+        "finite_null_pair_whitened_prediction_difference_norm": 1.867536146347802e-12,
+        "finite_null_pair_is_exact_nonlinear_symmetry_claimed": false,
+        "input_sha256": "71a64b746013cf58e8f8db28097e7b03f9bde3123e3588883f593d81a6e47440"
+      },
+      {
+        "case": "weak_a_t0.3",
+        "input_shape": [
+          1,
+          8,
+          28
+        ],
+        "pixels": 32,
+        "pixel_arcsec": 16.0,
+        "min_snr": 10.0,
+        "reference": "unchanged_constructor_prior_fwhm240",
+        "regularization_included_in_local_matrix": false,
+        "state": "no_high_snr_closures",
+        "closure_count": 0,
+        "jacobian_shape": null,
+        "numerical_ranks": null,
+        "data_loss": null,
+        "input_sha256": "0815f706b3b389a6bbc2e56e25d3034df8dddd2a94161b42d09dd61a41520a7f"
+      }
+    ],
+    "image_optimizer_calls": 0,
+    "MC_trials": 0,
+    "seed_MCSE_applicable": false,
+    "product_code_changed": false,
+    "new_raw_correlation_or_truth_image_read": false,
+    "whitening": "L^-1 J P / sqrt(independent closure row count); fixed observed within-type/cell covariance",
+    "unit_sum_tangent_parameterization": "P=I-11^T/1024; intensity Euclidean metric, not softmax metric",
+    "true_Fisher_or_posterior_or_image_confidence_computed": false,
+    "scope": "Same saved133 observed support and constructor prior. Local forward Jacobian/rank only; fixed high-SNR covariance, shared basis. No production likelihood adoption, refit, causal exposure comparison, real hardware or physical gauge identification."
+  },
+  "cited_files_sha256": {
+    "apps/imaging/src/vsora_imaging/rml.py": "0fce7c0e9f9c99d50c3997439b9d940ebc2aa99117fe90c9fe71661a4d00b46d",
+    "apps/imaging/src/vsora_imaging/closure.py": "670550a3aacd3e2ed0c1710219fdd5f3d61ec0fea741046b77dee238f0b40b3b",
+    "apps/imaging/src/vsora_imaging/objective_evaluation.py": "d351bc90c86f82e4a7288020751ed6d2404452bd5f75b15205d116e21a889fd7",
+    "apps/imaging/tests/test_rml.py": "dd7a4c1bcee2220b06bafa22f4f242274abda2b2d9e79d2f4f1d46d4023997fd",
+    "apps/imaging/tests/test_closure.py": "acd45402eb3158172c4bf6049809b7a9b5980f2572418526a958352a1866a0ba",
+    "apps/imaging/tests/test_objective_evaluation.py": "f96264f6fb96f8181b9febe2f32a5e265db3f77308f450a45b65cf6c6e3b3889",
+    "workflows/image_objective_validation.py": "89d5f495f3173a4ed110e42d87a03753d93c41e9195742db12bca24b4f1fa344",
+    "workflows/matched_grid_image_validation.py": "2713ce237c85b878e92e7c3c9b29d4d6614f85a56896d3f9dcf75125a180fe16",
+    "workflows/regularizer_image_validation.py": "d5096148a98249fd44409b68995c6457018bd466b6d7be1cd580a0e7dc46b651",
+    "workflows/main_path_regularizer_validation.py": "52aa63a4da684a9c1955d49ea7e8490e2cf06abdb2410249ee92442d0dcfd5f3",
+    "interfaces/image-noise-applicability.md": "1df7b58c317f012695921a83c02bd3ccc1563a8f0a899d664b791e35638b0beb",
+    "docs/reports/128-regularizer-image-controls.md": "f70332882dcca19a23cbe1bd13ee12cf41b8937d7c3767bbfade4869ffbcdbce",
+    "docs/reports/145-image-noise-applicability.md": "6d796f1ed9a7e0708f0fee3bb2699c883927d79b01a470db67cdd5557d4a2b01",
+    "docs/reports/127-matched-grid-image-control.md": "c0347c54d854853af49503d58b7d98142516da0de1ff8c9774054797e6d6f5e6",
+    "docs/reports/021-closure-rml-reference.md": "c74febf0e9d8995e97c5f6d2732b1c67f23728ea4e572bbd4756dff6ef373b68",
+    "docs/reports/020-closure-short-integration.md": "d6385722c23e3933e9ed351873e4f29cbcae48a358184774fdeb2a5f73660f28",
+    "docs/reports/132-unknown-lo-short-integrations.md": "f8e90c17782d3db08585c1f7976e24f862cdbe9d170c2a5a396a0f44836fa99c",
+    "docs/reports/155-image-covariance-gradient.md": "709d1d4d52dc842d6dc01a269dc1d72577abe770a35c19f2997b795599c839bd",
+    "docs/reports/131-independent-raw-matrix.md": "0a20f55ca73070893298929d61ce4a6ff9da89e4005c262dff2f75bcfe40f8f1",
+    "docs/reports/125-closure-residual-diagnostics.md": "62ff420b5ae5e8d1df7267bc95f5b08a115f4cf44eea24eac72faaaedd9aa8d0",
+    "docs/reports/133-short-integration-images.md": "73342efc3ceedb0ff155583331b1bbf42360e15e60f2271ce04674697fe53a2e",
+    "docs/reports/129-main-path-regularizer-transfer.md": "d9f3b89c42536ce951ce1f83356d2c37b2ba9a7e741ae31a11b51dbfcf67b479",
+    "docs/reports/126-temporal-image-validation.md": "eee69460979b24d5c7c71c9da6481f3c0e4e8b8e79ec150061955f84d35aae0b",
+    "docs/reports/151-sequence-capacity-guard.md": "1ad3d2a6dc21e76160316783a43dbf9d3af98cc3173aec44e083488514446611",
+    "docs/reports/150-fundamental-goal-review.md": "7e24e1cfafb689362c5ad5de52b297055ebfcbb1c33bfb39dfa7110b66a82166"
+  },
+  "fixed_inputs_sha256": {
+    "high_a_t0.3/fitter.npz": "1e984fd92f0bc2190be217a6bc5b6c9ad29f38a358ab6381ac63b4f4516dac41",
+    "high_a_t3/fitter.npz": "71a64b746013cf58e8f8db28097e7b03f9bde3123e3588883f593d81a6e47440",
+    "weak_a_t0.3/fitter.npz": "0815f706b3b389a6bbc2e56e25d3034df8dddd2a94161b42d09dd61a41520a7f"
+  },
+  "public_evidence_arrays_sha256": "260f0c620a5f0d981cce2cd44a2acb4020de03ddd054241171909801a4fefb31",
+  "public_evidence_arrays": 42,
+  "full_numeric_arrays_in_private_study": 50,
+  "diagnostic_only_not_formal_count": {
+    "diagnostic_only_not_formal_pass": true,
+    "minimum_model_visibility": 1.6056826191916737e-05,
+    "max_FD_fractional_perturbation_at_step1e-7": 0.006256709072158483,
+    "records": [
+      {
+        "step": 1e-07,
+        "maxabs": 0.8994328077678801,
+        "rel_norm": 1.1642105311388671e-05,
+        "mismatches": 58
+      },
+      {
+        "step": 3e-08,
+        "maxabs": 0.08094728969444986,
+        "rel_norm": 1.0477894926007945e-06,
+        "mismatches": 6
+      },
+      {
+        "step": 1e-08,
+        "maxabs": 0.00899416058382485,
+        "rel_norm": 1.1642104218153298e-07,
+        "mismatches": 1
+      },
+      {
+        "step": 3e-09,
+        "maxabs": 0.0008095509110717103,
+        "rel_norm": 1.0477934094222845e-08,
+        "mismatches": 0
+      },
+      {
+        "kind": "original_two_step_Richardson",
+        "maxabs": 1.839434844441712e-06,
+        "rel_norm": 2.3382154351404846e-11,
+        "mismatches": 0
+      }
+    ]
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "stage": 156,
+  "state": "complete",
+  "base_commit": "87a984b28f8d8e7ed2b6312847add293254a22c0",
+  "product_code_changed": false,
+  "new_workflow_only": true,
+  "new_unit_tests": 0,
+  "targeted": {
+    "source": {
+      "passed": 36,
+      "warnings": 0,
+      "elapsed_s": 1.23,
+      "excluded": 0
+    },
+    "installed": {
+      "passed": 36,
+      "warnings": 0,
+      "elapsed_s": 1.07,
+      "excluded": 0
+    }
+  },
+  "initial_Cholesky_flag_identity_failure_preserved": true,
+  "second_fixed_step_FD_truncation_failure_preserved": true,
+  "initial_and_second_target_passes_not_added": true,
+  "formal_derivative_reference_revised_before_restart": true,
+  "same_two_steps_and_tolerances_preserved_for_Richardson": true,
+  "all_scientific_summary_JSON_exact": true,
+  "numeric_arrays_exact": 50,
+  "public_evidence_arrays": 42,
+  "fixed_inputs_SHA_preserved": 3,
+  "verified_local_jacobian_cases": 2,
+  "no_high_snr_closure_cases_retained": 1,
+  "MC_trials": 0,
+  "image_optimizer_calls": 0,
+  "module_count_each": 8,
+  "module_paths_and_bytes_verified": true,
+  "native_checkout_outside_runner_PYTHONPATH_absent": true,
+  "nonoverwrite_refusals": 2,
+  "frozen_files": 456,
+  "existing_frozen455_unchanged": true,
+  "package_wheel_source_installed_bytes_unchanged": 103,
+  "reference_assets_bytes_unchanged": 4,
+  "wheel_sha256": "c54348ec4b11b89bc70956c2f0d3ad77762b79093ca128834a4bebe053f2b2ec",
+  "raw131_SHA_preserved": 76,
+  "outside_allowlist_SHA_preserved": 1500,
+  "cited_files_SHA_preserved": 25,
+  "new_full_collect_wheel_install_browser_raw_correlation_or_image_fit": false,
+  "cited_full_wheel_GUI_stage": 151,
+  "cited_full": {
+    "source": {
+      "passed": 2328,
+      "warnings": 30220,
+      "elapsed_s": 552.61,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 2328,
+      "warnings": 30220,
+      "elapsed_s": 551.31,
+      "excluded_tests": 0
+    }
+  },
+  "normal_GUI151_changed": false,
+  "real_Fisher_posterior_or_image_confidence_calibrated": false,
+  "runtime": {
+    "source": {
+      "wall_s": 0.8796178579796106,
+      "peak_process_rss_bytes": 155942912
+    },
+    "installed": {
+      "wall_s": 0.855024652031716,
+      "peak_process_rss_bytes": 156663808
+    }
+  },
+  "output_bytes_each": {
+    "source": 6446278,
+    "installed": 6446493
+  },
+  "public_audit_findings": 0,
+  "documentation_links": {
+    "checked": 2113,
+    "missing": 0
+  }
+}
