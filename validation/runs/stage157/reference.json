@@ -1,0 +1,170 @@
+{
+  "stage": 157,
+  "summary": {
+    "stage": 157,
+    "state": "complete",
+    "operator_controls": {
+      "sigma_pixels": 2.9195436884900654,
+      "truncate": 4.0,
+      "radius_pixels": 12,
+      "padding_pixels_no_translation": 14,
+      "full_support_shape": [
+        60,
+        60
+      ],
+      "maximum_direct_kernel_difference": 4.624588133771666e-18,
+      "edge_cropped_flux": 0.322992017019671,
+      "full_support_flux": 1.0000000000000002,
+      "zero_translation_API_raw_nrmse_control": 1.4142133613151047,
+      "default_large_padding_embedding_checked": true,
+      "signed_input_passed_to_compare_relative": false
+    },
+    "cases": [
+      {
+        "case": "high_a_t0.3",
+        "state": "verified_operator_on_local_subspaces",
+        "source_input_sha256": "1e984fd92f0bc2190be217a6bc5b6c9ad29f38a358ab6381ac63b4f4516dac41",
+        "subspace_results": [
+          {
+            "relative_cut": 1e-06,
+            "rank": 57,
+            "subspace_dimension": 966,
+            "Frobenius_squared_ratio_to_all_unit_sum_directions": 0.6426511791756965,
+            "spectral_norm_ratio_to_all_unit_sum_directions": 0.9933596161382825,
+            "subspace_blur_spectral_norm": 0.8511869086105719,
+            "direct_complement_energy_difference": 0.0,
+            "eigenpair_relative_residual": 1.0206806483089097e-15,
+            "basis_rotation_trace_absolute_difference": 0.0,
+            "basis_rotation_leading_eigenvalue_absolute_difference": 2.220446049250313e-16,
+            "unit_signed_witness_relative_data_response": 2.799060114069368e-08
+          },
+          {
+            "relative_cut": 1e-08,
+            "rank": 69,
+            "subspace_dimension": 954,
+            "Frobenius_squared_ratio_to_all_unit_sum_directions": 0.5560463007456075,
+            "spectral_norm_ratio_to_all_unit_sum_directions": 0.9884568194088278,
+            "subspace_blur_spectral_norm": 0.8469858153469721,
+            "direct_complement_energy_difference": 0.0,
+            "eigenpair_relative_residual": 6.866313238823754e-16,
+            "basis_rotation_trace_absolute_difference": 0.0,
+            "basis_rotation_leading_eigenvalue_absolute_difference": 0.0,
+            "unit_signed_witness_relative_data_response": 3.172806156427816e-10
+          },
+          {
+            "relative_cut": 1e-10,
+            "rank": 82,
+            "subspace_dimension": 941,
+            "Frobenius_squared_ratio_to_all_unit_sum_directions": 0.3533542233906815,
+            "spectral_norm_ratio_to_all_unit_sum_directions": 0.9538325616779033,
+            "subspace_blur_spectral_norm": 0.8173170887125096,
+            "direct_complement_energy_difference": 8.881784197001252e-16,
+            "eigenpair_relative_residual": 5.222475524411259e-16,
+            "basis_rotation_trace_absolute_difference": 0.0,
+            "basis_rotation_leading_eigenvalue_absolute_difference": 2.220446049250313e-16,
+            "unit_signed_witness_relative_data_response": 2.479545480739864e-13
+          }
+        ]
+      },
+      {
+        "case": "high_a_t3",
+        "state": "verified_operator_on_local_subspaces",
+        "source_input_sha256": "71a64b746013cf58e8f8db28097e7b03f9bde3123e3588883f593d81a6e47440",
+        "subspace_results": [
+          {
+            "relative_cut": 1e-06,
+            "rank": 76,
+            "subspace_dimension": 947,
+            "Frobenius_squared_ratio_to_all_unit_sum_directions": 0.5642506463144813,
+            "spectral_norm_ratio_to_all_unit_sum_directions": 0.9891628994467224,
+            "subspace_blur_spectral_norm": 0.8475908390211009,
+            "direct_complement_energy_difference": 2.6645352591003757e-15,
+            "eigenpair_relative_residual": 7.114534031106615e-16,
+            "basis_rotation_trace_absolute_difference": 8.881784197001252e-16,
+            "basis_rotation_leading_eigenvalue_absolute_difference": 1.1102230246251565e-16,
+            "unit_signed_witness_relative_data_response": 2.7817203782720626e-08
+          },
+          {
+            "relative_cut": 1e-08,
+            "rank": 92,
+            "subspace_dimension": 931,
+            "Frobenius_squared_ratio_to_all_unit_sum_directions": 0.42205266515817463,
+            "spectral_norm_ratio_to_all_unit_sum_directions": 0.9838817116060907,
+            "subspace_blur_spectral_norm": 0.8430655111551115,
+            "direct_complement_energy_difference": 1.7763568394002505e-15,
+            "eigenpair_relative_residual": 4.4267546936393436e-16,
+            "basis_rotation_trace_absolute_difference": 0.0,
+            "basis_rotation_leading_eigenvalue_absolute_difference": 0.0,
+            "unit_signed_witness_relative_data_response": 6.193837221355468e-10
+          },
+          {
+            "relative_cut": 1e-10,
+            "rank": 114,
+            "subspace_dimension": 909,
+            "Frobenius_squared_ratio_to_all_unit_sum_directions": 0.2572676211641776,
+            "spectral_norm_ratio_to_all_unit_sum_directions": 0.9442538679161702,
+            "subspace_blur_spectral_norm": 0.8091093272944715,
+            "direct_complement_energy_difference": 1.7763568394002505e-15,
+            "eigenpair_relative_residual": 8.178259188568041e-16,
+            "basis_rotation_trace_absolute_difference": 0.0,
+            "basis_rotation_leading_eigenvalue_absolute_difference": 2.220446049250313e-16,
+            "unit_signed_witness_relative_data_response": 3.774463876100616e-12
+          }
+        ]
+      },
+      {
+        "case": "weak_a_t0.3",
+        "state": "no_high_snr_closures",
+        "subspace_results": null,
+        "source_input_sha256": "0815f706b3b389a6bbc2e56e25d3034df8dddd2a94161b42d09dd61a41520a7f"
+      }
+    ],
+    "total_unit_sum_tangent_blur_Frobenius_squared": 8.755069836056343,
+    "total_unit_sum_tangent_blur_spectral_norm": 0.8568769001498051,
+    "rotation_angle_fixed_rad": 0.37,
+    "MC_trials": 0,
+    "seed_MCSE_applicable": false,
+    "image_optimizer_calls": 0,
+    "main_translation_optimization_calls": 0,
+    "source156_summary_sha256": "bcc21f6cef5dea0da4171a844e0fa0e831da2e58d0ffe6e54bc60bc24ad81164",
+    "source156_arrays_sha256": "9865af3eaff159da8678e515986ca724a4e4160c1419fc8bf7a9c30f124bd744",
+    "product_code_changed": false,
+    "physical_primary_beam_or_image_confidence_calibrated": false,
+    "scope": "Fixed full-support comparison smoothing, no registration. Basis-invariant operator norms on saved156 local unit-sum numerical null/near-null subspaces. Ratios are not power retention, information-loss fraction, posterior variance, actual beam resolution or image recovery performance."
+  },
+  "cited_files_sha256": {
+    "apps/imaging/src/vsora_imaging/experiment.py": "530c668d60e96f96988707d0bd4a5b61cbc1cdfeb4084b057be0c927f969901d",
+    "apps/imaging/src/vsora_imaging/registration.py": "69c07b5aa3ac91d122bbdd67f76f4a6368104b12b75261f71c03710e48b3e071",
+    "apps/imaging/src/vsora_imaging/assessment.py": "58fa40a8c5d0262a0b3fa5c0ef367cd175bc7a17c1ecdc3dc445f748e538ceb1",
+    "apps/imaging/tests/test_registration.py": "ff8df15c448811ef17aeb0b4e34150507bf98b85994247c083629717ea1677d6",
+    "apps/imaging/tests/test_assessment.py": "f32e8e77bd0fd49795e8d545d2e6ae1028df2b3b9068f485dd7fd72a7c1e414e",
+    "workflows/image_grid_validation.py": "821375fcef8a708fe2d0a2115fe9683d396d60825eddb4746d6dac436f0b76a6",
+    "workflows/saved_closure_jacobian_validation.py": "308ae20ea7554d635f772aefa42faafd7fb9ffc7acb59a84ce6270b5b69ee36b",
+    "interfaces/image-noise-applicability.md": "1df7b58c317f012695921a83c02bd3ccc1563a8f0a899d664b791e35638b0beb",
+    "docs/reports/128-regularizer-image-controls.md": "f70332882dcca19a23cbe1bd13ee12cf41b8937d7c3767bbfade4869ffbcdbce",
+    "docs/reports/127-matched-grid-image-control.md": "c0347c54d854853af49503d58b7d98142516da0de1ff8c9774054797e6d6f5e6",
+    "docs/reports/029-wide-rate-pilot.md": "9f545a9bc687b3814790d9efc8032a7472947ea2e3b9d4705746d00303e919f9",
+    "docs/reports/020-closure-short-integration.md": "d6385722c23e3933e9ed351873e4f29cbcae48a358184774fdeb2a5f73660f28",
+    "docs/reports/155-image-covariance-gradient.md": "709d1d4d52dc842d6dc01a269dc1d72577abe770a35c19f2997b795599c839bd",
+    "docs/reports/156-saved-closure-jacobian.md": "f21242efe216eb73669d35771eedbd12f0fea7c47a78e5265c817f3b74ce2ef5",
+    "docs/reports/125-closure-residual-diagnostics.md": "62ff420b5ae5e8d1df7267bc95f5b08a115f4cf44eea24eac72faaaedd9aa8d0",
+    "docs/reports/133-short-integration-images.md": "73342efc3ceedb0ff155583331b1bbf42360e15e60f2271ce04674697fe53a2e",
+    "docs/reports/129-main-path-regularizer-transfer.md": "d9f3b89c42536ce951ce1f83356d2c37b2ba9a7e741ae31a11b51dbfcf67b479",
+    "docs/reports/126-temporal-image-validation.md": "eee69460979b24d5c7c71c9da6481f3c0e4e8b8e79ec150061955f84d35aae0b",
+    "docs/reports/028-casa-three-second-sensitivity.md": "eb571f6be1a16b13de2b8c77bdd2bcfd07b99cd9bdf5752eb424553c6beab7a1",
+    "docs/reports/115-image-objective-evaluation.md": "97aa31a777a3b13f81b5ab0a58cc2c5b395067812b6b1f0452063d4a888d3d53",
+    "docs/reports/151-sequence-capacity-guard.md": "1ad3d2a6dc21e76160316783a43dbf9d3af98cc3173aec44e083488514446611",
+    "docs/reports/150-fundamental-goal-review.md": "7e24e1cfafb689362c5ad5de52b297055ebfcbb1c33bfb39dfa7110b66a82166",
+    "docs/reports/119-fixed-field-image-grids.md": "8255322bf3c5d027d5414531550b85dea45a0e18d07125be3a92d3ee946eace6",
+    "docs/reports/030-full-support-registration.md": "97e258e4707b9a05cd730bc08b1d53fbc20b86c31ce627d0396a9aee0e2c3a49"
+  },
+  "fixed_inputs_sha256": {
+    "stage156-source-study/summary.json": "bcc21f6cef5dea0da4171a844e0fa0e831da2e58d0ffe6e54bc60bc24ad81164",
+    "stage156-source-study/arrays.npz": "9865af3eaff159da8678e515986ca724a4e4160c1419fc8bf7a9c30f124bd744",
+    "stage133-source-study/high_a_t0.3/fitter.npz": "1e984fd92f0bc2190be217a6bc5b6c9ad29f38a358ab6381ac63b4f4516dac41",
+    "stage133-source-study/high_a_t3/fitter.npz": "71a64b746013cf58e8f8db28097e7b03f9bde3123e3588883f593d81a6e47440",
+    "stage133-source-study/weak_a_t0.3/fitter.npz": "0815f706b3b389a6bbc2e56e25d3034df8dddd2a94161b42d09dd61a41520a7f"
+  },
+  "public_arrays_sha256": "e6e990fe476765df159c8be1ce498903410f0dc1a1933fb238510aca17076643",
+  "array_count": 16
+}

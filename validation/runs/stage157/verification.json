@@ -1,0 +1,87 @@
+{
+  "stage": 157,
+  "state": "complete",
+  "base_commit": "51bb5c31a7daef7d1c584a110b0d1e2d4ba6bc42",
+  "product_code_changed": false,
+  "new_workflow_only": true,
+  "new_unit_tests": 0,
+  "first_formal_attempt_passed": true,
+  "privacy_scan_false_positive_preserved": true,
+  "format_only_AST_equal": true,
+  "preformat_target_passes_not_added": true,
+  "scientific_results_equal_to_preformat": true,
+  "targeted": {
+    "source": {
+      "passed": 59,
+      "warnings": 0,
+      "elapsed_s": 1.61,
+      "excluded": 0
+    },
+    "installed": {
+      "passed": 59,
+      "warnings": 0,
+      "elapsed_s": 0.79,
+      "excluded": 0
+    }
+  },
+  "all_scientific_summary_JSON_exact": true,
+  "numeric_arrays_exact": 16,
+  "fixed_input_files_SHA_preserved": 5,
+  "local_subspace_cases": 2,
+  "relative_cuts_per_case": 3,
+  "weak_case_inherited_null": true,
+  "basis_rotation_controls": 6,
+  "nonnegative_zero_translation_API_control": 1,
+  "main_translation_optimization_calls": 0,
+  "MC_trials": 0,
+  "image_optimizer_calls": 0,
+  "module_count_each": 13,
+  "module_paths_and_bytes_verified": true,
+  "native_checkout_outside_runner_PYTHONPATH_absent": true,
+  "nonoverwrite_refusals": 2,
+  "frozen_files": 457,
+  "existing_frozen456_unchanged": true,
+  "package_wheel_source_installed_bytes_unchanged": 103,
+  "reference_assets_bytes_unchanged": 4,
+  "wheel_sha256": "c54348ec4b11b89bc70956c2f0d3ad77762b79093ca128834a4bebe053f2b2ec",
+  "raw131_SHA_preserved": 76,
+  "outside_allowlist_SHA_preserved": 1506,
+  "cited_files_SHA_preserved": 24,
+  "new_full_collect_wheel_install_browser_raw_correlation_or_image_fit": false,
+  "cited_full_wheel_GUI_stage": 151,
+  "cited_full": {
+    "source": {
+      "passed": 2328,
+      "warnings": 30220,
+      "elapsed_s": 552.61,
+      "excluded_tests": 0
+    },
+    "installed": {
+      "passed": 2328,
+      "warnings": 30220,
+      "elapsed_s": 551.31,
+      "excluded_tests": 0
+    }
+  },
+  "normal_GUI151_changed": false,
+  "real_primary_beam_or_image_confidence_calibrated": false,
+  "runtime": {
+    "source": {
+      "wall_s": 1.120148325979244,
+      "peak_process_rss_bytes": 239497216
+    },
+    "installed": {
+      "wall_s": 1.0802395659848116,
+      "peak_process_rss_bytes": 239960064
+    }
+  },
+  "output_bytes_each": {
+    "source": 207916,
+    "installed": 208282
+  },
+  "public_audit_findings": 0,
+  "documentation_links": {
+    "checked": 2125,
+    "missing": 0
+  }
+}

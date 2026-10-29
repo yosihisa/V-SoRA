@@ -2,7 +2,7 @@
 
 段階150の文書整理・専用根本レビューで、技術基準を149（`3cb8e57`）へ統一した。最終目標は1.42GHz・最大基線約600m・局別周波数差・数百ms〜数秒・精密gain較正困難なClosure＋RMLによる実観測画像化。Windows収録は装置に合わせて後で開発する。[150の判断](../reports/150-fundamental-goal-review.md)に主律速、保留と順序変更を残した。
 
-151で[系列容量の早期検査](../reports/151-sequence-capacity-guard.md)を実装・検証した。151は行列容量の有限運用修正で、科学側の八条件は未解決。152で[実整列APIの有限平均](../reports/152-aligned-forward-mean.md)を、合成decoded reader・共有幾何値の範囲で照合した。codec/量子化と画像側平均・八条件全体は未校正。153で[量子化前後の有限集合](../reports/153-quantized-finite-ensemble.md)を実codec/plain FXで照合した。実機/画像較正は未実施。154で[保存候補の採用mask](../reports/154-archived-rate-gate.md)だけを同じpower表に適用し、局推定全体の因果的分離は未識別とした。155で[供給受信機の画像依存Cの勾配と非一意性](../reports/155-image-covariance-gradient.md)を限定参照として照合。未知局量・実主経路の条件は残り、新production尤度と固定原本画像再fitは保留する。156では[保存133・固定priorのClosure局所Jacobian](../reports/156-saved-closure-jacobian.md)だけを照合し、画像方向の数値rankと既存情報不足を区別した。次157は既定共通平滑化と局所情報量の対応を確認する候補。
+151で[系列容量の早期検査](../reports/151-sequence-capacity-guard.md)を実装・検証した。151は行列容量の有限運用修正で、科学側の八条件は未解決。152で[実整列APIの有限平均](../reports/152-aligned-forward-mean.md)を、合成decoded reader・共有幾何値の範囲で照合した。codec/量子化と画像側平均・八条件全体は未校正。153で[量子化前後の有限集合](../reports/153-quantized-finite-ensemble.md)を実codec/plain FXで照合した。実機/画像較正は未実施。154で[保存候補の採用mask](../reports/154-archived-rate-gate.md)だけを同じpower表に適用し、局推定全体の因果的分離は未識別とした。155で[供給受信機の画像依存Cの勾配と非一意性](../reports/155-image-covariance-gradient.md)を限定参照として照合。未知局量・実主経路の条件は残り、新production尤度と固定原本画像再fitは保留する。156では[保存133・固定priorのClosure局所Jacobian](../reports/156-saved-closure-jacobian.md)だけを照合し、画像方向の数値rankと既存情報不足を区別した。157で[既定110arcsec比較平滑化と局所near-null](../reports/157-smoothed-null-subspace.md)の基底不変作用素normを照合した。一次beam/実画像誤差ではない。次158はsigned局所方向と有限の非負候補の対応をreviewする候補。
 
 ## 150で何を変えたか
 
@@ -24,7 +24,7 @@
 
 ## 150で定めた六候補：151〜156
 
-151〜156は上記の限定範囲で完了。新production尤度と画像再fitは未実施・保留。次157〜159は160整理までの有用な未接続差を選び、番号のための反復を増やさない。番号は順序の目安で、同等の既存実験が見つかれば重複せず目的を改訂し、空の段階を増やさない。実入力の新情報、残量・期限、前段の結果で前倒し・保留・縮小する。正式選択時は、ここに示す上限内で目的/入力SHA/許容/seed/MCSEの有無/失敗判定を固定する。
+151〜157は上記の限定範囲で完了。新production尤度と画像再fitは未実施・保留。次158〜159は160整理までの有用な未接続差を選び、番号のための反復を増やさない。番号は順序の目安で、同等の既存実験が見つかれば重複せず目的を改訂し、空の段階を増やさない。実入力の新情報、残量・期限、前段の結果で前倒し・保留・縮小する。正式選択時は、ここに示す上限内で目的/入力SHA/許容/seed/MCSEの有無/失敗判定を固定する。
 
 ### 151完了（150で定めた受入条件）：系列RML容量を高コスト処理の前に判定
 
@@ -86,9 +86,13 @@
 
 中止・改訂条件：前提未成立なら画像/GUI展開を保留し、番号を埋めるための再fitをしない。実観測成功や一般coverageと呼ばない。
 
-### 157候補：既定共通平滑化と局所null/near-nullの対応
+### 157完了（限定参照）：既定共通平滑化と局所null/near-nullの対応
 
-既存比較で使う110arcsecのfull-support平滑化kernel（実アンテナ一次beamではない）と156の画像方向の関係を先にreviewする。既存比較/格子/平滑化に同等参照があれば重複しない。新fit/再相関/truthによるkernel・係数選択を行わず、固定入力/基準点/線形作用素/支持/正規化/閾値と予算を正式選択時に固定する。局所nullが比較解像度でどの程度残るかという計算参照であり、実beam/真のposterior/画像改善を保証しない。候補上限worker120秒/追加保存64MiB/公開512KiB。条件が足りなければ反復文書だけを増やさず改訂する。
+[157の結果](../reports/157-smoothed-null-subspace.md)：全支持60x60の比較作用素を独立kernel和/API zero-translationへ照合。保存156部分空間のFrobenius二乗/spectral norm比は基底回転でも一致、両59対象・16配列一致。signed方向の作用素normであり、有限非負画像の観測可能性・power保持率・実beam・画像confidenceへ変換しない。以下は選択時の条件。既存比較で使う110arcsecのfull-support平滑化kernel（実アンテナ一次beamではない）と156の画像方向の関係を先にreviewする。既存比較/格子/平滑化に同等参照があれば重複しない。新fit/再相関/truthによるkernel・係数選択を行わず、固定入力/基準点/線形作用素/支持/正規化/閾値と予算を正式選択時に固定する。局所nullが比較解像度でどの程度残るかという計算参照であり、実beam/真のposterior/画像改善を保証しない。候補上限worker120秒/追加保存64MiB/公開512KiB。条件が足りなければ反復文書だけを増やさず改訂する。
+
+### 158候補：局所signed方向と有限の非負候補の対応
+
+157のsigned unit方向は復元した非負画像でも許される振幅でもない。既存115/156の有限微小対照を先にreviewし、新しい差がある場合だけ、固定priorと保存方向から正supportで決まる対称振幅上限、事前固定fractionの候補、実非線形Closureと線形近似/分岐/モデルzeroを同じ保存supportで照合する。truthで振幅/係数を選ばず、新fit/再相関/likelihood採用/画像性能比較はしない。数値評価をconfidenceや非一意性の一般保証へ変換しない。対象・全fraction・許容・失敗・worker120秒/追加保存64MiB/公開512KiBを正式選択時固定する。同等なら重複しない。
 
 ## 採用を保留する条件
 
