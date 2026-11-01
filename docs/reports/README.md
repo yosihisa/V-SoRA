@@ -179,6 +179,7 @@
 | 161 | [同時混合3線スペクトルの有限平均](161-finite-band-forward-mean.md) | 固定4符号×2電力配分の8実整列APIをmode別point応答和へ照合。両11対象・21配列/8NPZ80フィールド一致。連続PSD/Gaussian noiseではなく新fit0 |
 | 162 | [同一有限電圧の実codecと整列平均](162-quantized-aligned-mean.md) | 固定4混合probe×2scaleを24新VDIFから実整列へ通し独立復号波形係数と照合。両14対象・21配列/8NPZ80field/48VDIF-sidecar file一致。初回UTC/第二診断field停止を保持、新fit0 |
 | 163 | [局最小二乗候補と最終χ²棄却](163-station-chisq-gate.md) | 旧基線候補を固定し現局LSの381候補/354採用/27χ²棄却/131非連結nullを保持。両86対象・22配列一致、新baseline fit/独立試行0。全推定bias/gate因果分離は未識別 |
+| 164 | [公開単局I/Qの取得と有限スペクトル](164-public-single-station-iq.md) | CAMRAS実原本16MB/400万sampleを管理外取得、全復号/有限FFTを両環境照合。現VDIF profile拒否、単局/画像未検証、データ非公開 |
 
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。
 
