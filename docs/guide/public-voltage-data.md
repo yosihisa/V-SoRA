@@ -86,3 +86,5 @@ project_root="$PWD"
 - [CHIME/FRB Baseband Catalog 1](https://chime-frb.ca/catalogs/basecat1)：較正・ビーム合成済み電圧の候補。個別アンテナのrawとは区別し、配布ファイル一覧・容量・利用条件の確認を先に行う。
 
 164では両者の本体取得、アカウント作成、取得ジョブ投入を行っていない。大容量の一括取得を自動化せず、空き容量と具体的な検証目的を先に固定する。
+
+[167の出典監査](../reports/167-public-voltage-provenance.md)で、MWA公式ライブラリの小容量VCS試験例は変更メタデータと試験生成波形であることを確認した。これを実観測の複数局記録として取得・利用しない。MWA ASVO/LOFAR LTAの取得手続きと、LWA実TBN論文・公開archiveも確認したが、今回採用できる独立複数アンテナ原本の直接取得先・最小byte・利用条件は未確定。観測ID・小容量・公開repoだけで実観測と認定しない。

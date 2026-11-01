@@ -182,6 +182,7 @@
 | 164 | [公開単局I/Qの取得と有限スペクトル](164-public-single-station-iq.md) | CAMRAS実原本16MB/400万sampleを管理外取得、全復号/有限FFTを両環境照合。現VDIF profile拒否、単局/画像未検証、データ非公開 |
 | 165 | [公開I/Qの供給時刻を保つVDIF限定参照](165-public-iq-vdif-time.md) | 4000sample/frameで20 MHz/小数秒epochを保持、全400万sampleの量子化/時刻を照合。両5対象・3配列/VDIF一致、初回root検査停止を残し全再実行。非可逆8bit/単局、製品writer変更なし |
 | 166 | [16bit公開I/Qと既存整列バッファ](166-public-iq-samplebuffer.md) | 原本値を保持するreader prototype、固定4窓×seek/順次を独立有限作用へ照合。両9対象・17配列/21module一致、原本外拒否と初期FIR mask保持。単局/製品session未接続 |
+| 167 | [公開複数アンテナ電圧候補の出典・取得条件](167-public-voltage-provenance.md) | MWA小容量VCSは生成fixtureと識別し実観測へ不採用。LWA実TBN論文と配布未確定を分離。24file/505575byteのmetadata監査、本体追加取得・新数値0 |
 
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。
 
