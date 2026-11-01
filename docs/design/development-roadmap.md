@@ -48,6 +48,8 @@
 
 [167](../reports/167-public-voltage-provenance.md)でMWA公式の小容量VCS fixtureは生成試験電圧と判明し、実観測原本候補から除外した。LWA実TBNの一次論文は確認したが、直接配布file/SHA/最小容量/条件は未確定。匿名archive検索0件はデータ不存在の証拠にしない。次は具体的な新取得根拠がある場合の少量取得、または16bit reader製品契約を選ぶ。167はmetadata調査で新波形/相関/画像試験を追加していない。
 
+[168](../reports/168-sigmf-reader-api.md)で限定ci16_le SigMF readerと単局SampleBuffer明示APIを製品へ接続した。両新全2392件、新wheel104file＋4assets全byte、checkout外API、両実GUI28条件を確認。追加量子化せず166固定窓の17配列へ一致した。新installedは独立prefix、通常GUI151の旧prefixは保持。session/相関CLI/InputIdentity接続、実clock/物理帯域guardは未実施。次は実複数アンテナ原本の具体的取得根拠を優先し、単局APIの小変更反復を自動計画しない。
+
 ## 旧候補164〜165：画像尤度・画像再fit案（引き続き保留）
 
 以下は実装済みでも実行予約でもない。実入力新回答、既存の重複、費用・期限で順序/範囲を改訂する。後段の前提が成立しなければ進めない。番号のため反復文書や小参照を増やさない。160当時の候補は[機械可読計画](../../validation/runs/stage160/next-candidates.json)。161〜163はそれぞれの限定参照として完了。この旧画像尤度/画像再fit案は前提未成立で保留。164〜165という番号は上記公開I/Q検証に使用した。追加の局所参照を自動反復せず、実入力新回答や具体的モデル成立条件の更新を優先する。変化がなければ不足条件の反復文書を新段階にせず、必要に応じ根本レビューを前倒しして計画を改訂する。
@@ -85,3 +87,5 @@
 期限2026-11-06 15:00（Asia/Tokyo）、追加reset購入使用禁止。残量10%へ近づけば完成境界で休止し同じscheduleを期限前reset後へ調整、実回復を確認する。取得不能なら記録して大量の新段階を始めない。期限以降は新開発せず同一automationをPAUSEDにして報告する。次の文書整理170/予定根本レビュー200、前提崩れ時前倒し。[運用](development-governance.md)、[時系列](../reports/overviews/development-history.md)、[要素別進捗](../reports/overviews/goal-and-progress.md)、[短い案内](../guide/09-observation-readiness.md)、[索引](../reports/README.md)を参照する。
 
 2026-11-01の最新指示で、今回に限り既存未使用resetの自動使用1回を許可された。新規購入と2回目の自動使用はしない。実残量10%以下で消費と回復を確認し、旧11月5日までの休止を解除して同一automationで継続する。上記期限は変更しない。過去の禁止・休止は当時の判断として残す。
+
+その後ユーザーが手動resetを報告し、nativeで実回復・未使用数2→1を確認した。今回1回の承認は充足済みで、工具消費0回でも再使用しない。新weekly reset実値は11月8日20:30:03JSTで今回期限より後。毎回実値を優先し旧11月5日の予定へ戻さない。

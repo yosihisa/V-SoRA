@@ -80,6 +80,17 @@ project_root="$PWD"
 
 存在しない出力先を使う。結果の17配列・科学summary・環境記録は全て `outputs/public-samplebuffer-check/` に保存する。installed比較の方法は上のVDIF参照と同じで、実行workflow名を `public_samplebuffer_validation.py`、出力先を別名へ変える。146・周期参照・164のhelperもcheckoutに必要。reader入口はint16値を正確に保持するが、FIR/補間の出力波形は変わる。実受信帯域・clock精度に対してその整列が科学的に適用可能かは未検証である。これらの出力もアップロードしない。
 
+## 製品の限定SigMF APIを使う
+
+[168で検証した](../reports/168-sigmf-reader-api.md) `SigMFRecording` と `SampleBuffer.from_sigmf` は[限定入力契約](../../interfaces/sigmf-input.md)に従う明示入口。検証用readerの置換を使わず、元のci16_le整数をcomplex128へ正確に読み、供給Fs・UTC-Z capture日時とsample順を保持する。全仕様対応や実時計較正を意味せず、session/相関CLIの形式追加でもない。
+
+```bash
+.verification-venv/bin/python tools/run.py workflows.public_sigmf_api_validation \
+  --input data/raw/public/camras-crab --output outputs/public-sigmf-api-check
+```
+
+検証workflowは新しい出力先へ全成分照合のsummaryと17配列を保存する。全てGit管理外。installed比較は対象wheelを導入した環境のPythonを使い、checkout外cwd/PYTHONPATHなしで `workflows/public_sigmf_api_validation.py` の絶対pathを指定する。検証用の既存helperはcheckoutに必要だが、製品API単体の利用にはhelperは要らない。取得元の記録と供給metadataを保持し、出力電圧・数値配列・図をアップロードしない。
+
 ## 後続候補の扱い
 
 - [MWA取得手順](https://mwatelescope.atlassian.net/wiki/spaces/MP/pages/24973422/Data%2BProcessing%2BDocumentation)：アンテナ別電圧を得られる候補。観測ID・公開可否・利用条件・最小取得容量を確定してから選ぶ。SMARTの旧VCSとMWAXの形式/容量を混同しない。

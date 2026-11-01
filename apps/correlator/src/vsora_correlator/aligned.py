@@ -8,6 +8,7 @@ import astropy.units as u
 from astropy.time import Time
 from scipy.signal import firwin,lfilter
 from vsora_formats.vdif import iter_vdif_frames
+from vsora_formats.sigmf import SigMFRecording
 from vsora_formats.spectral import save_spectral
 from vsora_formats.bispectrum import save_bispectrum,load_bispectrum,MAX_CELLS
 from vsora_observation.geometry import geometry_at_times
@@ -50,11 +51,28 @@ def validate_bispectrum_dimensions(config,integrations):
 class SampleBuffer:
     def __init__(self,path,nominal_rate,station_id,scale,actual_rate,seek_input=True):
         self.reader=None;self.reader_arguments=(path,nominal_rate,station_id,scale)
+        self.sigmf_recording=None
         self.seek_input=seek_input;self.started=False;self.frames_read=0;self.initial_sample_index=0
         self.taps=firwin(65,.35*nominal_rate,fs=actual_rate,window=('kaiser',8.6))
         self.state=np.zeros(64,complex);self.history=np.zeros(64,bool)
         self.data=np.empty(0,complex);self.valid=np.empty(0,bool)
         self.first=0;self.next=0;self.maximum=0
+
+    @classmethod
+    def from_sigmf(cls,metadata_path,actual_rate,*,seek_input=True,chunk_samples=4096):
+        """単局ADC用の明示入口。actual_rateは呼出側が供給し、推定しない。"""
+        if not isinstance(seek_input,bool):raise ValueError('seek_input bool required')
+        if isinstance(actual_rate,bool) or not isinstance(actual_rate,(int,float)):
+            raise ValueError('positive finite actual sample rate required')
+        try:finite=math.isfinite(actual_rate) and actual_rate>0
+        except (OverflowError,TypeError):finite=False
+        if not finite:raise ValueError('positive finite actual sample rate required')
+        recording=SigMFRecording(metadata_path,chunk_samples=chunk_samples)
+        if abs(actual_rate-recording.sample_rate_hz)>.001*recording.sample_rate_hz:
+            raise ValueError('actual sample rate must be within 1000 ppm of SigMF nominal rate')
+        buffer=cls(metadata_path,recording.sample_rate_hz,None,1.,actual_rate,seek_input)
+        buffer.sigmf_recording=recording
+        return buffer
 
     def query(self,positions):
         positions=np.asarray(positions)+32 # compensate linear-phase FIR delay
@@ -63,7 +81,9 @@ class SampleBuffer:
         if minimum<0 or minimum<self.first: raise ValueError('query before available guard samples')
         if self.reader is None:
             first_sample=max(0,minimum-64) if self.seek_input else 0
-            self.reader=iter_vdif_frames(*self.reader_arguments,start_sample=first_sample)
+            self.reader=(iter_vdif_frames(*self.reader_arguments,start_sample=first_sample)
+                         if self.sigmf_recording is None else
+                         self.sigmf_recording.iter_frames(start_sample=first_sample))
         while self.first+len(self.data)<=maximum:
             try: frame=next(self.reader)
             except StopIteration: raise ValueError('input ends before requested aligned chunk') from None
