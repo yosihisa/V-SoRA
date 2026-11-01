@@ -1,10 +1,10 @@
 # V-SoRA：現在の開発計画
 
-- 更新：段階160の文書整理、技術基準159（`ed067c8`）
+- 更新：170文書整理、技術基準169（`8317129`）
 - 最終目標：実RTL-SDR/OCXO、1.42GHz、最大基線約600m、局別周波数差、数百ms〜数秒、精密gain較正困難なClosure＋RML
-- 最新の製品/full/wheel/両実GUI基準：151。最新の限定参照/対象試験：164（公開単局実I/Q、製品変更なし）
+- 最新製品/full/wheel/専用両実GUI：169（両全2414/105file+4assets）。通常GUI151prefixは別に保持
 - 160以後の更新：161の有限3線/固定probe平均と162の同一電圧codec→整列平均、163の局候補/χ²maskを追記。全体文書の定期整理基準は159のまま
-- 専用根本レビュー：150で実施済み、予定200。次の文書整理170。前提が崩れれば前倒し
+- 専用根本レビュー150、予定200。次文書整理180。前提が崩れれば前倒し
 
 ## 判断の基準
 
@@ -80,13 +80,21 @@
 
 中止/改訂：条件未成立なら再fitしない。truthに係数を合わせず、外部RML追加反復/新GUIを自動で増やさない。
 
+## 170で同期した次の具体的接続候補
+
+優先候補はSigMFのsession入口。既存VDIF/clock/identityを先にreviewし、形式、局ID、供給epochとclock modelのsample0/UTC、Fs/実rate、I/Q/scale、RF/帯域、原本pairの対応を実行前に固定する。metadataの公称値を未知の実clockへ代用しない。既存の相互に異なる模擬局電圧で旧VDIF数値不変とSigMF経路の独立照合を行い、公開CAMRAS単局は複数局不足として扱う。単局複製で実基線を作らない。製品変更なので両新full/wheel/pipcheck/全byte/checkout外API/両実GUI予算を再固定する。まだ実装/実行予約済みではない。
+
+並行候補は実複数アンテナ原本の取得根拠。個別file URL/観測ID/実観測出典/最小byte/利用条件がそろってから目的・上限を固定する。生成fixtureを実観測へ変換せず、account/job/連絡を勝手にしない。新根拠がなければ同じ検索や不足文書を新段階にしない。
+
+新画像尤度/再fit案は引き続き保留。未知局量/依存/採否/前方平均等の八条件を満たすまでは、100/155や044/047の単純加算を実装しない。段階番号で次作業を作らず、上記の具体的software接続と受入を選択して進める。
+
 ## 保留と運用
 
 新production尤度/RML/画像再fit/GUI接続、外部RML追加反復、truthへ実効M/weight/画像係数/格子/seedを合わせる調整、Windows収録、全夜GPUは保留。実Cas A/未知実LO・gain・SEFD/beam/RFI/実FFT独立性/低SNR画像尤度は未検証である。
 
 製品修正を選ぶ場合は新source/installed全回帰・wheel/pipcheck/全byte・checkout外API・両実GUIまで正式予算へ改訂する。GUI更新前は実所有/api/jobs idleを確認して所有idle GUIだけ停止し後に再開する。古いPTY/PIDを有効と仮定しない。
 
-期限2026-11-06 15:00（Asia/Tokyo）、追加reset購入使用禁止。残量10%へ近づけば完成境界で休止し同じscheduleを期限前reset後へ調整、実回復を確認する。取得不能なら記録して大量の新段階を始めない。期限以降は新開発せず同一automationをPAUSEDにして報告する。次の文書整理170/予定根本レビュー200、前提崩れ時前倒し。[運用](development-governance.md)、[時系列](../reports/overviews/development-history.md)、[要素別進捗](../reports/overviews/goal-and-progress.md)、[短い案内](../guide/09-observation-readiness.md)、[索引](../reports/README.md)を参照する。
+期限2026-11-06 15:00（Asia/Tokyo）、追加reset購入使用禁止。残量10%へ近づけば完成境界で休止し同じscheduleを期限前reset後へ調整、実回復を確認する。取得不能なら記録して大量の新段階を始めない。期限以降は新開発せず同一automationをPAUSEDにして報告する。次の文書整理180/予定根本レビュー200、前提崩れ時前倒し。[運用](development-governance.md)、[時系列](../reports/overviews/development-history.md)、[要素別進捗](../reports/overviews/goal-and-progress.md)、[短い案内](../guide/09-observation-readiness.md)、[索引](../reports/README.md)を参照する。
 
 2026-11-01の最新指示で、今回に限り既存未使用resetの自動使用1回を許可された。新規購入と2回目の自動使用はしない。実残量10%以下で消費と回復を確認し、旧11月5日までの休止を解除して同一automationで継続する。上記期限は変更しない。過去の禁止・休止は当時の判断として残す。
 

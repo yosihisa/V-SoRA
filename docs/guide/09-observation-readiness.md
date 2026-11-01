@@ -1,16 +1,16 @@
 # いま使える処理と、実観測へ進むための確認
 
-2026-10-29、段階160で技術基準159（`ed067c8`）へそろえた案内です。目標はRTL-SDR/OCXO、1.42GHz、最大基線約600m、数百ms〜数秒の短積分でCas Aの形を求めることです。精密な局gain較正が難しいためClosure＋RMLを主経路にします。Windows収録は装置に合わせて後で開発します。
+2026-11-02、170で技術基準169（`8317129`）へ同期した案内です。目標はRTL-SDR/OCXO・1.42GHz・最大600m・短積分のClosure＋RML。Windows収録は構成決定後に開発します。
 
 ## 何が動き、何をまだ確かめていないか
 
 | 処理 | 確認した範囲 | 残ること |
 | --- | --- | --- |
-| IQ・VDIF・相関・FITS-IDI | 限定profile、分割CPU処理、供給時計、138の型検査、原本追跡 | 実I/Q/単位、sample0/UTC、sample rate、欠損・設定変更の実測 |
+| IQ・VDIF・相関・FITS-IDI | 限定VDIF、168単局SigMF API、169原本pair/実CLI | session形式接続、実clock/帯域/局位置/LO/単位/欠損 |
 | 局別周波数差 | sky形状を渡さないpilot、一定/線形rate補正、132の12相関 | 弱い実信号、実OCXO変動、誤採用/残留位相、同pilot推定依存 |
 | Closure＋RML | 高SNR近似、同種共有基線の共分散、相対画像と固定対照 | 低SNR画像尤度、独立予測、画像不確かさ、実Cas A |
-| 日本語GUI | 模擬/VDIF/区間列、同梱参照6種類、121画像三判定、151の新wheel/保存診断 | 125〜133の全画像比較を新GUIへ接続した状態ではない |
-| 雑音・時間診断 | 135〜159の個別限定参照、固定/周期小operator、時変query、同pilot/選別の有限参照 | 実FIR/量子化後の依存、未知局量、低SNR尤度、実coherence/coverage |
+| 日本語GUI | 模擬/VDIF/区間列、参照6種類、121画像三判定、169新wheelの保存模擬診断回帰 | 125〜133の全画像比較や新しい公開IQ検査CLIをGUIへ接続した状態ではない |
+| 雑音・時間診断 | 135〜163の個別限定参照、固定/周期小operator、時変query、同pilot/選別の有限参照 | 実FIR/量子化後の依存、未知局量、低SNR尤度、実coherence/coverage |
 | 三次統計U₃ | 共通電力raw v2、無次元比、条件付き区間検定とGUI | 未知gain/SEFD/LOと低SNR画像化との接続 |
 | 区間列・有限運用 | 139のpartial/別出力再処理、151の共有容量guardによる早期拒否 | 36窓完走、総合preflight、自動再開、全夜速度/GPUは未確認 |
 
@@ -48,7 +48,7 @@
 
 141/142の既知小operatorと146の実SampleBuffer係数は、実8局/4ms・量子化・幾何RF-rate位相を含む全画像モデルの校正ではありません。143の時刻分割は同じrawを共有し、144の全試行と採用群は性質が異なります。147では既知Gaussian相関値の独立雑音評価を比べましたが、同pilotの増大には採用gateの影響も含まれます。[145の八条件](../../interfaces/image-noise-applicability.md)が残るため、新しい雑音モデルをRML/画像/GUIへ接続していません。
 
-148で現在のLinuxからUSB/取得ツールの可視性を確認できませんでしたが、物理装置の不存在やWindows側の不可を意味しません。実記録/取得環境を一度照会済みです。[引渡し票](real-input-handoff-template.md)には実測/推定/供給/未測定、根拠法、不確かさ、有効区間を記入します。
+148で現在のLinuxからUSB/取得ツールの可視性を確認できませんでしたが、物理装置の不存在やWindows側の不可を意味しません。その後、受信機実記録なし・OCXO/構成/保存形式は検討中との回答を得ました。同じ照会を繰り返しません。[引渡し票](real-input-handoff-template.md)には実測/推定/供給/未測定、根拠法、不確かさ、有効区間を記入します。
 
 149の固定profileでは8時間/8局VDIFが計算上947,404,800,000byteです。さらに8局/8チャネル/32画素では、37窓の行列129.5MiBが128MiB上限で拒否されます。149当時の計画は37窓を受理しました。151で公開plan/processの容量guardを共用し、37/64窓を高コスト処理前に拒否します。全窓の完走を保証するものではありません。36窓126MiBはこの上限内という計算だけで、必要RAM/速度や全夜成功ではありません。[有限容量と制限](finite-capacity-and-limits.md)を参照してください。
 
@@ -60,10 +60,22 @@
 
 159は固定合成幾何とdecoded readerの6tone条件です。漏れたtoneの空間位相はtoneの周波数に従い、漏れ先channel中心の位相と同一にはなりません。実Astropy/codec、広帯域天空の周波数積分や実noiseモデルは未校正です。各段階の初回失敗・訂正と未実施は[時系列](../reports/overviews/development-history.md)と個別reportに残しています。
 
+## 160〜169：公開単局IQから、形式と原本の実用入口へ
+
+161は固定有限modeの平均、162は同じ有限probeのcodec/整列後平均、163は保存基線の局LS/χ²maskを照合した限定参照である。Gaussian実観測尤度へ合成せず、全推定biasと採否の因果分離も未識別のまま残す。
+
+その後のユーザー回答で、受信機チームに使える実記録はなく、OCXO・構成・保存形式は検討中と確定した。148照会は回答済みで繰り返さない。公開IQの利用・容量を見た取得が許可され、164でCAMRASの実Crab単局16MBを取得した。供給Fs20MHz/中心410MHz/公称0.2秒で、目標の1.42GHz Cas A・複数局とは区別する。
+
+165の8bit VDIFは非可逆な限定参照、166の16bit readerはworkflow内prototypeである。168で限定SigMFRecording/単局SampleBuffer APIを製品化し、169でfresh metadata/data SHAとinspect-sigmf CLIを接続した。原本・提供metadata・派生波形/配列/JSON/図はGitへ載せず、取得配置手順とコード・方法/合否だけを公開する。[取得配置とCLI](public-voltage-data.md)を参照する。
+
+167はMWA小容量VCS fixtureを生成波形と識別して実観測候補へ不採用とした。LWA実TBNの一次論文を、対応する直接配布原本の取得済みという意味へ読み替えない。匿名検索0件もデータ不存在の根拠ではない。
+
+169のstat検査には盲点がある。同じfilesystem tickでdata全statが保たれる変更は同instanceでは見逃し得る。metadataは境界再hash、rawは各runでfresh全hashする。preformal初回失敗・補助呼出誤り・公開手順の旧report参照停止と訂正を個別記録へ残す。168の準備環境誤り、165の初回root検査失敗も消さない。
+
+これらは単局の入出力・再実行のbyte識別を進めた結果で、実基線/Closure/Cas A画像、実時計精度、低SNR画像尤度を実証していない。session/相関処理へのSigMF形式接続とSampleBufferへの自動identity適用は未実施である。
+
 ## 引用した検証基準と次の確認
 
-最新全回帰は[151正式記録](../../validation/runs/stage151/verification.json)の両2328成功552.61/551.31秒・各30220警告/除外0です。wheel103file+4assets、両実GUI各28worker/56download/672行も151の引用。表は折り返しで横scroll検証ではありません。最新pytest対象/APIは[159](../../validation/runs/stage159/verification.json)の両11成功1.13/.71秒・警告0/除外0、各6条件/38配列/6NPZ60フィールドです。158のfit試験1除外は過去記録のまま保持します。
+最新の製品/full/wheel/専用両実GUI基準は169（`8317129`）。両全2414成功・565.04/562.00秒・各30220警告/除外0、105製品file＋4assets全byte、保存診断の両実GUI各28条件/56JSONは169の引用である。通常GUI151用prefixは更新していない。 [169の記録](../reports/169-sigmf-identity-cli.md)を引用し、170では数値試験を実行していません。保存模擬診断のGUI回帰であって、新しい公開IQ検査CLIをGUIへ接続した意味ではありません。
 
-160は文書と静的監査だけで、新製品関数/科学数値/MC/unit/pytest/full/collect/wheel/install/browser/raw/相関/fitを実行していません。150の専用根本レビューを引き継ぎ、[161〜165の未選択候補](../design/development-roadmap.md)を現在計画へ同期しました。有限帯域平均から必要な接続だけを選び、モデル条件が成立するまでは新尤度/RML/画像再fit/GUIを保留します。実入力新回答最優先、148照会は繰り返しません。
-
-次の文書整理170、予定の専用根本レビュー200、前提が崩れれば前倒し。段階数/試験数は完成率ではありません。継続期限2026-11-06 15:00（Asia/Tokyo）、追加reset禁止を維持します。[時系列](../reports/overviews/development-history.md)、[要素別進捗](../reports/overviews/goal-and-progress.md)、[操作](06-gui.md)、[索引](../reports/README.md)を参照してください。
+次は[現在計画](../design/development-roadmap.md)の具体的な入力接続を検討します。新画像尤度/再fitは八条件未成立で保留。期限2026-11-06 15:00JST、追加reset承認は手動UIで充足済みで再使用しません。次文書整理180/予定根本200。

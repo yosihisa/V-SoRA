@@ -39,7 +39,9 @@
 | `docs/`, `validation/` | 説明・設計・段階レポート・小さい結果 |
 | `data/reference/` | 匿名化したCas A参照画像と出典 |
 
-全体文書は段階160で技術基準159（`ed067c8`）へ統一しました。最新の製品・全回帰・wheel・両実GUI基準は151、152〜159は条件付きの個別参照です。[150の専用根本レビュー](docs/reports/150-fundamental-goal-review.md)の方針を引き継ぎ、実入力の根拠、広帯域前方平均、未知局量と採否、低SNR画像モデルを主課題にしています。[現在地と次の開発](docs/guide/09-observation-readiness.md)を参照してください。次の文書整理は170、予定の専用根本レビューは200です。
+全体文書は段階170で技術基準169（`8317129`）へ同期しました。最新の製品/full/wheel/専用両実GUI基準は169（`8317129`）。両全2414成功・565.04/562.00秒・各30220警告/除外0、105製品file＋4assets全byte、保存診断の両実GUI各28条件/56JSONは169の引用である。通常GUI151用prefixは更新していない。 [150の専用根本レビュー](docs/reports/150-fundamental-goal-review.md)を継承し、次の文書整理180/予定根本200です。[現在地](docs/guide/09-observation-readiness.md)を参照してください。
+
+公開単局IQの限定readerと原本pair検査CLIも使えます。[取得配置・実行方法](docs/guide/public-voltage-data.md)を参照してください。実受信機の構成決定や実複数局の画像化とは区別します。
 
 ## 日本語GUI
 
