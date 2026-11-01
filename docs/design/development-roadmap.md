@@ -50,6 +50,8 @@
 
 [168](../reports/168-sigmf-reader-api.md)で限定ci16_le SigMF readerと単局SampleBuffer明示APIを製品へ接続した。両新全2392件、新wheel104file＋4assets全byte、checkout外API、両実GUI28条件を確認。追加量子化せず166固定窓の17配列へ一致した。新installedは独立prefix、通常GUI151の旧prefixは保持。session/相関CLI/InputIdentity接続、実clock/物理帯域guardは未実施。次は実複数アンテナ原本の具体的取得根拠を優先し、単局APIの小変更反復を自動計画しない。
 
+[169](../reports/169-sigmf-identity-cli.md)でfresh metadata/data SHAのSigMFInputIdentityとinspect-sigmf CLIを接続した。期待値両指定/不一致と上書きを拒否し、両新全2414・105製品file+4assets/実CLI/API/両実GUI28条件を確認。全stat保持のraw変更は同instanceで見逃し得るため、閉じた入力と境界metadata rehash/別run fresh hashの契約を明示した。sessionへのSigMF形式接続やSampleBufferへの自動identity適用は未実施。次は170の文書整理を実施し、引用基準と次の具体的接続条件をそろえる。
+
 ## 旧候補164〜165：画像尤度・画像再fit案（引き続き保留）
 
 以下は実装済みでも実行予約でもない。実入力新回答、既存の重複、費用・期限で順序/範囲を改訂する。後段の前提が成立しなければ進めない。番号のため反復文書や小参照を増やさない。160当時の候補は[機械可読計画](../../validation/runs/stage160/next-candidates.json)。161〜163はそれぞれの限定参照として完了。この旧画像尤度/画像再fit案は前提未成立で保留。164〜165という番号は上記公開I/Q検証に使用した。追加の局所参照を自動反復せず、実入力新回答や具体的モデル成立条件の更新を優先する。変化がなければ不足条件の反復文書を新段階にせず、必要に応じ根本レビューを前倒しして計画を改訂する。

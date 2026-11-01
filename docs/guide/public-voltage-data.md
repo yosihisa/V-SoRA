@@ -91,6 +91,22 @@ project_root="$PWD"
 
 検証workflowは新しい出力先へ全成分照合のsummaryと17配列を保存する。全てGit管理外。installed比較は対象wheelを導入した環境のPythonを使い、checkout外cwd/PYTHONPATHなしで `workflows/public_sigmf_api_validation.py` の絶対pathを指定する。検証用の既存helperはcheckoutに必要だが、製品API単体の利用にはhelperは要らない。取得元の記録と供給metadataを保持し、出力電圧・数値配列・図をアップロードしない。
 
+## 原本の組と期待SHAをCLIで照合する
+
+取得後は `inspect-sigmf` で限定profile・原本pairを検査できる。新しい出力名を使う。
+
+```bash
+.verification-venv/bin/python tools/run.py vsora_correlator inspect-sigmf \
+  --metadata data/raw/public/camras-crab/crab-giantpulse.sigmf-meta \
+  --expect-metadata-sha256 42878700f4cc91c4cda249ec1d958cea6c7e78fc1b13f3af714f654956f4f188 \
+  --expect-data-sha256 e12a408af4d963802623a95ee732c20b0b6b0cbf787454f5b10753d6d04f992e \
+  --output outputs/public-sigmf-inspection.json
+```
+
+この機能を含むcommitからbuildしたwheel環境は `vsora-correlate inspect-sigmf` に同じ引数を渡す。上のSHAは初回取得byteを識別し、生産者公表checksumではない。metadata/dataの両SHAを新規計算し、片方だけの期待値・不一致・既存出力は失敗する。JSONはGit管理外。供給時刻/周波数と実測clockを区別し、局IDや天体品質を作らない。
+
+同一処理内のdata変更検査にはstatの限界があり、全stat保持の変更は見逃し得る。[詳細契約](../../interfaces/sigmf-input.md)を確認する。このCLIは原本検査で、session/相関CLIへのSigMF入力形式追加ではない。
+
 ## 後続候補の扱い
 
 - [MWA取得手順](https://mwatelescope.atlassian.net/wiki/spaces/MP/pages/24973422/Data%2BProcessing%2BDocumentation)：アンテナ別電圧を得られる候補。観測ID・公開可否・利用条件・最小取得容量を確定してから選ぶ。SMARTの旧VCSとMWAXの形式/容量を混同しない。

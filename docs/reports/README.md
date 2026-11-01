@@ -184,6 +184,7 @@
 | 166 | [16bit公開I/Qと既存整列バッファ](166-public-iq-samplebuffer.md) | 原本値を保持するreader prototype、固定4窓×seek/順次を独立有限作用へ照合。両9対象・17配列/21module一致、原本外拒否と初期FIR mask保持。単局/製品session未接続 |
 | 167 | [公開複数アンテナ電圧候補の出典・取得条件](167-public-voltage-provenance.md) | MWA小容量VCSは生成fixtureと識別し実観測へ不採用。LWA実TBN論文と配布未確定を分離。24file/505575byteのmetadata監査、本体追加取得・新数値0 |
 | 168 | [16bit公開原本を直接読む限定SigMF入力API](168-sigmf-reader-api.md) | SigMFRecording/単局SampleBuffer入口を製品化。全800万成分・17配列一致、両120対象/全2392成功、新wheel104file+4assets/両実GUI28条件。実clock/複数局/画像は未検証 |
+| 169 | [SigMF原本pairの同一性と実検査CLI](169-sigmf-identity-cli.md) | fresh pair SHA/inspect-sigmf、両98対象/全2414成功、実CLI一致/拒否6、新wheel105+4assets/両実GUI28。stat保持の盲点とpreformal失敗を保持 |
 
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。
 

@@ -4,6 +4,7 @@ import hashlib
 import json
 from pathlib import Path
 from .session import load_session
+from vsora_formats.sigmf import SigMFRecording
 
 
 def input_paths(manifest,clock):
@@ -88,3 +89,69 @@ class InputIdentity:
             'vdif_hash_file_reads':sum(self._hash_reads[p] for p in vdifs),
             'metadata_hash_bytes':sum(self._snapshot[p][2]*self._hash_reads[p] for p in metadata),
             'metadata_hash_file_reads':sum(self._hash_reads[p] for p in metadata)}
+
+
+class SigMFInputIdentity:
+    """Fresh identity of a closed SigMF pair; no persistent or supplied hash cache.
+
+    Call assert_current at processing boundaries. The small metadata is rehashed;
+    the dataset is fully hashed once per instance and guarded by stat afterward.
+    These guards are not proof against changes preserving every stat field.
+    """
+    def __init__(self, metadata_path):
+        self._metadata = Path(metadata_path).absolute()
+        self._paths = self._resolve_paths(self._metadata)
+        self._snapshot = snapshot_paths(self._paths)
+        if self._snapshot[self._paths[0]][:2] == self._snapshot[self._paths[1]][:2]:
+            raise ValueError('SigMF metadata and data must be distinct files')
+        self._hash_reads = {path: 0 for path in self._paths}
+        self.recording = SigMFRecording(self._metadata)
+        self.assert_current()
+        self._digests = {path: self._digest(path) for path in self._paths}
+        self.assert_current()
+        self._identity = {
+            role: {'sha256': self._digests[path], 'bytes': self._snapshot[path][2]}
+            for role, path in zip(('metadata', 'data'), self._paths)
+        }
+
+    @staticmethod
+    def _resolve_paths(metadata):
+        if not metadata.name.endswith('.sigmf-meta'):
+            raise ValueError('SigMF metadata filename must end in .sigmf-meta')
+        data = metadata.with_name(metadata.name[:-len('.sigmf-meta')] + '.sigmf-data')
+        return metadata.resolve(), data.resolve()
+
+    def _digest(self, path):
+        value = digest_file(path)
+        self._hash_reads[path] += 1
+        return value
+
+    def assert_current(self, metadata_path=None):
+        try:
+            paths = self._resolve_paths(self._metadata)
+            if metadata_path is not None and self._resolve_paths(Path(metadata_path).absolute()) != self._paths:
+                raise ValueError('SigMF identity belongs to different input paths')
+            if paths != self._paths or snapshot_paths(paths) != self._snapshot:
+                raise ValueError('SigMF input files changed during processing')
+            if hasattr(self, '_digests') and self._digest(paths[0]) != self._digests[paths[0]]:
+                raise ValueError('SigMF metadata content changed during processing')
+        except OSError as error:
+            raise ValueError('SigMF input files changed or became unavailable') from error
+
+    @property
+    def public_identity(self):
+        return deepcopy(self._identity)
+
+    @property
+    def diagnostics(self):
+        metadata, data = self._paths
+        return {
+            'schema_version': 1,
+            'hash_policy': 'fresh_full_pair_sha256_once_per_instance_metadata_rehashed_at_boundaries',
+            'data_hash_file_reads': self._hash_reads[data],
+            'data_hash_bytes': self._snapshot[data][2] * self._hash_reads[data],
+            'metadata_hash_file_reads': self._hash_reads[metadata],
+            'metadata_hash_bytes': self._snapshot[metadata][2] * self._hash_reads[metadata],
+            'change_check': 'resolved pair paths, device/inode, size, mtime_ns, ctime_ns; metadata content SHA',
+            'limits': 'Closed files and trusted Python callers; dataset changes preserving every stat field can be missed. SHA identifies bytes, not clock accuracy or signal quality.',
+        }

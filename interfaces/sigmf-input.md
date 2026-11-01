@@ -61,3 +61,29 @@ finally:
 actual_rateは呼出側が明示し、正の有限数・供給Fsから±1000ppm以内を要求する。両境界を含む。seek_inputはbool。既定のVDIF constructorは従来どおり使える。単局のFIR/補間への入口であり、session manifestや相関CLIのSigMF対応ではない。
 
 FIR/補間は入力波形を変える。実受信帯域のguardや時計精度に対する科学的な適用条件は別に確認する。原本の先頭ではFIR支持不足がmask=False/値0となり、記録範囲を超えるqueryは拒否する。単局を複製して実基線やClosureを作る用途には使わない。
+
+## 閉じた原本pairの識別と検査CLI
+
+`vsora_correlator.input_identity.SigMFInputIdentity` はmetadata/dataの組を別途識別する。構築ごとに両fileの全SHA256を新規計算し、ディスクcacheやcaller supplied digestを計算の代わりに使わない。`public_identity` はrole別のSHA/byteを返し、返却dictの変更は内部値を変えない。元のVDIF用 `InputIdentity` と区別する。
+
+```python
+from vsora_correlator.input_identity import SigMFInputIdentity
+
+identity = SigMFInputIdentity("data/raw/public/camras-crab/crab-giantpulse.sigmf-meta")
+identity.assert_current()  # 処理の前後で呼ぶ。
+pair = identity.public_identity
+```
+
+境界では元pathからのresolve、device/inode、size、mtime_ns、ctime_nsを確認し、小metadataを再hashする。同じinstanceのraw本体は境界で全再hashしない。別instance/runでは必ず新規hashする。metadata/dataが同じ実fileを指す構成を拒否する。
+
+**閉じた入力と信頼されたPython呼出側が前提**。dataの内容が変わっても全statが同じなら、同じinstanceの境界検査は見逃し得る。小さな書換えとmtime復元が同じfilesystem tickに収まる場合も含む。ctime変化の検出を常時保証しない。metadataはstatが同じでも内容SHAで照合する。敵対的filesystemの証明や、入力をlockして変更不能にする機能ではない。identityとreaderは別の契約で、SampleBuffer/sessionへ自動適用されない。
+
+```bash
+.verification-venv/bin/python tools/run.py vsora_correlator inspect-sigmf \
+  --metadata data/raw/public/camras-crab/crab-giantpulse.sigmf-meta \
+  --output outputs/public-sigmf-inspection.json
+```
+
+この機能を含むcommitからbuildしたwheel環境では `vsora-correlate inspect-sigmf` を使う。`--expect-metadata-sha256` と `--expect-data-sha256` は両方を指定し、64桁hexをfresh実hashへ照合する。片方だけ・不正表記・不一致は失敗する。期待値がなければ `expected_sha256_pair_matched=null` で、識別のみを意味する。期待値と一致しても、生産者の認証やmetadata中のSHA512を検証した意味ではない。
+
+出力はpairのSHA/byte、sample数、供給Fs/capture日時/RF中心、ADC単位、検査範囲と未検証項目。ローカルpath、元metadata全文、波形は含めない。局IDはnull、実clock測定・生産者checksum照合はfalse。既存出力は原本を含め上書き拒否する。出力は検査時点の記録で、後から原本が変わらないことを保証しない。JSONも派生記録としてGit管理外へ置く。
