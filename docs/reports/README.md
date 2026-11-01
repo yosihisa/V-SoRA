@@ -180,6 +180,7 @@
 | 162 | [同一有限電圧の実codecと整列平均](162-quantized-aligned-mean.md) | 固定4混合probe×2scaleを24新VDIFから実整列へ通し独立復号波形係数と照合。両14対象・21配列/8NPZ80field/48VDIF-sidecar file一致。初回UTC/第二診断field停止を保持、新fit0 |
 | 163 | [局最小二乗候補と最終χ²棄却](163-station-chisq-gate.md) | 旧基線候補を固定し現局LSの381候補/354採用/27χ²棄却/131非連結nullを保持。両86対象・22配列一致、新baseline fit/独立試行0。全推定bias/gate因果分離は未識別 |
 | 164 | [公開単局I/Qの取得と有限スペクトル](164-public-single-station-iq.md) | CAMRAS実原本16MB/400万sampleを管理外取得、全復号/有限FFTを両環境照合。現VDIF profile拒否、単局/画像未検証、データ非公開 |
+| 165 | [公開I/Qの供給時刻を保つVDIF限定参照](165-public-iq-vdif-time.md) | 4000sample/frameで20 MHz/小数秒epochを保持、全400万sampleの量子化/時刻を照合。両5対象・3配列/VDIF一致、初回root検査停止を残し全再実行。非可逆8bit/単局、製品writer変更なし |
 
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。
 
