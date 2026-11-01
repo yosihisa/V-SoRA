@@ -42,7 +42,9 @@
 
 [165](../reports/165-public-iq-vdif-time.md)で4000sample/frameの検証用VDIFへ供給20 MHz・小数秒epoch・全sample順を保持し、既存iteratorと独立量子化/有理数時刻を両環境照合した。製品writerの整数秒制約は維持。8bit化は非可逆で平均powerも変わり、production profileにしない。初回root検査不備は全終了後に修正し、全選択を再実行した。
 
-次の候補は原本16bitを保つ主経路の具体的未接続差、またはMWA複数アンテナ電圧の実観測ID・取得可能性・最小容量・利用条件。公称値の置換や単局複製で既存経路へ合わせず、同じcodec参照の小変更を自動反復しない。MWA本体取得/アカウント作成/取得ジョブ投入は未実施。製品変更を選ぶ前に新両full/wheel/両実GUIを含め予算を改訂する。旧新画像尤度・画像再fit案は以下のとおり保留し、八条件が成立したと扱わない。
+[166](../reports/166-public-iq-samplebuffer.md)では原本16bit値を保持するreader prototypeを既存SampleBuffer境界に置き、実I/Qの固定4窓×seek/順次を独立有限作用へ照合した。入口での追加量子化は0だがFIR/補間は波形を変える。製品session/CLIへ形式を追加したものではなく、物理帯域/実時計の適用性は未検証。
+
+次は複数アンテナ電圧の実観測ID・取得可能性・最小容量・利用条件を確認する候補。公称値の置換や単局複製で既存経路へ合わせず、同じ単局参照の小変更を自動反復しない。MWA本体取得/アカウント作成/取得ジョブ投入は未実施。製品reader変更を選ぶ前に単位/clock/identity契約と新両full/wheel/両実GUIを含め予算を改訂する。旧新画像尤度・画像再fit案は以下のとおり保留し、八条件が成立したと扱わない。
 
 ## 旧候補164〜165：画像尤度・画像再fit案（引き続き保留）
 
@@ -79,3 +81,5 @@
 製品修正を選ぶ場合は新source/installed全回帰・wheel/pipcheck/全byte・checkout外API・両実GUIまで正式予算へ改訂する。GUI更新前は実所有/api/jobs idleを確認して所有idle GUIだけ停止し後に再開する。古いPTY/PIDを有効と仮定しない。
 
 期限2026-11-06 15:00（Asia/Tokyo）、追加reset購入使用禁止。残量10%へ近づけば完成境界で休止し同じscheduleを期限前reset後へ調整、実回復を確認する。取得不能なら記録して大量の新段階を始めない。期限以降は新開発せず同一automationをPAUSEDにして報告する。次の文書整理170/予定根本レビュー200、前提崩れ時前倒し。[運用](development-governance.md)、[時系列](../reports/overviews/development-history.md)、[要素別進捗](../reports/overviews/goal-and-progress.md)、[短い案内](../guide/09-observation-readiness.md)、[索引](../reports/README.md)を参照する。
+
+2026-11-01の最新指示で、今回に限り既存未使用resetの自動使用1回を許可された。新規購入と2回目の自動使用はしない。実残量10%以下で消費と回復を確認し、旧11月5日までの休止を解除して同一automationで継続する。上記期限は変更しない。過去の禁止・休止は当時の判断として残す。

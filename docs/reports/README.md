@@ -181,6 +181,7 @@
 | 163 | [局最小二乗候補と最終χ²棄却](163-station-chisq-gate.md) | 旧基線候補を固定し現局LSの381候補/354採用/27χ²棄却/131非連結nullを保持。両86対象・22配列一致、新baseline fit/独立試行0。全推定bias/gate因果分離は未識別 |
 | 164 | [公開単局I/Qの取得と有限スペクトル](164-public-single-station-iq.md) | CAMRAS実原本16MB/400万sampleを管理外取得、全復号/有限FFTを両環境照合。現VDIF profile拒否、単局/画像未検証、データ非公開 |
 | 165 | [公開I/Qの供給時刻を保つVDIF限定参照](165-public-iq-vdif-time.md) | 4000sample/frameで20 MHz/小数秒epochを保持、全400万sampleの量子化/時刻を照合。両5対象・3配列/VDIF一致、初回root検査停止を残し全再実行。非可逆8bit/単局、製品writer変更なし |
+| 166 | [16bit公開I/Qと既存整列バッファ](166-public-iq-samplebuffer.md) | 原本値を保持するreader prototype、固定4窓×seek/順次を独立有限作用へ照合。両9対象・17配列/21module一致、原本外拒否と初期FIR mask保持。単局/製品session未接続 |
 
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。
 

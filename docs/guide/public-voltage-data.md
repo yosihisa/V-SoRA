@@ -69,6 +69,17 @@ project_root="$PWD"
 
 変換VDIF・summary・数値配列もアップロードしない。初回失敗の出力を含む全ローカル容量と空きを確認し、失敗記録を削除して容量や成功件数を小さく見せない。
 
+## 16bit原本と整列バッファの限定参照
+
+[166](../reports/166-public-iq-samplebuffer.md)は、8bit化を避けて原本I/Qの値を保持し、既存SampleBufferの有限フィルター・補間を固定4窓で独立計算へ照合する。readerだけをworkflow内で置換するprototypeであり、製品session/CLIの形式追加ではない。供給Fsを名目mappingとして使い、実時計を推定しない。
+
+```bash
+.verification-venv/bin/python tools/run.py workflows.public_samplebuffer_validation \
+  --input data/raw/public/camras-crab --output outputs/public-samplebuffer-check
+```
+
+存在しない出力先を使う。結果の17配列・科学summary・環境記録は全て `outputs/public-samplebuffer-check/` に保存する。installed比較の方法は上のVDIF参照と同じで、実行workflow名を `public_samplebuffer_validation.py`、出力先を別名へ変える。146・周期参照・164のhelperもcheckoutに必要。reader入口はint16値を正確に保持するが、FIR/補間の出力波形は変わる。実受信帯域・clock精度に対してその整列が科学的に適用可能かは未検証である。これらの出力もアップロードしない。
+
 ## 後続候補の扱い
 
 - [MWA取得手順](https://mwatelescope.atlassian.net/wiki/spaces/MP/pages/24973422/Data%2BProcessing%2BDocumentation)：アンテナ別電圧を得られる候補。観測ID・公開可否・利用条件・最小取得容量を確定してから選ぶ。SMARTの旧VCSとMWAXの形式/容量を混同しない。
