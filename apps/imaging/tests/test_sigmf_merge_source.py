@@ -120,3 +120,29 @@ def test_wrong_manifest_count_and_legacy_source_are_rejected(inputs,tmp_path):
         merge_spectral(inputs[2],tmp_path/'bad.npz',**{**opts,'input_manifests':[]})
     with pytest.raises(ValueError,match='SigMF-only'):
         merge_spectral(inputs[2],tmp_path/'bad.npz',**{**opts,'source_manifest':tmp_path/'stored/manifest.json','clock_model':tmp_path/'stored/clock.json'})
+
+
+def test_reference_image_requires_explicit_source_and_type(tmp_path):
+    from vsora_imaging.synthesis import image_synthesis
+    with pytest.raises(ValueError,match='all explicit source'):
+        image_synthesis(['missing','missing'],tmp_path/'bad',sigmf_reference_image=True)
+    with pytest.raises(ValueError,match='bool required'):
+        image_synthesis(['missing','missing'],tmp_path/'bad',sigmf_reference_image=1)
+    with pytest.raises(ValueError,match='requires sigmf_reference_image'):
+        image_synthesis(['missing','missing'],tmp_path/'bad',source_manifest='missing')
+    assert not (tmp_path/'bad.partial').exists()
+
+
+def test_live_source_reuse_rejects_claimed_digest(inputs,tmp_path):
+    with pytest.raises(TypeError,match='live InputIdentity'):
+        merge_spectral(inputs[2],tmp_path/'bad.npz',**arguments(inputs),_source_identity={'sha256':'claim'})
+
+
+def test_sigmf_image_opt_in_and_no_information_failure_keep_partial(inputs,tmp_path):
+    from vsora_imaging.synthesis import image_synthesis
+    with pytest.raises(ValueError,match='SigMF images require explicit'):
+        image_synthesis(inputs[2],tmp_path/'implicit',starts=1,max_iterations=20)
+    assert not (tmp_path/'implicit').exists() and (tmp_path/'implicit.partial/failure.json').exists()
+    with pytest.raises(ValueError,match='no high SNR'):
+        image_synthesis(inputs[2],tmp_path/'weak',sigmf_reference_image=True,**arguments(inputs),starts=1,max_iterations=20)
+    assert not (tmp_path/'weak').exists() and (tmp_path/'weak.partial/failure.json').exists()

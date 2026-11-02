@@ -46,7 +46,20 @@ def _recorded_sigmf_identity(meta, config):
     return {key:deepcopy(identity[key]) for key in common},epoch.isot+'Z'
 
 
-def merge_spectral(paths,output,*,source_manifest=None,clock_model=None,input_manifests=None):
+def _source_snapshot(manifest,clock,identity=None):
+    from vsora_correlator.input_identity import InputIdentity
+    from vsora_correlator.session import load_session
+    if identity is not None and not isinstance(identity,InputIdentity):
+        raise TypeError('live InputIdentity required for source reuse')
+    config=load_session(manifest,allow_sigmf=True)
+    if config.get('input_format')!='sigmf_ci16_le':
+        raise ValueError('fresh source verification is SigMF-only')
+    source=identity if identity is not None else InputIdentity(manifest,clock,expected_config=config)
+    if identity is not None:source.assert_current(manifest,clock,config)
+    return source,config
+
+
+def merge_spectral(paths,output,*,source_manifest=None,clock_model=None,input_manifests=None,_source_identity=None):
     if not 2<=len(paths)<=64:raise ValueError('synthesis requires 2..64 spectral inputs')
     out=Path(output)
     if out.suffix!='.npz':raise ValueError('synthesis output must be .npz')
@@ -54,16 +67,14 @@ def merge_spectral(paths,output,*,source_manifest=None,clock_model=None,input_ma
     supplied=[v is not None for v in (source_manifest,clock_model,input_manifests)]
     if any(supplied) and not all(supplied):
         raise ValueError('source_manifest, clock_model and input_manifests must be supplied together')
+    if _source_identity is not None and not all(supplied):
+        raise ValueError('live source reuse requires all explicit source paths')
     source=None;views=[];child_configs=[]
     if all(supplied):
         if not isinstance(input_manifests,(list,tuple)) or len(input_manifests)!=len(paths):
             raise ValueError('one input manifest per spectral input required')
-        from vsora_correlator.input_identity import InputIdentity
         from vsora_correlator.session import load_session
-        source_config=load_session(source_manifest,allow_sigmf=True)
-        if source_config.get('input_format')!='sigmf_ci16_le':
-            raise ValueError('fresh source verification is SigMF-only')
-        source=InputIdentity(source_manifest,clock_model,expected_config=source_config)
+        source,source_config=_source_snapshot(source_manifest,clock_model,_source_identity)
         for manifest in input_manifests:
             config=load_session(manifest,allow_sigmf=True)
             views.append(source.bind_sigmf_session(manifest,clock_model,config));child_configs.append(config)
@@ -173,6 +184,8 @@ def merge_spectral(paths,output,*,source_manifest=None,clock_model=None,input_ma
                 input_identity_verification={'source_identity':source.public_identity,'source_diagnostics':source.diagnostics,
                     'derived_diagnostics':[view.diagnostics for view in views],
                     'scope':'Original/control guards before/after spectral reads and hashes, and immediately before output; changes after the last check or preserving all raw stat fields remain outside this snapshot'})
+            if _source_identity is not None:
+                meta['input_identity_verification']['source_reuse_mode']='live_same_run_source; root hash counters are cumulative and must not be added twice'
     save_spectral(out,cube,meta)
     result={'input_count':len(inputs),'time_cells':len(sorted_times),'channels':len(cube['frequencies_hz']),
         'baseline_count':len(cube['pairs']),'observation_span_s':float(sorted_times[-1]-sorted_times[0]),
@@ -186,18 +199,47 @@ def merge_spectral(paths,output,*,source_manifest=None,clock_model=None,input_ma
     return result
 
 
-def image_synthesis(paths,output,**settings):
+def image_synthesis(paths,output,*,sigmf_reference_image=False,source_manifest=None,clock_model=None,
+                    input_manifests=None,_source_identity=None,**settings):
+    if not isinstance(sigmf_reference_image,bool):raise ValueError('sigmf_reference_image bool required')
+    supplied=[v is not None for v in (source_manifest,clock_model,input_manifests)]
+    if sigmf_reference_image and not all(supplied):
+        raise ValueError('SigMF reference image requires all explicit source paths')
+    if not sigmf_reference_image and (any(supplied) or _source_identity is not None):
+        raise ValueError('explicit source image verification requires sigmf_reference_image=True')
     from .closure import extract_closures
     from .rml import image_closure
     out=Path(output);partial=out.with_name(out.name+'.partial')
     if out.exists() or partial.exists():raise FileExistsError('choose new synthesis directory')
+    source=source_config=None;verification={};image_views=[]
+    if sigmf_reference_image:
+        source,source_config=_source_snapshot(source_manifest,clock_model,_source_identity)
+        if not isinstance(input_manifests,(list,tuple)) or len(input_manifests)!=len(paths):
+            raise ValueError('one input manifest per spectral input required')
+        from vsora_correlator.session import load_session
+        for manifest in input_manifests:
+            config=load_session(manifest,allow_sigmf=True)
+            image_views.append((manifest,config,source.bind_sigmf_session(manifest,clock_model,config)))
+        verification=dict(source_manifest=source_manifest,clock_model=clock_model,input_manifests=input_manifests,_source_identity=source)
+    def unchanged():
+        if source is not None:source.assert_current(source_manifest,clock_model,source_config)
+        for manifest,config,view in image_views:view.assert_current(manifest,clock_model,config)
     partial.mkdir(parents=True)
     try:
-        merged=merge_spectral(paths,partial/'visibility.npz')
+        unchanged()
+        merged=merge_spectral(paths,partial/'visibility.npz',**verification)
+        unchanged()
+        if merged.get('input_format')=='sigmf_ci16_le' and not sigmf_reference_image:
+            raise ValueError('SigMF images require explicit sigmf_reference_image=True and source verification')
         closure=extract_closures(partial/'visibility.npz',partial/'closures.npz',min_snr=settings.get('min_snr',10.))
+        unchanged()
         rml=image_closure(partial/'visibility.npz',partial/'rml',**settings)
+        unchanged()
         result={'state':'complete','type':'closure_synthesis','synthesis':merged,'closures':closure,'rml':rml,
                 'absolute_flux_measured':False,'absolute_position_measured':False}
+        if sigmf_reference_image:
+            result.update(sigmf_reference_image=True,
+                imaging_validation_scope='Existing fixed observed high-SNR independent-baseline closure covariance only; no calibrated real-data or low-SNR image likelihood')
         (partial/'summary.json').write_text(json.dumps(result,indent=2)+'\n');partial.rename(out);return result
     except Exception as exc:
         (partial/'failure.json').write_text(json.dumps({'state':'incomplete','error_type':type(exc).__name__})+'\n');raise
@@ -208,15 +250,18 @@ def main():
     p=argparse.ArgumentParser(description='Closure RML synthesis from distinct aligned short exposures')
     p.add_argument('--inputs',nargs='+',required=True);p.add_argument('--output',required=True)
     p.add_argument('--merge-only',action='store_true',help='Save aligned spectral windows to .npz without closure extraction or image fitting')
+    p.add_argument('--sigmf-reference-image',action='store_true',help='Explicit existing high-SNR reference image with original-source verification; no new noise model')
     p.add_argument('--source-manifest');p.add_argument('--clock-model');p.add_argument('--input-manifests',nargs='+')
     p.add_argument('--starts',type=int,default=3);p.add_argument('--max-iterations',type=int,default=800)
     p.add_argument('--prior-fwhm-arcsec',type=float,default=240.);p.add_argument('--min-snr',type=float,default=10.)
     p.add_argument('--entropy',type=float,default=.01);p.add_argument('--tsv',type=float,default=.0001)
     args=vars(p.parse_args());paths=args.pop('inputs');out=args.pop('output');merge_only=args.pop('merge_only')
-    verification={k:args.pop(k) for k in ('source_manifest','clock_model','input_manifests')}
-    if not merge_only and any(v is not None for v in verification.values()):
+    verification={k:args.pop(k) for k in ('source_manifest','clock_model','input_manifests')};reference_image=args.pop('sigmf_reference_image')
+    if merge_only and reference_image:p.error('--merge-only and --sigmf-reference-image are mutually exclusive')
+    if not merge_only and not reference_image and any(v is not None for v in verification.values()):
         p.error('fresh source verification currently requires --merge-only')
-    print(json.dumps(merge_spectral(paths,out,**verification) if merge_only else image_synthesis(paths,out,**args),indent=2))
+    print(json.dumps(merge_spectral(paths,out,**verification) if merge_only else image_synthesis(paths,out,
+        sigmf_reference_image=reference_image,**verification,**args),indent=2))
 
 
 if __name__=='__main__':main()

@@ -156,3 +156,9 @@ project_root="$PWD"
 [175](../reports/175-sigmf-spectral-merge.md)の `vsora-synthesis --merge-only` は、保存された原本pair・clock識別を照合し、SigMF UTC9桁と全数値fieldを保って結合する。元rawの再hashや実時計較正は行わず、画像fitも実行しない。入力と結合NPZ、科学JSONは引き続き管理外に置く。
 
 176では、merge-onlyへ原本manifest/clockと窓manifestを全指定した場合だけ、[freshな原本照合](../../interfaces/sigmf-spectral-merge.md#明示した元原本とのfresh照合176)を行える。既定175の保存情報だけの照合は維持する。元rawの生成・再相関や画像fitを行わず、recording間のdata/clock対応を検査する。原本からその数値が計算された履歴や実時計の正確さまで証明する入口ではない。
+
+## 原本照合を保った参考画像の接続
+
+[177](../reports/177-sigmf-reference-image.md)では、[明示参考mode](../../interfaces/sigmf-session.md#明示した高snr参考画像sequence177)だけを既存Closure/RMLへ接続する。174の異なる模擬4局と同じ固定波形を再利用してAPI接続を検査し、原本の生成・変換・取得は繰り返さない。このAPI試験の再相関は独立な観測試行ではない。実CAMRASは単局のままで、この画像の原本に複製して使わない。
+
+検証workflowは [sigmf_reference_image_validation.py](../../workflows/sigmf_reference_image_validation.py)。旧176の参考画像、174の完成相関、独立した有限画素Fourier和・共分散solveと照合する。productのClosure行選択を条件にした代数検査で、未知実noiseや八条件の成立を示さない。画像・配列・科学JSON・原本/提供metadataはすべて管理外へ保存する。optimizerのiteration-limitを隠さず、形式接続と収束/画像精度を分ける。

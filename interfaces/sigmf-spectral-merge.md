@@ -16,11 +16,11 @@ SigMFのUTC-Z原点は最大小数秒9桁で、供給観測configのstart_utcと
 
 全入力の局/geometry/source/unit/frequency axes、診断field集合、露出値、重複時刻/重複窓と2〜64入力/1M spectral cell上限は既存条件を維持する。SigMFは非負整数time×baselineの `valid_fft_count` を必須として保存し、未知の非diagnostic fieldは黙って捨てずに拒否する。countは独立標本数でも実効Mの較正でもない。複素平均、weight変更、noise/Closure/RML objective変更は行わない。
 
-出力は後段へ渡すための結合データであり、この入口の成功だけで画像・天体検出・実FFT独立性・低SNR likelihood・confidenceを合格にしない。session-level SigMF画像pipeline/画像sequence/GUIの拒否は維持する。[段階175](../docs/reports/175-sigmf-spectral-merge.md)を参照。
+出力は後段へ渡すための結合データであり、この入口の成功だけで画像・天体検出・実FFT独立性・低SNR likelihood・confidenceを合格にしない。単窓SigMF画像pipeline/GUIの拒否は維持する。画像sequenceは177の明示参考modeに限定する。[段階175](../docs/reports/175-sigmf-spectral-merge.md)を参照。
 
 ## 明示した元原本とのfresh照合（176）
 
-APIの `source_manifest`、`clock_model`、入力shard順の `input_manifests` を全指定した場合だけ、既存InputIdentityで元SigMF pair/controlをfresh hashし、既存guarded derived viewを窓manifestへ適用する。一部指定、legacy原本、画像CLIへの指定は拒否する。指定しない場合は175のrecorded-agreement modeをbyte/metadata/returnまで維持する。
+APIの `source_manifest`、`clock_model`、入力shard順の `input_manifests` を全指定した場合だけ、既存InputIdentityで元SigMF pair/controlをfresh hashし、既存guarded derived viewを窓manifestへ適用する。一部指定、legacy原本、新flagのない画像CLIへの指定は拒否する。指定しない場合は175のrecorded-agreement modeをbyte/metadata/returnまで維持する。
 
 ```bash
 vsora-synthesis --merge-only --inputs window-b.npz window-a.npz --output merged.npz \
@@ -31,3 +31,11 @@ vsora-synthesis --merge-only --inputs window-b.npz window-a.npz --output merged.
 freshな子のpublic identity全4fieldをshardの保存identityへ一致させる。親/子の既存clock/pair/科学config契約に加え、shardのtyped観測config、FFT長/Fs/名目積分長、基線・周波数軸を子sessionへ照合する。caller SHA辞書や永続cacheを新しく受けない。原本data full SHAは親1pass、子data hashは0。`original_files_rehashed=true` と `input_identity_verification` にfresh親識別/診断と子診断を保存する。
 
 検査境界はspectral読込前後・spectral hash後・出力直前。親/子のsmall JSON/metadata内容SHAと全stat検査を使う。検査後の変更や全stat保持raw変更を見逃す限界、閉じた入力/trusted Python、file lock不在は残る。spectralのload/hashは従来の閉じたfile経路であり、原本との計算履歴、配列がその原本から計算された証明、producer checksum認証を行う機能ではない。現物fileと保存された識別・設定の対応を検査するsnapshotとして扱う。画像fit/実時計/FFT独立性/画像尤度の新しい保証ではない。[段階176](../docs/reports/176-sigmf-merge-source-binding.md)を参照。
+
+## 原本照合を保った参考画像（177）
+
+`image_synthesis(..., sigmf_reference_image=True, source_manifest=..., clock_model=..., input_manifests=...)` は、全source指定を要求し、結合から既存Closure/RMLへ進む。SigMF画像では新flagと全source指定が必須。VDIFの既定画像は保持する。画像CLIでは `--sigmf-reference-image` を全source指定へ追加し、`--merge-only` と併用しない。
+
+単独API/CLIはfresh親を作る。画像sequence内部だけは同じrunのlive InputIdentity親をprivate `_source_identity` で再利用する。SHA辞書/永続cacheは受けない。子control viewも各画像境界で検査し、各局data hashは親1pass、子0。`input_identity_verification.source_reuse_mode` がある場合のroot診断は累計であり、元sequenceと二重加算しない。175/176の結合だけの既定数値・metadata・returnは変わらない。
+
+適用範囲とCLIのsequence例は[SigMF session契約](sigmf-session.md#明示した高snr参考画像sequence177)へ。既存高SNR objectiveの有限和/共分散代数を検査しても、統計的校正や実観測からの復元は検証済みとしない。旧176にあったunverified SigMF画像呼出は比較用旧prefixでのみ参考実行し、新入口では許可しない。

@@ -37,7 +37,7 @@ SigMF相関入口では `InputIdentity` を適用する。各runでmanifest/cloc
 
 この機能を含むwheel環境は `vsora-correlate correlate-aligned` を使う。既存output/partialは上書きしない。`--sequential-input` は先頭から読み、既定はguard付きseek。helperなしの製品APIも使える。
 
-通常 `correlate`、画像付きClosure pipeline・sequence、GUIのsession入口はSigMFを明示拒否する。[172のcorrelation-only pipeline](closure-pipeline.md#sigmfの相関保存専用入口)は、pilotから推定したrateで最終相関を補正する明示API/CLIまで対応する。公開CAMRAS原本は単局なので複数局sessionにはならない。原本・供給metadataを変更/複製して相関へ通さない。[取得配置と非公開方針](../docs/guide/public-voltage-data.md)、[段階171](../docs/reports/171-sigmf-aligned-session.md)を参照する。
+通常 `correlate`、単窓の画像付きClosure pipeline、GUIのsession入口はSigMFを明示拒否する。画像sequenceは177の明示参考modeだけを後述する。[172のcorrelation-only pipeline](closure-pipeline.md#sigmfの相関保存専用入口)は、pilotから推定したrateで最終相関を補正する明示API/CLIまで対応する。公開CAMRAS原本は単局なので複数局sessionにはならない。原本・供給metadataを変更/複製して相関へ通さない。[取得配置と非公開方針](../docs/guide/public-voltage-data.md)、[段階171](../docs/reports/171-sigmf-aligned-session.md)を参照する。
 
 173ではlive InputIdentity親から[派生session view](closure-pipeline.md#同じrunの派生identity173)を作り、pipeline内のfull data hashを1回へ集約する。private `_source_identity` にlive親を明示したSigMF direct subrunだけが対応する。通常のdirect呼出は引き続きfresh full hash。別clock/pair/科学configの再利用やcaller supplied SHAは拒否し、rawの全stat保持変更の盲点は残る。
 
@@ -58,3 +58,17 @@ SigMFには整数FFT blockを要求し、VDIFだけに4096sample/frame条件を�
 [175の結合契約](sigmf-spectral-merge.md)は、保存pair/clock識別の一致と9桁UTCを保つ `merge_spectral` / `vsora-synthesis --merge-only` の入口。画像fitや元raw再hashは行わない。`valid_fft_count` を保持するが、独立標本数の証明ではない。session-level画像処理とGUIの形式追加はまだ行わない。
 
 176では[結合契約のfresh照合](sigmf-spectral-merge.md#明示した元原本とのfresh照合176)へ元manifest/clock/窓manifestを全指定できる。既存InputIdentity/派生viewを再利用して保存識別と現在の原本を照合し、既定175の記録一致だけの入口と区別する。画像fitを追加せず、配列の計算履歴やproducer認証を証明しない。
+
+## 明示した高SNR参考画像sequence（177）
+
+`process_sequence(..., sigmf_reference_image=True)` と `vsora-sequence --sigmf-reference-image` は、原本識別を保った2〜64窓の補正相関を、既存の高SNR Closure/RMLへ渡す。`correlation_only=True` との併用やVDIFへの新flagは拒否する。既定VDIF画像とSigMF相関専用の入口は維持する。画像のFourier容量guardも適用する。
+
+```bash
+vsora-sequence --manifest original-manifest.json --clock-model original-clock.json \
+  --output reference-image --sigmf-reference-image --window-count 2 \
+  --pilot-integrations 64 --integration-s .1 --starts 1 --max-iterations 100
+```
+
+供給clock/Fs/RF/epochとADC scale1の契約は171を継承。freshなlive親をpilot/final/結合で共有し、原本data full SHAは各局1pass。原本と窓別controlのguarded viewを結合・Closure・画像fitの各境界/終了後まで保つ。root累計を窓ごとに加算しない。`sigmf_reference_image=true` と `imaging_validation_scope` を結果へ保存する。raw全stat保持変更、最後の検査後の変更、file lock不在の限界は変わらない。
+
+これは既存の固定観測高SNR・cell内共分散を使う**参考計算**。新しいnoise/RML尤度、実FFT独立性、時間周波数依存や低SNRの校正、実Cas Aの画像精度を認定しない。画像は単位sumの相対fluxで、精密gain/絶対fluxを一律に要求しない。API完了とoptimizer収束を分け、全statusとiteration-limitを保存する。無情報/途中変更はpartialとfailureを保持し最終directoryを作らない。CAMRASは単局のまま、複製して実基線を作らない。[段階177](../docs/reports/177-sigmf-reference-image.md)を参照。

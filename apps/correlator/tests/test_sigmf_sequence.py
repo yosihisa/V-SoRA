@@ -117,3 +117,48 @@ def test_sequence_sigmf_planning_still_rejects_overlap_counts_and_cell_capacity(
         with pytest.raises(ValueError,match=match):_plan_windows(c,count,step,.002,64,None,.1)
     with pytest.raises(ValueError,match='one million spectral'):
         _plan_windows({**c,'fft_length':8192,'blocks_per_integration':1},32,None,.002,32,None,.1)
+
+
+def test_explicit_reference_image_keeps_live_source_guard_and_one_hash(inputs,tmp_path,monkeypatch):
+    from vsora_correlator import input_identity
+    import numpy as np
+    calls=[];digest=input_identity.digest_file
+    def count(path):calls.append(Path(path));return digest(path)
+    monkeypatch.setattr(input_identity,'digest_file',count)
+    result=process_sequence(inputs/'manifest.json',inputs/'clock.json',tmp_path/'image',
+        **{**options(),'correlation_only':False},sigmf_reference_image=True,starts=1,max_iterations=20)
+    assert result['sigmf_reference_image'] and result['completed_steps']==result['total_steps']==7
+    assert result['input_identity']['sigmf_data_hash_file_reads']==4
+    assert len([p for p in calls if p.suffix=='.sigmf-data'])==4
+    check=result['synthesis']['input_identity_verification']
+    assert 'live_same_run_source' in check['source_reuse_mode']
+    assert check['source_diagnostics']['sigmf_data_hash_file_reads']==4
+    image=np.load(tmp_path/'image/synthesis/rml/relative-model.npy')
+    assert np.isfinite(image).all() and np.all(image>=0) and abs(image.sum()-1)<1e-12
+    assert not result['absolute_flux_measured'] and not result['absolute_position_measured']
+
+
+@pytest.mark.parametrize('value',[None,1,'yes'])
+def test_reference_image_flag_is_strict_and_explicit(tmp_path,value):
+    with pytest.raises(ValueError,match='sigmf_reference_image bool'):
+        process_sequence('missing','missing',tmp_path/'bad',sigmf_reference_image=value)
+    with pytest.raises(ValueError,match='mutually exclusive'):
+        process_sequence('missing','missing',tmp_path/'bad',sigmf_reference_image=True,correlation_only=True)
+
+
+@pytest.mark.parametrize('changed_file',['original','derived'])
+def test_reference_image_detects_original_change_during_fitting(inputs,tmp_path,monkeypatch,changed_file):
+    import vsora_imaging.rml as rml
+    def changed(*args,**kwargs):
+        path=inputs/'clock.json' if changed_file=='original' else tmp_path/'bad-image.partial/window-0000/final-manifest.json'
+        path.write_text(path.read_text()+' ')
+        return {'test_only':True}
+    monkeypatch.setattr(rml,'image_closure',changed)
+    with pytest.raises(ValueError,match='changed'):
+        process_sequence(inputs/'manifest.json',inputs/'clock.json',tmp_path/'bad-image',
+            **{**options(),'correlation_only':False},sigmf_reference_image=True,starts=1,max_iterations=20)
+    assert not (tmp_path/'bad-image').exists()
+    partial=tmp_path/'bad-image.partial'
+    assert (partial/'synthesis.partial/failure.json').exists()
+    failure=json.loads((partial/'failure.json').read_text())
+    assert failure['state']=='incomplete' and failure['phase']=='synthesis'

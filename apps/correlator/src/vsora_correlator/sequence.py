@@ -59,14 +59,19 @@ def plan_windows(config,window_count,step_s,start_offset_s,pilot_integrations,pi
 def process_sequence(manifest,clock_model,output,*,window_count=3,step_s=None,start_offset_s=.002,
                      pilot_integrations=256,pilot_integration_s=None,integration_s=.3,max_rate_hz=100.,
                      starts=3,max_iterations=800,prior_fwhm_arcsec=240.,entropy=.01,tsv=.0001,progress=None,
-                     require_rate_consistency=False,rate_model="constant",save_bispectrum=False,correlation_only=False):
+                     require_rate_consistency=False,rate_model="constant",save_bispectrum=False,correlation_only=False,
+                     sigmf_reference_image=False):
+    if not isinstance(sigmf_reference_image,bool):raise ValueError('sigmf_reference_image bool required')
+    if sigmf_reference_image and correlation_only:raise ValueError('reference image and correlation_only are mutually exclusive')
     if not isinstance(correlation_only,bool):raise ValueError('correlation_only bool required')
     if not isinstance(save_bispectrum,bool):raise ValueError('save_bispectrum bool required')
     if not isinstance(require_rate_consistency,bool):raise ValueError('require_rate_consistency bool required')
     if rate_model not in ('constant','linear'):raise ValueError('rate_model must be constant or linear')
     if rate_model=='linear' and require_rate_consistency:
         raise ValueError('constant subpilot consistency requirement cannot be combined with linear rate correction')
-    config=load_session(manifest,allow_sigmf=correlation_only)
+    config=load_session(manifest,allow_sigmf=correlation_only or sigmf_reference_image)
+    if sigmf_reference_image and config.get('input_format')!='sigmf_ci16_le':
+        raise ValueError('sigmf_reference_image requires an explicit SigMF session')
     plan=_plan_windows(config,window_count,step_s,start_offset_s,pilot_integrations,pilot_integration_s,integration_s)
     if save_bispectrum:
         blocks=round(integration_s*config['sample_rate_hz']/config['fft_length'])
@@ -130,9 +135,14 @@ def process_sequence(manifest,clock_model,output,*,window_count=3,step_s=None,st
             partial.rename(out);return result
         state.update(current_window_index=None,phase='synthesis');save()
         from vsora_imaging.synthesis import image_synthesis
+        verification={}
+        if sigmf_reference_image:
+            verification=dict(sigmf_reference_image=True,source_manifest=manifest,clock_model=clock_model,
+                input_manifests=[partial/w['relative_directory']/'final-manifest.json' for w in records],
+                _source_identity=source_identity)
         synthesis=image_synthesis(paths,partial/'synthesis',starts=starts,max_iterations=max_iterations,
             prior_fwhm_arcsec=prior_fwhm_arcsec,entropy=entropy,tsv=tsv,pixels=_SEQUENCE_PIXELS,
-            pixel_arcsec=config['_config']['image']['pixel_arcsec'])
+            pixel_arcsec=config['_config']['image']['pixel_arcsec'],**verification)
         unchanged();phase('sequence_relative_rml')
         unchanged()
         diagnoses=[r['rate_consistency']['state'] for r in records if r['rate_consistency'] is not None]
@@ -149,6 +159,9 @@ def process_sequence(manifest,clock_model,output,*,window_count=3,step_s=None,st
                 'selected_pilot_start_to_end_span_s':plan[-1]['pilot_end_s']-plan[0]['start_offset_s'],
                 'inputs_stat_unchanged':True,'absolute_flux_measured':False,'absolute_position_measured':False,
                 'limits':'Each <=3s pilot has constant sky/gain and selected constant or smooth linear relative LO model; supplied linear sample clocks. No arbitrary phase-noise recovery. Nonoverlapping windows, independent noise approximation, high-SNR closures, <=64 windows. Fresh full original hashes shared in this run, ordinary stat guards; no hours-scale throughput claim.'}
+        if sigmf_reference_image:
+            result.update(input_format='sigmf_ci16_le',sigmf_reference_image=True,
+                imaging_validation_scope=synthesis['imaging_validation_scope'])
         (partial/'sequence.json').write_text(json.dumps(result,indent=2)+'\n')
         (partial/'summary.json').write_text(json.dumps(result,indent=2)+'\n');partial.rename(out);return result
     except Exception as exc:
@@ -160,6 +173,7 @@ def main():
     import argparse
     p=argparse.ArgumentParser(description='Short nonoverlapping VDIF windows -> local rates -> relative closure synthesis')
     p.add_argument('--correlation-only',action='store_true',help='Save corrected windows without image synthesis; explicitly permits SigMF sessions')
+    p.add_argument('--sigmf-reference-image',action='store_true',help='Explicit existing high-SNR reference image for SigMF; original identity guards retained')
     p.add_argument('--save-bispectrum',action='store_true',help='Save raw third-order statistics per corrected window; existing image objective unchanged')
     p.add_argument('--manifest',required=True);p.add_argument('--clock-model',required=True);p.add_argument('--output',required=True)
     p.add_argument('--window-count',type=int,default=3);p.add_argument('--step-s',type=float,help='Start spacing; defaults to nonoverlapping pilot span')
