@@ -1,4 +1,4 @@
-"""Atomic short VDIF -> aligned pilot/rate -> ADC closures -> relative RML."""
+"""Atomic short pilot/rate/correlation; SigMF opt-in stops before imaging."""
 from copy import deepcopy
 import json
 from pathlib import Path
@@ -21,12 +21,17 @@ def process_closure_session(manifest,clock_model,output,*,pilot_integrations=256
     if rate_model not in ('constant','linear'):raise ValueError('rate_model must be constant or linear')
     if rate_model=='linear' and require_rate_consistency:
         raise ValueError('constant subpilot consistency requirement cannot be combined with linear rate correction')
-    c=load_session(manifest);fs=c['sample_rate_hz'];nf=c['fft_length']
+    c=load_session(manifest,allow_sigmf=True);fs=c['sample_rate_hz'];nf=c['fft_length']
+    sigmf=c.get('input_format')=='sigmf_ci16_le'
+    if sigmf and not correlation_only:
+        raise ValueError('SigMF pipeline requires explicit correlation_only=True; imaging is unsupported')
+    if sigmf and _source_identity is not None:
+        raise ValueError('shared sequence identity is unsupported for SigMF pipeline')
     if not np.isfinite(integration_s) or not .1<=integration_s<=3:
         raise ValueError('short aligned pipeline integration must be 0.1..3 seconds')
     blocks=round(integration_s*fs/nf)
-    if abs(blocks*nf/fs-integration_s)>1e-9 or (blocks*nf)%4096:
-        raise ValueError('final integration must contain whole VDIF frames and FFT blocks')
+    if abs(blocks*nf/fs-integration_s)>1e-9 or (not sigmf and (blocks*nf)%4096):
+        raise ValueError('final integration must contain whole FFT blocks' if sigmf else 'final integration must contain whole VDIF frames and FFT blocks')
     if isinstance(pilot_integrations,bool) or not isinstance(pilot_integrations,int) or not 8<=pilot_integrations<=MAX_ALIGNED_INTEGRATIONS:
         raise ValueError('rate pilot requires 8..16384 short integrations')
     pilot_blocks=c['blocks_per_integration']
@@ -35,8 +40,8 @@ def process_closure_session(manifest,clock_model,output,*,pilot_integrations=256
             raise ValueError('positive finite pilot integration required')
         pilot_blocks=round(pilot_integration_s*fs/nf)
         samples=pilot_blocks*nf
-        if pilot_blocks<1 or abs(samples/fs-pilot_integration_s)>1e-10 or (samples%4096 and 4096%samples):
-            raise ValueError('pilot integration must contain whole FFT blocks and whole frames or divide a VDIF frame')
+        if pilot_blocks<1 or abs(samples/fs-pilot_integration_s)>1e-10 or (not sigmf and samples%4096 and 4096%samples):
+            raise ValueError('pilot integration must contain whole FFT blocks' if sigmf else 'pilot integration must contain whole FFT blocks and whole frames or divide a VDIF frame')
     pilot_config={**c,'blocks_per_integration':pilot_blocks}
     _,pilot_span,_=validate_aligned_dimensions(pilot_config,pilot_integrations)
     validate_aligned_dimensions({**c,'blocks_per_integration':blocks},1)
@@ -65,7 +70,11 @@ def process_closure_session(manifest,clock_model,output,*,pilot_integrations=256
     def clone(name,block_count):
         copied={k:deepcopy(v) for k,v in c.items() if not k.startswith('_')}
         copied['observation_config']='observation.json';copied['blocks_per_integration']=block_count
-        for station in copied['stations']:station['vdif']=str((c['_root']/station['vdif']).resolve())
+        for station in copied['stations']:
+            key='sigmf' if sigmf else 'vdif'
+            # Preserve the metadata filename before resolving: the sibling data
+            # name is defined by this original name, including symlink aliases.
+            station[key]=str((c['_root']/station[key]).absolute() if sigmf else (c['_root']/station[key]).resolve())
         path=partial/name;path.write_text(json.dumps(copied,indent=2)+'\n');return path
     try:
         identity=_source_identity or InputIdentity(manifest,clock_model,expected_config=c)
@@ -119,6 +128,16 @@ def process_closure_session(manifest,clock_model,output,*,pilot_integrations=256
                 'pilot':pilot,'rate_acquisition':acquisition,'rate_estimate':estimate,'correlation':final,'closures':closure,'rml':image,
                 'coherent_integration_s':integration_s,'absolute_flux_measured':False,'absolute_position_measured':False,
                 'limits':'Supplied linear sample clocks; <=3s and 600m, <=1s geometry segments; stable pilot sky/gain; high SNR Gaussian closures; CPU small reference'}
+        if sigmf:
+            outer=identity.diagnostics
+            subruns=[{'stage':'pilot',**pilot['input_identity_diagnostics']},
+                     {'stage':'correlation',**final['input_identity_diagnostics']}]
+            result['input_format']='sigmf_ci16_le'
+            result['input_identity'].update(direct_subruns=subruns,
+                pipeline_data_full_sha_passes_per_station=3,
+                pipeline_data_hash_file_reads=outer['sigmf_data_hash_file_reads']+sum(x['sigmf_data_hash_file_reads'] for x in subruns),
+                pipeline_data_hash_bytes=outer['sigmf_data_hash_bytes']+sum(x['sigmf_data_hash_bytes'] for x in subruns),
+                hash_accounting_scope='Outer source instance plus two fresh direct subrun instances; no sequence sharing')
         (partial/'pipeline.json').write_text(json.dumps(result,indent=2)+'\n')
         (partial/'summary.json').write_text(json.dumps(result,indent=2)+'\n')
         partial.rename(out);return result
@@ -131,7 +150,7 @@ def process_closure_session(manifest,clock_model,output,*,pilot_integrations=256
 
 def main():
     import argparse
-    p=argparse.ArgumentParser(description='VDIF short pilot -> unknown rates -> closure-only relative RML')
+    p=argparse.ArgumentParser(description='Short pilot -> measured rates -> corrected correlation; SigMF requires --correlation-only')
     p.add_argument('--save-bispectrum',action='store_true',help='Save raw common-FFT third-order statistics for later analysis; RML unchanged')
     p.add_argument('--manifest',required=True);p.add_argument('--clock-model',required=True);p.add_argument('--output',required=True)
     p.add_argument('--pilot-integrations',type=int,default=256);p.add_argument('--pilot-integration-s',type=float); p.add_argument('--integration-s',type=float,default=.3)

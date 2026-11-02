@@ -1,6 +1,6 @@
 # V-SoRA：現在の開発計画
 
-- 更新：171の明示SigMF相関接続（全体文書整理基準170）
+- 更新：172のSigMF pilot/rate/補正相関（全体文書整理基準170）
 - 最終目標：実RTL-SDR/OCXO、1.42GHz、最大基線約600m、局別周波数差、数百ms〜数秒、精密gain較正困難なClosure＋RML
 - 最新製品/full/wheel/専用両実GUI：169（両全2414/105file+4assets）。通常GUI151prefixは別に保持
 - 160以後の更新：161の有限3線/固定probe平均と162の同一電圧codec→整列平均、163の局候補/χ²maskを追記。全体文書の定期整理基準は159のまま
@@ -103,3 +103,7 @@
 ## 171：direct SigMF session接続（完了）
 
 [171](../reports/171-sigmf-aligned-session.md)で明示ci16_le/ADCのsession入口を時計整列相関へ接続した。供給epoch=観測origin+clock offset/Fs/RF/局IDを検査し、各pair SHAと境界変更検査を適用する。保存模擬4局と独立有限作用、旧169 VDIF対照を固定して両新全2434/wheel105+4/実CLI/API/両実GUI28条件を最終attempt3で確認した。初回/第二回の失敗と訂正を保持し合算しない。上の170時点の「まだ実装/実行予約済みではない」は当時の候補状態。通常correlate/Closure pipeline/sequence/GUI形式入口は次へ残す。実複数局・未知実時計・画像が検証済みとはしない。
+
+## 172：SigMFのpilot/rate/補正相関（完了）
+
+[172](../reports/172-sigmf-rate-pipeline.md)ではcorrelation_only=Trueの明示API/CLIだけを接続。保存038の異なる模擬4局で、旧171 VDIF不変と保存推定rateを条件にした独立有限作用を固定し、最終attempt2の両新全2441/wheel105+4/実CLI/API/両実GUI28条件で確認した。初回の収集エラーは保存し成功を合算しない。画像付きpipeline/sequence/GUI形式追加は行わない。外側+2direct subrunのdata SHA計3passを明示し、長記録1pass reuseは未実装。171のwarning集計をfile別2816からfooter30300へ訂正し、科学結果は保持した。

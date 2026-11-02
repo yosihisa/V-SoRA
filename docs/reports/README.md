@@ -186,8 +186,9 @@
 | 168 | [16bit公開原本を直接読む限定SigMF入力API](168-sigmf-reader-api.md) | SigMFRecording/単局SampleBuffer入口を製品化。全800万成分・17配列一致、両120対象/全2392成功、新wheel104file+4assets/両実GUI28条件。実clock/複数局/画像は未検証 |
 | 169 | [SigMF原本pairの同一性と実検査CLI](169-sigmf-identity-cli.md) | fresh pair SHA/inspect-sigmf、両98対象/全2414成功、実CLI一致/拒否6、新wheel105+4assets/両実GUI28。stat保持の盲点とpreformal失敗を保持 |
 | 170 | [技術基準169への文書整理](170-documentation-checkpoint.md) | 8全体文書を同期。公開単局IQ/限定API/原本pairと実複数局・画像未検証を分離。新数値試験なし、Git/JST/SHA静的照合 |
-
 | 171 | [SigMF sessionと時計整列相関](171-sigmf-aligned-session.md) | 明示ci16_le/ADC/供給時計/pair identityをdirect相関へ接続。両182対象/全2434、新wheel105+4/実API・CLI/両実GUI28。初回/第二停止を保持、実複数局/画像は未検証 |
+
+| 172 | [SigMFのpilot・rate推定・補正相関](172-sigmf-rate-pipeline.md) | correlation-only入口を接続。原本pair/供給時計/FFT grid/3pass hashを明示、両116対象/全2441、新wheel105+4/API・実CLI/両実GUI28。画像/sequence未対応 |
 
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。
 

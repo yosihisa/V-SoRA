@@ -8,3 +8,5 @@
 - `casa-input`：FITS自身の重みをCASAへ持ち込むbridgeを作成。
 
 [session規約](../../interfaces/session-manifest.md)、[clock規約](../../interfaces/clock-model.md)、[実観測の準備](../../docs/guide/04-observation.md)を参照してください。
+
+`vsora-closure-session --correlation-only` は、[明示SigMF sessionのpilot/rate/補正相関](../../interfaces/closure-pipeline.md#sigmfの相関保存専用入口)にも対応します。SigMFの画像付きpipeline・sequence・GUI入口は未対応です。

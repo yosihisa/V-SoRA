@@ -81,7 +81,7 @@ def test_unsupported_storage_dimensions_rejected_before_pipeline_output(tmp_path
     selected={'closure_pipeline':closure_pipeline,'sequence':sequence}[name]
     c={'sample_rate_hz':2048000,'fft_length':8192,'blocks_per_integration':4,
        'stations':[{}]*4,'phase_center_correction':True,'_config':{}}
-    monkeypatch.setattr(selected,'load_session',lambda _:c)
+    monkeypatch.setattr(selected,'load_session',lambda _,**kwargs:c)
     operation=selected.process_closure_session if name=='closure_pipeline' else selected.process_sequence
     with pytest.raises(ValueError,match='raw bispectrum'):
         operation('not-read','not-read',tmp_path/'out',pilot_integrations=8,integration_s=.1,max_rate_hz=10.,save_bispectrum=True)

@@ -143,3 +143,23 @@ pipelineが線形モデルを選んだ場合、`rate_estimate.integration_uncert
 CLI `vsora-rate-uncertainty --profile rate-linear.json --start-offset-s 0.002 --integration-s 3 --output diagnostic.json`は保存プロファイルへ計算だけを適用する。profile内の局ID・UTCを使い、そのプロファイル自体のSHAを保存する。このCLIの実行だけでVDIFの局ID・時刻を外部検証したことにはならない。
 
 入力covarianceは基準局を除く順番、relative rates Hz→relative slopes Hz/sの順序。局間とrate/傾きの相関を保持し、対称・半正定値と時間coverageを確認する。窓はpilot内・3秒以内、位相分散の係数上界10000rad²まで。数値計算範囲外はエラーとなる。実データの欠損/除外mask、微小な局別query時刻の違い、速い位相揺れ・alias・誤ったcovarianceを含まない。[計算と検証](../docs/reports/040-linear-rate-uncertainty.md)、[GUI](../docs/reports/041-rate-uncertainty-gui.md)を参照。
+
+## SigMFの相関保存専用入口
+
+[172](../docs/reports/172-sigmf-rate-pipeline.md)では、[明示SigMF session](sigmf-session.md)をpilot→rate推定→短積分の補正相関へ接続する。`process_closure_session(..., correlation_only=True)` またはCLIの `--correlation-only` を必須とし、画像処理へ進めない。定数/線形rateという既存モデルと採否条件を使い、未知の実sample clockや任意のLO位相雑音を自動復元する機能は追加しない。
+
+```bash
+.verification-venv/bin/python tools/run.py vsora_correlator.closure_pipeline \
+  --manifest outputs/my-sigmf-session/manifest.json \
+  --clock-model outputs/my-sigmf-session/clock.json \
+  --output outputs/my-sigmf-rate-correlation \
+  --pilot-integrations 64 --integration-s 0.1 --max-rate-hz 100 --correlation-only
+```
+
+この機能を含むwheelは `vsora-closure-session` を使う。例の値が実入力の初期LO範囲や保存時間を保証する意味ではない。供給Fs/RF/UTCとclock sample zero、局ID/順序、全局ADC/scale1、原本pairは171の契約を継承する。SigMFのpilot/final長は整数FFT blockへ一致させ、4096sampleのVDIF frame条件を課さない。0.1〜3秒final、3秒以下pilot、600m、帯域guard、pilotによる時間範囲・Nyquist・rate採否の制限は維持する。実bandpass/時計精度の保証ではない。
+
+pilot/finalのclone manifestは元metadataの絶対pathを保持する。symlinkを解決して別名へ変えることで、対応するsibling dataを取り違えない。供給metadataや日時を加工して既存profileへ合わせない。
+
+外側の原本 `InputIdentity` と、pilot/finalの各direct subrunはそれぞれfresh hashする。完成したpipelineでは各dataを計3回full SHAで読む（外側1＋subrun2）。`input_identity.direct_subruns`、`pipeline_data_hash_file_reads`、`pipeline_data_hash_bytes`、`pipeline_data_full_sha_passes_per_station` はこの読込を明示する。波形読込を含む全I/O量ではなく、全pipelineでhash1回とも扱わない。metadata/controlは各境界で再hashし、全stat保持のdata変更を見逃す限界は残る。共有sequence identityは未対応なので拒否する。将来の長記録で再hash費用が重要なら、別の明示reuse契約が必要。
+
+出力は未較正ADC²で `closures=null` / `rml=null`。この入口の成功だけで実天体の検出、推定rateのbias/coverage、実FFT独立性や画像尤度を検証済みとはしない。SigMFの画像付きpipeline・sequence・GUI入口は引き続き拒否する。既定VDIFの画像経路は変更しない。公開CAMRAS原本は単局であり、複製して基線に使わない。

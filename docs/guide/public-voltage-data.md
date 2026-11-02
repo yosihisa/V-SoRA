@@ -121,3 +121,16 @@ project_root="$PWD"
 [171の明示session](../../interfaces/sigmf-session.md)で、異なる局ごとのci16_le原本pairと供給clockをdirect相関へ渡せる。公開CAMRASは単局なので局数が不足し、複製して実基線にはしない。供給epoch/Fs/RFとclock sample zeroを合わせる契約を満たす別局入力が必要。Windows受信機構成や実clockの推定が決まったことにはならない。
 
 [検証workflow](../../workflows/sigmf_session_validation.py)は保存済み模擬4局を別の整数code尺度へ一度だけ派生し、独立有限作用と旧VDIFへ照合する。原本、派生SigMF、相関NPZ、summaryは全て管理外。実受信データの検証結果として流用しない。
+
+## SigMFのpilot/rate/補正相関を検証する
+
+[172の相関保存専用入口](../../interfaces/closure-pipeline.md#sigmfの相関保存専用入口)は、明示の供給clockと局ごとの原本pairから短いpilotを作り、保存した局rateで最終相関を補正する。画像/RML/sequence/GUIの形式追加ではない。公開単局データでは局数が不足する点を保ち、下の再現は保存済み模擬4局だけを使う。
+
+```bash
+.verification-venv/bin/python tools/run.py workflows.sigmf_pipeline_validation \
+  --prepare --input outputs/stage038-sequence/input --output outputs/stage172-input
+.verification-venv/bin/python tools/run.py workflows.sigmf_pipeline_validation \
+  --input outputs/stage172-input --output outputs/stage172-source-study
+```
+
+先に原本SHAを固定し、存在しない出力先へ一度だけ派生する。元038の生成を再実行せず、先頭70有効frameのpayloadを固定 `2*byte-255` の整数code尺度へ写す。元の供給scale/物理ADC/SEFDの較正ではない。原本・提供metadata・派生SigMF・相関NPZ・数値JSONは全て管理外に置き、アップロードしない。原本への取得配置指示と観測/模擬の区別は変わらない。

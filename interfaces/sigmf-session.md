@@ -37,4 +37,4 @@ SigMF相関入口では `InputIdentity` を適用する。各runでmanifest/cloc
 
 この機能を含むwheel環境は `vsora-correlate correlate-aligned` を使う。既存output/partialは上書きしない。`--sequential-input` は先頭から読み、既定はguard付きseek。helperなしの製品APIも使える。
 
-通常 `correlate`、Closure pipeline、sequence、GUIのsession入口はSigMFを明示拒否する。今回はdirect時計整列相関まで。公開CAMRAS原本は単局なので複数局sessionにはならない。原本・供給metadataを変更/複製して相関へ通さない。[取得配置と非公開方針](../docs/guide/public-voltage-data.md)、[段階171](../docs/reports/171-sigmf-aligned-session.md)を参照する。
+通常 `correlate`、画像付きClosure pipeline、sequence、GUIのsession入口はSigMFを明示拒否する。[172のcorrelation-only pipeline](closure-pipeline.md#sigmfの相関保存専用入口)は、pilotから推定したrateで最終相関を補正する明示API/CLIまで対応する。公開CAMRAS原本は単局なので複数局sessionにはならない。原本・供給metadataを変更/複製して相関へ通さない。[取得配置と非公開方針](../docs/guide/public-voltage-data.md)、[段階171](../docs/reports/171-sigmf-aligned-session.md)を参照する。

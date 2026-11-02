@@ -43,8 +43,8 @@ FFT32、blocks128、2積分、開始0.002秒、保存geometry/qualityと明示no
 
 | 環境 | 対象成功 | full成功 / collect | full pytest時間 | 既存種別warning |
 | --- | --- | --- | --- | --- |
-| source | 182 | 2434 / 2434 | 561.65秒 | 2816 |
-| installed | 182 | 2434 / 2434 | 569.76秒 | 2816 |
+| source | 182 | 2434 / 2434 | 561.65秒 | 30300 |
+| installed | 182 | 2434 / 2434 | 569.76秒 | 30300 |
 
 除外/skip0。両studyの独立visibility最大差は約1.1691e-9 ADC²で固定許容内。SigMF/VDIFそれぞれ27保存field（metadataを含む）をsource/installedで厳密一致させ、旧169 VDIFの27fieldと全metadata/summaryにも一致。20製品moduleのorigin/byteを確認した。
 
@@ -78,3 +78,5 @@ FIR/補間は波形を変える。構造上のvalidを天体検出やRFI品質�
 ## 6. 次段階
 
 次は上位Closure pipeline/sequenceが要求する局/単位/clock/原本identityと、今回のdirect入力契約の具体差をreviewする。実接続を選ぶ場合は目的/受入/正式予算を再固定し、実複数局原本待ちだけで監視へ戻らない。観測ID・最小byte・利用条件の新根拠があるときは実アンテナ別電圧の少量取得を別途選ぶ。生成MWA fixtureの再採用や単局複製はしない。同じcodec条件変更を番号のために反復しない。次文書整理180、予定専用根本レビュー200。
+
+172で記録訂正：warning集計補助が先頭file別2816件を拾っていたため、両full footerの30300件へ修正。成功2434/条件/科学配列は変更なし。元logと訂正前管理外記録を保持。
