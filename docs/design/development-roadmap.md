@@ -1,6 +1,6 @@
 # V-SoRA：現在の開発計画
 
-- 更新：172のSigMF pilot/rate/補正相関（全体文書整理基準170）
+- 更新：173のSigMF派生identity再利用（全体文書整理基準170）
 - 最終目標：実RTL-SDR/OCXO、1.42GHz、最大基線約600m、局別周波数差、数百ms〜数秒、精密gain較正困難なClosure＋RML
 - 最新製品/full/wheel/専用両実GUI：169（両全2414/105file+4assets）。通常GUI151prefixは別に保持
 - 160以後の更新：161の有限3線/固定probe平均と162の同一電圧codec→整列平均、163の局候補/χ²maskを追記。全体文書の定期整理基準は159のまま
@@ -107,3 +107,7 @@
 ## 172：SigMFのpilot/rate/補正相関（完了）
 
 [172](../reports/172-sigmf-rate-pipeline.md)ではcorrelation_only=Trueの明示API/CLIだけを接続。保存038の異なる模擬4局で、旧171 VDIF不変と保存推定rateを条件にした独立有限作用を固定し、最終attempt2の両新全2441/wheel105+4/実CLI/API/両実GUI28条件で確認した。初回の収集エラーは保存し成功を合算しない。画像付きpipeline/sequence/GUI形式追加は行わない。外側+2direct subrunのdata SHA計3passを明示し、長記録1pass reuseは未実装。171のwarning集計をfile別2816からfooter30300へ訂正し、科学結果は保持した。
+
+## 173：同じrunの原本識別を派生sessionへ再利用（完了）
+
+[173](../reports/173-sigmf-derived-identity.md)は172で明示した3passの重複I/Oを除く。live親のfresh identityと親/子境界検査により、同じclock/pair/configでblock数や配置だけ変えた子へ識別を再利用する。既定directはfreshのまま、画像/sequence/codec変更なし。固定172原本/完成studyを再利用し全数値/科学metadata不変とraw hash実呼出4回を確認。両新全2459/wheel105+4/API・実CLI/両実GUI28の正式全選択が初回成功した。総I/Oや実機速度の測定ではない。

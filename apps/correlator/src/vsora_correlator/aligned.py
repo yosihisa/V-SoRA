@@ -136,11 +136,15 @@ def _validated_clock_stations(clock,config):
     return stations
 
 
-def correlate_aligned(manifest,clock_model,output,integrations,start_offset_s=.002,rate_profile=None,allow_rate_extrapolation=False,seek_input=True,collect_bispectrum=False):
+def correlate_aligned(manifest,clock_model,output,integrations,start_offset_s=.002,rate_profile=None,allow_rate_extrapolation=False,seek_input=True,collect_bispectrum=False,*,_source_identity=None):
     if not isinstance(collect_bispectrum,bool):raise ValueError("collect_bispectrum bool required")
     if not isinstance(seek_input,bool):raise ValueError('seek_input bool required')
+    if _source_identity is not None:
+        from .input_identity import InputIdentity
+        if not isinstance(_source_identity,InputIdentity):raise TypeError('live InputIdentity source required')
     c=load_session(manifest,allow_sigmf=True);config=c['_config'];fs=c['sample_rate_hz']
     sigmf=c.get('input_format')=='sigmf_ci16_le'
+    if _source_identity is not None and not sigmf:raise ValueError('derived identity reuse is SigMF-only')
     if not c['phase_center_correction']: raise ValueError('aligned mode requires explicit phase-center correction')
     ns,span,spectral_cells=validate_aligned_dimensions(c,integrations)
     if collect_bispectrum:validate_bispectrum_dimensions(c,integrations)
@@ -149,7 +153,8 @@ def correlate_aligned(manifest,clock_model,output,integrations,start_offset_s=.0
     identity=None
     if sigmf:
         from .input_identity import InputIdentity
-        identity=InputIdentity(manifest,clock_model,expected_config=c)
+        identity=(InputIdentity(manifest,clock_model,expected_config=c) if _source_identity is None else
+                  _source_identity.bind_sigmf_session(manifest,clock_model,expected_config=c))
         if identity.public_identity['input_clock_sha256']!=hashlib.sha256(clock_bytes).hexdigest():
             raise ValueError('clock input changed before identity capture')
     stations=_validated_clock_stations(clock,c);band=clock['max_abs_baseband_hz']

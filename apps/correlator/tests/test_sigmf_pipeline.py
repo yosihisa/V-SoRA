@@ -27,9 +27,10 @@ def test_actual_pipeline_preserves_pairs_units_and_hash_accounting(inputs,tmp_pa
     assert result['completed_steps']==['aligned_pilot','model_free_rate','rate_corrected_short_correlation']
     assert result['input_format']=='sigmf_ci16_le' and len(result['input_sigmf'])==4
     assert result['closures'] is None and result['rml'] is None
-    assert result['input_identity']['pipeline_data_full_sha_passes_per_station']==3
-    assert result['input_identity']['pipeline_data_hash_file_reads']==12
-    assert result['input_identity']['pipeline_data_hash_bytes']==3*4*70*4096*4
+    assert result['input_identity']['pipeline_data_full_sha_passes_per_station']==1
+    assert result['input_identity']['pipeline_data_hash_file_reads']==4
+    assert result['input_identity']['pipeline_data_hash_bytes']==4*70*4096*4
+    assert all(s['sigmf_data_hash_file_reads']==0 for s in result['input_identity']['direct_subruns'])
     assert not result['absolute_flux_measured'] and not result['absolute_position_measured']
     assert load_spectral(tmp_path/'result/correlation/shard-00000.npz')['metadata']['visibility_unit']=='ADC^2'
     manifest=json.loads((tmp_path/'result/final-manifest.json').read_text())

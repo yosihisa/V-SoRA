@@ -134,3 +134,15 @@ project_root="$PWD"
 ```
 
 先に原本SHAを固定し、存在しない出力先へ一度だけ派生する。元038の生成を再実行せず、先頭70有効frameのpayloadを固定 `2*byte-255` の整数code尺度へ写す。元の供給scale/物理ADC/SEFDの較正ではない。原本・提供metadata・派生SigMF・相関NPZ・数値JSONは全て管理外に置き、アップロードしない。原本への取得配置指示と観測/模擬の区別は変わらない。
+
+## 同じ原本のhashを再利用する検証
+
+172の3pass検証workflowは172 commitの再現用。173以降は[再利用検証](../../workflows/sigmf_identity_reuse_validation.py)で、既に固定した172入力と完成studyを使う。再生成/再変換/再取得はしない。原本と旧studyの全SHAを先に固定する。
+
+```bash
+.verification-venv/bin/python tools/run.py workflows.sigmf_identity_reuse_validation \
+  --input outputs/stage172-input --baseline outputs/stage172-source-study \
+  --output outputs/stage173-source-study
+```
+
+新しい出力先へ全結果を管理外保存する。独立有限作用は保持した172 helperを使うため、installed比較workflowにもcheckout helperは必要。製品API単体には不要。全数値field/科学metadataは保存172へ一致を要求し、変更を認めるのは原本追跡・SHA・その圧縮byte数だけ。byte数は実fileへ照合する。同じ有限標本であり、新しい実観測試行には数えない。これらの波形・metadata・科学JSON・配列はアップロードしない。

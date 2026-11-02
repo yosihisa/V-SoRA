@@ -160,6 +160,16 @@ CLI `vsora-rate-uncertainty --profile rate-linear.json --start-offset-s 0.002 --
 
 pilot/finalのclone manifestは元metadataの絶対pathを保持する。symlinkを解決して別名へ変えることで、対応するsibling dataを取り違えない。供給metadataや日時を加工して既存profileへ合わせない。
 
-外側の原本 `InputIdentity` と、pilot/finalの各direct subrunはそれぞれfresh hashする。完成したpipelineでは各dataを計3回full SHAで読む（外側1＋subrun2）。`input_identity.direct_subruns`、`pipeline_data_hash_file_reads`、`pipeline_data_hash_bytes`、`pipeline_data_full_sha_passes_per_station` はこの読込を明示する。波形読込を含む全I/O量ではなく、全pipelineでhash1回とも扱わない。metadata/controlは各境界で再hashし、全stat保持のdata変更を見逃す限界は残る。共有sequence identityは未対応なので拒否する。将来の長記録で再hash費用が重要なら、別の明示reuse契約が必要。
+172時点では外側の原本 `InputIdentity` とpilot/finalの各direct subrunがそれぞれfresh hashし、各dataを計3回full SHAで読んだ（外側1＋subrun2）。173以降の既定pipelineは下記の派生identityで計1回へ変更した。`input_identity.direct_subruns`、`pipeline_data_hash_file_reads`、`pipeline_data_hash_bytes`、`pipeline_data_full_sha_passes_per_station` はこの読込を明示する。波形読込を含む全I/O量ではなく、全pipelineでhash1回とも扱わない。metadata/controlは各境界で再hashし、全stat保持のdata変更を見逃す限界は残る。共有sequence identityは未対応なので拒否する。172の3passと173の同じrunでの1passを区別する。
 
 出力は未較正ADC²で `closures=null` / `rml=null`。この入口の成功だけで実天体の検出、推定rateのbias/coverage、実FFT独立性や画像尤度を検証済みとはしない。SigMFの画像付きpipeline・sequence・GUI入口は引き続き拒否する。既定VDIFの画像経路は変更しない。公開CAMRAS原本は単局であり、複製して基線に使わない。
+
+## 同じrunの派生identity（173）
+
+172時点では、外側とpilot/finalで各dataを計3回full hashしていた。[173](../docs/reports/173-sigmf-derived-identity.md)では、外側のfresh `InputIdentity` を親とするguarded viewをpilot/finalへ明示的に渡し、同じ逐次runのfull data hashを1回へ減らす。既定のdirect APIは毎回fresh full hashのまま。caller supplied digest dictやディスクcacheを受け付ける入口は追加しない。
+
+親の `bind_sigmf_session` は、同じresolved clock、同じ局順/IDとmetadata/data pairだけを許す。変えてよいのはblock数、観測configの配置、局path表記、root。その他のFFT/Fs/単位/phase/quality/観測geometry等は型を保つcanonical JSONで一致させる。小ファイルはhash前後でparse結果と照合し、子自身のmanifest/clock/観測config SHAを残す。pair SHAは検査済み親から再利用する。
+
+各境界と各direct積分の前後で、親の元入力と子の小metadata/controlの内容SHA、resolved paths/device/inode/size/mtime/ctimeを検査する。子diagnosticsはdata hash読込0、親source SHAと自分の小ファイル読込量を記録。pipeline合計は1passで、波形読込を含む全I/O量とは区別する。親/子はlive instanceによる同一runの逐次処理が前提で、永続cache、file lock、敵対的filesystemの証明ではない。全stat保持のraw変更を見逃す限界と、別runでのfresh full hashは維持する。
+
+保存172の同じ4局で、full data hash読込は13762560→4587520byte、9175040byteを削減した。科学配列やweight/flag/rateの変更ではなく、実機速度・全夜throughputを測定した結果でもない。旧172の3pass workflowは当時のcommit用に残す。共有sequenceや画像経路への形式追加はまだ行わない。

@@ -103,6 +103,10 @@ class InputIdentity:
     @property
     def public_identity(self):return deepcopy(self._identity)
 
+    def bind_sigmf_session(self,manifest,clock,expected_config=None):
+        """Bind a guarded derived session to this live, freshly hashed source."""
+        return DerivedSigMFInputIdentity(self,manifest,clock,expected_config)
+
     @property
     def diagnostics(self):
         vdifs=set(self._raw_paths);metadata=set(self._metadata_paths)
@@ -112,6 +116,78 @@ class InputIdentity:
             prefix+'_hash_file_reads':sum(self._hash_reads[p] for p in vdifs),
             'metadata_hash_bytes':sum(self._snapshot[p][2]*self._hash_reads[p] for p in metadata),
             'metadata_hash_file_reads':sum(self._hash_reads[p] for p in metadata)}
+
+
+class DerivedSigMFInputIdentity:
+    """Sequential in-memory reuse, not a supplied digest or filesystem lock.
+
+    Only block count and control-file placement may differ from the source.
+    The source and derived small files are rechecked at every boundary. Raw
+    changes preserving every stat field remain outside this closed-file guard.
+    """
+    def __init__(self,source,manifest,clock,expected_config=None):
+        if not isinstance(source,InputIdentity):raise TypeError('live InputIdentity source required')
+        if not source._sigmf:raise ValueError('derived identity requires a SigMF source')
+        source.assert_current(source._manifest,source._clock,source._config)
+        self._source=source;self._manifest=Path(manifest).resolve();self._clock=Path(clock).resolve()
+        if self._clock!=source._clock:raise ValueError('derived clock path differs from source')
+        self._paths=input_paths(self._manifest,self._clock)
+        if self._paths[3:]!=source._paths[3:]:raise ValueError('derived SigMF pairs differ from source')
+        self._snapshot=snapshot_paths(self._paths)
+        self._metadata_paths=tuple(dict.fromkeys(self._paths[:3]+self._paths[3::2]))
+        self._hash_reads={path:0 for path in self._metadata_paths}
+        # Hash before parsing, then rehash after parsing to bind the loaded
+        # configuration even if a small rewrite preserves all timestamps.
+        self._digests={path:self._digest(path) for path in self._metadata_paths}
+        self._config=load_session(self._manifest,allow_sigmf=True)
+        ignored={'_root','observation_config','blocks_per_integration','stations'}
+        def semantic(config):
+            return json.dumps({k:v for k,v in config.items() if k not in ignored},sort_keys=True,allow_nan=False)
+        if (semantic(self._config)!=semantic(source._config)
+                or [s['id'] for s in self._config['stations']]!=[s['id'] for s in source._config['stations']]):
+            raise ValueError('derived session configuration differs from source')
+        self.assert_current(manifest,clock,expected_config)
+        self._identity={'input_manifest_sha256':self._digests[self._paths[0]],
+            'input_clock_sha256':self._digests[self._paths[1]],
+            'input_observation_sha256':self._digests[self._paths[2]],
+            'input_sigmf':source.public_identity['input_sigmf']}
+
+    def _digest(self,path):
+        value=digest_file(path);self._hash_reads[path]+=1;return value
+
+    def assert_current(self,manifest,clock,config=None):
+        self._source.assert_current(self._source._manifest,self._source._clock,self._source._config)
+        if Path(manifest).resolve()!=self._manifest or Path(clock).resolve()!=self._clock:
+            raise ValueError('derived identity belongs to different input paths')
+        try:
+            paths=input_paths(manifest,clock)
+            if paths!=self._paths or snapshot_paths(paths)!=self._snapshot:
+                raise ValueError('derived input files changed during processing')
+            for path in self._metadata_paths:
+                if self._digest(path)!=self._digests[path]:
+                    raise ValueError('derived metadata content changed during processing')
+        except (OSError,KeyError,TypeError,json.JSONDecodeError) as error:
+            raise ValueError('derived input files changed or became unavailable') from error
+        if config is not None and (Path(config['_root']).resolve()!=self._manifest.parent
+                                  or config_values(config)!=config_values(self._config)):
+            raise ValueError('derived input files changed from loaded configuration')
+
+    @property
+    def public_identity(self):return deepcopy(self._identity)
+
+    @property
+    def diagnostics(self):
+        return {'schema_version':1,'hash_policy':'guarded_in_memory_sigmf_derived_view_no_data_rehash',
+            'source_input_manifest_sha256':self._source.public_identity['input_manifest_sha256'],
+            'source_input_observation_sha256':self._source.public_identity['input_observation_sha256'],
+            'initial_hashed_file_count':len(self._metadata_paths),
+            'initial_hash_bytes':sum(self._snapshot[p][2] for p in self._metadata_paths),
+            'full_sha_passes_per_unique_sigmf_data_file':0,
+            'sigmf_data_hash_file_reads':0,'sigmf_data_hash_bytes':0,
+            'metadata_hash_bytes':sum(self._snapshot[p][2]*self._hash_reads[p] for p in self._metadata_paths),
+            'metadata_hash_file_reads':sum(self._hash_reads.values()),
+            'change_check':'Parent source and derived paths/stat; parent and derived small-file content SHA at each boundary',
+            'limits':'Closed files, sequential in-memory run, trusted Python callers; raw changes preserving all stat fields may be missed. No persistent cache or adversarial filesystem proof.'}
 
 
 class SigMFInputIdentity:

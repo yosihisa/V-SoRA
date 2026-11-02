@@ -83,7 +83,8 @@ def process_closure_session(manifest,clock_model,output,*,pilot_integrations=256
         (partial/'clock.json').write_text(Path(clock_model).read_text())
         unchanged()
         pilot_manifest=clone('pilot-manifest.json',pilot_blocks)
-        pilot=correlate_aligned(pilot_manifest,clock_model,partial/'pilot',pilot_integrations,start_offset_s)
+        reuse={'_source_identity':identity} if sigmf else {}
+        pilot=correlate_aligned(pilot_manifest,clock_model,partial/'pilot',pilot_integrations,start_offset_s,**reuse)
         from vsora_formats.spectral import load_spectral
         diagnostic=load_spectral(partial/'pilot/shard-00000.npz')
         eligible=diagnostic.get('diagnostic_station_sk_eligible')
@@ -109,7 +110,7 @@ def process_closure_session(manifest,clock_model,output,*,pilot_integrations=256
         profile=partial/('rate-linear.json' if rate_model=='linear' else 'rate-only.json');profile.write_text(json.dumps(estimate,indent=2)+'\n')
         record('model_free_rate')
         final_manifest=clone('final-manifest.json',blocks)
-        final=correlate_aligned(final_manifest,clock_model,partial/'correlation',1,start_offset_s,profile,collect_bispectrum=save_bispectrum)
+        final=correlate_aligned(final_manifest,clock_model,partial/'correlation',1,start_offset_s,profile,collect_bispectrum=save_bispectrum,**reuse)
         record('rate_corrected_short_correlation')
         closure=image=None
         if not correlation_only:
@@ -134,10 +135,10 @@ def process_closure_session(manifest,clock_model,output,*,pilot_integrations=256
                      {'stage':'correlation',**final['input_identity_diagnostics']}]
             result['input_format']='sigmf_ci16_le'
             result['input_identity'].update(direct_subruns=subruns,
-                pipeline_data_full_sha_passes_per_station=3,
+                pipeline_data_full_sha_passes_per_station=1,
                 pipeline_data_hash_file_reads=outer['sigmf_data_hash_file_reads']+sum(x['sigmf_data_hash_file_reads'] for x in subruns),
                 pipeline_data_hash_bytes=outer['sigmf_data_hash_bytes']+sum(x['sigmf_data_hash_bytes'] for x in subruns),
-                hash_accounting_scope='Outer source instance plus two fresh direct subrun instances; no sequence sharing')
+                hash_accounting_scope='Outer source instance plus two guarded derived views; one full data hash in this sequential run, no sequence sharing')
         (partial/'pipeline.json').write_text(json.dumps(result,indent=2)+'\n')
         (partial/'summary.json').write_text(json.dumps(result,indent=2)+'\n')
         partial.rename(out);return result
