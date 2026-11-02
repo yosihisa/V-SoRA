@@ -41,7 +41,7 @@ def test_capacity_rejected_before_identity_worker_and_partial(tmp_path,monkeypat
     import vsora_correlator.sequence as sequence
     import vsora_correlator.aligned as aligned
     c={**config(),'fft_length':8,'blocks_per_integration':1024,'stations':[{} for _ in range(8)]}
-    monkeypatch.setattr(sequence,'load_session',lambda path:c)
+    monkeypatch.setattr(sequence,'load_session',lambda path,**kwargs:c)
     calls=[]
     def forbidden(*args,**kwargs):
         calls.append(True)
@@ -60,7 +60,7 @@ def test_existing_sequence_destination_keeps_priority_over_capacity(tmp_path,mon
     """容量超過と併存しても、従来の非上書きエラーを先に返す。"""
     import vsora_correlator.sequence as sequence
     c={**config(),'fft_length':8,'blocks_per_integration':1024,'stations':[{} for _ in range(8)]}
-    monkeypatch.setattr(sequence,'load_session',lambda path:c)
+    monkeypatch.setattr(sequence,'load_session',lambda path,**kwargs:c)
     output=tmp_path/'existing'
     (output.with_name(output.name+'.partial') if partial else output).mkdir()
     with pytest.raises(FileExistsError,match='new sequence directory'):

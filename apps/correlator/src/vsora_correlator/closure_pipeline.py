@@ -25,8 +25,6 @@ def process_closure_session(manifest,clock_model,output,*,pilot_integrations=256
     sigmf=c.get('input_format')=='sigmf_ci16_le'
     if sigmf and not correlation_only:
         raise ValueError('SigMF pipeline requires explicit correlation_only=True; imaging is unsupported')
-    if sigmf and _source_identity is not None:
-        raise ValueError('shared sequence identity is unsupported for SigMF pipeline')
     if not np.isfinite(integration_s) or not .1<=integration_s<=3:
         raise ValueError('short aligned pipeline integration must be 0.1..3 seconds')
     blocks=round(integration_s*fs/nf)
@@ -138,7 +136,7 @@ def process_closure_session(manifest,clock_model,output,*,pilot_integrations=256
                 pipeline_data_full_sha_passes_per_station=1,
                 pipeline_data_hash_file_reads=outer['sigmf_data_hash_file_reads']+sum(x['sigmf_data_hash_file_reads'] for x in subruns),
                 pipeline_data_hash_bytes=outer['sigmf_data_hash_bytes']+sum(x['sigmf_data_hash_bytes'] for x in subruns),
-                hash_accounting_scope='Outer source instance plus two guarded derived views; one full data hash in this sequential run, no sequence sharing')
+                hash_accounting_scope=('Shared sequence root cumulative totals repeated in this window; do not sum window counters' if _source_identity is not None else 'Outer source instance plus two guarded derived views; one full data hash in this sequential run, no sequence sharing'))
         (partial/'pipeline.json').write_text(json.dumps(result,indent=2)+'\n')
         (partial/'summary.json').write_text(json.dumps(result,indent=2)+'\n')
         partial.rename(out);return result

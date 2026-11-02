@@ -146,3 +146,7 @@ project_root="$PWD"
 ```
 
 新しい出力先へ全結果を管理外保存する。独立有限作用は保持した172 helperを使うため、installed比較workflowにもcheckout helperは必要。製品API単体には不要。全数値field/科学metadataは保存172へ一致を要求し、変更を認めるのは原本追跡・SHA・その圧縮byte数だけ。byte数は実fileへ照合する。同じ有限標本であり、新しい実観測試行には数えない。これらの波形・metadata・科学JSON・配列はアップロードしない。
+
+## 複数窓への接続
+
+[174](../reports/174-sigmf-correlation-sequence.md)の明示correlation-only sequenceは、異なる局のSigMF原本がある場合に複数窓の補正相関を保存する入口。保存模擬4局で検証した。CAMRAS原本は単局のままで実基線は0。取得済みデータを変更・複製して局数を増やさない。画像付きpipeline/sequenceとGUIへのSigMF形式追加は含まない。

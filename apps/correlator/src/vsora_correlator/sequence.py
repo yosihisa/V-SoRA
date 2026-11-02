@@ -18,19 +18,20 @@ def _plan_windows(config,window_count,step_s,start_offset_s,pilot_integrations,p
     if pilot_integration_s is not None and (not np.isfinite(pilot_integration_s) or pilot_integration_s<=0):
         raise ValueError('positive finite pilot integration required')
     fs=config['sample_rate_hz'];nf=config['fft_length']
+    sigmf=config.get('input_format')=='sigmf_ci16_le'
     blocks=config['blocks_per_integration'] if pilot_integration_s is None else round(pilot_integration_s*fs/nf)
     ns=blocks*nf
     if (blocks<1 or (pilot_integration_s is not None and abs(ns/fs-pilot_integration_s)>1e-10)
-            or (ns%4096 and 4096%ns)):
-        raise ValueError('pilot integration must match FFT and VDIF frame grid')
+            or (not sigmf and ns%4096 and 4096%ns)):
+        raise ValueError('pilot integration must match FFT blocks' if sigmf else 'pilot integration must match FFT and VDIF frame grid')
     if isinstance(pilot_integrations,bool) or not isinstance(pilot_integrations,int) or pilot_integrations<8:
         raise ValueError('pilot requires at least eight short integrations')
     _,span,_=validate_aligned_dimensions({**config,'blocks_per_integration':blocks},pilot_integrations)
     if not np.isfinite(integration_s) or not .1<=integration_s<=3:
         raise ValueError('image integration must be 0.1..3 seconds')
     image_blocks=round(integration_s*fs/nf)
-    if abs(image_blocks*nf/fs-integration_s)>1e-9 or (image_blocks*nf)%4096:
-        raise ValueError('image integration must contain whole VDIF frames and FFT blocks')
+    if abs(image_blocks*nf/fs-integration_s)>1e-9 or (not sigmf and (image_blocks*nf)%4096):
+        raise ValueError('final integration must contain whole FFT blocks' if sigmf else 'image integration must contain whole VDIF frames and FFT blocks')
     validate_aligned_dimensions({**config,'blocks_per_integration':image_blocks},1)
     stations=len(config['stations'])
     if window_count*nf*stations*(stations-1)//2>MAX_SPECTRAL_CELLS:
@@ -58,23 +59,24 @@ def plan_windows(config,window_count,step_s,start_offset_s,pilot_integrations,pi
 def process_sequence(manifest,clock_model,output,*,window_count=3,step_s=None,start_offset_s=.002,
                      pilot_integrations=256,pilot_integration_s=None,integration_s=.3,max_rate_hz=100.,
                      starts=3,max_iterations=800,prior_fwhm_arcsec=240.,entropy=.01,tsv=.0001,progress=None,
-                     require_rate_consistency=False,rate_model="constant",save_bispectrum=False):
+                     require_rate_consistency=False,rate_model="constant",save_bispectrum=False,correlation_only=False):
+    if not isinstance(correlation_only,bool):raise ValueError('correlation_only bool required')
     if not isinstance(save_bispectrum,bool):raise ValueError('save_bispectrum bool required')
     if not isinstance(require_rate_consistency,bool):raise ValueError('require_rate_consistency bool required')
     if rate_model not in ('constant','linear'):raise ValueError('rate_model must be constant or linear')
     if rate_model=='linear' and require_rate_consistency:
         raise ValueError('constant subpilot consistency requirement cannot be combined with linear rate correction')
-    config=load_session(manifest)
+    config=load_session(manifest,allow_sigmf=correlation_only)
     plan=_plan_windows(config,window_count,step_s,start_offset_s,pilot_integrations,pilot_integration_s,integration_s)
     if save_bispectrum:
         blocks=round(integration_s*config['sample_rate_hz']/config['fft_length'])
         validate_bispectrum_dimensions({**config,'blocks_per_integration':blocks},1)
     out=Path(output);partial=out.with_name(out.name+'.partial')
     if out.exists() or partial.exists():raise FileExistsError('choose a new sequence directory')
-    _validate_sequence_fourier_size(config,window_count)
+    if not correlation_only:_validate_sequence_fourier_size(config,window_count)
     partial.mkdir(parents=True)
     state={'schema_version':1,'type':'short_window_sequence','state':'running','planned_windows':plan,
-           'completed_windows':[],'current_window_index':None,'phase':'prepared','completed_steps':0,'total_steps':3*window_count+1}
+           'completed_windows':[],'current_window_index':None,'phase':'prepared','completed_steps':0,'total_steps':3*window_count+(0 if correlation_only else 1)}
     def unchanged():
         source_identity.assert_current(manifest,clock_model,config)
     def save():
@@ -96,13 +98,36 @@ def process_sequence(manifest,clock_model,output,*,window_count=3,step_s=None,st
                 require_rate_consistency=require_rate_consistency,rate_model=rate_model,save_bispectrum=save_bispectrum,
                 progress=lambda label,done:phase(f'window_{index}:{label}'))
             unchanged()
-            current={key:result[key] for key in ['input_manifest_sha256','input_clock_sha256','input_observation_sha256','input_vdif']}
+            current={key:result[key] for key in source_identity.public_identity}
             if identity is not None and current!=identity:raise ValueError('input identity changed between windows')
             identity=current;records.append({**window,'relative_directory':prefix,
                 'rate_estimate':result['rate_estimate'],'rate_acquisition':result['rate_acquisition'],
                 'rate_consistency':result.get('rate_consistency'),'correlation':result['correlation']})
             paths.append(partial/prefix/'correlation/shard-00000.npz')
             state['completed_windows'].append(index);save()
+        if correlation_only:
+            unchanged()
+            diagnoses=[r['rate_consistency']['state'] for r in records if r['rate_consistency'] is not None]
+            aggregate='variation_detected' if 'variation_detected' in diagnoses else ('unverified' if 'unverified' in diagnoses or len(diagnoses)!=window_count else 'consistent')
+            result={**state,'state':'complete','type':'short_window_correlation_sequence',
+                    'current_window_index':None,'phase':'correlations_saved',**identity,'windows':records,
+                    'correlation_only':True,'input_identity':source_identity.diagnostics,
+                    'rate_consistency':{'state':aggregate,'window_counts':{s:diagnoses.count(s) for s in ('consistent','variation_detected','unverified')},
+                                        'coherence_stability_measured':False},
+                    'rate_model':rate_model,'rate_consistency_policy':'required' if require_rate_consistency else 'report',
+                    'closures':None,'rml':None,'synthesis':None,
+                    'window_step_s':plan[1]['start_offset_s']-plan[0]['start_offset_s'],
+                    'nominal_correlation_exposure_per_station_s':window_count*integration_s,
+                    'selected_pilot_start_to_end_span_s':plan[-1]['pilot_end_s']-plan[0]['start_offset_s'],
+                    'inputs_stat_unchanged':True,'absolute_flux_measured':False,'absolute_position_measured':False,
+                    'limits':'Saved corrected windows only; no synthesis, closures or image likelihood. Supplied sample clocks and short-window sky/gain assumptions remain. Fresh original hashes shared sequentially in this run; small-file rehash and stat guards cannot detect raw changes preserving all stat fields. No hours-scale throughput claim.'}
+            if config.get('input_format')=='sigmf_ci16_le':
+                result['input_format']='sigmf_ci16_le'
+                result['input_identity'].update(sequence_data_full_sha_passes_per_station=1,
+                    hash_accounting_scope='Sequence root cumulative totals, including all windows; per-window shared-root counters repeat these totals and must not be summed')
+            (partial/'sequence.json').write_text(json.dumps(result,indent=2)+'\n')
+            (partial/'summary.json').write_text(json.dumps(result,indent=2)+'\n')
+            partial.rename(out);return result
         state.update(current_window_index=None,phase='synthesis');save()
         from vsora_imaging.synthesis import image_synthesis
         synthesis=image_synthesis(paths,partial/'synthesis',starts=starts,max_iterations=max_iterations,
@@ -134,6 +159,7 @@ def process_sequence(manifest,clock_model,output,*,window_count=3,step_s=None,st
 def main():
     import argparse
     p=argparse.ArgumentParser(description='Short nonoverlapping VDIF windows -> local rates -> relative closure synthesis')
+    p.add_argument('--correlation-only',action='store_true',help='Save corrected windows without image synthesis; explicitly permits SigMF sessions')
     p.add_argument('--save-bispectrum',action='store_true',help='Save raw third-order statistics per corrected window; existing image objective unchanged')
     p.add_argument('--manifest',required=True);p.add_argument('--clock-model',required=True);p.add_argument('--output',required=True)
     p.add_argument('--window-count',type=int,default=3);p.add_argument('--step-s',type=float,help='Start spacing; defaults to nonoverlapping pilot span')

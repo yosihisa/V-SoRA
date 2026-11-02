@@ -189,6 +189,7 @@
 | 171 | [SigMF sessionと時計整列相関](171-sigmf-aligned-session.md) | 明示ci16_le/ADC/供給時計/pair identityをdirect相関へ接続。両182対象/全2434、新wheel105+4/実API・CLI/両実GUI28。初回/第二停止を保持、実複数局/画像は未検証 |
 | 172 | [SigMFのpilot・rate推定・補正相関](172-sigmf-rate-pipeline.md) | correlation-only入口を接続。原本pair/供給時計/FFT grid/3pass hashを明示、両116対象/全2441、新wheel105+4/API・実CLI/両実GUI28。画像/sequence未対応 |
 | 173 | [SigMF派生sessionの識別再利用](173-sigmf-derived-identity.md) | 同じrunのdata full SHAを3→1passへ。親/子検査を維持、両134対象/全2459、新wheel105+4/API・CLI/両実GUI28。画像/sequence未追加 |
+| 174 | [SigMF相関保存専用sequence](174-sigmf-correlation-sequence.md) | 両149対象/全2474成功。相関保存専用の複数窓と原本識別1pass、独立有限作用・旧VDIF照合。実基線/新画像study fit0 |
 
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。
 

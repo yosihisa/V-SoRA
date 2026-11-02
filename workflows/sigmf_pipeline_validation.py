@@ -24,7 +24,9 @@ def write_json(path, value):
     path.write_text(json.dumps(value, indent=2)+'\n')
 
 
-def prepare(saved, output):
+def prepare(saved, output, *, frame_count=70):
+    if isinstance(frame_count,bool) or not isinstance(frame_count,int) or frame_count<1:
+        raise ValueError('positive integer frame_count required')
     saved=Path(saved).resolve(); output=Path(output)
     if output.exists():raise FileExistsError('choose a new fixture directory')
     c=json.loads((saved/'manifest.json').read_text())
@@ -37,7 +39,7 @@ def prepare(saved, output):
     for index,station in enumerate(c['stations']):
         path=saved/station['vdif'];payloads=[]
         with path.open('rb') as stream:
-            for _ in range(70):
+            for _ in range(frame_count):
                 header=stream.read(32)
                 if len(header)!=32:raise ValueError('insufficient stored frames')
                 w=np.frombuffer(header,'<u4')
@@ -58,7 +60,7 @@ def prepare(saved, output):
     write_json(output/'manifest.json',c);write_json(output/'legacy.json',legacy)
 
 
-def independent_final(manifest, clock, rate_profile):
+def independent_final(manifest, clock, rate_profile, *, start_offset_s=.002):
     """Independent finite signal operations; geometry and fitted rate are supplied."""
     root=Path(manifest).parent;c=json.loads(Path(manifest).read_text())
     config=load_config(root/c['observation_config']);k=json.loads(Path(clock).read_text())
@@ -66,7 +68,7 @@ def independent_final(manifest, clock, rate_profile):
     assert rate['type']=='station_rate_only'
     assert rate['station_ids']==[s['id'] for s in c['stations']]
     fs=c['sample_rate_hz'];nf=c['fft_length'];fc=config['observation']['frequency_hz']
-    start=.002;ns=round(.1*fs);assert ns%nf==0
+    start=start_offset_s;ns=round(.1*fs);assert ns%nf==0
     edges=np.array([start,start+ns/fs])
     delays=geometry_at_times(config,Time(config['observation']['start_utc'])+edges*u.s,
                              filter_elevation=False)['station_delay_s']

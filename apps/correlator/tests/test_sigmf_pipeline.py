@@ -40,15 +40,12 @@ def test_actual_pipeline_preserves_pairs_units_and_hash_accounting(inputs,tmp_pa
         process_closure_session(inputs/'manifest.json',inputs/'clock.json',tmp_path/'result',correlation_only=True)
 
 
-def test_imaging_sequence_and_shared_identity_remain_unsupported(inputs,tmp_path):
+def test_imaging_sequence_remains_unsupported(inputs,tmp_path):
     args=(inputs/'manifest.json',inputs/'clock.json',tmp_path/'result')
     with pytest.raises(ValueError,match='requires explicit correlation_only'):
         process_closure_session(*args)
     with pytest.raises(ValueError,match='requires correlate-aligned'):
         process_sequence(*args)
-    identity=InputIdentity(args[0],args[1])
-    with pytest.raises(ValueError,match='shared sequence identity'):
-        process_closure_session(*args,correlation_only=True,_source_identity=identity)
     assert not (tmp_path/'result').exists() and not (tmp_path/'result.partial').exists()
 
 

@@ -160,9 +160,9 @@ CLI `vsora-rate-uncertainty --profile rate-linear.json --start-offset-s 0.002 --
 
 pilot/finalのclone manifestは元metadataの絶対pathを保持する。symlinkを解決して別名へ変えることで、対応するsibling dataを取り違えない。供給metadataや日時を加工して既存profileへ合わせない。
 
-172時点では外側の原本 `InputIdentity` とpilot/finalの各direct subrunがそれぞれfresh hashし、各dataを計3回full SHAで読んだ（外側1＋subrun2）。173以降の既定pipelineは下記の派生identityで計1回へ変更した。`input_identity.direct_subruns`、`pipeline_data_hash_file_reads`、`pipeline_data_hash_bytes`、`pipeline_data_full_sha_passes_per_station` はこの読込を明示する。波形読込を含む全I/O量ではなく、全pipelineでhash1回とも扱わない。metadata/controlは各境界で再hashし、全stat保持のdata変更を見逃す限界は残る。共有sequence identityは未対応なので拒否する。172の3passと173の同じrunでの1passを区別する。
+172時点では外側の原本 `InputIdentity` とpilot/finalの各direct subrunがそれぞれfresh hashし、各dataを計3回full SHAで読んだ（外側1＋subrun2）。173以降の既定pipelineは下記の派生identityで計1回へ変更した。`input_identity.direct_subruns`、`pipeline_data_hash_file_reads`、`pipeline_data_hash_bytes`、`pipeline_data_full_sha_passes_per_station` はこの読込を明示する。波形読込を含む全I/O量ではなく、全pipelineでhash1回とも扱わない。metadata/controlは各境界で再hashし、全stat保持のdata変更を見逃す限界は残る。共有sequence identityは173時点では未対応。174ではcorrelation-only sequenceに限り同じrootを共有する。172の3passと173以降の同じrunでの1passを区別する。
 
-出力は未較正ADC²で `closures=null` / `rml=null`。この入口の成功だけで実天体の検出、推定rateのbias/coverage、実FFT独立性や画像尤度を検証済みとはしない。SigMFの画像付きpipeline・sequence・GUI入口は引き続き拒否する。既定VDIFの画像経路は変更しない。公開CAMRAS原本は単局であり、複製して基線に使わない。
+出力は未較正ADC²で `closures=null` / `rml=null`。この入口の成功だけで実天体の検出、推定rateのbias/coverage、実FFT独立性や画像尤度を検証済みとはしない。SigMFの画像付きpipeline・画像付きsequence・GUI入口は引き続き拒否する。既定VDIFの画像経路は変更しない。公開CAMRAS原本は単局であり、複製して基線に使わない。
 
 ## 同じrunの派生identity（173）
 
@@ -172,4 +172,18 @@ pilot/finalのclone manifestは元metadataの絶対pathを保持する。symlink
 
 各境界と各direct積分の前後で、親の元入力と子の小metadata/controlの内容SHA、resolved paths/device/inode/size/mtime/ctimeを検査する。子diagnosticsはdata hash読込0、親source SHAと自分の小ファイル読込量を記録。pipeline合計は1passで、波形読込を含む全I/O量とは区別する。親/子はlive instanceによる同一runの逐次処理が前提で、永続cache、file lock、敵対的filesystemの証明ではない。全stat保持のraw変更を見逃す限界と、別runでのfresh full hashは維持する。
 
-保存172の同じ4局で、full data hash読込は13762560→4587520byte、9175040byteを削減した。科学配列やweight/flag/rateの変更ではなく、実機速度・全夜throughputを測定した結果でもない。旧172の3pass workflowは当時のcommit用に残す。共有sequenceや画像経路への形式追加はまだ行わない。
+保存172の同じ4局で、full data hash読込は13762560→4587520byte、9175040byteを削減した。科学配列やweight/flag/rateの変更ではなく、実機速度・全夜throughputを測定した結果でもない。旧172の3pass workflowは当時のcommit用に残す。173では共有sequenceや画像経路への形式追加は行わなかった。174の相関保存専用sequenceは下記を参照。
+
+## 相関保存専用の複数窓（174）
+
+[SigMF sequence契約](sigmf-session.md#相関保存専用sequence174)に従う。`process_sequence(..., correlation_only=True)` / `vsora-sequence --correlation-only` だけで、SigMF複数窓を保存できる。
+
+```bash
+.verification-venv/bin/python tools/run.py vsora_correlator.sequence \
+  --manifest outputs/my-sigmf-session/manifest.json \
+  --clock-model outputs/my-sigmf-session/clock.json \
+  --output outputs/my-sigmf-sequence --window-count 2 \
+  --pilot-integrations 64 --integration-s 0.1 --max-rate-hz 100 --correlation-only
+```
+
+上の時間/探索幅はその入力に適合することを別途確認する。1つのfresh root identityを全窓で共有し、各direct処理には173のguarded derived viewを使う。`_source_identity` へcaller supplied SHA辞書を渡す入口ではない。root累計を各窓の計数で重複加算しない。画像付きsequenceやGUIへの形式追加、新画像fit、未知実clockの推定は含まない。

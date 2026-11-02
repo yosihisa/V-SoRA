@@ -111,3 +111,9 @@
 ## 173：同じrunの原本識別を派生sessionへ再利用（完了）
 
 [173](../reports/173-sigmf-derived-identity.md)は172で明示した3passの重複I/Oを除く。live親のfresh identityと親/子境界検査により、同じclock/pair/configでblock数や配置だけ変えた子へ識別を再利用する。既定directはfreshのまま、画像/sequence/codec変更なし。固定172原本/完成studyを再利用し全数値/科学metadata不変とraw hash実呼出4回を確認。両新全2459/wheel105+4/API・実CLI/両実GUI28の正式全選択が初回成功した。総I/Oや実機速度の測定ではない。
+
+## 174：SigMF相関保存専用sequence（完了）
+
+[174](../reports/174-sigmf-correlation-sequence.md)は、FFT grid/共有原本identity/窓間原本一致/容量の未接続差を対象に、明示correlation-only API/CLIで複数窓を保存する。保存038の相互に異なる模擬4局140frameを固定code-unitで派生し、2窓の独立有限作用と旧173 VDIF対照を固定する。新studyで画像fitを作らず、最終attempt2の両新全2474/wheel105+4/23module/API・実CLI/両実GUI28条件を確認した。初回はsystem Pythonの調整役importでworker開始前に停止し、記録を保持して全選択を再実行した。
+
+次は画像へ渡すときの局/時計/単位/identity/複数窓の受入契約をreviewする。既存RMLの制約や低SNR画像尤度の未検証を形式接続で解消したとしない。新しい実複数アンテナ原本の観測ID/最小容量/利用条件がそろえば別途少量取得を選べる。番号のための小codec反復や不足文書を増やさない。
