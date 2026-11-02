@@ -8,6 +8,7 @@ from astropy.time import Time
 from vsora_observation import load_config
 from vsora_observation.geometry import geometry_at_times
 from vsora_formats.vdif import iter_vdif_frames
+from vsora_formats.sigmf import SigMFRecording
 from vsora_formats.spectral import save_spectral,load_spectral
 from vsora_formats.fitsidi import write_fitsidi
 from .fx import fx_correlate_series,remove_fringe_rate
@@ -15,26 +16,49 @@ from .fringe import solve_fringe,apply_calibration,save_calibration
 from .quality import validate_quality
 
 
-def load_session(path):
+def load_session(path, *, allow_sigmf=False):
     p=Path(path);c=json.loads(p.read_text())
     required={'schema_version','observation_config','sample_rate_hz','fft_length',
               'blocks_per_integration','integrations_per_shard','voltage_unit','stations','phase_center_correction'}
-    if not isinstance(c,dict) or not required<=set(c) or set(c)-required-{'spectral_quality'} or isinstance(c['schema_version'],bool) or c['schema_version']!=1:
+    if not isinstance(c,dict) or not required<=set(c) or set(c)-required-{'spectral_quality','input_format'} or isinstance(c['schema_version'],bool) or c['schema_version']!=1:
         raise ValueError('unsupported session keys/version')
+    sigmf='input_format' in c
+    if sigmf and c['input_format']!='sigmf_ci16_le':
+        raise ValueError('unsupported session input_format')
+    if sigmf and not allow_sigmf:
+        raise ValueError('SigMF session requires correlate-aligned')
     if 'spectral_quality' in c: validate_quality(c['spectral_quality'])
     for k in ('sample_rate_hz','fft_length','blocks_per_integration','integrations_per_shard'):
         if not isinstance(c[k],int) or isinstance(c[k],bool) or c[k]<=0: raise ValueError('positive session integers required')
     if c['fft_length']<8 or c['integrations_per_shard']>256: raise ValueError('unsupported FFT/shard dimensions')
     size=c['fft_length']*c['blocks_per_integration']
-    if c['sample_rate_hz']%4096 or (size%4096 and 4096%size):
+    if not sigmf and (c['sample_rate_hz']%4096 or (size%4096 and 4096%size)):
         raise ValueError('integration must contain whole frames or divide a 4096-sample frame')
     if c['voltage_unit'] not in ('ADC','sqrt(Jy)') or not isinstance(c['phase_center_correction'],bool):
         raise ValueError('explicit voltage unit and phase-center bool required')
+    if sigmf and c['voltage_unit']!='ADC':
+        raise ValueError('SigMF session requires unscaled ADC units')
     config=load_config(p.parent/c['observation_config'])
     stations=c['stations']
     if not isinstance(stations,list) or len(stations)!=len(config['stations']): raise ValueError('station count differs')
     seen=set()
     for a,b in zip(stations,config['stations']):
+        if sigmf:
+            if not isinstance(a,dict) or set(a)!={'id','sigmf'} or a['id']!=b['id']:
+                raise ValueError('SigMF station order/keys differ')
+            if not isinstance(a['sigmf'],str):raise ValueError('SigMF metadata path string required')
+            recording=SigMFRecording(p.parent/a['sigmf'])
+            if recording.sample_rate_hz!=c['sample_rate_hz']:
+                raise ValueError('SigMF nominal sample rate differs from session')
+            if recording.center_frequency_hz!=config['observation']['frequency_hz']:
+                raise ValueError('SigMF RF center differs from observation')
+            stat=recording.data_path.stat();physical=(stat.st_dev,stat.st_ino)
+            meta_stat=recording.metadata_path.stat()
+            if physical==(meta_stat.st_dev,meta_stat.st_ino):
+                raise ValueError('SigMF metadata and data must be distinct files')
+            if physical in seen:raise ValueError('SigMF stations must use distinct data files')
+            seen.add(physical)
+            continue
         if set(a)!={'id','vdif','station_numeric_id','decoded_voltage_scale'} or a['id']!=b['id']:
             raise ValueError('station order/keys differ')
         number=a['station_numeric_id'];scale=a['decoded_voltage_scale']

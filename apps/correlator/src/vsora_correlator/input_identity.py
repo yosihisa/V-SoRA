@@ -10,8 +10,12 @@ from vsora_formats.sigmf import SigMFRecording
 def input_paths(manifest,clock):
     manifest=Path(manifest).resolve();clock=Path(clock).resolve()
     raw=json.loads(manifest.read_text());root=manifest.parent
-    return (manifest,clock,(root/raw['observation_config']).resolve(),
-            *((root/s['vdif']).resolve() for s in raw['stations']))
+    control=(manifest,clock,(root/raw['observation_config']).resolve())
+    if 'input_format' in raw:
+        if raw['input_format']!='sigmf_ci16_le':raise ValueError('unsupported session input_format')
+        return control+tuple(path for station in raw['stations']
+            for path in SigMFInputIdentity._resolve_paths(root/station['sigmf']))
+    return control+tuple((root/s['vdif']).resolve() for s in raw['stations'])
 
 
 def snapshot_paths(paths):
@@ -38,7 +42,10 @@ class InputIdentity:
         self._paths=input_paths(self._manifest,self._clock)
         self._snapshot=snapshot_paths(self._paths)
         self._hash_reads={path:0 for path in self._snapshot}
-        self._config=load_session(self._manifest)
+        self._config=load_session(self._manifest,allow_sigmf=True)
+        self._sigmf=self._config.get('input_format')=='sigmf_ci16_le'
+        self._metadata_paths=self._paths[:3]+(self._paths[3::2] if self._sigmf else ())
+        self._raw_paths=self._paths[4::2] if self._sigmf else self._paths[3:]
         if expected_config is not None and config_values(expected_config)!=config_values(self._config):
             raise ValueError('input files changed before identity capture')
         self.assert_current(manifest,clock,expected_config)
@@ -49,12 +56,27 @@ class InputIdentity:
             'input_clock_sha256':digests[self._paths[1]],'input_observation_sha256':digests[self._paths[2]],
             'input_vdif':[{'station_id':station['id'],'sha256':digests[path],'bytes':self._snapshot[path][2]}
                           for station,path in zip(self._config['stations'],self._paths[3:])]}
+        if self._sigmf:
+            if len({digests[path] for path in self._raw_paths})!=len(self._raw_paths):
+                raise ValueError('SigMF station data SHA must be distinct; copied stations are unsupported')
+            self._identity.pop('input_vdif')
+            self._identity['input_sigmf']=[{'station_id':station['id'],
+                'metadata':{'sha256':digests[meta],'bytes':self._snapshot[meta][2]},
+                'data':{'sha256':digests[data],'bytes':self._snapshot[data][2]}}
+                for station,meta,data in zip(self._config['stations'],self._paths[3::2],self._raw_paths)]
         self._diagnostics={'schema_version':1,'hash_policy':'fresh_full_vdif_hash_once_per_run_with_rehashed_metadata',
             'initial_hashed_file_count':len(digests),'initial_hash_bytes':sum(self._snapshot[p][2] for p in digests),
             'full_sha_passes_per_unique_vdif_file':1,
             'change_check':'Resolved input paths, device/inode, size, mtime_ns and ctime_ns before/after stages',
             'structure_scope':'SHA identifies bytes; it does not validate all VDIF headers',
             'limits':'Closed input files, in-memory run only; VDIF changes that preserve all stat fields may be missed, including timestamp granularity. No adversarial filesystem proof.'}
+
+        if self._sigmf:
+            self._diagnostics.pop('full_sha_passes_per_unique_vdif_file')
+            self._diagnostics.update(hash_policy='fresh_full_sigmf_data_hash_once_per_run_with_rehashed_metadata',
+                full_sha_passes_per_unique_sigmf_data_file=1,
+                structure_scope='Limited ci16_le profile; SHA identifies pair bytes, not clock accuracy or signal quality',
+                limits='Closed files, trusted Python callers; data changes preserving all stat fields may be missed, including timestamp granularity. No adversarial filesystem proof.')
 
     def _digest(self,path):
         result=digest_file(path);self._hash_reads[path]+=1;return result
@@ -69,7 +91,7 @@ class InputIdentity:
             if hasattr(self,'_digests'):
                 # Small configuration files can change within one filesystem
                 # timestamp tick. Compare bytes via SHA at every boundary.
-                for path in dict.fromkeys(self._paths[:3]):
+                for path in dict.fromkeys(self._metadata_paths):
                     if self._digest(path)!=self._digests[path]:
                         raise ValueError('input files changed in metadata content')
         except (OSError,KeyError,TypeError,json.JSONDecodeError) as exc:
@@ -83,10 +105,11 @@ class InputIdentity:
 
     @property
     def diagnostics(self):
-        vdifs=set(self._paths[3:]);metadata=set(self._paths[:3])
+        vdifs=set(self._raw_paths);metadata=set(self._metadata_paths)
+        prefix='sigmf_data' if self._sigmf else 'vdif'
         return {**deepcopy(self._diagnostics),
-            'vdif_hash_bytes':sum(self._snapshot[p][2]*self._hash_reads[p] for p in vdifs),
-            'vdif_hash_file_reads':sum(self._hash_reads[p] for p in vdifs),
+            prefix+'_hash_bytes':sum(self._snapshot[p][2]*self._hash_reads[p] for p in vdifs),
+            prefix+'_hash_file_reads':sum(self._hash_reads[p] for p in vdifs),
             'metadata_hash_bytes':sum(self._snapshot[p][2]*self._hash_reads[p] for p in metadata),
             'metadata_hash_file_reads':sum(self._hash_reads[p] for p in metadata)}
 

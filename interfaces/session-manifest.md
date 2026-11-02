@@ -1,5 +1,7 @@
 # VDIF sessionの受渡し
 
+形式省略時はこのVDIF契約を使う。`input_format="sigmf_ci16_le"` を明示する時計整列専用の入口は[SigMF session契約](sigmf-session.md)を参照する。
+
 manifestは各局のVDIFファイルと共通の処理条件をまとめたJSONです。相関器へ入力を渡す一覧表として使います。sample rate・RF周波数・記録値の単位を別々に指定します。 [用語集](../docs/guide/glossary.md)。
 
 

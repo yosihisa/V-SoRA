@@ -1,4 +1,4 @@
-"""Bounded VDIF clock/geometric alignment for short reference chunks."""
+"""Bounded VDIF or explicit SigMF clock/geometric alignment for short chunks."""
 import json
 import hashlib
 import math
@@ -139,12 +139,19 @@ def _validated_clock_stations(clock,config):
 def correlate_aligned(manifest,clock_model,output,integrations,start_offset_s=.002,rate_profile=None,allow_rate_extrapolation=False,seek_input=True,collect_bispectrum=False):
     if not isinstance(collect_bispectrum,bool):raise ValueError("collect_bispectrum bool required")
     if not isinstance(seek_input,bool):raise ValueError('seek_input bool required')
-    c=load_session(manifest);config=c['_config'];fs=c['sample_rate_hz']
+    c=load_session(manifest,allow_sigmf=True);config=c['_config'];fs=c['sample_rate_hz']
+    sigmf=c.get('input_format')=='sigmf_ci16_le'
     if not c['phase_center_correction']: raise ValueError('aligned mode requires explicit phase-center correction')
     ns,span,spectral_cells=validate_aligned_dimensions(c,integrations)
     if collect_bispectrum:validate_bispectrum_dimensions(c,integrations)
     if not np.isfinite(start_offset_s) or start_offset_s<0: raise ValueError('nonnegative start offset required')
     clock_bytes=Path(clock_model).read_bytes();clock=json.loads(clock_bytes)
+    identity=None
+    if sigmf:
+        from .input_identity import InputIdentity
+        identity=InputIdentity(manifest,clock_model,expected_config=c)
+        if identity.public_identity['input_clock_sha256']!=hashlib.sha256(clock_bytes).hexdigest():
+            raise ValueError('clock input changed before identity capture')
     stations=_validated_clock_stations(clock,c);band=clock['max_abs_baseband_hz']
     rate=np.zeros(len(c['stations']));slopes=np.zeros_like(rate);rate_epoch=0.;rate_sha=None;rate_type=None
     if rate_profile:
@@ -161,10 +168,18 @@ def correlate_aligned(manifest,clock_model,output,integrations,start_offset_s=.0
     buffers=[]
     for measured,station in zip(stations,c['stations']):
         actual=measured['actual_sample_rate_hz']
-        buffers.append(SampleBuffer(c['_root']/station['vdif'],fs,station['station_numeric_id'],station['decoded_voltage_scale'],actual,seek_input))
+        if sigmf:
+            recording=SigMFRecording(c['_root']/station['sigmf'])
+            expected=Time(config['observation']['start_utc'])+measured['input_start_offset_s']*u.s
+            if abs((recording.start_time-expected).to_value(u.s))>1e-9:
+                raise ValueError('SigMF capture epoch differs from supplied clock sample zero')
+            buffers.append(SampleBuffer.from_sigmf(c['_root']/station['sigmf'],actual,seek_input=seek_input))
+        else:
+            buffers.append(SampleBuffer(c['_root']/station['vdif'],fs,station['station_numeric_id'],station['decoded_voltage_scale'],actual,seek_input))
     out=Path(output);partial=out.with_name(out.name+'.partial')
     if out.exists() or partial.exists(): raise FileExistsError('choose a new output directory')
     origin=Time(config['observation']['start_utc']);offsets=start_offset_s+(np.arange(integrations)+.5)*ns/fs
+    if sigmf:origin.precision=9
     g=geometry_at_times(config,origin+offsets*u.s,filter_elevation=False)
     edges=np.linspace(start_offset_s,start_offset_s+span,max(1,int(np.ceil(span)))+1)
     endpoint=geometry_at_times(config,origin+edges*u.s,filter_elevation=False)['station_delay_s']
@@ -181,6 +196,7 @@ def correlate_aligned(manifest,clock_model,output,integrations,start_offset_s=.0
     try:
         maximum_chunk_samples=0
         for index in range(integrations):
+            if identity is not None:identity.assert_current(manifest,clock_model,c)
             accumulator=FXAccumulator(len(buffers),fs,c['fft_length'],config['observation']['frequency_hz'],c.get('spectral_quality'),collect_bispectrum=collect_bispectrum)
             chunk_samples=max(c['fft_length'],8192//c['fft_length']*c['fft_length'])
             for first in range(0,ns,chunk_samples):
@@ -206,6 +222,7 @@ def correlate_aligned(manifest,clock_model,output,integrations,start_offset_s=.0
                     indices=[pair_index[(i,j)],pair_index[(j,k)],pair_index[(i,k)]]
                     raw['channel_triangle_usable'][:,triangle]&=(r['weights'][0][:,indices]>0).all(axis=1)
             results.append(r)
+            if identity is not None:identity.assert_current(manifest,clock_model,c)
         f=results[0]['frequencies_hz']
         cube={'visibilities':np.array([r['vis_jy'][0] for r in results]),'weights':np.array([r['weights'][0] for r in results]),
               'pairs':g['pairs'],'times_s':offsets,'frequencies_hz':f,
@@ -227,6 +244,11 @@ def correlate_aligned(manifest,clock_model,output,integrations,start_offset_s=.0
               'geometry_segment_max_span_s':float(np.diff(edges).max()),'geometry_midpoint_max_baseline_phase_error_rad':midpoint_baseline_phase}
         if 'spectral_quality' in c:
             meta.update(spectral_quality=c['spectral_quality'],diagnostic_power_unit='ADC^2' if c['voltage_unit']=='ADC' else 'Jy')
+        if sigmf:
+            meta.pop('vdif_read_mode');meta.pop('vdif_validation_scope')
+            meta.update(input_format='sigmf_ci16_le',sigmf_read_mode='guarded_seek' if seek_input else 'sequential_prefix',
+                sigmf_validation_scope='Limited single-capture ci16_le profile, structural validity only; supplied clock, RF and epoch contract',
+                input_identity=identity.public_identity,input_identity_diagnostics=identity.diagnostics)
         save_spectral(partial/'shard-00000.npz',cube,meta)
         raw_summary=None
         if collect_bispectrum:
@@ -244,7 +266,8 @@ def correlate_aligned(manifest,clock_model,output,integrations,start_offset_s=.0
             raw_meta={'station_ids':[s['id'] for s in config['stations']],'time_origin_utc':meta['time_origin_utc'],
                       'voltage_unit':c['voltage_unit'],'fft_length':c['fft_length'],'sample_rate_hz':fs,
                       'visibility_sha256':digest,'processing_notes':[
-                          'VDIF8bit complex EDV0; supplied decoded voltage scale and linear sample clocks.',
+                          ('SigMF ci16_le complex ADC without additional read quantization; supplied linear sample clocks.' if sigmf else
+                           'VDIF8bit complex EDV0; supplied decoded voltage scale and linear sample clocks.'),
                           '65-tap Kaiser lowpass with delay compensation; 65-tap fractional sample interpolation.',
                           'Geometric sample alignment and RF rephasing; rectangular unitary nonoverlapping FFT blocks.',
                           'Common valid FFT blocks of each triangle; SK, RF guard and elevation affect usability.',
@@ -265,13 +288,20 @@ def correlate_aligned(manifest,clock_model,output,integrations,start_offset_s=.0
         summary={'state':'complete','integrations':integrations,'recorded_span_s':span,'start_offset_s':start_offset_s,
                  'station_max_buffer_samples':[b.maximum for b in buffers],
                  'station_decoded_frames':[b.frames_read for b in buffers],'station_read_start_samples':[b.initial_sample_index for b in buffers],
-                 'vdif_read_mode':meta['vdif_read_mode'],'vdif_validation_scope':meta['vdif_validation_scope'],'samples_per_integration':ns,'maximum_fx_chunk_samples':maximum_chunk_samples,'spectral_cells':spectral_cells,
+                 'samples_per_integration':ns,'maximum_fx_chunk_samples':maximum_chunk_samples,'spectral_cells':spectral_cells,
                  'geometry_segment_max_span_s':float(np.diff(edges).max()),'geometry_midpoint_max_baseline_phase_error_rad':midpoint_baseline_phase,
                  'fft_accumulation':'Sums of cross-products, power and fourth moments; flags after whole integration',
                  'clock_model':'Supplied linear ADC mapping; no automatic weak-source clock recovery',
                  'geometry':'Sample alignment and RF rephasing; piecewise linear delay over <=1s per segment, <=3s total, <=600m',
                  'weight_note':results[0]['noise_weight_assumption']+'; filtered FFT correlations not fully modeled'}
         if collect_bispectrum:summary['raw_bispectrum']=raw_summary
+        if sigmf:
+            identity.assert_current(manifest,clock_model,c)
+            summary.update(input_format='sigmf_ci16_le',sigmf_read_mode=meta['sigmf_read_mode'],
+                sigmf_validation_scope=meta['sigmf_validation_scope'],input_identity=identity.public_identity,
+                input_identity_diagnostics=identity.diagnostics)
+        else:
+            summary.update(vdif_read_mode=meta['vdif_read_mode'],vdif_validation_scope=meta['vdif_validation_scope'])
         (partial/'summary.json').write_text(json.dumps(summary,indent=2)+'\n');partial.rename(out)
         return summary
     except Exception as exc:

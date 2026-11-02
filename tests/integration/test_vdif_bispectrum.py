@@ -53,7 +53,7 @@ def test_invalid_option_rejected_before_input(tmp_path,bad):
 def test_unsupported_raw_dimensions_rejected_before_clock_or_output(tmp_path,monkeypatch,n,nf,m,integrations):
     c={'_config':{},'sample_rate_hz':2048000.,'phase_center_correction':True,
        'stations':[{} for _ in range(n)],'fft_length':nf,'blocks_per_integration':m}
-    monkeypatch.setattr(aligned,'load_session',lambda _:c)
+    monkeypatch.setattr(aligned,'load_session',lambda _,**kwargs:c)
     with pytest.raises(ValueError,match='raw bispectrum'):
         aligned.correlate_aligned('not-read','absent-clock',tmp_path/'out',integrations,collect_bispectrum=True)
     assert not (tmp_path/'out').exists() and not (tmp_path/'out.partial').exists()

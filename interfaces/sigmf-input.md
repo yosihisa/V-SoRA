@@ -58,7 +58,7 @@ finally:
     buffer.close()
 ```
 
-actual_rateは呼出側が明示し、正の有限数・供給Fsから±1000ppm以内を要求する。両境界を含む。seek_inputはbool。既定のVDIF constructorは従来どおり使える。単局のFIR/補間への入口であり、session manifestや相関CLIのSigMF対応ではない。
+actual_rateは呼出側が明示し、正の有限数・供給Fsから±1000ppm以内を要求する。両境界を含む。seek_inputはbool。既定のVDIF constructorは従来どおり使える。このAPIは単局のFIR/補間入口。別途、171の[明示SigMF session](sigmf-session.md)はdirect時計整列相関まで対応する。
 
 FIR/補間は入力波形を変える。実受信帯域のguardや時計精度に対する科学的な適用条件は別に確認する。原本の先頭ではFIR支持不足がmask=False/値0となり、記録範囲を超えるqueryは拒否する。単局を複製して実基線やClosureを作る用途には使わない。
 
@@ -76,7 +76,7 @@ pair = identity.public_identity
 
 境界では元pathからのresolve、device/inode、size、mtime_ns、ctime_nsを確認し、小metadataを再hashする。同じinstanceのraw本体は境界で全再hashしない。別instance/runでは必ず新規hashする。metadata/dataが同じ実fileを指す構成を拒否する。
 
-**閉じた入力と信頼されたPython呼出側が前提**。dataの内容が変わっても全statが同じなら、同じinstanceの境界検査は見逃し得る。小さな書換えとmtime復元が同じfilesystem tickに収まる場合も含む。ctime変化の検出を常時保証しない。metadataはstatが同じでも内容SHAで照合する。敵対的filesystemの証明や、入力をlockして変更不能にする機能ではない。identityとreaderは別の契約で、SampleBuffer/sessionへ自動適用されない。
+**閉じた入力と信頼されたPython呼出側が前提**。dataの内容が変わっても全statが同じなら、同じinstanceの境界検査は見逃し得る。小さな書換えとmtime復元が同じfilesystem tickに収まる場合も含む。ctime変化の検出を常時保証しない。metadataはstatが同じでも内容SHAで照合する。敵対的filesystemの証明や、入力をlockして変更不能にする機能ではない。このpair identityとreaderは別契約で、単局SampleBufferへ自動適用されない。171の[SigMF session](sigmf-session.md)は上位InputIdentityで局ごとのpairを識別する。
 
 ```bash
 .verification-venv/bin/python tools/run.py vsora_correlator inspect-sigmf \
