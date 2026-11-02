@@ -1,8 +1,8 @@
 # V-SoRA開発の全体記録：目的、判断の経緯、実施順
 
-- 初版整理：2026-10-06／更新：2026-11-02（170の定期整理、169まで。専用根本レビュー150）
-- 対象：段階000〜169。今回170は文書整理・静的監査のみ
-- 技術的な到達点の基準：`8317129`（169）。過去数値の条件・失敗は個別reportを保持
+- 初版整理：2026-10-06／更新：2026-11-03（180の定期整理、179まで。専用根本レビュー150）
+- 対象：段階000〜179。今回180は文書整理・静的監査のみ
+- 技術的な到達点の基準：`d079810`（179）。過去数値の条件・失敗は個別reportを保持
 - 読者：複素数とフーリエ変換の初歩を学んだ工学系学部生
 
 ## 1. この開発で実現したいこと
@@ -436,19 +436,54 @@ Q区間なら2^Q通りをすべて数える。Q=2では最小pが0.5で、5%の�
 
 169のstat検査には盲点がある。同じfilesystem tickでdata全statが保たれる変更は同instanceでは見逃し得る。metadataは境界再hash、rawは各runでfresh全hashする。preformal初回失敗・補助呼出誤り・公開手順の旧report参照停止と訂正を個別記録へ残す。168の準備環境誤り、165の初回root検査失敗も消さない。
 
-これらは単局の入出力・再実行のbyte識別を進めた結果で、実基線/Closure/Cas A画像、実時計精度、低SNR画像尤度を実証していない。session/相関処理へのSigMF形式接続とSampleBufferへの自動identity適用は未実施である。
+169当時は単局の入出力・byte識別までで、SigMF session接続は未実施だった。後続171〜177で明示形式接続を進めたが、実基線/実時計精度/低SNR画像尤度/Cas A画像の実証とは区別する。
+
+## 170〜179：模擬局の形式接続から、実4局原本の読込へ
+
+### 形式をつなぐときも、局と時計を明示する
+
+[170](../170-documentation-checkpoint.md)は技術基準169への文書整理だけを行った。[171](../171-sigmf-aligned-session.md)で全局ADC/scale1の限定SigMF sessionをdirect整列相関へ接続した。局順ID・公称Fs・RF・供給capture UTCとclock offset・明示actual_rateを照合し、UTCを9桁で保存する。供給値の1ns算術整合で、実時計1ns精度の測定ではない。旧VDIF数値と、異なる模擬局の有限作用を対照にした。
+
+[172](../172-sigmf-rate-pipeline.md)は相関保存専用pipelineのpilot→rate推定→補正相関、[173](../173-sigmf-derived-identity.md)は同じrunのlive親/guarded derived viewで原本data hash3pass→1pass、[174](../174-sigmf-correlation-sequence.md)は複数窓のcorrelation-only sequenceへ接続した。integer FFT grid/局・原本pair/clock/config/窓境界の検査を維持し、共有root累計を窓ごとに重複加算しない。保存038/091の異なる模擬4局をcode-unitへ派生した検査で、実観測の相関や総I/O・全夜throughputの測定ではない。
+
+### 保存識別の一致と、現物への照合を分ける
+
+[175](../175-sigmf-spectral-merge.md)は時刻/channelを保つSigMF merge-onlyを実装し、保存された原本pair/clock/configの一致、UTC9桁とvalid_fft_countを保持した。既定はoriginal_files_rehashed=false。[176](../176-sigmf-merge-source-binding.md)は元manifest/clock/全窓manifestを明示した場合だけfresh親/子viewを使って現物へ照合する。これはsnapshotの一致で、配列の計算履歴やproducer checksum認証ではない。valid_fft_countも独立標本数/実効Mではない。
+
+[177](../177-sigmf-reference-image.md)は明示したSigMF参考画像sequence/画像CLIだけを既存高SNR Closure/RMLへ接続した。保存174模擬電圧を再利用し、選択された42行と固定weightを条件に有限画素Fourier和/共分散solveでobjectiveと方向勾配を照合した。新noise/weight/mask/objectiveや八条件の成立を追加していない。固定100反復の両参考画像はoptimizer_success=falseで、API完了と収束・実画像精度を分ける。単窓画像pipeline/通常correlate/GUIへのSigMF形式追加は依然行っていない。
+
+### 実4局を取得しても、実相関の検証はこれから
+
+[178](../178-public-lba-fragments.md)でDiFXのtesting/verification配布から、提供者が実天体観測として配布するV177A/1600-445の4 LBA局を共通供給時刻で少量取得した。各旧header16byteとpayload1MiB、公称8MHz/0.262144秒/real2pol/2bit、RF帯域下端1719MHz USBを保持した。PAは記録L,R、他はR,L。目標のRTL-SDR/OCXO・Cas A・600mと異なる機材条件である。元160MB tarや各member全体は未取得でfull SHAはnull、供給clock精度も未検証。ローカル非再配布検証に限定し、別個の明示data license未確認を残す。
+
+全16777216成分・4194304payload byteの保存と固定32FFTの有限和を照合したが、天体検出/fringe/実FFT独立性/画像の合格ではない。4局録音には6通りの組合せがある一方、検証済み実相関基線は0である。単局の複製ではなく実4局を得た進展と、物理検証の残りを分ける。
+
+[179](../179-lba-fragment-reader-api.md)は178の復号kernelを製品へ移し、偏波を毎回指定する有界seek/stream APIを実装した。最大payload read32770byte、返却値は実数DiFX_s16_codeで物理ADC/電圧較正ではない。全成分と48seekは保存178へ厳密一致。actual_rate/局ID/RF/sidebandは未知のまま、R/LをI/Qへ見立てず、複素SampleBuffer/session/相関/GUIへ自動適用しない。constructor側の1pass hashをworkflow全体の総I/Oへ読み替えない。原本の再取得・変換・実相関・新画像studyは行わなかった。
+
+### 失敗と、最終選択の範囲を保持する
+
+- 171：invalid第8frame、keyword-only呼出、出力Time精度、容量試験stub、階層hash補助の不備を保存し、最終attempt3を採用。warningは172でfile別2816から両full footer30300へ訂正し、科学配列は不変。
+- 172：同名testによるcollection停止を全worker終了後にrenameし、全attempt2を再実行。
+- 173：metadata_jsonのkey誤りと圧縮追跡によるbyte差で事前studyが停止。追跡scopeを正式前に固定し、実file byteへ照合した。
+- 174：system Pythonのnumpy importでworker0の起動停止。検証用Pythonへ変更し全attempt2を実行。
+- 175/176：正式初回の全選択成功。保存主張一致とfresh現物照合を混同しない。
+- 177：API/CLIのmin_snr記録差をreviewで検出し所有workerを中断。全終了後に補助だけ訂正して全attempt2を再実行、非収束は残した。
+- 178：旧headerを4096byte ASCIIと誤認したprobe、180秒取得timeoutのpartialを保存。transport訂正後に全4局を取得し、公開probe収容後の正式全選択を2として再実行。
+- 179：同tick全stat保持raw変更の事前見逃しを保持。通常変更testのmtime条件を明示し、盲点の反例も残す。正式初回は数値合格後、pytest一時出力を除いた予算検査の不備で2GiBを少なくとも91941745byte超過。全worker終了後、初回全出力を保持し、全attempt保存+新pytest一時出力を含む4GiBへ正式前改訂して全attempt2を再実行した。worker境界の資源検査を連続filesystem peak測定としない。
+
+各段階の初回成功を最終件数へ合算しない。raw全stat保持変更・最後の検査後の変更・trusted Python/file lock不在の限界を、形式接続が進んだことによって消さない。原本/提供metadata/派生配列・科学JSON・図は管理外で、公開は手順/コード/方法・合否の文章だけである。
 
 ## 25. 開発順を通して得た判断
 
 131〜133の画像差は、新しい限定参照で改善した結果へ変わっていない。主律速は実入力の根拠、広帯域前方平均と依存、未知局量/採否、妥当な低SNR画像モデルである。小モデルの平均一致・局所rank・GUI保存一致を、未知実観測の形状確認へ合成しない。
 
-[150の根本レビュー](../150-fundamental-goal-review.md)を継承し、170で169までの製品と限定参照を同期した。最新の製品/full/wheel/専用両実GUI基準は169（`8317129`）。両全2414成功・565.04/562.00秒・各30220警告/除外0、105製品file＋4assets全byte、保存診断の両実GUI各28条件/56JSONは169の引用である。通常GUI151用prefixは更新していない。
+[150の根本レビュー](../150-fundamental-goal-review.md)を継承し、180で179までの製品・模擬接続・実原本読込を同期した。最新の製品/full/wheel/専用両実GUI基準は179（`d079810`）。最終attempt2の両全2573成功・611.71/615.31秒・各39404既存種別warning/除外0、106製品file＋4assets全byte、保存模擬診断の両実GUI各28条件/56JSON/672行は179の引用である。180の新試験へ再加算しない。通常GUI151用prefixは更新していない。
 
-170は文書/静的Git・SHA監査のみで、新数値/pytest/MC/取得/相関/fitを実行しない。[目標別進捗](goal-and-progress.md)と[現在計画](../../design/development-roadmap.md)へ接続する。次文書整理180/予定根本200。段階数/試験数は完成率でない。
+180は文書/静的Git・SHA監査のみで、新数値/pytest/MC/取得/相関/fitを実行しない。[目標別進捗](goal-and-progress.md)と[現在計画](../../design/development-roadmap.md)へ接続する。次文書整理190/予定根本200。段階数/試験数は完成率でない。
 
 ## 26. 全段階の時系列一覧
 
-000〜169の個別report初回追加commit/JST/公開author・committerをGitへ照合した。完全ID/日時は管理外の170静的記録へ保持し、ここには日付と短IDを示す。過去の作業日と公開日の差を変更しない。170自身のcommitは本reportのGit履歴で特定する。
+000〜179の個別report初回追加commit/JST/公開author・committerをGitへ照合した。完全ID/日時は管理外の180静的記録へ保持し、ここには日付と短IDを示す。作業日と公開日の差を変更しない。180自身のcommitは本reportのGit履歴で特定する。
 
 | 段階 | コミット日（JST） | 段階レポート | 初回コミット |
 | --- | --- | --- | --- |
@@ -622,3 +657,13 @@ Q区間なら2^Q通りをすべて数える。Q=2では最小pが0.5で、5%の�
 | 167 | 2026-11-01 | [公開複数アンテナ電圧候補の出典・取得条件](../167-public-voltage-provenance.md) | `a1c6fb0` |
 | 168 | 2026-11-01 | [16bit公開原本を直接読む限定SigMF入力API](../168-sigmf-reader-api.md) | `6648b98` |
 | 169 | 2026-11-02 | [SigMF原本pairの同一性と実検査CLI](../169-sigmf-identity-cli.md) | `8317129` |
+| 170 | 2026-11-02 | [技術基準169への文書整理](../170-documentation-checkpoint.md) | `5821014` |
+| 171 | 2026-11-02 | [SigMF sessionと時計整列相関](../171-sigmf-aligned-session.md) | `297e6e4` |
+| 172 | 2026-11-02 | [SigMFのpilot・rate推定・補正相関](../172-sigmf-rate-pipeline.md) | `818aa4a` |
+| 173 | 2026-11-02 | [SigMF派生sessionの識別再利用](../173-sigmf-derived-identity.md) | `fbdf744` |
+| 174 | 2026-11-02 | [SigMF相関保存専用sequence](../174-sigmf-correlation-sequence.md) | `41c3618` |
+| 175 | 2026-11-02 | [SigMF補正窓の結合契約](../175-sigmf-spectral-merge.md) | `82fceee` |
+| 176 | 2026-11-02 | [SigMF結合時の明示原本照合](../176-sigmf-merge-source-binding.md) | `07054f5` |
+| 177 | 2026-11-03 | [原本照合を保つ明示SigMF参考画像](../177-sigmf-reference-image.md) | `e2feb76` |
+| 178 | 2026-11-03 | [公開LBA実4局の供給同時刻断片](../178-public-lba-fragments.md) | `4cbea25` |
+| 179 | 2026-11-03 | [実数偏波を保持する有界LBA fragment reader API](../179-lba-fragment-reader-api.md) | `d079810` |

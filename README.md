@@ -29,7 +29,7 @@
 | フォルダ | 役割 |
 | --- | --- |
 | `apps/simulator/` | 天体モデルから相関値・模擬IQを作る |
-| `apps/correlator/` | VDIFの読込み、時計補正、相関、較正 |
+| `apps/correlator/` | VDIF/限定SigMFの読込み、時計補正、相関、較正 |
 | `apps/imaging/` | CLEAN・Closure＋RMLによる画像復元、短露光の合成 |
 | `apps/ui/` | 日本語ブラウザ画面、実行状態・画像・結果の保存 |
 | `apps/recorder/` | Windows収録。現在は実装対象外 |
@@ -39,9 +39,9 @@
 | `docs/`, `validation/` | 説明・設計・段階レポート・小さい結果 |
 | `data/reference/` | 匿名化したCas A参照画像と出典 |
 
-全体文書は段階170で技術基準169（`8317129`）へ同期しました。最新の製品/full/wheel/専用両実GUI基準は169（`8317129`）。両全2414成功・565.04/562.00秒・各30220警告/除外0、105製品file＋4assets全byte、保存診断の両実GUI各28条件/56JSONは169の引用である。通常GUI151用prefixは更新していない。 [150の専用根本レビュー](docs/reports/150-fundamental-goal-review.md)を継承し、次の文書整理180/予定根本200です。[現在地](docs/guide/09-observation-readiness.md)を参照してください。
+全体文書は段階180で技術基準179（`d079810`）へ同期しました。最新の製品/full/wheel/専用両実GUI基準は179（`d079810`）。最終attempt2の両全2573成功・611.71/615.31秒・各39404既存種別warning/除外0、106製品file＋4assets全byte、保存模擬診断の両実GUI各28条件/56JSON/672行は179の引用である。180の新試験へ再加算しない。通常GUI151用prefixは更新していない。 [150の専用根本レビュー](docs/reports/150-fundamental-goal-review.md)を継承し、次の文書整理190/予定根本200です。[現在地](docs/guide/09-observation-readiness.md)を参照してください。
 
-公開単局IQの限定readerと原本pair検査CLIも使えます。[取得配置・実行方法](docs/guide/public-voltage-data.md)を参照してください。実受信機の構成決定や実複数局の画像化とは区別します。
+限定SigMF sessionの相関・明示参考画像と、実4局LBA断片の偏波明示readerを使えます。[取得配置・実行方法](docs/guide/public-voltage-data.md)を参照してください。SigMF接続の数値検証は模擬局を用い、LBA実4局の実相関/画像は未検証です。
 
 ## 日本語GUI
 

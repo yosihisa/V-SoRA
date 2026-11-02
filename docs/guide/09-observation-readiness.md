@@ -1,15 +1,15 @@
 # いま使える処理と、実観測へ進むための確認
 
-2026-11-02、170で技術基準169（`8317129`）へ同期した案内です。目標はRTL-SDR/OCXO・1.42GHz・最大600m・短積分のClosure＋RML。Windows収録は構成決定後に開発します。
+2026-11-03、180で技術基準179（`d079810`）へ同期した案内です。目標はRTL-SDR/OCXO・1.42GHz・最大600m・短積分のClosure＋RML。Windows収録は構成決定後に開発します。
 
 ## 何が動き、何をまだ確かめていないか
 
 | 処理 | 確認した範囲 | 残ること |
 | --- | --- | --- |
-| IQ・VDIF・相関・FITS-IDI | 限定VDIF、168単局SigMF API、169原本pair/実CLI | session形式接続、実clock/帯域/局位置/LO/単位/欠損 |
+| IQ・VDIF・相関・FITS-IDI | VDIF/限定SigMF sessionと模擬相関、実LBA4局断片と有界実数偏波reader | 実clock/幾何/sideband/解析信号化、実相関基線は0 |
 | 局別周波数差 | sky形状を渡さないpilot、一定/線形rate補正、132の12相関 | 弱い実信号、実OCXO変動、誤採用/残留位相、同pilot推定依存 |
-| Closure＋RML | 高SNR近似、同種共有基線の共分散、相対画像と固定対照 | 低SNR画像尤度、独立予測、画像不確かさ、実Cas A |
-| 日本語GUI | 模擬/VDIF/区間列、参照6種類、121画像三判定、169新wheelの保存模擬診断回帰 | 125〜133の全画像比較や新しい公開IQ検査CLIをGUIへ接続した状態ではない |
+| Closure＋RML | 高SNR近似・共分散・固定対照、177明示SigMF参考画像 | 固定100反復は非収束。低SNR尤度/統計校正/実Cas Aは未検証 |
+| 日本語GUI | 模擬/VDIF/区間列・参照6種類・画像三判定、179wheelの保存模擬診断回帰 | 新LBA/SigMF形式画面の検証ではない。通常GUI151は更新なし |
 | 雑音・時間診断 | 135〜163の個別限定参照、固定/周期小operator、時変query、同pilot/選別の有限参照 | 実FIR/量子化後の依存、未知局量、低SNR尤度、実coherence/coverage |
 | 三次統計U₃ | 共通電力raw v2、無次元比、条件付き区間検定とGUI | 未知gain/SEFD/LOと低SNR画像化との接続 |
 | 区間列・有限運用 | 139のpartial/別出力再処理、151の共有容量guardによる早期拒否 | 36窓完走、総合preflight、自動再開、全夜速度/GPUは未確認 |
@@ -60,22 +60,20 @@
 
 159は固定合成幾何とdecoded readerの6tone条件です。漏れたtoneの空間位相はtoneの周波数に従い、漏れ先channel中心の位相と同一にはなりません。実Astropy/codec、広帯域天空の周波数積分や実noiseモデルは未校正です。各段階の初回失敗・訂正と未実施は[時系列](../reports/overviews/development-history.md)と個別reportに残しています。
 
-## 160〜169：公開単局IQから、形式と原本の実用入口へ
+## 入力の形式接続と実4局原本
 
-161は固定有限modeの平均、162は同じ有限probeのcodec/整列後平均、163は保存基線の局LS/χ²maskを照合した限定参照である。Gaussian実観測尤度へ合成せず、全推定biasと採否の因果分離も未識別のまま残す。
+164〜169は実Crab単局IQと限定SigMF reader/原本pair検査、171〜174は保存模擬4局のSigMF session・補正相関・原本識別共有・複数窓へ進みました。175は保存識別だけのmerge、176は元原本/clock/全窓manifestを明示したfresh照合です。snapshot一致を配列の計算履歴やproducer認証と扱いません。公称Fs/UTCの整合は実時計測定ではありません。
 
-その後のユーザー回答で、受信機チームに使える実記録はなく、OCXO・構成・保存形式は検討中と確定した。148照会は回答済みで繰り返さない。公開IQの利用・容量を見た取得が許可され、164でCAMRASの実Crab単局16MBを取得した。供給Fs20MHz/中心410MHz/公称0.2秒で、目標の1.42GHz Cas A・複数局とは区別する。
+177は既存高SNR Closure/RMLの明示参考画像への接続です。固定観測行・weightを条件にobjective/勾配を照合しましたが、両画像は100反復上限で非収束です。単窓画像pipeline/通常correlate/GUIのSigMF入口は拒否を維持し、新noise/weight/mask/objectiveや八条件の成立を追加していません。
 
-165の8bit VDIFは非可逆な限定参照、166の16bit readerはworkflow内prototypeである。168で限定SigMFRecording/単局SampleBuffer APIを製品化し、169でfresh metadata/data SHAとinspect-sigmf CLIを接続した。原本・提供metadata・派生波形/配列/JSON/図はGitへ載せず、取得配置手順とコード・方法/合否だけを公開する。[取得配置とCLI](public-voltage-data.md)を参照する。
+178で、提供者が実天体観測として配布するV177A/1600-445の4 LBA局断片を取得しました。各旧header16byte+payload1MiB、公称8MHz/0.262144秒/real2pol/2bit、RF帯域下端1719MHz USBです。PA記録L,R/他R,Lを保持し、目標のRTL-SDR・Cas A・600m条件と分けます。元tar/member全体SHA、producer checksum、実clock精度は未知。ローカル非再配布検証に限定し、別個の明示data license未確認を残しています。
 
-167はMWA小容量VCS fixtureを生成波形と識別して実観測候補へ不採用とした。LWA実TBNの一次論文を、対応する直接配布原本の取得済みという意味へ読み替えない。匿名検索0件もデータ不存在の根拠ではない。
+179は実数偏波を指定する有界seek/stream APIです。全16777216成分/48seekを保存178へ厳密一致、最大payload read32770byte。DiFX_s16_codeは物理ADC/電圧較正ではなく、actual_rate/局ID/RF/sidebandを推定しません。R/LをI/Qへ見立てず、既存session/相関/GUIへ自動接続していません。実4局には6通りの組合せがあっても、検証済み実相関基線は0です。[原本と手順](public-voltage-data.md)、[reader契約](../../interfaces/lba-fragment-reader.md)を参照してください。
 
-169のstat検査には盲点がある。同じfilesystem tickでdata全statが保たれる変更は同instanceでは見逃し得る。metadataは境界再hash、rawは各runでfresh全hashする。preformal初回失敗・補助呼出誤り・公開手順の旧report参照停止と訂正を個別記録へ残す。168の準備環境誤り、165の初回root検査失敗も消さない。
-
-これらは単局の入出力・再実行のbyte識別を進めた結果で、実基線/Closure/Cas A画像、実時計精度、低SNR画像尤度を実証していない。session/相関処理へのSigMF形式接続とSampleBufferへの自動identity適用は未実施である。
+171〜179の初回失敗・訂正・非収束は[時系列](../reports/overviews/development-history.md)と個別reportに保持しています。179は同stat raw変更の盲点と、pytest一時出力を除いた保存予算検査の不備を記録しました。全worker終了後、初回出力を保持して保存4GiBへ正式改訂し全attempt2を再実行しています。原本/metadata/科学JSON/配列/図はGit管理外で、追加resetは使用していません。
 
 ## 引用した検証基準と次の確認
 
-最新の製品/full/wheel/専用両実GUI基準は169（`8317129`）。両全2414成功・565.04/562.00秒・各30220警告/除外0、105製品file＋4assets全byte、保存診断の両実GUI各28条件/56JSONは169の引用である。通常GUI151用prefixは更新していない。 [169の記録](../reports/169-sigmf-identity-cli.md)を引用し、170では数値試験を実行していません。保存模擬診断のGUI回帰であって、新しい公開IQ検査CLIをGUIへ接続した意味ではありません。
+最新の製品/full/wheel/専用両実GUI基準は179（`d079810`）。最終attempt2の両全2573成功・611.71/615.31秒・各39404既存種別warning/除外0、106製品file＋4assets全byte、保存模擬診断の両実GUI各28条件/56JSON/672行は179の引用である。180の新試験へ再加算しない。通常GUI151用prefixは更新していない。 [179の記録](../reports/179-lba-fragment-reader-api.md)からの引用で、180で数値試験は実行しません。
 
-次は[現在計画](../design/development-roadmap.md)の具体的な入力接続を検討します。新画像尤度/再fitは八条件未成立で保留。期限2026-11-06 15:00JST、追加reset承認は手動UIで充足済みで再使用しません。次文書整理180/予定根本200。
+次は[現在計画](../design/development-roadmap.md)の実数偏波/解析信号化/sideband/時計・幾何と複素入力の具体差をreviewし、独立受入と予算を固定して選びます。新画像尤度/131再fitは保留。期限2026-11-06 15:00JST、reset承認は手動UIで充足済みで追加使用しません。次文書整理190/予定根本200。

@@ -1,10 +1,10 @@
 # V-SoRA：現在の開発計画
 
-- 更新：173のSigMF派生identity再利用（全体文書整理基準170）
+- 更新：180文書整理、技術基準179（`d079810`）
 - 最終目標：実RTL-SDR/OCXO、1.42GHz、最大基線約600m、局別周波数差、数百ms〜数秒、精密gain較正困難なClosure＋RML
-- 最新製品/full/wheel/専用両実GUI：169（両全2414/105file+4assets）。通常GUI151prefixは別に保持
-- 160以後の更新：161の有限3線/固定probe平均と162の同一電圧codec→整列平均、163の局候補/χ²maskを追記。全体文書の定期整理基準は159のまま
-- 専用根本レビュー150、予定200。次文書整理180。前提が崩れれば前倒し
+- 最新製品/full/wheel/専用両実GUI：179最終attempt2（両全2573/106file+4assets）。通常GUI151prefixは別に保持
+- 170以後：171〜177の限定SigMF接続、178実LBA4局断片、179有界実数偏波readerを反映。全体文書の整理基準は179
+- 専用根本レビュー150、予定200。次文書整理190。前提が崩れれば前倒し
 
 ## 判断の基準
 
@@ -12,7 +12,9 @@
 
 [134契約](../../interfaces/image-statistics-contract.md)と[145の八条件](../../interfaces/image-noise-applicability.md)：前方平均、単位、共通標本集合、時間周波数依存、未知局量と推定、観測採否、joint Closure、目的関数を維持する。native RMLはw項あり、構築時固定の同種同cell共分散で、047JSON/044joint行列は読まない。共通集合とIID、047既定SNR5とproduction10、conditionalと内側有効行を区別する。
 
-[150専用根本レビュー](../reports/150-fundamental-goal-review.md)で有限運用修正を前倒しし、科学側を一点ずつへ縮小した。160はその結果を現在計画へ同期する文書段階で、新しい根本レビューや数値計算ではない。実装・既知計算・有限模擬・実機未確認、完了・収束・適合・予測・形状を分ける。段階数/試験数を完成率へしない。
+[150専用根本レビュー](../reports/150-fundamental-goal-review.md)で有限運用修正を前倒しし、科学側を一点ずつへ縮小した。160/170/180は現在計画を同期する文書段階で、新しい根本レビューや数値計算ではない。実装・既知計算・有限模擬・実機未確認、完了・収束・適合・予測・形状を分ける。段階数/試験数を完成率へしない。
+
+現在の次作業は本文末尾の「180で同期した次の選択条件」を優先する。以下の段階別説明や旧候補は、当時の判断・条件を保持した履歴である。
 
 ## 151〜163で完了した範囲
 
@@ -80,9 +82,11 @@
 
 中止/改訂：条件未成立なら再fitしない。truthに係数を合わせず、外部RML追加反復/新GUIを自動で増やさない。
 
-## 170で同期した次の具体的接続候補
+## 170当時の接続候補（履歴、171〜179で進展）
 
-優先候補はSigMFのsession入口。既存VDIF/clock/identityを先にreviewし、形式、局ID、供給epochとclock modelのsample0/UTC、Fs/実rate、I/Q/scale、RF/帯域、原本pairの対応を実行前に固定する。metadataの公称値を未知の実clockへ代用しない。既存の相互に異なる模擬局電圧で旧VDIF数値不変とSigMF経路の独立照合を行い、公開CAMRAS単局は複数局不足として扱う。単局複製で実基線を作らない。製品変更なので両新full/wheel/pipcheck/全byte/checkout外API/両実GUI予算を再固定する。まだ実装/実行予約済みではない。
+以下は170当時の未選択候補で、SigMF接続は下記171〜177、実4局取得/読込は178/179を現在基準とする。
+
+当時の優先候補はSigMFのsession入口。既存VDIF/clock/identityを先にreviewし、形式、局ID、供給epochとclock modelのsample0/UTC、Fs/実rate、I/Q/scale、RF/帯域、原本pairの対応を実行前に固定する。metadataの公称値を未知の実clockへ代用しない。既存の相互に異なる模擬局電圧で旧VDIF数値不変とSigMF経路の独立照合を行い、公開CAMRAS単局は複数局不足として扱う。単局複製で実基線を作らない。製品変更なので両新full/wheel/pipcheck/全byte/checkout外API/両実GUI予算を再固定する。まだ実装/実行予約済みではない。
 
 並行候補は実複数アンテナ原本の取得根拠。個別file URL/観測ID/実観測出典/最小byte/利用条件がそろってから目的・上限を固定する。生成fixtureを実観測へ変換せず、account/job/連絡を勝手にしない。新根拠がなければ同じ検索や不足文書を新段階にしない。
 
@@ -94,7 +98,7 @@
 
 製品修正を選ぶ場合は新source/installed全回帰・wheel/pipcheck/全byte・checkout外API・両実GUIまで正式予算へ改訂する。GUI更新前は実所有/api/jobs idleを確認して所有idle GUIだけ停止し後に再開する。古いPTY/PIDを有効と仮定しない。
 
-期限2026-11-06 15:00（Asia/Tokyo）、追加reset購入使用禁止。残量10%へ近づけば完成境界で休止し同じscheduleを期限前reset後へ調整、実回復を確認する。取得不能なら記録して大量の新段階を始めない。期限以降は新開発せず同一automationをPAUSEDにして報告する。次の文書整理180/予定根本レビュー200、前提崩れ時前倒し。[運用](development-governance.md)、[時系列](../reports/overviews/development-history.md)、[要素別進捗](../reports/overviews/goal-and-progress.md)、[短い案内](../guide/09-observation-readiness.md)、[索引](../reports/README.md)を参照する。
+期限2026-11-06 15:00（Asia/Tokyo）、追加reset購入使用禁止。残量10%へ近づけば完成境界で休止し同じscheduleを期限前reset後へ調整、実回復を確認する。取得不能なら記録して大量の新段階を始めない。期限以降は新開発せず同一automationをPAUSEDにして報告する。次の文書整理190/予定根本レビュー200、前提崩れ時前倒し。[運用](development-governance.md)、[時系列](../reports/overviews/development-history.md)、[要素別進捗](../reports/overviews/goal-and-progress.md)、[短い案内](../guide/09-observation-readiness.md)、[索引](../reports/README.md)を参照する。
 
 2026-11-01の最新指示で、今回に限り既存未使用resetの自動使用1回を許可された。新規購入と2回目の自動使用はしない。実残量10%以下で消費と回復を確認し、旧11月5日までの休止を解除して同一automationで継続する。上記期限は変更しない。過去の禁止・休止は当時の判断として残す。
 
@@ -150,8 +154,18 @@
 
 [179](../reports/179-lba-fragment-reader-api.md)は178の全量decode workflowと製品の部分読込入口の具体差を対象にする。復号kernelを製品へ移し、旧workflowは同じ関数を参照する。各偏波の必要区間を実数codeで読み、fresh fragment SHA/小header内容とstat guardを保持する。複素化・実clock・RF・局IDを推定せず、相関/画像/GUIへ自動接続しない。原本再取得・変換・新相関・新画像fitは0。
 
-固定178原本/保存levelsの全成分・48seekを保存対照へ一致させ、旧178の全10fieldと両新full/wheel/API/既存実CLI/両実GUIを受入にする。全stat保持raw変更の盲点も残す。次は規定180で文書の技術基準を同期する。その後の製品作業は実数偏波の解析信号化・sideband・実clock/geometryと既存複素入力の具体契約を先に固定し、同じcodec/FFT/参考画像の小反復を避ける。予定根本200/専用レビュー150継承。
+固定178原本/保存levelsの全成分・48seekを保存対照へ一致させ、旧178の全10fieldと両新full/wheel/API/既存実CLI/両実GUIを受入にする。全stat保持raw変更の盲点も残す。この時点の次作業180で、文書の技術基準を同期した。その後の製品作業は実数偏波の解析信号化・sideband・実clock/geometryと既存複素入力の具体契約を先に固定し、同じcodec/FFT/参考画像の小反復を避ける。予定根本200/専用レビュー150継承。
 
-179初回は両104対象/全2573/wheel106+4/2module/checkout外API・既存実CLI/両実GUI28条件を確認したが、保存予算検査がpytest一時出力を含まず2GiBを約92MB超過した。全worker終了後、初回出力を保持して保存4GiBへ改訂し、全正式選択をattempt2として再実行した。全成分・48seekは保存178へ厳密一致、原本と旧prefixを保持。事前の通常変更testで同tick stat保持の盲点が現れ、条件を明示して全選択を再実行した。盲点を除去したとはしない。次の文書整理180は技術基準179へ同期する。
+179初回は両104対象/全2573/wheel106+4/2module/checkout外API・既存実CLI/両実GUI28条件を確認したが、保存予算検査がpytest一時出力を含まず2GiBを約92MB超過した。全worker終了後、初回出力を保持して保存4GiBへ改訂し、全正式選択をattempt2として再実行した。全成分・48seekは保存178へ厳密一致、原本と旧prefixを保持。事前の通常変更testで同tick stat保持の盲点が現れ、条件を明示して全選択を再実行した。盲点を除去したとはしない。180で技術基準179へ同期した。
 
-最終179 attempt2は両104対象/全2573/wheel106+4/2module/API・既存実CLI/両実GUI28条件成功。初回成功を合算せず、初回アーカイブ+pytest一時出力を含む改訂4GiBの資源監査を通した。次は規定文書整理180。
+最終179 attempt2は両104対象/全2573/wheel106+4/2module/API・既存実CLI/両実GUI28条件成功。初回成功を合算せず、初回アーカイブ+pytest一時出力を含む改訂4GiBの資源監査を通した。180の規定文書整理を実施した。
+
+## 180で同期した次の選択条件
+
+次の製品作業は、取得済みLBAの実数2偏波/sideband/公称時刻・実clock/局geometryと、既存複素入力・600m guardの具体差をreviewして選ぶ。readerを重複実装せず、R/LをI/QにしたりFs/epoch/基線を既存profileへ合わせたりしない。物理的な解析信号化や実相関を選ぶ場合は、供給値と推定・実測を分け、独立な有限参照/実入力受入/失敗条件を実行前に固定する。現時点で新adapterや実相関の実装・予約が完了したとはしない。
+
+製品変更の受入は、既存VDIF/SigMF数値不変、原本identity/clock/単位の対応、新source/installed全回帰/wheel/pipcheck/全byte/checkout外API・実CLI/両実GUI、全失敗/部分出力保持と記録公開まで。native実残量から10% reserveを残す予算を固定し、保存はpytest一時出力と全attemptを含める。worker境界値と連続peakを区別し、最後に管理journal/公開textも監査する。
+
+具体的な新観測ID/最小byte/利用条件が得られた場合の少量取得は別途選べる。取得済みの同じ断片を再取得・複製せず、同じcodec/有限FFT/参考画像fitや不足確認を段階番号のために増やさない。実受信機チームの新回答を最優先するが、既に回答済みの148照会を繰り返さない。
+
+旧画像尤度/131再fitは保留し、177の形式接続を新noise/RML/八条件の成立としない。次文書整理190/予定根本200、専用150レビューを継承する。180は静的文書監査だけで、179の合格を新試験へ加算しない。
