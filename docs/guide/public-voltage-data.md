@@ -162,3 +162,11 @@ project_root="$PWD"
 [177](../reports/177-sigmf-reference-image.md)では、[明示参考mode](../../interfaces/sigmf-session.md#明示した高snr参考画像sequence177)だけを既存Closure/RMLへ接続する。174の異なる模擬4局と同じ固定波形を再利用してAPI接続を検査し、原本の生成・変換・取得は繰り返さない。このAPI試験の再相関は独立な観測試行ではない。実CAMRASは単局のままで、この画像の原本に複製して使わない。
 
 検証workflowは [sigmf_reference_image_validation.py](../../workflows/sigmf_reference_image_validation.py)。旧176の参考画像、174の完成相関、独立した有限画素Fourier和・共分散solveと照合する。productのClosure行選択を条件にした代数検査で、未知実noiseや八条件の成立を示さない。画像・配列・科学JSON・原本/提供metadataはすべて管理外へ保存する。optimizerのiteration-limitを隠さず、形式接続と収束/画像精度を分ける。
+
+## 実複数局LBADRの限定断片（178）
+
+[178](../reports/178-public-lba-fragments.md)では、DiFXのtesting/verification配布を用途根拠に、提供者が実天体観測として配布する4 LBA局の電圧断片を少量取得した。各16byte旧headerと元offsetを保持し、実数2偏波の2bitをそのまま検査する。CAMRAS単局や模擬局を複製したものではない。原本/提供metadata/派生物はGitへ出さず、明示データライセンスが未確認という限界も残す。
+
+[手順](../../validation/runs/stage178/README.md)の公開probeでtar index/headerと取得planを作り、[workflow](../../workflows/public_lba_fragments.py)で未存在directoryへ取得・検証する。約4.2MBの選択取得で、元tar160MB全体をダウンロードしない。FTPのclient read byteを数え、wire/server送信量とは分ける。元headerを切出し後の時刻へ書き換えず、header/payload/receiptを別に保存する。
+
+供給8MHz・1719MHz帯域下端・旧16byte headerのreal2bitであり、現在のci16複素SigMF readerへそのまま渡さない。表現の厳密一致や公称時刻は、実clock較正・fringe・実FFT独立性・Cas A/RTL-SDR画像復元の合格ではない。

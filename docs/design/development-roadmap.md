@@ -139,3 +139,9 @@
 177の最終attempt2は両新全2524/wheel105+4/31module/画像API・実sequence/synthesis CLI/両実GUI28条件が成功。初回はAPI/CLI既定値の記録差をreviewで検出して中断し、全worker終了後だけ補助を訂正して全選択を再実行した。元製品/科学条件は不変。固定100反復の非収束を維持し、画像精度の合格とはしない。
 
 次候補の具体的入力として、DiFX lba_4MHzの匿名FTP一覧と説明/入力設定20863byteを管理外へ保存した。録音160010240byteは未取得で初期32MiBを超える。実波形の由来/個別利用条件、最小部分取得byteとLBADR形式契約を固定できるか先にreviewする。現在のSigMF readerへ無変換で読めるとは仮定しない。取得/job/外部連絡や製品採用は未実施。具体差がなければ番号のための文書段階を増やさない。
+
+## 178：実4局原本の少量取得と表現検証（完了）
+
+[178](../reports/178-public-lba-fragments.md)でDiFX公開LBA記録のtar/旧16byte headerを確認し、共通供給時刻の4局×.262144秒を選択取得した。保存された原本fragment/offset/偏波を保ち、全16777216成分/4194304payload byteの厳密保存、32固定FFTの独立有限和を両依存環境へ照合した。初回probeと取得timeout、公開probe収容後の全正式再実行を保持し成功を合算しない。製品source/API/clock/RML変更、新full/wheel/GUI/実相関/画像は0。製品/full/wheel基準177と通常GUI151を維持する。
+
+次は供給clock/geometry・real2pol・sideband・限定codecと現製品の複素sample/600m帯域guardの具体差をreviewする。供給Fsを未知実clockへ代用せず、基線/epoch/Fsをprofileへ合わせない。物理的な入力変換や実相関を選ぶなら独立受入/容量/正式予算を先固定する。単なるcodec反復や参考画像fitを番号のために増やさず、実入力を得たことを実Cas A画像復元と混同しない。文書整理180/予定根本200。
