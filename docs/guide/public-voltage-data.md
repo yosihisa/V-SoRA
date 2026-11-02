@@ -154,3 +154,5 @@ project_root="$PWD"
 ## 画像fitをせず補正窓を結合する
 
 [175](../reports/175-sigmf-spectral-merge.md)の `vsora-synthesis --merge-only` は、保存された原本pair・clock識別を照合し、SigMF UTC9桁と全数値fieldを保って結合する。元rawの再hashや実時計較正は行わず、画像fitも実行しない。入力と結合NPZ、科学JSONは引き続き管理外に置く。
+
+176では、merge-onlyへ原本manifest/clockと窓manifestを全指定した場合だけ、[freshな原本照合](../../interfaces/sigmf-spectral-merge.md#明示した元原本とのfresh照合176)を行える。既定175の保存情報だけの照合は維持する。元rawの生成・再相関や画像fitを行わず、recording間のdata/clock対応を検査する。原本からその数値が計算された履歴や実時計の正確さまで証明する入口ではない。

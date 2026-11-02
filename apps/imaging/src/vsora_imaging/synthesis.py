@@ -46,15 +46,54 @@ def _recorded_sigmf_identity(meta, config):
     return {key:deepcopy(identity[key]) for key in common},epoch.isot+'Z'
 
 
-def merge_spectral(paths,output):
+def merge_spectral(paths,output,*,source_manifest=None,clock_model=None,input_manifests=None):
     if not 2<=len(paths)<=64:raise ValueError('synthesis requires 2..64 spectral inputs')
     out=Path(output)
     if out.suffix!='.npz':raise ValueError('synthesis output must be .npz')
     if out.exists():raise FileExistsError('synthesis output already exists')
+    supplied=[v is not None for v in (source_manifest,clock_model,input_manifests)]
+    if any(supplied) and not all(supplied):
+        raise ValueError('source_manifest, clock_model and input_manifests must be supplied together')
+    source=None;views=[];child_configs=[]
+    if all(supplied):
+        if not isinstance(input_manifests,(list,tuple)) or len(input_manifests)!=len(paths):
+            raise ValueError('one input manifest per spectral input required')
+        from vsora_correlator.input_identity import InputIdentity
+        from vsora_correlator.session import load_session
+        source_config=load_session(source_manifest,allow_sigmf=True)
+        if source_config.get('input_format')!='sigmf_ci16_le':
+            raise ValueError('fresh source verification is SigMF-only')
+        source=InputIdentity(source_manifest,clock_model,expected_config=source_config)
+        for manifest in input_manifests:
+            config=load_session(manifest,allow_sigmf=True)
+            views.append(source.bind_sigmf_session(manifest,clock_model,config));child_configs.append(config)
+    def unchanged():
+        if source is not None:
+            source.assert_current(source_manifest,clock_model,source_config)
+            for manifest,view,config in zip(input_manifests,views,child_configs):
+                view.assert_current(manifest,clock_model,config)
     inputs=[];provenance=[];reference=None;sigmf_mode=None
-    for path in paths:
+    for index,path in enumerate(paths):
+        unchanged()
         data=load_spectral(path);meta=data['metadata'];config=meta['config']
+        unchanged()
         sigmf=meta.get('input_format')=='sigmf_ci16_le'
+        if source is not None:
+            if not sigmf or meta.get('input_identity')!=views[index].public_identity:
+                raise ValueError('fresh source/derived identity differs from recorded spectral identity')
+            child=child_configs[index]
+            canonical=lambda value:json.dumps(value,sort_keys=True,allow_nan=False)
+            if (canonical(config)!=canonical(child['_config'])
+                    or canonical(meta.get('fft_length'))!=canonical(child['fft_length'])
+                    or canonical(meta.get('fft_sample_rate_hz'))!=canonical(child['sample_rate_hz'])
+                    or not np.isfinite(meta.get('nominal_integration_s',np.nan))
+                    or abs(meta['nominal_integration_s']-child['blocks_per_integration']*child['fft_length']/child['sample_rate_hz'])>1e-12):
+                raise ValueError('spectral configuration differs from fresh derived session')
+            from itertools import combinations
+            pairs=np.array(list(combinations(range(len(child['stations'])),2)),dtype=int)
+            frequencies=np.sort(child['_config']['observation']['frequency_hz']+np.fft.fftfreq(child['fft_length'],1/child['sample_rate_hz']))
+            if not np.array_equal(data['pairs'],pairs) or not np.array_equal(data['frequencies_hz'],frequencies):
+                raise ValueError('spectral axes differ from fresh derived session')
         if not sigmf and isinstance(meta.get('input_identity'),dict) and 'input_sigmf' in meta['input_identity']:
             raise ValueError('recorded SigMF identity requires explicit input_format')
         if sigmf_mode is None:sigmf_mode=sigmf
@@ -83,6 +122,7 @@ def merge_spectral(paths,output):
         if not np.isfinite(data['integration_s']).all() or np.any(data['integration_s']<0):raise ValueError('invalid exposure')
         if not meta.get('time_origin_utc'):raise ValueError('synthesis UTC origin required')
         with open(path,'rb') as stream:sha=hashlib.file_digest(stream,'sha256').hexdigest()
+        unchanged()
         inputs.append(data)
         provenance.append({'input_sha256':sha,'time_origin_utc':meta['time_origin_utc'],
             'time_cells':len(data['times_s']),'rate_applied_hz':meta.get('rate_applied_hz'),
@@ -126,6 +166,13 @@ def merge_spectral(paths,output):
             sigmf_original_identity=deepcopy(reference[0]['sigmf_original_identity']),
             sigmf_identity_scope='Recorded agreement only; raw inputs and producer checksums are not reauthenticated',
             original_files_rehashed=False)
+        if source is not None:
+            unchanged()
+            meta.update(original_files_rehashed=True,
+                sigmf_identity_scope='Fresh original/derived file identities match recorded claims; no computation proof, producer authentication or file lock',
+                input_identity_verification={'source_identity':source.public_identity,'source_diagnostics':source.diagnostics,
+                    'derived_diagnostics':[view.diagnostics for view in views],
+                    'scope':'Original/control guards before/after spectral reads and hashes, and immediately before output; changes after the last check or preserving all raw stat fields remain outside this snapshot'})
     save_spectral(out,cube,meta)
     result={'input_count':len(inputs),'time_cells':len(sorted_times),'channels':len(cube['frequencies_hz']),
         'baseline_count':len(cube['pairs']),'observation_span_s':float(sorted_times[-1]-sorted_times[0]),
@@ -133,8 +180,9 @@ def merge_spectral(paths,output):
         'visibility_unit':reference[0]['unit']}
     if sigmf_mode:
         result.update(input_format='sigmf_ci16_le',time_origin_utc=origin_text,
-            sigmf_original_identity=deepcopy(meta['sigmf_original_identity']),original_files_rehashed=False,
+            sigmf_original_identity=deepcopy(meta['sigmf_original_identity']),original_files_rehashed=meta['original_files_rehashed'],
             sigmf_identity_scope=meta['sigmf_identity_scope'])
+        if source is not None:result['input_identity_verification']=deepcopy(meta['input_identity_verification'])
     return result
 
 
@@ -160,11 +208,15 @@ def main():
     p=argparse.ArgumentParser(description='Closure RML synthesis from distinct aligned short exposures')
     p.add_argument('--inputs',nargs='+',required=True);p.add_argument('--output',required=True)
     p.add_argument('--merge-only',action='store_true',help='Save aligned spectral windows to .npz without closure extraction or image fitting')
+    p.add_argument('--source-manifest');p.add_argument('--clock-model');p.add_argument('--input-manifests',nargs='+')
     p.add_argument('--starts',type=int,default=3);p.add_argument('--max-iterations',type=int,default=800)
     p.add_argument('--prior-fwhm-arcsec',type=float,default=240.);p.add_argument('--min-snr',type=float,default=10.)
     p.add_argument('--entropy',type=float,default=.01);p.add_argument('--tsv',type=float,default=.0001)
     args=vars(p.parse_args());paths=args.pop('inputs');out=args.pop('output');merge_only=args.pop('merge_only')
-    print(json.dumps(merge_spectral(paths,out) if merge_only else image_synthesis(paths,out,**args),indent=2))
+    verification={k:args.pop(k) for k in ('source_manifest','clock_model','input_manifests')}
+    if not merge_only and any(v is not None for v in verification.values()):
+        p.error('fresh source verification currently requires --merge-only')
+    print(json.dumps(merge_spectral(paths,out,**verification) if merge_only else image_synthesis(paths,out,**args),indent=2))
 
 
 if __name__=='__main__':main()

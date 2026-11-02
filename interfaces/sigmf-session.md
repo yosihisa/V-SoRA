@@ -56,3 +56,5 @@ SigMFには整数FFT blockを要求し、VDIFだけに4096sample/frame条件を�
 ## 補正窓を画像入力へ結合する前段
 
 [175の結合契約](sigmf-spectral-merge.md)は、保存pair/clock識別の一致と9桁UTCを保つ `merge_spectral` / `vsora-synthesis --merge-only` の入口。画像fitや元raw再hashは行わない。`valid_fft_count` を保持するが、独立標本数の証明ではない。session-level画像処理とGUIの形式追加はまだ行わない。
+
+176では[結合契約のfresh照合](sigmf-spectral-merge.md#明示した元原本とのfresh照合176)へ元manifest/clock/窓manifestを全指定できる。既存InputIdentity/派生viewを再利用して保存識別と現在の原本を照合し、既定175の記録一致だけの入口と区別する。画像fitを追加せず、配列の計算履歴やproducer認証を証明しない。

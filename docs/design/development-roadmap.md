@@ -123,3 +123,9 @@
 [175](../reports/175-sigmf-spectral-merge.md)は既存mergerの3桁UTCと原本識別引継ぎの具体差を対象に、9桁UTC・保存pair/clock/観測config識別の一致・valid_fft_count保持・merge-only API/CLIを実装する。174の保存窓を再利用し新相関/電圧変換/画像fitを作らない。元rawの再hashや新画像尤度を追加したとしない。正式初回の両新全2496/wheel105+4/4module/実CLI・API/両実GUI28条件を確認した。
 
 次はsession-level画像入力を接続する前に、保存識別と実原本の関係、既存高SNR近似の適用範囲、時間周波数の依存を踏まえた具体的な受入をreviewする。既存merge/reader/identityを重複実装せず、実入力待ちだけで監視へ戻らない。文書整理180/予定根本200を維持。
+
+## 176：明示原本と結合識別の対応（完了）
+
+[176](../reports/176-sigmf-merge-source-binding.md)は、保存情報だけの一致から、明示した現物SigMF原本・clock・窓manifestへのfresh照合を選べる入口。173のInputIdentity/派生viewを再利用し、child identityと保存config/FFT/軸を対応付ける。既定175/legacyは維持し、新しい原本生成/相関/画像fitは行わない。検査後の変更やall-stat保持の盲点、計算履歴の証明とは異なる点を明示する。正式初回の両新全2515/wheel105+4/16module/実CLI・API/両実GUI28条件を確認した。
+
+次はこの対応を画像入口へ渡す場合の独立受入と、既存高SNR近似・時間周波数依存の適用範囲をreviewする。元raw/科学shard/保存識別の区別を保ち、形式接続を新画像尤度の成立としない。既存部品の重複、番号のためのcodec反復は避ける。文書整理180/予定根本200。
