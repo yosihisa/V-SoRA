@@ -145,3 +145,13 @@
 [178](../reports/178-public-lba-fragments.md)でDiFX公開LBA記録のtar/旧16byte headerを確認し、共通供給時刻の4局×.262144秒を選択取得した。保存された原本fragment/offset/偏波を保ち、全16777216成分/4194304payload byteの厳密保存、32固定FFTの独立有限和を両依存環境へ照合した。初回probeと取得timeout、公開probe収容後の全正式再実行を保持し成功を合算しない。製品source/API/clock/RML変更、新full/wheel/GUI/実相関/画像は0。製品/full/wheel基準177と通常GUI151を維持する。
 
 次は供給clock/geometry・real2pol・sideband・限定codecと現製品の複素sample/600m帯域guardの具体差をreviewする。供給Fsを未知実clockへ代用せず、基線/epoch/Fsをprofileへ合わせない。物理的な入力変換や実相関を選ぶなら独立受入/容量/正式予算を先固定する。単なるcodec反復や参考画像fitを番号のために増やさず、実入力を得たことを実Cas A画像復元と混同しない。文書整理180/予定根本200。
+
+## 179：偏波明示の有界LBA reader API（完了）
+
+[179](../reports/179-lba-fragment-reader-api.md)は178の全量decode workflowと製品の部分読込入口の具体差を対象にする。復号kernelを製品へ移し、旧workflowは同じ関数を参照する。各偏波の必要区間を実数codeで読み、fresh fragment SHA/小header内容とstat guardを保持する。複素化・実clock・RF・局IDを推定せず、相関/画像/GUIへ自動接続しない。原本再取得・変換・新相関・新画像fitは0。
+
+固定178原本/保存levelsの全成分・48seekを保存対照へ一致させ、旧178の全10fieldと両新full/wheel/API/既存実CLI/両実GUIを受入にする。全stat保持raw変更の盲点も残す。次は規定180で文書の技術基準を同期する。その後の製品作業は実数偏波の解析信号化・sideband・実clock/geometryと既存複素入力の具体契約を先に固定し、同じcodec/FFT/参考画像の小反復を避ける。予定根本200/専用レビュー150継承。
+
+179初回は両104対象/全2573/wheel106+4/2module/checkout外API・既存実CLI/両実GUI28条件を確認したが、保存予算検査がpytest一時出力を含まず2GiBを約92MB超過した。全worker終了後、初回出力を保持して保存4GiBへ改訂し、全正式選択をattempt2として再実行した。全成分・48seekは保存178へ厳密一致、原本と旧prefixを保持。事前の通常変更testで同tick stat保持の盲点が現れ、条件を明示して全選択を再実行した。盲点を除去したとはしない。次の文書整理180は技術基準179へ同期する。
+
+最終179 attempt2は両104対象/全2573/wheel106+4/2module/API・既存実CLI/両実GUI28条件成功。初回成功を合算せず、初回アーカイブ+pytest一時出力を含む改訂4GiBの資源監査を通した。次は規定文書整理180。

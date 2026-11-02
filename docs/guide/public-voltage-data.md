@@ -170,3 +170,9 @@ project_root="$PWD"
 [手順](../../validation/runs/stage178/README.md)の公開probeでtar index/headerと取得planを作り、[workflow](../../workflows/public_lba_fragments.py)で未存在directoryへ取得・検証する。約4.2MBの選択取得で、元tar160MB全体をダウンロードしない。FTPのclient read byteを数え、wire/server送信量とは分ける。元headerを切出し後の時刻へ書き換えず、header/payload/receiptを別に保存する。
 
 供給8MHz・1719MHz帯域下端・旧16byte headerのreal2bitであり、現在のci16複素SigMF readerへそのまま渡さない。表現の厳密一致や公称時刻は、実clock較正・fringe・実FFT独立性・Cas A/RTL-SDR画像復元の合格ではない。
+
+## 実数偏波を部分読込する製品API（179）
+
+[有界reader](../../interfaces/lba-fragment-reader.md)は、178の旧header/real2pol/2bit/公称8MHzという限定caseを、偏波を毎回指定する実数codeとして読む。元header/offsetを保持し、seek最大32770byteで必要な区間だけを復号する。既存178 workflowは同じ製品kernelを参照し、独立scalar参照/repack/DFTは検証側へ残す。
+
+[再現手順](../../validation/runs/stage179/README.md)は保存178原本と完成levelsを使い、新取得・変換を繰り返さない。actual sample rate/局ID/RF/sidebandは未知のまま、R/LをI/Qへ見立てない。公称時刻の9桁表現やfragment SHAを実時計較正・未取得member全体の識別へ読み替えない。相関/画像/GUI形式入口は変更せず、原本・提供metadata・配列・科学JSONは引き続き管理外に置く。

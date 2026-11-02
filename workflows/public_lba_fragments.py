@@ -19,8 +19,8 @@ import tarfile
 import time
 
 import numpy as np
+from vsora_formats.lba import parse_old_lba_header as old_header, decode_lba_std as decode
 
-LEVELS = np.array([8191, -8192, 24575, -24576], dtype=np.int16)
 FFT_STARTS = (0, 262144, 524288, 1048576)
 SAMPLES = 2097152
 
@@ -34,13 +34,6 @@ def digest(path):
         return hashlib.file_digest(stream, 'sha256').hexdigest()
 
 
-def old_header(data):
-    if not isinstance(data, bytes) or re.fullmatch(rb'\d{8}:\d{6}\n', data) is None:
-        raise ValueError('limited old LBA timestamp header required')
-    try:
-        return dt.datetime.strptime(data.decode('ascii'), '%Y%m%d:%H%M%S\n').replace(tzinfo=dt.timezone.utc)
-    except ValueError as error:
-        raise ValueError('invalid old LBA calendar') from error
 
 
 def window_offset(header, start, payload_bytes):
@@ -57,12 +50,6 @@ def window_offset(header, start, payload_bytes):
     return offset
 
 
-def decode(raw):
-    if not isinstance(raw, bytes) or not raw or len(raw) % 2:
-        raise ValueError('positive whole little-endian u16 payload required')
-    bits = np.unpackbits(np.frombuffer(raw, np.uint8), bitorder='little').reshape(-1, 2)
-    codes = (bits[:, 0]+2*bits[:, 1]).reshape(-1, 2)
-    return codes, LEVELS[codes]
 
 
 def scalar_reference(raw):

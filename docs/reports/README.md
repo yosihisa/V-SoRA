@@ -194,6 +194,7 @@
 | 176 | [SigMF結合時の明示原本照合](176-sigmf-merge-source-binding.md) | 両115対象/全2515成功。明示原本/派生識別のfresh照合、default175不変。新画像study fit0 |
 | 177 | [原本照合を保つ明示SigMF参考画像](177-sigmf-reference-image.md) | 最終attempt2の両124対象/全2524成功。原本guard付き参考画像sequence、独立objective/勾配。固定100反復は非収束 |
 | 178 | [公開LBA実4局の供給同時刻断片](178-public-lba-fragments.md) | 両12unit/全2bit成分・byte保存/32FFT照合。原本断片を少量取得、製品変更・実相関・画像0 |
+| 179 | [実数偏波を保持する有界LBA fragment reader API](179-lba-fragment-reader-api.md) | 最終attempt2の両104対象/全2573成功。保存予算監査を訂正して全選択再実行。偏波明示の有界seek/stream、全成分・48seekを保存178へ厳密一致。実clock/相関接続なし |
 
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。
 
