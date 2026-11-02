@@ -3,9 +3,47 @@ from copy import deepcopy
 import hashlib
 import json
 from pathlib import Path
+import re
 import numpy as np
 from astropy.time import Time
 from vsora_formats.spectral import load_spectral,save_spectral
+
+
+def _recorded_sigmf_identity(meta, config):
+    """Validate agreement of recorded claims, without reopening raw inputs."""
+    if meta.get('synthesis'):
+        raise ValueError('already merged SigMF inputs require a separate provenance contract')
+    if meta.get('visibility_unit')!='ADC^2':
+        raise ValueError('SigMF synthesis requires ADC^2')
+    identity=meta.get('input_identity')
+    keys={'input_manifest_sha256','input_clock_sha256','input_observation_sha256','input_sigmf'}
+    if not isinstance(identity,dict) or set(identity)!=keys:
+        raise ValueError('complete recorded SigMF input_identity required')
+    def digest(value):return isinstance(value,str) and re.fullmatch('[0-9a-f]{64}',value) is not None
+    if any(not digest(identity[key]) for key in keys-{'input_sigmf'}):
+        raise ValueError('recorded SigMF control SHA256 required')
+    pairs=identity['input_sigmf'];ids=[s['id'] for s in config['stations']]
+    if not isinstance(pairs,list) or len(pairs)!=len(ids):
+        raise ValueError('recorded SigMF station pairs required')
+    for pair,station in zip(pairs,ids):
+        if not isinstance(pair,dict) or set(pair)!={'station_id','metadata','data'} or pair['station_id']!=station:
+            raise ValueError('recorded SigMF station order differs')
+        for part in ['metadata','data']:
+            item=pair[part]
+            if (not isinstance(item,dict) or set(item)!={'sha256','bytes'} or not digest(item['sha256'])
+                    or type(item['bytes']) is not int or item['bytes']<=0):
+                raise ValueError('recorded SigMF pair SHA256 and positive integer bytes required')
+    if len({p['data']['sha256'] for p in pairs})!=len(pairs):
+        raise ValueError('recorded SigMF station data SHA must be distinct')
+    origin=meta.get('time_origin_utc')
+    if not isinstance(origin,str) or re.fullmatch(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{1,9})?Z',origin) is None:
+        raise ValueError('SigMF synthesis UTC-Z origin with at most nine fractional digits required')
+    epoch=Time(origin)
+    if abs((epoch-Time(config['observation']['start_utc'])).sec)>1e-9:
+        raise ValueError('SigMF synthesis origin differs from supplied observation epoch')
+    epoch.precision=9
+    common=('input_clock_sha256','input_observation_sha256','input_sigmf')
+    return {key:deepcopy(identity[key]) for key in common},epoch.isot+'Z'
 
 
 def merge_spectral(paths,output):
@@ -13,15 +51,30 @@ def merge_spectral(paths,output):
     out=Path(output)
     if out.suffix!='.npz':raise ValueError('synthesis output must be .npz')
     if out.exists():raise FileExistsError('synthesis output already exists')
-    inputs=[];provenance=[];reference=None
+    inputs=[];provenance=[];reference=None;sigmf_mode=None
     for path in paths:
         data=load_spectral(path);meta=data['metadata'];config=meta['config']
+        sigmf=meta.get('input_format')=='sigmf_ci16_le'
+        if not sigmf and isinstance(meta.get('input_identity'),dict) and 'input_sigmf' in meta['input_identity']:
+            raise ValueError('recorded SigMF identity requires explicit input_format')
+        if sigmf_mode is None:sigmf_mode=sigmf
+        elif sigmf_mode!=sigmf:raise ValueError('mixed SigMF and legacy synthesis inputs are unsupported')
         if meta.get('clock_mapping_applied') is not True or meta.get('phase_center_corrected') is not True:
             raise ValueError('synthesis production inputs require sample/phase-center alignment')
         signature={'station_ids':[s['id'] for s in config['stations']],
             'positions':[s['enu_m'] for s in config['stations']],'site':{k:config['site'][k] for k in ('latitude_deg','longitude_deg','height_m')},
             'source':{k:config['source'][k] for k in ('frame','ra_deg','dec_deg')},
             'unit':meta['visibility_unit'],'pixel_arcsec':config['image']['pixel_arcsec']}
+        if sigmf:
+            common,epoch=_recorded_sigmf_identity(meta,config)
+            signature.update(sigmf_original_identity=common,sigmf_time_origin_utc=epoch)
+            counts=data.get('valid_fft_count')
+            if (not isinstance(counts,np.ndarray) or counts.shape!=(len(data['times_s']),len(data['pairs']))
+                    or not np.issubdtype(counts.dtype,np.integer) or np.any(counts<0)):
+                raise ValueError('SigMF synthesis requires nonnegative integer valid_fft_count per time/baseline')
+            known={'metadata','visibilities','weights','uvw_lambda','integration_s','valid_fft_count','times_s','pairs','frequencies_hz'}
+            if any(k not in known and not k.startswith('diagnostic_') for k in data):
+                raise ValueError('unrecognized SigMF spectral field cannot be silently discarded')
         if reference is None:reference=(signature,data)
         elif signature!=reference[0] or not np.array_equal(data['pairs'],reference[1]['pairs']) or not np.array_equal(data['frequencies_hz'],reference[1]['frequencies_hz']):
             raise ValueError('synthesis station/geometry/source/unit/frequency axes differ')
@@ -37,8 +90,11 @@ def merge_spectral(paths,output):
             'rate_profile_sha256':meta.get('rate_only_profile_sha256'),
             'nominal_integration_s':meta.get('nominal_integration_s'),
             'exposure_per_baseline_s':data['integration_s'].sum(axis=0).tolist()})
+        if sigmf:
+            provenance[-1].update(input_format='sigmf_ci16_le',input_identity=deepcopy(meta['input_identity']))
     if sum(d['visibilities'].size for d in inputs)>1000000:raise ValueError('reference synthesis limited to one million baseline cells')
     origin=min(Time(d['metadata']['time_origin_utc']) for d in inputs)
+    if sigmf_mode:origin.precision=9
     origin_text=origin.isot+'Z'
     times=np.concatenate([d['times_s']+(Time(d['metadata']['time_origin_utc'])-origin).sec for d in inputs])
     order=np.argsort(times);sorted_times=times[order]
@@ -47,6 +103,7 @@ def merge_spectral(paths,output):
     if any(set(k for k in d if k.startswith('diagnostic_'))!=diagnostics for d in inputs):
         raise ValueError('synthesis diagnostic fields differ; use a consistent correlation profile')
     keys=['visibilities','weights','uvw_lambda','integration_s',*sorted(diagnostics)]
+    if sigmf_mode:keys.append('valid_fft_count')
     cube={k:np.concatenate([d[k] for d in inputs],axis=0)[order] for k in keys}
     cube.update(times_s=sorted_times,pairs=inputs[0]['pairs'],frequencies_hz=inputs[0]['frequencies_hz'])
     spans=np.concatenate([np.full(len(d['times_s']),d['metadata']['nominal_integration_s'])
@@ -64,11 +121,21 @@ def merge_spectral(paths,output):
         'noise_assumption':'Independent short exposures/channels; full within-cell closure covariance only',
         'overlap_check':'Nominal spans when supplied; effective maximum baseline exposure for older profiles',
         'limitations':'No complex averaging or station gain matching; time/channel values remain distinct; filtered noise correlations approximate'}
+    if sigmf_mode:
+        meta.update(input_format='sigmf_ci16_le',time_origin_precision_digits=9,
+            sigmf_original_identity=deepcopy(reference[0]['sigmf_original_identity']),
+            sigmf_identity_scope='Recorded agreement only; raw inputs and producer checksums are not reauthenticated',
+            original_files_rehashed=False)
     save_spectral(out,cube,meta)
-    return {'input_count':len(inputs),'time_cells':len(sorted_times),'channels':len(cube['frequencies_hz']),
+    result={'input_count':len(inputs),'time_cells':len(sorted_times),'channels':len(cube['frequencies_hz']),
         'baseline_count':len(cube['pairs']),'observation_span_s':float(sorted_times[-1]-sorted_times[0]),
         'exposure_per_baseline_s':meta['recorded_exposure_per_baseline_s'],'source_inputs':provenance,
         'visibility_unit':reference[0]['unit']}
+    if sigmf_mode:
+        result.update(input_format='sigmf_ci16_le',time_origin_utc=origin_text,
+            sigmf_original_identity=deepcopy(meta['sigmf_original_identity']),original_files_rehashed=False,
+            sigmf_identity_scope=meta['sigmf_identity_scope'])
+    return result
 
 
 def image_synthesis(paths,output,**settings):
@@ -92,11 +159,12 @@ def main():
     import argparse
     p=argparse.ArgumentParser(description='Closure RML synthesis from distinct aligned short exposures')
     p.add_argument('--inputs',nargs='+',required=True);p.add_argument('--output',required=True)
+    p.add_argument('--merge-only',action='store_true',help='Save aligned spectral windows to .npz without closure extraction or image fitting')
     p.add_argument('--starts',type=int,default=3);p.add_argument('--max-iterations',type=int,default=800)
     p.add_argument('--prior-fwhm-arcsec',type=float,default=240.);p.add_argument('--min-snr',type=float,default=10.)
     p.add_argument('--entropy',type=float,default=.01);p.add_argument('--tsv',type=float,default=.0001)
-    args=vars(p.parse_args());paths=args.pop('inputs');out=args.pop('output')
-    print(json.dumps(image_synthesis(paths,out,**args),indent=2))
+    args=vars(p.parse_args());paths=args.pop('inputs');out=args.pop('output');merge_only=args.pop('merge_only')
+    print(json.dumps(merge_spectral(paths,out) if merge_only else image_synthesis(paths,out,**args),indent=2))
 
 
 if __name__=='__main__':main()

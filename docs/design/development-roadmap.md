@@ -117,3 +117,9 @@
 [174](../reports/174-sigmf-correlation-sequence.md)は、FFT grid/共有原本identity/窓間原本一致/容量の未接続差を対象に、明示correlation-only API/CLIで複数窓を保存する。保存038の相互に異なる模擬4局140frameを固定code-unitで派生し、2窓の独立有限作用と旧173 VDIF対照を固定する。新studyで画像fitを作らず、最終attempt2の両新全2474/wheel105+4/23module/API・実CLI/両実GUI28条件を確認した。初回はsystem Pythonの調整役importでworker開始前に停止し、記録を保持して全選択を再実行した。
 
 次は画像へ渡すときの局/時計/単位/identity/複数窓の受入契約をreviewする。既存RMLの制約や低SNR画像尤度の未検証を形式接続で解消したとしない。新しい実複数アンテナ原本の観測ID/最小容量/利用条件がそろえば別途少量取得を選べる。番号のための小codec反復や不足文書を増やさない。
+
+## 175：SigMF補正窓の結合契約（完了）
+
+[175](../reports/175-sigmf-spectral-merge.md)は既存mergerの3桁UTCと原本識別引継ぎの具体差を対象に、9桁UTC・保存pair/clock/観測config識別の一致・valid_fft_count保持・merge-only API/CLIを実装する。174の保存窓を再利用し新相関/電圧変換/画像fitを作らない。元rawの再hashや新画像尤度を追加したとしない。正式初回の両新全2496/wheel105+4/4module/実CLI・API/両実GUI28条件を確認した。
+
+次はsession-level画像入力を接続する前に、保存識別と実原本の関係、既存高SNR近似の適用範囲、時間周波数の依存を踏まえた具体的な受入をreviewする。既存merge/reader/identityを重複実装せず、実入力待ちだけで監視へ戻らない。文書整理180/予定根本200を維持。

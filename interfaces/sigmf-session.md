@@ -52,3 +52,7 @@ SigMFには整数FFT blockを要求し、VDIFだけに4096sample/frame条件を�
 完成時は `type=short_window_correlation_sequence`、`phase=correlations_saved`、`closures/rml/synthesis=null`。`windows[].relative_directory` から窓ごとのrate診断・相関shardへたどれる。`nominal_correlation_exposure_per_station_s` は指定積分長の合計で、mask後の実効露出や独立試行数ではない。従来の窓計画key `image_end_s` はこの入口でも最終相関窓の終了offsetを示し、画像を作った意味ではない。途中失敗はpartialと完了済みの窓を保持する。
 
 公開CAMRAS単局を複製して複数局へ通さない。[段階174](../docs/reports/174-sigmf-correlation-sequence.md)の検証は保存された異なる模擬4局であり、実観測画像の検証ではない。
+
+## 補正窓を画像入力へ結合する前段
+
+[175の結合契約](sigmf-spectral-merge.md)は、保存pair/clock識別の一致と9桁UTCを保つ `merge_spectral` / `vsora-synthesis --merge-only` の入口。画像fitや元raw再hashは行わない。`valid_fft_count` を保持するが、独立標本数の証明ではない。session-level画像処理とGUIの形式追加はまだ行わない。

@@ -190,6 +190,7 @@
 | 172 | [SigMFのpilot・rate推定・補正相関](172-sigmf-rate-pipeline.md) | correlation-only入口を接続。原本pair/供給時計/FFT grid/3pass hashを明示、両116対象/全2441、新wheel105+4/API・実CLI/両実GUI28。画像/sequence未対応 |
 | 173 | [SigMF派生sessionの識別再利用](173-sigmf-derived-identity.md) | 同じrunのdata full SHAを3→1passへ。親/子検査を維持、両134対象/全2459、新wheel105+4/API・CLI/両実GUI28。画像/sequence未追加 |
 | 174 | [SigMF相関保存専用sequence](174-sigmf-correlation-sequence.md) | 両149対象/全2474成功。相関保存専用の複数窓と原本識別1pass、独立有限作用・旧VDIF照合。実基線/新画像study fit0 |
+| 175 | [SigMF補正窓の結合契約](175-sigmf-spectral-merge.md) | 両96対象/全2496成功。UTC9桁・保存原本識別一致・count保持・merge-only。旧VDIF不変、新画像study fit0 |
 
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。
 

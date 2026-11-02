@@ -150,3 +150,7 @@ project_root="$PWD"
 ## 複数窓への接続
 
 [174](../reports/174-sigmf-correlation-sequence.md)の明示correlation-only sequenceは、異なる局のSigMF原本がある場合に複数窓の補正相関を保存する入口。保存模擬4局で検証した。CAMRAS原本は単局のままで実基線は0。取得済みデータを変更・複製して局数を増やさない。画像付きpipeline/sequenceとGUIへのSigMF形式追加は含まない。
+
+## 画像fitをせず補正窓を結合する
+
+[175](../reports/175-sigmf-spectral-merge.md)の `vsora-synthesis --merge-only` は、保存された原本pair・clock識別を照合し、SigMF UTC9桁と全数値fieldを保って結合する。元rawの再hashや実時計較正は行わず、画像fitも実行しない。入力と結合NPZ、科学JSONは引き続き管理外に置く。
