@@ -176,3 +176,9 @@ project_root="$PWD"
 [有界reader](../../interfaces/lba-fragment-reader.md)は、178の旧header/real2pol/2bit/公称8MHzという限定caseを、偏波を毎回指定する実数codeとして読む。元header/offsetを保持し、seek最大32770byteで必要な区間だけを復号する。既存178 workflowは同じ製品kernelを参照し、独立scalar参照/repack/DFTは検証側へ残す。
 
 [再現手順](../../validation/runs/stage179/README.md)は保存178原本と完成levelsを使い、新取得・変換を繰り返さない。actual sample rate/局ID/RF/sidebandは未知のまま、R/LをI/Qへ見立てない。公称時刻の9桁表現やfragment SHAを実時計較正・未取得member全体の識別へ読み替えない。相関/画像/GUI形式入口は変更せず、原本・提供metadata・配列・科学JSONは引き続き管理外に置く。
+
+## 偏波別の有限複素帯域view（181）
+
+[明示API](../../interfaces/lba-complex-band.md)は179のlive readerから1偏波を選び、固定quarter-band mixingと129tap FIRを適用する。元source sample indexで位相を保ち、downsampleやheader/公称Fsの変更はしない。R/LをI/Qに見立てず、各偏波を個別に扱う。
+
+出力はcomplex code-unitで、有限filterの応答/鏡像漏れと端のsupportを保持する。理想解析信号・物理電圧較正・実clock測定ではない。元のindex0/名目時刻原点を保ち、両端64sampleが足りない要求は拒否する。[181手順](../../validation/runs/stage181/README.md)は既存178原本/保存levelsを再利用し、派生配列や科学JSONは管理外へ保存する。session/相関/GUIへの自動接続や600m制限の緩和は行わない。

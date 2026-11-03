@@ -196,6 +196,7 @@
 | 178 | [公開LBA実4局の供給同時刻断片](178-public-lba-fragments.md) | 両12unit/全2bit成分・byte保存/32FFT照合。原本断片を少量取得、製品変更・実相関・画像0 |
 | 179 | [実数偏波を保持する有界LBA fragment reader API](179-lba-fragment-reader-api.md) | 最終attempt2の両104対象/全2573成功。保存予算監査を訂正して全選択再実行。偏波明示の有界seek/stream、全成分・48seekを保存178へ厳密一致。実clock/相関接続なし |
 | 180 | [技術基準179への文書整理](180-documentation-checkpoint.md) | 技術基準179へ10文書同期。180行Git/JST・181索引行・全byteを静的照合、新数値試験0 |
+| 181 | [偏波別LBA複素帯域view](181-lba-complex-band-view.md) | 偏波明示の固定mix/中心FIR。独立有限和/両53field一致、両full2634成功。実clock/相関へ自動接続なし |
 
 新しいレポートは [テンプレート](templates/stage-report.md) を使用する。段階の対象コミットは、そのレポートを追加・更新したGit履歴から確認できる。
 
