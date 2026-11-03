@@ -182,3 +182,7 @@ project_root="$PWD"
 [明示API](../../interfaces/lba-complex-band.md)は179のlive readerから1偏波を選び、固定quarter-band mixingと129tap FIRを適用する。元source sample indexで位相を保ち、downsampleやheader/公称Fsの変更はしない。R/LをI/Qに見立てず、各偏波を個別に扱う。
 
 出力はcomplex code-unitで、有限filterの応答/鏡像漏れと端のsupportを保持する。理想解析信号・物理電圧較正・実clock測定ではない。元のindex0/名目時刻原点を保ち、両端64sampleが足りない要求は拒否する。[181手順](../../validation/runs/stage181/README.md)は既存178原本/保存levelsを再利用し、派生配列や科学JSONは管理外へ保存する。session/相関/GUIへの自動接続や600m制限の緩和は行わない。
+
+## 明示caller clockでの有限query（182）
+
+[182のAPI契約](../../interfaces/lba-clocked-band.md)はlive181viewと既存補間を再利用する。局ID/epoch/actual rate/RF原点/phase offset/provenanceをcallerモデルとして全て明示し、元sample indexの位相とFIR/補間supportを保つ。未知実clockを公称値で埋めず、実4局は未供給clock/RFでquery前拒否する。人工入力の有限参照検査であり、実録音の時刻整列・相関・天体検出を確認した意味ではない。

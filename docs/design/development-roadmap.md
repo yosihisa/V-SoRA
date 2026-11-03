@@ -175,3 +175,7 @@
 [181](../reports/181-lba-complex-band-view.md)は、既存SampleBufferのcomplex lowpass/補間と、179のreal2pol readerの間にないsample-domain変換を対象とする。元readerを再利用し、偏波/供給USBを明示した固定quarter-band mixing・129tap中心FIRで複素帯域を読む。元sample grid/Fs/header/offsetを保持し、actual clock/局ID/RFを補わない。R/LをI/Qにせず、session/600m相関/GUIへ自動接続しない。
 
 受入は固定178原本の48窓と独立有限和、全有効sampleのchunk分割不変、合成decoded toneの係数/振幅/鏡像応答、新source/installed全回帰/wheel/全byte/API・実CLI/両実GUIまで。新noise/RMLや天体検出・実相関・画像の成功を示すものではない。次はphysical-time入口へ渡すclock/単位/RF/geometry/identityの具体契約をreviewして選ぶ。旧画像尤度/131再fit保留、文書整理190/予定根本200を維持。
+
+## 182：明示clockモデルのLBA query（完了）
+
+[182](../reports/182-lba-clocked-band-query.md)は181viewを既存clock.interpolate_samplesへ接続し、元sample座標とcaller clock/RF/phase原点、nested supportとinvalid宣言を対応させる。新reader/別causal filterを追加せず、code-unit/実clock未知を保持しsession/600m guardを変えない。人工fixture12caseを独立有限和へ照合し、実4局は未知actual clock/RFでquery前拒否。実相関/画像成功の主張ではない。今回のユーザー許可は11月4日00:05頃〜05:05:16 JSTの1枠だけで、終了を延ばさずautomationを停止する。
